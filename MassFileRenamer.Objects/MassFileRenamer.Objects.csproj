@@ -71,6 +71,7 @@
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="DirectoryInfoFactory.cs" />
     <Compile Include="FileInfoExtensions.cs" />
+    <Compile Include="FileInfoFactory.cs" />
     <Compile Include="FilePathValidator.cs" />
     <Compile Include="FileRenamer.cs" />
     <Compile Include="FolderPathValidator.cs" />

@@ -1,4 +1,5 @@
-﻿using MassFileRenamer.Objects;
+﻿using System;
+using MassFileRenamer.Objects;
 
 namespace MassFileRenamer
 {
@@ -6,9 +7,17 @@ namespace MassFileRenamer
    {
       public static void Main()
       {
-         const string rootDir = @"C:\test";
+         try
+         {
+            const string rootDir = @"C:\temp\nomics";
 
-         new FileRenamer(rootDir).ProcessAll("foo", "bar");
+            new FileRenamer(rootDir).ProcessAll("IO.Swagger", "Foo");
+            Console.ReadKey();
+         }
+         catch (Exception e)
+         {
+            Console.WriteLine(e);
+         }
       }
    }
 }
