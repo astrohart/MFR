@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MassFileRenamer.Objects
 {
-   public class FileRenamer : IFileRenamer
+   public sealed class FileRenamer : IFileRenamer
    {
       /// <summary>
       /// Constructs a new instance of
@@ -130,7 +130,7 @@ namespace MassFileRenamer.Objects
       /// <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that contains
       /// the event data.
       /// </param>
-      protected virtual void OnFilesCounted(FilesCountedEventArgs e)
+      private void OnFilesCounted(FilesCountedEventArgs e)
          => FilesCounted?.Invoke(this, e);
    }
 }
