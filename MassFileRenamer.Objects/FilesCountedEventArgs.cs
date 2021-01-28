@@ -6,7 +6,7 @@ namespace MassFileRenamer.Objects
    /// Defines the data that is passed by all events of type
    /// <see cref="T:MassFileRenamer.Objects.FilesCountedEventHandler" />.
    /// </summary>
-   public class FilesCountedEventArgs : EventArgs
+   public class FilesCountedEventArgs : OperationEventArgs
    {
       /// <summary>
       /// Creates a new instance of
@@ -26,20 +26,14 @@ namespace MassFileRenamer.Objects
       /// values that specifies
       /// the operation being performed.
       /// </param>
-      public FilesCountedEventArgs(int count, OperationType operation)
+      public FilesCountedEventArgs(int count, OperationType operation) : base(operation)
       {
          Count = count;
-         Operation = operation;
       }
 
       /// <summary>
       /// Gets the count of files to be processed.
       /// </summary>
       public int Count { get; }
-
-      /// <summary>
-      /// Gets the type of operation being performed.
-      /// </summary>
-      public OperationType Operation { get; }
    }
 }
