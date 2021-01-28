@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
@@ -117,13 +116,19 @@ namespace MassFileRenamer.Objects
 
          foreach (var filename in filenames)
          {
+            OnProcessingOperation(
+               new ProcessingOperationEventArgs(
+                  filename, OperationType.ReplaceTextInFiles
+               )
+            );
+
             var text = File.ReadAllText(filename);
-            if (!text.Contains(findWhat)) 
+            if (!text.Contains(findWhat))
                continue;
 
             text = text.Replace(findWhat, replaceWith);
 
-            if (File.Exists(filename)) 
+            if (File.Exists(filename))
                File.Delete(filename);
 
             File.WriteAllText(filename, text);
@@ -131,43 +136,9 @@ namespace MassFileRenamer.Objects
       }
 
       /// <summary>
-      /// Defines the method signature for the handlers of the <see cref="E:MassFileRenamer.Objects.ProcessingOperationEventHandler.ProcessingOperation"/> event.
-      /// </summary>
-      /// <param name="sender">Reference to the instance of the object that raised the event.</param>
-      /// <param name="e">A <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs"/> that contains the event data.</param>
-      public delegate void ProcessingOperationEventHandler(object sender, ProcessingOperationEventArgs e);
-
-      /// <summary>
       /// Occurs when an operation is about to be processed for a file or a folder.
       /// </summary>
       public event ProcessingOperationEventHandler ProcessingOperation;
-
-      /// <summary>
-      /// Raises the <see cref="E:MassFileRenamer.Objects.ProcessingOperationEventHandler.ProcessingOperation"/> event.
-      /// </summary>
-      /// <param name="e">A <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs"/> that contains the event data.</param>
-      protected virtual void OnProcessingOperation(ProcessingOperationEventArgs e)
-         => ProcessingOperation?.Invoke(this, e);
-
-      /// <summary>
-      /// Defines the data that is passed by all events of type <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventHandler"/>.
-      /// </summary>
-      public class ProcessingOperationEventArgs : CancelEventArgs
-      {
-         /// <summary>
-         /// Creates a new instance of <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs"/> and returns a reference to it.
-         /// </summary>
-         public ProcessingOperationEventArgs()
-         {
-            // TODO: Initialize properties here.
-         }
-
-         /// <summary>
-         /// Gets the <see cref="T:MassFileRenamer.Objects.OperationType"/> value that specifies what operation is being performed.
-         /// </summary>
-         public OperationType Type { get; }
-      }
-
 
       /// <summary>
       /// Raises the
@@ -181,5 +152,18 @@ namespace MassFileRenamer.Objects
       /// </param>
       private void OnFilesCounted(FilesCountedEventArgs e)
          => FilesCounted?.Invoke(this, e);
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.ProcessingOperationEventHandler.ProcessingOperation" />
+      /// event.
+      /// </summary>
+      /// <param name="e">
+      /// A <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs" />
+      /// that contains the event data.
+      /// </param>
+      private void OnProcessingOperation(ProcessingOperationEventArgs e)
+         => ProcessingOperation?.Invoke(this, e);
    }
 }

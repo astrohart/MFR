@@ -7,21 +7,21 @@ namespace MassFileRenamer.Objects
       /// <summary>
       /// Constructs a new instance of <see cref="T:MassFileRenamer.Objects.OperationEventArgs" /> and returns a reference to it.
       /// </summary>
-      /// <param name="operation">
+      /// <param name="type">
       /// (Required.) One of the
       /// <see
       ///    cref="T:MassFileRenamer.Objects.OperationType" />
       /// values that specifies
       /// the operation being performed.
       /// </param>
-      public OperationCancelEventArgs(OperationType operation)
+      public OperationCancelEventArgs(OperationType type)
       {
-         Operation = operation;
+         OperationType = type;
       }
 
       /// <summary>
       /// Gets the type of operation being performed.
       /// </summary>
-      public OperationType Operation { get; }
+      public OperationType OperationType { get; }
    }
 }
