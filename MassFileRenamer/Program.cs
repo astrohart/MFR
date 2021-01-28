@@ -9,9 +9,9 @@ namespace MassFileRenamer
       {
          try
          {
-            const string rootDir = @"C:\temp\nomics";
+            const string rootDir = @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
 
-            new FileRenamer(rootDir).ProcessAll("IO.Swagger", "Foo");
+            new FileRenamer(rootDir).ProcessAll("PortfolioMonitor.Loaders.Config", "PortfolioMonitor.Serializers.Config");
             Console.ReadKey();
          }
          catch (Exception e)
