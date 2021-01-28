@@ -104,17 +104,17 @@ namespace MassFileRenamer.Objects
       public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
          string replaceWith)
       {
-         var files = Directory
+         var filenames = Directory
             .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
             .Where(file => !FilePathValidator.ShouldSkipFile(file)).ToList();
 
          OnFilesCounted(
             new FilesCountedEventArgs(
-               files.Count, OperationType.ReplaceTextInFiles
+               filenames.Count, OperationType.ReplaceTextInFiles
             )
          );
 
-         foreach (var filename in files)
+         foreach (var filename in filenames)
          {
             var text = File.ReadAllText(filename);
             if (!text.Contains(findWhat)) continue;
