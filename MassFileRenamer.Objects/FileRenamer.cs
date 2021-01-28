@@ -117,10 +117,13 @@ namespace MassFileRenamer.Objects
          foreach (var filename in filenames)
          {
             var text = File.ReadAllText(filename);
-            if (!text.Contains(findWhat)) continue;
+            if (!text.Contains(findWhat)) 
+               continue;
+
             text = text.Replace(findWhat, replaceWith);
 
-            if (File.Exists(filename)) File.Delete(filename);
+            if (File.Exists(filename)) 
+               File.Delete(filename);
 
             File.WriteAllText(filename, text);
          }
