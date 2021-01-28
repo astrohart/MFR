@@ -44,7 +44,6 @@ namespace MassFileRenamer.Objects
                "Value cannot be null or whitespace.", nameof(replaceWith)
             );
 
-         /*
          Console.WriteLine($"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...");
 
          RenameSubFoldersOf(RootDirectoryPath, findWhat, replaceWith);
@@ -55,7 +54,6 @@ namespace MassFileRenamer.Objects
          RenameFilesInFolder(RootDirectoryPath, findWhat, replaceWith);
 
          Console.WriteLine($"*** Finished renaming files in subfolders of '{RootDirectoryPath}'.");
-         */
 
          Console.WriteLine(
             $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
