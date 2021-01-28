@@ -11,5 +11,10 @@
       void RenameSubFoldersOf(string rootFolderPath, string findWhat, string replaceWith);
 
       void ReplaceTextInFiles(string rootFolderPath, string findWhat, string replaceWith);
+
+      /// <summary>
+      /// Occurs when files to be processed have been counted.
+      /// </summary>
+      event FilesCountedEventHandler FilesCounted;
    }
 }
