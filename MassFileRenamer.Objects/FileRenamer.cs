@@ -26,6 +26,11 @@ namespace MassFileRenamer.Objects
          RootDirectoryPath = rootDirectoryPath;
       }
 
+      /// <summary>
+      /// Occurs when files to be processed have been counted.
+      /// </summary>
+      public event FilesCountedEventHandler FilesCounted;
+
       public string RootDirectoryPath { get; }
 
       public void ProcessAll(string findWhat, string replaceWith)
@@ -103,6 +108,12 @@ namespace MassFileRenamer.Objects
             .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
             .Where(file => !FilePathValidator.ShouldSkipFile(file)).ToList();
 
+         OnFilesCounted(
+            new FilesCountedEventArgs(
+               files.Count, OperationType.ReplaceTextInFiles
+            )
+         );
+
          foreach (var filename in files)
          {
             var text = File.ReadAllText(filename);
@@ -116,19 +127,14 @@ namespace MassFileRenamer.Objects
       }
 
       /// <summary>
-      /// Occurs when files to be processed have been counted.
-      /// </summary>
-      public event FilesCountedEventHandler FilesCounted;
-
-      /// <summary>
       /// Raises the
-      /// <see cref="E:MassFileRenamer.Objects.FilesCountedEventHandler.FilesCounted" />
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FilesCountedEventHandler.FilesCounted" />
       /// event.
       /// </summary>
       /// <param name="e">
-      /// A
-      /// <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that contains
-      /// the event data.
+      /// A <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that
+      /// contains the event data.
       /// </param>
       private void OnFilesCounted(FilesCountedEventArgs e)
          => FilesCounted?.Invoke(this, e);
