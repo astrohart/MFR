@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace MassFileRenamer.Objects
 {
@@ -53,11 +52,15 @@ namespace MassFileRenamer.Objects
          Console.WriteLine($"*** Finished renaming files in subfolders of '{RootDirectoryPath}'.");
          */
 
-         Console.WriteLine($"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...");
+         Console.WriteLine(
+            $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+         );
 
          ReplaceTextInFiles(RootDirectoryPath, findWhat, replaceWith);
-         
-         Console.WriteLine($"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.");
+
+         Console.WriteLine(
+            $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+         );
       }
 
       public void RenameFilesInFolder(string rootFolderPath, string findWhat,
@@ -65,8 +68,7 @@ namespace MassFileRenamer.Objects
       {
          foreach (var filename in Directory.GetFiles(
             rootFolderPath, "*", SearchOption.AllDirectories
-         )
-            .Where(file => !FilePathValidator.ShouldSkipFile(file)))
+         ).Where(file => !FilePathValidator.ShouldSkipFile(file)))
             if (filename.Contains(findWhat))
                FileInfoFactory.Make(filename).RenameTo(
                   filename.Replace(findWhat, replaceWith)
@@ -78,18 +80,18 @@ namespace MassFileRenamer.Objects
       {
          foreach (var subfoldername in Directory.GetDirectories(
             rootFolderPath, "*", SearchOption.AllDirectories
-         )
-            .Where(dir => !FolderPathValidator.ShouldSkipFolder(dir)))
+         ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir)))
          {
             var dirInfo = DirectoryInfoFactory.Make(subfoldername);
             if (dirInfo == null) continue;
 
             var newDirName = "";
             if (!dirInfo.Name.Contains(findWhat)) continue;
-               
+
             newDirName = dirInfo.Name.Replace(findWhat, replaceWith);
 
-            newDirName = Path.Combine(dirInfo.Parent.FullName + @"\" + newDirName);
+            newDirName =
+               Path.Combine(dirInfo.Parent.FullName + @"\" + newDirName);
             dirInfo.RenameTo(newDirName);
          }
       }
@@ -97,9 +99,11 @@ namespace MassFileRenamer.Objects
       public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
          string replaceWith)
       {
-         foreach (var filename in Directory.GetFiles(
-            rootFolderPath, "*", SearchOption.AllDirectories
-         ).Where(file => !FilePathValidator.ShouldSkipFile(file)))
+         var files = Directory
+            .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
+            .Where(file => !FilePathValidator.ShouldSkipFile(file)).ToList();
+
+         foreach (var filename in files)
          {
             var text = File.ReadAllText(filename);
             if (!text.Contains(findWhat)) continue;
@@ -110,5 +114,23 @@ namespace MassFileRenamer.Objects
             File.WriteAllText(filename, text);
          }
       }
+
+      /// <summary>
+      /// Occurs when files to be processed have been counted.
+      /// </summary>
+      public event FilesCountedEventHandler FilesCounted;
+
+      /// <summary>
+      /// Raises the
+      /// <see cref="E:MassFileRenamer.Objects.FilesCountedEventHandler.FilesCounted" />
+      /// event.
+      /// </summary>
+      /// <param name="e">
+      /// A
+      /// <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that contains
+      /// the event data.
+      /// </param>
+      protected virtual void OnFilesCounted(FilesCountedEventArgs e)
+         => FilesCounted?.Invoke(this, e);
    }
 }
