@@ -10,7 +10,7 @@ namespace MassFileRenamer
          try
          {
             const string rootDir =
-               @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
+               @"C:\Users\Administrator\source\repos\astrohart\Nomics.Api";
 
             var renamer = new FileRenamer(rootDir);
 
@@ -18,8 +18,8 @@ namespace MassFileRenamer
             renamer.ProcessingOperation += OnFileRenamerProcessingOperation;
 
             renamer.ProcessAll(
-               "PortfolioMonitor.Loaders.Config",
-               "PortfolioMonitor.Serializers.Config"
+               "Nomics.Api.Endpoints.Params",
+               "Nomics.Api.Endpoints.Requests.Params.Currencies"
             );
             Console.ReadKey();
          }
