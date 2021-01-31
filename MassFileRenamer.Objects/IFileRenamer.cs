@@ -5,14 +5,14 @@
       string RootDirectoryPath { get; }
 
       /// <summary>
-      /// Occurs when files to have text replaced in them have been counted.
-      /// </summary>
-      event FilesCountedEventHandler FilesToHaveTextReplacedCounted;
-
-      /// <summary>
       /// Occurs when files to be renamed have been counted.
       /// </summary>
       event FilesCountedEventHandler FilesToBeRenamedCounted;
+
+      /// <summary>
+      /// Occurs when files to have text replaced in them have been counted.
+      /// </summary>
+      event FilesCountedEventHandler FilesToHaveTextReplacedCounted;
 
       /// <summary>
       /// Occurs when an operation is about to be processed for a file or a folder.

@@ -90,13 +90,29 @@ namespace MassFileRenamer.Objects
       public void RenameFilesInFolder(string rootFolderPath, string findWhat,
          string replaceWith)
       {
-         foreach (var filename in Directory.GetFiles(
-            rootFolderPath, "*", SearchOption.AllDirectories
-         ).Where(file => !FilePathValidator.ShouldSkipFile(file)))
-            if (filename.Contains(findWhat))
-               FileInfoFactory.Make(filename).RenameTo(
-                  filename.Replace(findWhat, replaceWith)
-               );
+         var filenames = Directory
+            .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
+            .Where(file => !FilePathValidator.ShouldSkipFile(file))
+            .Where(filename => filename.Contains(findWhat)).ToList();
+
+         OnFilesToBeRenamedCounted(
+            new FilesCountedEventArgs(
+               filenames.Count, OperationType.RenameFiles
+            )
+         );
+
+         foreach (var filename in filenames)
+         {
+            OnProcessingOperation(
+               new ProcessingOperationEventArgs(
+                  filename, OperationType.RenameFiles
+               )
+            );
+
+            FileInfoFactory.Make(filename).RenameTo(
+               filename.Replace(findWhat, replaceWith)
+            );
+         }
       }
 
       public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
@@ -210,10 +226,8 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       /// <param name="e">
-      /// A
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.Events.FilesToBeRenamedCountedEventArgs" />
-      /// that contains the event data.
+      /// A <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that
+      /// contains the event data.
       /// </param>
       private void OnFilesToBeRenamedCounted(FilesCountedEventArgs e)
          => FilesToBeRenamedCounted?.Invoke(this, e);
@@ -221,7 +235,7 @@ namespace MassFileRenamer.Objects
       /// <summary>
       /// Raises the
       /// <see
-      ///    cref="E:MassFileRenamer.Objects.FilesCountedEventHandler.FilesCounted" />
+      ///    cref="E:MassFileRenamer.Objects.FileRenamer.FilesToHaveTextReplacedCounted" />
       /// event.
       /// </summary>
       /// <param name="e">
@@ -232,10 +246,7 @@ namespace MassFileRenamer.Objects
          => FilesToHaveTextReplacedCounted?.Invoke(this, e);
 
       /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.ProcessingOperationEventHandler.ProcessingOperation" />
-      /// event.
+      /// Raises the <see cref="E:MassFileRenamer.Objects.ProcessingOperation" /> event.
       /// </summary>
       /// <param name="e">
       /// A <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs" />
