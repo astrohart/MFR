@@ -90,6 +90,23 @@ namespace MassFileRenamer.Objects
       public void RenameFilesInFolder(string rootFolderPath, string findWhat,
          string replaceWith)
       {
+         if (string.IsNullOrWhiteSpace(rootFolderPath))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(rootFolderPath)
+            );
+         if (!Directory.Exists(rootFolderPath))
+            throw new DirectoryNotFoundException(
+               $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+            );
+         if (string.IsNullOrWhiteSpace(findWhat))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(findWhat)
+            );
+         if (string.IsNullOrWhiteSpace(replaceWith))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(replaceWith)
+            );
+
          var filenames = Directory
             .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
             .Where(file => !FilePathValidator.ShouldSkipFile(file))
