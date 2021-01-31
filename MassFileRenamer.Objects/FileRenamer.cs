@@ -294,24 +294,33 @@ namespace MassFileRenamer.Objects
 
          var subFolders = Directory.GetDirectories(
             rootFolderPath, "*", SearchOption.AllDirectories
-         ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir))
-            .ToList();
+         ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir)).ToList();
 
-         foreach (var subFolderName in subFolders)
+         OnSubfoldersToBeRenamedCounted(
+            new FilesOrFoldersCountedEventArgs(
+               subFolders.Count, OperationType.RenameSubFolders
+            )
+         );
+
+         foreach (var dirInfo in subFolders
+            .Where(
+               subFolderName => pathFilter == null || pathFilter(subFolderName)
+            ).Select(DirectoryInfoFactory.Make).Where(
+               dirInfo => dirInfo != null && dirInfo.Name.Contains(findWhat)
+            ))
          {
-            var dirInfo = DirectoryInfoFactory.Make(subFolderName);
-            if (dirInfo == null) continue;
+            OnProcessingOperation(
+               new ProcessingOperationEventArgs(
+                  dirInfo.FullName, OperationType.RenameSubFolders
+               )
+            );
 
-            if (pathFilter != null && !pathFilter(subFolderName)) continue;
-
-            var newDirName = "";
-            if (!dirInfo.Name.Contains(findWhat)) continue;
-
-            newDirName = dirInfo.Name.Replace(findWhat, replaceWith);
-
-            newDirName =
-               Path.Combine(dirInfo.Parent.FullName + @"\" + newDirName);
-            dirInfo.RenameTo(newDirName);
+            dirInfo.RenameTo(
+               Path.Combine(
+                  dirInfo.Parent.FullName,
+                  dirInfo.Name.Replace(findWhat, replaceWith)
+               )
+            );
          }
       }
 
