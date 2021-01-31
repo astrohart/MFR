@@ -7,7 +7,7 @@
       /// <summary>
       /// Occurs when files to be processed have been counted.
       /// </summary>
-      event FilesCountedEventHandler FilesCounted;
+      event FilesCountedEventHandler FilesToHaveTextReplacedCounted;
 
       /// <summary>
       /// Occurs when an operation is about to be processed for a file or a folder.

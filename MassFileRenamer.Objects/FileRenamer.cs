@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace MassFileRenamer.Objects
 {
+   /// <summary>
+   /// Provides file- an folder-rename services.
+   /// </summary>
    public sealed class FileRenamer : IFileRenamer
    {
       /// <summary>
@@ -29,7 +32,12 @@ namespace MassFileRenamer.Objects
       /// <summary>
       /// Occurs when files to be processed have been counted.
       /// </summary>
-      public event FilesCountedEventHandler FilesCounted;
+      public event FilesCountedEventHandler FilesToHaveTextReplacedCounted;
+
+      /// <summary>
+      /// Occurs when an operation is about to be processed for a file or a folder.
+      /// </summary>
+      public event ProcessingOperationEventHandler ProcessingOperation;
 
       public string RootDirectoryPath { get; }
 
@@ -44,16 +52,24 @@ namespace MassFileRenamer.Objects
                "Value cannot be null or whitespace.", nameof(replaceWith)
             );
 
-         Console.WriteLine($"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...");
+         Console.WriteLine(
+            $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+         );
 
          RenameSubFoldersOf(RootDirectoryPath, findWhat, replaceWith);
 
-         Console.WriteLine($"*** Finished processing subfolders of '{RootDirectoryPath}'.");
-         Console.WriteLine($"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...");
+         Console.WriteLine(
+            $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+         );
+         Console.WriteLine(
+            $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+         );
 
          RenameFilesInFolder(RootDirectoryPath, findWhat, replaceWith);
 
-         Console.WriteLine($"*** Finished renaming files in subfolders of '{RootDirectoryPath}'.");
+         Console.WriteLine(
+            $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+         );
 
          Console.WriteLine(
             $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
@@ -99,14 +115,63 @@ namespace MassFileRenamer.Objects
          }
       }
 
+      /// <summary>
+      /// Iterates recursively through a directory tree, starting at the folder
+      /// with pathname <paramref name="rootFolderPath" /> and replacing every
+      /// occurrence of the text specified by the <paramref name="findWhat" />
+      /// parameter with the text specified by the
+      /// <paramref
+      ///    name="replaceWith" />
+      /// parameter. A case-sensitive, not-in-whole-word
+      /// search is performed.
+      /// </summary>
+      /// <param name="rootFolderPath">
+      /// (Required.) Pathname of the folder where the operation is to start.
+      /// </param>
+      /// <param name="findWhat">
+      /// (Required.) Text to be found in each file contained in the directory tree.
+      /// </param>
+      /// <param name="replaceWith">
+      /// (Optional.) Text to replace all the instances of
+      /// <paramref
+      ///    name="findWhat" />
+      /// with. If this parameter is blank (the default), then
+      /// the text is deleted.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if either the <paramref name="rootFolderPath" /> or the
+      /// <paramref name="findWhat" /> parameters are blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.DirectoryNotFoundException">
+      /// Thrown if the folder with pathname specified by the
+      /// <paramref
+      ///    name="rootFolderPath" />
+      /// does not exist.
+      /// </exception>
+      /// <exception cref="T:System.IO.IOException">
+      /// Thrown if a file operation does not succeed.
+      /// </exception>
       public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
-         string replaceWith)
+         string replaceWith = "")
       {
+         if (string.IsNullOrWhiteSpace(rootFolderPath))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(rootFolderPath)
+            );
+         if (!Directory.Exists(rootFolderPath))
+            throw new DirectoryNotFoundException(
+               $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+            );
+         if (string.IsNullOrWhiteSpace(findWhat))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(findWhat)
+            );
+
          var filenames = Directory
             .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
             .Where(file => !FilePathValidator.ShouldSkipFile(file)).ToList();
 
-         OnFilesCounted(
+         OnFilesToHaveTextReplacedCounted(
             new FilesCountedEventArgs(
                filenames.Count, OperationType.ReplaceTextInFiles
             )
@@ -134,11 +199,6 @@ namespace MassFileRenamer.Objects
       }
 
       /// <summary>
-      /// Occurs when an operation is about to be processed for a file or a folder.
-      /// </summary>
-      public event ProcessingOperationEventHandler ProcessingOperation;
-
-      /// <summary>
       /// Raises the
       /// <see
       ///    cref="E:MassFileRenamer.Objects.FilesCountedEventHandler.FilesCounted" />
@@ -148,8 +208,8 @@ namespace MassFileRenamer.Objects
       /// A <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that
       /// contains the event data.
       /// </param>
-      private void OnFilesCounted(FilesCountedEventArgs e)
-         => FilesCounted?.Invoke(this, e);
+      private void OnFilesToHaveTextReplacedCounted(FilesCountedEventArgs e)
+         => FilesToHaveTextReplacedCounted?.Invoke(this, e);
 
       /// <summary>
       /// Raises the

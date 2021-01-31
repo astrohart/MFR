@@ -14,7 +14,7 @@ namespace MassFileRenamer
 
             var renamer = new FileRenamer(rootDir);
 
-            renamer.FilesCounted += OnFileRenamerCountedFiles;
+            renamer.FilesToHaveTextReplacedCounted += OnFileRenamerCountedFiles;
             renamer.ProcessingOperation += OnFileRenamerProcessingOperation;
 
             renamer.ProcessAll(
