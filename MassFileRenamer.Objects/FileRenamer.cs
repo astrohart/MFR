@@ -32,12 +32,12 @@ namespace MassFileRenamer.Objects
       /// <summary>
       /// Occurs when files to be renamed have been counted.
       /// </summary>
-      public event FilesCountedEventHandler FilesToBeRenamedCounted;
+      public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
 
       /// <summary>
       /// Occurs when files to be processed have been counted.
       /// </summary>
-      public event FilesCountedEventHandler FilesToHaveTextReplacedCounted;
+      public event FilesOrFoldersCountedEventHandler FilesToHaveTextReplacedCounted;
 
       /// <summary>
       /// Occurs when an operation is about to be processed for a file or a folder.
@@ -130,7 +130,7 @@ namespace MassFileRenamer.Objects
             .Where(filename => filename.Contains(findWhat)).ToList();
 
          OnFilesToBeRenamedCounted(
-            new FilesCountedEventArgs(
+            new FilesOrFoldersCountedEventArgs(
                filenames.Count, OperationType.RenameFiles
             )
          );
@@ -227,7 +227,7 @@ namespace MassFileRenamer.Objects
             .Where(file => !FilePathValidator.ShouldSkipFile(file)).ToList();
 
          OnFilesToHaveTextReplacedCounted(
-            new FilesCountedEventArgs(
+            new FilesOrFoldersCountedEventArgs(
                filenames.Count, OperationType.ReplaceTextInFiles
             )
          );
@@ -260,10 +260,10 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that
+      /// A <see cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" /> that
       /// contains the event data.
       /// </param>
-      private void OnFilesToBeRenamedCounted(FilesCountedEventArgs e)
+      private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
          => FilesToBeRenamedCounted?.Invoke(this, e);
 
       /// <summary>
@@ -273,10 +273,10 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that
+      /// A <see cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" /> that
       /// contains the event data.
       /// </param>
-      private void OnFilesToHaveTextReplacedCounted(FilesCountedEventArgs e)
+      private void OnFilesToHaveTextReplacedCounted(FilesOrFoldersCountedEventArgs e)
          => FilesToHaveTextReplacedCounted?.Invoke(this, e);
 
       /// <summary>

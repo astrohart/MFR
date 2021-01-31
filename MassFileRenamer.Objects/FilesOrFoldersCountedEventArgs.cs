@@ -4,14 +4,14 @@ namespace MassFileRenamer.Objects
 {
    /// <summary>
    /// Defines the data that is passed by all events of type
-   /// <see cref="T:MassFileRenamer.Objects.FilesCountedEventHandler" />.
+   /// <see cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventHandler" />.
    /// </summary>
-   public class FilesCountedEventArgs : OperationEventArgs
+   public class FilesOrFoldersCountedEventArgs : OperationEventArgs
    {
       /// <summary>
       /// Creates a new instance of
       /// <see
-      ///    cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" />
+      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
       /// and returns a
       /// reference to it.
       /// </summary>
@@ -26,7 +26,7 @@ namespace MassFileRenamer.Objects
       /// values that specifies
       /// the operation being performed.
       /// </param>
-      public FilesCountedEventArgs(int count, OperationType type) : base(type)
+      public FilesOrFoldersCountedEventArgs(int count, OperationType type) : base(type)
       {
          Count = count;
       }

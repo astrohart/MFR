@@ -74,8 +74,8 @@
     <Compile Include="FileInfoFactory.cs" />
     <Compile Include="FilePathValidator.cs" />
     <Compile Include="FileRenamer.cs" />
-    <Compile Include="FilesCountedEventArgs.cs" />
-    <Compile Include="FilesCountedEventHandler.cs" />
+    <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
+    <Compile Include="FilesOrFoldersCountedEventHandler.cs" />
     <Compile Include="FolderPathValidator.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="OperationCancelEventArgs.cs" />

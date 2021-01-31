@@ -2,7 +2,7 @@
 {
    /// <summary>
    /// Defines the method signature for the handlers of the
-   /// <see cref="E:MassFileRenamer.Objects.FilesCountedEventHandler.FilesCounted" />
+   /// <see cref="E:MassFileRenamer.Objects.FilesOrFoldersCountedEventHandler.FilesOrFoldersCounted" />
    /// event.
    /// </summary>
    /// <param name="sender">
@@ -11,9 +11,9 @@
    /// </param>
    /// <param name="e">
    /// A
-   /// <see cref="T:MassFileRenamer.Objects.FilesCountedEventArgs" /> that contains
+   /// <see cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" /> that contains
    /// the event data.
    /// </param>
-   public delegate void FilesCountedEventHandler(object sender,
-      FilesCountedEventArgs e);
+   public delegate void FilesOrFoldersCountedEventHandler(object sender,
+      FilesOrFoldersCountedEventArgs e);
 }
