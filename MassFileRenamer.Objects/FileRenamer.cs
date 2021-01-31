@@ -287,7 +287,6 @@ namespace MassFileRenamer.Objects
       /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs" /> that
       /// contains the event data.
       /// </param>
-      /// s
       private void OnStatusUpdate(StatusUpdateEventArgs e)
          => StatusUpdate?.Invoke(this, e);
    }
