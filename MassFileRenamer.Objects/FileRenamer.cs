@@ -273,9 +273,31 @@ namespace MassFileRenamer.Objects
       public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
          string replaceWith, Func<string, bool> pathFilter = null)
       {
-         foreach (var subFolderName in Directory.GetDirectories(
+         if (pathFilter == null)
+            throw new ArgumentNullException(nameof(pathFilter));
+         if (string.IsNullOrWhiteSpace(rootFolderPath))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(rootFolderPath)
+            );
+         if (!Directory.Exists(rootFolderPath))
+            throw new DirectoryNotFoundException(
+               $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+            );
+         if (string.IsNullOrWhiteSpace(findWhat))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(findWhat)
+            );
+         if (string.IsNullOrWhiteSpace(replaceWith))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(replaceWith)
+            );
+
+         var subFolders = Directory.GetDirectories(
             rootFolderPath, "*", SearchOption.AllDirectories
-         ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir)))
+         ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir))
+            .ToList();
+
+         foreach (var subFolderName in subFolders)
          {
             var dirInfo = DirectoryInfoFactory.Make(subFolderName);
             if (dirInfo == null) continue;
