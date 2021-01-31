@@ -276,5 +276,19 @@ namespace MassFileRenamer.Objects
       /// </param>
       private void OnProcessingOperation(ProcessingOperationEventArgs e)
          => ProcessingOperation?.Invoke(this, e);
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FileRenamer.StatusUpdate" />
+      /// event.
+      /// </summary>
+      /// <param name="e">
+      /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs" /> that
+      /// contains the event data.
+      /// </param>
+      /// s
+      private void OnStatusUpdate(StatusUpdateEventArgs e)
+         => StatusUpdate?.Invoke(this, e);
    }
 }

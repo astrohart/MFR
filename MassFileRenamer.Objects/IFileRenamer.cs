@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MassFileRenamer.Objects
+﻿namespace MassFileRenamer.Objects
 {
    public interface IFileRenamer
    {
@@ -36,14 +34,5 @@ namespace MassFileRenamer.Objects
 
       void ReplaceTextInFiles(string rootFolderPath, string findWhat,
          string replaceWith);
-   }
-
-   /// <summary>
-   /// Defines the data that is passed by all events of type
-   /// <see cref="T:MassFileRenamer.Objects.StatusUpdateEventHandler" />.
-   /// </summary>
-   public class StatusUpdateEventArgs : EventArgs
-   {
-      // TODO: Add event data properties here.
    }
 }
