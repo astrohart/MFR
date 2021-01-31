@@ -1,4 +1,6 @@
-﻿namespace MassFileRenamer.Objects
+﻿using System;
+
+namespace MassFileRenamer.Objects
 {
    public interface IFileRenamer
    {
@@ -19,6 +21,11 @@
       /// </summary>
       event ProcessingOperationEventHandler ProcessingOperation;
 
+      /// <summary>
+      /// Occurs when a textual status message is available for display.
+      /// </summary>
+      event StatusUpdateEventHandler StatusUpdate;
+
       void ProcessAll(string findWhat, string replaceWith);
 
       void RenameFilesInFolder(string rootFolderPath, string findWhat,
@@ -29,5 +36,14 @@
 
       void ReplaceTextInFiles(string rootFolderPath, string findWhat,
          string replaceWith);
+   }
+
+   /// <summary>
+   /// Defines the data that is passed by all events of type
+   /// <see cref="T:MassFileRenamer.Objects.StatusUpdateEventHandler" />.
+   /// </summary>
+   public class StatusUpdateEventArgs : EventArgs
+   {
+      // TODO: Add event data properties here.
    }
 }
