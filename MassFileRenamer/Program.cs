@@ -14,8 +14,10 @@ namespace MassFileRenamer
 
             var renamer = new FileRenamer(rootDir);
 
-            renamer.FilesToHaveTextReplacedCounted += OnFileRenamerCountedFiles;
+            renamer.FilesToHaveTextReplacedCounted +=
+               OnFilesToHaveTextReplacedCounted;
             renamer.ProcessingOperation += OnFileRenamerProcessingOperation;
+            renamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
             renamer.ProcessAll(
                "Nomics.Api.Endpoints.Params",
@@ -26,31 +28,6 @@ namespace MassFileRenamer
          catch (Exception e)
          {
             Console.WriteLine(e);
-         }
-      }
-
-      private static void OnFileRenamerCountedFiles(object sender,
-         FilesCountedEventArgs e)
-      {
-         switch (e.OperationType)
-         {
-            case OperationType.ReplaceTextInFiles:
-               Console.WriteLine(
-                  $"Replace Text in Files: {e.Count} files are to be processed."
-               );
-               break;
-
-            case OperationType.RenameFiles:
-               Console.WriteLine(
-                  $"Rename Files: {e.Count} files are to be processed."
-               );
-               break;
-
-            case OperationType.RenameSubFolders:
-               Console.WriteLine(
-                  $"Rename Subfolders: {e.Count} folders are to be processed."
-               );
-               break;
          }
       }
 
@@ -72,6 +49,37 @@ namespace MassFileRenamer
             case OperationType.RenameSubFolders:
                Console.WriteLine(
                   $"Rename Subfolders: Processing '{e.Pathname}'..."
+               );
+               break;
+         }
+      }
+
+      private static void OnFileRenamerStatusUpdated(object sender,
+         StatusUpdateEventArgs e)
+      {
+         Console.WriteLine(e.Text);
+      }
+
+      private static void OnFilesToHaveTextReplacedCounted(object sender,
+         FilesOrFoldersCountedEventArgs e)
+      {
+         switch (e.OperationType)
+         {
+            case OperationType.ReplaceTextInFiles:
+               Console.WriteLine(
+                  $"Replace Text in Files: {e.Count} files are to be processed."
+               );
+               break;
+
+            case OperationType.RenameFiles:
+               Console.WriteLine(
+                  $"Rename Files: {e.Count} files are to be processed."
+               );
+               break;
+
+            case OperationType.RenameSubFolders:
+               Console.WriteLine(
+                  $"Rename Subfolders: {e.Count} folders are to be processed."
                );
                break;
          }
