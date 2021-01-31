@@ -37,7 +37,8 @@ namespace MassFileRenamer.Objects
       /// <summary>
       /// Occurs when files to be processed have been counted.
       /// </summary>
-      public event FilesOrFoldersCountedEventHandler FilesToHaveTextReplacedCounted;
+      public event FilesOrFoldersCountedEventHandler
+         FilesToHaveTextReplacedCounted;
 
       /// <summary>
       /// Occurs when an operation is about to be processed for a file or a folder.
@@ -49,9 +50,42 @@ namespace MassFileRenamer.Objects
       /// </summary>
       public event StatusUpdateEventHandler StatusUpdate;
 
+      /// <summary>
+      /// Occurs when subfolders to be renamed have been counted.
+      /// </summary>
+      public event FilesOrFoldersCountedEventHandler
+         SubfoldersToBeRenamedCounted;
+
+      /// <summary>
+      /// Gets a string containing the full pathname of the folder where all
+      /// operations start.
+      /// </summary>
       public string RootDirectoryPath { get; }
 
-      public void ProcessAll(string findWhat, string replaceWith)
+      /// <summary>
+      /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+      /// Files operation on all the folders and files in the root folder with
+      /// the pathname stored in the
+      /// <see
+      ///    cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath" />
+      /// property.
+      /// </summary>
+      /// <param name="findWhat">
+      /// (Required.) String containing the text to search for.
+      /// </param>
+      /// <param name="replaceWith">
+      /// (Required.) String containing the text to replace the text specified
+      /// by <paramref name="findWhat" /> with.
+      /// </param>
+      /// <param name="pathFilter">
+      /// (Optional.) If specified, a delegate that accepts as its sole
+      /// parameter a string containing the pathname to the item currently being
+      /// processed, and that returns a Boolean value. If the value returned is
+      /// <c>true</c>, the item with the pathname matching that of the input is
+      /// included in the operations; <c>false</c> means the item is excluded.
+      /// </param>
+      public void ProcessAll(string findWhat, string replaceWith,
+         Func<string, bool> pathFilter = null)
       {
          if (string.IsNullOrWhiteSpace(findWhat))
             throw new ArgumentException(
@@ -68,7 +102,9 @@ namespace MassFileRenamer.Objects
             )
          );
 
-         RenameSubFoldersOf(RootDirectoryPath, findWhat, replaceWith);
+         RenameSubFoldersOf(
+            RootDirectoryPath, findWhat, replaceWith, pathFilter
+         );
 
          OnStatusUpdate(
             new StatusUpdateEventArgs(
@@ -81,7 +117,9 @@ namespace MassFileRenamer.Objects
             )
          );
 
-         RenameFilesInFolder(RootDirectoryPath, findWhat, replaceWith);
+         RenameFilesInFolder(
+            RootDirectoryPath, findWhat, replaceWith, pathFilter
+         );
 
          OnStatusUpdate(
             new StatusUpdateEventArgs(
@@ -95,7 +133,9 @@ namespace MassFileRenamer.Objects
             )
          );
 
-         ReplaceTextInFiles(RootDirectoryPath, findWhat, replaceWith);
+         ReplaceTextInFiles(
+            RootDirectoryPath, findWhat, replaceWith, pathFilter
+         );
 
          OnStatusUpdate(
             new StatusUpdateEventArgs(
@@ -104,8 +144,48 @@ namespace MassFileRenamer.Objects
          );
       }
 
+      /// <summary>
+      /// Renames all the files in the all the subfolders etc., recursively, of
+      /// the folder whose pathname is specified by the
+      /// <paramref
+      ///    name="rootFolderPath" />
+      /// parameter.
+      /// </summary>
+      /// <param name="rootFolderPath">
+      /// (Required.) String containing the full pathname of an existing
+      /// directory on the computer that is to be where the operation is started.
+      /// </param>
+      /// <param name="findWhat">
+      /// (Required.) String containing the text to search for.
+      /// </param>
+      /// <param name="replaceWith">
+      /// (Required.) String containing the text to replace the text specified
+      /// by <paramref name="findWhat" /> with.
+      /// </param>
+      /// <param name="pathFilter">
+      /// (Optional.) If specified, a delegate that accepts as its sole
+      /// parameter a string containing the pathname to the item currently being
+      /// processed, and that returns a Boolean value. If the value returned is
+      /// <c>true</c>, the item with the pathname matching that of the input is
+      /// included in the operations; <c>false</c> means the item is excluded.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if either the <paramref name="rootFolderPath" />,
+      /// <paramref
+      ///    name="findWhat" />
+      /// , or <paramref name="replaceWith" /> parameters are blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.DirectoryNotFoundException">
+      /// Thrown if the folder with pathname specified by the
+      /// <paramref
+      ///    name="rootFolderPath" />
+      /// does not exist.
+      /// </exception>
+      /// <exception cref="T:System.IO.IOException">
+      /// Thrown if a file operation does not succeed.
+      /// </exception>
       public void RenameFilesInFolder(string rootFolderPath, string findWhat,
-         string replaceWith)
+         string replaceWith, Func<string, bool> pathFilter = null)
       {
          if (string.IsNullOrWhiteSpace(rootFolderPath))
             throw new ArgumentException(
@@ -135,7 +215,9 @@ namespace MassFileRenamer.Objects
             )
          );
 
-         foreach (var filename in filenames)
+         foreach (var filename in filenames.Where(
+            filename => pathFilter == null || pathFilter(filename)
+         ))
          {
             OnProcessingOperation(
                new ProcessingOperationEventArgs(
@@ -149,15 +231,56 @@ namespace MassFileRenamer.Objects
          }
       }
 
+      /// <summary>
+      /// Recursively renames all the subfolders in the folder having a pathname
+      /// specified by <paramref name="rootFolderPath" />, replacing any
+      /// occurrences of the text in the <paramref name="findWhat" /> parameter
+      /// with the values in the <paramref name="replaceWith" /> parameter.
+      /// </summary>
+      /// <param name="rootFolderPath">
+      /// (Required.) String containing the full pathname of an existing
+      /// directory on the computer that is to be where the operation is started.
+      /// </param>
+      /// <param name="findWhat">
+      /// (Required.) String containing the text to search for.
+      /// </param>
+      /// <param name="replaceWith">
+      /// (Required.) String containing the text to replace the text specified
+      /// by <paramref name="findWhat" /> with.
+      /// </param>
+      /// <param name="pathFilter">
+      /// (Optional.) If specified, a delegate that accepts as its sole
+      /// parameter a string containing the pathname to the item currently being
+      /// processed, and that returns a Boolean value. If the value returned is
+      /// <c>true</c>, the item with the pathname matching that of the input is
+      /// included in the operations; <c>false</c> means the item is excluded.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if either the <paramref name="rootFolderPath" />,
+      /// <paramref
+      ///    name="findWhat" />
+      /// , or <paramref name="replaceWith" /> parameters are blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.DirectoryNotFoundException">
+      /// Thrown if the folder with pathname specified by the
+      /// <paramref
+      ///    name="rootFolderPath" />
+      /// does not exist.
+      /// </exception>
+      /// <exception cref="T:System.IO.IOException">
+      /// Thrown if a file operation does not succeed.
+      /// </exception>
       public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
-         string replaceWith)
+         string replaceWith, Func<string, bool> pathFilter = null)
       {
-         foreach (var subfoldername in Directory.GetDirectories(
+         foreach (var subFolderName in Directory.GetDirectories(
             rootFolderPath, "*", SearchOption.AllDirectories
          ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir)))
          {
-            var dirInfo = DirectoryInfoFactory.Make(subfoldername);
+            var dirInfo = DirectoryInfoFactory.Make(subFolderName);
             if (dirInfo == null) continue;
+
+            if (pathFilter != null && !pathFilter(subFolderName)) continue;
 
             var newDirName = "";
             if (!dirInfo.Name.Contains(findWhat)) continue;
@@ -193,6 +316,8 @@ namespace MassFileRenamer.Objects
       /// with. If this parameter is blank (the default), then
       /// the text is deleted.
       /// </param>
+      /// <param name="pathFilter">
+      /// </param>
       /// <exception cref="T:System.ArgumentException">
       /// Thrown if either the <paramref name="rootFolderPath" /> or the
       /// <paramref name="findWhat" /> parameters are blank.
@@ -207,7 +332,7 @@ namespace MassFileRenamer.Objects
       /// Thrown if a file operation does not succeed.
       /// </exception>
       public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
-         string replaceWith = "")
+         string replaceWith = "", Func<string, bool> pathFilter = null)
       {
          if (string.IsNullOrWhiteSpace(rootFolderPath))
             throw new ArgumentException(
@@ -232,7 +357,9 @@ namespace MassFileRenamer.Objects
             )
          );
 
-         foreach (var filename in filenames)
+         foreach (var filename in filenames.Where(
+            filename => pathFilter == null || pathFilter(filename)
+         ))
          {
             OnProcessingOperation(
                new ProcessingOperationEventArgs(
@@ -260,7 +387,10 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" /> that
+      /// A
+      /// <see
+      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+      /// that
       /// contains the event data.
       /// </param>
       private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
@@ -273,10 +403,14 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" /> that
+      /// A
+      /// <see
+      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+      /// that
       /// contains the event data.
       /// </param>
-      private void OnFilesToHaveTextReplacedCounted(FilesOrFoldersCountedEventArgs e)
+      private void OnFilesToHaveTextReplacedCounted(
+         FilesOrFoldersCountedEventArgs e)
          => FilesToHaveTextReplacedCounted?.Invoke(this, e);
 
       /// <summary>
@@ -301,5 +435,22 @@ namespace MassFileRenamer.Objects
       /// </param>
       private void OnStatusUpdate(StatusUpdateEventArgs e)
          => StatusUpdate?.Invoke(this, e);
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FileRenamer.SubfoldersToBeRenamedCounted" />
+      /// event.
+      /// </summary>
+      /// <param name="e">
+      /// A
+      /// <see
+      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+      /// that
+      /// contains the event data.
+      /// </param>
+      private void OnSubfoldersToBeRenamedCounted(
+         FilesOrFoldersCountedEventArgs e)
+         => SubfoldersToBeRenamedCounted?.Invoke(this, e);
    }
 }

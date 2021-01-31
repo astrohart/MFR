@@ -10,7 +10,7 @@ namespace MassFileRenamer
          try
          {
             const string rootDir =
-               @"C:\Users\Administrator\source\repos\astrohart\Nomics.Api";
+               @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
 
             var renamer = new FileRenamer(rootDir);
 
@@ -20,8 +20,8 @@ namespace MassFileRenamer
             renamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
             renamer.ProcessAll(
-               "Nomics.Api.Endpoints.Params",
-               "Nomics.Api.Endpoints.Requests.Params.Currencies"
+               "This software is a component of the xyLOGIX",
+               "This assembly is a component of the xyLOGIX"
             );
             Console.ReadKey();
          }
