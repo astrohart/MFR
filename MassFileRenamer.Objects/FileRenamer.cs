@@ -44,6 +44,11 @@ namespace MassFileRenamer.Objects
       /// </summary>
       public event ProcessingOperationEventHandler ProcessingOperation;
 
+      /// <summary>
+      /// Occurs when a textual status message is available for display.
+      /// </summary>
+      public event StatusUpdateEventHandler StatusUpdate;
+
       public string RootDirectoryPath { get; }
 
       public void ProcessAll(string findWhat, string replaceWith)
