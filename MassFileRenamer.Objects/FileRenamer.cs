@@ -62,33 +62,45 @@ namespace MassFileRenamer.Objects
                "Value cannot be null or whitespace.", nameof(replaceWith)
             );
 
-         Console.WriteLine(
-            $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+         OnStatusUpdate(
+            new StatusUpdateEventArgs(
+               $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+            )
          );
 
          RenameSubFoldersOf(RootDirectoryPath, findWhat, replaceWith);
 
-         Console.WriteLine(
-            $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+         OnStatusUpdate(
+            new StatusUpdateEventArgs(
+               $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+            )
          );
-         Console.WriteLine(
-            $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+         OnStatusUpdate(
+            new StatusUpdateEventArgs(
+               $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+            )
          );
 
          RenameFilesInFolder(RootDirectoryPath, findWhat, replaceWith);
 
-         Console.WriteLine(
-            $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+         OnStatusUpdate(
+            new StatusUpdateEventArgs(
+               $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+            )
          );
 
-         Console.WriteLine(
-            $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+         OnStatusUpdate(
+            new StatusUpdateEventArgs(
+               $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+            )
          );
 
          ReplaceTextInFiles(RootDirectoryPath, findWhat, replaceWith);
 
-         Console.WriteLine(
-            $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+         OnStatusUpdate(
+            new StatusUpdateEventArgs(
+               $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+            )
          );
       }
 
