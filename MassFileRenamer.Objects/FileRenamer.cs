@@ -30,6 +30,11 @@ namespace MassFileRenamer.Objects
       }
 
       /// <summary>
+      /// Occurs when files to be renamed have been counted.
+      /// </summary>
+      public event FilesCountedEventHandler FilesToBeRenamedCounted;
+
+      /// <summary>
       /// Occurs when files to be processed have been counted.
       /// </summary>
       public event FilesCountedEventHandler FilesToHaveTextReplacedCounted;
@@ -197,6 +202,21 @@ namespace MassFileRenamer.Objects
             File.WriteAllText(filename, text);
          }
       }
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FileRenamer.FilesToBeRenamedCounted" />
+      /// event.
+      /// </summary>
+      /// <param name="e">
+      /// A
+      /// <see
+      ///    cref="T:MassFileRenamer.Objects.Events.FilesToBeRenamedCountedEventArgs" />
+      /// that contains the event data.
+      /// </param>
+      private void OnFilesToBeRenamedCounted(FilesCountedEventArgs e)
+         => FilesToBeRenamedCounted?.Invoke(this, e);
 
       /// <summary>
       /// Raises the
