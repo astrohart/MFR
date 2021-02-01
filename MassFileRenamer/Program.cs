@@ -20,8 +20,9 @@ namespace MassFileRenamer
             renamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
             renamer.ProcessAll(
-               "This software is a component of the xyLOGIX",
-               "This assembly is a component of the xyLOGIX"
+               "Copyright © 2020 by xyLOGIX, LLC.",
+               "Copyright © 2019-21 by xyLOGIX, LLC.",
+               pathname => pathname.EndsWith("AssemblyInfo.cs")
             );
             Console.ReadKey();
          }
