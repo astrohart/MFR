@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
@@ -59,27 +60,27 @@ namespace MassFileRenamer.GUI
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to be found.
       /// </summary>
-      public ComboBox FindWhatTextBox
+      public ComboBox FindWhatComboBox
       {
-         [DebuggerStepThrough] get => findWhatTextBox;
+         [DebuggerStepThrough] get => _findWhatComboBox;
       }
 
       /// <summary>
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to replace found text with.
       /// </summary>
-      public ComboBox ReplaceWithTextBox
+      public ComboBox ReplaceWithComboBox
       {
-         [DebuggerStepThrough] get => replaceWithTextBox;
+         [DebuggerStepThrough] get => _replaceWithComboBox;
       }
 
       /// <summary>
       /// Gets a reference to the control that allows the user to specify the
       /// path to the starting folder.
       /// </summary>
-      public ComboBox StartingFolderTextBox
+      public ComboBox StartingFolderComboBox
       {
-         [DebuggerStepThrough] get => startingFolderTextBox;
+         [DebuggerStepThrough] get => _startingFolderComboBox;
       }
 
       /// <summary>
@@ -190,11 +191,11 @@ namespace MassFileRenamer.GUI
       {
          using (var fsd = new FolderSelectDialog())
          {
-            fsd.InitialDirectory = StartingFolderTextBox.Text;
+            fsd.InitialDirectory = StartingFolderComboBox.Text;
             fsd.Title = "Browse";
             if (!fsd.ShowDialog(Handle))
                return;
-            StartingFolderTextBox.Text = fsd.FileName;
+            StartingFolderComboBox.Text = fsd.FileName;
          }
       }
 
@@ -334,16 +335,64 @@ namespace MassFileRenamer.GUI
          if (bSavingAndValidating)
          {
             _presenter.Configuration.StartingFolder =
-               StartingFolderTextBox.Text;
-            _presenter.Configuration.FindWhat = FindWhatTextBox.Text;
-            _presenter.Configuration.ReplaceWith = ReplaceWithTextBox.Text;
+               StartingFolderComboBox.Text;
+            _presenter.Configuration.StartingFolderHistory.Clear();
+            if (StartingFolderComboBox.Items.Count > 0)
+               _presenter.Configuration.StartingFolderHistory.AddRange(
+                  StartingFolderComboBox.Items.Cast<string>()
+               );
+            _presenter.Configuration.FindWhat = FindWhatComboBox.Text;
+            _presenter.Configuration.FindWhatHistory.Clear();
+            if (FindWhatComboBox.Items.Count > 0)
+               _presenter.Configuration.FindWhatHistory.AddRange(
+                  FindWhatComboBox.Items.Cast<string>()
+               );
+            _presenter.Configuration.ReplaceWith = ReplaceWithComboBox.Text;
+            _presenter.Configuration.ReplaceWithHistory.Clear();
+            if (ReplaceWithComboBox.Items.Count > 0)
+               _presenter.Configuration.ReplaceWithHistory.AddRange(
+                  ReplaceWithComboBox.Items.Cast<string>()
+               );
          }
          else
          {
-            StartingFolderTextBox.Text =
+            StartingFolderComboBox.Text =
                _presenter.Configuration.StartingFolder;
-            FindWhatTextBox.Text = _presenter.Configuration.FindWhat;
-            ReplaceWithTextBox.Text = _presenter.Configuration.ReplaceWith;
+            StartingFolderComboBox.Items.Clear();
+            if (!string.IsNullOrWhiteSpace(
+               _presenter.Configuration.StartingFolder
+            ))
+               StartingFolderComboBox.Items.AddDistinct(
+                  _presenter.Configuration.StartingFolder
+               );
+            if (_presenter.Configuration.StartingFolderHistory.Any())
+               StartingFolderComboBox.Items.AddRange(
+                  _presenter.Configuration.StartingFolderHistory.Cast<object>()
+                     .ToArray()
+               );
+            FindWhatComboBox.Text = _presenter.Configuration.FindWhat;
+            FindWhatComboBox.Items.Clear();
+            if (!string.IsNullOrWhiteSpace(_presenter.Configuration.FindWhat))
+               FindWhatComboBox.Items.AddDistinct(
+                  _presenter.Configuration.FindWhat
+               );
+            if (_presenter.Configuration.FindWhatHistory.Any())
+               FindWhatComboBox.Items.AddRange(
+                  _presenter.Configuration.FindWhatHistory.Cast<object>()
+                     .ToArray()
+               );
+            ReplaceWithComboBox.Text = _presenter.Configuration.ReplaceWith;
+            ReplaceWithComboBox.Items.Clear();
+            if (!string.IsNullOrWhiteSpace(_presenter.Configuration.ReplaceWith)
+            )
+               ReplaceWithComboBox.Items.AddDistinct(
+                  _presenter.Configuration.ReplaceWith
+               );
+            if (_presenter.Configuration.ReplaceWithHistory.Any())
+               ReplaceWithComboBox.Items.AddRange(
+                  _presenter.Configuration.ReplaceWithHistory.Cast<object>()
+                     .ToArray()
+               );
          }
       }
    }
