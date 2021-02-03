@@ -113,6 +113,7 @@ namespace MassFileRenamer.GUI
          // foldButton
          // 
          this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.foldButton.Enabled = false;
          this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 243);
          this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 510);
          this.foldButton.Location = new System.Drawing.Point(12, 167);
