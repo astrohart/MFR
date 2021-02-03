@@ -79,7 +79,7 @@ namespace MassFileRenamer.GUI
          // 
          this.findWhatTextBox.Location = new System.Drawing.Point(12, 84);
          this.findWhatTextBox.Name = "findWhatTextBox";
-         this.findWhatTextBox.Size = new System.Drawing.Size(542, 23);
+         this.findWhatTextBox.Size = new System.Drawing.Size(572, 23);
          this.findWhatTextBox.TabIndex = 4;
          // 
          // replaceWithLabel
@@ -95,13 +95,13 @@ namespace MassFileRenamer.GUI
          // 
          this.replaceWithTextBox.Location = new System.Drawing.Point(12, 138);
          this.replaceWithTextBox.Name = "replaceWithTextBox";
-         this.replaceWithTextBox.Size = new System.Drawing.Size(542, 23);
+         this.replaceWithTextBox.Size = new System.Drawing.Size(572, 23);
          this.replaceWithTextBox.TabIndex = 6;
          // 
          // cancelButton
          // 
          this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-         this.cancelButton.Location = new System.Drawing.Point(497, 191);
+         this.cancelButton.Location = new System.Drawing.Point(497, 167);
          this.cancelButton.Name = "cancelButton";
          this.cancelButton.Size = new System.Drawing.Size(87, 27);
          this.cancelButton.TabIndex = 7;
@@ -112,7 +112,7 @@ namespace MassFileRenamer.GUI
          // performOperationButton
          // 
          this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-         this.performOperationButton.Location = new System.Drawing.Point(343, 191);
+         this.performOperationButton.Location = new System.Drawing.Point(343, 167);
          this.performOperationButton.Name = "performOperationButton";
          this.performOperationButton.Size = new System.Drawing.Size(148, 27);
          this.performOperationButton.TabIndex = 8;
@@ -125,7 +125,7 @@ namespace MassFileRenamer.GUI
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.CancelButton = this.cancelButton;
-         this.ClientSize = new System.Drawing.Size(596, 230);
+         this.ClientSize = new System.Drawing.Size(596, 203);
          this.Controls.Add(this.performOperationButton);
          this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
