@@ -36,9 +36,9 @@ namespace MassFileRenamer.GUI
          this.replaceWithLabel = new System.Windows.Forms.Label();
          this.performOperationButton = new System.Windows.Forms.Button();
          this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
-         this.startingFolderTextBox = new System.Windows.Forms.ComboBox();
-         this.findWhatTextBox = new System.Windows.Forms.ComboBox();
-         this.replaceWithTextBox = new System.Windows.Forms.ComboBox();
+         this._startingFolderComboBox = new System.Windows.Forms.ComboBox();
+         this._findWhatComboBox = new System.Windows.Forms.ComboBox();
+         this._replaceWithComboBox = new System.Windows.Forms.ComboBox();
          this.SuspendLayout();
          // 
          // startingFolderLabel
@@ -105,33 +105,33 @@ namespace MassFileRenamer.GUI
          // 
          // startingFolderTextBox
          // 
-         this.startingFolderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-         this.startingFolderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-         this.startingFolderTextBox.FormattingEnabled = true;
-         this.startingFolderTextBox.Location = new System.Drawing.Point(15, 29);
-         this.startingFolderTextBox.Name = "startingFolderTextBox";
-         this.startingFolderTextBox.Size = new System.Drawing.Size(539, 23);
-         this.startingFolderTextBox.TabIndex = 1;
+         this._startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+         this._startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+         this._startingFolderComboBox.FormattingEnabled = true;
+         this._startingFolderComboBox.Location = new System.Drawing.Point(15, 29);
+         this._startingFolderComboBox.Name = "_startingFolderComboBox";
+         this._startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
+         this._startingFolderComboBox.TabIndex = 1;
          // 
          // findWhatTextBox
          // 
-         this.findWhatTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-         this.findWhatTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-         this.findWhatTextBox.FormattingEnabled = true;
-         this.findWhatTextBox.Location = new System.Drawing.Point(15, 84);
-         this.findWhatTextBox.Name = "findWhatTextBox";
-         this.findWhatTextBox.Size = new System.Drawing.Size(572, 23);
-         this.findWhatTextBox.TabIndex = 4;
+         this._findWhatComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+         this._findWhatComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+         this._findWhatComboBox.FormattingEnabled = true;
+         this._findWhatComboBox.Location = new System.Drawing.Point(15, 84);
+         this._findWhatComboBox.Name = "_findWhatComboBox";
+         this._findWhatComboBox.Size = new System.Drawing.Size(572, 23);
+         this._findWhatComboBox.TabIndex = 4;
          // 
          // replaceWithTextBox
          // 
-         this.replaceWithTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-         this.replaceWithTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-         this.replaceWithTextBox.FormattingEnabled = true;
-         this.replaceWithTextBox.Location = new System.Drawing.Point(15, 138);
-         this.replaceWithTextBox.Name = "replaceWithTextBox";
-         this.replaceWithTextBox.Size = new System.Drawing.Size(572, 23);
-         this.replaceWithTextBox.TabIndex = 6;
+         this._replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+         this._replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+         this._replaceWithComboBox.FormattingEnabled = true;
+         this._replaceWithComboBox.Location = new System.Drawing.Point(15, 138);
+         this._replaceWithComboBox.Name = "_replaceWithComboBox";
+         this._replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
+         this._replaceWithComboBox.TabIndex = 6;
          // 
          // MainWindow
          // 
@@ -139,9 +139,9 @@ namespace MassFileRenamer.GUI
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.ClientSize = new System.Drawing.Size(596, 204);
-         this.Controls.Add(this.replaceWithTextBox);
-         this.Controls.Add(this.findWhatTextBox);
-         this.Controls.Add(this.startingFolderTextBox);
+         this.Controls.Add(this._replaceWithComboBox);
+         this.Controls.Add(this._findWhatComboBox);
+         this.Controls.Add(this._startingFolderComboBox);
          this.Controls.Add(this.foldButton);
          this.Controls.Add(this.performOperationButton);
          this.Controls.Add(this.replaceWithLabel);
@@ -168,9 +168,9 @@ namespace MassFileRenamer.GUI
       private System.Windows.Forms.Label replaceWithLabel;
       private System.Windows.Forms.Button performOperationButton;
       private MassFileRenamer.Objects.FoldUnfoldButton foldButton;
-      private System.Windows.Forms.ComboBox startingFolderTextBox;
-      private System.Windows.Forms.ComboBox findWhatTextBox;
-      private System.Windows.Forms.ComboBox replaceWithTextBox;
+      private System.Windows.Forms.ComboBox _startingFolderComboBox;
+      private System.Windows.Forms.ComboBox _findWhatComboBox;
+      private System.Windows.Forms.ComboBox _replaceWithComboBox;
    }
 }
 
