@@ -29,7 +29,26 @@ namespace MassFileRenamer.GUI
       /// </summary>
       private void InitializeComponent()
       {
+         this.statusLabel = new System.Windows.Forms.Label();
+         this.progressBar = new System.Windows.Forms.ProgressBar();
          this.SuspendLayout();
+         // 
+         // statusLabel
+         // 
+         this.statusLabel.Location = new System.Drawing.Point(13, 13);
+         this.statusLabel.Name = "statusLabel";
+         this.statusLabel.Size = new System.Drawing.Size(392, 13);
+         this.statusLabel.TabIndex = 0;
+         this.statusLabel.Text = "[Status]";
+         // 
+         // progressBar
+         // 
+         this.progressBar.Location = new System.Drawing.Point(13, 48);
+         this.progressBar.MarqueeAnimationSpeed = 30;
+         this.progressBar.Name = "progressBar";
+         this.progressBar.Size = new System.Drawing.Size(392, 23);
+         this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+         this.progressBar.TabIndex = 1;
          // 
          // ProgressDialog
          // 
@@ -37,6 +56,8 @@ namespace MassFileRenamer.GUI
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.ClientSize = new System.Drawing.Size(417, 92);
          this.ControlBox = false;
+         this.Controls.Add(this.progressBar);
+         this.Controls.Add(this.statusLabel);
          this.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
@@ -51,5 +72,8 @@ namespace MassFileRenamer.GUI
       }
 
       #endregion
+
+      private System.Windows.Forms.Label statusLabel;
+      private System.Windows.Forms.ProgressBar progressBar;
    }
 }

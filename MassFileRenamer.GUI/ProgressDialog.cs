@@ -6,16 +6,23 @@ namespace MassFileRenamer.GUI
    public partial class ProgressDialog : Form
    {
       /// <summary>
-      /// Constructs a new instance of
-      /// <see
-      ///    cref="T:MassFileRenamer.GUI.ProgressDialog" />
-      /// and returns a reference
-      /// to it.
+      /// Empty, static constructor to prohibit direct allocation of this class.
       /// </summary>
-      public ProgressDialog()
+      static ProgressDialog() { }
+
+      /// <summary>
+      /// Empty, protected constructor to prohibit direct allocation of this class.
+      /// </summary>
+      protected ProgressDialog()
       {
          InitializeComponent();
       }
+
+      /// <summary>
+      /// Gets a reference to the one and only instance of
+      /// <see cref="T:MassFileRenamer.GUI.ProgressDialog" />.
+      /// </summary>
+      public static ProgressDialog Instance { get; } = new ProgressDialog();
 
       /// <summary>
       /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
