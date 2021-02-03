@@ -51,9 +51,16 @@ namespace MassFileRenamer.GUI
 
          InitializeComponent();
 
+         InitializePresenter();
+
          _presenter = new MainWindowPresenter(
             this, new FileRenamer(), configurationPathname
          );
+      }
+
+      private void InitializePresenter()
+      {
+         throw new NotImplementedException();
       }
 
       /// <summary>
