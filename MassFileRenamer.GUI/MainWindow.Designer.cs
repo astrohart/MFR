@@ -75,7 +75,7 @@ namespace MassFileRenamer.GUI
          // 
          // findWhatTextBox
          // 
-         this.findWhatTextBox.Location = new System.Drawing.Point(9, 84);
+         this.findWhatTextBox.Location = new System.Drawing.Point(12, 84);
          this.findWhatTextBox.Name = "findWhatTextBox";
          this.findWhatTextBox.Size = new System.Drawing.Size(542, 23);
          this.findWhatTextBox.TabIndex = 4;
@@ -91,7 +91,7 @@ namespace MassFileRenamer.GUI
          // 
          // replaceWithTextBox
          // 
-         this.replaceWithTextBox.Location = new System.Drawing.Point(9, 138);
+         this.replaceWithTextBox.Location = new System.Drawing.Point(12, 138);
          this.replaceWithTextBox.Name = "replaceWithTextBox";
          this.replaceWithTextBox.Size = new System.Drawing.Size(542, 23);
          this.replaceWithTextBox.TabIndex = 6;
