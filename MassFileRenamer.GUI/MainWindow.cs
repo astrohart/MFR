@@ -3,7 +3,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
@@ -16,7 +15,7 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Reference to the presenter for this form.
       /// </summary>
-      private readonly IMainWindowPresenter _presenter;
+      private IMainWindowPresenter _presenter;
 
       /// <summary>
       /// Constructs a new instance of
@@ -38,7 +37,8 @@ namespace MassFileRenamer.GUI
       /// </exception>
       public MainWindow(string configurationPathname)
       {
-         // write the name of the current class and method we are now entering, into the log
+         // write the name of the current class and method we are now entering,
+         // into the log
          if (string.IsNullOrWhiteSpace(configurationPathname))
             throw new ArgumentException(
                "Value cannot be null or whitespace.",
@@ -51,16 +51,7 @@ namespace MassFileRenamer.GUI
 
          InitializeComponent();
 
-         InitializePresenter();
-
-         _presenter = new MainWindowPresenter(
-            this, new FileRenamer(), configurationPathname
-         );
-      }
-
-      private void InitializePresenter()
-      {
-         throw new NotImplementedException();
+         InitializePresenter(configurationPathname);
       }
 
       /// <summary>
@@ -138,6 +129,13 @@ namespace MassFileRenamer.GUI
          Text = $"{Application.ProductName} {Version}";
 
          UpdateData(false);
+      }
+
+      private void InitializePresenter(string configurationPathname)
+      {
+         _presenter = new MainWindowPresenter(
+            this, new FileRenamer(), configurationPathname
+         );
       }
 
       private void OnClickBrowse(object sender, EventArgs e)
