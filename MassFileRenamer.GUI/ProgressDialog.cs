@@ -8,7 +8,7 @@ namespace MassFileRenamer.GUI
    /// <summary>
    /// Window that displays progress of an operation.
    /// </summary>
-   public partial class ProgressDialog : Form
+   public partial class ProgressDialog : Form, IProgressDialog
    {
       /// <summary>
       /// Constructs a new instance of

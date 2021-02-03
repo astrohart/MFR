@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="IMainWindow.cs" />
     <Compile Include="IMainWindowPresenter.cs" />
+    <Compile Include="IProgressDialog.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
