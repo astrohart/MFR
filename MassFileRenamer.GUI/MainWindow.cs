@@ -148,6 +148,7 @@ namespace MassFileRenamer.GUI
             this, new FileRenamer(), configurationPathname
          );
          _presenter.Started += OnPresenterStarted;
+         _presenter.Finished += OnPresenterFinished;
       }
 
       private void OnClickBrowse(object sender, EventArgs e)
@@ -231,6 +232,33 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Handles the
       /// <see
+      ///    cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Finished" />
+      /// event.
+      /// </summary>
+      /// <param name="sender">
+      /// Reference to an instance of the object that raised the event.
+      /// </param>
+      /// <param name="e">
+      /// An <see cref="T:System.EventArgs" /> that contains the event data.
+      /// </param>
+      /// <remarks>
+      /// This method toggles UI state and dismisses the progress dialog.
+      /// </remarks>
+      private void OnPresenterFinished(object sender, EventArgs e)
+      {
+         this.InvokeIfRequired(
+            () =>
+            {
+               UseWaitCursor = false;
+               Enabled = true;
+
+               _presenter.CloseProgressDialog();
+            });
+      }
+
+      /// <summary>
+      /// Handles the
+      /// <see
       ///    cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Started" />
       /// event.
       /// </summary>
@@ -255,7 +283,8 @@ namespace MassFileRenamer.GUI
                UseWaitCursor = true;
 
                _presenter.ShowProgressDialog();
-            });
+            }
+         );
       }
 
       private void UpdateData(bool bSavingAndValidating = true)
