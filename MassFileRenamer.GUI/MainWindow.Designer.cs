@@ -38,6 +38,7 @@ namespace MassFileRenamer.GUI
          this.replaceWithLabel = new System.Windows.Forms.Label();
          this.replaceWithTextBox = new System.Windows.Forms.TextBox();
          this.cancelButton = new System.Windows.Forms.Button();
+         this.performOperationButton = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
          // startingFolderTextBox
@@ -108,12 +109,24 @@ namespace MassFileRenamer.GUI
          this.cancelButton.UseVisualStyleBackColor = true;
          this.cancelButton.Click += new System.EventHandler(this.OnClickCancel);
          // 
+         // performOperationButton
+         // 
+         this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.performOperationButton.Location = new System.Drawing.Point(343, 191);
+         this.performOperationButton.Name = "performOperationButton";
+         this.performOperationButton.Size = new System.Drawing.Size(148, 27);
+         this.performOperationButton.TabIndex = 8;
+         this.performOperationButton.Text = "&Perform Operation";
+         this.performOperationButton.UseVisualStyleBackColor = true;
+         // 
          // MainWindow
          // 
+         this.AcceptButton = this.performOperationButton;
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.CancelButton = this.cancelButton;
          this.ClientSize = new System.Drawing.Size(596, 230);
+         this.Controls.Add(this.performOperationButton);
          this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
          this.Controls.Add(this.replaceWithTextBox);
@@ -144,6 +157,7 @@ namespace MassFileRenamer.GUI
       private System.Windows.Forms.Label replaceWithLabel;
       private System.Windows.Forms.TextBox replaceWithTextBox;
       private System.Windows.Forms.Button cancelButton;
+      private System.Windows.Forms.Button performOperationButton;
    }
 }
 
