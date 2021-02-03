@@ -53,7 +53,7 @@ namespace MassFileRenamer.Objects
       /// <summary>
       /// Occurs when the Folded state of the parent form is to be changed.
       /// </summary>
-      public event EventHandler Folded;
+      public event FormFoldedEventHandler FormFolded;
 
       /// <summary>
       /// Raises the <see cref="E:System.Windows.Forms.Control.Click" /> event.
@@ -74,14 +74,18 @@ namespace MassFileRenamer.Objects
       ///    cref="E:MassFileRenamer.Objects.FoldUnfoldButton.Folded" />
       /// event.
       /// </summary>
-      protected virtual void OnFolded(FormFoldedEventArgs e)
-         => Folded?.Invoke(this, EventArgs.Empty);
+      protected virtual void OnFormFolded(FormFoldedEventArgs e)
+         => FormFolded?.Invoke(this, e);
 
       private void ToggleFolded()
       {
          IsFolded = !IsFolded;
 
-         OnFolded();
+         OnFormFolded(
+            new FormFoldedEventArgs(
+               IsFolded, IsFolded ? FormFoldedSize : FormUnfoldedSize
+            )
+         );
       }
    }
 }
