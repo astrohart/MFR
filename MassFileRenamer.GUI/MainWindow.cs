@@ -24,6 +24,8 @@ namespace MassFileRenamer.GUI
       public MainWindow()
       {
          InitializeComponent();
+
+         _presenter = new MainWindowPresenter();
       }
 
       /// <summary>
