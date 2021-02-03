@@ -17,9 +17,9 @@ namespace MassFileRenamer.GUI
       /// <remarks>
       /// This object provides the functionality of the main window of the application.
       /// </remarks>
-      private IMainWindow _mainWindow;
+      private readonly IMainWindow _mainWindow;
 
-      private IFileRenamer _renamer;
+      private readonly IFileRenamer _renamer;
 
       /// <summary>
       /// Constructs a new instance of
@@ -51,9 +51,11 @@ namespace MassFileRenamer.GUI
          if (_mainWindow == null || _renamer == null)
             return;
 
-         _renamer.ProcessAll(_mainWindow.StartingFolderTextBox.Text,
-            _mainWindow.FindWhatTextBox.Text, (Func<string, bool>) _mainWindow.ReplaceWithTextBox.Text);
+         _renamer.ProcessAll(
+            _mainWindow.StartingFolderTextBox.Text,
+            _mainWindow.FindWhatTextBox.Text,
+            _mainWindow.ReplaceWithTextBox.Text
+         );
       }
-
    }
 }

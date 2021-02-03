@@ -5,7 +5,7 @@
    /// </summary>
    public enum OperationType
    {
-      RenameFiles,
+      RenameFilesInFolder,
       ReplaceTextInFiles,
       RenameSubFolders,
    }

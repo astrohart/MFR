@@ -48,7 +48,7 @@ namespace MassFileRenamer
                );
                break;
 
-            case OperationType.RenameFiles:
+            case OperationType.RenameFilesInFolder:
                Console.WriteLine($"Rename Files: Processing '{e.Pathname}'...");
                break;
 
@@ -77,7 +77,7 @@ namespace MassFileRenamer
                );
                break;
 
-            case OperationType.RenameFiles:
+            case OperationType.RenameFilesInFolder:
                Console.WriteLine(
                   $"Rename Files: {e.Count} files are to be processed."
                );
