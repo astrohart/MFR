@@ -7,7 +7,7 @@ namespace MassFileRenamer.GUI
    /// <summary>
    /// Displays the main window of the application.
    /// </summary>
-   public partial class MainWindow : Form
+   public partial class MainWindow : Form, IMainWindow
    {
       /// <summary>
       /// Empty, static constructor to prohibit direct allocation of this class.
