@@ -273,8 +273,6 @@ namespace MassFileRenamer.Objects
       public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
          string replaceWith, Func<string, bool> pathFilter = null)
       {
-         if (pathFilter == null)
-            throw new ArgumentNullException(nameof(pathFilter));
          if (string.IsNullOrWhiteSpace(rootFolderPath))
             throw new ArgumentException(
                "Value cannot be null or whitespace.", nameof(rootFolderPath)
