@@ -113,6 +113,8 @@ namespace MassFileRenamer.GUI
          // foldButton
          // 
          this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 243);
+         this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 510);
          this.foldButton.Location = new System.Drawing.Point(12, 167);
          this.foldButton.Name = "foldButton";
          this.foldButton.Size = new System.Drawing.Size(87, 27);
@@ -125,7 +127,7 @@ namespace MassFileRenamer.GUI
          this.AcceptButton = this.performOperationButton;
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-         this.ClientSize = new System.Drawing.Size(596, 203);
+         this.ClientSize = new System.Drawing.Size(596, 204);
          this.Controls.Add(this.foldButton);
          this.Controls.Add(this.performOperationButton);
          this.Controls.Add(this.replaceWithLabel);
