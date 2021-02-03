@@ -3,8 +3,14 @@ using System;
 
 namespace MassFileRenamer
 {
+   /// <summary>
+   /// Provides the application-level functionality.
+   /// </summary>
    public static class Program
    {
+      /// <summary>
+      /// Application entry point.
+      /// </summary>
       public static void Main()
       {
          try
