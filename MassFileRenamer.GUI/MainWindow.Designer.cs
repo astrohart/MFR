@@ -29,6 +29,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       private void InitializeComponent()
       {
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
          this.SuspendLayout();
          // 
          // MainWindow
@@ -38,10 +39,11 @@ namespace MassFileRenamer.GUI
          this.ClientSize = new System.Drawing.Size(596, 230);
          this.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+         this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
          this.MaximizeBox = false;
          this.Name = "MainWindow";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-         this.Text = "Form1";
+         this.Text = "[AppTitle]";
          this.ResumeLayout(false);
 
       }

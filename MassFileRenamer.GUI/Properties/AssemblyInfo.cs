@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MassFileRenamer.GUI")]
+[assembly: AssemblyTitle("xyLOGIX Project File Renamer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MassFileRenamer.GUI")]
-[assembly: AssemblyCopyright("Copyright © xyLOGIX, LLC 2021")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
+[assembly: AssemblyCopyright("Copyright © 2021 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
