@@ -43,6 +43,13 @@ namespace MassFileRenamer.GUI
          _renamer = renamer ?? throw new ArgumentNullException(nameof(renamer));
 
          InitializeFileRenamer();
+
+         InitializeProgressDialog();
+      }
+
+      private void InitializeProgressDialog()
+      {
+         throw new NotImplementedException();
       }
 
       /// <summary>
