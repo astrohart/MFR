@@ -30,23 +30,16 @@ namespace MassFileRenamer.GUI
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-         this.startingFolderTextBox = new System.Windows.Forms.TextBox();
          this.startingFolderLabel = new System.Windows.Forms.Label();
          this.startingFolderBrowseButton = new System.Windows.Forms.Button();
          this.findWhatLabel = new System.Windows.Forms.Label();
-         this.findWhatTextBox = new System.Windows.Forms.TextBox();
          this.replaceWithLabel = new System.Windows.Forms.Label();
-         this.replaceWithTextBox = new System.Windows.Forms.TextBox();
          this.performOperationButton = new System.Windows.Forms.Button();
          this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
+         this.startingFolderTextBox = new System.Windows.Forms.ComboBox();
+         this.findWhatTextBox = new System.Windows.Forms.ComboBox();
+         this.replaceWithTextBox = new System.Windows.Forms.ComboBox();
          this.SuspendLayout();
-         // 
-         // startingFolderTextBox
-         // 
-         this.startingFolderTextBox.Location = new System.Drawing.Point(12, 29);
-         this.startingFolderTextBox.Name = "startingFolderTextBox";
-         this.startingFolderTextBox.Size = new System.Drawing.Size(542, 23);
-         this.startingFolderTextBox.TabIndex = 1;
          // 
          // startingFolderLabel
          // 
@@ -76,13 +69,6 @@ namespace MassFileRenamer.GUI
          this.findWhatLabel.TabIndex = 3;
          this.findWhatLabel.Text = "&Text to be replaced:";
          // 
-         // findWhatTextBox
-         // 
-         this.findWhatTextBox.Location = new System.Drawing.Point(12, 84);
-         this.findWhatTextBox.Name = "findWhatTextBox";
-         this.findWhatTextBox.Size = new System.Drawing.Size(572, 23);
-         this.findWhatTextBox.TabIndex = 4;
-         // 
          // replaceWithLabel
          // 
          this.replaceWithLabel.AutoSize = true;
@@ -92,20 +78,13 @@ namespace MassFileRenamer.GUI
          this.replaceWithLabel.TabIndex = 5;
          this.replaceWithLabel.Text = "&With what:";
          // 
-         // replaceWithTextBox
-         // 
-         this.replaceWithTextBox.Location = new System.Drawing.Point(12, 138);
-         this.replaceWithTextBox.Name = "replaceWithTextBox";
-         this.replaceWithTextBox.Size = new System.Drawing.Size(572, 23);
-         this.replaceWithTextBox.TabIndex = 6;
-         // 
          // performOperationButton
          // 
          this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
          this.performOperationButton.Location = new System.Drawing.Point(436, 167);
          this.performOperationButton.Name = "performOperationButton";
          this.performOperationButton.Size = new System.Drawing.Size(148, 27);
-         this.performOperationButton.TabIndex = 7;
+         this.performOperationButton.TabIndex = 8;
          this.performOperationButton.Text = "&Perform Operation";
          this.performOperationButton.UseVisualStyleBackColor = true;
          this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
@@ -116,13 +95,43 @@ namespace MassFileRenamer.GUI
          this.foldButton.Enabled = false;
          this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 243);
          this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 510);
-         this.foldButton.Location = new System.Drawing.Point(12, 167);
+         this.foldButton.Location = new System.Drawing.Point(15, 167);
          this.foldButton.Name = "foldButton";
          this.foldButton.Size = new System.Drawing.Size(87, 27);
-         this.foldButton.TabIndex = 8;
+         this.foldButton.TabIndex = 7;
          this.foldButton.Text = "&More >>";
          this.foldButton.UseVisualStyleBackColor = true;
          this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
+         // 
+         // startingFolderTextBox
+         // 
+         this.startingFolderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+         this.startingFolderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+         this.startingFolderTextBox.FormattingEnabled = true;
+         this.startingFolderTextBox.Location = new System.Drawing.Point(15, 29);
+         this.startingFolderTextBox.Name = "startingFolderTextBox";
+         this.startingFolderTextBox.Size = new System.Drawing.Size(539, 23);
+         this.startingFolderTextBox.TabIndex = 1;
+         // 
+         // findWhatTextBox
+         // 
+         this.findWhatTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+         this.findWhatTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+         this.findWhatTextBox.FormattingEnabled = true;
+         this.findWhatTextBox.Location = new System.Drawing.Point(15, 84);
+         this.findWhatTextBox.Name = "findWhatTextBox";
+         this.findWhatTextBox.Size = new System.Drawing.Size(572, 23);
+         this.findWhatTextBox.TabIndex = 4;
+         // 
+         // replaceWithTextBox
+         // 
+         this.replaceWithTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+         this.replaceWithTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+         this.replaceWithTextBox.FormattingEnabled = true;
+         this.replaceWithTextBox.Location = new System.Drawing.Point(15, 138);
+         this.replaceWithTextBox.Name = "replaceWithTextBox";
+         this.replaceWithTextBox.Size = new System.Drawing.Size(572, 23);
+         this.replaceWithTextBox.TabIndex = 6;
          // 
          // MainWindow
          // 
@@ -130,15 +139,15 @@ namespace MassFileRenamer.GUI
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.ClientSize = new System.Drawing.Size(596, 204);
+         this.Controls.Add(this.replaceWithTextBox);
+         this.Controls.Add(this.findWhatTextBox);
+         this.Controls.Add(this.startingFolderTextBox);
          this.Controls.Add(this.foldButton);
          this.Controls.Add(this.performOperationButton);
          this.Controls.Add(this.replaceWithLabel);
-         this.Controls.Add(this.replaceWithTextBox);
          this.Controls.Add(this.findWhatLabel);
-         this.Controls.Add(this.findWhatTextBox);
          this.Controls.Add(this.startingFolderBrowseButton);
          this.Controls.Add(this.startingFolderLabel);
-         this.Controls.Add(this.startingFolderTextBox);
          this.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -154,14 +163,14 @@ namespace MassFileRenamer.GUI
       #endregion
 
       private System.Windows.Forms.Label startingFolderLabel;
-      private System.Windows.Forms.TextBox startingFolderTextBox;
       private System.Windows.Forms.Button startingFolderBrowseButton;
       private System.Windows.Forms.Label findWhatLabel;
-      private System.Windows.Forms.TextBox findWhatTextBox;
       private System.Windows.Forms.Label replaceWithLabel;
-      private System.Windows.Forms.TextBox replaceWithTextBox;
       private System.Windows.Forms.Button performOperationButton;
       private MassFileRenamer.Objects.FoldUnfoldButton foldButton;
+      private System.Windows.Forms.ComboBox startingFolderTextBox;
+      private System.Windows.Forms.ComboBox findWhatTextBox;
+      private System.Windows.Forms.ComboBox replaceWithTextBox;
    }
 }
 

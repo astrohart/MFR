@@ -59,7 +59,7 @@ namespace MassFileRenamer.GUI
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to be found.
       /// </summary>
-      public TextBox FindWhatTextBox
+      public ComboBox FindWhatTextBox
       {
          [DebuggerStepThrough] get => findWhatTextBox;
       }
@@ -68,7 +68,7 @@ namespace MassFileRenamer.GUI
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to replace found text with.
       /// </summary>
-      public TextBox ReplaceWithTextBox
+      public ComboBox ReplaceWithTextBox
       {
          [DebuggerStepThrough] get => replaceWithTextBox;
       }
@@ -77,7 +77,7 @@ namespace MassFileRenamer.GUI
       /// Gets a reference to the control that allows the user to specify the
       /// path to the starting folder.
       /// </summary>
-      public TextBox StartingFolderTextBox
+      public ComboBox StartingFolderTextBox
       {
          [DebuggerStepThrough] get => startingFolderTextBox;
       }
