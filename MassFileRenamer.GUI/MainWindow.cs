@@ -23,23 +23,26 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
-      /// Gets a reference to the one and only instance of
-      /// <see cref="T:MassFileRenamer.GUI.MainWindow" />.
+      /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.GUI.MainWindow"/>.
       /// </summary>
       public static MainWindow Instance { get; } = new MainWindow();
 
       /// <summary>
       /// Gets a string containing this application's version.
       /// </summary>
-      /// <remarks>Thanks https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral</remarks>
+      /// <remarks>
+      /// Thanks to <a href="
+      /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
+      /// ">Kiran Suthar</a>'s answer on the Microsoft forums.
+      /// </remarks>
       public string Version { get; } = Assembly.GetExecutingAssembly().GetName()
          .Version.ToString();
 
       /// <summary>
-      /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
+      /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
       /// </summary>
       /// <param name="e">
-      /// An <see cref="T:System.EventArgs" /> that contains the event data.
+      /// An <see cref="T:System.EventArgs"/> that contains the event data.
       /// </param>
       protected override void OnLoad(EventArgs e)
       {
