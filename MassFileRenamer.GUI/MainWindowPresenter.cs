@@ -138,8 +138,6 @@ namespace MassFileRenamer.GUI
          ShowProgressDialog();
 
          CommenceRenameOperation();
-
-
       }
 
       /// <summary>
@@ -156,6 +154,11 @@ namespace MassFileRenamer.GUI
       public event EventHandler Finished;
 
       /// <summary>
+      /// Occurs when the processing has started.
+      /// </summary>
+      public event EventHandler Started;
+
+      /// <summary>
       /// Raises the
       /// <see
       ///    cref="E:MassFileRenamer.GUI.MainWindowPresenter.Finished" />
@@ -163,6 +166,15 @@ namespace MassFileRenamer.GUI
       /// </summary>
       protected virtual void OnFinished()
          => Finished?.Invoke(this, EventArgs.Empty);
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started" />
+      /// event.
+      /// </summary>
+      protected virtual void OnStarted()
+         => Started?.Invoke(this, EventArgs.Empty);
 
       private static string GetOperationDescriptionFor(OperationType type)
       {
