@@ -37,7 +37,6 @@ namespace MassFileRenamer.GUI
          this.findWhatTextBox = new System.Windows.Forms.TextBox();
          this.replaceWithLabel = new System.Windows.Forms.Label();
          this.replaceWithTextBox = new System.Windows.Forms.TextBox();
-         this.cancelButton = new System.Windows.Forms.Button();
          this.performOperationButton = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
@@ -99,21 +98,10 @@ namespace MassFileRenamer.GUI
          this.replaceWithTextBox.Size = new System.Drawing.Size(572, 23);
          this.replaceWithTextBox.TabIndex = 6;
          // 
-         // cancelButton
-         // 
-         this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-         this.cancelButton.Location = new System.Drawing.Point(497, 167);
-         this.cancelButton.Name = "cancelButton";
-         this.cancelButton.Size = new System.Drawing.Size(87, 27);
-         this.cancelButton.TabIndex = 8;
-         this.cancelButton.Text = "Cancel";
-         this.cancelButton.UseVisualStyleBackColor = true;
-         this.cancelButton.Click += new System.EventHandler(this.OnClickCancel);
-         // 
          // performOperationButton
          // 
          this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-         this.performOperationButton.Location = new System.Drawing.Point(343, 167);
+         this.performOperationButton.Location = new System.Drawing.Point(436, 167);
          this.performOperationButton.Name = "performOperationButton";
          this.performOperationButton.Size = new System.Drawing.Size(148, 27);
          this.performOperationButton.TabIndex = 7;
@@ -126,10 +114,8 @@ namespace MassFileRenamer.GUI
          this.AcceptButton = this.performOperationButton;
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-         this.CancelButton = this.cancelButton;
          this.ClientSize = new System.Drawing.Size(596, 203);
          this.Controls.Add(this.performOperationButton);
-         this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
          this.Controls.Add(this.replaceWithTextBox);
          this.Controls.Add(this.findWhatLabel);
@@ -158,7 +144,6 @@ namespace MassFileRenamer.GUI
       private System.Windows.Forms.TextBox findWhatTextBox;
       private System.Windows.Forms.Label replaceWithLabel;
       private System.Windows.Forms.TextBox replaceWithTextBox;
-      private System.Windows.Forms.Button cancelButton;
       private System.Windows.Forms.Button performOperationButton;
    }
 }
