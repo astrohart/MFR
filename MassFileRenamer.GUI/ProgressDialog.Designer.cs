@@ -41,7 +41,6 @@ namespace MassFileRenamer.GUI
          this.detailedStatusLabel.Name = "detailedStatusLabel";
          this.detailedStatusLabel.Size = new System.Drawing.Size(392, 46);
          this.detailedStatusLabel.TabIndex = 0;
-         this.detailedStatusLabel.Text = "[Detailed Status]";
          // 
          // progressBar
          // 
@@ -58,7 +57,6 @@ namespace MassFileRenamer.GUI
          this.statusLabel.Name = "statusLabel";
          this.statusLabel.Size = new System.Drawing.Size(391, 24);
          this.statusLabel.TabIndex = 2;
-         this.statusLabel.Text = "[Status]";
          // 
          // ProgressDialog
          // 
@@ -77,7 +75,7 @@ namespace MassFileRenamer.GUI
          this.Name = "ProgressDialog";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
-         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "[AppTitle]";
          this.TopMost = true;
          this.ResumeLayout(false);

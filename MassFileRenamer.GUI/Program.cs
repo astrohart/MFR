@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MassFileRenamer.GUI.Properties;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics.Backends.Console;
+using System;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -24,7 +28,24 @@ namespace MassFileRenamer.GUI
          Application.EnableVisualStyles();
          Application.SetCompatibleTextRenderingDefault(false);
 
-         Application.Run(new MainWindow());
+         LoggingServices.DefaultBackend = new ConsoleLoggingBackend();
+
+         Application.Run(new MainWindow(FindConfigFile()));
+      }
+
+      private static string FindConfigFile()
+      {
+         var configDir = Path.GetDirectoryName(Application.ExecutablePath);
+         if (!Directory.Exists(configDir))
+            throw new DirectoryNotFoundException(
+               Resources.Error_ConfigFileNotFound
+            );
+         var configFile = Path.Combine(configDir, Resources.ConfigFilename);
+         if (!File.Exists(configFile))
+            throw new FileNotFoundException(
+               Resources.Error_ConfigFileNotFound, configFile
+            );
+         return configFile;
       }
 
       private static void OnThreadException(object sender,

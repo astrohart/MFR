@@ -65,6 +65,7 @@ namespace MassFileRenamer.GUI
          this.startingFolderBrowseButton.TabIndex = 2;
          this.startingFolderBrowseButton.Text = "...";
          this.startingFolderBrowseButton.UseVisualStyleBackColor = true;
+         this.startingFolderBrowseButton.Click += new System.EventHandler(this.OnClickBrowse);
          // 
          // findWhatLabel
          // 

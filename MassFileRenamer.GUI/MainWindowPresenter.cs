@@ -45,12 +45,39 @@ namespace MassFileRenamer.GUI
       /// (Required.) Reference to an instance of an object that implements the
       /// <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface.
       /// </param>
+      /// <param name="renamer">
+      /// (Required.) Reference to an instance of an object that implements the
+      /// <see cref="T:MassFileRenamer.Objects.IFileRenamer" /> interface.
+      /// </param>
+      /// <param name="configurationPathname">
+      /// (Required.) String containing the pathname of the configuration file.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.FileNotFoundException">
+      /// Thrown if a file with pathname specified by the
+      /// <paramref
+      ///    name="configurationPathname" />
+      /// parameter cannot be found.
+      /// </exception>
       /// <exception cref="T:System.ArgumentNullException">
       /// Thrown if either of the required <paramref name="mainWindow" /> or
       /// <paramref name="renamer" /> parameters have a <c>null</c> value.
       /// </exception>
-      public MainWindowPresenter(IMainWindow mainWindow, IFileRenamer renamer)
+      public MainWindowPresenter(IMainWindow mainWindow, IFileRenamer renamer,
+         string configurationPathname)
       {
+         if (string.IsNullOrWhiteSpace(configurationPathname))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.",
+               nameof(configurationPathname)
+            );
+         if (!File.Exists(configurationPathname))
+            throw new FileNotFoundException(
+               $"Could not locate the configuration file at '{configurationPathname}'."
+            );
+
          _mainWindow = mainWindow ??
                        throw new ArgumentNullException(nameof(mainWindow));
          _renamer = renamer ?? throw new ArgumentNullException(nameof(renamer));
@@ -58,16 +85,43 @@ namespace MassFileRenamer.GUI
          InitializeFileRenamer();
 
          ReinitializeProrgessDialog();
+
+         LoadConfiguration(configurationPathname);
       }
 
+      /// <summary>
+      /// Gets a string that contains the text to be found.
+      /// </summary>
       private string FindWhat
          => _mainWindow.FindWhatTextBox.Text;
 
+      /// <summary>
+      /// Gets a string that contains the new text to be used to replace the
+      /// text specified by
+      /// <see cref="P:MassFileRenamer.GUI.MainWindowPresenter.FindWhat" />.
+      /// </summary>
       private string ReplaceWith
          => _mainWindow.ReplaceWithTextBox.Text;
 
+      /// <summary>
+      /// String containing the pathname to the configuration file.
+      /// </summary>
+      private string ConfigurationPathname { get; set; }
+
+      /// <summary>
+      /// String containing the pathname of the folder where the operation is to start.
+      /// </summary>
       private string StartingFolderPath
          => _mainWindow.StartingFolderTextBox.Text;
+
+      /// <summary>
+      /// Gets or sets a reference to an object that implements the
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.IConfiguration" />
+      /// interface that contains
+      /// the configuration details.
+      /// </summary>
+      public IConfiguration Configuration { get; private set; }
 
       /// <summary>
       /// Begins the rename operation.
@@ -77,19 +131,27 @@ namespace MassFileRenamer.GUI
          if (_mainWindow == null || _renamer == null)
             return;
 
+         ReinitializeProrgessDialog();
+
          ValidateInputs();
 
          ShowProgressDialog();
 
          CommenceRenameOperation();
+      }
 
-         ReinitializeProrgessDialog();
+      /// <summary>
+      /// Saves the configuration to disk.
+      /// </summary>
+      public void SaveConfiguration()
+      {
+         ConfigurationSerializer.Save(ConfigurationPathname, Configuration);
       }
 
       private void CommenceRenameOperation()
          => Task.Run(
             () => _renamer.ProcessAll(StartingFolderPath, FindWhat, ReplaceWith)
-         ).Wait();
+         );
 
       private string GetOperationStartedText(OperationType type)
       {
@@ -118,21 +180,22 @@ namespace MassFileRenamer.GUI
 
       private void HandleFilesCountedEvent(int count)
       {
-         if (count <= 0)
-            throw new ArgumentOutOfRangeException(nameof(count));
-
          ResetProgressBar();
-         ((Form) _progressDialog).DoIfNotDisposed(
+
+         if (count <= 0)
+            return;
+
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.ProgressBarMaximum = count
          );
       }
 
       private void IncrementProgressBar(string pathname)
       {
-         ((Form) _progressDialog).DoIfNotDisposed(
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.DetailedStatus = pathname
          );
-         ((Form) _progressDialog).DoIfNotDisposed(
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.ProgressBarValue++
          );
       }
@@ -156,7 +219,7 @@ namespace MassFileRenamer.GUI
          _renamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
             => HandleFilesCountedEvent(eventArgs.Count);
          _renamer.StatusUpdate += (sender, eventArgs)
-            => ((Form) _progressDialog).DoIfNotDisposed(
+            => _progressDialog.DoIfNotDisposed(
                () => _progressDialog.Status = eventArgs.Text
             );
          _renamer.ProcessingOperation += (sender, eventArgs)
@@ -164,21 +227,53 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
+      /// Loads the configuration.
+      /// </summary>
+      /// <param name="configurationPathname">
+      /// (Required.) String containing the pathname of the configuration file.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.FileNotFoundException">
+      /// Thrown if a file with pathname specified by the
+      /// <paramref
+      ///    name="configurationPathname" />
+      /// parameter cannot be found.
+      /// </exception>
+      private void LoadConfiguration(string configurationPathname)
+      {
+         if (string.IsNullOrWhiteSpace(configurationPathname))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.",
+               nameof(configurationPathname)
+            );
+         if (!File.Exists(configurationPathname))
+            throw new FileNotFoundException(
+               $"Could not locate the configuration file at '{configurationPathname}'."
+            );
+
+         ConfigurationPathname = configurationPathname;
+
+         Configuration = ConfigurationSerializer.Load(ConfigurationPathname);
+      }
+
+      /// <summary>
       /// Sets the progress dialog and/or reinitializes it from prior use.
       /// </summary>
       private void ReinitializeProrgessDialog()
       {
-         ((Form) _progressDialog).DoIfNotDisposed(
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.Close()
          );
-         ((Form) _progressDialog).DoIfDisposed(
+         _progressDialog.DoIfDisposed(
             () => _progressDialog = new ProgressDialog()
          );
       }
 
       private void ResetProgressBar()
       {
-         ((Form) _progressDialog).DoIfNotDisposed(
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.Reset()
          );
       }
@@ -187,17 +282,17 @@ namespace MassFileRenamer.GUI
       {
          ResetProgressBar();
 
-         ((Form) _progressDialog).DoIfNotDisposed(
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.ProgressBarStyle = ProgressBarStyle.Marquee
          );
-         ((Form) _progressDialog).DoIfNotDisposed(
+         _progressDialog.DoIfNotDisposed(
             () => _progressDialog.Status = GetOperationStartedText(type)
          );
       }
 
       private void ShowProgressDialog()
-         => ((Form) _progressDialog).DoIfNotDisposed(
-            () => _progressDialog.ShowDialog(_mainWindow)
+         => _progressDialog.DoIfNotDisposed(
+            () => _progressDialog.Show()
          );
 
       private void ValidateInputs()

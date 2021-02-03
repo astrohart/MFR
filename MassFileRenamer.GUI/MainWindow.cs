@@ -1,7 +1,9 @@
 ﻿using MassFileRenamer.Objects;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
@@ -22,11 +24,36 @@ namespace MassFileRenamer.GUI
       ///    cref="T:MassFileRenamer.GUI.MainWindow" />
       /// and returns a reference to it.
       /// </summary>
-      public MainWindow()
+      /// <param name="configurationPathname">
+      /// (Required.) String containing the pathname of the configuration file.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.FileNotFoundException">
+      /// Thrown if a file with pathname specified by the
+      /// <paramref
+      ///    name="configurationPathname" />
+      /// parameter cannot be found.
+      /// </exception>
+      public MainWindow(string configurationPathname)
       {
+         // write the name of the current class and method we are now entering, into the log
+         if (string.IsNullOrWhiteSpace(configurationPathname))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.",
+               nameof(configurationPathname)
+            );
+         if (!File.Exists(configurationPathname))
+            throw new FileNotFoundException(
+               $"Could not locate the configuration file at '{configurationPathname}'."
+            );
+
          InitializeComponent();
 
-         _presenter = new MainWindowPresenter(this, new FileRenamer());
+         _presenter = new MainWindowPresenter(
+            this, new FileRenamer(), configurationPathname
+         );
       }
 
       /// <summary>
@@ -74,6 +101,24 @@ namespace MassFileRenamer.GUI
          .Version.ToString();
 
       /// <summary>
+      /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
+      /// </summary>
+      /// <param name="e">
+      /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" /> that
+      /// contains the event data.
+      /// </param>
+      protected override void OnFormClosing(FormClosingEventArgs e)
+      {
+         base.OnFormClosing(e);
+
+         if (DialogResult == DialogResult.Cancel) return;
+
+         UpdateData();
+
+         _presenter.SaveConfiguration();
+      }
+
+      /// <summary>
       /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
       /// </summary>
       /// <param name="e">
@@ -84,6 +129,20 @@ namespace MassFileRenamer.GUI
          base.OnLoad(e);
 
          Text = $"{Application.ProductName} {Version}";
+
+         UpdateData(false);
+      }
+
+      private void OnClickBrowse(object sender, EventArgs e)
+      {
+         using (var fsd = new FolderSelectDialog())
+         {
+            fsd.InitialDirectory = StartingFolderTextBox.Text;
+            fsd.Title = "Browse";
+            if (!fsd.ShowDialog(Handle))
+               return;
+            StartingFolderTextBox.Text = fsd.FileName;
+         }
       }
 
       /// <summary>
@@ -101,7 +160,11 @@ namespace MassFileRenamer.GUI
       /// itself) when the user clicks the Cancel button on the main window.
       /// </remarks>
       private void OnClickCancel(object sender, EventArgs e)
-         => Close();
+      {
+         DialogResult = DialogResult.Cancel;
+
+         Close();
+      }
 
       /// <summary>
       /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
@@ -119,6 +182,10 @@ namespace MassFileRenamer.GUI
       /// </remarks>
       private void OnClickPerformOperation(object sender, EventArgs e)
       {
+         UpdateData();
+
+         _presenter.SaveConfiguration();
+
          try
          {
             _presenter.Process();
@@ -129,6 +196,24 @@ namespace MassFileRenamer.GUI
                this, ex.Message, Application.ProductName, MessageBoxButtons.OK,
                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
             );
+         }
+      }
+
+      private void UpdateData(bool bSavingAndValidating = true)
+      {
+         if (bSavingAndValidating)
+         {
+            _presenter.Configuration.StartingFolder =
+               StartingFolderTextBox.Text;
+            _presenter.Configuration.FindWhat = FindWhatTextBox.Text;
+            _presenter.Configuration.ReplaceWith = ReplaceWithTextBox.Text;
+         }
+         else
+         {
+            StartingFolderTextBox.Text =
+               _presenter.Configuration.StartingFolder;
+            FindWhatTextBox.Text = _presenter.Configuration.FindWhat;
+            ReplaceWithTextBox.Text = _presenter.Configuration.ReplaceWith;
          }
       }
    }

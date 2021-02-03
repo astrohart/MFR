@@ -61,6 +61,24 @@ namespace MassFileRenamer.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to config.json.
+        /// </summary>
+        internal static string ConfigFilename {
+            get {
+                return ResourceManager.GetString("ConfigFilename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find the configuration file..
+        /// </summary>
+        internal static string Error_ConfigFileNotFound {
+            get {
+                return ResourceManager.GetString("Error_ConfigFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The text to be found cannot be blank.
         ///
         ///Type the text you want replaced, and then try again..
@@ -90,6 +108,15 @@ namespace MassFileRenamer.GUI.Properties {
         internal static string Error_RootDirectoryNotFound {
             get {
                 return ResourceManager.GetString("Error_RootDirectoryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Folders|.
+        /// </summary>
+        internal static string FolderSelectDialogFIlters {
+            get {
+                return ResourceManager.GetString("FolderSelectDialogFIlters", resourceCulture);
             }
         }
     }
