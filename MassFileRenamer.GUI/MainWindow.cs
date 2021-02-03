@@ -29,6 +29,22 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
+      /// Gets a reference to the text box control that allows the user to
+      /// specify the text to be found.
+      /// </summary>
+      public TextBox FindWhatTextBox { [DebuggerStepThrough] get; private set; }
+
+      /// <summary>
+      /// Gets a reference to the text box control that allows the user to
+      /// specify the text to replace found text with.
+      /// </summary>
+      public TextBox ReplaceWithTextBox
+      {
+         [DebuggerStepThrough] get;
+         private set;
+      }
+
+      /// <summary>
       /// Gets a reference to the control that allows the user to specify the
       /// path to the starting folder.
       /// </summary>

@@ -34,9 +34,9 @@ namespace MassFileRenamer.GUI
          this.startingFolderLabel = new System.Windows.Forms.Label();
          this.startingFolderBrowseButton = new System.Windows.Forms.Button();
          this.findWhatLabel = new System.Windows.Forms.Label();
-         this.findWhatTextBox = new System.Windows.Forms.TextBox();
+         this.FindWhatTextBox = new System.Windows.Forms.TextBox();
          this.replaceWithLabel = new System.Windows.Forms.Label();
-         this.replaceWithTextBox = new System.Windows.Forms.TextBox();
+         this.ReplaceWithTextBox = new System.Windows.Forms.TextBox();
          this.cancelButton = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
@@ -76,10 +76,10 @@ namespace MassFileRenamer.GUI
          // 
          // findWhatTextBox
          // 
-         this.findWhatTextBox.Location = new System.Drawing.Point(12, 84);
-         this.findWhatTextBox.Name = "findWhatTextBox";
-         this.findWhatTextBox.Size = new System.Drawing.Size(542, 23);
-         this.findWhatTextBox.TabIndex = 4;
+         this.FindWhatTextBox.Location = new System.Drawing.Point(12, 84);
+         this.FindWhatTextBox.Name = "FindWhatTextBox";
+         this.FindWhatTextBox.Size = new System.Drawing.Size(542, 23);
+         this.FindWhatTextBox.TabIndex = 4;
          // 
          // replaceWithLabel
          // 
@@ -92,10 +92,10 @@ namespace MassFileRenamer.GUI
          // 
          // replaceWithTextBox
          // 
-         this.replaceWithTextBox.Location = new System.Drawing.Point(12, 138);
-         this.replaceWithTextBox.Name = "replaceWithTextBox";
-         this.replaceWithTextBox.Size = new System.Drawing.Size(542, 23);
-         this.replaceWithTextBox.TabIndex = 6;
+         this.ReplaceWithTextBox.Location = new System.Drawing.Point(12, 138);
+         this.ReplaceWithTextBox.Name = "ReplaceWithTextBox";
+         this.ReplaceWithTextBox.Size = new System.Drawing.Size(542, 23);
+         this.ReplaceWithTextBox.TabIndex = 6;
          // 
          // cancelButton
          // 
@@ -116,9 +116,9 @@ namespace MassFileRenamer.GUI
          this.ClientSize = new System.Drawing.Size(596, 230);
          this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
-         this.Controls.Add(this.replaceWithTextBox);
+         this.Controls.Add(this.ReplaceWithTextBox);
          this.Controls.Add(this.findWhatLabel);
-         this.Controls.Add(this.findWhatTextBox);
+         this.Controls.Add(this.FindWhatTextBox);
          this.Controls.Add(this.startingFolderBrowseButton);
          this.Controls.Add(this.startingFolderLabel);
          this.Controls.Add(this.StartingFolderTextBox);
@@ -139,9 +139,7 @@ namespace MassFileRenamer.GUI
       private System.Windows.Forms.Label startingFolderLabel;
       private System.Windows.Forms.Button startingFolderBrowseButton;
       private System.Windows.Forms.Label findWhatLabel;
-      private System.Windows.Forms.TextBox findWhatTextBox;
       private System.Windows.Forms.Label replaceWithLabel;
-      private System.Windows.Forms.TextBox replaceWithTextBox;
       private System.Windows.Forms.Button cancelButton;
    }
 }
