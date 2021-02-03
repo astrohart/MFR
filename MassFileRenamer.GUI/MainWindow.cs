@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.GUI
 {
@@ -146,6 +147,7 @@ namespace MassFileRenamer.GUI
          _presenter = new MainWindowPresenter(
             this, new FileRenamer(), configurationPathname
          );
+         _presenter.Started += OnPresenterStarted;
       }
 
       private void OnClickBrowse(object sender, EventArgs e)
@@ -224,6 +226,36 @@ namespace MassFileRenamer.GUI
 
             UseWaitCursor = false;
          }
+      }
+
+      /// <summary>
+      /// Handles the
+      /// <see
+      ///    cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Started" />
+      /// event.
+      /// </summary>
+      /// <param name="sender">
+      /// The sender of the event.
+      /// </param>
+      /// <param name="e">
+      /// A <see cref="T:System.EventArgs" /> containing the event data.
+      /// </param>
+      /// <remarks>
+      /// This handler is called when the
+      /// <see
+      ///    cref="M:MassFileRenamer.Objects.FileRenamer.ProcessAll" />
+      /// begins its execution.
+      /// </remarks>
+      private void OnPresenterStarted(object sender, EventArgs e)
+      {
+         this.InvokeIfRequired(
+            () =>
+            {
+               Enabled = false;
+               UseWaitCursor = true;
+
+               _presenter.ShowProgressDialog();
+            });
       }
 
       private void UpdateData(bool bSavingAndValidating = true)
