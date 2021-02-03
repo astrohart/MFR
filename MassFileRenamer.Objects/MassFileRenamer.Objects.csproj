@@ -97,6 +97,7 @@
     <Compile Include="FoldUnfoldButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FormFoldedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="OperationCancelEventArgs.cs" />
