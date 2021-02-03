@@ -4,6 +4,10 @@ using System.Globalization;
 
 namespace MassFileRenamer.GUI
 {
+   /// <summary>
+   /// Converts JSON-formatted text to and from instances of C# objects that
+   /// implement the <see cref="T:MassFileRenamer.GUI.IConfiguration" /> interface.
+   /// </summary>
    public static class ConvertConfiguration
    {
       /// <summary>
