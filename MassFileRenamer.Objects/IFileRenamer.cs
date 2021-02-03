@@ -5,12 +5,6 @@ namespace MassFileRenamer.Objects
    public interface IFileRenamer
    {
       /// <summary>
-      /// Gets a string containing the full pathname of the folder where all
-      /// operations start.
-      /// </summary>
-      string RootDirectoryPath { get; }
-
-      /// <summary>
       /// Occurs when files to be renamed have been counted.
       /// </summary>
       event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
@@ -19,6 +13,11 @@ namespace MassFileRenamer.Objects
       /// Occurs when files to have text replaced in them have been counted.
       /// </summary>
       event FilesOrFoldersCountedEventHandler FilesToHaveTextReplacedCounted;
+
+      /// <summary>
+      /// Occurs when an operation has completed.
+      /// </summary>
+      event OperationFinishedEventHandler OperationFinished;
 
       /// <summary>
       /// Occurs when an operation is about to be processed for a file or a folder.
@@ -36,19 +35,23 @@ namespace MassFileRenamer.Objects
       event FilesOrFoldersCountedEventHandler SubfoldersToBeRenamedCounted;
 
       /// <summary>
+      /// Gets a string containing the full pathname of the folder where all
+      /// operations start.
+      /// </summary>
+      string RootDirectoryPath { get; }
+
+      /// <summary>
       /// Executes the Rename Subfolders, Rename Files, and Replace Text in
       /// Files operation on all the folders and files in the root folder with
-      /// the pathname stored in the
-      /// <see
-      ///    cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath" />
-      /// property.
+      /// the pathname stored in the <see
+      /// cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath"/> property.
       /// </summary>
       /// <param name="findWhat">
       /// (Required.) String containing the text to search for.
       /// </param>
       /// <param name="replaceWith">
       /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
+      /// by <paramref name="findWhat"/> with.
       /// </param>
       /// <param name="pathFilter">
       /// (Optional.) If specified, a delegate that accepts as its sole
@@ -62,10 +65,8 @@ namespace MassFileRenamer.Objects
 
       /// <summary>
       /// Renames all the files in the all the subfolders etc., recursively, of
-      /// the folder whose pathname is specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// parameter.
+      /// the folder whose pathname is specified by the <paramref
+      /// name="rootFolderPath"/> parameter.
       /// </summary>
       /// <param name="rootFolderPath">
       /// (Required.) String containing the full pathname of an existing
@@ -76,7 +77,7 @@ namespace MassFileRenamer.Objects
       /// </param>
       /// <param name="replaceWith">
       /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
+      /// by <paramref name="findWhat"/> with.
       /// </param>
       /// <param name="pathFilter">
       /// (Optional.) If specified, a delegate that accepts as its sole
@@ -86,16 +87,12 @@ namespace MassFileRenamer.Objects
       /// included in the operations; <c>false</c> means the item is excluded.
       /// </param>
       /// <exception cref="T:System.ArgumentException">
-      /// Thrown if either the <paramref name="rootFolderPath" />,
-      /// <paramref
-      ///    name="findWhat" />
-      /// , or <paramref name="replaceWith" /> parameters are blank.
+      /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
+      /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
       /// </exception>
       /// <exception cref="T:System.IO.DirectoryNotFoundException">
-      /// Thrown if the folder with pathname specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// does not exist.
+      /// Thrown if the folder with pathname specified by the <paramref
+      /// name="rootFolderPath"/> does not exist.
       /// </exception>
       /// <exception cref="T:System.IO.IOException">
       /// Thrown if a file operation does not succeed.
@@ -105,9 +102,9 @@ namespace MassFileRenamer.Objects
 
       /// <summary>
       /// Recursively renames all the subfolders in the folder having a pathname
-      /// specified by <paramref name="rootFolderPath" />, replacing any
-      /// occurrences of the text in the <paramref name="findWhat" /> parameter
-      /// with the values in the <paramref name="replaceWith" /> parameter.
+      /// specified by <paramref name="rootFolderPath"/>, replacing any
+      /// occurrences of the text in the <paramref name="findWhat"/> parameter
+      /// with the values in the <paramref name="replaceWith"/> parameter.
       /// </summary>
       /// <param name="rootFolderPath">
       /// (Required.) String containing the full pathname of an existing
@@ -118,7 +115,7 @@ namespace MassFileRenamer.Objects
       /// </param>
       /// <param name="replaceWith">
       /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
+      /// by <paramref name="findWhat"/> with.
       /// </param>
       /// <param name="pathFilter">
       /// (Optional.) If specified, a delegate that accepts as its sole
@@ -128,16 +125,12 @@ namespace MassFileRenamer.Objects
       /// included in the operations; <c>false</c> means the item is excluded.
       /// </param>
       /// <exception cref="T:System.ArgumentException">
-      /// Thrown if either the <paramref name="rootFolderPath" />,
-      /// <paramref
-      ///    name="findWhat" />
-      /// , or <paramref name="replaceWith" /> parameters are blank.
+      /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
+      /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
       /// </exception>
       /// <exception cref="T:System.IO.DirectoryNotFoundException">
-      /// Thrown if the folder with pathname specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// does not exist.
+      /// Thrown if the folder with pathname specified by the <paramref
+      /// name="rootFolderPath"/> does not exist.
       /// </exception>
       /// <exception cref="T:System.IO.IOException">
       /// Thrown if a file operation does not succeed.
@@ -147,12 +140,10 @@ namespace MassFileRenamer.Objects
 
       /// <summary>
       /// Iterates recursively through a directory tree, starting at the folder
-      /// with pathname <paramref name="rootFolderPath" /> and replacing every
-      /// occurrence of the text specified by the <paramref name="findWhat" />
-      /// parameter with the text specified by the
-      /// <paramref
-      ///    name="replaceWith" />
-      /// parameter. A case-sensitive, not-in-whole-word
+      /// with pathname <paramref name="rootFolderPath"/> and replacing every
+      /// occurrence of the text specified by the <paramref name="findWhat"/>
+      /// parameter with the text specified by the <paramref
+      /// name="replaceWith"/> parameter. A case-sensitive, not-in-whole-word
       /// search is performed.
       /// </summary>
       /// <param name="rootFolderPath">
@@ -162,23 +153,19 @@ namespace MassFileRenamer.Objects
       /// (Required.) Text to be found in each file contained in the directory tree.
       /// </param>
       /// <param name="replaceWith">
-      /// (Optional.) Text to replace all the instances of
-      /// <paramref
-      ///    name="findWhat" />
-      /// with. If this parameter is blank (the default), then
+      /// (Optional.) Text to replace all the instances of <paramref
+      /// name="findWhat"/> with. If this parameter is blank (the default), then
       /// the text is deleted.
       /// </param>
       /// <param name="pathFilter">
       /// </param>
       /// <exception cref="T:System.ArgumentException">
-      /// Thrown if either the <paramref name="rootFolderPath" /> or the
-      /// <paramref name="findWhat" /> parameters are blank.
+      /// Thrown if either the <paramref name="rootFolderPath"/> or the
+      /// <paramref name="findWhat"/> parameters are blank.
       /// </exception>
       /// <exception cref="T:System.IO.DirectoryNotFoundException">
-      /// Thrown if the folder with pathname specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// does not exist.
+      /// Thrown if the folder with pathname specified by the <paramref
+      /// name="rootFolderPath"/> does not exist.
       /// </exception>
       /// <exception cref="T:System.IO.IOException">
       /// Thrown if a file operation does not succeed.
