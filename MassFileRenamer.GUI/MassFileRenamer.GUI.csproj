@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IForm.cs" />
     <Compile Include="IMainWindow.cs" />
     <Compile Include="IMainWindowPresenter.cs" />
     <Compile Include="IProgressDialog.cs" />
