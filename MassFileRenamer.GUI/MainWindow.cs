@@ -281,7 +281,7 @@ namespace MassFileRenamer.GUI
       /// </remarks>
       private void OnPresenterFinished(object sender, EventArgs e)
       {
-         this.InvokeIfRequired(
+         startingFolderBrowseButton.InvokeIfRequired(
             () =>
             {
                UseWaitCursor = false;
@@ -312,7 +312,7 @@ namespace MassFileRenamer.GUI
       /// </remarks>
       private void OnPresenterStarted(object sender, EventArgs e)
       {
-         this.InvokeIfRequired(
+         startingFolderBrowseButton.InvokeIfRequired(
             () =>
             {
                Enabled = false;
