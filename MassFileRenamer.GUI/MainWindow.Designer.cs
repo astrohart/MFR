@@ -112,6 +112,7 @@ namespace MassFileRenamer.GUI
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+         this.CancelButton = this.cancelButton;
          this.ClientSize = new System.Drawing.Size(596, 230);
          this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
