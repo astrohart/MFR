@@ -13,19 +13,19 @@ namespace MassFileRenamer.GUI
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to be found.
       /// </summary>
-      ComboBox FindWhatTextBox { [DebuggerStepThrough] get; }
+      ComboBox FindWhatComboBox { [DebuggerStepThrough] get; }
 
       /// <summary>
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to replace found text with.
       /// </summary>
-      ComboBox ReplaceWithTextBox { [DebuggerStepThrough] get; }
+      ComboBox ReplaceWithComboBox { [DebuggerStepThrough] get; }
 
       /// <summary>
       /// Gets a reference to the control that allows the user to specify the
       /// path to the starting folder.
       /// </summary>
-      ComboBox StartingFolderTextBox { [DebuggerStepThrough] get; }
+      ComboBox StartingFolderComboBox { [DebuggerStepThrough] get; }
 
       /// <summary>
       /// Gets a string containing this application's version.
