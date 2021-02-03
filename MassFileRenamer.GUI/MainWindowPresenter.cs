@@ -41,6 +41,8 @@ namespace MassFileRenamer.GUI
          _mainWindow = mainWindow ??
                        throw new ArgumentNullException(nameof(mainWindow));
          _renamer = renamer ?? throw new ArgumentNullException(nameof(renamer));
+
+         InitializeFileRenamer();
       }
 
       /// <summary>
@@ -56,6 +58,15 @@ namespace MassFileRenamer.GUI
             _mainWindow.FindWhatTextBox.Text,
             _mainWindow.ReplaceWithTextBox.Text
          );
+      }
+
+      /// <summary>
+      /// Sets the properties of the FileRenamer object that we are working with
+      /// and subscribes to the events that it emits.
+      /// </summary>
+      private void InitializeFileRenamer()
+      {
+         throw new NotImplementedException();
       }
    }
 }
