@@ -3,6 +3,10 @@ using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
 {
+   /// <summary>
+   /// Provides the entry point for the program and all application-level
+   /// functionality.
+   /// </summary>
    public static class Program
    {
       /// <summary>
