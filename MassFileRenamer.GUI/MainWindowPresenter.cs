@@ -153,8 +153,6 @@ namespace MassFileRenamer.GUI
 
          ValidateInputs();
 
-         ShowProgressDialog();
-
          CommenceRenameOperation();
       }
 
