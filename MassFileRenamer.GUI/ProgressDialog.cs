@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.GUI
 {
@@ -25,6 +27,23 @@ namespace MassFileRenamer.GUI
       public static ProgressDialog Instance { get; } = new ProgressDialog();
 
       /// <summary>
+      /// Gets a reference to the progress bar control.
+      /// </summary>
+      public ProgressBar ProgressBar
+      {
+         [DebuggerStepThrough] get => progressBar;
+      }
+
+      /// <summary>
+      /// Gets or sets a string containing the new status.
+      /// </summary>
+      public string Status
+      {
+         get => statusLabel.Text;
+         set { statusLabel.InvokeIfRequired(() => statusLabel.Text = value); }
+      }
+
+      /// <summary>
       /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
       /// </summary>
       /// <param name="e">
@@ -37,6 +56,7 @@ namespace MassFileRenamer.GUI
       {
          base.OnLoad(e);
 
+         Status = "Calculating files to be processed...";
          Text = Application.ProductName;
       }
    }
