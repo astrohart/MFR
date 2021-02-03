@@ -121,7 +121,7 @@ namespace MassFileRenamer.GUI
       /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
       /// </summary>
       /// <param name="e">
-      /// An <see cref="T:System.EventArgs" /> that contains the event data.
+      /// A <see cref="T:System.EventArgs" /> that contains the event data.
       /// </param>
       protected override void OnLoad(EventArgs e)
       {
@@ -132,6 +132,21 @@ namespace MassFileRenamer.GUI
          UpdateData(false);
       }
 
+      /// <summary>
+      /// Sets up the presenter object and attaches handlers to events that it exposes.
+      /// </summary>
+      /// <param name="configurationPathname">
+      /// (Required.) String containing the pathname of the configuration file.
+      /// </param>
+      /// <exception cref="T:System.ArgumentException">
+      /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
+      /// </exception>
+      /// <exception cref="T:System.IO.FileNotFoundException">
+      /// Thrown if a file with pathname specified by the
+      /// <paramref
+      ///    name="configurationPathname" />
+      /// parameter cannot be found.
+      /// </exception>
       private void InitializePresenter(string configurationPathname)
       {
          if (string.IsNullOrWhiteSpace(configurationPathname))
@@ -151,6 +166,26 @@ namespace MassFileRenamer.GUI
          _presenter.Finished += OnPresenterFinished;
       }
 
+      /// <summary>
+      /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
+      /// for the Browse ("...") button.
+      /// </summary>
+      /// <param name="sender">
+      /// Reference to an instance of the object that raised the event.
+      /// </param>
+      /// <param name="e">
+      /// A <see cref="T:System.EventArgs" /> that contains the event data.
+      /// </param>
+      /// <remarks>
+      /// <para>
+      /// When the user clicks the "..." button, we want to show them a dialog
+      /// box to select a folder.
+      /// </para>
+      /// <para>
+      /// The contents of the Starting Folder text box will then be initialized
+      /// to hold the pathname to the folder that the user selects.
+      /// </para>
+      /// </remarks>
       private void OnClickBrowse(object sender, EventArgs e)
       {
          using (var fsd = new FolderSelectDialog())
@@ -239,7 +274,7 @@ namespace MassFileRenamer.GUI
       /// Reference to an instance of the object that raised the event.
       /// </param>
       /// <param name="e">
-      /// An <see cref="T:System.EventArgs" /> that contains the event data.
+      /// A <see cref="T:System.EventArgs" /> that contains the event data.
       /// </param>
       /// <remarks>
       /// This method toggles UI state and dismisses the progress dialog.
@@ -253,7 +288,8 @@ namespace MassFileRenamer.GUI
                Enabled = true;
 
                _presenter.CloseProgressDialog();
-            });
+            }
+         );
       }
 
       /// <summary>
