@@ -37,6 +37,7 @@ namespace MassFileRenamer.GUI
          this.findWhatTextBox = new System.Windows.Forms.TextBox();
          this.replaceWithLabel = new System.Windows.Forms.Label();
          this.replaceWithTextBox = new System.Windows.Forms.TextBox();
+         this.cancelButton = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
          // startingFolderTextBox
@@ -96,11 +97,22 @@ namespace MassFileRenamer.GUI
          this.replaceWithTextBox.Size = new System.Drawing.Size(542, 23);
          this.replaceWithTextBox.TabIndex = 6;
          // 
+         // cancelButton
+         // 
+         this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.cancelButton.Location = new System.Drawing.Point(497, 191);
+         this.cancelButton.Name = "cancelButton";
+         this.cancelButton.Size = new System.Drawing.Size(87, 27);
+         this.cancelButton.TabIndex = 7;
+         this.cancelButton.Text = "Cancel";
+         this.cancelButton.UseVisualStyleBackColor = true;
+         // 
          // MainWindow
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
          this.ClientSize = new System.Drawing.Size(596, 230);
+         this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
          this.Controls.Add(this.replaceWithTextBox);
          this.Controls.Add(this.findWhatLabel);
@@ -129,6 +141,7 @@ namespace MassFileRenamer.GUI
       private System.Windows.Forms.TextBox findWhatTextBox;
       private System.Windows.Forms.Label replaceWithLabel;
       private System.Windows.Forms.TextBox replaceWithTextBox;
+      private System.Windows.Forms.Button cancelButton;
    }
 }
 
