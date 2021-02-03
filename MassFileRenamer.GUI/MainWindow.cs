@@ -10,6 +10,9 @@ namespace MassFileRenamer.GUI
    /// </summary>
    public partial class MainWindow : Form, IMainWindow
    {
+      /// <summary>
+      /// Reference to the presenter for this form.
+      /// </summary>
       private IMainWindowPresenter _presenter;
 
       /// <summary>
