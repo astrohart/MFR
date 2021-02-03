@@ -8,13 +8,23 @@ namespace MassFileRenamer.GUI
    /// </summary>
    public partial class MainWindow : Form
    {
+      /// <summary>
+      /// Constructs a new instance of
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.MainWindow" />
+      /// and returns a reference to it.
+      /// </summary>
       public MainWindow()
       {
          InitializeComponent();
       }
 
-      /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
-      /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+      /// <summary>
+      /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
+      /// </summary>
+      /// <param name="e">
+      /// An <see cref="T:System.EventArgs" /> that contains the event data.
+      /// </param>
       protected override void OnLoad(EventArgs e)
       {
          base.OnLoad(e);
