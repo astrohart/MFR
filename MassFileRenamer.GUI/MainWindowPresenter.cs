@@ -19,6 +19,8 @@ namespace MassFileRenamer.GUI
       /// </remarks>
       private IMainWindow _mainWindow;
 
+      private IFileRenamer _renamer;
+
       /// <summary>
       /// Constructs a new instance of
       /// <see
@@ -31,16 +33,14 @@ namespace MassFileRenamer.GUI
       /// <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface.
       /// </param>
       /// <exception cref="T:System.ArgumentNullException">
-      /// Thrown if the required <paramref name="mainWindow" /> parameter has a
-      /// <c>null</c> value.
+      /// Thrown if either of the required <paramref name="mainWindow" /> or
+      /// <paramref name="renamer" /> parameters have a <c>null</c> value.
       /// </exception>
       public MainWindowPresenter(IMainWindow mainWindow, IFileRenamer renamer)
       {
          _mainWindow = mainWindow ??
                        throw new ArgumentNullException(nameof(mainWindow));
-         _renamer = renamer;
+         _renamer = renamer ?? throw new ArgumentNullException(nameof(renamer));
       }
-
-      private IFileRenamer _renamer;
    }
 }

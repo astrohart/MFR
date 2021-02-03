@@ -104,6 +104,10 @@ namespace MassFileRenamer.Objects
       public void ProcessAll(string findWhat, string replaceWith,
          Func<string, bool> pathFilter = null)
       {
+         if (string.IsNullOrWhiteSpace(RootDirectoryPath))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(RootDirectoryPath)
+            );
          if (string.IsNullOrWhiteSpace(findWhat))
             throw new ArgumentException(
                "Value cannot be null or whitespace.", nameof(findWhat)

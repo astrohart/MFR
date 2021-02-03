@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassFileRenamer.Objects;
+using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
@@ -25,7 +26,7 @@ namespace MassFileRenamer.GUI
       {
          InitializeComponent();
 
-         _presenter = new MainWindowPresenter(this);
+         _presenter = new MainWindowPresenter(this, new FileRenamer());
       }
       
       /// <summary>
