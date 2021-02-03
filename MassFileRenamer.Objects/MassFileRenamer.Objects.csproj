@@ -88,6 +88,8 @@
     <Compile Include="FileRenamer.cs" />
     <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
     <Compile Include="FilesOrFoldersCountedEventHandler.cs" />
+    <Compile Include="FileSystemEntrySkippedEventArgs.cs" />
+    <Compile Include="FileSystemEntrySkippedEventHandler.cs" />
     <Compile Include="FolderPathValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IFileRenamer.cs" />

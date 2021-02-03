@@ -101,6 +101,11 @@ namespace MassFileRenamer.GUI
 
          Status = DetailedStatus = string.Empty;
 
+         this.InvokeIfRequired(RedrawDisplay);
+      }
+
+      private void RedrawDisplay()
+      {
          Update();
          Refresh();
          Application.DoEvents();

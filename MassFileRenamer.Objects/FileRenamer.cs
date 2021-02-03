@@ -122,6 +122,8 @@ namespace MassFileRenamer.Objects
                "Value cannot be null or whitespace.", nameof(replaceWith)
             );
 
+         OnStarted();
+
          OnStatusUpdate(
             new StatusUpdateEventArgs(
                $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
@@ -168,6 +170,8 @@ namespace MassFileRenamer.Objects
                $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
             )
          );
+
+         OnFinished();
       }
 
       /// <summary>
@@ -365,7 +369,7 @@ namespace MassFileRenamer.Objects
 
          var subFolders = Directory.GetDirectories(
             rootFolderPath, "*", SearchOption.AllDirectories
-         ).Where(dir => !FolderPathValidator.ShouldSkipFolder(dir)).ToList();
+         ).Where(dir => !ShouldSkipFolder(dir)).ToList();
 
          OnSubfoldersToBeRenamedCounted(
             new FilesOrFoldersCountedEventArgs(
@@ -377,7 +381,8 @@ namespace MassFileRenamer.Objects
             .Where(
                subFolderName => pathFilter == null || pathFilter(subFolderName)
             ).Select(DirectoryInfoFactory.Make).Where(
-               dirInfo => dirInfo != null && dirInfo.Name.Contains(findWhat)
+               dirInfo => dirInfo != null &&
+                          PathAlreadyContains(dirInfo, findWhat)
             ))
          {
             OnProcessingOperation(
@@ -459,7 +464,7 @@ namespace MassFileRenamer.Objects
 
          var filenames = Directory
             .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-            .Where(file => !FilePathValidator.ShouldSkipFile(file)).ToList();
+            .Where(file => !ShouldSkipFile(file)).ToList();
 
          OnFilesToHaveTextReplacedCounted(
             new FilesOrFoldersCountedEventArgs(
@@ -495,6 +500,22 @@ namespace MassFileRenamer.Objects
       }
 
       /// <summary>
+      /// Occurs when a file system entry (e.g., a file or a folder) does not
+      /// meet the criteria for being included in an operation.
+      /// </summary>
+      public event FileSystemEntrySkippedEventHandler FileSystemEntrySkipped;
+
+      /// <summary>
+      /// Occurs when the processing is completely finished.
+      /// </summary>
+      public event EventHandler Finished;
+
+      /// <summary>
+      /// Occurs when the processing has started.
+      /// </summary>
+      public event EventHandler Started;
+
+      /// <summary>
       /// Raises the
       /// <see
       ///    cref="E:MassFileRenamer.Objects.FileRenamer.FilesToBeRenamedCounted" />
@@ -526,6 +547,30 @@ namespace MassFileRenamer.Objects
       private void OnFilesToHaveTextReplacedCounted(
          FilesOrFoldersCountedEventArgs e)
          => FilesToHaveTextReplacedCounted?.Invoke(this, e);
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped" />
+      /// event.
+      /// </summary>
+      /// <param name="e">
+      /// A
+      /// <see
+      ///    cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs" />
+      /// that contains the event data.
+      /// </param>
+      private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
+         => FileSystemEntrySkipped?.Invoke(this, e);
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FileRenamer.Finished" />
+      /// event.
+      /// </summary>
+      private void OnFinished()
+         => Finished?.Invoke(this, EventArgs.Empty);
 
       /// <summary>
       /// Raises the
@@ -564,6 +609,12 @@ namespace MassFileRenamer.Objects
          => ProcessingOperation?.Invoke(this, e);
 
       /// <summary>
+      /// Raises the <see cref="E:MassFileRenamer.Objects.FileRenamer.Started" /> event.
+      /// </summary>
+      private void OnStarted()
+         => Started?.Invoke(this, EventArgs.Empty);
+
+      /// <summary>
       /// Raises the
       /// <see
       ///    cref="E:MassFileRenamer.Objects.FileRenamer.StatusUpdate" />
@@ -592,5 +643,46 @@ namespace MassFileRenamer.Objects
       private void OnSubfoldersToBeRenamedCounted(
          FilesOrFoldersCountedEventArgs e)
          => SubfoldersToBeRenamedCounted?.Invoke(this, e);
+
+      private bool PathAlreadyContains(FileSystemInfo entry, string findWhat)
+      {
+         if (entry == null)
+            return false;
+
+         if (!entry.Exists)
+            return false;
+
+         if (string.IsNullOrWhiteSpace(findWhat))
+            return false;
+
+         var result = FolderPathValidator.PathContains(entry.Name, findWhat);
+         if (!result)
+            OnFileSystemEntrySkipped(
+               new FileSystemEntrySkippedEventArgs(entry.FullName)
+            );
+         return result;
+      }
+
+      private bool ShouldSkipFile(string file)
+      {
+         if (string.IsNullOrWhiteSpace(file))
+            return true;
+
+         var result = FilePathValidator.ShouldSkipFile(file);
+         if (result)
+            OnFileSystemEntrySkipped(new FileSystemEntrySkippedEventArgs(file));
+         return result;
+      }
+
+      private bool ShouldSkipFolder(string dir)
+      {
+         if (string.IsNullOrWhiteSpace(dir))
+            return true;
+
+         var result = FolderPathValidator.ShouldSkipFolder(dir);
+         if (result)
+            OnFileSystemEntrySkipped(new FileSystemEntrySkippedEventArgs(dir));
+         return result;
+      }
    }
 }

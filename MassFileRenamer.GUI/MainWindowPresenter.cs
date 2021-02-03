@@ -138,6 +138,8 @@ namespace MassFileRenamer.GUI
          ShowProgressDialog();
 
          CommenceRenameOperation();
+
+
       }
 
       /// <summary>
@@ -146,6 +148,50 @@ namespace MassFileRenamer.GUI
       public void SaveConfiguration()
       {
          ConfigurationSerializer.Save(ConfigurationPathname, Configuration);
+      }
+
+      /// <summary>
+      /// Occurs when the processing is done.
+      /// </summary>
+      public event EventHandler Finished;
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.GUI.MainWindowPresenter.Finished" />
+      /// event.
+      /// </summary>
+      protected virtual void OnFinished()
+         => Finished?.Invoke(this, EventArgs.Empty);
+
+      private static string GetOperationDescriptionFor(OperationType type)
+      {
+         var result = string.Empty;
+
+         switch (type)
+         {
+            case OperationType.RenameFilesInFolder:
+               result = "Renaming files...";
+               break;
+
+            case OperationType.ReplaceTextInFiles:
+               result = "Replacing text in files...";
+               break;
+
+            case OperationType.RenameSubFolders:
+               result = "Renaming subfolders...";
+               break;
+
+            default:
+               throw new ArgumentOutOfRangeException(nameof(type), type, null);
+         }
+
+         return result;
+      }
+
+      private void CloseProgressDialog()
+      {
+         _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
       }
 
       private void CommenceRenameOperation()
@@ -190,8 +236,12 @@ namespace MassFileRenamer.GUI
          );
       }
 
-      private void IncrementProgressBar(string pathname)
+      private void IncrementProgressBar(string operationDescription,
+         string pathname)
       {
+         _progressDialog.DoIfNotDisposed(
+            () => _progressDialog.Status = operationDescription
+         );
          _progressDialog.DoIfNotDisposed(
             () => _progressDialog.DetailedStatus = pathname
          );
@@ -219,11 +269,12 @@ namespace MassFileRenamer.GUI
          _renamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
             => HandleFilesCountedEvent(eventArgs.Count);
          _renamer.StatusUpdate += (sender, eventArgs)
-            => _progressDialog.DoIfNotDisposed(
-               () => _progressDialog.Status = eventArgs.Text
-            );
+            => Console.WriteLine(eventArgs.Text);
          _renamer.ProcessingOperation += (sender, eventArgs)
-            => IncrementProgressBar(eventArgs.Pathname);
+            => IncrementProgressBar(
+               GetOperationDescriptionFor(eventArgs.OperationType),
+               eventArgs.Pathname
+            );
       }
 
       /// <summary>
@@ -263,9 +314,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       private void ReinitializeProrgessDialog()
       {
-         _progressDialog.DoIfNotDisposed(
-            () => _progressDialog.Close()
-         );
+         _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
          _progressDialog.DoIfDisposed(
             () => _progressDialog = new ProgressDialog()
          );
@@ -273,9 +322,7 @@ namespace MassFileRenamer.GUI
 
       private void ResetProgressBar()
       {
-         _progressDialog.DoIfNotDisposed(
-            () => _progressDialog.Reset()
-         );
+         _progressDialog.DoIfNotDisposed(() => _progressDialog.Reset());
       }
 
       private void ShowCalculatingProgressBar(OperationType type)
@@ -291,9 +338,7 @@ namespace MassFileRenamer.GUI
       }
 
       private void ShowProgressDialog()
-         => _progressDialog.DoIfNotDisposed(
-            () => _progressDialog.Show()
-         );
+         => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
 
       private void ValidateInputs()
       {

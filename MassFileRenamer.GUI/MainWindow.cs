@@ -182,9 +182,13 @@ namespace MassFileRenamer.GUI
       /// </remarks>
       private void OnClickPerformOperation(object sender, EventArgs e)
       {
+         UseWaitCursor = true;
+
          UpdateData();
 
          _presenter.SaveConfiguration();
+
+         Enabled = false;
 
          try
          {
@@ -192,10 +196,18 @@ namespace MassFileRenamer.GUI
          }
          catch (Exception ex)
          {
+            UseWaitCursor = false;
+
             MessageBox.Show(
                this, ex.Message, Application.ProductName, MessageBoxButtons.OK,
                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
             );
+         }
+         finally
+         {
+            Enabled = true;
+
+            UseWaitCursor = false;
          }
       }
 
