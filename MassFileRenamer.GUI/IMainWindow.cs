@@ -10,6 +10,18 @@ namespace MassFileRenamer.GUI
    public interface IMainWindow : IWin32Window
    {
       /// <summary>
+      /// Gets a reference to the text box control that allows the user to
+      /// specify the text to be found.
+      /// </summary>
+      TextBox FindWhatTextBox { [DebuggerStepThrough] get; }
+
+      /// <summary>
+      /// Gets a reference to the text box control that allows the user to
+      /// specify the text to replace found text with.
+      /// </summary>
+      TextBox ReplaceWithTextBox { [DebuggerStepThrough] get; }
+
+      /// <summary>
       /// Gets a reference to the control that allows the user to specify the
       /// path to the starting folder.
       /// </summary>
@@ -30,17 +42,5 @@ namespace MassFileRenamer.GUI
       /// 's answer on the Microsoft forums.
       /// </remarks>
       string Version { get; }
-
-      /// <summary>
-      /// Gets a reference to the text box control that allows the user to
-      /// specify the text to be found.
-      /// </summary>
-      TextBox FindWhatTextBox { [DebuggerStepThrough] get; }
-
-      /// <summary>
-      /// Gets a reference to the text box control that allows the user to
-      /// specify the text to replace found text with.
-      /// </summary>
-      TextBox ReplaceWithTextBox { [DebuggerStepThrough] get; }
    }
 }
