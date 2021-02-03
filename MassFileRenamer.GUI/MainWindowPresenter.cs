@@ -71,9 +71,12 @@ namespace MassFileRenamer.GUI
          throw new NotImplementedException();
       }
 
+      /// <summary>
+      /// Sets the progress dialog and/or reinitializes it from prior use.
+      /// </summary>
       private void InitializeProgressDialog()
       {
-         throw new NotImplementedException();
+         
       }
    }
 }
