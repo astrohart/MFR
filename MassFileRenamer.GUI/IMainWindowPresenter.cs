@@ -28,6 +28,11 @@ namespace MassFileRenamer.GUI
       event EventHandler Started;
 
       /// <summary>
+      /// Dismisses the progress dialog.
+      /// </summary>
+      void CloseProgressDialog();
+
+      /// <summary>
       /// Begins the rename operation.
       /// </summary>
       void Process();
