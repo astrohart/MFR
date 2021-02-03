@@ -42,5 +42,18 @@ namespace MassFileRenamer.GUI
                        throw new ArgumentNullException(nameof(mainWindow));
          _renamer = renamer ?? throw new ArgumentNullException(nameof(renamer));
       }
+
+      /// <summary>
+      /// Begins the rename operation.
+      /// </summary>
+      public void Process()
+      {
+         if (_mainWindow == null || _renamer == null)
+            return;
+
+         _renamer.ProcessAll(_mainWindow.StartingFolderTextBox.Text,
+            _mainWindow.FindWhatTextBox.Text, (Func<string, bool>) _mainWindow.ReplaceWithTextBox.Text);
+      }
+
    }
 }

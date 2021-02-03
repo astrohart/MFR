@@ -82,6 +82,8 @@
     <Compile Include="OperationEventArgs.cs" />
     <Compile Include="OperationFinishedEventHandler.cs" />
     <Compile Include="OperationFinishedEventArgs.cs" />
+    <Compile Include="OperationStartedEventArgs.cs" />
+    <Compile Include="OperationStartedEventHandler.cs" />
     <Compile Include="OperationType.cs" />
     <Compile Include="ProcessingOperationEventArgs.cs" />
     <Compile Include="ProcessingOperationEventHandler.cs" />
