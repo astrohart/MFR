@@ -47,11 +47,6 @@ namespace MassFileRenamer.GUI
          InitializeProgressDialog();
       }
 
-      private void InitializeProgressDialog()
-      {
-         throw new NotImplementedException();
-      }
-
       /// <summary>
       /// Begins the rename operation.
       /// </summary>
@@ -72,6 +67,11 @@ namespace MassFileRenamer.GUI
       /// and subscribes to the events that it emits.
       /// </summary>
       private void InitializeFileRenamer()
+      {
+         throw new NotImplementedException();
+      }
+
+      private void InitializeProgressDialog()
       {
          throw new NotImplementedException();
       }
