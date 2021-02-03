@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -27,6 +28,16 @@ namespace MassFileRenamer.GUI
       /// <see cref="T:MassFileRenamer.GUI.MainWindow" />.
       /// </summary>
       public static MainWindow Instance { get; } = new MainWindow();
+
+      /// <summary>
+      /// Gets a reference to the control that allows the user to specify the
+      /// path to the starting folder.
+      /// </summary>
+      public TextBox StartingFolderTextBox
+      {
+         [DebuggerStepThrough] get;
+         private set;
+      }
 
       /// <summary>
       /// Gets a string containing this application's version.

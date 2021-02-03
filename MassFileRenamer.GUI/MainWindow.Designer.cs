@@ -30,7 +30,7 @@ namespace MassFileRenamer.GUI
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-         this.startingFolderTextBox = new System.Windows.Forms.TextBox();
+         this.StartingFolderTextBox = new System.Windows.Forms.TextBox();
          this.startingFolderLabel = new System.Windows.Forms.Label();
          this.startingFolderBrowseButton = new System.Windows.Forms.Button();
          this.findWhatLabel = new System.Windows.Forms.Label();
@@ -42,10 +42,10 @@ namespace MassFileRenamer.GUI
          // 
          // startingFolderTextBox
          // 
-         this.startingFolderTextBox.Location = new System.Drawing.Point(12, 29);
-         this.startingFolderTextBox.Name = "startingFolderTextBox";
-         this.startingFolderTextBox.Size = new System.Drawing.Size(542, 23);
-         this.startingFolderTextBox.TabIndex = 1;
+         this.StartingFolderTextBox.Location = new System.Drawing.Point(12, 29);
+         this.StartingFolderTextBox.Name = "StartingFolderTextBox";
+         this.StartingFolderTextBox.Size = new System.Drawing.Size(542, 23);
+         this.StartingFolderTextBox.TabIndex = 1;
          // 
          // startingFolderLabel
          // 
@@ -121,7 +121,7 @@ namespace MassFileRenamer.GUI
          this.Controls.Add(this.findWhatTextBox);
          this.Controls.Add(this.startingFolderBrowseButton);
          this.Controls.Add(this.startingFolderLabel);
-         this.Controls.Add(this.startingFolderTextBox);
+         this.Controls.Add(this.StartingFolderTextBox);
          this.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -136,7 +136,6 @@ namespace MassFileRenamer.GUI
 
       #endregion
 
-      private System.Windows.Forms.TextBox startingFolderTextBox;
       private System.Windows.Forms.Label startingFolderLabel;
       private System.Windows.Forms.Button startingFolderBrowseButton;
       private System.Windows.Forms.Label findWhatLabel;
