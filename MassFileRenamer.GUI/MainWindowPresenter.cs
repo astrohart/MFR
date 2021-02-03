@@ -93,7 +93,7 @@ namespace MassFileRenamer.GUI
       /// Gets a string that contains the text to be found.
       /// </summary>
       private string FindWhat
-         => _mainWindow.FindWhatTextBox.Text;
+         => _mainWindow.FindWhatComboBox.Text;
 
       /// <summary>
       /// Gets a string that contains the new text to be used to replace the
@@ -101,7 +101,7 @@ namespace MassFileRenamer.GUI
       /// <see cref="P:MassFileRenamer.GUI.MainWindowPresenter.FindWhat" />.
       /// </summary>
       private string ReplaceWith
-         => _mainWindow.ReplaceWithTextBox.Text;
+         => _mainWindow.ReplaceWithComboBox.Text;
 
       /// <summary>
       /// String containing the pathname to the configuration file.
@@ -112,7 +112,7 @@ namespace MassFileRenamer.GUI
       /// String containing the pathname of the folder where the operation is to start.
       /// </summary>
       private string StartingFolderPath
-         => _mainWindow.StartingFolderTextBox.Text;
+         => _mainWindow.StartingFolderComboBox.Text;
 
       /// <summary>
       /// Occurs when the processing is done.
