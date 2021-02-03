@@ -22,7 +22,7 @@ namespace MassFileRenamer.Objects
       {
          FormFoldedSize = Size.Empty;
          FormUnfoldedSize = Size.Empty;
-         IsFolded = true;  // form starts out folded typically
+         IsFolded = true; // form starts out folded typically
       }
 
       /// <summary>
@@ -77,15 +77,15 @@ namespace MassFileRenamer.Objects
       /// </summary>
       protected virtual void OnFormFolded(FormFoldedEventArgs e)
       {
-         Text = IsFolded ? "&Less <<" : "&More >>";
-         Invalidate();
-
          FormFolded?.Invoke(this, e);
       }
 
       private void ToggleFolded()
       {
          IsFolded = !IsFolded;
+
+         Text = IsFolded ? "&Less <<" : "&More >>";
+         Invalidate();
 
          OnFormFolded(
             new FormFoldedEventArgs(
