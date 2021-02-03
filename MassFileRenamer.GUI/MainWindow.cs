@@ -10,8 +10,13 @@ namespace MassFileRenamer.GUI
    /// </summary>
    public partial class MainWindow : Form, IMainWindow
    {
+      private IMainWindowPresenter _presenter;
+
       /// <summary>
-      /// Constructs a new instance of <see cref="T:MassFileRenamer.GUI.MainWindow" /> and returns a reference to it.
+      /// Constructs a new instance of
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.MainWindow" />
+      /// and returns a reference to it.
       /// </summary>
       public MainWindow()
       {
@@ -24,8 +29,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       public TextBox StartingFolderTextBox
       {
-         [DebuggerStepThrough]
-         get;
+         [DebuggerStepThrough] get;
          private set;
       }
 
@@ -33,18 +37,24 @@ namespace MassFileRenamer.GUI
       /// Gets a string containing this application's version.
       /// </summary>
       /// <remarks>
-      /// Thanks to <a href="
+      /// Thanks to
+      /// <a
+      ///    href="
       /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
-      /// "> Kiran Suthar </a> 's answer on the Microsoft forums.
+      /// ">
+      /// Kiran
+      /// Suthar
+      /// </a>
+      /// 's answer on the Microsoft forums.
       /// </remarks>
       public string Version { get; } = Assembly.GetExecutingAssembly().GetName()
          .Version.ToString();
 
       /// <summary>
-      /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
+      /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
       /// </summary>
       /// <param name="e">
-      /// An <see cref="T:System.EventArgs"/> that contains the event data.
+      /// An <see cref="T:System.EventArgs" /> that contains the event data.
       /// </param>
       protected override void OnLoad(EventArgs e)
       {
@@ -54,14 +64,14 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
-      /// Handles the <see cref="E:System.Windows.Forms.Control.Click"/> event
+      /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
       /// for the Cancel button.
       /// </summary>
       /// <param name="sender">
       /// The sender of this event.
       /// </param>
       /// <param name="e">
-      /// A <see cref="T:System.EventArgs"/> that contains the event data.
+      /// A <see cref="T:System.EventArgs" /> that contains the event data.
       /// </param>
       /// <remarks>
       /// This handler closes the application window (and thereby exits the application
