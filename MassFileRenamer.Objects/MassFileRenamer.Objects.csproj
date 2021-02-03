@@ -80,6 +80,7 @@
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="OperationCancelEventArgs.cs" />
     <Compile Include="OperationEventArgs.cs" />
+    <Compile Include="OperationFinishedEventHandler.cs" />
     <Compile Include="OperationFinishedEventArgs.cs" />
     <Compile Include="OperationType.cs" />
     <Compile Include="ProcessingOperationEventArgs.cs" />
