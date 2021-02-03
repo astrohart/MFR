@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
@@ -8,11 +9,6 @@ namespace MassFileRenamer.GUI
    /// </summary>
    public partial class MainWindow : Form
    {
-      /// <summary>
-      /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.GUI.MainWindow"/>.
-      /// </summary>
-      public static MainWindow Instance { get; } = new MainWindow();
-
       /// <summary>
       /// Empty, static constructor to prohibit direct allocation of this class.
       /// </summary>
@@ -27,6 +23,18 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
+      /// Gets a reference to the one and only instance of
+      /// <see cref="T:MassFileRenamer.GUI.MainWindow" />.
+      /// </summary>
+      public static MainWindow Instance { get; } = new MainWindow();
+
+      /// <summary>
+      /// Gets a string containing this application's version.
+      /// </summary>
+      public string Version { get; } = Assembly.GetExecutingAssembly().GetName()
+         .Version.ToString();
+
+      /// <summary>
       /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
       /// </summary>
       /// <param name="e">
@@ -36,7 +44,7 @@ namespace MassFileRenamer.GUI
       {
          base.OnLoad(e);
 
-         Text = $"{Application.ProductName} {Application.ProductVersion}";
+         Text = $"{Application.ProductName} {Version}";
       }
    }
 }
