@@ -234,6 +234,10 @@ namespace MassFileRenamer.Objects
                filename.Replace(findWhat, replaceWith)
             );
          }
+
+         OnOperationFinished(
+            new OperationFinishedEventArgs(OperationType.RenameFiles)
+         );
       }
 
       /// <summary>
@@ -462,9 +466,7 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       /// <param name="e">
-      /// An
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
+      /// An <see cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
       /// that contains the event data.
       /// </param>
       private void OnOperationFinished(OperationFinishedEventArgs e)
