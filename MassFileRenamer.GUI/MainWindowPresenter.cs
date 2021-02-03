@@ -115,6 +115,16 @@ namespace MassFileRenamer.GUI
          => _mainWindow.StartingFolderTextBox.Text;
 
       /// <summary>
+      /// Occurs when the processing is done.
+      /// </summary>
+      public event EventHandler Finished;
+
+      /// <summary>
+      /// Occurs when the processing has started.
+      /// </summary>
+      public event EventHandler Started;
+
+      /// <summary>
       /// Gets or sets a reference to an object that implements the
       /// <see
       ///    cref="T:MassFileRenamer.GUI.IConfiguration" />
@@ -149,14 +159,12 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
-      /// Occurs when the processing is done.
+      /// Dismisses the progress dialog.
       /// </summary>
-      public event EventHandler Finished;
-
-      /// <summary>
-      /// Occurs when the processing has started.
-      /// </summary>
-      public event EventHandler Started;
+      public void CloseProgressDialog()
+      {
+         _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+      }
 
       /// <summary>
       /// Raises the
@@ -199,11 +207,6 @@ namespace MassFileRenamer.GUI
          }
 
          return result;
-      }
-
-      private void CloseProgressDialog()
-      {
-         _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
       }
 
       private void CommenceRenameOperation()
@@ -280,6 +283,7 @@ namespace MassFileRenamer.GUI
             => HandleFilesCountedEvent(eventArgs.Count);
          _renamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
             => HandleFilesCountedEvent(eventArgs.Count);
+         _renamer.Started += (x, y) => OnStarted();
          _renamer.StatusUpdate += (sender, eventArgs)
             => Console.WriteLine(eventArgs.Text);
          _renamer.ProcessingOperation += (sender, eventArgs)
@@ -287,6 +291,7 @@ namespace MassFileRenamer.GUI
                GetOperationDescriptionFor(eventArgs.OperationType),
                eventArgs.Pathname
             );
+         _renamer.Finished += (x, y) => OnFinished();
       }
 
       /// <summary>
