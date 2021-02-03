@@ -5,26 +5,22 @@ using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.GUI
 {
+   /// <summary>
+   /// Window that displays progress of an operation.
+   /// </summary>
    public partial class ProgressDialog : Form
    {
       /// <summary>
-      /// Empty, static constructor to prohibit direct allocation of this class.
+      /// Constructs a new instance of
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.ProgressDialog" />
+      /// and returns a reference
+      /// to it.
       /// </summary>
-      static ProgressDialog() { }
-
-      /// <summary>
-      /// Empty, protected constructor to prohibit direct allocation of this class.
-      /// </summary>
-      protected ProgressDialog()
+      public ProgressDialog()
       {
          InitializeComponent();
       }
-
-      /// <summary>
-      /// Gets a reference to the one and only instance of
-      /// <see cref="T:MassFileRenamer.GUI.ProgressDialog" />.
-      /// </summary>
-      public static ProgressDialog Instance { get; } = new ProgressDialog();
 
       /// <summary>
       /// Gets a reference to the progress bar control.
