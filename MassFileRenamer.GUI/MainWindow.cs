@@ -319,5 +319,16 @@ namespace MassFileRenamer.GUI
             ReplaceWithTextBox.Text = _presenter.Configuration.ReplaceWith;
          }
       }
+
+      /// <summary>
+      /// Handles the <see cref="E:MassFileRenamer.Objects.FoldUnfoldButton.FormFolded"/> event.
+      /// </summary>
+      /// <param name="sender">Reference to an instance of the object that raised the event.</param>
+      /// <param name="e">A <see cref="T:MassFileRenamer.Objects.FormFoldedEventArgs"/> that contains the event data.</param>
+      /// <remarks></remarks>
+      private void OnFormFolded(object sender, FormFoldedEventArgs e)
+      {
+         Size = e.Size;
+      }
    }
 }

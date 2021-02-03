@@ -121,6 +121,7 @@ namespace MassFileRenamer.GUI
          this.foldButton.TabIndex = 8;
          this.foldButton.Text = "&More >>";
          this.foldButton.UseVisualStyleBackColor = true;
+         this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
          // 
          // MainWindow
          // 
