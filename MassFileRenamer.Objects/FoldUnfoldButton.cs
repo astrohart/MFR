@@ -84,9 +84,6 @@ namespace MassFileRenamer.Objects
       {
          IsFolded = !IsFolded;
 
-         Text = IsFolded ? "&More >>" :  "&Less <<";
-         Invalidate();
-
          OnFormFolded(
             new FormFoldedEventArgs(
                IsFolded, IsFolded ? FormFoldedSize : FormUnfoldedSize
