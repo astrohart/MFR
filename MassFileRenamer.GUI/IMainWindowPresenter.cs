@@ -1,4 +1,6 @@
-﻿namespace MassFileRenamer.GUI
+﻿using System;
+
+namespace MassFileRenamer.GUI
 {
    /// <summary>
    /// Defines the public-exposed methods and properties of the presenter object
@@ -24,5 +26,15 @@
       /// Saves the configuration to disk.
       /// </summary>
       void SaveConfiguration();
+
+      /// <summary>
+      /// Occurs when the processing is done.
+      /// </summary>
+      event EventHandler Finished;
+
+      /// <summary>
+      /// Occurs when the processing has started.
+      /// </summary>
+      event EventHandler Started;
    }
 }
