@@ -200,27 +200,6 @@ namespace MassFileRenamer.GUI
 
       /// <summary>
       /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
-      /// for the Cancel button.
-      /// </summary>
-      /// <param name="sender">
-      /// The sender of this event.
-      /// </param>
-      /// <param name="e">
-      /// A <see cref="T:System.EventArgs" /> that contains the event data.
-      /// </param>
-      /// <remarks>
-      /// This handler closes the application window (and thereby exits the application
-      /// itself) when the user clicks the Cancel button on the main window.
-      /// </remarks>
-      private void OnClickCancel(object sender, EventArgs e)
-      {
-         DialogResult = DialogResult.Cancel;
-
-         Close();
-      }
-
-      /// <summary>
-      /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
       /// for the Perform Operation button.
       /// </summary>
       /// <param name="sender">
