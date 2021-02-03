@@ -6,11 +6,14 @@
    public class MainWindowPresenter : IMainWindowPresenter
    {
       /// <summary>
-      /// Constructs a new instance of <see cref="T:MassFileRenamer.GUI.MainWindowPresenter" /> and returns a reference to it.
+      /// Reference to an instance of an object that implements the
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.IMainWindow" />
+      /// interface.
       /// </summary>
-      public MainWindowPresenter()
-      {
-         
-      }
+      /// <remarks>
+      /// This object provides the functionality of the main window of the application.
+      /// </remarks>
+      private IMainWindow _mainWindow;
    }
 }
