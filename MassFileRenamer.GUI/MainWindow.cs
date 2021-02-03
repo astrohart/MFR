@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
 {
+   /// <summary>
+   /// Displays the main window of the application.
+   /// </summary>
    public partial class MainWindow : Form
    {
       public MainWindow()
