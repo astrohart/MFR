@@ -76,7 +76,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       private void InitializeProgressDialog()
       {
-         
+         throw new NotImplementedException();
       }
    }
 }
