@@ -92,7 +92,7 @@
     <Compile Include="FilesOrFoldersCountedEventHandler.cs" />
     <Compile Include="FileSystemEntrySkippedEventArgs.cs" />
     <Compile Include="FileSystemEntrySkippedEventHandler.cs" />
-    <Compile Include="FoldedEventArgs.cs" />
+    <Compile Include="FormFoldedEventArgs.cs" />
     <Compile Include="FolderPathValidator.cs" />
     <Compile Include="FoldUnfoldButton.cs">
       <SubType>Component</SubType>

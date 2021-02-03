@@ -1,8 +1,22 @@
-﻿using System.Drawing;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MassFileRenamer.Objects
 {
+   /// <summary>
+   /// Provides the method signature for the handler of a FormFolded event.
+   /// </summary>
+   /// <param name="sender">
+   /// The sender of the event.
+   /// </param>
+   /// <param name="e">
+   /// A <see cref="T:MassFileRenamer.Objects.FoldedEventArgs" /> that contains
+   /// the event data.
+   /// </param>
+   public delegate void FormFoldedEventHandler(object sender, FormFoldedEventArgs e);
+
    /// <summary>
    /// Button that shows "More &gt;&gt;" or "Less &lt;&lt;" depending on whether
    /// a form is folded or unfolded.
@@ -26,12 +40,60 @@ namespace MassFileRenamer.Objects
       /// Gets or sets the <see cref="T:System.Drawing.Size" /> of the parent
       /// form when the form is folded.
       /// </summary>
+      [EditorBrowsable(EditorBrowsableState.Always)]
+      [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+      [Description(
+         "Gets or sets the size of the parent form when the form is folded."
+      )]
       public Size FormFoldedSize { get; set; }
 
       /// <summary>
       /// Gets or sets the <see cref="T:System.Drawing.Size" /> of the parent
       /// form when the form is unfolded.
       /// </summary>
+      [EditorBrowsable(EditorBrowsableState.Always)]
+      [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+      [Description(
+         "Gets or sets the size of the parent form when the form is unfolded."
+      )]
       public Size FormUnfoldedSize { get; set; }
+
+      [EditorBrowsable(EditorBrowsableState.Never)]
+      [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+      public bool IsFolded { get; set; }
+
+      /// <summary>
+      /// Occurs when the Folded state of the parent form is to be changed.
+      /// </summary>
+      public event EventHandler Folded;
+
+      /// <summary>
+      /// Raises the <see cref="E:System.Windows.Forms.Control.Click" /> event.
+      /// </summary>
+      /// <param name="e">
+      /// An <see cref="T:System.EventArgs" /> that contains the event data.
+      /// </param>
+      protected override void OnClick(EventArgs e)
+      {
+         base.OnClick(e);
+
+         ToggleFolded();
+      }
+
+      /// <summary>
+      /// Raises the
+      /// <see
+      ///    cref="E:MassFileRenamer.Objects.FoldUnfoldButton.Folded" />
+      /// event.
+      /// </summary>
+      protected virtual void OnFolded(FormFoldedEventArgs e)
+         => Folded?.Invoke(this, EventArgs.Empty);
+
+      private void ToggleFolded()
+      {
+         IsFolded = !IsFolded;
+
+         OnFolded();
+      }
    }
 }
