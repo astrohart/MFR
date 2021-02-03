@@ -104,7 +104,7 @@ namespace MassFileRenamer.GUI
          this.cancelButton.Location = new System.Drawing.Point(497, 167);
          this.cancelButton.Name = "cancelButton";
          this.cancelButton.Size = new System.Drawing.Size(87, 27);
-         this.cancelButton.TabIndex = 7;
+         this.cancelButton.TabIndex = 8;
          this.cancelButton.Text = "Cancel";
          this.cancelButton.UseVisualStyleBackColor = true;
          this.cancelButton.Click += new System.EventHandler(this.OnClickCancel);
@@ -115,7 +115,7 @@ namespace MassFileRenamer.GUI
          this.performOperationButton.Location = new System.Drawing.Point(343, 167);
          this.performOperationButton.Name = "performOperationButton";
          this.performOperationButton.Size = new System.Drawing.Size(148, 27);
-         this.performOperationButton.TabIndex = 8;
+         this.performOperationButton.TabIndex = 7;
          this.performOperationButton.Text = "&Perform Operation";
          this.performOperationButton.UseVisualStyleBackColor = true;
          // 
