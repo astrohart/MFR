@@ -118,6 +118,7 @@ namespace MassFileRenamer.GUI
          this.performOperationButton.TabIndex = 7;
          this.performOperationButton.Text = "&Perform Operation";
          this.performOperationButton.UseVisualStyleBackColor = true;
+         this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
          // 
          // MainWindow
          // 

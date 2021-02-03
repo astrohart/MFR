@@ -14,7 +14,7 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Reference to the presenter for this form.
       /// </summary>
-      private IMainWindowPresenter _presenter;
+      private readonly IMainWindowPresenter _presenter;
 
       /// <summary>
       /// Constructs a new instance of
@@ -28,7 +28,7 @@ namespace MassFileRenamer.GUI
 
          _presenter = new MainWindowPresenter(this, new FileRenamer());
       }
-      
+
       /// <summary>
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to be found.
@@ -102,5 +102,34 @@ namespace MassFileRenamer.GUI
       /// </remarks>
       private void OnClickCancel(object sender, EventArgs e)
          => Close();
+
+      /// <summary>
+      /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
+      /// for the Perform Operation button.
+      /// </summary>
+      /// <param name="sender">
+      /// The sender of this event.
+      /// </param>
+      /// <param name="e">
+      /// A <see cref="T:System.EventArgs" /> that contains the event data.
+      /// </param>
+      /// <remarks>
+      /// This handler starts the processing of renaming folders and files when
+      /// the Perform Operation button is clicked.
+      /// </remarks>
+      private void OnClickPerformOperation(object sender, EventArgs e)
+      {
+         try
+         {
+            _presenter.Process();
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(
+               this, ex.Message, Application.ProductName, MessageBoxButtons.OK,
+               MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+            );
+         }
+      }
    }
 }

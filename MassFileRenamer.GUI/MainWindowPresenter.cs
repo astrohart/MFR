@@ -1,5 +1,8 @@
-﻿using MassFileRenamer.Objects;
+﻿using MassFileRenamer.GUI.Properties;
+using MassFileRenamer.Objects;
 using System;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
 
@@ -11,8 +14,10 @@ namespace MassFileRenamer.GUI
    public class MainWindowPresenter : IMainWindowPresenter
    {
       /// <summary>
-      /// Reference to an instance of an object that implements the <see
-      /// cref="T:MassFileRenamer.GUI.IMainWindow"/> interface.
+      /// Reference to an instance of an object that implements the
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.IMainWindow" />
+      /// interface.
       /// </summary>
       /// <remarks>
       /// This object provides the functionality of the main window of the application.
@@ -22,23 +27,27 @@ namespace MassFileRenamer.GUI
       private readonly IFileRenamer _renamer;
 
       /// <summary>
-      /// Reference to an instance of an object that implements the <see
-      /// cref="T:MassFileRenamer.GUI.IProgressDialog"/> interface.
+      /// Reference to an instance of an object that implements the
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.IProgressDialog" />
+      /// interface.
       /// </summary>
       private IProgressDialog _progressDialog;
 
       /// <summary>
-      /// Constructs a new instance of <see
-      /// cref="T:MassFileRenamer.GUI.MainWindowPresenter"/> and returns a
+      /// Constructs a new instance of
+      /// <see
+      ///    cref="T:MassFileRenamer.GUI.MainWindowPresenter" />
+      /// and returns a
       /// reference to it.
       /// </summary>
       /// <param name="mainWindow">
       /// (Required.) Reference to an instance of an object that implements the
-      /// <see cref="T:MassFileRenamer.GUI.IMainWindow"/> interface.
+      /// <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface.
       /// </param>
       /// <exception cref="T:System.ArgumentNullException">
-      /// Thrown if either of the required <paramref name="mainWindow"/> or
-      /// <paramref name="renamer"/> parameters have a <c>null</c> value.
+      /// Thrown if either of the required <paramref name="mainWindow" /> or
+      /// <paramref name="renamer" /> parameters have a <c>null</c> value.
       /// </exception>
       public MainWindowPresenter(IMainWindow mainWindow, IFileRenamer renamer)
       {
@@ -48,8 +57,17 @@ namespace MassFileRenamer.GUI
 
          InitializeFileRenamer();
 
-         InitializeProgressDialog();
+         ReinitializeProrgessDialog();
       }
+
+      private string FindWhat
+         => _mainWindow.FindWhatTextBox.Text;
+
+      private string ReplaceWith
+         => _mainWindow.ReplaceWithTextBox.Text;
+
+      private string StartingFolderPath
+         => _mainWindow.StartingFolderTextBox.Text;
 
       /// <summary>
       /// Begins the rename operation.
@@ -59,19 +77,19 @@ namespace MassFileRenamer.GUI
          if (_mainWindow == null || _renamer == null)
             return;
 
-         InitializeProgressDialog();
-         ((Form)_progressDialog).DoIfNotDisposed(
-            () => _progressDialog.ShowDialog(_mainWindow)
-         );
+         ValidateInputs();
 
-         _renamer.ProcessAll(
-            _mainWindow.StartingFolderTextBox.Text,
-            _mainWindow.FindWhatTextBox.Text,
-            _mainWindow.ReplaceWithTextBox.Text
-         );
+         ShowProgressDialog();
 
-         InitializeProgressDialog();
+         CommenceRenameOperation();
+
+         ReinitializeProrgessDialog();
       }
+
+      private void CommenceRenameOperation()
+         => Task.Run(
+            () => _renamer.ProcessAll(StartingFolderPath, FindWhat, ReplaceWith)
+         ).Wait();
 
       private string GetOperationStartedText(OperationType type)
       {
@@ -104,19 +122,17 @@ namespace MassFileRenamer.GUI
             throw new ArgumentOutOfRangeException(nameof(count));
 
          ResetProgressBar();
-         ((Form)_progressDialog).DoIfNotDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
             () => _progressDialog.ProgressBarMaximum = count
          );
       }
 
-      private void
-
       private void IncrementProgressBar(string pathname)
       {
-         ((Form)_progressDialog).DoIfNotDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
             () => _progressDialog.DetailedStatus = pathname
          );
-         ((Form)_progressDialog).DoIfNotDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
             () => _progressDialog.ProgressBarValue++
          );
       }
@@ -140,26 +156,29 @@ namespace MassFileRenamer.GUI
          _renamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
             => HandleFilesCountedEvent(eventArgs.Count);
          _renamer.StatusUpdate += (sender, eventArgs)
-            => ((Form)_progressDialog).DoIfNotDisposed(
+            => ((Form) _progressDialog).DoIfNotDisposed(
                () => _progressDialog.Status = eventArgs.Text
             );
          _renamer.ProcessingOperation += (sender, eventArgs)
-            => IncrementProgressBar(eventArgs.Pathname)
+            => IncrementProgressBar(eventArgs.Pathname);
       }
 
       /// <summary>
       /// Sets the progress dialog and/or reinitializes it from prior use.
       /// </summary>
-      private void InitializeProgressDialog()
+      private void ReinitializeProrgessDialog()
       {
-         ((Form)_progressDialog).DoIfDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
+            () => _progressDialog.Close()
+         );
+         ((Form) _progressDialog).DoIfDisposed(
             () => _progressDialog = new ProgressDialog()
          );
       }
 
       private void ResetProgressBar()
       {
-         ((Form)_progressDialog).DoIfNotDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
             () => _progressDialog.Reset()
          );
       }
@@ -168,12 +187,35 @@ namespace MassFileRenamer.GUI
       {
          ResetProgressBar();
 
-         ((Form)_progressDialog).DoIfNotDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
             () => _progressDialog.ProgressBarStyle = ProgressBarStyle.Marquee
          );
-         ((Form)_progressDialog).DoIfNotDisposed(
+         ((Form) _progressDialog).DoIfNotDisposed(
             () => _progressDialog.Status = GetOperationStartedText(type)
          );
+      }
+
+      private void ShowProgressDialog()
+         => ((Form) _progressDialog).DoIfNotDisposed(
+            () => _progressDialog.ShowDialog(_mainWindow)
+         );
+
+      private void ValidateInputs()
+      {
+         if (!Directory.Exists(StartingFolderPath))
+            throw new DirectoryNotFoundException(
+               string.Format(
+                  Resources.Error_RootDirectoryNotFound, StartingFolderPath
+               )
+            );
+         if (string.IsNullOrWhiteSpace(FindWhat))
+            throw new InvalidOperationException(
+               Resources.Error_FindWhatRequired
+            );
+         if (string.IsNullOrWhiteSpace(ReplaceWith))
+            throw new InvalidOperationException(
+               Resources.Error_ReplaceWithBlank
+            );
       }
    }
 }
