@@ -134,6 +134,14 @@ namespace MassFileRenamer.GUI
       public IConfiguration Configuration { get; private set; }
 
       /// <summary>
+      /// Dismisses the progress dialog.
+      /// </summary>
+      public void CloseProgressDialog()
+      {
+         _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+      }
+
+      /// <summary>
       /// Begins the rename operation.
       /// </summary>
       public void Process()
@@ -159,12 +167,10 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
-      /// Dismisses the progress dialog.
+      /// Shows the progress window.
       /// </summary>
-      public void CloseProgressDialog()
-      {
-         _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
-      }
+      public void ShowProgressDialog()
+         => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
 
       /// <summary>
       /// Raises the
@@ -353,9 +359,6 @@ namespace MassFileRenamer.GUI
             () => _progressDialog.Status = GetOperationStartedText(type)
          );
       }
-
-      private void ShowProgressDialog()
-         => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
 
       private void ValidateInputs()
       {

@@ -41,5 +41,10 @@ namespace MassFileRenamer.GUI
       /// Saves the configuration to disk.
       /// </summary>
       void SaveConfiguration();
+
+      /// <summary>
+      /// Shows the progress window.
+      /// </summary>
+      void ShowProgressDialog();
    }
 }
