@@ -75,7 +75,11 @@ namespace MassFileRenamer.Objects
       /// event.
       /// </summary>
       protected virtual void OnFormFolded(FormFoldedEventArgs e)
-         => FormFolded?.Invoke(this, e);
+      {
+         Text = IsFolded ? "Less <<" : "More >>";
+
+         FormFolded?.Invoke(this, e);
+      }
 
       private void ToggleFolded()
       {
