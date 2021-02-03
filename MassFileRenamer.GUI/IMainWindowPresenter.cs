@@ -18,16 +18,6 @@ namespace MassFileRenamer.GUI
       IConfiguration Configuration { get; }
 
       /// <summary>
-      /// Begins the rename operation.
-      /// </summary>
-      void Process();
-
-      /// <summary>
-      /// Saves the configuration to disk.
-      /// </summary>
-      void SaveConfiguration();
-
-      /// <summary>
       /// Occurs when the processing is done.
       /// </summary>
       event EventHandler Finished;
@@ -36,5 +26,15 @@ namespace MassFileRenamer.GUI
       /// Occurs when the processing has started.
       /// </summary>
       event EventHandler Started;
+
+      /// <summary>
+      /// Begins the rename operation.
+      /// </summary>
+      void Process();
+
+      /// <summary>
+      /// Saves the configuration to disk.
+      /// </summary>
+      void SaveConfiguration();
    }
 }
