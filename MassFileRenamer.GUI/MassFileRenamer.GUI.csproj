@@ -98,5 +98,11 @@
   <ItemGroup>
     <Content Include="xylogix.ICO" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MassFileRenamer.Objects\MassFileRenamer.Objects.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MassFileRenamer.Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

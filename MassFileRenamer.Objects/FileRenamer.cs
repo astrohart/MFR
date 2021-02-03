@@ -16,6 +16,18 @@ namespace MassFileRenamer.Objects
       /// and returns a reference
       /// to it.
       /// </summary>
+      public FileRenamer()
+      {
+         RootDirectoryPath = string.Empty;
+      }
+
+      /// <summary>
+      /// Constructs a new instance of
+      /// <see
+      ///    cref="T:MassFileRenamer.Objects.FileRenamer" />
+      /// and returns a reference
+      /// to it.
+      /// </summary>
       /// <param name="rootDirectoryPath">
       /// Path to the recursion root.
       /// </param>
@@ -65,7 +77,7 @@ namespace MassFileRenamer.Objects
       /// Gets a string containing the full pathname of the folder where all
       /// operations start.
       /// </summary>
-      public string RootDirectoryPath { get; }
+      public string RootDirectoryPath { get; private set; }
 
       /// <summary>
       /// Executes the Rename Subfolders, Rename Files, and Replace Text in
@@ -424,6 +436,41 @@ namespace MassFileRenamer.Objects
          OnOperationFinished(
             new OperationFinishedEventArgs(OperationType.ReplaceTextInFiles)
          );
+      }
+
+      /// <summary>
+      /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+      /// Files operation on all the folders and files in the root folder with
+      /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
+      /// </summary>
+      /// <param name="rootDirectoryPath">
+      /// Path to the recursion root.
+      /// </param>
+      /// <param name="findWhat">
+      /// (Required.) String containing the text to search for.
+      /// </param>
+      /// <param name="replaceWith">
+      /// (Required.) String containing the text to replace the text specified
+      /// by <paramref name="findWhat" /> with.
+      /// </param>
+      /// <param name="pathFilter">
+      /// (Optional.) If specified, a delegate that accepts as its sole
+      /// parameter a string containing the pathname to the item currently being
+      /// processed, and that returns a Boolean value. If the value returned is
+      /// <c>true</c>, the item with the pathname matching that of the input is
+      /// included in the operations; <c>false</c> means the item is excluded.
+      /// </param>
+      public void ProcessAll(string rootDirectoryPath, string findWhat,
+         string replaceWith, Func<string, bool> pathFilter = null)
+      {
+         if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+            throw new ArgumentException(
+               "Value cannot be null or whitespace.", nameof(rootDirectoryPath)
+            );
+
+         RootDirectoryPath = rootDirectoryPath;
+
+         ProcessAll(findWhat, replaceWith, pathFilter);
       }
 
       /// <summary>

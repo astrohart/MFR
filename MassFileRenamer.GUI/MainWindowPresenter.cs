@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassFileRenamer.Objects;
+using System;
 
 namespace MassFileRenamer.GUI
 {
@@ -33,10 +34,13 @@ namespace MassFileRenamer.GUI
       /// Thrown if the required <paramref name="mainWindow" /> parameter has a
       /// <c>null</c> value.
       /// </exception>
-      public MainWindowPresenter(IMainWindow mainWindow)
+      public MainWindowPresenter(IMainWindow mainWindow, IFileRenamer renamer)
       {
          _mainWindow = mainWindow ??
                        throw new ArgumentNullException(nameof(mainWindow));
+         _renamer = renamer;
       }
+
+      private IFileRenamer _renamer;
    }
 }
