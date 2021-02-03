@@ -17,7 +17,7 @@ namespace MassFileRenamer.GUI
       {
          Application.EnableVisualStyles();
          Application.SetCompatibleTextRenderingDefault(false);
-         Application.Run(MainWindow.Instance);
+         Application.Run(new MainWindow());
       }
    }
 }

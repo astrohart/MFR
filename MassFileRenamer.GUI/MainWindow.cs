@@ -11,22 +11,12 @@ namespace MassFileRenamer.GUI
    public partial class MainWindow : Form, IMainWindow
    {
       /// <summary>
-      /// Empty, static constructor to prohibit direct allocation of this class.
+      /// Constructs a new instance of <see cref="T:MassFileRenamer.GUI.MainWindow" /> and returns a reference to it.
       /// </summary>
-      static MainWindow() { }
-
-      /// <summary>
-      /// Empty, protected constructor to prohibit direct allocation of this class.
-      /// </summary>
-      protected MainWindow()
+      public MainWindow()
       {
          InitializeComponent();
       }
-
-      /// <summary>
-      /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.GUI.MainWindow"/>.
-      /// </summary>
-      public static MainWindow Instance { get; } = new MainWindow();
 
       /// <summary>
       /// Gets a reference to the control that allows the user to specify the
