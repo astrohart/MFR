@@ -90,29 +90,9 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
-      /// Gets a string that contains the text to be found.
-      /// </summary>
-      private string FindWhat
-         => _mainWindow.FindWhatComboBox.Text;
-
-      /// <summary>
-      /// Gets a string that contains the new text to be used to replace the
-      /// text specified by
-      /// <see cref="P:MassFileRenamer.GUI.MainWindowPresenter.FindWhat" />.
-      /// </summary>
-      private string ReplaceWith
-         => _mainWindow.ReplaceWithComboBox.Text;
-
-      /// <summary>
       /// String containing the pathname to the configuration file.
       /// </summary>
       private string ConfigurationPathname { get; set; }
-
-      /// <summary>
-      /// String containing the pathname of the folder where the operation is to start.
-      /// </summary>
-      private string StartingFolderPath
-         => _mainWindow.StartingFolderComboBox.Text;
 
       /// <summary>
       /// Occurs when the processing is done.
@@ -215,7 +195,11 @@ namespace MassFileRenamer.GUI
 
       private void CommenceRenameOperation()
          => Task.Run(
-            () => _renamer.ProcessAll(StartingFolderPath, FindWhat, ReplaceWith)
+            () => _renamer.ProcessAll(
+               _mainWindow.StartingFolderComboBox.Text,
+               _mainWindow.FindWhatComboBox.Text,
+               _mainWindow.ReplaceWithComboBox.Text
+            )
          );
 
       private string GetOperationStartedText(OperationType type)
@@ -360,17 +344,18 @@ namespace MassFileRenamer.GUI
 
       private void ValidateInputs()
       {
-         if (!Directory.Exists(StartingFolderPath))
+         if (!Directory.Exists(_mainWindow.StartingFolderComboBox.Text))
             throw new DirectoryNotFoundException(
                string.Format(
-                  Resources.Error_RootDirectoryNotFound, StartingFolderPath
+                  Resources.Error_RootDirectoryNotFound,
+                  _mainWindow.StartingFolderComboBox.Text
                )
             );
-         if (string.IsNullOrWhiteSpace(FindWhat))
+         if (string.IsNullOrWhiteSpace(_mainWindow.FindWhatComboBox.Text))
             throw new InvalidOperationException(
                Resources.Error_FindWhatRequired
             );
-         if (string.IsNullOrWhiteSpace(ReplaceWith))
+         if (string.IsNullOrWhiteSpace(_mainWindow.ReplaceWithComboBox.Text))
             throw new InvalidOperationException(
                Resources.Error_ReplaceWithBlank
             );
