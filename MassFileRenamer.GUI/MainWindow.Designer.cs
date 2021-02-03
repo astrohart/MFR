@@ -106,6 +106,7 @@ namespace MassFileRenamer.GUI
          this.cancelButton.TabIndex = 7;
          this.cancelButton.Text = "Cancel";
          this.cancelButton.UseVisualStyleBackColor = true;
+         this.cancelButton.Click += new System.EventHandler(this.OnClickCancel);
          // 
          // MainWindow
          // 

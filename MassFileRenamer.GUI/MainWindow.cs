@@ -23,7 +23,8 @@ namespace MassFileRenamer.GUI
       }
 
       /// <summary>
-      /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.GUI.MainWindow"/>.
+      /// Gets a reference to the one and only instance of
+      /// <see cref="T:MassFileRenamer.GUI.MainWindow" />.
       /// </summary>
       public static MainWindow Instance { get; } = new MainWindow();
 
@@ -31,18 +32,24 @@ namespace MassFileRenamer.GUI
       /// Gets a string containing this application's version.
       /// </summary>
       /// <remarks>
-      /// Thanks to <a href="
+      /// Thanks to
+      /// <a
+      ///    href="
       /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
-      /// ">Kiran Suthar</a>'s answer on the Microsoft forums.
+      /// ">
+      /// Kiran
+      /// Suthar
+      /// </a>
+      /// 's answer on the Microsoft forums.
       /// </remarks>
       public string Version { get; } = Assembly.GetExecutingAssembly().GetName()
          .Version.ToString();
 
       /// <summary>
-      /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
+      /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
       /// </summary>
       /// <param name="e">
-      /// An <see cref="T:System.EventArgs"/> that contains the event data.
+      /// An <see cref="T:System.EventArgs" /> that contains the event data.
       /// </param>
       protected override void OnLoad(EventArgs e)
       {
@@ -50,5 +57,22 @@ namespace MassFileRenamer.GUI
 
          Text = $"{Application.ProductName} {Version}";
       }
+
+      /// <summary>
+      /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
+      /// for the Cancel button.
+      /// </summary>
+      /// <param name="sender">
+      /// The sender of this event.
+      /// </param>
+      /// <param name="e">
+      /// A <see cref="T:System.EventArgs" /> that contains the event data.
+      /// </param>
+      /// <remarks>
+      /// This handler closes the application window (and thereby exits the application
+      /// itself) when the user clicks the Cancel button on the main window.
+      /// </remarks>
+      private void OnClickCancel(object sender, EventArgs e)
+         => Close();
    }
 }
