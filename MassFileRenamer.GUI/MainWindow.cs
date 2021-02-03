@@ -27,12 +27,15 @@ namespace MassFileRenamer.GUI
 
          _presenter = new MainWindowPresenter(this);
       }
-
+      
       /// <summary>
       /// Gets a reference to the text box control that allows the user to
       /// specify the text to be found.
       /// </summary>
-      public TextBox FindWhatTextBox { [DebuggerStepThrough] get; private set; }
+      public TextBox FindWhatTextBox
+      {
+         [DebuggerStepThrough] get => findWhatTextBox;
+      }
 
       /// <summary>
       /// Gets a reference to the text box control that allows the user to
@@ -40,8 +43,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       public TextBox ReplaceWithTextBox
       {
-         [DebuggerStepThrough] get;
-         private set;
+         [DebuggerStepThrough] get => replaceWithTextBox;
       }
 
       /// <summary>
@@ -50,8 +52,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       public TextBox StartingFolderTextBox
       {
-         [DebuggerStepThrough] get;
-         private set;
+         [DebuggerStepThrough] get => startingFolderTextBox;
       }
 
       /// <summary>

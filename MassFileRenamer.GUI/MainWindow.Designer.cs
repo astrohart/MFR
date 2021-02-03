@@ -30,22 +30,22 @@ namespace MassFileRenamer.GUI
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-         this.StartingFolderTextBox = new System.Windows.Forms.TextBox();
+         this.startingFolderTextBox = new System.Windows.Forms.TextBox();
          this.startingFolderLabel = new System.Windows.Forms.Label();
          this.startingFolderBrowseButton = new System.Windows.Forms.Button();
          this.findWhatLabel = new System.Windows.Forms.Label();
-         this.FindWhatTextBox = new System.Windows.Forms.TextBox();
+         this.findWhatTextBox = new System.Windows.Forms.TextBox();
          this.replaceWithLabel = new System.Windows.Forms.Label();
-         this.ReplaceWithTextBox = new System.Windows.Forms.TextBox();
+         this.replaceWithTextBox = new System.Windows.Forms.TextBox();
          this.cancelButton = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
          // startingFolderTextBox
          // 
-         this.StartingFolderTextBox.Location = new System.Drawing.Point(12, 29);
-         this.StartingFolderTextBox.Name = "StartingFolderTextBox";
-         this.StartingFolderTextBox.Size = new System.Drawing.Size(542, 23);
-         this.StartingFolderTextBox.TabIndex = 1;
+         this.startingFolderTextBox.Location = new System.Drawing.Point(12, 29);
+         this.startingFolderTextBox.Name = "startingFolderTextBox";
+         this.startingFolderTextBox.Size = new System.Drawing.Size(542, 23);
+         this.startingFolderTextBox.TabIndex = 1;
          // 
          // startingFolderLabel
          // 
@@ -76,10 +76,10 @@ namespace MassFileRenamer.GUI
          // 
          // findWhatTextBox
          // 
-         this.FindWhatTextBox.Location = new System.Drawing.Point(12, 84);
-         this.FindWhatTextBox.Name = "FindWhatTextBox";
-         this.FindWhatTextBox.Size = new System.Drawing.Size(542, 23);
-         this.FindWhatTextBox.TabIndex = 4;
+         this.findWhatTextBox.Location = new System.Drawing.Point(12, 84);
+         this.findWhatTextBox.Name = "findWhatTextBox";
+         this.findWhatTextBox.Size = new System.Drawing.Size(542, 23);
+         this.findWhatTextBox.TabIndex = 4;
          // 
          // replaceWithLabel
          // 
@@ -92,10 +92,10 @@ namespace MassFileRenamer.GUI
          // 
          // replaceWithTextBox
          // 
-         this.ReplaceWithTextBox.Location = new System.Drawing.Point(12, 138);
-         this.ReplaceWithTextBox.Name = "ReplaceWithTextBox";
-         this.ReplaceWithTextBox.Size = new System.Drawing.Size(542, 23);
-         this.ReplaceWithTextBox.TabIndex = 6;
+         this.replaceWithTextBox.Location = new System.Drawing.Point(12, 138);
+         this.replaceWithTextBox.Name = "replaceWithTextBox";
+         this.replaceWithTextBox.Size = new System.Drawing.Size(542, 23);
+         this.replaceWithTextBox.TabIndex = 6;
          // 
          // cancelButton
          // 
@@ -116,12 +116,12 @@ namespace MassFileRenamer.GUI
          this.ClientSize = new System.Drawing.Size(596, 230);
          this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.replaceWithLabel);
-         this.Controls.Add(this.ReplaceWithTextBox);
+         this.Controls.Add(this.replaceWithTextBox);
          this.Controls.Add(this.findWhatLabel);
-         this.Controls.Add(this.FindWhatTextBox);
+         this.Controls.Add(this.findWhatTextBox);
          this.Controls.Add(this.startingFolderBrowseButton);
          this.Controls.Add(this.startingFolderLabel);
-         this.Controls.Add(this.StartingFolderTextBox);
+         this.Controls.Add(this.startingFolderTextBox);
          this.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
          this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -137,9 +137,12 @@ namespace MassFileRenamer.GUI
       #endregion
 
       private System.Windows.Forms.Label startingFolderLabel;
+      private System.Windows.Forms.TextBox startingFolderTextBox;
       private System.Windows.Forms.Button startingFolderBrowseButton;
       private System.Windows.Forms.Label findWhatLabel;
+      private System.Windows.Forms.TextBox findWhatTextBox;
       private System.Windows.Forms.Label replaceWithLabel;
+      private System.Windows.Forms.TextBox replaceWithTextBox;
       private System.Windows.Forms.Button cancelButton;
    }
 }
