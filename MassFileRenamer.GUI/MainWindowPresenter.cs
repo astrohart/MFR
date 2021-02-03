@@ -94,6 +94,62 @@ namespace MassFileRenamer.GUI
       /// </summary>
       private string ConfigurationPathname { get; set; }
 
+      private string FindWhat
+      {
+         get
+         {
+            var result = string.Empty;
+            if (_mainWindow.FindWhatComboBox.InvokeRequired)
+               _mainWindow.FindWhatComboBox.Invoke(
+                  (Action) (() =>
+                  {
+                     result = _mainWindow.FindWhatComboBox.Text;
+                  })
+               );
+            else
+               result = _mainWindow.FindWhatComboBox.Text;
+
+            return result;
+         }
+      }
+
+      private string ReplaceWith
+      {
+         get
+         {
+            var result = string.Empty;
+            if (_mainWindow.ReplaceWithComboBox.InvokeRequired)
+               _mainWindow.ReplaceWithComboBox.Invoke(
+                  (Action) (() =>
+                  {
+                     result = _mainWindow.ReplaceWithComboBox.Text;
+                  })
+               );
+            else
+               result = _mainWindow.ReplaceWithComboBox.Text;
+            return result;
+         }
+      }
+
+      private string StartingFolder
+      {
+         get
+         {
+            var result = string.Empty;
+            if (_mainWindow.StartingFolderComboBox.InvokeRequired)
+               _mainWindow.StartingFolderComboBox.Invoke(
+                  (Action) (() =>
+                  {
+                     result = _mainWindow.StartingFolderComboBox.Text;
+                  })
+               );
+            else
+               result = _mainWindow.StartingFolderComboBox.Text;
+
+            return result;
+         }
+      }
+
       /// <summary>
       /// Occurs when the processing is done.
       /// </summary>
@@ -195,11 +251,7 @@ namespace MassFileRenamer.GUI
 
       private void CommenceRenameOperation()
          => Task.Run(
-            () => _renamer.ProcessAll(
-               _mainWindow.StartingFolderComboBox.Text,
-               _mainWindow.FindWhatComboBox.Text,
-               _mainWindow.ReplaceWithComboBox.Text
-            )
+            () => _renamer.ProcessAll(StartingFolder, FindWhat, ReplaceWith)
          );
 
       private string GetOperationStartedText(OperationType type)
@@ -344,18 +396,17 @@ namespace MassFileRenamer.GUI
 
       private void ValidateInputs()
       {
-         if (!Directory.Exists(_mainWindow.StartingFolderComboBox.Text))
+         if (!Directory.Exists(StartingFolder))
             throw new DirectoryNotFoundException(
                string.Format(
-                  Resources.Error_RootDirectoryNotFound,
-                  _mainWindow.StartingFolderComboBox.Text
+                  Resources.Error_RootDirectoryNotFound, StartingFolder
                )
             );
-         if (string.IsNullOrWhiteSpace(_mainWindow.FindWhatComboBox.Text))
+         if (string.IsNullOrWhiteSpace(FindWhat))
             throw new InvalidOperationException(
                Resources.Error_FindWhatRequired
             );
-         if (string.IsNullOrWhiteSpace(_mainWindow.ReplaceWithComboBox.Text))
+         if (string.IsNullOrWhiteSpace(ReplaceWith))
             throw new InvalidOperationException(
                Resources.Error_ReplaceWithBlank
             );

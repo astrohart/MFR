@@ -77,7 +77,6 @@ namespace MassFileRenamer.GUI
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "[AppTitle]";
-         this.TopMost = true;
          this.ResumeLayout(false);
 
       }

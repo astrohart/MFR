@@ -62,7 +62,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       public ComboBox FindWhatComboBox
       {
-         [DebuggerStepThrough] get => _findWhatComboBox;
+         [DebuggerStepThrough] get => findWhatcomboBox;
       }
 
       /// <summary>
@@ -71,7 +71,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       public ComboBox ReplaceWithComboBox
       {
-         [DebuggerStepThrough] get => _replaceWithComboBox;
+         [DebuggerStepThrough] get => replaceWithComboBox;
       }
 
       /// <summary>
@@ -80,7 +80,7 @@ namespace MassFileRenamer.GUI
       /// </summary>
       public ComboBox StartingFolderComboBox
       {
-         [DebuggerStepThrough] get => _startingFolderComboBox;
+         [DebuggerStepThrough] get => startingFolderComboBox;
       }
 
       /// <summary>
@@ -235,11 +235,8 @@ namespace MassFileRenamer.GUI
                this, ex.Message, Application.ProductName, MessageBoxButtons.OK,
                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
             );
-         }
-         finally
-         {
-            Enabled = true;
 
+            Enabled = true;
             UseWaitCursor = false;
          }
       }
@@ -366,10 +363,9 @@ namespace MassFileRenamer.GUI
                   _presenter.Configuration.StartingFolder
                );
             if (_presenter.Configuration.StartingFolderHistory.Any())
-               StartingFolderComboBox.Items.AddRange(
-                  _presenter.Configuration.StartingFolderHistory.Cast<object>()
-                     .ToArray()
-               );
+               foreach (var item in _presenter.Configuration
+                  .StartingFolderHistory.Distinct())
+                  StartingFolderComboBox.Items.AddDistinct(item);
             FindWhatComboBox.Text = _presenter.Configuration.FindWhat;
             FindWhatComboBox.Items.Clear();
             if (!string.IsNullOrWhiteSpace(_presenter.Configuration.FindWhat))
@@ -377,10 +373,9 @@ namespace MassFileRenamer.GUI
                   _presenter.Configuration.FindWhat
                );
             if (_presenter.Configuration.FindWhatHistory.Any())
-               FindWhatComboBox.Items.AddRange(
-                  _presenter.Configuration.FindWhatHistory.Cast<object>()
-                     .ToArray()
-               );
+               foreach (var item in _presenter.Configuration.FindWhatHistory
+                  .Distinct())
+                  FindWhatComboBox.Items.AddDistinct(item);
             ReplaceWithComboBox.Text = _presenter.Configuration.ReplaceWith;
             ReplaceWithComboBox.Items.Clear();
             if (!string.IsNullOrWhiteSpace(_presenter.Configuration.ReplaceWith)
@@ -389,10 +384,9 @@ namespace MassFileRenamer.GUI
                   _presenter.Configuration.ReplaceWith
                );
             if (_presenter.Configuration.ReplaceWithHistory.Any())
-               ReplaceWithComboBox.Items.AddRange(
-                  _presenter.Configuration.ReplaceWithHistory.Cast<object>()
-                     .ToArray()
-               );
+               foreach (var item in _presenter.Configuration.ReplaceWithHistory
+                  .Distinct())
+                  ReplaceWithComboBox.Items.AddDistinct(item);
          }
       }
    }
