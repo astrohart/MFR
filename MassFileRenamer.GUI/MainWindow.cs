@@ -31,6 +31,7 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Gets a string containing this application's version.
       /// </summary>
+      /// <remarks>Thanks https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral</remarks>
       public string Version { get; } = Assembly.GetExecutingAssembly().GetName()
          .Version.ToString();
 
