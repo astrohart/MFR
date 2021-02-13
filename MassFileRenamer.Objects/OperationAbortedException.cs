@@ -2,6 +2,9 @@
 
 namespace MassFileRenamer.Objects
 {
+    /// <summary>
+    /// Signals that a request has been made to abort an operation.
+    /// </summary>
     public class OperationAbortedException : Exception
     {
         /// <summary>

@@ -38,6 +38,11 @@ namespace MassFileRenamer.GUI
         event EventHandler Finished;
 
         /// <summary>
+        /// Occurs when an exception is thrown during a file operation.
+        /// </summary>
+        event ExceptionRaisedEventHandler OperationError;
+
+        /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
         event EventHandler Started;
@@ -46,6 +51,18 @@ namespace MassFileRenamer.GUI
         /// Dismisses the progress dialog.
         /// </summary>
         void CloseProgressDialog();
+
+        /// <summary>
+        /// Exports the configuration to a file on the disk.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) String containing the pathname of the file to be written.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="pathname" />, is
+        /// passed a blank or <c>null</c> value.
+        /// </exception>
+        void ExportConfiguration(string pathname);
 
         /// <summary>
         /// Imports configuration from a JSON file located on the disk.
@@ -73,17 +90,5 @@ namespace MassFileRenamer.GUI
         /// Shows the progress window.
         /// </summary>
         void ShowProgressDialog();
-
-        /// <summary>
-        /// Exports the configuration to a file on the disk.
-        /// </summary>
-        /// <param name="pathname">
-        /// (Required.) String containing the pathname of the file to be written.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="pathname" />, is
-        /// passed a blank or <c>null</c> value.
-        /// </exception>
-        void ExportConfiguration(string pathname);
     }
 }

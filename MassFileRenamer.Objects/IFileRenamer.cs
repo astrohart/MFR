@@ -250,5 +250,10 @@ namespace MassFileRenamer.Objects
         /// </exception>
         void ReplaceTextInFiles(string rootFolderPath, string findWhat,
             string replaceWith, Func<string, bool> pathFilter = null);
+
+        /// <summary>
+        /// Sets a flag requesting the currently-executing operation to abort as soon as possible.
+        /// </summary>
+        void RequestAbort();
     }
 }

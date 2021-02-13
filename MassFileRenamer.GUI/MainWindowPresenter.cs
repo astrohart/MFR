@@ -168,6 +168,11 @@ namespace MassFileRenamer.GUI
         public event EventHandler Finished;
 
         /// <summary>
+        /// Occurs when an exception is thrown during a file operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler OperationError;
+
+        /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
         public event EventHandler Started;
@@ -268,7 +273,7 @@ namespace MassFileRenamer.GUI
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    $"*** ERROR *** Failed to export the configuration."
+                    "*** ERROR *** Failed to export the configuration."
                 );
 
                 // dump all the exception info to the log
@@ -519,6 +524,19 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Raises the
         /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.OperationError" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
+            => OperationError?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
         ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started" />
         /// event.
         /// </summary>
@@ -614,6 +632,7 @@ namespace MassFileRenamer.GUI
         {
             if (_renamer == null) return;
 
+            _renamer.ExceptionRaised += OnExceptionRaised;
             _renamer.OperationFinished += (sender, eventArgs)
                 => ResetProgressBar();
             _renamer.OperationStarted += (sender, eventArgs)
@@ -660,6 +679,34 @@ namespace MassFileRenamer.GUI
             );
 
             Configuration = ConfigurationSerializer.Load(ConfigurationPathname);
+        }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.ExceptionRaised" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to such an event by showing the user a message
+        /// box, logging the error, and then aborting the operation.
+        /// </remarks>
+        private void OnExceptionRaised(object sender,
+            ExceptionRaisedEventArgs e)
+        {
+            MessageBox.Show(
+                _mainWindow, $"A problem has occurred.\n{e.Exception.Message}",
+                Application.ProductName, MessageBoxButtons.OK,
+                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+            );
+            OnOperationError(new ExceptionRaisedEventArgs(e.Exception));
+            _renamer.RequestAbort();
         }
 
         /// <summary>

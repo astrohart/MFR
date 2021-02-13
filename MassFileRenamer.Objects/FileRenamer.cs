@@ -43,6 +43,21 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Occurs when an exception is thrown from an operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler ExceptionRaised;
+
+        /// <summary>
         /// Occurs when files to be renamed have been counted.
         /// </summary>
         public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
@@ -145,56 +160,65 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            OnStarted();
+            try
+            {
+                OnStarted();
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    )
+                );
 
-            RenameSubFoldersOf(
-                RootDirectoryPath, findWhat, replaceWith, pathFilter
-            );
+                RenameSubFoldersOf(
+                    RootDirectoryPath, findWhat, replaceWith, pathFilter
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"*** Finished processing subfolders of '{RootDirectoryPath}'."
-                )
-            );
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+                    )
+                );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    )
+                );
 
-            RenameFilesInFolder(
-                RootDirectoryPath, findWhat, replaceWith, pathFilter
-            );
+                RenameFilesInFolder(
+                    RootDirectoryPath, findWhat, replaceWith, pathFilter
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+                    )
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    )
+                );
 
-            ReplaceTextInFiles(
-                RootDirectoryPath, findWhat, replaceWith, pathFilter
-            );
+                ReplaceTextInFiles(
+                    RootDirectoryPath, findWhat, replaceWith, pathFilter
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
-                )
-            );
-
-            OnFinished();
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+                    )
+                );
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = false;
+            }
+            finally
+            {
+                OnFinished();
+            }
         }
 
         /// <summary>
@@ -320,6 +344,8 @@ namespace MassFileRenamer.Objects
                 ))
                     try
                     {
+                        if (AbortRequested) break;
+
                         OnProcessingOperation(
                             new ProcessingOperationEventArgs(
                                 filename, OperationType.RenameFilesInFolder
@@ -336,16 +362,22 @@ namespace MassFileRenamer.Objects
                         continue; /* explicit continue statement */
                     }
 
-                OnOperationFinished(
-                    new OperationFinishedEventArgs(
-                        OperationType.RenameFilesInFolder
-                    )
-                );
+                if (!AbortRequested)
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.RenameFilesInFolder
+                        )
+                    );
             }
             catch (Exception ex)
             {
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    "The operation has been aborted."
+                );
         }
 
         /// <summary>
@@ -437,6 +469,8 @@ namespace MassFileRenamer.Objects
                     ))
                     try
                     {
+                        if (AbortRequested) break;
+
                         OnProcessingOperation(
                             new ProcessingOperationEventArgs(
                                 dirInfo.FullName, OperationType.RenameSubFolders
@@ -456,16 +490,22 @@ namespace MassFileRenamer.Objects
                         continue; /* explicit continue statement */
                     }
 
-                OnOperationFinished(
-                    new OperationFinishedEventArgs(
-                        OperationType.RenameSubFolders
-                    )
-                );
+                if (!AbortRequested)
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.RenameSubFolders
+                        )
+                    );
             }
             catch (Exception ex)
             {
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    "The operation has been aborted."
+                );
         }
 
         /// <summary>
@@ -547,6 +587,8 @@ namespace MassFileRenamer.Objects
                 ))
                     try
                     {
+                        if (AbortRequested) break;
+
                         OnProcessingOperation(
                             new ProcessingOperationEventArgs(
                                 filename, OperationType.ReplaceTextInFiles
@@ -570,22 +612,26 @@ namespace MassFileRenamer.Objects
                         continue; /* explicit continue statement */
                     }
 
-                OnOperationFinished(
-                    new OperationFinishedEventArgs(
-                        OperationType.ReplaceTextInFiles
-                    )
-                );
+                if (!AbortRequested)
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.ReplaceTextInFiles
+                        )
+                    );
             }
             catch (Exception ex)
             {
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    "The operation has been aborted."
+                );
         }
 
-        /// <summary>
-        /// Occurs when an exception is thrown from an operation.
-        /// </summary>
-        public event ExceptionRaisedEventHandler ExceptionRaised;
+        public void RequestAbort()
+            => AbortRequested = true;
 
         /// <summary>
         /// Raises the
