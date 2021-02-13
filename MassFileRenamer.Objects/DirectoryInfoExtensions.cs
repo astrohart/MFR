@@ -25,6 +25,10 @@ namespace MassFileRenamer.Objects
          if (folderToBeRenamed == null) return false;
          if (string.IsNullOrWhiteSpace(newSubFolderPath)) return false;
 
+         // stop if the destination already exists.
+         if (Directory.Exists(newSubFolderPath))
+             return false;
+
          try
          {
             folderToBeRenamed.MoveTo(newSubFolderPath);
