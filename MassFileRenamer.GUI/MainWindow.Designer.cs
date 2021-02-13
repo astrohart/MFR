@@ -48,6 +48,14 @@ namespace MassFileRenamer.GUI
             this.viewStatusBar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolsImportExportConfigMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsImportConfig = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsExportConfig = new System.Windows.Forms.ToolStripMenuItem();
+            this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
+            this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
+            this.operationsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.operationsPerform = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +175,7 @@ namespace MassFileRenamer.GUI
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.viewMenu,
+            this.operationsMenu,
             this.toolsMenu});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
@@ -210,6 +219,8 @@ namespace MassFileRenamer.GUI
             // toolsMenu
             // 
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsImportExportConfigMenu,
+            this.toolStripSeparator1,
             this.toolsOptions});
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
@@ -218,9 +229,63 @@ namespace MassFileRenamer.GUI
             // toolsOptions
             // 
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(116, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(247, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(244, 6);
+            // 
+            // toolsImportExportConfigMenu
+            // 
+            this.toolsImportExportConfigMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsImportConfig,
+            this.toolsExportConfig});
+            this.toolsImportExportConfigMenu.Name = "toolsImportExportConfigMenu";
+            this.toolsImportExportConfigMenu.Size = new System.Drawing.Size(247, 22);
+            this.toolsImportExportConfigMenu.Text = "I&mport and Export Configuration";
+            // 
+            // toolsImportConfig
+            // 
+            this.toolsImportConfig.Name = "toolsImportConfig";
+            this.toolsImportConfig.Size = new System.Drawing.Size(196, 22);
+            this.toolsImportConfig.Text = "&Import Configuration...";
+            // 
+            // toolsExportConfig
+            // 
+            this.toolsExportConfig.Name = "toolsExportConfig";
+            this.toolsExportConfig.Size = new System.Drawing.Size(196, 22);
+            this.toolsExportConfig.Text = "E&xport Configuration...";
+            // 
+            // importConfigDialog
+            // 
+            this.importConfigDialog.DefaultExt = "json";
+            this.importConfigDialog.FileName = "config.json";
+            this.importConfigDialog.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
+            this.importConfigDialog.Title = "Import Configuration";
+            // 
+            // exportConfigDialog
+            // 
+            this.exportConfigDialog.DefaultExt = "json";
+            this.exportConfigDialog.FileName = "config.json";
+            this.exportConfigDialog.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
+            this.exportConfigDialog.Title = "Export Configuration";
+            // 
+            // operationsMenu
+            // 
+            this.operationsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.operationsPerform});
+            this.operationsMenu.Name = "operationsMenu";
+            this.operationsMenu.Size = new System.Drawing.Size(77, 20);
+            this.operationsMenu.Text = "&Operations";
+            // 
+            // operationsPerform
+            // 
+            this.operationsPerform.Name = "operationsPerform";
+            this.operationsPerform.Size = new System.Drawing.Size(180, 22);
+            this.operationsPerform.Text = "&Perform";
             // 
             // MainWindow
             // 
@@ -276,6 +341,14 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem viewMenu;
         private System.Windows.Forms.ToolStripMenuItem viewStatusBar;
+        private System.Windows.Forms.ToolStripMenuItem toolsImportExportConfigMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolsImportConfig;
+        private System.Windows.Forms.ToolStripMenuItem toolsExportConfig;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.OpenFileDialog importConfigDialog;
+        private System.Windows.Forms.SaveFileDialog exportConfigDialog;
+        private System.Windows.Forms.ToolStripMenuItem operationsMenu;
+        private System.Windows.Forms.ToolStripMenuItem operationsPerform;
     }
 }
 
