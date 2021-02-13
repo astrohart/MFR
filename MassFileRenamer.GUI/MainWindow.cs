@@ -174,6 +174,7 @@ namespace MassFileRenamer.GUI
             _presenter = new MainWindowPresenter(
                 this, new FileRenamer(), configurationPathname
             );
+            _presenter.ConfigurationUpdated += OnPresenterConfigurationUpdated;
             _presenter.Started += OnPresenterStarted;
             _presenter.Finished += OnPresenterFinished;
         }
@@ -350,6 +351,29 @@ namespace MassFileRenamer.GUI
             e.Handled =
                 true; // instruct the Options dialog box to re-gray out the Apply button
         }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationUpdated" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by triggering an update of the
+        /// screen from values stored in the configuration object in the
+        /// <see
+        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.Configuration" />
+        /// property. This happens most often as a the result of the Import
+        /// Configuration command on the Tools menu.
+        /// </remarks>
+        private void OnPresenterConfigurationUpdated(object sender, EventArgs e)
+            => UpdateData(false);
 
         /// <summary>
         /// Handles the
