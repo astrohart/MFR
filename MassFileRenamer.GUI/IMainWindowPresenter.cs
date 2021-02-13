@@ -52,6 +52,16 @@ namespace MassFileRenamer.GUI
       /// </summary>
       event EventHandler ConfigurationUpdated;
 
+      /// <summary>
+      /// Imports configuration from a JSON file located on the disk.
+      /// </summary>
+      /// <param name="pathname">
+      /// (Required.) String containing the path to the file.
+      /// </param>
+      /// <remarks>
+      /// This method does nothing if the <paramref name="pathname" />
+      /// parameter is blank or the file does not exist.
+      /// </remarks>
       void ImportConfiguration(string pathname);
    }
 }
