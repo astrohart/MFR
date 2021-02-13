@@ -1,6 +1,7 @@
 ﻿using MassFileRenamer.Objects;
 using Microsoft.Win32;
 using System;
+using System.ComponentModel.Design;
 using System.IO;
 using xyLOGIX.Core.Debug;
 
@@ -192,6 +193,9 @@ namespace MassFileRenamer.GUI
             ))
                 try
                 {
+                    if (key == null)
+                        return defaultValue;
+
                     result = key.GetValue(
                         valueName, defaultValue, RegistryValueOptions.None
                     ).ToString();
@@ -279,14 +283,18 @@ namespace MassFileRenamer.GUI
             using (var baseKey = RegistryKey.OpenBaseKey(
                 RegistryHive.CurrentUser, RegistryView.Default
             ))
-            using (var key = baseKey.OpenSubKey(keyName, true))
+            using (var key = baseKey.CreateSubKey(keyName))
                 try
                 {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** SUCCESS *** Registry key '{key.Name}' opened for writing."
+                    );
+
                     key.SetValue(valueName, valueData);
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Info, "*** SUCCESS *** Value data written."
-                    );
+                        DebugLevel.Info, $@"*** SUCCESS *** Value data written to the '{key.Name}\{valueName} value'.");
                 }
                 catch (Exception ex)
                 {
