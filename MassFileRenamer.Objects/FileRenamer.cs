@@ -1,14 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Provides file- an folder-rename services.
     /// </summary>
-    sealed public class FileRenamer : IFileRenamer
+    public class FileRenamer : IFileRenamer
     {
         /// <summary>
         /// Constructs a new instance of
@@ -333,8 +332,8 @@ namespace MassFileRenamer.Objects
                     }
                     catch (Exception ex)
                     {
-                        // dump all the exception info to the log
-                        DebugUtils.LogException(ex);
+                        OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+                        continue; /* explicit continue statement */
                     }
 
                 OnOperationFinished(
@@ -345,8 +344,7 @@ namespace MassFileRenamer.Objects
             }
             catch (Exception ex)
             {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
         }
 
@@ -454,8 +452,8 @@ namespace MassFileRenamer.Objects
                     }
                     catch (Exception ex)
                     {
-                        // dump all the exception info to the log
-                        DebugUtils.LogException(ex);
+                        OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+                        continue; /* explicit continue statement */
                     }
 
                 OnOperationFinished(
@@ -466,8 +464,7 @@ namespace MassFileRenamer.Objects
             }
             catch (Exception ex)
             {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
         }
 
@@ -569,8 +566,8 @@ namespace MassFileRenamer.Objects
                     }
                     catch (Exception ex)
                     {
-                        // dump all the exception info to the log
-                        DebugUtils.LogException(ex);
+                        OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+                        continue; /* explicit continue statement */
                     }
 
                 OnOperationFinished(
@@ -581,10 +578,27 @@ namespace MassFileRenamer.Objects
             }
             catch (Exception ex)
             {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
         }
+
+        /// <summary>
+        /// Occurs when an exception is thrown from an operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler ExceptionRaised;
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.ExceptionRaised" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+            => ExceptionRaised?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
