@@ -143,12 +143,6 @@ namespace MassFileRenamer.GUI
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
-        /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if a file with pathname specified by the
-        /// <paramref
-        ///     name="configurationPathname" />
-        /// parameter cannot be found.
-        /// </exception>
         private void InitializePresenter(string configurationPathname)
         {
             if (string.IsNullOrWhiteSpace(configurationPathname))
