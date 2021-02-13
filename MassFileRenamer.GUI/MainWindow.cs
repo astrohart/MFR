@@ -174,7 +174,8 @@ namespace MassFileRenamer.GUI
             _presenter = new MainWindowPresenter(
                 this, new FileRenamer(), configurationPathname
             );
-            _presenter.ConfigurationImported += OnPresenterConfigurationImported;
+            _presenter.ConfigurationImported +=
+                OnPresenterConfigurationImported;
             _presenter.Started += OnPresenterStarted;
             _presenter.Finished += OnPresenterFinished;
         }
@@ -373,9 +374,17 @@ namespace MassFileRenamer.GUI
         /// property. This happens most often as a the result of the Import
         /// Configuration command on the Tools menu.
         /// </remarks>
-        private void OnPresenterConfigurationImported(object sender, EventArgs e)
+        private void OnPresenterConfigurationImported(object sender,
+            ConfigurationImportedEventArgs e)
         {
             UpdateData(false);
+
+            MessageBox.Show(
+                this,
+                $"Successfully imported the configuration from the file with path '{e.Path}'.",
+                Application.ProductName, MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
+            );
         }
 
         /// <summary>

@@ -82,6 +82,8 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationImportedEventArgs.cs" />
+    <Compile Include="ConfigurationImportedEventHandler.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="DirectoryInfoFactory.cs" />
     <Compile Include="FileInfoExtensions.cs" />

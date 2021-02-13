@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassFileRenamer.Objects;
+using System;
 
 namespace MassFileRenamer.GUI
 {
@@ -23,7 +24,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Occurs when the configuration has been updated, say, by an import process.
         /// </summary>
-        event EventHandler ConfigurationImported;
+        event ConfigurationImportedEventHandler ConfigurationImported;
 
         /// <summary>
         /// Occurs when the processing is done.

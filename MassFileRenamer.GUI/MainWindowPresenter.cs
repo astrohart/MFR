@@ -165,7 +165,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Occurs when the configuration has been updated, say, by an import process.
         /// </summary>
-        public event EventHandler ConfigurationImported;
+        public event ConfigurationImportedEventHandler ConfigurationImported;
 
         /// <summary>
         /// Occurs when the processing is done.
@@ -345,7 +345,9 @@ namespace MassFileRenamer.GUI
 
                 LoadConfiguration(ConfigurationPathname);
 
-                OnConfigurationUpdated();
+                OnConfigurationUpdated(
+                    new ConfigurationImportedEventArgs(pathname)
+                );
             }
             catch (Exception ex)
             {
@@ -394,8 +396,15 @@ namespace MassFileRenamer.GUI
         ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationImported" />
         /// event.
         /// </summary>
-        protected virtual void OnConfigurationUpdated()
-            => ConfigurationImported?.Invoke(this, EventArgs.Empty);
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationImportedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnConfigurationUpdated(
+            ConfigurationImportedEventArgs e)
+            => ConfigurationImported?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
