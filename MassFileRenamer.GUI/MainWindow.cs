@@ -54,7 +54,18 @@ namespace MassFileRenamer.GUI
             InitializeComponent();
 
             InitializePresenter(configurationPathname);
+
+            Application.Idle += OnUpdateCmdUI;
         }
+
+        /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.Text) &&
+               Directory.Exists(StartingFolderComboBox.Text) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.Text) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -410,6 +421,31 @@ namespace MassFileRenamer.GUI
                     ConfigurationProvider.SaveConfigurationPath();
                 }
             }
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.Application.Idle" /> event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by updating the enabled/disabled
+        /// state of controls and menu items, unless the
+        /// <see
+        ///     cref="P:System.Windows.Forms.Control.Enabled" />
+        /// property is
+        /// <c>false</c>, which means an operation is in progress.
+        /// </remarks>
+        private void OnUpdateCmdUI(object sender, EventArgs e)
+        {
+            if (!Enabled) return;
+
+            performOperationButton.Enabled =
+                operationsPerform.Enabled = IsDataValid;
         }
 
         /// <summary>
