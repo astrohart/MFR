@@ -44,7 +44,7 @@ namespace MassFileRenamer.GUI
                 Environment.GetFolderPath(
                     Environment.SpecialFolder.CommonApplicationData
                 ), Application.CompanyName
-            ), "Config"
+            ), @"MassFileRenamer\Config"
         );
 
         /// <summary>
