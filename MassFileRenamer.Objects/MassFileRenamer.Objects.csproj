@@ -98,9 +98,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FormFoldedEventHandler.cs" />
-    <Compile Include="GlobalAspects.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="InvalidPathException.cs" />
+    <Compile Include="Modified.cs" />
+    <Compile Include="ModifiedEventArgs.cs" />
     <Compile Include="OperationCancelEventArgs.cs" />
     <Compile Include="OperationEventArgs.cs" />
     <Compile Include="OperationFinishedEventHandler.cs" />

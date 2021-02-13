@@ -1,0 +1,19 @@
+﻿using System;
+
+namespace MassFileRenamer.Objects
+{
+    /// <summary>
+    /// Provides information for a Modified event.
+    /// </summary>
+    public class ModifiedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// Gets or sets a value indicating whether a Modified event has been handled.  Can be set by handlers of the event.
+        /// </summary>
+        public bool Handled
+        {
+            get;
+            set;
+        }
+    }
+}
