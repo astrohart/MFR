@@ -1,688 +1,772 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
-   /// <summary>
-   /// Provides file- an folder-rename services.
-   /// </summary>
-   public sealed class FileRenamer : IFileRenamer
-   {
-      /// <summary>
-      /// Constructs a new instance of
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.FileRenamer" />
-      /// and returns a reference
-      /// to it.
-      /// </summary>
-      public FileRenamer()
-      {
-         RootDirectoryPath = string.Empty;
-      }
+    /// <summary>
+    /// Provides file- an folder-rename services.
+    /// </summary>
+    sealed public class FileRenamer : IFileRenamer
+    {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileRenamer" />
+        /// and returns a
+        /// reference to it.
+        /// </summary>
+        public FileRenamer()
+        {
+            RootDirectoryPath = string.Empty;
+        }
 
-      /// <summary>
-      /// Constructs a new instance of
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.FileRenamer" />
-      /// and returns a reference
-      /// to it.
-      /// </summary>
-      /// <param name="rootDirectoryPath">
-      /// Path to the recursion root.
-      /// </param>
-      public FileRenamer(string rootDirectoryPath)
-      {
-         if (string.IsNullOrWhiteSpace(rootDirectoryPath))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(rootDirectoryPath)
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileRenamer" />
+        /// and returns a
+        /// reference to it.
+        /// </summary>
+        /// <param name="rootDirectoryPath">
+        /// Path to the recursion root.
+        /// </param>
+        public FileRenamer(string rootDirectoryPath)
+        {
+            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootDirectoryPath)
+                );
+
+            RootDirectoryPath = rootDirectoryPath;
+        }
+
+        /// <summary>
+        /// Occurs when files to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
+
+        /// <summary>
+        /// Occurs when files to be processed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            FilesToHaveTextReplacedCounted;
+
+        /// <summary>
+        /// Occurs when a file system entry (e.g., a file or a folder) does not
+        /// meet the criteria for being included in an operation.
+        /// </summary>
+        public event FileSystemEntrySkippedEventHandler FileSystemEntrySkipped;
+
+        /// <summary>
+        /// Occurs when the processing is completely finished.
+        /// </summary>
+        public event EventHandler Finished;
+
+        /// <summary>
+        /// Occurs when an operation has completed.
+        /// </summary>
+        public event OperationFinishedEventHandler OperationFinished;
+
+        /// <summary>
+        /// Occurs when an operation has commenced.
+        /// </summary>
+        public event OperationStartedEventHandler OperationStarted;
+
+        /// <summary>
+        /// Occurs when an operation is about to be processed for a file or a folder.
+        /// </summary>
+        public event ProcessingOperationEventHandler ProcessingOperation;
+
+        /// <summary>
+        /// Occurs when the processing has started.
+        /// </summary>
+        public event EventHandler Started;
+
+        /// <summary>
+        /// Occurs when a textual status message is available for display.
+        /// </summary>
+        public event StatusUpdateEventHandler StatusUpdate;
+
+        /// <summary>
+        /// Occurs when subfolders to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SubfoldersToBeRenamedCounted;
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        public string RootDirectoryPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+        /// Files operation on all the folders and files in the root folder with
+        /// the pathname stored in the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath" />
+        /// property.
+        /// </summary>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) If specified, a delegate that accepts as its sole
+        /// parameter a string containing the pathname to the item currently
+        /// being processed, and that returns a Boolean value. If the value
+        /// returned is <c>true</c>, the item with the pathname matching that of
+        /// the input is included in the operations; <c>false</c> means the item
+        /// is excluded.
+        /// </param>
+        public void ProcessAll(string findWhat, string replaceWith,
+            Func<string, bool> pathFilter = null)
+        {
+            if (string.IsNullOrWhiteSpace(RootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(RootDirectoryPath)
+                );
+            if (string.IsNullOrWhiteSpace(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(findWhat)
+                );
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(replaceWith)
+                );
+
+            OnStarted();
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
             );
 
-         RootDirectoryPath = rootDirectoryPath;
-      }
-
-      /// <summary>
-      /// Occurs when files to be renamed have been counted.
-      /// </summary>
-      public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
-
-      /// <summary>
-      /// Occurs when files to be processed have been counted.
-      /// </summary>
-      public event FilesOrFoldersCountedEventHandler
-         FilesToHaveTextReplacedCounted;
-
-      /// <summary>
-      /// Occurs when an operation has completed.
-      /// </summary>
-      public event OperationFinishedEventHandler OperationFinished;
-
-      /// <summary>
-      /// Occurs when an operation has commenced.
-      /// </summary>
-      public event OperationStartedEventHandler OperationStarted;
-
-      /// <summary>
-      /// Occurs when an operation is about to be processed for a file or a folder.
-      /// </summary>
-      public event ProcessingOperationEventHandler ProcessingOperation;
-
-      /// <summary>
-      /// Occurs when a textual status message is available for display.
-      /// </summary>
-      public event StatusUpdateEventHandler StatusUpdate;
-
-      /// <summary>
-      /// Occurs when subfolders to be renamed have been counted.
-      /// </summary>
-      public event FilesOrFoldersCountedEventHandler
-         SubfoldersToBeRenamedCounted;
-
-      /// <summary>
-      /// Gets a string containing the full pathname of the folder where all
-      /// operations start.
-      /// </summary>
-      public string RootDirectoryPath { get; private set; }
-
-      /// <summary>
-      /// Executes the Rename Subfolders, Rename Files, and Replace Text in
-      /// Files operation on all the folders and files in the root folder with
-      /// the pathname stored in the
-      /// <see
-      ///    cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath" />
-      /// property.
-      /// </summary>
-      /// <param name="findWhat">
-      /// (Required.) String containing the text to search for.
-      /// </param>
-      /// <param name="replaceWith">
-      /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
-      /// </param>
-      /// <param name="pathFilter">
-      /// (Optional.) If specified, a delegate that accepts as its sole
-      /// parameter a string containing the pathname to the item currently being
-      /// processed, and that returns a Boolean value. If the value returned is
-      /// <c>true</c>, the item with the pathname matching that of the input is
-      /// included in the operations; <c>false</c> means the item is excluded.
-      /// </param>
-      public void ProcessAll(string findWhat, string replaceWith,
-         Func<string, bool> pathFilter = null)
-      {
-         if (string.IsNullOrWhiteSpace(RootDirectoryPath))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(RootDirectoryPath)
-            );
-         if (string.IsNullOrWhiteSpace(findWhat))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(findWhat)
-            );
-         if (string.IsNullOrWhiteSpace(replaceWith))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(replaceWith)
+            RenameSubFoldersOf(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
             );
 
-         OnStarted();
-
-         OnStatusUpdate(
-            new StatusUpdateEventArgs(
-               $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-            )
-         );
-
-         RenameSubFoldersOf(
-            RootDirectoryPath, findWhat, replaceWith, pathFilter
-         );
-
-         OnStatusUpdate(
-            new StatusUpdateEventArgs(
-               $"*** Finished processing subfolders of '{RootDirectoryPath}'."
-            )
-         );
-         OnStatusUpdate(
-            new StatusUpdateEventArgs(
-               $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-            )
-         );
-
-         RenameFilesInFolder(
-            RootDirectoryPath, findWhat, replaceWith, pathFilter
-         );
-
-         OnStatusUpdate(
-            new StatusUpdateEventArgs(
-               $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
-            )
-         );
-
-         OnStatusUpdate(
-            new StatusUpdateEventArgs(
-               $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-            )
-         );
-
-         ReplaceTextInFiles(
-            RootDirectoryPath, findWhat, replaceWith, pathFilter
-         );
-
-         OnStatusUpdate(
-            new StatusUpdateEventArgs(
-               $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
-            )
-         );
-
-         OnFinished();
-      }
-
-      /// <summary>
-      /// Executes the Rename Subfolders, Rename Files, and Replace Text in
-      /// Files operation on all the folders and files in the root folder with
-      /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
-      /// </summary>
-      /// <param name="rootDirectoryPath">
-      /// Path to the recursion root.
-      /// </param>
-      /// <param name="findWhat">
-      /// (Required.) String containing the text to search for.
-      /// </param>
-      /// <param name="replaceWith">
-      /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
-      /// </param>
-      /// <param name="pathFilter">
-      /// (Optional.) If specified, a delegate that accepts as its sole
-      /// parameter a string containing the pathname to the item currently being
-      /// processed, and that returns a Boolean value. If the value returned is
-      /// <c>true</c>, the item with the pathname matching that of the input is
-      /// included in the operations; <c>false</c> means the item is excluded.
-      /// </param>
-      public void ProcessAll(string rootDirectoryPath, string findWhat,
-         string replaceWith, Func<string, bool> pathFilter = null)
-      {
-         if (string.IsNullOrWhiteSpace(rootDirectoryPath))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(rootDirectoryPath)
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+                )
+            );
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
             );
 
-         RootDirectoryPath = rootDirectoryPath;
-
-         ProcessAll(findWhat, replaceWith, pathFilter);
-      }
-
-      /// <summary>
-      /// Renames all the files in the all the subfolders etc., recursively, of
-      /// the folder whose pathname is specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// parameter.
-      /// </summary>
-      /// <param name="rootFolderPath">
-      /// (Required.) String containing the full pathname of an existing
-      /// directory on the computer that is to be where the operation is started.
-      /// </param>
-      /// <param name="findWhat">
-      /// (Required.) String containing the text to search for.
-      /// </param>
-      /// <param name="replaceWith">
-      /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
-      /// </param>
-      /// <param name="pathFilter">
-      /// (Optional.) If specified, a delegate that accepts as its sole
-      /// parameter a string containing the pathname to the item currently being
-      /// processed, and that returns a Boolean value. If the value returned is
-      /// <c>true</c>, the item with the pathname matching that of the input is
-      /// included in the operations; <c>false</c> means the item is excluded.
-      /// </param>
-      /// <exception cref="T:System.ArgumentException">
-      /// Thrown if either the <paramref name="rootFolderPath" />,
-      /// <paramref
-      ///    name="findWhat" />
-      /// , or <paramref name="replaceWith" /> parameters are blank.
-      /// </exception>
-      /// <exception cref="T:System.IO.DirectoryNotFoundException">
-      /// Thrown if the folder with pathname specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// does not exist.
-      /// </exception>
-      /// <exception cref="T:System.IO.IOException">
-      /// Thrown if a file operation does not succeed.
-      /// </exception>
-      public void RenameFilesInFolder(string rootFolderPath, string findWhat,
-         string replaceWith, Func<string, bool> pathFilter = null)
-      {
-         if (string.IsNullOrWhiteSpace(rootFolderPath))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(rootFolderPath)
-            );
-         if (!Directory.Exists(rootFolderPath))
-            throw new DirectoryNotFoundException(
-               $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
-            );
-         if (string.IsNullOrWhiteSpace(findWhat))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(findWhat)
-            );
-         if (string.IsNullOrWhiteSpace(replaceWith))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(replaceWith)
+            RenameFilesInFolder(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
             );
 
-         OnOperationStarted(
-            new OperationStartedEventArgs(OperationType.RenameFilesInFolder)
-         );
-
-         var filenames = Directory
-            .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-            .Where(file => !FilePathValidator.ShouldSkipFile(file))
-            .Where(filename => filename.Contains(findWhat)).ToList();
-
-         OnFilesToBeRenamedCounted(
-            new FilesOrFoldersCountedEventArgs(
-               filenames.Count, OperationType.RenameFilesInFolder
-            )
-         );
-
-         foreach (var filename in filenames.Where(
-            filename => pathFilter == null || pathFilter(filename)
-         ))
-         {
-            OnProcessingOperation(
-               new ProcessingOperationEventArgs(
-                  filename, OperationType.RenameFilesInFolder
-               )
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+                )
             );
 
-            FileInfoFactory.Make(filename).RenameTo(
-               filename.Replace(findWhat, replaceWith)
-            );
-         }
-
-         OnOperationFinished(
-            new OperationFinishedEventArgs(OperationType.RenameFilesInFolder)
-         );
-      }
-
-      /// <summary>
-      /// Recursively renames all the subfolders in the folder having a pathname
-      /// specified by <paramref name="rootFolderPath" />, replacing any
-      /// occurrences of the text in the <paramref name="findWhat" /> parameter
-      /// with the values in the <paramref name="replaceWith" /> parameter.
-      /// </summary>
-      /// <param name="rootFolderPath">
-      /// (Required.) String containing the full pathname of an existing
-      /// directory on the computer that is to be where the operation is started.
-      /// </param>
-      /// <param name="findWhat">
-      /// (Required.) String containing the text to search for.
-      /// </param>
-      /// <param name="replaceWith">
-      /// (Required.) String containing the text to replace the text specified
-      /// by <paramref name="findWhat" /> with.
-      /// </param>
-      /// <param name="pathFilter">
-      /// (Optional.) If specified, a delegate that accepts as its sole
-      /// parameter a string containing the pathname to the item currently being
-      /// processed, and that returns a Boolean value. If the value returned is
-      /// <c>true</c>, the item with the pathname matching that of the input is
-      /// included in the operations; <c>false</c> means the item is excluded.
-      /// </param>
-      /// <exception cref="T:System.ArgumentException">
-      /// Thrown if either the <paramref name="rootFolderPath" />,
-      /// <paramref
-      ///    name="findWhat" />
-      /// , or <paramref name="replaceWith" /> parameters are blank.
-      /// </exception>
-      /// <exception cref="T:System.IO.DirectoryNotFoundException">
-      /// Thrown if the folder with pathname specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// does not exist.
-      /// </exception>
-      /// <exception cref="T:System.IO.IOException">
-      /// Thrown if a file operation does not succeed.
-      /// </exception>
-      public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
-         string replaceWith, Func<string, bool> pathFilter = null)
-      {
-         if (string.IsNullOrWhiteSpace(rootFolderPath))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(rootFolderPath)
-            );
-         if (!Directory.Exists(rootFolderPath))
-            throw new DirectoryNotFoundException(
-               $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
-            );
-         if (string.IsNullOrWhiteSpace(findWhat))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(findWhat)
-            );
-         if (string.IsNullOrWhiteSpace(replaceWith))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(replaceWith)
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
             );
 
-         OnOperationStarted(
-            new OperationStartedEventArgs(OperationType.RenameSubFolders)
-         );
-
-         var subFolders = Directory.GetDirectories(
-            rootFolderPath, "*", SearchOption.AllDirectories
-         ).Where(dir => !ShouldSkipFolder(dir)).ToList();
-
-         OnSubfoldersToBeRenamedCounted(
-            new FilesOrFoldersCountedEventArgs(
-               subFolders.Count, OperationType.RenameSubFolders
-            )
-         );
-
-         foreach (var dirInfo in subFolders
-            .Where(
-               subFolderName => pathFilter == null || pathFilter(subFolderName)
-            ).Select(DirectoryInfoFactory.Make).Where(
-               dirInfo => dirInfo != null &&
-                          PathAlreadyContains(dirInfo, findWhat)
-            ))
-         {
-            OnProcessingOperation(
-               new ProcessingOperationEventArgs(
-                  dirInfo.FullName, OperationType.RenameSubFolders
-               )
+            ReplaceTextInFiles(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
             );
 
-            dirInfo.RenameTo(
-               Path.Combine(
-                  dirInfo.Parent.FullName,
-                  dirInfo.Name.Replace(findWhat, replaceWith)
-               )
-            );
-         }
-
-         OnOperationFinished(
-            new OperationFinishedEventArgs(OperationType.RenameSubFolders)
-         );
-      }
-
-      /// <summary>
-      /// Iterates recursively through a directory tree, starting at the folder
-      /// with pathname <paramref name="rootFolderPath" /> and replacing every
-      /// occurrence of the text specified by the <paramref name="findWhat" />
-      /// parameter with the text specified by the
-      /// <paramref
-      ///    name="replaceWith" />
-      /// parameter. A case-sensitive, not-in-whole-word
-      /// search is performed.
-      /// </summary>
-      /// <param name="rootFolderPath">
-      /// (Required.) Pathname of the folder where the operation is to start.
-      /// </param>
-      /// <param name="findWhat">
-      /// (Required.) Text to be found in each file contained in the directory tree.
-      /// </param>
-      /// <param name="replaceWith">
-      /// (Optional.) Text to replace all the instances of
-      /// <paramref
-      ///    name="findWhat" />
-      /// with. If this parameter is blank (the default), then
-      /// the text is deleted.
-      /// </param>
-      /// <param name="pathFilter">
-      /// </param>
-      /// <exception cref="T:System.ArgumentException">
-      /// Thrown if either the <paramref name="rootFolderPath" /> or the
-      /// <paramref name="findWhat" /> parameters are blank.
-      /// </exception>
-      /// <exception cref="T:System.IO.DirectoryNotFoundException">
-      /// Thrown if the folder with pathname specified by the
-      /// <paramref
-      ///    name="rootFolderPath" />
-      /// does not exist.
-      /// </exception>
-      /// <exception cref="T:System.IO.IOException">
-      /// Thrown if a file operation does not succeed.
-      /// </exception>
-      public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
-         string replaceWith = "", Func<string, bool> pathFilter = null)
-      {
-         if (string.IsNullOrWhiteSpace(rootFolderPath))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(rootFolderPath)
-            );
-         if (!Directory.Exists(rootFolderPath))
-            throw new DirectoryNotFoundException(
-               $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
-            );
-         if (string.IsNullOrWhiteSpace(findWhat))
-            throw new ArgumentException(
-               "Value cannot be null or whitespace.", nameof(findWhat)
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+                )
             );
 
-         OnOperationStarted(
-            new OperationStartedEventArgs(OperationType.ReplaceTextInFiles)
-         );
+            OnFinished();
+        }
 
-         var filenames = Directory
-            .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-            .Where(file => !ShouldSkipFile(file)).ToList();
+        /// <summary>
+        /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+        /// Files operation on all the folders and files in the root folder with
+        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
+        /// </summary>
+        /// <param name="rootDirectoryPath">
+        /// Path to the recursion root.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) If specified, a delegate that accepts as its sole
+        /// parameter a string containing the pathname to the item currently
+        /// being processed, and that returns a Boolean value. If the value
+        /// returned is <c>true</c>, the item with the pathname matching that of
+        /// the input is included in the operations; <c>false</c> means the item
+        /// is excluded.
+        /// </param>
+        public void ProcessAll(string rootDirectoryPath, string findWhat,
+            string replaceWith, Func<string, bool> pathFilter = null)
+        {
+            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootDirectoryPath)
+                );
 
-         OnFilesToHaveTextReplacedCounted(
-            new FilesOrFoldersCountedEventArgs(
-               filenames.Count, OperationType.ReplaceTextInFiles
-            )
-         );
+            RootDirectoryPath = rootDirectoryPath;
 
-         foreach (var filename in filenames.Where(
-            filename => pathFilter == null || pathFilter(filename)
-         ))
-         {
-            OnProcessingOperation(
-               new ProcessingOperationEventArgs(
-                  filename, OperationType.ReplaceTextInFiles
-               )
-            );
+            ProcessAll(findWhat, replaceWith, pathFilter);
+        }
 
-            var text = File.ReadAllText(filename);
-            if (!text.Contains(findWhat))
-               continue;
+        /// <summary>
+        /// Renames all the files in the all the subfolders etc., recursively,
+        /// of the folder whose pathname is specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// parameter.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) String containing the full pathname of an existing
+        /// directory on the computer that is to be where the operation is started.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) If specified, a delegate that accepts as its sole
+        /// parameter a string containing the pathname to the item currently
+        /// being processed, and that returns a Boolean value. If the value
+        /// returned is <c>true</c>, the item with the pathname matching that of
+        /// the input is included in the operations; <c>false</c> means the item
+        /// is excluded.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public void RenameFilesInFolder(string rootFolderPath, string findWhat,
+            string replaceWith, Func<string, bool> pathFilter = null)
+        {
+            if (string.IsNullOrWhiteSpace(rootFolderPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootFolderPath)
+                );
+            if (!Directory.Exists(rootFolderPath))
+                throw new DirectoryNotFoundException(
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                );
+            if (string.IsNullOrWhiteSpace(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(findWhat)
+                );
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(replaceWith)
+                );
 
-            text = text.Replace(findWhat, replaceWith);
+            try
+            {
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameFilesInFolder
+                    )
+                );
 
-            if (File.Exists(filename))
-               File.Delete(filename);
+                var filenames = Directory
+                    .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
+                    .Where(file => !FilePathValidator.ShouldSkipFile(file))
+                    .Where(filename => filename.Contains(findWhat)).ToList();
 
-            File.WriteAllText(filename, text);
-         }
+                OnFilesToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        filenames.Count, OperationType.RenameFilesInFolder
+                    )
+                );
 
-         OnOperationFinished(
-            new OperationFinishedEventArgs(OperationType.ReplaceTextInFiles)
-         );
-      }
+                foreach (var filename in filenames.Where(
+                    filename => pathFilter == null || pathFilter(filename)
+                ))
+                    try
+                    {
+                        OnProcessingOperation(
+                            new ProcessingOperationEventArgs(
+                                filename, OperationType.RenameFilesInFolder
+                            )
+                        );
 
-      /// <summary>
-      /// Occurs when a file system entry (e.g., a file or a folder) does not
-      /// meet the criteria for being included in an operation.
-      /// </summary>
-      public event FileSystemEntrySkippedEventHandler FileSystemEntrySkipped;
+                        FileInfoFactory.Make(filename).RenameTo(
+                            filename.Replace(findWhat, replaceWith)
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        // dump all the exception info to the log
+                        DebugUtils.LogException(ex);
+                    }
 
-      /// <summary>
-      /// Occurs when the processing is completely finished.
-      /// </summary>
-      public event EventHandler Finished;
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.RenameFilesInFolder
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
-      /// <summary>
-      /// Occurs when the processing has started.
-      /// </summary>
-      public event EventHandler Started;
+        /// <summary>
+        /// Recursively renames all the subfolders in the folder having a
+        /// pathname specified by <paramref name="rootFolderPath" />, replacing
+        /// any occurrences of the text in the <paramref name="findWhat" />
+        /// parameter with the values in the <paramref name="replaceWith" /> parameter.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) String containing the full pathname of an existing
+        /// directory on the computer that is to be where the operation is started.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) If specified, a delegate that accepts as its sole
+        /// parameter a string containing the pathname to the item currently
+        /// being processed, and that returns a Boolean value. If the value
+        /// returned is <c>true</c>, the item with the pathname matching that of
+        /// the input is included in the operations; <c>false</c> means the item
+        /// is excluded.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
+            string replaceWith, Func<string, bool> pathFilter = null)
+        {
+            if (string.IsNullOrWhiteSpace(rootFolderPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootFolderPath)
+                );
+            if (!Directory.Exists(rootFolderPath))
+                throw new DirectoryNotFoundException(
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                );
+            if (string.IsNullOrWhiteSpace(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(findWhat)
+                );
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(replaceWith)
+                );
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileRenamer.FilesToBeRenamedCounted" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// A
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
-      /// that
-      /// contains the event data.
-      /// </param>
-      private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
-         => FilesToBeRenamedCounted?.Invoke(this, e);
+            try
+            {
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameSubFolders
+                    )
+                );
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileRenamer.FilesToHaveTextReplacedCounted" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// A
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
-      /// that
-      /// contains the event data.
-      /// </param>
-      private void OnFilesToHaveTextReplacedCounted(
-         FilesOrFoldersCountedEventArgs e)
-         => FilesToHaveTextReplacedCounted?.Invoke(this, e);
+                var subFolders = Directory.GetDirectories(
+                    rootFolderPath, "*", SearchOption.AllDirectories
+                ).Where(dir => !ShouldSkipFolder(dir)).ToList();
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// A
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs" />
-      /// that contains the event data.
-      /// </param>
-      private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
-         => FileSystemEntrySkipped?.Invoke(this, e);
+                OnSubfoldersToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        subFolders.Count, OperationType.RenameSubFolders
+                    )
+                );
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileRenamer.Finished" />
-      /// event.
-      /// </summary>
-      private void OnFinished()
-         => Finished?.Invoke(this, EventArgs.Empty);
+                foreach (var dirInfo in subFolders
+                    .Where(
+                        subFolderName
+                            => pathFilter == null || pathFilter(subFolderName)
+                    ).Select(DirectoryInfoFactory.Make).Where(
+                        dirInfo => dirInfo != null &&
+                                   PathAlreadyContains(dirInfo, findWhat)
+                    ))
+                    try
+                    {
+                        OnProcessingOperation(
+                            new ProcessingOperationEventArgs(
+                                dirInfo.FullName, OperationType.RenameSubFolders
+                            )
+                        );
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileRenamer.OperationFinished" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// An <see cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
-      /// that contains the event data.
-      /// </param>
-      private void OnOperationFinished(OperationFinishedEventArgs e)
-         => OperationFinished?.Invoke(this, e);
+                        dirInfo.RenameTo(
+                            Path.Combine(
+                                dirInfo.Parent.FullName,
+                                dirInfo.Name.Replace(findWhat, replaceWith)
+                            )
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        // dump all the exception info to the log
+                        DebugUtils.LogException(ex);
+                    }
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.OperationStartedEventHandler.OperationStarted" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs" />
-      /// that contains the event data.
-      /// </param>
-      private void OnOperationStarted(OperationStartedEventArgs e)
-         => OperationStarted?.Invoke(this, e);
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.RenameSubFolders
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
-      /// <summary>
-      /// Raises the <see cref="E:MassFileRenamer.Objects.ProcessingOperation" /> event.
-      /// </summary>
-      /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs" />
-      /// that contains the event data.
-      /// </param>
-      private void OnProcessingOperation(ProcessingOperationEventArgs e)
-         => ProcessingOperation?.Invoke(this, e);
+        /// <summary>
+        /// Iterates recursively through a directory tree, starting at the
+        /// folder with pathname <paramref name="rootFolderPath" /> and replacing
+        /// every occurrence of the text specified by the
+        /// <paramref
+        ///     name="findWhat" />
+        /// parameter with the text specified by the
+        /// <paramref
+        ///     name="replaceWith" />
+        /// parameter. A case-sensitive, not-in-whole-word
+        /// search is performed.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) Pathname of the folder where the operation is to start.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) Text to be found in each file contained in the directory tree.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Optional.) Text to replace all the instances of
+        /// <paramref
+        ///     name="findWhat" />
+        /// with. If this parameter is blank (the default),
+        /// then the text is deleted.
+        /// </param>
+        /// <param name="pathFilter">
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
+            string replaceWith = "", Func<string, bool> pathFilter = null)
+        {
+            if (string.IsNullOrWhiteSpace(rootFolderPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootFolderPath)
+                );
+            if (!Directory.Exists(rootFolderPath))
+                throw new DirectoryNotFoundException(
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                );
+            if (string.IsNullOrWhiteSpace(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(findWhat)
+                );
+            try
+            {
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.ReplaceTextInFiles
+                    )
+                );
 
-      /// <summary>
-      /// Raises the <see cref="E:MassFileRenamer.Objects.FileRenamer.Started" /> event.
-      /// </summary>
-      private void OnStarted()
-         => Started?.Invoke(this, EventArgs.Empty);
+                var filenames = Directory
+                    .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
+                    .Where(file => !ShouldSkipFile(file)).ToList();
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileRenamer.StatusUpdate" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs" /> that
-      /// contains the event data.
-      /// </param>
-      private void OnStatusUpdate(StatusUpdateEventArgs e)
-         => StatusUpdate?.Invoke(this, e);
+                OnFilesToHaveTextReplacedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        filenames.Count, OperationType.ReplaceTextInFiles
+                    )
+                );
 
-      /// <summary>
-      /// Raises the
-      /// <see
-      ///    cref="E:MassFileRenamer.Objects.FileRenamer.SubfoldersToBeRenamedCounted" />
-      /// event.
-      /// </summary>
-      /// <param name="e">
-      /// A
-      /// <see
-      ///    cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
-      /// that
-      /// contains the event data.
-      /// </param>
-      private void OnSubfoldersToBeRenamedCounted(
-         FilesOrFoldersCountedEventArgs e)
-         => SubfoldersToBeRenamedCounted?.Invoke(this, e);
+                foreach (var filename in filenames.Where(
+                    filename => pathFilter == null || pathFilter(filename)
+                ))
+                    try
+                    {
+                        OnProcessingOperation(
+                            new ProcessingOperationEventArgs(
+                                filename, OperationType.ReplaceTextInFiles
+                            )
+                        );
 
-      private bool PathAlreadyContains(FileSystemInfo entry, string findWhat)
-      {
-         if (entry == null)
-            return false;
+                        var text = File.ReadAllText(filename);
+                        if (!text.Contains(findWhat))
+                            continue;
 
-         if (!entry.Exists)
-            return false;
+                        text = text.Replace(findWhat, replaceWith);
 
-         if (string.IsNullOrWhiteSpace(findWhat))
-            return false;
+                        if (File.Exists(filename))
+                            File.Delete(filename);
 
-         var result = FolderPathValidator.PathContains(entry.Name, findWhat);
-         if (!result)
-            OnFileSystemEntrySkipped(
-               new FileSystemEntrySkippedEventArgs(entry.FullName)
-            );
-         return result;
-      }
+                        File.WriteAllText(filename, text);
+                    }
+                    catch (Exception ex)
+                    {
+                        // dump all the exception info to the log
+                        DebugUtils.LogException(ex);
+                    }
 
-      private bool ShouldSkipFile(string file)
-      {
-         if (string.IsNullOrWhiteSpace(file))
-            return true;
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.ReplaceTextInFiles
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
-         var result = FilePathValidator.ShouldSkipFile(file);
-         if (result)
-            OnFileSystemEntrySkipped(new FileSystemEntrySkippedEventArgs(file));
-         return result;
-      }
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.FilesToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
+            => FilesToBeRenamedCounted?.Invoke(this, e);
 
-      private bool ShouldSkipFolder(string dir)
-      {
-         if (string.IsNullOrWhiteSpace(dir))
-            return true;
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.FilesToHaveTextReplacedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        private void OnFilesToHaveTextReplacedCounted(
+            FilesOrFoldersCountedEventArgs e)
+            => FilesToHaveTextReplacedCounted?.Invoke(this, e);
 
-         var result = FolderPathValidator.ShouldSkipFolder(dir);
-         if (result)
-            OnFileSystemEntrySkipped(new FileSystemEntrySkippedEventArgs(dir));
-         return result;
-      }
-   }
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
+            => FileSystemEntrySkipped?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.Finished" />
+        /// event.
+        /// </summary>
+        private void OnFinished()
+            => Finished?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.OperationFinished" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// An
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
+        /// that
+        /// contains the event data.
+        /// </param>
+        private void OnOperationFinished(OperationFinishedEventArgs e)
+            => OperationFinished?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.OperationStartedEventHandler.OperationStarted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        private void OnOperationStarted(OperationStartedEventArgs e)
+            => OperationStarted?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.ProcessingOperation" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs" />
+        /// that
+        /// contains the event data.
+        /// </param>
+        private void OnProcessingOperation(ProcessingOperationEventArgs e)
+            => ProcessingOperation?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.Started" />
+        /// event.
+        /// </summary>
+        private void OnStarted()
+            => Started?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.StatusUpdate" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnStatusUpdate(StatusUpdateEventArgs e)
+            => StatusUpdate?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.SubfoldersToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        private void OnSubfoldersToBeRenamedCounted(
+            FilesOrFoldersCountedEventArgs e)
+            => SubfoldersToBeRenamedCounted?.Invoke(this, e);
+
+        private bool PathAlreadyContains(FileSystemInfo entry, string findWhat)
+        {
+            if (entry == null)
+                return false;
+
+            if (!entry.Exists)
+                return false;
+
+            if (string.IsNullOrWhiteSpace(findWhat))
+                return false;
+
+            var result = FolderPathValidator.PathContains(entry.Name, findWhat);
+            if (!result)
+                OnFileSystemEntrySkipped(
+                    new FileSystemEntrySkippedEventArgs(entry.FullName)
+                );
+            return result;
+        }
+
+        private bool ShouldSkipFile(string file)
+        {
+            if (string.IsNullOrWhiteSpace(file))
+                return true;
+
+            var result = FilePathValidator.ShouldSkipFile(file);
+            if (result)
+                OnFileSystemEntrySkipped(
+                    new FileSystemEntrySkippedEventArgs(file)
+                );
+            return result;
+        }
+
+        private bool ShouldSkipFolder(string dir)
+        {
+            if (string.IsNullOrWhiteSpace(dir))
+                return true;
+
+            var result = FolderPathValidator.ShouldSkipFolder(dir);
+            if (result)
+                OnFileSystemEntrySkipped(
+                    new FileSystemEntrySkippedEventArgs(dir)
+                );
+            return result;
+        }
+    }
 }
