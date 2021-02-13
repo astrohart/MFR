@@ -288,6 +288,7 @@ namespace MassFileRenamer.GUI
             this.operationsPerform.Name = "operationsPerform";
             this.operationsPerform.Size = new System.Drawing.Size(180, 22);
             this.operationsPerform.Text = "&Perform";
+            this.operationsPerform.Click += new System.EventHandler(this.OnOperationsPerform);
             // 
             // MainWindow
             // 

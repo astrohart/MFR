@@ -92,7 +92,8 @@ namespace MassFileRenamer.GUI
         ///     href="
         /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
         /// ">
-        /// Kiran Suthar
+        /// Kiran
+        /// Suthar
         /// </a>
         /// 's answer on the Microsoft forums.
         /// </remarks>
@@ -214,9 +215,11 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void OnClickPerformOperation(object sender, EventArgs e)
         {
-            UseWaitCursor = true;
-
             UpdateData();
+
+            if (!ValidateData()) return;
+
+            UseWaitCursor = true;
 
             _presenter.SaveConfiguration();
 
@@ -293,6 +296,22 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event on the Operations -&gt; Perform menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called in order to respond when the user clicks the
+        /// Perform command on the Operations menu.
+        /// </remarks>
+        private void OnOperationsPerform(object sender, EventArgs e) { }
+
+        /// <summary>
         /// Handles the
         /// <see
         ///     cref="E:MassFileRenamer.GUI.OptionsDialog.Modified" />
@@ -335,8 +354,7 @@ namespace MassFileRenamer.GUI
         /// This method toggles UI state and dismisses the progress dialog.
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
-        {
-            startingFolderBrowseButton.InvokeIfRequired(
+            => startingFolderBrowseButton.InvokeIfRequired(
                 () =>
                 {
                     UseWaitCursor = false;
@@ -345,7 +363,6 @@ namespace MassFileRenamer.GUI
                     _presenter.CloseProgressDialog();
                 }
             );
-        }
 
         /// <summary>
         /// Handles the
@@ -363,11 +380,11 @@ namespace MassFileRenamer.GUI
         /// This handler is called when the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.FileRenamer.ProcessAll" />
-        /// begins its execution.
+        /// begins its
+        /// execution. This method responds by showing the progress dialog.
         /// </remarks>
         private void OnPresenterStarted(object sender, EventArgs e)
-        {
-            startingFolderBrowseButton.InvokeIfRequired(
+            => startingFolderBrowseButton.InvokeIfRequired(
                 () =>
                 {
                     Enabled = false;
@@ -376,7 +393,6 @@ namespace MassFileRenamer.GUI
                     _presenter.ShowProgressDialog();
                 }
             );
-        }
 
         private void OnToolsOptions(object sender, EventArgs e)
         {
@@ -411,9 +427,7 @@ namespace MassFileRenamer.GUI
         /// Visible property of the status bar.
         /// </remarks>
         private void OnViewStatusBar(object sender, EventArgs e)
-        {
-            statusBar.Visible = !statusBar.Visible;
-        }
+            => statusBar.Visible = !statusBar.Visible;
 
         private void UpdateData(bool bSavingAndValidating = true)
         {
@@ -479,6 +493,63 @@ namespace MassFileRenamer.GUI
                         .ReplaceWithHistory.Distinct())
                         ReplaceWithComboBox.Items.AddDistinct(item);
             }
+        }
+
+        /// <summary>
+        /// Ensures the fields on the form have valid values, and prompts the
+        /// user if otherwise is the case.
+        /// </summary>
+        /// <returns>
+        /// Returns <c>true</c> if all the fields have valid data; <c>false</c> otherwise.
+        /// </returns>
+        /// <remarks>
+        /// Use the return value of this method from the calling method to
+        /// decide whether to proceed with the operation. A return value of
+        /// <c>false</c> means an operation should not proceed. If a value is
+        /// invalid, a message box is displayed to the user telling the user
+        /// what the user needs to fix. Then, the input focus is set to the
+        /// offending field.
+        /// </remarks>
+        private bool ValidateData()
+        {
+            if (string.IsNullOrWhiteSpace(StartingFolderComboBox.Text) ||
+                !Directory.Exists(StartingFolderComboBox.Text))
+            {
+                MessageBox.Show(
+                    this,
+                    "Please choose a pathname to a folder that exists on your computer for the starting location of the search.",
+                    Application.ProductName, MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                );
+                StartingFolderComboBox.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(FindWhatComboBox.Text))
+            {
+                MessageBox.Show(
+                    this,
+                    "Please provide a value for the text to be located during the search.",
+                    Application.ProductName, MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                );
+                FindWhatComboBox.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text))
+            {
+                MessageBox.Show(
+                    this,
+                    "Please provide a value for the replacement value to be used during the search.",
+                    Application.ProductName, MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                );
+                ReplaceWithComboBox.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }
