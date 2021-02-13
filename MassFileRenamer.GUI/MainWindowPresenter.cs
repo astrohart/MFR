@@ -56,12 +56,6 @@ namespace MassFileRenamer.GUI
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
-        /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if a file with pathname specified by the
-        /// <paramref
-        ///     name="configurationPathname" />
-        /// parameter cannot be found.
-        /// </exception>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if either of the required <paramref name="mainWindow" /> or
         /// <paramref name="renamer" /> parameters have a <c>null</c> value.
@@ -73,10 +67,6 @@ namespace MassFileRenamer.GUI
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
                     nameof(configurationPathname)
-                );
-            if (!File.Exists(configurationPathname))
-                throw new FileNotFoundException(
-                    $"Could not locate the configuration file at '{configurationPathname}'."
                 );
 
             _mainWindow = mainWindow ??
