@@ -163,6 +163,11 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Occurs when the configuration has been exported to a file.
+        /// </summary>
+        public event ConfigurationExportedEventHandler ConfigurationExported;
+
+        /// <summary>
         /// Occurs when the configuration has been updated, say, by an import process.
         /// </summary>
         public event ConfigurationImportedEventHandler ConfigurationImported;
@@ -195,6 +200,96 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void CloseProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+
+        /// <summary>
+        /// Exports the configuration to a file on the disk.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) String containing the pathname of the file to be written.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="pathname" />, is
+        /// passed a blank or <c>null</c> value.
+        /// </exception>
+        public void ExportConfiguration(string pathname)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.ExportConfiguration"
+            );
+
+            // Dump the variable pathname to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.ExportConfiguration: pathname = '{pathname}'"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the 'pathname' parameter is blank..."
+            );
+
+            if (string.IsNullOrWhiteSpace(pathname))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(pathname)
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The 'pathname' parameter is not blank."
+            );
+
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Saving the current configuration to the default location..."
+                );
+
+                SaveConfiguration();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The configuration has been saved."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Exporting the configuration to the path '{pathname}'..."
+                );
+
+                if (File.Exists(pathname))
+                    File.Delete(pathname);
+
+                new FileInfo(ConfigurationPathname).CopyTo(pathname);
+
+                if (File.Exists(pathname))
+                    OnConfigurationExported(
+                        new ConfigurationExportedEventArgs(pathname)
+                    );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** Configuration has been exported successfully."
+                );
+            }
+            catch (Exception ex)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"*** ERROR *** Failed to export the configuration."
+                );
+
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.ExportConfiguration: Done."
+            );
+        }
 
         /// <summary>
         /// Imports configuration from a JSON file located on the disk.
@@ -345,7 +440,7 @@ namespace MassFileRenamer.GUI
 
                 LoadConfiguration(ConfigurationPathname);
 
-                OnConfigurationUpdated(
+                OnConfigurationImported(
                     new ConfigurationImportedEventArgs(pathname)
                 );
             }
@@ -393,6 +488,22 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Raises the
         /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationExported" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnConfigurationExported(
+            ConfigurationExportedEventArgs e)
+            => ConfigurationExported?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
         ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationImported" />
         /// event.
         /// </summary>
@@ -402,7 +513,7 @@ namespace MassFileRenamer.GUI
         ///     cref="T:MassFileRenamer.Objects.ConfigurationImportedEventArgs" />
         /// that contains the event data.
         /// </param>
-        protected virtual void OnConfigurationUpdated(
+        protected virtual void OnConfigurationImported(
             ConfigurationImportedEventArgs e)
             => ConfigurationImported?.Invoke(this, e);
 

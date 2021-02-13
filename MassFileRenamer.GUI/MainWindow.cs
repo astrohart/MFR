@@ -176,6 +176,8 @@ namespace MassFileRenamer.GUI
             );
             _presenter.ConfigurationImported +=
                 OnPresenterConfigurationImported;
+            _presenter.ConfigurationExported +=
+                OnPresenterConfigurationExported;
             _presenter.Started += OnPresenterStarted;
             _presenter.Finished += OnPresenterFinished;
         }
@@ -357,6 +359,35 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Handles the
         /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationExported" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when an export of the configuration has been
+        /// successfully completed. This method responds to the event by
+        /// informing the user that the operation has completed successfully.
+        /// </remarks>
+        private void OnPresenterConfigurationExported(object sender,
+            ConfigurationExportedEventArgs e)
+            => MessageBox.Show(
+                this,
+                $"Successfully exported the configuration to the file with path '{e.Path}'.",
+                Application.ProductName, MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
+            );
+
+        /// <summary>
+        /// Handles the
+        /// <see
         ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationImported" />
         /// event.
         /// </summary>
@@ -443,6 +474,80 @@ namespace MassFileRenamer.GUI
                 }
             );
 
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event for the Tools -&gt; Import and Export Configuration -&gt;
+        /// Export Configuration menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user chooses the Export Configuration
+        /// menu command from the Import and Export Configuration submenu of the
+        /// Tools menu. This method responds to the event by showing the user a
+        /// dialog that the user can utilize to select the pathname of the file
+        /// that the user wants the configuration data to be exported to.
+        /// </remarks>
+        private void OnToolsExportConfig(object sender, EventArgs e)
+        {
+            exportConfigDialog.InitialDirectory =
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            if (exportConfigDialog.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            _presenter.ExportConfiguration(exportConfigDialog.FileName);
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event for the Tools -&gt; Import and Export Configuration -&gt;
+        /// Import Configuration menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user chooses the Import Configuration
+        /// menu command from the Import and Export Configuration submenu of the
+        /// Tools menu. This method responds to the event by showing the user a
+        /// dialog that the user can utilize to select the file they want to
+        /// import, and then calls the presenter to perform the import operation.
+        /// </remarks>
+        private void OnToolsImportConfig(object sender, EventArgs e)
+        {
+            importConfigDialog.InitialDirectory =
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            if (importConfigDialog.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            _presenter.ImportConfiguration(importConfigDialog.FileName);
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event for the Tools -&gt; Options menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user chooses the Options command on
+        /// the Tools menu. This method responds by showing the user an Options
+        /// dialog that the user can then utilize in order to configure this
+        /// application's behavior.
+        /// </remarks>
         private void OnToolsOptions(object sender, EventArgs e)
         {
             using (var dialog = new OptionsDialog())

@@ -22,7 +22,13 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Occurs when the configuration has been updated, say, by an import process.
+        /// Occurs when the configuration has been exported to a file.
+        /// </summary>
+        event ConfigurationExportedEventHandler ConfigurationExported;
+
+        /// <summary>
+        /// Occurs when the configuration has been imported successfully from a
+        /// file on the disk.
         /// </summary>
         event ConfigurationImportedEventHandler ConfigurationImported;
 
@@ -67,5 +73,17 @@ namespace MassFileRenamer.GUI
         /// Shows the progress window.
         /// </summary>
         void ShowProgressDialog();
+
+        /// <summary>
+        /// Exports the configuration to a file on the disk.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) String containing the pathname of the file to be written.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="pathname" />, is
+        /// passed a blank or <c>null</c> value.
+        /// </exception>
+        void ExportConfiguration(string pathname);
     }
 }
