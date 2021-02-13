@@ -264,6 +264,7 @@ namespace MassFileRenamer.GUI
             this.importConfigDialog.DefaultExt = "json";
             this.importConfigDialog.FileName = "config.json";
             this.importConfigDialog.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
+            this.importConfigDialog.RestoreDirectory = true;
             this.importConfigDialog.Title = "Import Configuration";
             // 
             // exportConfigDialog
@@ -271,6 +272,7 @@ namespace MassFileRenamer.GUI
             this.exportConfigDialog.DefaultExt = "json";
             this.exportConfigDialog.FileName = "config.json";
             this.exportConfigDialog.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
+            this.exportConfigDialog.RestoreDirectory = true;
             this.exportConfigDialog.Title = "Export Configuration";
             // 
             // operationsMenu
