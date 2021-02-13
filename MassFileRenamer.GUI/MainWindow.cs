@@ -348,6 +348,7 @@ namespace MassFileRenamer.GUI
             if (dialog == null) return;
 
             ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+
             e.Handled =
                 true; // instruct the Options dialog box to re-gray out the Apply button
         }
