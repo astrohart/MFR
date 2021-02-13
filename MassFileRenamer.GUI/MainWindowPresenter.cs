@@ -644,22 +644,12 @@ namespace MassFileRenamer.GUI
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
-        /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if a file with pathname specified by the
-        /// <paramref
-        ///     name="configurationPathname" />
-        /// parameter cannot be found.
-        /// </exception>
         private void LoadConfiguration(string configurationPathname)
         {
             if (string.IsNullOrWhiteSpace(configurationPathname))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
                     nameof(configurationPathname)
-                );
-            if (!File.Exists(configurationPathname))
-                throw new FileNotFoundException(
-                    $"Could not locate the configuration file at '{configurationPathname}'."
                 );
 
             ConfigurationPathname = configurationPathname;
