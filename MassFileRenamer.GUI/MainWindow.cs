@@ -156,10 +156,6 @@ namespace MassFileRenamer.GUI
                     "Value cannot be null or whitespace.",
                     nameof(configurationPathname)
                 );
-            if (!File.Exists(configurationPathname))
-                throw new FileNotFoundException(
-                    $"Could not locate the configuration file at '{configurationPathname}'."
-                );
 
             _presenter = new MainWindowPresenter(
                 this, new FileRenamer(), configurationPathname
