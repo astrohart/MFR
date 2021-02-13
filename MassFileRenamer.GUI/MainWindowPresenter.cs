@@ -153,6 +153,11 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Occurs when the configuration has been updated, say, by an import process.
+        /// </summary>
+        public event EventHandler ConfigurationUpdated;
+
+        /// <summary>
         /// Occurs when the processing is done.
         /// </summary>
         public event EventHandler Finished;
@@ -179,8 +184,31 @@ namespace MassFileRenamer.GUI
         /// Dismisses the progress dialog.
         /// </summary>
         public void CloseProgressDialog()
+            => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+
+        /// <summary>
+        /// Imports configuration from a JSON file located on the disk.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) String containing the path to the file.
+        /// </param>
+        /// <remarks>
+        /// This method does nothing if the <paramref name="pathname" />
+        /// parameter is blank or the file does not exist.
+        /// </remarks>
+        public void ImportConfiguration(string pathname)
         {
-            _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+            if (string.IsNullOrWhiteSpace(pathname) || !File.Exists(pathname))
+                return;
+
+            if (File.Exists(ConfigurationPathname))
+                File.Delete(ConfigurationPathname);
+
+            new FileInfo(pathname).CopyTo(ConfigurationPathname);
+
+            LoadConfiguration(ConfigurationPathname);
+
+            OnConfigurationUpdated();
         }
 
         /// <summary>
@@ -211,6 +239,15 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void ShowProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationUpdated" />
+        /// event.
+        /// </summary>
+        protected virtual void OnConfigurationUpdated()
+            => ConfigurationUpdated?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the

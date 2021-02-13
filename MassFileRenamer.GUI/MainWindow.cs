@@ -318,9 +318,11 @@ namespace MassFileRenamer.GUI
         /// </param>
         /// <remarks>
         /// This method is called in order to respond when the user clicks the
-        /// Perform command on the Operations menu.
+        /// Perform command on the Operations menu. The handling of this event
+        /// is delegated to the Perform Operation button.
         /// </remarks>
-        private void OnOperationsPerform(object sender, EventArgs e) { }
+        private void OnOperationsPerform(object sender, EventArgs e)
+            => performOperationButton.PerformClick();
 
         /// <summary>
         /// Handles the

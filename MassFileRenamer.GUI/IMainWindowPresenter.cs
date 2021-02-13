@@ -46,5 +46,12 @@ namespace MassFileRenamer.GUI
       /// Shows the progress window.
       /// </summary>
       void ShowProgressDialog();
+
+      /// <summary>
+      /// Occurs when the configuration has been updated, say, by an import process.
+      /// </summary>
+      event EventHandler ConfigurationUpdated;
+
+      void ImportConfiguration(string pathname);
    }
 }
