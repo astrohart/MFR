@@ -33,6 +33,7 @@ namespace MassFileRenamer.GUI
          this.detailedStatusLabel = new System.Windows.Forms.Label();
          this.progressBar = new System.Windows.Forms.ProgressBar();
          this.statusLabel = new System.Windows.Forms.Label();
+         this.cancelButton = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
          // detailedStatusLabel
@@ -40,30 +41,42 @@ namespace MassFileRenamer.GUI
          this.detailedStatusLabel.Location = new System.Drawing.Point(12, 46);
          this.detailedStatusLabel.Name = "detailedStatusLabel";
          this.detailedStatusLabel.Size = new System.Drawing.Size(392, 46);
-         this.detailedStatusLabel.TabIndex = 0;
+         this.detailedStatusLabel.TabIndex = 1;
          // 
          // progressBar
          // 
          this.progressBar.Location = new System.Drawing.Point(12, 100);
          this.progressBar.MarqueeAnimationSpeed = 30;
          this.progressBar.Name = "progressBar";
-         this.progressBar.Size = new System.Drawing.Size(392, 23);
+         this.progressBar.Size = new System.Drawing.Size(300, 23);
          this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-         this.progressBar.TabIndex = 1;
+         this.progressBar.TabIndex = 2;
          // 
          // statusLabel
          // 
          this.statusLabel.Location = new System.Drawing.Point(13, 14);
          this.statusLabel.Name = "statusLabel";
          this.statusLabel.Size = new System.Drawing.Size(391, 24);
-         this.statusLabel.TabIndex = 2;
+         this.statusLabel.TabIndex = 0;
+         // 
+         // cancelButton
+         // 
+         this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.cancelButton.Location = new System.Drawing.Point(318, 99);
+         this.cancelButton.Name = "cancelButton";
+         this.cancelButton.Size = new System.Drawing.Size(87, 27);
+         this.cancelButton.TabIndex = 3;
+         this.cancelButton.Text = "Cancel";
+         this.cancelButton.UseVisualStyleBackColor = true;
          // 
          // ProgressDialog
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+         this.CancelButton = this.cancelButton;
          this.ClientSize = new System.Drawing.Size(417, 138);
          this.ControlBox = false;
+         this.Controls.Add(this.cancelButton);
          this.Controls.Add(this.statusLabel);
          this.Controls.Add(this.progressBar);
          this.Controls.Add(this.detailedStatusLabel);
@@ -86,5 +99,6 @@ namespace MassFileRenamer.GUI
       private System.Windows.Forms.Label detailedStatusLabel;
       private System.Windows.Forms.ProgressBar progressBar;
       private System.Windows.Forms.Label statusLabel;
-   }
+        private System.Windows.Forms.Button cancelButton;
+    }
 }
