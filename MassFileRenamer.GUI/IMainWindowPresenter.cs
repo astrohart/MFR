@@ -50,7 +50,7 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Occurs when the configuration has been updated, say, by an import process.
       /// </summary>
-      event EventHandler ConfigurationUpdated;
+      event EventHandler ConfigurationImported;
 
       /// <summary>
       /// Imports configuration from a JSON file located on the disk.

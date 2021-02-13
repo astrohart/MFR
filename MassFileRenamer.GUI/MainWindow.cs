@@ -174,7 +174,7 @@ namespace MassFileRenamer.GUI
             _presenter = new MainWindowPresenter(
                 this, new FileRenamer(), configurationPathname
             );
-            _presenter.ConfigurationUpdated += OnPresenterConfigurationUpdated;
+            _presenter.ConfigurationImported += OnPresenterConfigurationUpdated;
             _presenter.Started += OnPresenterStarted;
             _presenter.Finished += OnPresenterFinished;
         }
@@ -356,7 +356,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationUpdated" />
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationImported" />
         /// event.
         /// </summary>
         /// <param name="sender">
@@ -374,7 +374,9 @@ namespace MassFileRenamer.GUI
         /// Configuration command on the Tools menu.
         /// </remarks>
         private void OnPresenterConfigurationUpdated(object sender, EventArgs e)
-            => UpdateData(false);
+        {
+            UpdateData(false);
+        }
 
         /// <summary>
         /// Handles the

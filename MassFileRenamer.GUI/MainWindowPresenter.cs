@@ -156,7 +156,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Occurs when the configuration has been updated, say, by an import process.
         /// </summary>
-        public event EventHandler ConfigurationUpdated;
+        public event EventHandler ConfigurationImported;
 
         /// <summary>
         /// Occurs when the processing is done.
@@ -186,8 +186,6 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void CloseProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
-
-
 
         /// <summary>
         /// Imports configuration from a JSON file located on the disk.
@@ -306,7 +304,10 @@ namespace MassFileRenamer.GUI
                 new FileInfo(pathname).CopyTo(ConfigurationPathname);
 
                 if (File.Exists(ConfigurationPathname))
-                    DebugUtils.WriteLine(DebugLevel.Info, $"*** SUCCESS *** The file with path '{pathname}' has been copied to the destination successfully.");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** SUCCESS *** The file with path '{pathname}' has been copied to the destination successfully."
+                    );
                 else
                 {
                     DebugUtils.WriteLine(
@@ -316,16 +317,19 @@ namespace MassFileRenamer.GUI
 
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"*** INFO: Saving the current configuration to disk..."
+                        "*** INFO: Saving the current configuration to disk..."
                     );
 
-                    SaveConfiguration();    // restore the configuration file on the disk.
+                    SaveConfiguration(); // restore the configuration file on the disk.
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Info, $"*** SUCCESS *** Configuration saved."
+                        DebugLevel.Info, "*** SUCCESS *** Configuration saved."
                     );
 
-                    DebugUtils.WriteLine(DebugLevel.Debug, "MainWindowPresenter.ImportConfiguration: Done.");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "MainWindowPresenter.ImportConfiguration: Done."
+                    );
 
                     return;
                 }
@@ -378,11 +382,11 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationUpdated" />
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationImported" />
         /// event.
         /// </summary>
         protected virtual void OnConfigurationUpdated()
-            => ConfigurationUpdated?.Invoke(this, EventArgs.Empty);
+            => ConfigurationImported?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
