@@ -20,6 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>True</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -67,15 +68,6 @@
     <RootNamespace>MassFileRenamer.Objects</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PostSharp, Version=6.8.8.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Redist.6.8.8\lib\net45\PostSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="PostSharp.Patterns.Common, Version=6.8.8.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.8.8\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.8.8.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.8.8\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -88,6 +80,8 @@
     <Compile Include="ConfigurationImportedEventHandler.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="DirectoryInfoFactory.cs" />
+    <Compile Include="ExceptionRaisedEventArgs.cs" />
+    <Compile Include="ExceptionRaisedEventHandler.cs" />
     <Compile Include="FileInfoExtensions.cs" />
     <Compile Include="FileInfoFactory.cs" />
     <Compile Include="FilePathValidator.cs" />
