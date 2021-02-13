@@ -710,6 +710,26 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IProgressDialog.CancelRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method handles the situation in which the user has clicked the
+        /// Cancel button on the progress dialog. The action taken by this
+        /// method is to tell the File Renamer Object to attempt to abort.
+        /// </remarks>
+        private void OnProgressDialogRequestedCancel(object sender, EventArgs e)
+            => _renamer.RequestAbort();
+
+        /// <summary>
         /// Sets the progress dialog and/or reinitializes it from prior use.
         /// </summary>
         private void ReinitializeProgressDialog()
@@ -718,12 +738,11 @@ namespace MassFileRenamer.GUI
             _progressDialog.DoIfDisposed(
                 () => _progressDialog = new ProgressDialog()
             );
+            _progressDialog.CancelRequested += OnProgressDialogRequestedCancel;
         }
 
         private void ResetProgressBar()
-        {
-            _progressDialog.DoIfNotDisposed(() => _progressDialog.Reset());
-        }
+            => _progressDialog.DoIfNotDisposed(() => _progressDialog.Reset());
 
         private void ShowCalculatingProgressBar(OperationType type)
         {
