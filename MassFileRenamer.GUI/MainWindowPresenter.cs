@@ -100,6 +100,9 @@ namespace MassFileRenamer.GUI
             set => ConfigurationProvider.ConfigurationFilePath = value;
         }
 
+        /// <summary>
+        /// Gets the text to be searched for during the operations.
+        /// </summary>
         private string FindWhat
         {
             get {
@@ -118,6 +121,9 @@ namespace MassFileRenamer.GUI
             }
         }
 
+        /// <summary>
+        /// Gets the replacement text to be used during the operations.
+        /// </summary>
         private string ReplaceWith
         {
             get {
@@ -135,6 +141,9 @@ namespace MassFileRenamer.GUI
             }
         }
 
+        /// <summary>
+        /// Gets the path to the starting folder of the search.
+        /// </summary>
         private string StartingFolder
         {
             get {
