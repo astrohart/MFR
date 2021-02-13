@@ -25,6 +25,8 @@ namespace MassFileRenamer.GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            InitApplication();
+
             Application.Run(
                 new MainWindow(ConfigurationProvider.ConfigurationFilePath)
             );
