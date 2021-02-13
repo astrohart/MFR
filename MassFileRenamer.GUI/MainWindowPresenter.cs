@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.GUI
@@ -186,6 +187,8 @@ namespace MassFileRenamer.GUI
         public void CloseProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
 
+
+
         /// <summary>
         /// Imports configuration from a JSON file located on the disk.
         /// </summary>
@@ -198,17 +201,149 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         public void ImportConfiguration(string pathname)
         {
-            if (string.IsNullOrWhiteSpace(pathname) || !File.Exists(pathname))
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.ImportConfiguration"
+            );
+
+            // Dump the variable pathname to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.ImportConfiguration: pathname = '{pathname}'"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the 'pathname' parameter is blank..."
+            );
+
+            if (string.IsNullOrWhiteSpace(pathname))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "MainWindowPresenter.ImportConfiguration: Blank value passed for pathname parameter. This parameter is required."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "MainWindowPresenter.ImportConfiguration: Done."
+                );
+
                 return;
+            }
 
-            if (File.Exists(ConfigurationPathname))
-                File.Delete(ConfigurationPathname);
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The 'pathname' parameter is not blank."
+            );
 
-            new FileInfo(pathname).CopyTo(ConfigurationPathname);
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the file referenced by the 'pathname' parameter exists..."
+            );
 
-            LoadConfiguration(ConfigurationPathname);
+            if (!File.Exists(pathname))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"MainWindowPresenter.ImportConfiguration: The file with path '{pathname}' does not exist.  We have nothing to do."
+                );
 
-            OnConfigurationUpdated();
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "MainWindowPresenter.ImportConfiguration: Done."
+                );
+
+                return;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The file with path '{pathname}' has been found."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Checking whether the file with path '{pathname}' is in JSON format..."
+            );
+
+            if (!".json".Equals(Path.GetExtension(pathname)))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"MainWindowPresenter.ImportConfiguration: The file with path '{pathname}' must be in the JavaScript Over Network (JSON) format."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "MainWindowPresenter.ImportConfiguration: Done."
+                );
+
+                return;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The file with path '{pathname}' appears to be in the correct format."
+            );
+
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Removing the existing configuration file..."
+                );
+
+                if (File.Exists(ConfigurationPathname))
+                    File.Delete(ConfigurationPathname);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Copying the file with path '{pathname}' to the path '{ConfigurationPathname}'..."
+                );
+
+                new FileInfo(pathname).CopyTo(ConfigurationPathname);
+
+                if (File.Exists(ConfigurationPathname))
+                    DebugUtils.WriteLine(DebugLevel.Info, $"*** SUCCESS *** The file with path '{pathname}' has been copied to the destination successfully.");
+                else
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"MainWindowPresenter.ImportConfiguration: Failed to copy the file with path '{pathname}' to the path '{ConfigurationPathname}'."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** INFO: Saving the current configuration to disk..."
+                    );
+
+                    SaveConfiguration();    // restore the configuration file on the disk.
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info, $"*** SUCCESS *** Configuration saved."
+                    );
+
+                    DebugUtils.WriteLine(DebugLevel.Debug, "MainWindowPresenter.ImportConfiguration: Done.");
+
+                    return;
+                }
+
+                LoadConfiguration(ConfigurationPathname);
+
+                OnConfigurationUpdated();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.ImportConfiguration: Done."
+            );
         }
 
         /// <summary>
