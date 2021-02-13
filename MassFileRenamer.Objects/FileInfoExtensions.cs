@@ -23,6 +23,7 @@ namespace MassFileRenamer.Objects
          if (existingFile == null) return false;
          if (string.IsNullOrWhiteSpace(newFilePath)) return false;
          if (!File.Exists(existingFile.FullName)) return false;
+         if (File.Exists(newFilePath)) File.Delete(newFilePath);    // overwrite a file at the new path
 
          var _tempFileName = $"{Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid():N}.tmp")}";
 
