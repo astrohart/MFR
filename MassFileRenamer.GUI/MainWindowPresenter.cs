@@ -777,26 +777,17 @@ namespace MassFileRenamer.GUI
         {
             if (bSavingAndValidating)
             {
-                Configuration.StartingFolder =
-                    _mainWindow.StartingFolderComboBox.Text;
-                Configuration.StartingFolderHistory.Clear();
-                if (_mainWindow.StartingFolderComboBox.Items.Count > 0)
-                    Configuration.StartingFolderHistory.AddRange(
-                        _mainWindow.StartingFolderComboBox.Items.Cast<string>()
-                    );
-                Configuration.FindWhat = _mainWindow.FindWhatComboBox.Text;
-                Configuration.FindWhatHistory.Clear();
-                if (_mainWindow.FindWhatComboBox.Items.Count > 0)
-                    Configuration.FindWhatHistory.AddRange(
-                        _mainWindow.FindWhatComboBox.Items.Cast<string>()
-                    );
-                Configuration.ReplaceWith =
-                    _mainWindow.ReplaceWithComboBox.Text;
-                Configuration.ReplaceWithHistory.Clear();
-                if (_mainWindow.ReplaceWithComboBox.Items.Count > 0)
-                    Configuration.ReplaceWithHistory.AddRange(
-                        _mainWindow.ReplaceWithComboBox.Items.Cast<string>()
-                    );
+                Configuration.SaveCurrentStartingFolderAndHistory(
+                    _mainWindow.StartingFolderComboBox
+                );
+
+                Configuration.SaveCurrentFindWhatAndHistory(
+                    _mainWindow.FindWhatComboBox
+                );
+
+                Configuration.SaveCurrentStartingFolderAndHistory(
+                    _mainWindow.ReplaceWithComboBox
+                );
             }
             else
             {
@@ -805,11 +796,13 @@ namespace MassFileRenamer.GUI
                     Configuration.StartingFolder,
                     Configuration.StartingFolderHistory
                 );
+
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.FindWhatComboBox,
                     Configuration.FindWhat,
                     Configuration.FindWhatHistory
                 );
+
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.ReplaceWithComboBox,
                     Configuration.ReplaceWith,
