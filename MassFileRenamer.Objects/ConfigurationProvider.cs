@@ -20,7 +20,7 @@ namespace MassFileRenamer.Objects
         /// Gets the path to the Registry subkey that stores configuration information.
         /// </summary>
         public static string ConfigurationKeyName
-            => $@"SOFTWARE\{Application.CompanyName}\Configuration";
+            => $@"SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Configuration";
 
         /// <summary>
         /// Gets the name of the Registry value that holds the path to the

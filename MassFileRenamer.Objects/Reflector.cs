@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// This class is from the Front-End for Dosbox and is used to present a 'vista' dialog box to

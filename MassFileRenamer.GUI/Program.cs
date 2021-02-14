@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassFileRenamer.Objects;
+using System;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;

@@ -78,10 +78,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
-    <Compile Include="ConfigurationProvider.cs" />
-    <Compile Include="ConfigurationSerializer.cs" />
-    <Compile Include="ConvertConfiguration.cs" />
     <Compile Include="FolderSelectDialog.cs" />
     <Compile Include="IMainWindow.cs" />
     <Compile Include="IMainWindowPresenter.cs" />
@@ -107,7 +103,6 @@
       <DependentUpon>ProgressDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflector.cs" />
     <Compile Include="WindowWrapper.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
