@@ -1,7 +1,6 @@
-﻿using MassFileRenamer.Objects;
-using System.IO;
+﻿using System.IO;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
    public static class ConfigurationSerializer
    {

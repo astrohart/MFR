@@ -1,9 +1,8 @@
-﻿using MassFileRenamer.Objects;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Globalization;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
    /// <summary>
    /// Converts JSON-formatted text to and from instances of C# objects that

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
    /// <summary>
    /// Defines the public-exposed methods and properties of a configuration object.

@@ -1,5 +1,6 @@
 ﻿using MassFileRenamer.Objects;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -114,7 +115,7 @@ namespace MassFileRenamer.GUI
         {
             base.OnFormClosing(e);
 
-            UpdateData();
+            _presenter.UpdateData();
 
             _presenter.SaveConfiguration();
         }
@@ -131,7 +132,7 @@ namespace MassFileRenamer.GUI
 
             Text = $"{Application.ProductName} {Version}";
 
-            UpdateData(false);
+            _presenter.UpdateData(false);
         }
 
         /// <summary>
@@ -210,7 +211,7 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void OnClickPerformOperation(object sender, EventArgs e)
         {
-            UpdateData();
+            _presenter.UpdateData();
 
             if (!ValidateData()) return;
 
@@ -388,7 +389,7 @@ namespace MassFileRenamer.GUI
         private void OnPresenterConfigurationImported(object sender,
             ConfigurationImportedEventArgs e)
         {
-            UpdateData(false);
+            _presenter.UpdateData(false);
 
             MessageBox.Show(
                 this,
@@ -587,72 +588,6 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void OnViewStatusBar(object sender, EventArgs e)
             => statusBar.Visible = !statusBar.Visible;
-
-        private void UpdateData(bool bSavingAndValidating = true)
-        {
-            if (bSavingAndValidating)
-            {
-                _presenter.Configuration.StartingFolder =
-                    StartingFolderComboBox.Text;
-                _presenter.Configuration.StartingFolderHistory.Clear();
-                if (StartingFolderComboBox.Items.Count > 0)
-                    _presenter.Configuration.StartingFolderHistory.AddRange(
-                        StartingFolderComboBox.Items.Cast<string>()
-                    );
-                _presenter.Configuration.FindWhat = FindWhatComboBox.Text;
-                _presenter.Configuration.FindWhatHistory.Clear();
-                if (FindWhatComboBox.Items.Count > 0)
-                    _presenter.Configuration.FindWhatHistory.AddRange(
-                        FindWhatComboBox.Items.Cast<string>()
-                    );
-                _presenter.Configuration.ReplaceWith = ReplaceWithComboBox.Text;
-                _presenter.Configuration.ReplaceWithHistory.Clear();
-                if (ReplaceWithComboBox.Items.Count > 0)
-                    _presenter.Configuration.ReplaceWithHistory.AddRange(
-                        ReplaceWithComboBox.Items.Cast<string>()
-                    );
-            }
-            else
-            {
-                StartingFolderComboBox.Text =
-                    _presenter.Configuration.StartingFolder;
-                StartingFolderComboBox.Items.Clear();
-                if (!string.IsNullOrWhiteSpace(
-                    _presenter.Configuration.StartingFolder
-                ))
-                    StartingFolderComboBox.Items.AddDistinct(
-                        _presenter.Configuration.StartingFolder
-                    );
-                if (_presenter.Configuration.StartingFolderHistory.Any())
-                    foreach (var item in _presenter.Configuration
-                        .StartingFolderHistory.Distinct())
-                        StartingFolderComboBox.Items.AddDistinct(item);
-                FindWhatComboBox.Text = _presenter.Configuration.FindWhat;
-                FindWhatComboBox.Items.Clear();
-                if (!string.IsNullOrWhiteSpace(
-                    _presenter.Configuration.FindWhat
-                ))
-                    FindWhatComboBox.Items.AddDistinct(
-                        _presenter.Configuration.FindWhat
-                    );
-                if (_presenter.Configuration.FindWhatHistory.Any())
-                    foreach (var item in _presenter.Configuration
-                        .FindWhatHistory.Distinct())
-                        FindWhatComboBox.Items.AddDistinct(item);
-                ReplaceWithComboBox.Text = _presenter.Configuration.ReplaceWith;
-                ReplaceWithComboBox.Items.Clear();
-                if (!string.IsNullOrWhiteSpace(
-                    _presenter.Configuration.ReplaceWith
-                ))
-                    ReplaceWithComboBox.Items.AddDistinct(
-                        _presenter.Configuration.ReplaceWith
-                    );
-                if (_presenter.Configuration.ReplaceWithHistory.Any())
-                    foreach (var item in _presenter.Configuration
-                        .ReplaceWithHistory.Distinct())
-                        ReplaceWithComboBox.Items.AddDistinct(item);
-            }
-        }
 
         /// <summary>
         /// Ensures the fields on the form have valid values, and prompts the

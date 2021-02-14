@@ -1,8 +1,7 @@
-﻿using MassFileRenamer.Objects;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
    public class Configuration : IConfiguration
    {

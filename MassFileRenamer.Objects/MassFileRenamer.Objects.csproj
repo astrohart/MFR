@@ -68,6 +68,9 @@
     <RootNamespace>MassFileRenamer.Objects</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -75,10 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboBoxInitializer.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="ConfigurationExportedEventHandler.cs" />
     <Compile Include="ConfigurationExportedEventArgs.cs" />
+    <Compile Include="ConfigurationExtensions.cs" />
     <Compile Include="ConfigurationImportedEventArgs.cs" />
     <Compile Include="ConfigurationImportedEventHandler.cs" />
+    <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="ConfigurationSerializer.cs" />
+    <Compile Include="ConvertConfiguration.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="DirectoryInfoFactory.cs" />
     <Compile Include="ExceptionRaisedEventArgs.cs" />
@@ -97,6 +105,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FormFoldedEventHandler.cs" />
+    <Compile Include="IConfiguration.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="InvalidPathException.cs" />
     <Compile Include="Modified.cs" />
@@ -119,6 +128,7 @@
     </Compile>
     <Compile Include="StatusUpdateEventArgs.cs" />
     <Compile Include="StatusUpdateEventHandler.cs" />
+    <Compile Include="SystemPreparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -136,6 +146,10 @@
     <ProjectReference Include="..\..\..\..\unversioned\astrohart\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
       <Project>{FB2AAB00-0D1D-479D-B0DB-FBBCDC1C6851}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

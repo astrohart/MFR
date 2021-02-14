@@ -1,10 +1,9 @@
-﻿using MassFileRenamer.Objects;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
     public static class ConfigurationProvider
     {

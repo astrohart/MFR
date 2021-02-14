@@ -2,6 +2,7 @@
 using MassFileRenamer.Objects;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -222,7 +223,7 @@ namespace MassFileRenamer.GUI
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                "*** INFO: Checking whether the 'pathname' parameter is blank..."
+                "*** INFO: Checking whether the 'pathname' parameter is blank.."
             );
 
             if (string.IsNullOrWhiteSpace(pathname))
@@ -239,7 +240,7 @@ namespace MassFileRenamer.GUI
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "*** INFO: Saving the current configuration to the default location..."
+                    "*** INFO: Saving the current configuration to the default location.."
                 );
 
                 SaveConfiguration();
@@ -251,7 +252,7 @@ namespace MassFileRenamer.GUI
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** INFO: Exporting the configuration to the path '{pathname}'..."
+                    $"*** INFO: Exporting the configuration to the path '{pathname}'.."
                 );
 
                 if (File.Exists(pathname))
@@ -312,7 +313,7 @@ namespace MassFileRenamer.GUI
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                "*** INFO: Checking whether the 'pathname' parameter is blank..."
+                "*** INFO: Checking whether the 'pathname' parameter is blank.."
             );
 
             if (string.IsNullOrWhiteSpace(pathname))
@@ -337,7 +338,7 @@ namespace MassFileRenamer.GUI
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                "*** INFO: Checking whether the file referenced by the 'pathname' parameter exists..."
+                "*** INFO: Checking whether the file referenced by the 'pathname' parameter exists.."
             );
 
             if (!File.Exists(pathname))
@@ -362,7 +363,7 @@ namespace MassFileRenamer.GUI
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** INFO: Checking whether the file with path '{pathname}' is in JSON format..."
+                $"*** INFO: Checking whether the file with path '{pathname}' is in JSON format.."
             );
 
             if (!".json".Equals(Path.GetExtension(pathname)))
@@ -389,7 +390,7 @@ namespace MassFileRenamer.GUI
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "*** INFO: Removing the existing configuration file..."
+                    "*** INFO: Removing the existing configuration file.."
                 );
 
                 if (File.Exists(ConfigurationPathname))
@@ -397,7 +398,7 @@ namespace MassFileRenamer.GUI
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** INFO: Copying the file with path '{pathname}' to the path '{ConfigurationPathname}'..."
+                    $"*** INFO: Copying the file with path '{pathname}' to the path '{ConfigurationPathname}'.."
                 );
 
                 new FileInfo(pathname).CopyTo(ConfigurationPathname);
@@ -416,7 +417,7 @@ namespace MassFileRenamer.GUI
 
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        "*** INFO: Saving the current configuration to disk..."
+                        "*** INFO: Saving the current configuration to disk.."
                     );
 
                     SaveConfiguration(); // restore the configuration file on the disk.
@@ -550,15 +551,15 @@ namespace MassFileRenamer.GUI
             switch (type)
             {
             case OperationType.RenameFilesInFolder:
-                result = "Renaming files...";
+                result = "Renaming files..";
                 break;
 
             case OperationType.ReplaceTextInFiles:
-                result = "Replacing text in files...";
+                result = "Replacing text in files..";
                 break;
 
             case OperationType.RenameSubFolders:
-                result = "Renaming subfolders...";
+                result = "Renaming subfolders..";
                 break;
 
             default:
@@ -580,15 +581,15 @@ namespace MassFileRenamer.GUI
             switch (type)
             {
             case OperationType.RenameFilesInFolder:
-                result = "Calculating files to be renamed...";
+                result = "Calculating files to be renamed..";
                 break;
 
             case OperationType.ReplaceTextInFiles:
-                result = "Calculating files in which to replace text...";
+                result = "Calculating files in which to replace text..";
                 break;
 
             case OperationType.RenameSubFolders:
-                result = "Calculating folders to be renamed...";
+                result = "Calculating folders to be renamed..";
                 break;
 
             default:
@@ -755,6 +756,66 @@ namespace MassFileRenamer.GUI
             _progressDialog.DoIfNotDisposed(
                 () => _progressDialog.Status = GetOperationStartedText(type)
             );
+        }
+
+        /// <summary>
+        /// Updates data. Moves data from the screen to the model (
+        /// <paramref
+        ///     name="bSavingAndValidating" />
+        /// equals <c>true</c>) or from the model
+        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
+        /// </summary>
+        /// <param name="bSavingAndValidating">
+        /// Set to <c>true</c> to move data from the screen to the model;
+        /// <c>false</c> to move data from the model to the screen.
+        /// </param>
+        /// <remarks>
+        /// Note that whatever operations this method performs may potentially
+        /// throw exceptions.
+        /// </remarks>
+        public void UpdateData(bool bSavingAndValidating = true)
+        {
+            if (bSavingAndValidating)
+            {
+                Configuration.StartingFolder =
+                    _mainWindow.StartingFolderComboBox.Text;
+                Configuration.StartingFolderHistory.Clear();
+                if (_mainWindow.StartingFolderComboBox.Items.Count > 0)
+                    Configuration.StartingFolderHistory.AddRange(
+                        _mainWindow.StartingFolderComboBox.Items.Cast<string>()
+                    );
+                Configuration.FindWhat = _mainWindow.FindWhatComboBox.Text;
+                Configuration.FindWhatHistory.Clear();
+                if (_mainWindow.FindWhatComboBox.Items.Count > 0)
+                    Configuration.FindWhatHistory.AddRange(
+                        _mainWindow.FindWhatComboBox.Items.Cast<string>()
+                    );
+                Configuration.ReplaceWith =
+                    _mainWindow.ReplaceWithComboBox.Text;
+                Configuration.ReplaceWithHistory.Clear();
+                if (_mainWindow.ReplaceWithComboBox.Items.Count > 0)
+                    Configuration.ReplaceWithHistory.AddRange(
+                        _mainWindow.ReplaceWithComboBox.Items.Cast<string>()
+                    );
+            }
+            else
+            {
+                ComboBoxInitializer.InitializeComboBox(
+                    _mainWindow.StartingFolderComboBox,
+                    Configuration.StartingFolder,
+                    Configuration.StartingFolderHistory
+                );
+                ComboBoxInitializer.InitializeComboBox(
+                    _mainWindow.FindWhatComboBox,
+                    Configuration.FindWhat,
+                    Configuration.FindWhatHistory
+                );
+                ComboBoxInitializer.InitializeComboBox(
+                    _mainWindow.ReplaceWithComboBox,
+                    Configuration.ReplaceWith,
+                    Configuration.ReplaceWithHistory
+                );
+            }
         }
 
         private void ValidateInputs()

@@ -1,11 +1,9 @@
-﻿using MassFileRenamer.Objects;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
-using System.ComponentModel.Design;
 using System.IO;
 using xyLOGIX.Core.Debug;
 
-namespace MassFileRenamer.GUI
+namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Provides methods that prepare the computer for the use of this application.

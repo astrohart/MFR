@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.Objects
 {
@@ -11,7 +12,10 @@ namespace MassFileRenamer.Objects
     public static class ComboBoxInitializer
     {
         /// <summary>
-        /// Initializes one of the combo boxes in this view.
+        /// Initializes a <see cref="T:System.Windows.Forms.ComboBox" /> to have
+        /// the specified <paramref name="itemList" /> as the items in its
+        /// drop-down, and <paramref name="currentItem" /> as the
+        /// currently-selected item.
         /// </summary>
         /// <param name="comboBox">
         /// (Required.) Reference to the
@@ -35,6 +39,10 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="currentItem" />, is
         /// passed a blank or <c>null</c> value.
         /// </exception>
+        /// <remarks>
+        /// This method is intended to be utilized in order to fill combo box
+        /// controls with data from a data source.
+        /// </remarks>
         public static void InitializeComboBox(ComboBox comboBox,
             string currentItem, IReadOnlyCollection<string> itemList)
         {
@@ -51,9 +59,10 @@ namespace MassFileRenamer.Objects
             comboBox.Items.Clear();
             if (!string.IsNullOrWhiteSpace(currentItem))
                 comboBox.Items.AddDistinct(currentItem);
-            if (itemList.Any())
-                foreach (var item in itemList.Distinct())
-                    comboBox.Items.AddDistinct(item);
+            if (!itemList.Any()) return;
+
+            foreach (var item in itemList.Distinct())
+                comboBox.Items.AddDistinct(item);
         }
     }
 }
