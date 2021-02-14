@@ -144,10 +144,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\unversioned\astrohart\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-      <Project>{FB2AAB00-0D1D-479D-B0DB-FBBCDC1C6851}</Project>
-      <Name>xyLOGIX.Core.Debug</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
