@@ -5,6 +5,10 @@ using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
+    /// <summary>
+    /// Provides shared functionality for obtaining and storing the path to the
+    /// user's configuration file.
+    /// </summary>
     public static class ConfigurationProvider
     {
         /// <summary>
