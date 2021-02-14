@@ -8,7 +8,7 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Declares methods that assist in initializing combo boxes.
     /// </summary>
-    public class ComboBoxInitializer
+    public static class ComboBoxInitializer
     {
         /// <summary>
         /// Initializes one of the combo boxes in this view.
