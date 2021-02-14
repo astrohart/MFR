@@ -98,6 +98,9 @@ namespace MassFileRenamer.Objects
             return configPathname;
         }
 
+        /// <summary>
+        /// Saves the path to the configuration file in the system Registry.
+        /// </summary>
         public static void SaveConfigurationPath()
         {
             // write the name of the current class and method we are now
