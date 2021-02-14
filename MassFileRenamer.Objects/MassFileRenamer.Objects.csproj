@@ -74,6 +74,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxInitializer.cs" />
     <Compile Include="ConfigurationExportedEventHandler.cs" />
     <Compile Include="ConfigurationExportedEventArgs.cs" />
     <Compile Include="ConfigurationImportedEventArgs.cs" />
