@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using MassFileRenamer.Objects;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
@@ -16,6 +17,28 @@ namespace MassFileRenamer.GUI
         ComboBox FindWhatComboBox
         {
             [DebuggerStepThrough] get;
+        }
+
+        /// <summary>
+        /// Gets a reference to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FoldUnfoldButton" />
+        /// that controls
+        /// whether the form is the folded (smaller) size or unfolded (larger,
+        /// with more options visible) size.
+        /// </summary>
+        FoldUnfoldButton FoldButton
+        {
+            [DebuggerStepThrough] get;
+        }
+
+        /// <summary>
+        /// Gets or sets a value specifying whether the form is in the Folded state.
+        /// </summary>
+        bool IsFolded
+        {
+            [DebuggerStepThrough] get;
+            set;
         }
 
         /// <summary>
@@ -43,7 +66,7 @@ namespace MassFileRenamer.GUI
         /// </summary>
         bool SelectAll
         {
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -72,7 +95,7 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         string Version
         {
-            get;
+            [DebuggerStepThrough] get;
         }
     }
 }

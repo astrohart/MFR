@@ -48,6 +48,19 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Gets a reference to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FoldUnfoldButton" />
+        /// that controls
+        /// whether the form is the folded (smaller) size or unfolded (larger,
+        /// with more options visible) size.
+        /// </summary>
+        public FoldUnfoldButton FoldButton
+        {
+            [DebuggerStepThrough] get => foldButton;
+        }
+
+        /// <summary>
         /// Gets a value indicating whether the data entered on this form is valid.
         /// </summary>
         public bool IsDataValid
@@ -55,6 +68,15 @@ namespace MassFileRenamer.GUI
                Directory.Exists(StartingFolderComboBox.Text) &&
                !string.IsNullOrWhiteSpace(FindWhatComboBox.Text) &&
                !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
+
+        /// <summary>
+        /// Gets or sets a value specifying whether the form is in the Folded state.
+        /// </summary>
+        public bool IsFolded
+        {
+            get => FoldButton.IsFolded;
+            set => FoldButton.IsFolded = value;
+        }
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -153,8 +175,6 @@ namespace MassFileRenamer.GUI
             _presenter.UpdateData(false);
 
             SetFolded(_presenter.Configuration.IsFolded);
-
-            _presenter.InitializeOperationSelection();
         }
 
         /// <summary>
@@ -634,10 +654,15 @@ namespace MassFileRenamer.GUI
         private void OnViewStatusBar(object sender, EventArgs e)
             => statusBar.Visible = !statusBar.Visible;
 
+        /// <summary>
+        /// Sets the Folded state of the form.
+        /// </summary>
+        /// <param name="folded">
+        /// (Optional.) Boolean that specifies whether the form is folded.
+        /// Default is <c>true</c>.
+        /// </param>
         private void SetFolded(bool folded = true)
-        {
-            throw new NotImplementedException();
-        }
+            => foldButton.IsFolded = folded;
 
         /// <summary>
         /// Ensures the fields on the form have valid values, and prompts the

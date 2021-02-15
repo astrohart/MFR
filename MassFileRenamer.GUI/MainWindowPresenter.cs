@@ -2,7 +2,6 @@
 using MassFileRenamer.Objects;
 using System;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -456,16 +455,17 @@ namespace MassFileRenamer.GUI
         /// Sets the state of the Operations to Perform checked list box items
         /// based on configuration settings.
         /// </summary>
-        public void InitializeOperationSelection()
+        public void InitializeOperationSelections()
         {
-            _mainWindow.OperationsCheckedListBox.CheckByName("Rename Files", Configuration.RenameFiles);
-            _mainWindow.OperationsCheckedListBox.CheckByName("Rename Subfolders", Configuration.RenameSubfolders);
-            _mainWindow.OperationsCheckedListBox.CheckByName("Replace in Files", Configuration.ReplaceInFiles);
-        }
-
-        public void SaveOperationSelections()
-        {
-
+            _mainWindow.OperationsCheckedListBox.CheckByName(
+                "Rename Files", Configuration.RenameFiles
+            );
+            _mainWindow.OperationsCheckedListBox.CheckByName(
+                "Rename Subfolders", Configuration.RenameSubfolders
+            );
+            _mainWindow.OperationsCheckedListBox.CheckByName(
+                "Replace in Files", Configuration.ReplaceInFiles
+            );
         }
 
         /// <summary>
@@ -496,6 +496,81 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void ShowProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
+
+        /// <summary>
+        /// Updates data. Moves data from the screen to the model (
+        /// <paramref
+        ///     name="bSavingAndValidating" />
+        /// equals <c>true</c>) or from the model
+        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
+        /// </summary>
+        /// <param name="bSavingAndValidating">
+        /// Set to <c>true</c> to move data from the screen to the model;
+        /// <c>false</c> to move data from the model to the screen.
+        /// </param>
+        /// <remarks>
+        /// Note that whatever operations this method performs may potentially
+        /// throw exceptions.
+        /// </remarks>
+        public void UpdateData(bool bSavingAndValidating = true)
+        {
+            if (bSavingAndValidating)
+            {
+                Configuration.SaveCurrentStartingFolderAndHistory(
+                    _mainWindow.StartingFolderComboBox
+                );
+
+                Configuration.SaveCurrentFindWhatAndHistory(
+                    _mainWindow.FindWhatComboBox
+                );
+
+                Configuration.SaveCurrentStartingFolderAndHistory(
+                    _mainWindow.ReplaceWithComboBox
+                );
+
+                SaveOperationSelections();
+            }
+            else
+            {
+                InitializeOperationSelections();
+
+                ComboBoxInitializer.InitializeComboBox(
+                    _mainWindow.StartingFolderComboBox,
+                    Configuration.StartingFolder,
+                    Configuration.StartingFolderHistory
+                );
+
+                ComboBoxInitializer.InitializeComboBox(
+                    _mainWindow.FindWhatComboBox, Configuration.FindWhat,
+                    Configuration.FindWhatHistory
+                );
+
+                ComboBoxInitializer.InitializeComboBox(
+                    _mainWindow.ReplaceWithComboBox, Configuration.ReplaceWith,
+                    Configuration.ReplaceWithHistory
+                );
+            }
+        }
+
+        /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the <see cref="T:MassFileRenamer.Objects.Configuration" /> object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            Configuration.RenameFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Files"
+                );
+            Configuration.RenameSubfolders =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Subfolders"
+                );
+            Configuration.ReplaceInFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Replace in Files"
+                );
+        }
 
         /// <summary>
         /// Raises the
@@ -772,59 +847,6 @@ namespace MassFileRenamer.GUI
             _progressDialog.DoIfNotDisposed(
                 () => _progressDialog.Status = GetOperationStartedText(type)
             );
-        }
-
-        /// <summary>
-        /// Updates data. Moves data from the screen to the model (
-        /// <paramref
-        ///     name="bSavingAndValidating" />
-        /// equals <c>true</c>) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
-        /// </summary>
-        /// <param name="bSavingAndValidating">
-        /// Set to <c>true</c> to move data from the screen to the model;
-        /// <c>false</c> to move data from the model to the screen.
-        /// </param>
-        /// <remarks>
-        /// Note that whatever operations this method performs may potentially
-        /// throw exceptions.
-        /// </remarks>
-        public void UpdateData(bool bSavingAndValidating = true)
-        {
-            if (bSavingAndValidating)
-            {
-                Configuration.SaveCurrentStartingFolderAndHistory(
-                    _mainWindow.StartingFolderComboBox
-                );
-
-                Configuration.SaveCurrentFindWhatAndHistory(
-                    _mainWindow.FindWhatComboBox
-                );
-
-                Configuration.SaveCurrentStartingFolderAndHistory(
-                    _mainWindow.ReplaceWithComboBox
-                );
-            }
-            else
-            {
-                ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.StartingFolderComboBox,
-                    Configuration.StartingFolder,
-                    Configuration.StartingFolderHistory
-                );
-
-                ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox,
-                    Configuration.FindWhat,
-                    Configuration.FindWhatHistory
-                );
-
-                ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.ReplaceWithComboBox,
-                    Configuration.ReplaceWith,
-                    Configuration.ReplaceWithHistory
-                );
-            }
         }
 
         private void ValidateInputs()

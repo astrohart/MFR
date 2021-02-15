@@ -80,7 +80,7 @@ namespace MassFileRenamer.GUI
         /// Sets the state of the Operations to Perform checked list box items
         /// based on configuration settings.
         /// </summary>
-        void InitializeOperationSelection();
+        void InitializeOperationSelections();
 
         /// <summary>
         /// Begins the rename operation.
