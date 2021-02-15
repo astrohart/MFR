@@ -58,24 +58,6 @@ namespace MassFileRenamer.GUI
                !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
 
         /// <summary>
-        /// Gets or sets the value of the Match Case checkbox
-        /// </summary>
-        public bool MatchCase
-        {
-            get => matchCaseCheckBox.Checked;
-            set => matchCaseCheckBox.Checked = value;
-        }
-
-        /// <summary>
-        /// Gets or sets the value of the Match Whole Word checkbox
-        /// </summary>
-        public bool MatchWholeWord
-        {
-            get => matchWholeWordCheckBox.Checked;
-            set => matchWholeWordCheckBox.Checked = value;
-        }
-
-        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
@@ -98,12 +80,36 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Gets the full name of this application, including the current version.
+        /// </summary>
+        public string FullApplicationName
+            => $"{Program.MainWindowTitle} {Version}";
+
+        /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
         /// </summary>
         public bool IsFolded
         {
             get => FoldButton.IsFolded;
             set => FoldButton.IsFolded = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the Match Case checkbox
+        /// </summary>
+        public bool MatchCase
+        {
+            get => matchCaseCheckBox.Checked;
+            set => matchCaseCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the Match Whole Word checkbox
+        /// </summary>
+        public bool MatchWholeWord
+        {
+            get => matchWholeWordCheckBox.Checked;
+            set => matchWholeWordCheckBox.Checked = value;
         }
 
         /// <summary>
@@ -199,7 +205,7 @@ namespace MassFileRenamer.GUI
         {
             base.OnLoad(e);
 
-            Text = $"{Application.ProductName} {Version}";
+            Text = FullApplicationName;
 
             _presenter.UpdateData(false);
 
@@ -384,6 +390,47 @@ namespace MassFileRenamer.GUI
             FoldButton.SetFoldedStateText();
 
             _presenter.Configuration.IsFolded = e.Folded;
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the user clicking on the About command on the Help menu.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by displaying the About dialog box.
+        /// </remarks>
+        private void OnHelpAbout(object sender, EventArgs e)
+            => AboutBox.Display(this);
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:System.Windows.Forms.ToolStripDropDownItem.DropDownOpening" />
+        /// event raised by the action of the user clicking on the Help menu to
+        /// open it.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by ensuring that the text of the
+        /// Help menu's About command contains the full name of this application.
+        /// </remarks>
+        private void OnHelpMenuDropDownOpening(object sender, EventArgs e)
+        {
+            if (!helpAbout.Text.Contains("[App Title]")) // already set
+                return;
+
+            helpAbout.Text = $"&About {FullApplicationName}";
         }
 
         /// <summary>

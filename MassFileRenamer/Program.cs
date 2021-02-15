@@ -8,7 +8,7 @@ namespace MassFileRenamer
    /// </summary>
    public static class Program
    {
-      /// <summary>
+       /// <summary>
       /// Application entry point.
       /// </summary>
       public static void Main()

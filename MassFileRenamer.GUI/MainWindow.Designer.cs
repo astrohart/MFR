@@ -53,10 +53,14 @@ namespace MassFileRenamer.GUI
             this.toolsExportConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
             this.optionsTabControl = new System.Windows.Forms.TabControl();
             this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
+            this.matchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchCaseCheckBox = new System.Windows.Forms.CheckBox();
             this.operationsTabPage = new System.Windows.Forms.TabPage();
             this.tabPageInstructionLabel = new System.Windows.Forms.Label();
             this.selectDeselectAllCheckBox = new System.Windows.Forms.CheckBox();
@@ -64,8 +68,6 @@ namespace MassFileRenamer.GUI
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
-            this.matchCaseCheckBox = new System.Windows.Forms.CheckBox();
-            this.matchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -175,7 +177,8 @@ namespace MassFileRenamer.GUI
             this.fileMenu,
             this.viewMenu,
             this.operationsMenu,
-            this.toolsMenu});
+            this.toolsMenu,
+            this.helpMenu});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Size = new System.Drawing.Size(596, 24);
@@ -275,6 +278,22 @@ namespace MassFileRenamer.GUI
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
+            // helpMenu
+            // 
+            this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpAbout});
+            this.helpMenu.Name = "helpMenu";
+            this.helpMenu.Size = new System.Drawing.Size(44, 20);
+            this.helpMenu.Text = "&Help";
+            this.helpMenu.DropDownOpening += new System.EventHandler(this.OnHelpMenuDropDownOpening);
+            // 
+            // helpAbout
+            // 
+            this.helpAbout.Name = "helpAbout";
+            this.helpAbout.Size = new System.Drawing.Size(180, 22);
+            this.helpAbout.Text = "&About [App Title]";
+            this.helpAbout.Click += new System.EventHandler(this.OnHelpAbout);
+            // 
             // importConfigDialog
             // 
             this.importConfigDialog.DefaultExt = "json";
@@ -314,6 +333,28 @@ namespace MassFileRenamer.GUI
             this.findReplaceOptionsTabPage.TabIndex = 0;
             this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
             this.findReplaceOptionsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // matchWholeWordCheckBox
+            // 
+            this.matchWholeWordCheckBox.AutoSize = true;
+            this.matchWholeWordCheckBox.Enabled = false;
+            this.matchWholeWordCheckBox.Location = new System.Drawing.Point(7, 33);
+            this.matchWholeWordCheckBox.Name = "matchWholeWordCheckBox";
+            this.matchWholeWordCheckBox.Size = new System.Drawing.Size(125, 19);
+            this.matchWholeWordCheckBox.TabIndex = 1;
+            this.matchWholeWordCheckBox.Text = "Matc&h whole word";
+            this.matchWholeWordCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // matchCaseCheckBox
+            // 
+            this.matchCaseCheckBox.AutoSize = true;
+            this.matchCaseCheckBox.Enabled = false;
+            this.matchCaseCheckBox.Location = new System.Drawing.Point(7, 7);
+            this.matchCaseCheckBox.Name = "matchCaseCheckBox";
+            this.matchCaseCheckBox.Size = new System.Drawing.Size(86, 19);
+            this.matchCaseCheckBox.TabIndex = 0;
+            this.matchCaseCheckBox.Text = "Match &case";
+            this.matchCaseCheckBox.UseVisualStyleBackColor = true;
             // 
             // operationsTabPage
             // 
@@ -395,26 +436,6 @@ namespace MassFileRenamer.GUI
             this.foldButton.UseVisualStyleBackColor = true;
             this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
             // 
-            // matchCaseCheckBox
-            // 
-            this.matchCaseCheckBox.AutoSize = true;
-            this.matchCaseCheckBox.Location = new System.Drawing.Point(7, 7);
-            this.matchCaseCheckBox.Name = "matchCaseCheckBox";
-            this.matchCaseCheckBox.Size = new System.Drawing.Size(86, 19);
-            this.matchCaseCheckBox.TabIndex = 0;
-            this.matchCaseCheckBox.Text = "Match &case";
-            this.matchCaseCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // matchWholeWordCheckBox
-            // 
-            this.matchWholeWordCheckBox.AutoSize = true;
-            this.matchWholeWordCheckBox.Location = new System.Drawing.Point(7, 33);
-            this.matchWholeWordCheckBox.Name = "matchWholeWordCheckBox";
-            this.matchWholeWordCheckBox.Size = new System.Drawing.Size(125, 19);
-            this.matchWholeWordCheckBox.TabIndex = 1;
-            this.matchWholeWordCheckBox.Text = "Matc&h whole word";
-            this.matchWholeWordCheckBox.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
@@ -494,6 +515,8 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.Label tabPageInstructionLabel;
         private System.Windows.Forms.CheckBox matchWholeWordCheckBox;
         private System.Windows.Forms.CheckBox matchCaseCheckBox;
+        private System.Windows.Forms.ToolStripMenuItem helpMenu;
+        private System.Windows.Forms.ToolStripMenuItem helpAbout;
     }
 }
 

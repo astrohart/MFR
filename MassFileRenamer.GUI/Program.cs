@@ -13,6 +13,19 @@ namespace MassFileRenamer.GUI
     public static class Program
     {
         /// <summary>
+        /// Gets the title text that should be utilized for the main application window.
+        /// </summary>
+        public static string MainWindowTitle
+            => ShortCompanyName + " " + Application.ProductName;
+
+        /// <summary>
+        /// Gets the short name (without prefixes or suffixes) of the company
+        /// that manufactured this tool.
+        /// </summary>
+        public static string ShortCompanyName
+            => Application.CompanyName.Replace(", LLC", string.Empty);
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]

@@ -113,5 +113,10 @@ namespace MassFileRenamer.GUI
         /// Gets or sets the value of the Match Whole Word checkbox
         /// </summary>
         bool MatchWholeWord { get; set; }
+
+        /// <summary>
+        /// Gets the full name of this application, including the current version.
+        /// </summary>
+        string FullApplicationName { get; }
     }
 }

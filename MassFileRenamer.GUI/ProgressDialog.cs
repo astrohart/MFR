@@ -146,7 +146,7 @@ namespace MassFileRenamer.GUI
             Status = "Calculating files to be processed...";
             ProgressBar.MarqueeAnimationSpeed = 30;
             ProgressBar.Style = ProgressBarStyle.Marquee;
-            Text = Application.ProductName;
+            Text = "xyLOGIX " + Application.ProductName;
         }
 
         /// <summary>
