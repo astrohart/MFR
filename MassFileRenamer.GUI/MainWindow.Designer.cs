@@ -59,11 +59,11 @@ namespace MassFileRenamer.GUI
             this.optionsTabControl = new System.Windows.Forms.TabControl();
             this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
             this.operationsTabPage = new System.Windows.Forms.TabPage();
+            this.tabPageInstructionLabel = new System.Windows.Forms.Label();
+            this.selectDeselectAllCheckBox = new System.Windows.Forms.CheckBox();
+            this.operationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
-            this.operationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.selectDeselectAllCheckBox = new System.Windows.Forms.CheckBox();
-            this.tabPageInstructionLabel = new System.Windows.Forms.Label();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -121,9 +121,8 @@ namespace MassFileRenamer.GUI
             // foldButton
             // 
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.foldButton.Enabled = false;
             this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 294);
-            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 510);
+            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 515);
             this.foldButton.Location = new System.Drawing.Point(15, 192);
             this.foldButton.Name = "foldButton";
             this.foldButton.Size = new System.Drawing.Size(87, 27);
@@ -166,7 +165,7 @@ namespace MassFileRenamer.GUI
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusBar.Location = new System.Drawing.Point(0, 449);
+            this.statusBar.Location = new System.Drawing.Point(0, 233);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -308,7 +307,7 @@ namespace MassFileRenamer.GUI
             this.optionsTabControl.Controls.Add(this.operationsTabPage);
             this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
             this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
-            this.optionsTabControl.Location = new System.Drawing.Point(15, 226);
+            this.optionsTabControl.Location = new System.Drawing.Point(15, 235);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
@@ -337,6 +336,40 @@ namespace MassFileRenamer.GUI
             this.operationsTabPage.Text = "Operations";
             this.operationsTabPage.UseVisualStyleBackColor = true;
             // 
+            // tabPageInstructionLabel
+            // 
+            this.tabPageInstructionLabel.AutoSize = true;
+            this.tabPageInstructionLabel.Location = new System.Drawing.Point(8, 12);
+            this.tabPageInstructionLabel.Name = "tabPageInstructionLabel";
+            this.tabPageInstructionLabel.Size = new System.Drawing.Size(128, 15);
+            this.tabPageInstructionLabel.TabIndex = 2;
+            this.tabPageInstructionLabel.Text = "&Operations to perform:";
+            // 
+            // selectDeselectAllCheckBox
+            // 
+            this.selectDeselectAllCheckBox.AutoSize = true;
+            this.selectDeselectAllCheckBox.Location = new System.Drawing.Point(11, 34);
+            this.selectDeselectAllCheckBox.Name = "selectDeselectAllCheckBox";
+            this.selectDeselectAllCheckBox.Size = new System.Drawing.Size(120, 19);
+            this.selectDeselectAllCheckBox.TabIndex = 1;
+            this.selectDeselectAllCheckBox.Text = "Select/deselect all";
+            this.selectDeselectAllCheckBox.UseVisualStyleBackColor = true;
+            this.selectDeselectAllCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedSelectDeselectAllCheckBox);
+            // 
+            // operationsCheckedListBox
+            // 
+            this.operationsCheckedListBox.FormattingEnabled = true;
+            this.operationsCheckedListBox.Items.AddRange(new object[] {
+            "Rename Files",
+            "Rename Subfolders",
+            "Replace in Files"});
+            this.operationsCheckedListBox.Location = new System.Drawing.Point(11, 57);
+            this.operationsCheckedListBox.Name = "operationsCheckedListBox";
+            this.operationsCheckedListBox.ScrollAlwaysVisible = true;
+            this.operationsCheckedListBox.Size = new System.Drawing.Size(539, 112);
+            this.operationsCheckedListBox.Sorted = true;
+            this.operationsCheckedListBox.TabIndex = 0;
+            // 
             // inclusionsTabPage
             // 
             this.inclusionsTabPage.Location = new System.Drawing.Point(4, 24);
@@ -357,47 +390,12 @@ namespace MassFileRenamer.GUI
             this.exclusionsTabPage.Text = "Exclusions";
             this.exclusionsTabPage.UseVisualStyleBackColor = true;
             // 
-            // operationsCheckedListBox
-            // 
-            this.operationsCheckedListBox.FormattingEnabled = true;
-            this.operationsCheckedListBox.Items.AddRange(new object[] {
-            "Rename Files",
-            "Rename Subfolders",
-            "Replace in Files"});
-            this.operationsCheckedListBox.Location = new System.Drawing.Point(11, 57);
-            this.operationsCheckedListBox.Name = "operationsCheckedListBox";
-            this.operationsCheckedListBox.ScrollAlwaysVisible = true;
-            this.operationsCheckedListBox.Size = new System.Drawing.Size(539, 112);
-            this.operationsCheckedListBox.Sorted = true;
-            this.operationsCheckedListBox.TabIndex = 0;
-            // 
-            // selectDeselectAllCheckBox
-            // 
-            this.selectDeselectAllCheckBox.AutoSize = true;
-            this.selectDeselectAllCheckBox.Location = new System.Drawing.Point(11, 34);
-            this.selectDeselectAllCheckBox.Name = "selectDeselectAllCheckBox";
-            this.selectDeselectAllCheckBox.Size = new System.Drawing.Size(120, 19);
-            this.selectDeselectAllCheckBox.TabIndex = 1;
-            this.selectDeselectAllCheckBox.Text = "Select/deselect all";
-            this.selectDeselectAllCheckBox.UseVisualStyleBackColor = true;
-            this.selectDeselectAllCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedSelectDeselectAllCheckBox);
-            // 
-            // tabPageInstructionLabel
-            // 
-            this.tabPageInstructionLabel.AutoSize = true;
-            this.tabPageInstructionLabel.Location = new System.Drawing.Point(8, 12);
-            this.tabPageInstructionLabel.Name = "tabPageInstructionLabel";
-            this.tabPageInstructionLabel.Size = new System.Drawing.Size(128, 15);
-            this.tabPageInstructionLabel.TabIndex = 2;
-            this.tabPageInstructionLabel.Text = "&Operations to perform:";
-            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 471);
-            this.Controls.Add(this.optionsTabControl);
+            this.ClientSize = new System.Drawing.Size(596, 255);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.replaceWithComboBox);
@@ -409,6 +407,7 @@ namespace MassFileRenamer.GUI
             this.Controls.Add(this.findWhatLabel);
             this.Controls.Add(this.startingFolderBrowseButton);
             this.Controls.Add(this.startingFolderLabel);
+            this.Controls.Add(this.optionsTabControl);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
