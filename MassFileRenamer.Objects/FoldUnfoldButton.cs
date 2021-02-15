@@ -31,6 +31,24 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets or sets the text that this button displays when the hosting
+        /// form is in the Folded state.
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [DefaultValue("&More >>")]
+        [DesignerSerializationVisibility(
+            DesignerSerializationVisibility.Content
+        )]
+        [Description(
+            "Gets or sets the text that this button displays when the hosting form is in the Folded state."
+        )]
+        public string FoldedText
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the <see cref="T:System.Drawing.Size" /> of the parent
         /// form when the form is folded.
         /// </summary>
@@ -89,9 +107,35 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets or sets the text that this button displays when the hosting
+        /// form is in the Folded state.
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [DefaultValue("&Less <<")]
+        [DesignerSerializationVisibility(
+            DesignerSerializationVisibility.Content
+        )]
+        [Description(
+            "Gets or sets the text that this button displays when the hosting form is in the Unfolded state."
+        )]
+        public string UnfoldedText
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Occurs when the Folded state of the parent form is to be changed.
         /// </summary>
         public event FormFoldedEventHandler FormFolded;
+
+        /// <summary>
+        /// Sets the <see cref="P:System.Windows.Forms.ButtonBase.Text" />
+        /// property of this button to correspond to whether the hosting form is
+        /// in the Folded state or not.
+        /// </summary>
+        public void SetFoldedStateText()
+            => Text = IsFolded ? FoldedText : UnfoldedText;
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Control.Click" /> event.
@@ -104,6 +148,19 @@ namespace MassFileRenamer.Objects
             base.OnClick(e);
 
             ToggleFolded();
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="M:System.Windows.Forms.Control.CreateControl" />
+        /// method.
+        /// </summary>
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+
+            SetFoldedStateText();
         }
 
         /// <summary>

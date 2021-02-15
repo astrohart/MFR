@@ -1,6 +1,7 @@
 ﻿using MassFileRenamer.Objects;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -48,6 +49,24 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.Text) &&
+               Directory.Exists(StartingFolderComboBox.Text) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.Text) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
+
+        /// <summary>
+        /// Gets a reference to the text box control that allows the user to
+        /// specify the text to be found.
+        /// </summary>
+        public ComboBox FindWhatComboBox
+        {
+            [DebuggerStepThrough] get => findWhatcomboBox;
+        }
+
+        /// <summary>
         /// Gets a reference to the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.FoldUnfoldButton" />
@@ -61,30 +80,12 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets a value indicating whether the data entered on this form is valid.
-        /// </summary>
-        public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.Text) &&
-               Directory.Exists(StartingFolderComboBox.Text) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.Text) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
-
-        /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
         /// </summary>
         public bool IsFolded
         {
             get => FoldButton.IsFolded;
             set => FoldButton.IsFolded = value;
-        }
-
-        /// <summary>
-        /// Gets a reference to the text box control that allows the user to
-        /// specify the text to be found.
-        /// </summary>
-        public ComboBox FindWhatComboBox
-        {
-            [DebuggerStepThrough] get => findWhatcomboBox;
         }
 
         /// <summary>
@@ -173,6 +174,14 @@ namespace MassFileRenamer.GUI
             Text = $"{Application.ProductName} {Version}";
 
             _presenter.UpdateData(false);
+
+            UpdateSize(
+                IsFolded
+                    ? FoldButton.FormFoldedSize
+                    : FoldButton.FormUnfoldedSize
+            );
+
+            FoldButton.SetFoldedStateText();
         }
 
         /// <summary>
@@ -342,14 +351,9 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void OnFormFolded(object sender, FormFoldedEventArgs e)
         {
-            Size = e.Size;
+            UpdateSize(e.Size);
 
-            foldButton.Text = foldButton.IsFolded ? "&More >>" : "&Less <<";
-            Application.DoEvents();
-            Update();
-            Refresh(); // repaint
-
-            CenterToScreen();
+            FoldButton.SetFoldedStateText();
 
             _presenter.Configuration.IsFolded = e.Folded;
         }
@@ -651,6 +655,24 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void OnViewStatusBar(object sender, EventArgs e)
             => statusBar.Visible = !statusBar.Visible;
+
+        /// <summary>
+        /// Resizes the form to that specified in the <paramref name="newSize" />
+        /// parameter.
+        /// </summary>
+        /// <param name="newSize">
+        /// A <see cref="T:System.Drawing.Size" /> that specifies the new size to use.
+        /// </param>
+        private void UpdateSize(Size newSize)
+        {
+            Size = newSize;
+
+            Application.DoEvents();
+            Update();
+            Refresh(); // repaint
+
+            CenterToScreen();
+        }
 
         /// <summary>
         /// Ensures the fields on the form have valid values, and prompts the
