@@ -56,8 +56,14 @@ namespace MassFileRenamer.GUI
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
+            this.optionsTabControl = new System.Windows.Forms.TabControl();
+            this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
+            this.operationsTabPage = new System.Windows.Forms.TabPage();
+            this.inclusionsTabPage = new System.Windows.Forms.TabPage();
+            this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
+            this.optionsTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // startingFolderLabel
@@ -156,7 +162,7 @@ namespace MassFileRenamer.GUI
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusBar.Location = new System.Drawing.Point(0, 233);
+            this.statusBar.Location = new System.Drawing.Point(0, 449);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -292,12 +298,65 @@ namespace MassFileRenamer.GUI
             this.exportConfigDialog.RestoreDirectory = true;
             this.exportConfigDialog.Title = "Export Configuration";
             // 
+            // optionsTabControl
+            // 
+            this.optionsTabControl.Controls.Add(this.findReplaceOptionsTabPage);
+            this.optionsTabControl.Controls.Add(this.operationsTabPage);
+            this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
+            this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
+            this.optionsTabControl.Location = new System.Drawing.Point(15, 226);
+            this.optionsTabControl.Name = "optionsTabControl";
+            this.optionsTabControl.SelectedIndex = 0;
+            this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
+            this.optionsTabControl.TabIndex = 11;
+            // 
+            // findReplaceOptionsTabPage
+            // 
+            this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.findReplaceOptionsTabPage.Name = "findReplaceOptionsTabPage";
+            this.findReplaceOptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.findReplaceOptionsTabPage.TabIndex = 0;
+            this.findReplaceOptionsTabPage.Text = "Find/Replace";
+            this.findReplaceOptionsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // operationsTabPage
+            // 
+            this.operationsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.operationsTabPage.Name = "operationsTabPage";
+            this.operationsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.operationsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.operationsTabPage.TabIndex = 1;
+            this.operationsTabPage.Text = "Operations";
+            this.operationsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // inclusionsTabPage
+            // 
+            this.inclusionsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.inclusionsTabPage.Name = "inclusionsTabPage";
+            this.inclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.inclusionsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.inclusionsTabPage.TabIndex = 2;
+            this.inclusionsTabPage.Text = "Inclusions";
+            this.inclusionsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // exclusionsTabPage
+            // 
+            this.exclusionsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.exclusionsTabPage.Name = "exclusionsTabPage";
+            this.exclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.exclusionsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.exclusionsTabPage.TabIndex = 3;
+            this.exclusionsTabPage.Text = "Exclusions";
+            this.exclusionsTabPage.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 255);
+            this.ClientSize = new System.Drawing.Size(596, 471);
+            this.Controls.Add(this.optionsTabControl);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.replaceWithComboBox);
@@ -315,12 +374,14 @@ namespace MassFileRenamer.GUI
             this.MainMenuStrip = this.menuBar;
             this.MaximizeBox = false;
             this.Name = "MainWindow";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[AppTitle]";
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.optionsTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,6 +415,11 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.SaveFileDialog exportConfigDialog;
         private System.Windows.Forms.ToolStripMenuItem operationsMenu;
         private System.Windows.Forms.ToolStripMenuItem operationsPerform;
+        private System.Windows.Forms.TabControl optionsTabControl;
+        private System.Windows.Forms.TabPage findReplaceOptionsTabPage;
+        private System.Windows.Forms.TabPage operationsTabPage;
+        private System.Windows.Forms.TabPage inclusionsTabPage;
+        private System.Windows.Forms.TabPage exclusionsTabPage;
     }
 }
 
