@@ -28,6 +28,9 @@ namespace MassFileRenamer.Objects
             FormFoldedSize = Size.Empty;
             FormUnfoldedSize = Size.Empty;
             IsFolded = true; // form starts out folded typically
+
+            FoldedText = "&More >>";
+            UnfoldedText = "&Less <<";
         }
 
         /// <summary>
@@ -37,7 +40,7 @@ namespace MassFileRenamer.Objects
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DefaultValue("&More >>")]
         [DesignerSerializationVisibility(
-            DesignerSerializationVisibility.Content
+            DesignerSerializationVisibility.Visible
         )]
         [Description(
             "Gets or sets the text that this button displays when the hosting form is in the Folded state."
@@ -113,7 +116,7 @@ namespace MassFileRenamer.Objects
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DefaultValue("&Less <<")]
         [DesignerSerializationVisibility(
-            DesignerSerializationVisibility.Content
+            DesignerSerializationVisibility.Visible
         )]
         [Description(
             "Gets or sets the text that this button displays when the hosting form is in the Unfolded state."
@@ -153,24 +156,15 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="M:System.Windows.Forms.Control.CreateControl" />
-        /// method.
-        /// </summary>
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-
-            SetFoldedStateText();
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see
         ///     cref="E:MassFileRenamer.Objects.FoldUnfoldButton.Folded" />
         /// event.
         /// </summary>
         protected virtual void OnFormFolded(FormFoldedEventArgs e)
-            => FormFolded?.Invoke(this, e);
+        {
+            SetFoldedStateText();
+
+            FormFolded?.Invoke(this, e);
+        }
 
         /// <summary>
         /// Toggles the form between the folded and unfolded states.

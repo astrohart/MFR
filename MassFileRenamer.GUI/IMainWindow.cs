@@ -97,5 +97,21 @@ namespace MassFileRenamer.GUI
         {
             [DebuggerStepThrough] get;
         }
+
+        /// <summary>
+        /// Gets or sets the index of the tab that is selected in the Options
+        /// tab control.
+        /// </summary>
+        int SelectedOptionTab { [DebuggerStepThrough] get; set; }
+
+        /// <summary>
+        /// Gets or sets the value of the Match Case checkbox
+        /// </summary>
+        bool MatchCase { get; set; }
+
+        /// <summary>
+        /// Gets or sets the value of the Match Whole Word checkbox
+        /// </summary>
+        bool MatchWholeWord { get; set; }
     }
 }

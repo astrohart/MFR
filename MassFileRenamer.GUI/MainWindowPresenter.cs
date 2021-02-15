@@ -530,11 +530,23 @@ namespace MassFileRenamer.GUI
 
                 Configuration.IsFolded = _mainWindow.IsFolded;
 
+                Configuration.MatchCase = _mainWindow.MatchCase;
+
+                Configuration.MatchWholeWord = _mainWindow.MatchWholeWord;
+
+                Configuration.SelectedOptionTab = _mainWindow.SelectedOptionTab;
+
                 SaveOperationSelections();
             }
             else
             {
                 InitializeOperationSelections();
+
+                _mainWindow.SelectedOptionTab = Configuration.SelectedOptionTab;
+
+                _mainWindow.MatchWholeWord = Configuration.MatchWholeWord;
+
+                _mainWindow.MatchCase = Configuration.MatchCase;
 
                 _mainWindow.IsFolded = Configuration.IsFolded;
 
@@ -553,8 +565,6 @@ namespace MassFileRenamer.GUI
                     _mainWindow.ReplaceWithComboBox, Configuration.ReplaceWith,
                     Configuration.ReplaceWithHistory
                 );
-
-
             }
         }
 

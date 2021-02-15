@@ -58,6 +58,24 @@ namespace MassFileRenamer.GUI
                !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
 
         /// <summary>
+        /// Gets or sets the value of the Match Case checkbox
+        /// </summary>
+        public bool MatchCase
+        {
+            get => matchCaseCheckBox.Checked;
+            set => matchCaseCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the Match Whole Word checkbox
+        /// </summary>
+        public bool MatchWholeWord
+        {
+            get => matchWholeWordCheckBox.Checked;
+            set => matchWholeWordCheckBox.Checked = value;
+        }
+
+        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
@@ -115,6 +133,16 @@ namespace MassFileRenamer.GUI
         {
             get => selectDeselectAllCheckBox.Checked;
             set => selectDeselectAllCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the index of the tab that is selected in the Options
+        /// tab control.
+        /// </summary>
+        public int SelectedOptionTab
+        {
+            [DebuggerStepThrough] get => optionsTabControl.SelectedIndex;
+            set => optionsTabControl.SelectedIndex = value;
         }
 
         /// <summary>
@@ -637,6 +665,7 @@ namespace MassFileRenamer.GUI
 
             performOperationButton.Enabled =
                 operationsPerform.Enabled = IsDataValid;
+            SelectAll = OperationsCheckedListBox.AreAllItemsSelected();
         }
 
         /// <summary>

@@ -35,7 +35,6 @@ namespace MassFileRenamer.GUI
             this.findWhatLabel = new System.Windows.Forms.Label();
             this.replaceWithLabel = new System.Windows.Forms.Label();
             this.performOperationButton = new System.Windows.Forms.Button();
-            this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
             this.startingFolderComboBox = new System.Windows.Forms.ComboBox();
             this.findWhatcomboBox = new System.Windows.Forms.ComboBox();
             this.replaceWithComboBox = new System.Windows.Forms.ComboBox();
@@ -64,9 +63,13 @@ namespace MassFileRenamer.GUI
             this.operationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
+            this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
+            this.matchCaseCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
+            this.findReplaceOptionsTabPage.SuspendLayout();
             this.operationsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,19 +121,6 @@ namespace MassFileRenamer.GUI
             this.performOperationButton.UseVisualStyleBackColor = true;
             this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
             // 
-            // foldButton
-            // 
-            this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 294);
-            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 515);
-            this.foldButton.Location = new System.Drawing.Point(15, 192);
-            this.foldButton.Name = "foldButton";
-            this.foldButton.Size = new System.Drawing.Size(87, 27);
-            this.foldButton.TabIndex = 7;
-            this.foldButton.Text = "&More >>";
-            this.foldButton.UseVisualStyleBackColor = true;
-            this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
-            // 
             // startingFolderComboBox
             // 
             this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -165,7 +155,7 @@ namespace MassFileRenamer.GUI
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusBar.Location = new System.Drawing.Point(0, 233);
+            this.statusBar.Location = new System.Drawing.Point(0, 454);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -315,12 +305,14 @@ namespace MassFileRenamer.GUI
             // 
             // findReplaceOptionsTabPage
             // 
+            this.findReplaceOptionsTabPage.Controls.Add(this.matchWholeWordCheckBox);
+            this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
             this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 24);
             this.findReplaceOptionsTabPage.Name = "findReplaceOptionsTabPage";
             this.findReplaceOptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 182);
             this.findReplaceOptionsTabPage.TabIndex = 0;
-            this.findReplaceOptionsTabPage.Text = "Find/Replace";
+            this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
             this.findReplaceOptionsTabPage.UseVisualStyleBackColor = true;
             // 
             // operationsTabPage
@@ -390,12 +382,45 @@ namespace MassFileRenamer.GUI
             this.exclusionsTabPage.Text = "Exclusions";
             this.exclusionsTabPage.UseVisualStyleBackColor = true;
             // 
+            // foldButton
+            // 
+            this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 294);
+            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 515);
+            this.foldButton.Location = new System.Drawing.Point(15, 192);
+            this.foldButton.Name = "foldButton";
+            this.foldButton.Size = new System.Drawing.Size(87, 27);
+            this.foldButton.TabIndex = 7;
+            this.foldButton.Text = "&More >>";
+            this.foldButton.UseVisualStyleBackColor = true;
+            this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
+            // 
+            // matchCaseCheckBox
+            // 
+            this.matchCaseCheckBox.AutoSize = true;
+            this.matchCaseCheckBox.Location = new System.Drawing.Point(7, 7);
+            this.matchCaseCheckBox.Name = "matchCaseCheckBox";
+            this.matchCaseCheckBox.Size = new System.Drawing.Size(86, 19);
+            this.matchCaseCheckBox.TabIndex = 0;
+            this.matchCaseCheckBox.Text = "Match &case";
+            this.matchCaseCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // matchWholeWordCheckBox
+            // 
+            this.matchWholeWordCheckBox.AutoSize = true;
+            this.matchWholeWordCheckBox.Location = new System.Drawing.Point(7, 33);
+            this.matchWholeWordCheckBox.Name = "matchWholeWordCheckBox";
+            this.matchWholeWordCheckBox.Size = new System.Drawing.Size(125, 19);
+            this.matchWholeWordCheckBox.TabIndex = 1;
+            this.matchWholeWordCheckBox.Text = "Matc&h whole word";
+            this.matchWholeWordCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 255);
+            this.ClientSize = new System.Drawing.Size(596, 476);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.replaceWithComboBox);
@@ -422,6 +447,8 @@ namespace MassFileRenamer.GUI
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.optionsTabControl.ResumeLayout(false);
+            this.findReplaceOptionsTabPage.ResumeLayout(false);
+            this.findReplaceOptionsTabPage.PerformLayout();
             this.operationsTabPage.ResumeLayout(false);
             this.operationsTabPage.PerformLayout();
             this.ResumeLayout(false);
@@ -465,6 +492,8 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.CheckedListBox operationsCheckedListBox;
         private System.Windows.Forms.CheckBox selectDeselectAllCheckBox;
         private System.Windows.Forms.Label tabPageInstructionLabel;
+        private System.Windows.Forms.CheckBox matchWholeWordCheckBox;
+        private System.Windows.Forms.CheckBox matchCaseCheckBox;
     }
 }
 

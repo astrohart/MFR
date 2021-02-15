@@ -117,6 +117,17 @@ namespace MassFileRenamer.Objects
         } = new List<string>();
 
         /// <summary>
+        /// Gets or sets a number from 0...N, where N is the number of option
+        /// tabs, of the one that is currently selected.
+        /// </summary>
+        [JsonProperty("selectedOptionTab")]
+        public int SelectedOptionTab
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a string containing the path to the starting folder of
         /// the search.
         /// </summary>
