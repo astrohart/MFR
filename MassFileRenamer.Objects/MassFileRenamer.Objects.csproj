@@ -107,6 +107,7 @@
     <Compile Include="IConfiguration.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="InvalidPathException.cs" />
+    <Compile Include="ISearchFilterItem.cs" />
     <Compile Include="Modified.cs" />
     <Compile Include="ModifiedEventArgs.cs" />
     <Compile Include="OperationAbortedException.cs" />
@@ -126,6 +127,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Reflector.cs" />
+    <Compile Include="SearchFilter.cs" />
+    <Compile Include="SearchFilterType.cs" />
     <Compile Include="StatusUpdateEventArgs.cs" />
     <Compile Include="StatusUpdateEventHandler.cs" />
     <Compile Include="SystemPreparer.cs" />
