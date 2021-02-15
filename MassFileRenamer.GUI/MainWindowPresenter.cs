@@ -528,11 +528,15 @@ namespace MassFileRenamer.GUI
                     _mainWindow.ReplaceWithComboBox
                 );
 
+                Configuration.IsFolded = _mainWindow.IsFolded;
+
                 SaveOperationSelections();
             }
             else
             {
                 InitializeOperationSelections();
+
+                _mainWindow.IsFolded = Configuration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.StartingFolderComboBox,
@@ -549,6 +553,8 @@ namespace MassFileRenamer.GUI
                     _mainWindow.ReplaceWithComboBox, Configuration.ReplaceWith,
                     Configuration.ReplaceWithHistory
                 );
+
+
             }
         }
 

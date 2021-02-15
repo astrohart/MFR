@@ -173,8 +173,6 @@ namespace MassFileRenamer.GUI
             Text = $"{Application.ProductName} {Version}";
 
             _presenter.UpdateData(false);
-
-            SetFolded(_presenter.Configuration.IsFolded);
         }
 
         /// <summary>
@@ -653,16 +651,6 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void OnViewStatusBar(object sender, EventArgs e)
             => statusBar.Visible = !statusBar.Visible;
-
-        /// <summary>
-        /// Sets the Folded state of the form.
-        /// </summary>
-        /// <param name="folded">
-        /// (Optional.) Boolean that specifies whether the form is folded.
-        /// Default is <c>true</c>.
-        /// </param>
-        private void SetFolded(bool folded = true)
-            => foldButton.IsFolded = folded;
 
         /// <summary>
         /// Ensures the fields on the form have valid values, and prompts the
