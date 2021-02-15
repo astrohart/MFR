@@ -453,6 +453,22 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Sets the state of the Operations to Perform checked list box items
+        /// based on configuration settings.
+        /// </summary>
+        public void InitializeOperationSelection()
+        {
+            _mainWindow.OperationsCheckedListBox.CheckByName("Rename Files", Configuration.RenameFiles);
+            _mainWindow.OperationsCheckedListBox.CheckByName("Rename Subfolders", Configuration.RenameSubfolders);
+            _mainWindow.OperationsCheckedListBox.CheckByName("Replace in Files", Configuration.ReplaceInFiles);
+        }
+
+        public void SaveOperationSelections()
+        {
+
+        }
+
+        /// <summary>
         /// Begins the rename operation.
         /// </summary>
         public void Process()

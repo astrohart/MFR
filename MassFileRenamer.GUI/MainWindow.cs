@@ -19,14 +19,16 @@ namespace MassFileRenamer.GUI
         private IMainWindowPresenter _presenter;
 
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.GUI.MainWindow"/> and returns a reference to it.
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.GUI.MainWindow" />
+        /// and returns a reference to it.
         /// </summary>
         /// <param name="configurationPathname">
         /// (Required.) String containing the pathname of the configuration file.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname"/> parameter is blank.
+        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
         public MainWindow(string configurationPathname)
         {
@@ -46,16 +48,6 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets a reference to the text box control that allows the user to
-        /// specify the text to be found.
-        /// </summary>
-        public ComboBox FindWhatComboBox
-        {
-            [DebuggerStepThrough]
-            get => findWhatcomboBox;
-        }
-
-        /// <summary>
         /// Gets a value indicating whether the data entered on this form is valid.
         /// </summary>
         public bool IsDataValid
@@ -66,12 +58,40 @@ namespace MassFileRenamer.GUI
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
+        /// specify the text to be found.
+        /// </summary>
+        public ComboBox FindWhatComboBox
+        {
+            [DebuggerStepThrough] get => findWhatcomboBox;
+        }
+
+        /// <summary>
+        /// Gets a reference to the
+        /// <see
+        ///     cref="T:System.Windows.Forms.CheckedListBox" />
+        /// that has the list of operations.
+        /// </summary>
+        public CheckedListBox OperationsCheckedListBox
+        {
+            [DebuggerStepThrough] get => operationsCheckedListBox;
+        }
+
+        /// <summary>
+        /// Gets a reference to the text box control that allows the user to
         /// specify the text to replace found text with.
         /// </summary>
         public ComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough]
-            get => replaceWithComboBox;
+            [DebuggerStepThrough] get => replaceWithComboBox;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the Select/Deselect All checkbox
+        /// </summary>
+        public bool SelectAll
+        {
+            get => selectDeselectAllCheckBox.Checked;
+            set => selectDeselectAllCheckBox.Checked = value;
         }
 
         /// <summary>
@@ -80,17 +100,22 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public ComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough]
-            get => startingFolderComboBox;
+            [DebuggerStepThrough] get => startingFolderComboBox;
         }
 
         /// <summary>
         /// Gets a string containing this application's version.
         /// </summary>
         /// <remarks>
-        /// Thanks to <a href="
+        /// Thanks to
+        /// <a
+        ///     href="
         /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
-        /// "> Kiran Suthar </a> 's answer on the Microsoft forums.
+        /// ">
+        /// Kiran
+        /// Suthar
+        /// </a>
+        /// 's answer on the Microsoft forums.
         /// </remarks>
         public string Version
         {
@@ -98,10 +123,10 @@ namespace MassFileRenamer.GUI
         } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing"/> event.
+        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs"/> that
+        /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" /> that
         /// contains the event data.
         /// </param>
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -114,10 +139,10 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
+        /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         protected override void OnLoad(EventArgs e)
         {
@@ -128,6 +153,8 @@ namespace MassFileRenamer.GUI
             _presenter.UpdateData(false);
 
             SetFolded(_presenter.Configuration.IsFolded);
+
+            _presenter.InitializeOperationSelection();
         }
 
         /// <summary>
@@ -137,7 +164,7 @@ namespace MassFileRenamer.GUI
         /// (Required.) String containing the pathname of the configuration file.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname"/> parameter is blank.
+        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
         private void InitializePresenter(string configurationPathname)
         {
@@ -159,14 +186,35 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Control.Click"/> event
+        /// Handles the
+        /// <see
+        ///     cref="E:System.Windows.Forms.CheckBox.CheckedChanged" />
+        /// event for
+        /// the Select/Deselect All check box.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by toggling the Checked states of
+        /// all the boxes in the Operations To Perform checked list box.
+        /// </remarks>
+        private void OnCheckedChangedSelectDeselectAllCheckBox(object sender,
+            EventArgs e)
+            => operationsCheckedListBox.CheckAll(SelectAll);
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
         /// for the Browse ("...") button.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// <para>
@@ -191,14 +239,14 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Control.Click"/> event
+        /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
         /// for the Perform Operation button.
         /// </summary>
         /// <param name="sender">
         /// The sender of this event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This handler starts the processing of renaming folders and files
@@ -236,14 +284,14 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click"/>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event for the File -&gt; Exit menu command.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called to handle the action of the user clicking the
@@ -260,14 +308,16 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see
-        /// cref="E:MassFileRenamer.Objects.FoldUnfoldButton.FormFolded"/> event.
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FoldUnfoldButton.FormFolded" />
+        /// event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.FormFoldedEventArgs"/> that
+        /// A <see cref="T:MassFileRenamer.Objects.FormFoldedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -287,14 +337,14 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click"/>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event on the Operations -&gt; Perform menu command.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called in order to respond when the user clicks the
@@ -305,14 +355,16 @@ namespace MassFileRenamer.GUI
             => performOperationButton.PerformClick();
 
         /// <summary>
-        /// Handles the <see
-        /// cref="E:MassFileRenamer.GUI.OptionsDialog.Modified"/> event.
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.OptionsDialog.Modified" />
+        /// event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the Apply button being clicked in the
@@ -331,15 +383,18 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see
-        /// cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationExported"/> event.
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationExported" />
+        /// event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see
-        /// cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs"/>
+        /// An
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <remarks>
@@ -357,19 +412,22 @@ namespace MassFileRenamer.GUI
             );
 
         /// <summary>
-        /// Handles the <see
-        /// cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationImported"/> event.
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationImported" />
+        /// event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the event by triggering an update of the
-        /// screen from values stored in the configuration object in the <see
-        /// cref="P:MassFileRenamer.GUI.MainWindowPresenter.Configuration"/>
+        /// screen from values stored in the configuration object in the
+        /// <see
+        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.Configuration" />
         /// property. This happens most often as a the result of the Import
         /// Configuration command on the Tools menu.
         /// </remarks>
@@ -387,14 +445,16 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see
-        /// cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Finished"/> event.
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Finished" />
+        /// event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method toggles UI state and dismisses the progress dialog.
@@ -411,18 +471,22 @@ namespace MassFileRenamer.GUI
             );
 
         /// <summary>
-        /// Handles the <see
-        /// cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Started"/> event.
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Started" />
+        /// event.
         /// </summary>
         /// <param name="sender">
         /// The sender of the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs"/> containing the event data.
+        /// A <see cref="T:System.EventArgs" /> containing the event data.
         /// </param>
         /// <remarks>
-        /// This handler is called when the <see
-        /// cref="M:MassFileRenamer.Objects.FileRenamer.ProcessAll"/> begins its
+        /// This handler is called when the
+        /// <see
+        ///     cref="M:MassFileRenamer.Objects.FileRenamer.ProcessAll" />
+        /// begins its
         /// execution. This method responds by showing the progress dialog.
         /// </remarks>
         private void OnPresenterStarted(object sender, EventArgs e)
@@ -437,7 +501,7 @@ namespace MassFileRenamer.GUI
             );
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click"/>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event for the Tools -&gt; Import and Export Configuration -&gt;
         /// Export Configuration menu command.
         /// </summary>
@@ -445,7 +509,7 @@ namespace MassFileRenamer.GUI
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when the user chooses the Export Configuration
@@ -466,7 +530,7 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click"/>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event for the Tools -&gt; Import and Export Configuration -&gt;
         /// Import Configuration menu command.
         /// </summary>
@@ -474,7 +538,7 @@ namespace MassFileRenamer.GUI
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when the user chooses the Import Configuration
@@ -495,14 +559,14 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click"/>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event for the Tools -&gt; Options menu command.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when the user chooses the Options command on
@@ -529,18 +593,20 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Application.Idle"/> event.
+        /// Handles the <see cref="E:System.Windows.Forms.Application.Idle" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the event by updating the enabled/disabled
-        /// state of controls and menu items, unless the <see
-        /// cref="P:System.Windows.Forms.Control.Enabled"/> property is
+        /// state of controls and menu items, unless the
+        /// <see
+        ///     cref="P:System.Windows.Forms.Control.Enabled" />
+        /// property is
         /// <c>false</c>, which means an operation is in progress.
         /// </remarks>
         private void OnUpdateCmdUI(object sender, EventArgs e)
@@ -552,13 +618,13 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click"/> event.
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when the user clicks the Status Bar command on

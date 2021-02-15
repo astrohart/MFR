@@ -77,6 +77,12 @@ namespace MassFileRenamer.GUI
         void ImportConfiguration(string pathname);
 
         /// <summary>
+        /// Sets the state of the Operations to Perform checked list box items
+        /// based on configuration settings.
+        /// </summary>
+        void InitializeOperationSelection();
+
+        /// <summary>
         /// Begins the rename operation.
         /// </summary>
         void Process();

@@ -61,9 +61,13 @@ namespace MassFileRenamer.GUI
             this.operationsTabPage = new System.Windows.Forms.TabPage();
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
+            this.operationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.selectDeselectAllCheckBox = new System.Windows.Forms.CheckBox();
+            this.tabPageInstructionLabel = new System.Windows.Forms.Label();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
+            this.operationsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // startingFolderLabel
@@ -322,6 +326,9 @@ namespace MassFileRenamer.GUI
             // 
             // operationsTabPage
             // 
+            this.operationsTabPage.Controls.Add(this.tabPageInstructionLabel);
+            this.operationsTabPage.Controls.Add(this.selectDeselectAllCheckBox);
+            this.operationsTabPage.Controls.Add(this.operationsCheckedListBox);
             this.operationsTabPage.Location = new System.Drawing.Point(4, 24);
             this.operationsTabPage.Name = "operationsTabPage";
             this.operationsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -349,6 +356,40 @@ namespace MassFileRenamer.GUI
             this.exclusionsTabPage.TabIndex = 3;
             this.exclusionsTabPage.Text = "Exclusions";
             this.exclusionsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // operationsCheckedListBox
+            // 
+            this.operationsCheckedListBox.FormattingEnabled = true;
+            this.operationsCheckedListBox.Items.AddRange(new object[] {
+            "Rename Files",
+            "Rename Subfolders",
+            "Replace in Files"});
+            this.operationsCheckedListBox.Location = new System.Drawing.Point(11, 57);
+            this.operationsCheckedListBox.Name = "operationsCheckedListBox";
+            this.operationsCheckedListBox.ScrollAlwaysVisible = true;
+            this.operationsCheckedListBox.Size = new System.Drawing.Size(539, 112);
+            this.operationsCheckedListBox.Sorted = true;
+            this.operationsCheckedListBox.TabIndex = 0;
+            // 
+            // selectDeselectAllCheckBox
+            // 
+            this.selectDeselectAllCheckBox.AutoSize = true;
+            this.selectDeselectAllCheckBox.Location = new System.Drawing.Point(11, 34);
+            this.selectDeselectAllCheckBox.Name = "selectDeselectAllCheckBox";
+            this.selectDeselectAllCheckBox.Size = new System.Drawing.Size(120, 19);
+            this.selectDeselectAllCheckBox.TabIndex = 1;
+            this.selectDeselectAllCheckBox.Text = "Select/deselect all";
+            this.selectDeselectAllCheckBox.UseVisualStyleBackColor = true;
+            this.selectDeselectAllCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedSelectDeselectAllCheckBox);
+            // 
+            // tabPageInstructionLabel
+            // 
+            this.tabPageInstructionLabel.AutoSize = true;
+            this.tabPageInstructionLabel.Location = new System.Drawing.Point(8, 12);
+            this.tabPageInstructionLabel.Name = "tabPageInstructionLabel";
+            this.tabPageInstructionLabel.Size = new System.Drawing.Size(128, 15);
+            this.tabPageInstructionLabel.TabIndex = 2;
+            this.tabPageInstructionLabel.Text = "&Operations to perform:";
             // 
             // MainWindow
             // 
@@ -382,6 +423,8 @@ namespace MassFileRenamer.GUI
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.optionsTabControl.ResumeLayout(false);
+            this.operationsTabPage.ResumeLayout(false);
+            this.operationsTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,6 +463,9 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.TabPage operationsTabPage;
         private System.Windows.Forms.TabPage inclusionsTabPage;
         private System.Windows.Forms.TabPage exclusionsTabPage;
+        private System.Windows.Forms.CheckedListBox operationsCheckedListBox;
+        private System.Windows.Forms.CheckBox selectDeselectAllCheckBox;
+        private System.Windows.Forms.Label tabPageInstructionLabel;
     }
 }
 
