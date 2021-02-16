@@ -406,7 +406,7 @@ namespace MassFileRenamer.GUI
         /// This method responds to the event by displaying the About dialog box.
         /// </remarks>
         private void OnHelpAbout(object sender, EventArgs e)
-            => AboutBox.Display(this);
+            => AboutDialog.Display(this);
 
         /// <summary>
         /// Handles the

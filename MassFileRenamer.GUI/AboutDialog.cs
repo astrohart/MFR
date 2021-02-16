@@ -4,9 +4,12 @@ using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
 {
-    internal partial class AboutBox : Form
+    /// <summary>
+    /// Dialog box that displays information about this application to the user.
+    /// </summary>
+    internal partial class AboutDialog : Form
     {
-        public AboutBox()
+        public AboutDialog()
         {
             InitializeComponent();
             Text = $"About {AssemblyTitle}";
@@ -98,7 +101,7 @@ namespace MassFileRenamer.GUI
         /// </param>
         public static void Display(IWin32Window owner = null)
         {
-            using (var dialog = new AboutBox())
+            using (var dialog = new AboutDialog())
                 if (owner == null) dialog.ShowDialog();
                 else dialog.ShowDialog(owner);
         }
