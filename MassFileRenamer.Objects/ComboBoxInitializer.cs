@@ -24,7 +24,7 @@ namespace MassFileRenamer.Objects
         /// to be initialized.
         /// </param>
         /// <param name="currentItem">
-        /// (Required.) String containing the value to set as the
+        /// (Optional.) String containing the value to set as the
         /// currently-selected item in the combo box.
         /// </param>
         /// <param name="itemList">
@@ -35,25 +35,17 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameters, <paramref name="comboBox" /> and
         /// <paramref name="itemList" />, are passed <c>null</c> reference for values.
         /// </exception>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="currentItem" />, is
-        /// passed a blank or <c>null</c> value.
-        /// </exception>
         /// <remarks>
         /// This method is intended to be utilized in order to fill combo box
         /// controls with data from a data source.
         /// </remarks>
         public static void InitializeComboBox(ComboBox comboBox,
-            string currentItem, IReadOnlyCollection<string> itemList)
+            IReadOnlyCollection<string> itemList, string currentItem = "")
         {
             if (comboBox == null)
                 throw new ArgumentNullException(nameof(comboBox));
             if (itemList == null)
                 throw new ArgumentNullException(nameof(itemList));
-            if (string.IsNullOrWhiteSpace(currentItem))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(currentItem)
-                );
 
             comboBox.Text = currentItem;
             comboBox.Items.Clear();

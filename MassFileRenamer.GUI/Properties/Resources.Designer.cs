@@ -61,6 +61,15 @@ namespace MassFileRenamer.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        internal static string AppIdle {
+            get {
+                return ResourceManager.GetString("AppIdle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to config.json.
         /// </summary>
         internal static string ConfigFilename {

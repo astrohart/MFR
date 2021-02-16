@@ -34,11 +34,9 @@ namespace MassFileRenamer.GUI
         public string DetailedStatus
         {
             [DebuggerStepThrough] get => detailedStatusLabel.Text;
-            set {
-                detailedStatusLabel.InvokeIfRequired(
-                    () => detailedStatusLabel.Text = value
-                );
-            }
+            set => detailedStatusLabel.InvokeIfRequired(
+                () => detailedStatusLabel.Text = value
+            );
         }
 
         /// <summary>
@@ -101,9 +99,7 @@ namespace MassFileRenamer.GUI
         public string Status
         {
             [DebuggerStepThrough] get => statusLabel.Text;
-            set {
-                statusLabel.InvokeIfRequired(() => statusLabel.Text = value);
-            }
+            set => statusLabel.InvokeIfRequired(() => statusLabel.Text = value);
         }
 
         /// <summary>

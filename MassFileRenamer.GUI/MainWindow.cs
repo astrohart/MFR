@@ -1,4 +1,5 @@
-﻿using MassFileRenamer.Objects;
+﻿using MassFileRenamer.GUI.Properties;
+using MassFileRenamer.Objects;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -238,12 +239,17 @@ namespace MassFileRenamer.GUI
             _presenter = new MainWindowPresenter(
                 this, new FileRenamer(), configurationPathname
             );
+
+            _presenter.AllHistoryCleared += OnPresenterAllHistoryCleared;
             _presenter.ConfigurationImported +=
                 OnPresenterConfigurationImported;
             _presenter.ConfigurationExported +=
                 OnPresenterConfigurationExported;
-            _presenter.Started += OnPresenterStarted;
+            _presenter.DataOperationFinished +=
+                OnPresenterDataOperationFinished;
+            _presenter.DataOperationStarted += OnPresenterDataOperationStarted;
             _presenter.Finished += OnPresenterFinished;
+            _presenter.Started += OnPresenterStarted;
         }
 
         /// <summary>
@@ -482,6 +488,25 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Handles the
         /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.AllHistoryCleared" />
+        /// event raised by the presenter object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by clearing out all the text in
+        /// the combo boxes on this form.
+        /// </remarks>
+        private void
+            OnPresenterAllHistoryCleared(object sender, EventArgs e) { }
+
+        /// <summary>
+        /// Handles the
+        /// <see
         ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.ConfigurationExported" />
         /// event.
         /// </summary>
@@ -540,6 +565,83 @@ namespace MassFileRenamer.GUI
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
             );
         }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.DataOperationFinished" />
+        /// event raised by the presenter object when a data operation is
+        /// finished.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance
+        /// of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by removing the
+        /// progress bar from the status bar and setting the text of its message
+        /// label back to the idle text. We use the Invoke If Required
+        /// methodology just in case it's not the GUI thread that raised the
+        /// event.
+        /// <para />
+        /// If the status bar is not presently visible, then
+        /// this method does nothing.
+        /// </remarks
+        private void OnPresenterDataOperationFinished(object sender,
+            EventArgs e)
+            => statusBar.InvokeIfRequired(
+                () =>
+                {
+                    if (!statusBar.Visible) return;
+
+                    statusBarProgressBar.Visible = false;
+                    statusBarMessage.Text = Resources.AppIdle;
+                }
+            );
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.DataOperationStarted" />
+        /// event raised by the presenter object when it's about to start an
+        /// operation that involves interaction with a data source.
+        /// <para />
+        /// Depending on the data source, this operation can be fast or it can
+        /// be slow, so the presenter object informs us in case we want to
+        /// update the user interface in order to tell the user what is going on.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.DataOperationEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by displaying the marquee progress
+        /// control in the status bar and updating the status bar's Message
+        /// indicator to display the text that is passed in the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.DataOperationEventArgs.Message" />
+        /// property.
+        /// <para />
+        /// If the status bar is not presently visible, then this method does nothing.
+        /// </remarks>
+        private void OnPresenterDataOperationStarted(object sender,
+            DataOperationEventArgs e)
+            => statusBar.InvokeIfRequired(
+                () =>
+                {
+                    if (!statusBar.Visible) return;
+
+                    statusBarMessage.Text = e.Message;
+                    statusBarProgressBar.Visible = true;
+                }
+            );
 
         /// <summary>
         /// Handles the
@@ -624,6 +726,27 @@ namespace MassFileRenamer.GUI
                 return;
 
             _presenter.ExportConfiguration(exportConfigDialog.FileName);
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the user clicking the Tools menu, pointing to
+        /// History, and then choosing the Clear All command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by clearing the contents of all
+        /// history lists in the configuration, saving it to the configuration
+        /// data source, and then reloading the screen from the configuration.
+        /// </remarks>
+        private void OnToolsHistoryClearAll(object sender, EventArgs e)
+        {
+            _presenter.ClearAllHistory();
         }
 
         /// <summary>

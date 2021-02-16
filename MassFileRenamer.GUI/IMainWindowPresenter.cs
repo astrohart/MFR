@@ -22,6 +22,11 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Occurs when all the history has been cleared.
+        /// </summary>
+        event EventHandler AllHistoryCleared;
+
+        /// <summary>
         /// Occurs when the configuration has been exported to a file.
         /// </summary>
         event ConfigurationExportedEventHandler ConfigurationExported;
@@ -31,6 +36,17 @@ namespace MassFileRenamer.GUI
         /// file on the disk.
         /// </summary>
         event ConfigurationImportedEventHandler ConfigurationImported;
+
+        /// <summary>
+        /// Occurs when data is finished being moved to and fro between the
+        /// screen and the configuration data source.
+        /// </summary>
+        event EventHandler DataOperationFinished;
+
+        /// <summary>
+        /// Occurs when a data operation is about to start.
+        /// </summary>
+        event DataOperationEventHandler DataOperationStarted;
 
         /// <summary>
         /// Occurs when the processing is done.
@@ -46,6 +62,11 @@ namespace MassFileRenamer.GUI
         /// Occurs when the processing has started.
         /// </summary>
         event EventHandler Started;
+
+        /// <summary>
+        /// Clears all the history lists in the configuration.
+        /// </summary>
+        void ClearAllHistory();
 
         /// <summary>
         /// Dismisses the progress dialog.

@@ -39,7 +39,7 @@ namespace MassFileRenamer.GUI
             this.findWhatcomboBox = new System.Windows.Forms.ComboBox();
             this.replaceWithComboBox = new System.Windows.Forms.ComboBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +48,13 @@ namespace MassFileRenamer.GUI
             this.operationsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsPerform = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsHistoryMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsHistoryClearMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsHistoryClearStartingFolderHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsHistoryClearFindWhatHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsHistoryClearReplaceWithHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsHistoryClearAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsImportExportConfigMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsImportConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsExportConfig = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,13 +75,7 @@ namespace MassFileRenamer.GUI
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startingFolderHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findWhatHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replaceWIthHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -163,20 +164,21 @@ namespace MassFileRenamer.GUI
             // statusBar
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.statusBarMessage,
+            this.statusBarProgressBar});
             this.statusBar.Location = new System.Drawing.Point(0, 454);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
             this.statusBar.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // statusBarMessage
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(581, 17);
-            this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "Ready";
-            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusBarMessage.Name = "statusBarMessage";
+            this.statusBarMessage.Size = new System.Drawing.Size(448, 17);
+            this.statusBarMessage.Spring = true;
+            this.statusBarMessage.Text = "Ready";
+            this.statusBarMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // menuBar
             // 
@@ -243,7 +245,7 @@ namespace MassFileRenamer.GUI
             // toolsMenu
             // 
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historyToolStripMenuItem,
+            this.toolsHistoryMenu,
             this.toolStripSeparator2,
             this.toolsImportExportConfigMenu,
             this.toolStripSeparator1,
@@ -251,6 +253,55 @@ namespace MassFileRenamer.GUI
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
+            // 
+            // toolsHistoryMenu
+            // 
+            this.toolsHistoryMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsHistoryClearMenu,
+            this.toolsHistoryClearAll});
+            this.toolsHistoryMenu.Name = "toolsHistoryMenu";
+            this.toolsHistoryMenu.Size = new System.Drawing.Size(247, 22);
+            this.toolsHistoryMenu.Text = "&History";
+            // 
+            // toolsHistoryClearMenu
+            // 
+            this.toolsHistoryClearMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsHistoryClearStartingFolderHistory,
+            this.toolsHistoryClearFindWhatHistory,
+            this.toolsHistoryClearReplaceWithHistory});
+            this.toolsHistoryClearMenu.Name = "toolsHistoryClearMenu";
+            this.toolsHistoryClearMenu.Size = new System.Drawing.Size(118, 22);
+            this.toolsHistoryClearMenu.Text = "&Clear";
+            // 
+            // toolsHistoryClearStartingFolderHistory
+            // 
+            this.toolsHistoryClearStartingFolderHistory.Name = "toolsHistoryClearStartingFolderHistory";
+            this.toolsHistoryClearStartingFolderHistory.Size = new System.Drawing.Size(192, 22);
+            this.toolsHistoryClearStartingFolderHistory.Text = "&Starting Folder History";
+            // 
+            // toolsHistoryClearFindWhatHistory
+            // 
+            this.toolsHistoryClearFindWhatHistory.Name = "toolsHistoryClearFindWhatHistory";
+            this.toolsHistoryClearFindWhatHistory.Size = new System.Drawing.Size(192, 22);
+            this.toolsHistoryClearFindWhatHistory.Text = "&Find What History";
+            // 
+            // toolsHistoryClearReplaceWithHistory
+            // 
+            this.toolsHistoryClearReplaceWithHistory.Name = "toolsHistoryClearReplaceWithHistory";
+            this.toolsHistoryClearReplaceWithHistory.Size = new System.Drawing.Size(192, 22);
+            this.toolsHistoryClearReplaceWithHistory.Text = "&ReplaceWIthHistory";
+            // 
+            // toolsHistoryClearAll
+            // 
+            this.toolsHistoryClearAll.Name = "toolsHistoryClearAll";
+            this.toolsHistoryClearAll.Size = new System.Drawing.Size(118, 22);
+            this.toolsHistoryClearAll.Text = "Clear &All";
+            this.toolsHistoryClearAll.Click += new System.EventHandler(this.OnToolsHistoryClearAll);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(244, 6);
             // 
             // toolsImportExportConfigMenu
             // 
@@ -445,53 +496,13 @@ namespace MassFileRenamer.GUI
             this.foldButton.UseVisualStyleBackColor = true;
             this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
             // 
-            // historyToolStripMenuItem
+            // statusBarProgressBar
             // 
-            this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearToolStripMenuItem,
-            this.clearAllToolStripMenuItem});
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.historyToolStripMenuItem.Text = "&History";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(244, 6);
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startingFolderHistoryToolStripMenuItem,
-            this.findWhatHistoryToolStripMenuItem,
-            this.replaceWIthHistoryToolStripMenuItem});
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clearToolStripMenuItem.Text = "&Clear";
-            // 
-            // startingFolderHistoryToolStripMenuItem
-            // 
-            this.startingFolderHistoryToolStripMenuItem.Name = "startingFolderHistoryToolStripMenuItem";
-            this.startingFolderHistoryToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.startingFolderHistoryToolStripMenuItem.Text = "&Starting Folder History";
-            // 
-            // findWhatHistoryToolStripMenuItem
-            // 
-            this.findWhatHistoryToolStripMenuItem.Name = "findWhatHistoryToolStripMenuItem";
-            this.findWhatHistoryToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.findWhatHistoryToolStripMenuItem.Text = "&Find What History";
-            // 
-            // replaceWIthHistoryToolStripMenuItem
-            // 
-            this.replaceWIthHistoryToolStripMenuItem.Name = "replaceWIthHistoryToolStripMenuItem";
-            this.replaceWIthHistoryToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.replaceWIthHistoryToolStripMenuItem.Text = "&ReplaceWIthHistory";
-            // 
-            // clearAllToolStripMenuItem
-            // 
-            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clearAllToolStripMenuItem.Text = "Clear &All";
+            this.statusBarProgressBar.MarqueeAnimationSpeed = 300;
+            this.statusBarProgressBar.Name = "statusBarProgressBar";
+            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.statusBarProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.statusBarProgressBar.Visible = false;
             // 
             // MainWindow
             // 
@@ -551,7 +562,7 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.ToolStripMenuItem fileExit;
         private System.Windows.Forms.ToolStripMenuItem toolsMenu;
         private System.Windows.Forms.ToolStripMenuItem toolsOptions;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel statusBarMessage;
         private System.Windows.Forms.ToolStripMenuItem viewMenu;
         private System.Windows.Forms.ToolStripMenuItem viewStatusBar;
         private System.Windows.Forms.ToolStripMenuItem toolsImportExportConfigMenu;
@@ -574,13 +585,14 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.CheckBox matchCaseCheckBox;
         private System.Windows.Forms.ToolStripMenuItem helpMenu;
         private System.Windows.Forms.ToolStripMenuItem helpAbout;
-        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startingFolderHistoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findWhatHistoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem replaceWIthHistoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsHistoryMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearStartingFolderHistory;
+        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearFindWhatHistory;
+        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
+        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearAll;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripProgressBar statusBarProgressBar;
     }
 }
 

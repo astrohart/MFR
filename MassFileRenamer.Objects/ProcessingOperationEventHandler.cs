@@ -1,9 +1,7 @@
 ﻿namespace MassFileRenamer.Objects
 {
    /// <summary>
-   /// Defines the method signature for the handlers of the
-   /// <see
-   ///    cref="E:MassFileRenamer.Objects.ProcessingOperationEventHandler.ProcessingOperation" />
+   /// Defines the method signature for the handlers of a ProcessingOperation
    /// event.
    /// </summary>
    /// <param name="sender">
@@ -15,4 +13,6 @@
    /// </param>
    public delegate void ProcessingOperationEventHandler(object sender,
       ProcessingOperationEventArgs e);
+
+
 }

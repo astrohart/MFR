@@ -17,6 +17,18 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
+        ///     cref="T:MassFileRenamer.Objects.IHistoryManager" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object's sole purpose in life is to provide the service of
+        /// maintaining the history lists in the configuration data source.
+        /// </remarks>
+        private readonly IHistoryManager _historyManager;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see
         ///     cref="T:MassFileRenamer.GUI.IMainWindow" />
         /// interface.
         /// </summary>
@@ -79,6 +91,8 @@ namespace MassFileRenamer.GUI
             ReinitializeProgressDialog();
 
             LoadConfiguration(configurationPathname);
+
+            _historyManager = new HistoryManager(_mainWindow, Configuration);
         }
 
         /// <summary>
@@ -153,6 +167,11 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Occurs when all the history has been cleared.
+        /// </summary>
+        public event EventHandler AllHistoryCleared;
+
+        /// <summary>
         /// Occurs when the configuration has been exported to a file.
         /// </summary>
         public event ConfigurationExportedEventHandler ConfigurationExported;
@@ -161,6 +180,18 @@ namespace MassFileRenamer.GUI
         /// Occurs when the configuration has been updated, say, by an import process.
         /// </summary>
         public event ConfigurationImportedEventHandler ConfigurationImported;
+
+        /// <summary>
+        /// Occurs when data is finished being moved to and fro between the
+        /// screen and the configuration data source.
+        /// </summary>
+        public event EventHandler DataOperationFinished;
+
+        /// <summary>
+        /// Occurs when data is about to be moved to and fro between the screen
+        /// and the configuration data source.
+        /// </summary>
+        public event DataOperationEventHandler DataOperationStarted;
 
         /// <summary>
         /// Occurs when the processing is done.
@@ -188,6 +219,18 @@ namespace MassFileRenamer.GUI
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Clears all the history lists in the configuration.
+        /// </summary>
+        public void ClearAllHistory()
+        {
+            _historyManager.ClearAll();
+
+            UpdateData(false);
+
+            OnAllHistoryCleared();
         }
 
         /// <summary>
@@ -487,9 +530,15 @@ namespace MassFileRenamer.GUI
         /// Saves the configuration to disk.
         /// </summary>
         public void SaveConfiguration()
-            => ConfigurationSerializer.Save(
-                ConfigurationPathname, Configuration
+        {
+            OnDataOperationStarted(
+                new DataOperationEventArgs("Saving configuration...")
             );
+
+            ConfigurationSerializer.Save(ConfigurationPathname, Configuration);
+
+            OnDataOperationFinished();
+        }
 
         /// <summary>
         /// Shows the progress window.
@@ -514,6 +563,15 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         public void UpdateData(bool bSavingAndValidating = true)
         {
+            // Since moving data to/from the screen may potentially take some
+            // time, show the marquee-style progress bar on the status bar in
+            // the interim
+            OnDataOperationStarted(
+                new DataOperationEventArgs(
+                    "Updating configuration...  Please wait."
+                )
+            );
+
             if (bSavingAndValidating)
             {
                 Configuration.SaveCurrentStartingFolderAndHistory(
@@ -552,20 +610,22 @@ namespace MassFileRenamer.GUI
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.StartingFolderComboBox,
-                    Configuration.StartingFolder,
-                    Configuration.StartingFolderHistory
+                    Configuration.StartingFolderHistory,
+                    Configuration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox, Configuration.FindWhat,
-                    Configuration.FindWhatHistory
+                    _mainWindow.FindWhatComboBox, Configuration.FindWhatHistory,
+                    Configuration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.ReplaceWithComboBox, Configuration.ReplaceWith,
-                    Configuration.ReplaceWithHistory
+                    _mainWindow.ReplaceWithComboBox,
+                    Configuration.ReplaceWithHistory, Configuration.ReplaceWith
                 );
             }
+
+            OnDataOperationFinished();
         }
 
         /// <summary>
@@ -587,6 +647,19 @@ namespace MassFileRenamer.GUI
                     "Replace in Files"
                 );
         }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.AllHistoryCleared" />
+        /// event.
+        /// </summary>
+        /// <remarks>
+        /// The objective of calling this method is to inform interested parties
+        /// that the operation of clearing all the history is complete.
+        /// </remarks>
+        protected virtual void OnAllHistoryCleared()
+            => AllHistoryCleared?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
@@ -623,9 +696,57 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Raises the
         /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationFinished" />
+        /// event.
+        /// </summary>
+        /// <remarks>
+        /// Ideally, it should be the main application window that handles this
+        /// event by simply displaying a marquee progress bar on the status bar
+        /// of the application window but otherwise maintaining the ability of
+        /// the user to use the GUI. This is because moving data to and from the
+        /// configuration data source, while a mildly lengthy operation, is
+        /// nowhere near as involved as the file operations we would normally undertake.
+        /// </remarks>
+        protected virtual void OnDataOperationFinished()
+            => DataOperationFinished?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationStarted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.DataOperationEventArgs" />
+        /// that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// Ideally, it should be the main application window that handles this
+        /// event by simply displaying a marquee progress bar on the status bar
+        /// of the application window but otherwise maintaining the ability of
+        /// the user to use the GUI. This is because moving data to and from the
+        /// configuration data source, while a mildly lengthy operation, is
+        /// nowhere near as involved as the file operations we would normally undertake.
+        /// </remarks>
+        protected virtual void OnDataOperationStarted(DataOperationEventArgs e)
+            => DataOperationStarted?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
         ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.Finished" />
         /// event.
         /// </summary>
+        /// <remarks>
+        /// This event lets client objects know that the presenter is about to
+        /// finish an operation. Typically, the client object is the main
+        /// application window, which should respond by dismissing any progress
+        /// dialog that may have been previously shown during the operation and
+        /// re-enabling user input.
+        /// </remarks>
         protected virtual void OnFinished()
             => Finished?.Invoke(this, EventArgs.Empty);
 
@@ -648,6 +769,14 @@ namespace MassFileRenamer.GUI
         ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started" />
         /// event.
         /// </summary>
+        /// <remarks>
+        /// This event lets client objects know that the presenter is about to
+        /// start an operation. Ideally, the client of this presenter object is
+        /// the main application window. The main application window is supposed
+        /// to respond to this event by disabling user input to itself and then
+        /// displaying the progress dialog to inform the user of the status of
+        /// the operation.
+        /// </remarks>
         protected virtual void OnStarted()
             => Started?.Invoke(this, EventArgs.Empty);
 
@@ -744,7 +873,9 @@ namespace MassFileRenamer.GUI
             _renamer.OperationFinished += (sender, eventArgs)
                 => ResetProgressBar();
             _renamer.OperationStarted += (sender, eventArgs)
-                => ShowCalculatingProgressBar(eventArgs.OperationType);
+                => ShowCalculatingProgressBar(
+                    GetOperationStartedText(eventArgs.OperationType)
+                );
             _renamer.FilesToBeRenamedCounted += (sender, eventArgs)
                 => HandleFilesCountedEvent(eventArgs.Count);
             _renamer.FilesToHaveTextReplacedCounted += (sender, eventArgs)
@@ -779,6 +910,14 @@ namespace MassFileRenamer.GUI
                     nameof(configurationPathname)
                 );
 
+            OnDataOperationStarted(
+                new DataOperationEventArgs("Loading configuration...")
+            );
+
+            // Since loading the configuration may take awhile, given that it
+            // potentially may come from either a large JSON file or slow
+            // database connection show the progress dialog in a marquee mode.
+
             ConfigurationPathname = configurationPathname;
 
             ConfigurationPathname = SystemPreparer.CreateConfigFile(
@@ -787,6 +926,8 @@ namespace MassFileRenamer.GUI
             );
 
             Configuration = ConfigurationSerializer.Load(ConfigurationPathname);
+
+            OnDataOperationFinished();
         }
 
         /// <summary>
@@ -852,7 +993,18 @@ namespace MassFileRenamer.GUI
         private void ResetProgressBar()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Reset());
 
-        private void ShowCalculatingProgressBar(OperationType type)
+        /// <summary>
+        /// Shows a marquee progress bar that indicates the
+        /// application is performing work but of an indeterminate length, such
+        /// as calculating the amount of files to process.
+        /// </summary>
+        /// ///
+        /// <param
+        ///     name="text">
+        /// (Required.) String containing the text to display in
+        /// the progress dialog.
+        /// </param
+        private void ShowCalculatingProgressBar(string text)
         {
             ResetProgressBar();
 
@@ -861,10 +1013,39 @@ namespace MassFileRenamer.GUI
                     ProgressBarStyle.Marquee
             );
             _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.Status = GetOperationStartedText(type)
+                () => _progressDialog.Status = text
             );
         }
 
+        /// <summary>
+        /// Runs rules to ensure that the entries on the main window's form are
+        /// valid. Throws a <see cref="T:System.Exception" /> if a validation
+        /// rule fails.
+        /// </summary>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the directory whose pathname is referenced by
+        /// <see
+        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.StartingFolder" />
+        /// is
+        /// not found on the disk.
+        /// </exception>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// Thrown if either of the
+        /// <see
+        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.FindWhat" />
+        /// or
+        /// <see
+        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.ReplaceWith" />
+        /// properties are blank.
+        /// </exception>
+        /// <remarks>
+        /// This method should be called in a try/catch handler. Upon catching
+        /// an exception, instead of logging the error, the application should
+        /// also respond by displaying a Stop message box to the user with the
+        /// value of the <see cref="P:System.Exception.Message" /> property of
+        /// the caught exception as its text, and then set the focus to the
+        /// offending field (if feasible).
+        /// </remarks>
         private void ValidateInputs()
         {
             if (!Directory.Exists(StartingFolder))

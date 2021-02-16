@@ -86,6 +86,8 @@
     <Compile Include="ConfigurationProvider.cs" />
     <Compile Include="ConfigurationSerializer.cs" />
     <Compile Include="ConvertConfiguration.cs" />
+    <Compile Include="DataUpdatedEventArgs.cs" />
+    <Compile Include="DataUpdatedEventHandler.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="DirectoryInfoFactory.cs" />
     <Compile Include="ExceptionRaisedEventArgs.cs" />
@@ -104,11 +106,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FormFoldedEventHandler.cs" />
+    <Compile Include="HistoryManager.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="IFileRenamer.cs" />
+    <Compile Include="IHistoryManager.cs" />
     <Compile Include="InvalidPathException.cs" />
     <Compile Include="ISearchFilterItem.cs" />
-    <Compile Include="Modified.cs" />
+    <Compile Include="ModifiedEventHandler.cs" />
     <Compile Include="ModifiedEventArgs.cs" />
     <Compile Include="OperationAbortedException.cs" />
     <Compile Include="OperationCancelEventArgs.cs" />
@@ -132,6 +136,7 @@
     <Compile Include="StatusUpdateEventArgs.cs" />
     <Compile Include="StatusUpdateEventHandler.cs" />
     <Compile Include="SystemPreparer.cs" />
+    <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
