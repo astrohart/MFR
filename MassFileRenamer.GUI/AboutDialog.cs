@@ -9,6 +9,13 @@ namespace MassFileRenamer.GUI
     /// </summary>
     internal partial class AboutDialog : Form
     {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.GUI.AboutDialog" />
+        /// and returns a reference
+        /// to it.
+        /// </summary>
         public AboutDialog()
         {
             InitializeComponent();
@@ -20,6 +27,9 @@ namespace MassFileRenamer.GUI
             textBoxDescription.Text = AssemblyDescription;
         }
 
+        /// <summary>
+        /// Gets the name of the company that produced this software.
+        /// </summary>
         public string AssemblyCompany
         {
             get {
@@ -32,6 +42,9 @@ namespace MassFileRenamer.GUI
             }
         }
 
+        /// <summary>
+        /// Gets the copyright string for this application.
+        /// </summary>
         public string AssemblyCopyright
         {
             get {
@@ -44,6 +57,9 @@ namespace MassFileRenamer.GUI
             }
         }
 
+        /// <summary>
+        /// Gets the description of this application.
+        /// </summary>
         public string AssemblyDescription
         {
             get {
@@ -57,6 +73,9 @@ namespace MassFileRenamer.GUI
             }
         }
 
+        /// <summary>
+        /// Gets the product name of the application.
+        /// </summary>
         public string AssemblyProduct
         {
             get {
@@ -64,11 +83,15 @@ namespace MassFileRenamer.GUI
                     .GetCustomAttributes(
                         typeof(AssemblyProductAttribute), false
                     );
-                if (attributes.Length == 0) return "";
-                return ((AssemblyProductAttribute)attributes[0]).Product;
+                return attributes.Length == 0
+                    ? ""
+                    : $"{Program.ShortCompanyName} {((AssemblyProductAttribute)attributes[0]).Product}";
             }
         }
 
+        /// <summary>
+        /// Gets the title string for this application.
+        /// </summary>
         public string AssemblyTitle
         {
             get {
@@ -87,6 +110,9 @@ namespace MassFileRenamer.GUI
             }
         }
 
+        /// <summary>
+        /// Gets the full version of the application.
+        /// </summary>
         public string AssemblyVersion
             => Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
