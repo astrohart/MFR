@@ -582,7 +582,7 @@ namespace MassFileRenamer.GUI
                     _mainWindow.FindWhatComboBox
                 );
 
-                Configuration.SaveCurrentStartingFolderAndHistory(
+                Configuration.SaveCurrentReplaceWithAndHistory(
                     _mainWindow.ReplaceWithComboBox
                 );
 
@@ -615,13 +615,15 @@ namespace MassFileRenamer.GUI
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox, Configuration.FindWhatHistory,
+                    _mainWindow.FindWhatComboBox, 
+                    Configuration.FindWhatHistory,
                     Configuration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.ReplaceWithComboBox,
-                    Configuration.ReplaceWithHistory, Configuration.ReplaceWith
+                    Configuration.ReplaceWithHistory, 
+                    Configuration.ReplaceWith
                 );
             }
 
