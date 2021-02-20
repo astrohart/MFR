@@ -43,7 +43,7 @@ namespace MassFileRenamer.Objects
             if (comboBox == null)
                 throw new ArgumentNullException(nameof(comboBox));
 
-            config.FindWhat = comboBox.SelectedText;
+            config.FindWhat = comboBox.Text;
             config.FindWhatHistory.Clear();
             if (comboBox.Items.Count > 0)
                 config.FindWhatHistory.AddRange(comboBox.Items.Cast<string>());
@@ -80,7 +80,7 @@ namespace MassFileRenamer.Objects
             if (comboBox == null)
                 throw new ArgumentNullException(nameof(comboBox));
 
-            config.ReplaceWith = comboBox.SelectedText;
+            config.ReplaceWith = comboBox.Text;
             config.ReplaceWithHistory.Clear();
             if (comboBox.Items.Count > 0)
                 config.ReplaceWithHistory.AddRange(
@@ -119,7 +119,7 @@ namespace MassFileRenamer.Objects
             if (comboBox == null)
                 throw new ArgumentNullException(nameof(comboBox));
 
-            config.StartingFolder = comboBox.SelectedText;
+            config.StartingFolder = comboBox.Text;
             config.StartingFolderHistory.Clear();
             if (comboBox.Items.Count > 0)
                 config.StartingFolderHistory.AddRange(
