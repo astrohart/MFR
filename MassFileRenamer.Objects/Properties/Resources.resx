@@ -120,4 +120,9 @@
   <data name="Confirm_ClearAllHistory" xml:space="preserve">
     <value>Are you sure you want to clear the Starting Folder, Find What, and Replace WIth hisotry lists?\n\nThis action cannot be undone.</value>
   </data>
+  <data name="Confirm_PerformRename" xml:space="preserve">
+    <value>We've noticed that you have one or more instances of Visual Studio 2019 open, but it does not appear that the solution contaiing the project to be renamed is open in any of them.
+
+Just in case we're wrong, after we've finished the operation(s) selected, any currently-open Visual Studio solutions of which the project to be renamed is a member will have to be reloaded by choosing File -&gt; Reopen Workspace when the selected rename operation(s) have completed.</value>
+  </data>
 </root>

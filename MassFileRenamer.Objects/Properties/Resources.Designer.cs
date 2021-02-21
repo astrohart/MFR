@@ -68,5 +68,16 @@ namespace MassFileRenamer.Objects.Properties {
                 return ResourceManager.GetString("Confirm_ClearAllHistory", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We&apos;ve noticed that you have one or more instances of Visual Studio 2019 open, but it does not appear that the solution contaiing the project to be renamed is open in any of them.
+        ///
+        ///Just in case we&apos;re wrong, after we&apos;ve finished the operation(s) selected, any currently-open Visual Studio solutions of which the project to be renamed is a member will have to be reloaded by choosing File -&gt; Reopen Workspace when the selected rename operation(s) have completed..
+        /// </summary>
+        internal static string Confirm_PerformRename {
+            get {
+                return ResourceManager.GetString("Confirm_PerformRename", resourceCulture);
+            }
+        }
     }
 }

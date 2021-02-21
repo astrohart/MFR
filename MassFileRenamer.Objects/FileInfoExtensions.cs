@@ -31,6 +31,11 @@ namespace MassFileRenamer.Objects
             File.Delete(_tempFileName);
 
          existingFile.MoveTo(_tempFileName);
+
+         /* If there is no folder into which to move the file, then stop. */
+         if (!Directory.Exists(Path.GetDirectoryName(newFilePath)))
+             return false;
+
          existingFile.MoveTo(newFilePath);
 
          return true;    // succeeded

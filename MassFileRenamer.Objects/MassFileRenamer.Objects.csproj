@@ -67,8 +67,19 @@
     <RootNamespace>MassFileRenamer.Objects</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\EnvDTE.16.7.30508.193\lib\net45\EnvDTE.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\stdole.16.7.30508.193\lib\net45\stdole.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -110,8 +121,10 @@
     <Compile Include="IConfiguration.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="IHistoryManager.cs" />
+    <Compile Include="IMessageFilter.cs" />
     <Compile Include="InvalidPathException.cs" />
     <Compile Include="ISearchFilterItem.cs" />
+    <Compile Include="MessageFilter.cs" />
     <Compile Include="ModifiedEventHandler.cs" />
     <Compile Include="ModifiedEventArgs.cs" />
     <Compile Include="OperationAbortedException.cs" />
@@ -137,6 +150,7 @@
     <Compile Include="StatusUpdateEventHandler.cs" />
     <Compile Include="SystemPreparer.cs" />
     <Compile Include="TypeExtensions.cs" />
+    <Compile Include="VisualStudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

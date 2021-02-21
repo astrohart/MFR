@@ -615,15 +615,13 @@ namespace MassFileRenamer.GUI
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox, 
-                    Configuration.FindWhatHistory,
+                    _mainWindow.FindWhatComboBox, Configuration.FindWhatHistory,
                     Configuration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.ReplaceWithComboBox,
-                    Configuration.ReplaceWithHistory, 
-                    Configuration.ReplaceWith
+                    Configuration.ReplaceWithHistory, Configuration.ReplaceWith
                 );
             }
 
@@ -807,9 +805,14 @@ namespace MassFileRenamer.GUI
             return result;
         }
 
+        /// <summary>
+        /// Actually begins the rename process.
+        /// </summary>
         private void CommenceRenameOperation()
             => Task.Run(
-                () => _renamer.ProcessAll(StartingFolder, FindWhat, ReplaceWith)
+                () => _renamer.ProcessAll(
+                    StartingFolder, FindWhat, ReplaceWith
+                )
             );
 
         private string GetOperationStartedText(OperationType type)

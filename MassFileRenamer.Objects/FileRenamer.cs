@@ -1,6 +1,10 @@
-﻿using System;
+﻿using EnvDTE;
+using MassFileRenamer.Objects.Properties;
+using System;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
+using Process = System.Diagnostics.Process;
 
 namespace MassFileRenamer.Objects
 {
@@ -50,6 +54,17 @@ namespace MassFileRenamer.Objects
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Gets or sets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        private bool ShouldReOpenSolution
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -160,65 +175,52 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            try
-            {
-                OnStarted();
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
+            );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                    )
-                );
+            RenameSubFoldersOf(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
+            );
 
-                RenameSubFoldersOf(
-                    RootDirectoryPath, findWhat, replaceWith, pathFilter
-                );
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+                )
+            );
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
+            );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"*** Finished processing subfolders of '{RootDirectoryPath}'."
-                    )
-                );
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                    )
-                );
+            RenameFilesInFolder(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
+            );
 
-                RenameFilesInFolder(
-                    RootDirectoryPath, findWhat, replaceWith, pathFilter
-                );
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+                )
+            );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
-                    )
-                );
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
+            );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                    )
-                );
+            ReplaceTextInFiles(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
+            );
 
-                ReplaceTextInFiles(
-                    RootDirectoryPath, findWhat, replaceWith, pathFilter
-                );
-
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
-                    )
-                );
-            }
-            catch (OperationAbortedException)
-            {
-                AbortRequested = false;
-            }
-            finally
-            {
-                OnFinished();
-            }
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+                )
+            );
         }
 
         /// <summary>
@@ -255,7 +257,122 @@ namespace MassFileRenamer.Objects
 
             RootDirectoryPath = rootDirectoryPath;
 
-            ProcessAll(findWhat, replaceWith, pathFilter);
+            DTE dte = null;
+
+            // This tool can potentially be run from Visual Studio (e.g.,
+            // configured via the Tools menu as an external tool, for instance).
+
+            // If the tool has been launched from an open instance of Visual
+            // Studio, and if there exists an open instance of Visual Studio
+            // that currently has the solution containing the items to be
+            // renamed open, then close the solution automatically for the user.
+
+            // Assume that, by convention, if the root directory path is
+            // C:\temp, then the path to the solution is C:\temp\temp.sln. If
+            // this is not the case, then the solution will have to be reloaded
+            // manually by the user.
+
+            var solutionPathByConvention = Path.Combine(
+                RootDirectoryPath, Path.GetFileName(RootDirectoryPath) + ".sln"
+            );
+            if (File.Exists(solutionPathByConvention))
+            {
+                // determine if the solution whose path has been determined
+                // above is currently open in an instance of Visual Studio. If
+                // it is, set the ShouldReOpenSolution property to TRUE and then
+                // attempt to form an automation connection to the instance of
+                // Visual Studio, if any, that is (a) currently open and (b)
+                // currently has the solution open
+                using (var filter = new MessageFilter())
+                    dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
+                        Path.Combine(
+                            RootDirectoryPath,
+                            Path.GetFileName(RootDirectoryPath) + ".sln"
+                        )
+                    );
+
+                ShouldReOpenSolution = dte != null;
+
+                // Prior to beginning the operation(s) selected by the user,
+                // we'll then tell the instance of Visual Studio that has the
+                // solution containing the item(s) to be renamed open to close
+                // the solution and then we will instruct VS to re-open the
+                // solution once we're done processing the user's requested operation(s).
+            }
+            else if (Process.GetProcessesByName("devenv").Any())
+            {
+                ShouldReOpenSolution = false;
+
+                // One or more copies of VS are open, but it would seem unlikely
+                // that any of them have the solution open (unless its name
+                // differs from the convention). In this event, prompt the user
+                // that if the file(s) they are renaming are part of a solution
+                // that is currently open in Visual Studio, that the user will
+                // need to re-load the solution by hand after the operation has
+                // been completed.
+
+                MessageBox.Show(
+                    Resources.Confirm_PerformRename, Application.ProductName,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1
+                );
+            }
+
+            OnStarted();
+
+            try
+            {
+                // If Visual Studio is open and it currently has the solution
+                // open, then close the solution before we perform the rename operation.
+                if (ShouldReOpenSolution && dte != null)
+                    using (new MessageFilter())
+                    {
+                        OnStatusUpdate(
+                            new StatusUpdateEventArgs(
+                                "Closing solution containing item(s) to be processed..."
+                            )
+                        );
+
+                        dte.Solution.Close();
+                    }
+
+                if (findWhat.Contains(replaceWith) ||
+                    replaceWith.Contains(findWhat))
+                {
+                    /* If the findWhat and/or replaceWith contain substrings of each other,
+                       then first replace findWhat -> some GUID and then that GUID -> replaceWith*/
+
+                    var someGuid = Guid.NewGuid().ToString("N");
+
+                    ProcessAll(findWhat, someGuid, pathFilter);
+
+                    ProcessAll(someGuid, replaceWith, pathFilter);
+                }
+                else
+                    ProcessAll(findWhat, replaceWith, pathFilter);
+
+                // If Visual Studio is open and it currently has the solution
+                // open, then close the solution before we perform the rename operation.
+                if (ShouldReOpenSolution && dte != null)
+                    using (new MessageFilter())
+                    {
+                        OnStatusUpdate(
+                            new StatusUpdateEventArgs(
+                                "Instructing Visual Studio to reload the solution..."
+                            )
+                        );
+
+                        dte.Solution.Open(solutionPathByConvention);
+                    }
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = false;
+            }
+            finally
+            {
+                OnFinished();
+            }
         }
 
         /// <summary>
@@ -330,8 +447,10 @@ namespace MassFileRenamer.Objects
 
                 var filenames = Directory
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-                    .Where(file => !FilePathValidator.ShouldSkipFile(file))
-                    .Where(filename => filename.Contains(findWhat)).ToList();
+                    .Where(
+                        file => !ShouldSkipFile(file) &&
+                                !file.Contains(replaceWith)
+                    ).Where(filename => filename.Contains(findWhat)).ToList();
 
                 OnFilesToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -451,7 +570,9 @@ namespace MassFileRenamer.Objects
 
                 var subFolders = Directory.GetDirectories(
                     rootFolderPath, "*", SearchOption.AllDirectories
-                ).Where(dir => !ShouldSkipFolder(dir)).ToList();
+                ).Where(
+                    dir => !ShouldSkipFolder(dir) && !dir.Contains(replaceWith)
+                ).ToList();
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -574,7 +695,10 @@ namespace MassFileRenamer.Objects
 
                 var filenames = Directory
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-                    .Where(file => !ShouldSkipFile(file)).ToList();
+                    .Where(
+                        file => !ShouldSkipFile(file) &&
+                                !file.Contains(replaceWith)
+                    ).ToList();
 
                 OnFilesToHaveTextReplacedCounted(
                     new FilesOrFoldersCountedEventArgs(
