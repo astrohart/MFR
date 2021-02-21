@@ -25,18 +25,21 @@ namespace MassFileRenamer.Objects
          if (!File.Exists(existingFile.FullName)) return false;
          if (File.Exists(newFilePath)) File.Delete(newFilePath);    // overwrite a file at the new path
 
-         var _tempFileName = $"{Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid():N}.tmp")}";
+         try
+         {
+             var _tempFileName = $"{Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid():N}.tmp")}";
 
-         if (File.Exists(_tempFileName))
-            File.Delete(_tempFileName);
+             if (File.Exists(_tempFileName))
+                 File.Delete(_tempFileName);
 
-         existingFile.MoveTo(_tempFileName);
+             existingFile.MoveTo(_tempFileName);
+             existingFile.MoveTo(newFilePath);
 
-         /* If there is no folder into which to move the file, then stop. */
-         if (!Directory.Exists(Path.GetDirectoryName(newFilePath)))
+         }
+         catch (Exception ex)
+         {
              return false;
-
-         existingFile.MoveTo(newFilePath);
+         }
 
          return true;    // succeeded
       }
