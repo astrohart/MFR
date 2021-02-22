@@ -121,8 +121,8 @@
     <Compile Include="IConfiguration.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="IHistoryManager.cs" />
-    <Compile Include="IMessageFilter.cs" />
     <Compile Include="InvalidPathException.cs" />
+    <Compile Include="IOleMessageFilter.cs" />
     <Compile Include="ISearchFilterItem.cs" />
     <Compile Include="MessageFilter.cs" />
     <Compile Include="ModifiedEventHandler.cs" />

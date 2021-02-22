@@ -1,7 +1,6 @@
 ﻿using EnvDTE;
 using MassFileRenamer.Objects.Properties;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -256,6 +255,8 @@ namespace MassFileRenamer.Objects
                     nameof(rootDirectoryPath)
                 );
 
+            MessageFilter.Register();
+
             RootDirectoryPath = rootDirectoryPath;
 
             DTE dte = null;
@@ -284,14 +285,12 @@ namespace MassFileRenamer.Objects
                 // attempt to form an automation connection to the instance of
                 // Visual Studio, if any, that is (a) currently open and (b)
                 // currently has the solution open
-                using (var filter = new MessageFilter())
-                    dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
-                        Path.Combine(
-                            RootDirectoryPath,
-                            Path.GetFileName(RootDirectoryPath) + ".sln"
-                        )
-                    );
-
+                dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
+                    Path.Combine(
+                        RootDirectoryPath,
+                        Path.GetFileName(RootDirectoryPath) + ".sln"
+                    )
+                );
                 ShouldReOpenSolution = dte != null;
 
                 // Prior to beginning the operation(s) selected by the user,
@@ -326,16 +325,15 @@ namespace MassFileRenamer.Objects
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
-                    using (new MessageFilter())
-                    {
-                        OnStatusUpdate(
-                            new StatusUpdateEventArgs(
-                                "Closing solution containing item(s) to be processed..."
-                            )
-                        );
+                {
+                    OnStatusUpdate(
+                        new StatusUpdateEventArgs(
+                            "Closing solution containing item(s) to be processed..."
+                        )
+                    );
 
-                        dte.Solution.Close();
-                    }
+                    dte.Solution.Close();
+                }
 
                 if (findWhat.Contains(replaceWith) ||
                     replaceWith.Contains(findWhat))
@@ -355,16 +353,15 @@ namespace MassFileRenamer.Objects
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
-                    using (new MessageFilter())
-                    {
-                        OnStatusUpdate(
-                            new StatusUpdateEventArgs(
-                                "Instructing Visual Studio to reload the solution..."
-                            )
-                        );
+                {
+                    OnStatusUpdate(
+                        new StatusUpdateEventArgs(
+                            "Instructing Visual Studio to reload the solution..."
+                        )
+                    );
 
-                        dte.Solution.Open(solutionPathByConvention);
-                    }
+                    dte.Solution.Open(solutionPathByConvention);
+                }
             }
             catch (OperationAbortedException)
             {
@@ -374,6 +371,8 @@ namespace MassFileRenamer.Objects
             {
                 OnFinished();
             }
+
+            MessageFilter.Revoke();
         }
 
         /// <summary>

@@ -1,65 +1,59 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
+
+// ReSharper disable NotAccessedVariable
 
 namespace MassFileRenamer.Objects
 {
-    public class MessageFilter : MarshalByRefObject, IDisposable, IMessageFilter
+    internal class MessageFilter : IOleMessageFilter
     {
-        private const int PENDINGMSG_WAITNOPROCESS = 2;
+        // Class containing the IOleMessageFilter thread error-handling functions.
 
-        private const int SERVERCALL_ISHANDLED = 0;
+        // IOleMessageFilter functions. Handle incoming thread requests.
+        int IOleMessageFilter.HandleInComingCall(int dwCallType,
+                IntPtr hTaskCaller, int dwTickCount, IntPtr lpInterfaceInfo)
 
-        private const int SERVERCALL_RETRYLATER = 2;
+            //Return the flag SERVERCALL_ISHANDLED.
+            => 0;
 
-        private readonly IMessageFilter oldFilter;
-
-        public MessageFilter()
-        {
-            //Starting IMessageFilter for COM objects
-            var hr = CoRegisterMessageFilter(this, out oldFilter);
-            Debug.Assert(hr >= 0, "Registering COM IMessageFilter failed!");
-        }
-
-        public void Dispose()
-        {
-            //disabling IMessageFilter
-            var hr = CoRegisterMessageFilter(oldFilter, out var dummy);
-            Debug.Assert(hr >= 0, "De-Registering COM IMessageFilter failed!");
-            GC.SuppressFinalize(this);
-        }
-
-        int IMessageFilter.HandleInComingCall(int dwCallType,
-                IntPtr threadIdCaller, int dwTickCount, IntPtr lpInterfaceInfo)
-
-            // Return the ole default (don't let the call through).
-            => SERVERCALL_ISHANDLED;
-
-        int IMessageFilter.MessagePending(IntPtr threadIDCallee,
+        int IOleMessageFilter.MessagePending(IntPtr hTaskCallee,
                 int dwTickCount, int dwPendingType)
 
-            // Perform default processing.
-            => PENDINGMSG_WAITNOPROCESS;
+            // Return the flag PENDINGMSG_WAITDEFPROCESS.
+            => 2;
 
-        int IMessageFilter.RetryRejectedCall(IntPtr threadIDCallee,
+        // Thread call was rejected, so try again.
+        int IOleMessageFilter.RetryRejectedCall(IntPtr hTaskCallee,
             int dwTickCount, int dwRejectType)
         {
-            if (dwRejectType == SERVERCALL_RETRYLATER)
+            if (dwRejectType == 2)
 
+                // flag = SERVERCALL_RETRYLATER.
                 // Retry the thread call immediately if return >=0 & <100.
-                return 150; //waiting 150 milliseconds until retry
+                return 99;
 
-            // Too busy; cancel call. SERVERCALL_REJECTED
+            // Too busy; cancel call.
             return -1;
-
-            //Call was rejected by callee.
-            //(Exception from HRESULT: 0x80010001 (RPC_E_CALL_REJECTED))
         }
 
-        [DllImport("ole32.dll")]
-        [PreserveSig]
+        // Start the filter.
+        internal static void Register()
+        {
+            IOleMessageFilter newFilter = new MessageFilter();
+            IOleMessageFilter oldFilter = null;
+            CoRegisterMessageFilter(newFilter, out oldFilter);
+        }
+
+        // Done with the filter, close it.
+        internal static void Revoke()
+        {
+            IOleMessageFilter oldFilter = null;
+            CoRegisterMessageFilter(null, out oldFilter);
+        }
+
+        // Implement the IOleMessageFilter interface.
+        [DllImport("Ole32.dll")]
         private static extern int CoRegisterMessageFilter(
-            IMessageFilter lpMessageFilter,
-            out IMessageFilter lplpMessageFilter);
+            IOleMessageFilter newFilter, out IOleMessageFilter oldFilter);
     }
 }
