@@ -4,7 +4,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Debugger = System.Diagnostics.Debugger;
 using Process = System.Diagnostics.Process;
+using Thread = System.Threading.Thread;
 
 namespace MassFileRenamer.Objects
 {
@@ -261,7 +263,9 @@ namespace MassFileRenamer.Objects
 
             OnStarted();
 
-            OnOperationStarted(new OperationStartedEventArgs(OperationType.FindVisualStudio));
+            OnOperationStarted(
+                new OperationStartedEventArgs(OperationType.FindVisualStudio)
+            );
 
             DTE dte = null;
 
@@ -322,7 +326,9 @@ namespace MassFileRenamer.Objects
                 );
             }
 
-            OnOperationFinished(new OperationFinishedEventArgs(OperationType.FindVisualStudio));
+            OnOperationFinished(
+                new OperationFinishedEventArgs(OperationType.FindVisualStudio)
+            );
 
             try
             {
@@ -330,7 +336,11 @@ namespace MassFileRenamer.Objects
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
                 {
-                    OnOperationStarted(new OperationStartedEventArgs(OperationType.CloseActiveSolution));
+                    OnOperationStarted(
+                        new OperationStartedEventArgs(
+                            OperationType.CloseActiveSolution
+                        )
+                    );
 
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
@@ -341,9 +351,13 @@ namespace MassFileRenamer.Objects
                     dte.Solution.Close();
 
                     /* Wait for the solution to be closed. */
-                    while (dte.Solution.IsOpen) System.Threading.Thread.Sleep(50);
+                    while (dte.Solution.IsOpen) Thread.Sleep(50);
 
-                    OnOperationFinished(new OperationFinishedEventArgs(OperationType.CloseActiveSolution));
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.CloseActiveSolution
+                        )
+                    );
                 }
 
                 if (findWhat.Contains(replaceWith) ||
@@ -365,7 +379,11 @@ namespace MassFileRenamer.Objects
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
                 {
-                    OnOperationStarted(new OperationStartedEventArgs(OperationType.OpenActiveSolution));
+                    OnOperationStarted(
+                        new OperationStartedEventArgs(
+                            OperationType.OpenActiveSolution
+                        )
+                    );
 
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
@@ -376,9 +394,13 @@ namespace MassFileRenamer.Objects
                     dte.Solution.Open(solutionPathByConvention);
 
                     /* Wait for the solution to be opened/loaded. */
-                    while (!dte.Solution.IsOpen) System.Threading.Thread.Sleep(50);
+                    while (!dte.Solution.IsOpen) Thread.Sleep(50);
 
-                    OnOperationFinished(new OperationFinishedEventArgs(OperationType.OpenActiveSolution));
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.OpenActiveSolution
+                        )
+                    );
                 }
             }
             catch (OperationAbortedException)
@@ -463,12 +485,29 @@ namespace MassFileRenamer.Objects
                     )
                 );
 
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.GettingListOfFilesToBeRenamed
+                    )
+                );
+
                 var filenames = Directory
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
                     .Where(
                         file => !ShouldSkipFile(file) &&
-                                !file.Contains(replaceWith)
-                    ).Where(filename => filename.Contains(findWhat)).ToList();
+                                !Path.GetFileName(file).Contains(replaceWith) &&
+                                Path.GetFileName(file).Contains(findWhat)
+                    ).ToList();
+                if (!filenames.Any())
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.RenameFilesInFolder
+                            )
+                        );
+                        return;
+                    }
 
                 OnFilesToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -479,6 +518,14 @@ namespace MassFileRenamer.Objects
                 foreach (var filename in filenames.Where(
                     filename => pathFilter == null || pathFilter(filename)
                 ))
+                {
+                    if (!string.IsNullOrWhiteSpace(filename) &&
+                        Path.GetExtension(filename) == ".csproj")
+                    {
+                        Debugger.Launch();
+                        Debugger.Break();
+                    }
+
                     try
                     {
                         if (AbortRequested) break;
@@ -499,12 +546,13 @@ namespace MassFileRenamer.Objects
                         continue; /* explicit continue statement */
                     }
 
-                if (!AbortRequested)
-                    OnOperationFinished(
-                        new OperationFinishedEventArgs(
-                            OperationType.RenameFilesInFolder
-                        )
-                    );
+                    if (!AbortRequested)
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.RenameFilesInFolder
+                            )
+                        );
+                }
             }
             catch (Exception ex)
             {
@@ -586,11 +634,26 @@ namespace MassFileRenamer.Objects
                     )
                 );
 
-                var subFolders = Directory.GetDirectories(
-                    rootFolderPath, "*", SearchOption.AllDirectories
-                ).Where(
-                    dir => !ShouldSkipFolder(dir) && !dir.Contains(replaceWith)
-                ).ToList();
+                var subFolders = Directory
+                    .GetDirectories(
+                        rootFolderPath, "*", SearchOption.AllDirectories
+                    ).Where(
+                        dir => !ShouldSkipFolder(dir) &&
+                               dir.Contains(findWhat) &&
+                               !dir.Contains(replaceWith) &&
+                               (pathFilter == null || pathFilter(dir))
+                    ).ToList();
+
+                if (!subFolders.Any())
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.RenameSubFolders
+                            )
+                        );
+                        return;
+                    }
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -598,14 +661,9 @@ namespace MassFileRenamer.Objects
                     )
                 );
 
-                foreach (var dirInfo in subFolders
-                    .Where(
-                        subFolderName
-                            => pathFilter == null || pathFilter(subFolderName)
-                    ).Select(DirectoryInfoFactory.Make).Where(
-                        dirInfo => dirInfo != null &&
-                                   PathAlreadyContains(dirInfo, findWhat)
-                    ))
+                foreach (var dirInfo in subFolders.Select(
+                    DirectoryInfoFactory.Make
+                ))
                     try
                     {
                         if (AbortRequested) break;
@@ -703,30 +761,38 @@ namespace MassFileRenamer.Objects
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(findWhat)
                 );
+
+            OnOperationStarted(
+                new OperationStartedEventArgs(OperationType.ReplaceTextInFiles)
+            );
+
+            var filenames = Directory
+                .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
+                .Where(
+                    file => !ShouldSkipFile(file) &&
+                            (pathFilter == null || pathFilter(file))
+                ).ToList();
+
+            if (!filenames.Any())
+                if (!AbortRequested)
+                {
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.ReplaceTextInFiles
+                        )
+                    );
+                    return;
+                }
+
+            OnFilesToHaveTextReplacedCounted(
+                new FilesOrFoldersCountedEventArgs(
+                    filenames.Count, OperationType.ReplaceTextInFiles
+                )
+            );
+
             try
             {
-                OnOperationStarted(
-                    new OperationStartedEventArgs(
-                        OperationType.ReplaceTextInFiles
-                    )
-                );
-
-                var filenames = Directory
-                    .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-                    .Where(
-                        file => !ShouldSkipFile(file) &&
-                                !file.Contains(replaceWith)
-                    ).ToList();
-
-                OnFilesToHaveTextReplacedCounted(
-                    new FilesOrFoldersCountedEventArgs(
-                        filenames.Count, OperationType.ReplaceTextInFiles
-                    )
-                );
-
-                foreach (var filename in filenames.Where(
-                    filename => pathFilter == null || pathFilter(filename)
-                ))
+                foreach (var filename in filenames)
                     try
                     {
                         if (AbortRequested) break;
@@ -862,7 +928,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MassFileRenamer.Objects.OperationStartedEventHandler.OperationStarted" />
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.OperationStarted" />
         /// event.
         /// </summary>
         /// <param name="e">
@@ -945,6 +1011,21 @@ namespace MassFileRenamer.Objects
             return result;
         }
 
+        /// <summary>
+        /// Alias for the
+        /// <see
+        ///     cref="M:MassFileRenamer.Objects.FilePathValidator.ShouldSkipFile" />
+        /// method.
+        /// </summary>
+        /// <param name="file">
+        /// (Required.) String containing the path of the file whose path should
+        /// checked against exclusion rules.
+        /// </param>
+        /// <returns>
+        /// If the file should not be processed, then this method returns
+        /// <c>true</c>. Otherwise, the value <c>false</c> is returned, which
+        /// signifies that the file is to be included in the operation(s).
+        /// </returns>
         private bool ShouldSkipFile(string file)
         {
             if (string.IsNullOrWhiteSpace(file))

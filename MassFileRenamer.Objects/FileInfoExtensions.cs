@@ -1,5 +1,4 @@
-﻿using EnvDTE;
-using System;
+﻿using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using Thread = System.Threading.Thread;
@@ -33,6 +32,13 @@ namespace MassFileRenamer.Objects
             );
 
             var result = false;
+
+            if (!string.IsNullOrWhiteSpace(existingFile.FullName) &&
+                Path.GetExtension(existingFile.FullName) == ".csproj")
+            {
+                System.Diagnostics.Debugger.Launch();
+                System.Diagnostics.Debugger.Break();
+            }
 
             // Dump the parameter existingFile to the log
             DebugUtils.WriteLine(
@@ -324,7 +330,7 @@ namespace MassFileRenamer.Objects
                 File.Move(_tempFileName, newFilePath);
                 if (File.Exists(_tempFileName)) File.Delete(_tempFileName);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
@@ -339,7 +345,6 @@ namespace MassFileRenamer.Objects
                 DebugLevel.Info,
                 $"*** INFO: Checking whether the destination file, '{newFilePath}', exists..."
             );
-        
 
             result =
                 File.Exists(

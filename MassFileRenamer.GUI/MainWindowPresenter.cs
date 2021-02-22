@@ -786,20 +786,20 @@ namespace MassFileRenamer.GUI
 
             switch (type)
             {
-                case OperationType.RenameFilesInFolder:
-                    result = "Renaming files..";
-                    break;
+            case OperationType.RenameFilesInFolder:
+                result = "Renaming files..";
+                break;
 
-                case OperationType.ReplaceTextInFiles:
-                    result = "Replacing text in files..";
-                    break;
+            case OperationType.ReplaceTextInFiles:
+                result = "Replacing text in files..";
+                break;
 
-                case OperationType.RenameSubFolders:
-                    result = "Renaming subfolders..";
-                    break;
+            case OperationType.RenameSubFolders:
+                result = "Renaming subfolders..";
+                break;
 
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
 
             return result;
@@ -811,14 +811,17 @@ namespace MassFileRenamer.GUI
 
             switch (type)
             {
-                case OperationType.FindVisualStudio:
-                    result =
-                        "Determining whether Visual Studio is open...";
-                    break;
-
                 case OperationType.CloseActiveSolution:
                     result =
                         "Closing solution containing the item(s) to be processed...";
+                    break;
+
+                case OperationType.FindVisualStudio:
+                    result = "Determining whether Visual Studio is open...";
+                    break;
+
+                case OperationType.GettingListOfFilesToBeRenamed:
+                    result = "Getting list of files to be renamed...";
                     break;
 
                 case OperationType.OpenActiveSolution:

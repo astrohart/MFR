@@ -5,8 +5,9 @@
     /// </summary>
     public enum OperationType
     {
-        FindVisualStudio,
         CloseActiveSolution,
+        FindVisualStudio,
+        GettingListOfFilesToBeRenamed,
         OpenActiveSolution,
         RenameFilesInFolder,
         ReplaceTextInFiles,
