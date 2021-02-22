@@ -32,11 +32,21 @@ namespace MassFileRenamer.Objects
              if (File.Exists(_tempFileName))
                  File.Delete(_tempFileName);
 
-             existingFile.MoveTo(_tempFileName);
-             existingFile.MoveTo(newFilePath);
+             if (existingFile.Exists)
+             {
+                 existingFile.CopyTo(_tempFileName);
+                 existingFile.Delete();
+             }
 
+             var newFileInfo = new FileInfo(_tempFileName);
+
+             if (newFileInfo.Exists)
+             {
+                 newFileInfo.CopyTo(newFilePath);
+                 newFileInfo.Delete();
+             }
          }
-         catch (Exception ex)
+         catch
          {
              return false;
          }

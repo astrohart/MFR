@@ -786,20 +786,60 @@ namespace MassFileRenamer.GUI
 
             switch (type)
             {
-            case OperationType.RenameFilesInFolder:
-                result = "Renaming files..";
-                break;
+                case OperationType.RenameFilesInFolder:
+                    result = "Renaming files..";
+                    break;
 
-            case OperationType.ReplaceTextInFiles:
-                result = "Replacing text in files..";
-                break;
+                case OperationType.ReplaceTextInFiles:
+                    result = "Replacing text in files..";
+                    break;
 
-            case OperationType.RenameSubFolders:
-                result = "Renaming subfolders..";
-                break;
+                case OperationType.RenameSubFolders:
+                    result = "Renaming subfolders..";
+                    break;
 
-            default:
-                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+
+            return result;
+        }
+
+        private static string GetOperationStartedText(OperationType type)
+        {
+            var result = string.Empty;
+
+            switch (type)
+            {
+                case OperationType.FindVisualStudio:
+                    result =
+                        "Determining whether Visual Studio is open...";
+                    break;
+
+                case OperationType.CloseActiveSolution:
+                    result =
+                        "Closing solution containing the item(s) to be processed...";
+                    break;
+
+                case OperationType.OpenActiveSolution:
+                    result =
+                        "Reloading the solution containing the item(s) that were processed...";
+                    break;
+
+                case OperationType.RenameFilesInFolder:
+                    result = "Calculating files to be renamed..";
+                    break;
+
+                case OperationType.ReplaceTextInFiles:
+                    result = "Calculating files in which to replace text..";
+                    break;
+
+                case OperationType.RenameSubFolders:
+                    result = "Calculating folders to be renamed..";
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
 
             return result;
@@ -810,35 +850,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         private void CommenceRenameOperation()
             => Task.Run(
-                () => _renamer.ProcessAll(
-                    StartingFolder, FindWhat, ReplaceWith
-                )
+                () => _renamer.ProcessAll(StartingFolder, FindWhat, ReplaceWith)
             );
-
-        private string GetOperationStartedText(OperationType type)
-        {
-            var result = string.Empty;
-
-            switch (type)
-            {
-            case OperationType.RenameFilesInFolder:
-                result = "Calculating files to be renamed..";
-                break;
-
-            case OperationType.ReplaceTextInFiles:
-                result = "Calculating files in which to replace text..";
-                break;
-
-            case OperationType.RenameSubFolders:
-                result = "Calculating folders to be renamed..";
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
-
-            return result;
-        }
 
         private void HandleFilesCountedEvent(int count)
         {

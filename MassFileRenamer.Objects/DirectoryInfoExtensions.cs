@@ -27,11 +27,14 @@ namespace MassFileRenamer.Objects
 
          // stop if the destination already exists.
          if (Directory.Exists(newSubFolderPath))
-             return false;
+             Directory.Delete(newSubFolderPath, true);
 
          try
          {
-            folderToBeRenamed.MoveTo(newSubFolderPath);
+             if (!folderToBeRenamed.Exists)
+                 return false;
+
+             folderToBeRenamed.MoveTo(newSubFolderPath);
          }
          catch
          {

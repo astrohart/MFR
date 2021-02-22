@@ -259,6 +259,10 @@ namespace MassFileRenamer.Objects
 
             RootDirectoryPath = rootDirectoryPath;
 
+            OnStarted();
+
+            OnOperationStarted(new OperationStartedEventArgs(OperationType.FindVisualStudio));
+
             DTE dte = null;
 
             // This tool can potentially be run from Visual Studio (e.g.,
@@ -318,7 +322,7 @@ namespace MassFileRenamer.Objects
                 );
             }
 
-            OnStarted();
+            OnOperationFinished(new OperationFinishedEventArgs(OperationType.FindVisualStudio));
 
             try
             {
@@ -326,6 +330,8 @@ namespace MassFileRenamer.Objects
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
                 {
+                    OnOperationStarted(new OperationStartedEventArgs(OperationType.CloseActiveSolution));
+
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
                             "Closing solution containing item(s) to be processed..."
@@ -333,6 +339,11 @@ namespace MassFileRenamer.Objects
                     );
 
                     dte.Solution.Close();
+
+                    /* Wait for the solution to be closed. */
+                    while (dte.Solution.IsOpen) System.Threading.Thread.Sleep(50);
+
+                    OnOperationFinished(new OperationFinishedEventArgs(OperationType.CloseActiveSolution));
                 }
 
                 if (findWhat.Contains(replaceWith) ||
@@ -354,6 +365,8 @@ namespace MassFileRenamer.Objects
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
                 {
+                    OnOperationStarted(new OperationStartedEventArgs(OperationType.OpenActiveSolution));
+
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
                             "Instructing Visual Studio to reload the solution..."
@@ -361,6 +374,11 @@ namespace MassFileRenamer.Objects
                     );
 
                     dte.Solution.Open(solutionPathByConvention);
+
+                    /* Wait for the solution to be opened/loaded. */
+                    while (!dte.Solution.IsOpen) System.Threading.Thread.Sleep(50);
+
+                    OnOperationFinished(new OperationFinishedEventArgs(OperationType.OpenActiveSolution));
                 }
             }
             catch (OperationAbortedException)
