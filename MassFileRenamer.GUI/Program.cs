@@ -39,6 +39,8 @@ namespace MassFileRenamer.GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            LogFileManager.InitializeLogging(false);
+
             InitApplication();
 
             Application.Run(
