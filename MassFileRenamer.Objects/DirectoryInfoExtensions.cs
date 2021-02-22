@@ -363,6 +363,9 @@ namespace MassFileRenamer.Objects
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debugger.Launch();
+                System.Diagnostics.Debugger.Break();
+
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
