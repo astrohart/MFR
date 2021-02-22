@@ -33,13 +33,6 @@ namespace MassFileRenamer.Objects
 
             var result = false;
 
-            if (!string.IsNullOrWhiteSpace(existingFile.FullName) &&
-                Path.GetExtension(existingFile.FullName) == ".csproj")
-            {
-                System.Diagnostics.Debugger.Launch();
-                System.Diagnostics.Debugger.Break();
-            }
-
             // Dump the parameter existingFile to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
@@ -58,13 +51,13 @@ namespace MassFileRenamer.Objects
                 $"FileInfoExtensions.RenameTo: maxRetries = '{maxRetries}'"
             );
 
+            // Check to see if the required parameter, existingFile, is null. If
+            // it is, send an error to the log file and quit.
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "*** INFO: Checking whether the existingFile parameter has a null reference for a value..."
             );
 
-            // Check to see if the required parameter, existingFile, is null. If
-            // it is, send an error to the log file and quit.
             if (existingFile == null)
             {
                 // the parameter existingFile is required.
@@ -334,9 +327,6 @@ namespace MassFileRenamer.Objects
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-
-                System.Diagnostics.Debugger.Launch();
-                System.Diagnostics.Debugger.Break();
 
                 return false;
             }
