@@ -592,6 +592,12 @@ namespace MassFileRenamer.Objects
                 return false;
             }
 
+            /*
+             * OKAY, so now we test whether the file exists at the destination path.
+             * If this is so, then we can report success by setting the result variable
+             * to TRUE and then returning it to the caller of this method.
+             */
+
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 $"*** INFO: Checking whether the destination file, '{newFilePath}', exists..."
