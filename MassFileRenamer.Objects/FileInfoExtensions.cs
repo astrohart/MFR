@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using xyLOGIX.Core.Debug;
-using Thread = System.Threading.Thread;
 
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Helper methods for working with instances of <see cref="T:System.IO.FileInfo"/>.
+    /// Helper methods for working with instances of
+    /// <see cref="T:System.IO.FileInfo" />.
     /// </summary>
     public static class FileInfoExtensions
     {
@@ -14,7 +15,7 @@ namespace MassFileRenamer.Objects
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo"/> describing the file to be renamed.
+        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the pathname of the renamed file.
@@ -160,14 +161,19 @@ namespace MassFileRenamer.Objects
                 );
 
                 attempts++;
-                if (TryRenameFile(existingFile, newFilePath))
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        $"*** SUCCESS *** The file rename operation succeeded on attempt #{attempts}."
-                    );
-                    break;
-                }
+                if (!TryRenameFile(existingFile, newFilePath))
+                    continue;
+
+                /*
+                 * If we are here, then the rename operation is successful; so, in this case,
+                 * we stop the loop.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The file rename operation succeeded on attempt #{attempts}."
+                );
+                break;
             }
 
             DebugUtils.WriteLine(
@@ -177,23 +183,34 @@ namespace MassFileRenamer.Objects
 
             Thread.Sleep(50);
 
-            return File.Exists(newFilePath
+            return
+                File.Exists(
+                    newFilePath
                 ); // succeeded if the file can be found at newFilePath
         }
 
-        private static bool TryRenameFile(FileInfo existingFile, string newFilePath)
+        private static bool TryRenameFile(FileInfo existingFile,
+            string newFilePath)
         {
             // write the name of the current class and method we are now
             // entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In FileInfoExtensions.TryRenameFile");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In FileInfoExtensions.TryRenameFile"
+            );
 
             var result = false;
 
             // Dump the parameter existingFile.FullName to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileInfoExtensions.TryRenameFile: existingFile.FullName = '{existingFile.FullName}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileInfoExtensions.TryRenameFile: existingFile.FullName = '{existingFile.FullName}'"
+            );
 
             // Dump the parameter newFilePath to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileInfoExtensions.TryRenameFile: newFilePath = '{newFilePath}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileInfoExtensions.TryRenameFile: newFilePath = '{newFilePath}'"
+            );
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -259,35 +276,26 @@ namespace MassFileRenamer.Objects
                     $"{Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid():N}.tmp")}";
 
                 // Dump the variable _tempFileName to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"FileInfoExtensions.TryRenameFile: _tempFileName = '{_tempFileName}'");
-
-                /*
-               if (File.Exists(_tempFileName))
-                   File.Delete(_tempFileName);
-
-               if (existingFile.Exists)
-               {
-                   existingFile.CopyTo(_tempFileName);
-                   existingFile.Delete();
-               }
-
-               var newFileInfo = new FileInfo(_tempFileName);
-
-               if (newFileInfo.Exists)
-               {
-                   newFileInfo.CopyTo(newFilePath);
-                   newFileInfo.Delete();
-               }
-               */
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileInfoExtensions.TryRenameFile: _tempFileName = '{_tempFileName}'"
+                );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
                     $"FileInfoExtensions.TryRenameFile: Moving file '{existingFile.FullName}' to '{newFilePath}'..."
                 );
 
-                File.Move(existingFile.FullName, _tempFileName);
-                if (File.Exists(existingFile.FullName))
-                    File.Delete(existingFile.FullName);
+                existingFile.CopyTo(_tempFileName);
+
+                /*
+                 * OKAY, we need to confirm (a) the move operation happened successfully by
+                 * ensuring that the existing file indeed was moved to the temporary location.
+                 * If this is not the case, then the file at the temporary location will not
+                 * exist -- and then we can conclude that this attempt to rename the file has
+                 * failed.  If everything worked, then delete the source file (it now lives
+                 * in the temporary spot.)
+                 */
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
@@ -302,12 +310,16 @@ namespace MassFileRenamer.Objects
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"FileInfoExtensions.TryRenameFile: Result = {result}"
+                        DebugLevel.Debug,
+                        $"FileInfoExtensions.TryRenameFile: Result = {false}"
                     );
 
-                    DebugUtils.WriteLine(DebugLevel.Debug, "FileInfoExtensions.TryRenameFile: Done.");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "FileInfoExtensions.TryRenameFile: Done."
+                    );
 
-                    return result;
+                    return false;
                 }
 
                 DebugUtils.WriteLine(
@@ -315,13 +327,262 @@ namespace MassFileRenamer.Objects
                     $"*** SUCCESS *** The file with path '{_tempFileName}' was found on the disk.  Proceeding..."
                 );
 
+                /*
+                 * Double-check that the existing file is still present.  If that is so, then delete it (since,
+                 * if we're here, the move operation to the temporary location was successful.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Checking whether the file with path '{existingFile.FullName}' exists on the disk..."
+                );
+
+                if (!File.Exists(existingFile.FullName))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The system could not locate the file having the path '{existingFile.FullName}' on the disk.  This file is required to exist in order for us to proceed."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileInfoExtensions.TryRenameFile: Result = {false}"
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "FileInfoExtensions.TryRenameFile: Done."
+                    );
+
+                    return false;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The file with path '{existingFile.FullName}' was found on the disk.  Proceeding..."
+                );
+
+                /*
+                 * NOTE: We will leave the source file in the source location, so that we can use it as a backup
+                 * in our next retry attempt. Only when the file has been successfully transferred to the destination,
+                 * then can we erase the source file.
+                 */
+
+                /*
+                 * OKAY, now it is time to complete the second stage of the file moving process -- that is, moving the file
+                 * from the temporary file folder to its destination.  We do a copy operation instead, so that it preserves
+                 * the file in the source location, in case an error occurs.  Before we begin though, we need to double-
+                 * check whether the file exists at the destination already; in this event, delete the destination file
+                 * before making a new copy at that same location.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Checking whether the file '{newFilePath}' already exists..."
+                );
+
+                if (File.Exists(newFilePath))
+                {
+                    /*
+                     * If we are here, then the destination file already exists in the destination location.
+                     * We want to ensure the latest version of the file is transferred.  Therefore, we will
+                     * delete the file that is already at the destination in preparation for the next file-copy
+                     * operation.
+                     */
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Warning,
+                        $"*** WARNING: The file at the destination path, '{newFilePath}', already exists."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** INFO: Overwriting the file at '{newFilePath}' in order to make way for the new version..."
+                    );
+
+                    File.Delete(newFilePath);
+
+                    if (!File.Exists(newFilePath))
+                        DebugUtils.WriteLine(
+                            DebugLevel.Info,
+                            $"*** SUCCESS *** The file with path '{newFilePath}' was deleted."
+                        );
+                    else
+
+                        // Oops, an error occurred. Better fail, so that a retry
+                        // attempt can be made.
+                        return false;
+                }
+
+                /*
+                 * OKAY, so if we are here, now we are ready to transfer the file from the temporary
+                 * location to the destination location.
+                 */
+
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
                     $"FileInfoExtensions.TryRenameFile: Attempting to move file '{_tempFileName}' to '{newFilePath}'..."
                 );
 
-                File.Move(_tempFileName, newFilePath);
-                if (File.Exists(_tempFileName)) File.Delete(_tempFileName);
+                File.Copy(_tempFileName, newFilePath);
+
+                /*
+                 * Did it work?  If so, then the file with path specified by the 'newFilePath' parameter
+                 * will exist on the disk.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Checking whether the file with path '{newFilePath}' exists on the disk..."
+                );
+
+                if (!File.Exists(newFilePath))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The system could not locate the file having the path '{newFilePath}' on the disk.  This file is required to exist in order for us to proceed."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileInfoExtensions.TryRenameFile: Result = {false}"
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "FileInfoExtensions.TryRenameFile: Done."
+                    );
+
+                    return
+                        false; /* for some inexplicable reason, the copy operation failed. */
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The file with path '{newFilePath}' was found on the disk.  Proceeding..."
+                );
+
+                /*
+                 * OKAY, if we are here, then the transfer operation succeeded.  If that is the case,
+                 * then -- after checking whether they still exist on the disk -- delete the temporary
+                 * file and the source file.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Checking whether the file with path '{_tempFileName}' exists on the disk.  If it does, we will attempt to delete it..."
+                );
+
+                if (File.Exists(_tempFileName))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** INFO: We found the file having path '_tempFileName' on the disk.  Attempting to delete it..."
+                    );
+
+                    File.Delete(_tempFileName);
+
+                    /*
+                     * OKAY, check whether the file whose path is contained in the _tempFileName variable
+                     * still exists. If it does not, then the operation was successful.  If it still
+                     * exists, then this method should fail.
+                     */
+
+                    if (File.Exists(_tempFileName))
+                    {
+                        /*
+                         * Write an error to the log that indicates the attempt to delete the file
+                         * was not successful.  Then, cause the method to terminate, returning the
+                         * default return value.
+                         */
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            $"*** ERROR *** The attempt to delete the file having path '{_tempFileName}' was not successful."
+                        );
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Debug,
+                            $"m.TryRenameFile: Result = {result}"
+                        );
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Debug,
+                            "FileInfoExtensions.TryRenameFile: Done."
+                        );
+
+                        return result;
+                    }
+                }
+
+                /*
+                 * If we are here, then the attempt to delete the file was successful.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The file with path '{_tempFileName}' was deleted successfully.  Proceeding..."
+                );
+
+                /*
+                 * OKAY, now we need to remove the original source file.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Checking whether the file with path '{existingFile.FullName}' exists on the disk.  If it does, we will attempt to delete it..."
+                );
+
+                if (File.Exists(existingFile.FullName))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** INFO: We found the file having path 'existingFile.FullName' on the disk.  Attempting to delete it..."
+                    );
+
+                    File.Delete(existingFile.FullName);
+
+                    /*
+                     * OKAY, check whether the file whose path is contained in the existingFile.FullName variable
+                     * still exists. If it does not, then the operation was successful.  If it still
+                     * exists, then this method should fail.
+                     */
+
+                    if (File.Exists(existingFile.FullName))
+                    {
+                        /*
+                         * Write an error to the log that indicates the attempt to delete the file
+                         * was not successful.  Then, cause the method to terminate, returning the
+                         * default return value.
+                         */
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            $"*** ERROR *** The attempt to delete the file having path '{existingFile.FullName}' was not successful."
+                        );
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Debug,
+                            $"m.TryRenameFile: Result = {result}"
+                        );
+
+                        DebugUtils.WriteLine(
+                            DebugLevel.Debug,
+                            "FileInfoExtensions.TryRenameFile: Done."
+                        );
+
+                        return result;
+                    }
+                }
+
+                /*
+                 * If we are here, then the attempt to delete the file was successful.
+                 */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The file with path '{existingFile.FullName}' was deleted successfully.  Proceeding..."
+                );
             }
             catch (Exception ex)
             {
@@ -341,9 +602,14 @@ namespace MassFileRenamer.Objects
                     newFilePath
                 ); // succeeded if the file exists at path newFilePath
 
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileInfoExtensions.TryRenameFile: Result = {result}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileInfoExtensions.TryRenameFile: Result = {result}"
+            );
 
-            DebugUtils.WriteLine(DebugLevel.Debug, "FileInfoExtensions.TryRenameFile: Done.");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "FileInfoExtensions.TryRenameFile: Done."
+            );
 
             return result;
         }
