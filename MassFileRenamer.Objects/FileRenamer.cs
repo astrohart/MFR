@@ -1,6 +1,7 @@
 ﻿using EnvDTE;
 using MassFileRenamer.Objects.Properties;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -497,7 +498,7 @@ namespace MassFileRenamer.Objects
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
                     .Where(
                         file => !ShouldSkipFile(file) &&
-                                !Path.GetFileName(file).Contains(replaceWith) &&
+                                (findWhat.Contains(replaceWith) || !Path.GetFileName(file).Contains(replaceWith)) &&
                                 Path.GetFileName(file).Contains(findWhat)
                     ).ToList();
                 if (!filenames.Any())
@@ -638,6 +639,23 @@ namespace MassFileRenamer.Objects
                     )
                 );
 
+                // Build list of folders to be processed
+                var subFolders = new List<string>();
+
+                foreach (var folder in Directory.GetDirectories(
+                    rootFolderPath, "*", SearchOption.AllDirectories
+                ))
+                {
+                    if (ShouldSkipFolder(folder)) continue;
+
+                    if (!folder.Contains(findWhat)) continue;
+                    if (!findWhat.Contains(replaceWith) && folder.Contains(replaceWith)) continue;
+                    if (pathFilter != null && !pathFilter(folder)) continue;
+
+                    subFolders.Add(folder);
+                }
+
+                /*
                 var subFolders = Directory
                     .GetDirectories(
                         rootFolderPath, "*", SearchOption.AllDirectories
@@ -647,6 +665,7 @@ namespace MassFileRenamer.Objects
                                !dir.Contains(replaceWith) &&
                                (pathFilter == null || pathFilter(dir))
                     ).ToList();
+                */
 
                 if (!subFolders.Any())
                     if (!AbortRequested)
