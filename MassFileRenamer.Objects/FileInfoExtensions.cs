@@ -510,7 +510,16 @@ namespace MassFileRenamer.Objects
                     $"FileInfoExtensions.TryRenameFile: Attempting to move file '{_tempFileName}' to '{newFilePath}'..."
                 );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, $"*** INFO: Performing file operation..."
+                );
+
                 File.Copy(_tempFileName, newFilePath);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: A 'Copy' file operation has been performed."
+                );
 
                 /*
                  * Did it work?  If so, then the file with path specified by the 'newFilePath' parameter
