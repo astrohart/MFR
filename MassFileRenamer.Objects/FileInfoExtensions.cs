@@ -6,8 +6,7 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Helper methods for working with instances of
-    /// <see cref="T:System.IO.FileInfo" />.
+    /// Helper methods for working with instances of <see cref="T:System.IO.FileInfo"/>.
     /// </summary>
     public static class FileInfoExtensions
     {
@@ -15,7 +14,7 @@ namespace MassFileRenamer.Objects
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
+        /// A <see cref="T:System.IO.FileInfo"/> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the pathname of the renamed file.
@@ -499,6 +498,11 @@ namespace MassFileRenamer.Objects
                         // attempt can be made.
                         return false;
                 }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The file '{newFilePath}' does not already exist.  This is a good thing.  Proceeding..."
+                );
 
                 /*
                  * OKAY, so if we are here, now we are ready to transfer the file from the temporary
