@@ -6,8 +6,7 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Helper methods for working with instances of
-    /// <see cref="T:System.IO.FileInfo" />.
+    /// Helper methods for working with instances of <see cref="T:System.IO.FileInfo"/>.
     /// </summary>
     public static class FileInfoExtensions
     {
@@ -15,7 +14,7 @@ namespace MassFileRenamer.Objects
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
+        /// A <see cref="T:System.IO.FileInfo"/> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the pathname of the renamed file.
@@ -358,7 +357,16 @@ namespace MassFileRenamer.Objects
                     $"FileInfoExtensions.TryRenameFile: Moving file '{existingFile.FullName}' to '{_tempFileName}'..."
                 );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** INFO: Performing file operation..."
+                );
+
                 existingFile.CopyTo(_tempFileName);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: A 'Copy' file operation has been performed."
+                );
 
                 /*
                  * OKAY, we need to confirm (a) the move operation happened successfully by
