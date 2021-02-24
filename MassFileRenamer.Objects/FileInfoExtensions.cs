@@ -6,7 +6,8 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Helper methods for working with instances of <see cref="T:System.IO.FileInfo"/>.
+    /// Helper methods for working with instances of
+    /// <see cref="T:System.IO.FileInfo" />.
     /// </summary>
     public static class FileInfoExtensions
     {
@@ -14,7 +15,7 @@ namespace MassFileRenamer.Objects
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo"/> describing the file to be renamed.
+        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the pathname of the renamed file.
@@ -51,7 +52,10 @@ namespace MassFileRenamer.Objects
              */
 
             // Dump the parameter maxRetries to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileInfoExtensions.RenameTo: maxRetries = {maxRetries}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileInfoExtensions.RenameTo: maxRetries = {maxRetries}"
+            );
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -66,17 +70,20 @@ namespace MassFileRenamer.Objects
                 );
 
                 DebugUtils.WriteLine(
-                    DebugLevel.Debug, $"FileInfoExtensions.RenameTo: Result = {result}"
+                    DebugLevel.Debug,
+                    $"FileInfoExtensions.RenameTo: Result = {result}"
                 );
 
-                DebugUtils.WriteLine(DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done.");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done."
+                );
 
                 return result;
             }
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** SUCCESS *** The 'maxRetries' parameter has a value that is 1 or greater, which is valid."
+                "*** SUCCESS *** The 'maxRetries' parameter has a value that is 1 or greater, which is valid."
             );
 
             // Check to see if the required parameter, existingFile, is null. If
@@ -194,10 +201,13 @@ namespace MassFileRenamer.Objects
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"FileInfoExtensions.RenameTo: Result = {result}"
+                        DebugLevel.Debug,
+                        $"FileInfoExtensions.RenameTo: Result = {result}"
                     );
 
-                    DebugUtils.WriteLine(DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done.");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done."
+                    );
 
                     return result;
                 }
@@ -222,7 +232,16 @@ namespace MassFileRenamer.Objects
 
                 attempts++;
                 if (!TryRenameFile(existingFile, newFilePath))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"FileInfoExtensions.RenameTo: Attempt #{attempts} failed.  Retrying in 50 milliseconds..."
+                    );
+
+                    Thread.Sleep(50);
+
                     continue;
+                }
 
                 /*
                  * If we are here, then the rename operation is successful; so, in this case,
@@ -235,13 +254,6 @@ namespace MassFileRenamer.Objects
                 );
                 break;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Error,
-                $"FileInfoExtensions.RenameTo: Attempt #{attempts} failed.  Retrying in 50 milliseconds..."
-            );
-
-            Thread.Sleep(50);
 
             return
                 File.Exists(
