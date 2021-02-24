@@ -6,8 +6,7 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Helper methods for working with instances of
-    /// <see cref="T:System.IO.FileInfo" />.
+    /// Helper methods for working with instances of <see cref="T:System.IO.FileInfo"/>.
     /// </summary>
     public static class FileInfoExtensions
     {
@@ -15,7 +14,7 @@ namespace MassFileRenamer.Objects
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
+        /// A <see cref="T:System.IO.FileInfo"/> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the pathname of the renamed file.
@@ -46,10 +45,38 @@ namespace MassFileRenamer.Objects
                 $"FileInfoExtensions.RenameTo: newFilePath = '{newFilePath}'"
             );
 
+            /*
+             * OKAY, we need to do bounds-checking on the maxRetries parameter.
+             * Since this is a count, it must be a positive number and 1 or greater.
+             */
+
             // Dump the parameter maxRetries to the log
+            DebugUtils.WriteLine(DebugLevel.Debug, $"FileInfoExtensions.RenameTo: maxRetries = {maxRetries}");
+
             DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileInfoExtensions.RenameTo: maxRetries = '{maxRetries}'"
+                DebugLevel.Info,
+                "*** INFO: Checking whether the value of the 'maxRetries parameter (whose value is supposed to be a count) is 1 or greater..."
+            );
+
+            if (maxRetries <= 0)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR *** The 'maxRetries' parameter has a value that is zero or less.  This is not the range that a count of items or a length can have."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, $"FileInfoExtensions.RenameTo: Result = {result}"
+                );
+
+                DebugUtils.WriteLine(DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done.");
+
+                return result;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The 'maxRetries' parameter has a value that is 1 or greater, which is valid."
             );
 
             // Check to see if the required parameter, existingFile, is null. If
@@ -146,7 +173,40 @@ namespace MassFileRenamer.Objects
             );
 
             if (File.Exists(newFilePath))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** THe file with path '{newFilePath}' was found on the disk.  We need to overwrite this file, so we are attempting to delete it..."
+                );
+
                 File.Delete(newFilePath); // overwrite a file at the new path
+
+                if (!File.Exists(newFilePath))
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** SUCCESS *** The file with path '{newFilePath}' was deleted."
+                    );
+                else
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Failed to delete the file with path '{newFilePath}'."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"FileInfoExtensions.RenameTo: Result = {result}"
+                    );
+
+                    DebugUtils.WriteLine(DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done.");
+
+                    return result;
+                }
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileInfoExtensions.RenameTo: Proceeding to run the file rename algorithm and attempt at most {maxRetries} times..."
+            );
 
             var attempts = 0;
 
