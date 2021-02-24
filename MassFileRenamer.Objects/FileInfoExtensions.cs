@@ -355,7 +355,7 @@ namespace MassFileRenamer.Objects
 
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"FileInfoExtensions.TryRenameFile: Moving file '{existingFile.FullName}' to '{newFilePath}'..."
+                    $"FileInfoExtensions.TryRenameFile: Moving file '{existingFile.FullName}' to '{_tempFileName}'..."
                 );
 
                 existingFile.CopyTo(_tempFileName);
@@ -447,6 +447,11 @@ namespace MassFileRenamer.Objects
                  * check whether the file exists at the destination already; in this event, delete the destination file
                  * before making a new copy at that same location.
                  */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileInfoExtensions.TryRenameFile: Getting ready to attempt to move the file '{_tempFileName}' to '{newFilePath}'..."
+                );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
