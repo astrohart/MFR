@@ -19,6 +19,12 @@ namespace MassFileRenamer.Objects
         event ExceptionRaisedEventHandler ExceptionRaised;
 
         /// <summary>
+        /// Occurs when we need the client of this class to perform a match on a
+        /// filename for us.
+        /// </summary>
+        event FileNameMatchRequestedEventHandler FileNameMatchRequested;
+
+        /// <summary>
         /// Occurs when files to be renamed have been counted.
         /// </summary>
         event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
@@ -252,7 +258,8 @@ namespace MassFileRenamer.Objects
             string replaceWith, Func<string, bool> pathFilter = null);
 
         /// <summary>
-        /// Sets a flag requesting the currently-executing operation to abort as soon as possible.
+        /// Sets a flag requesting the currently-executing operation to abort as
+        /// soon as possible.
         /// </summary>
         void RequestAbort();
     }

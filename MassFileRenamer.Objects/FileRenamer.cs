@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Debugger = System.Diagnostics.Debugger;
 using Process = System.Diagnostics.Process;
 using Thread = System.Threading.Thread;
 
@@ -496,11 +495,14 @@ namespace MassFileRenamer.Objects
 
                 var filenames = Directory
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-                    .Where(
-                        file => !ShouldSkipFile(file) &&
-                                (findWhat.Contains(replaceWith) || !Path.GetFileName(file).Contains(replaceWith)) &&
-                                Path.GetFileName(file).Contains(findWhat)
-                    ).ToList();
+                    .Where(file => !ShouldSkipFile(file) &&
+                                   (findWhat.Contains(replaceWith) ||
+                                    !Path.GetFileName(file)
+                                        .Contains(replaceWith)) &&
+                                   OnFileNameMatchRequested(new
+                                       FileNameMatchRequestedEventArgs(
+                                           file, findWhat)
+                                       )).ToList();
                 if (!filenames.Any())
                     if (!AbortRequested)
                     {
@@ -649,7 +651,8 @@ namespace MassFileRenamer.Objects
                     if (ShouldSkipFolder(folder)) continue;
 
                     if (!folder.Contains(findWhat)) continue;
-                    if (!findWhat.Contains(replaceWith) && folder.Contains(replaceWith)) continue;
+                    if (!findWhat.Contains(replaceWith) &&
+                        folder.Contains(replaceWith)) continue;
                     if (pathFilter != null && !pathFilter(folder)) continue;
 
                     subFolders.Add(folder);
@@ -865,6 +868,12 @@ namespace MassFileRenamer.Objects
             => AbortRequested = true;
 
         /// <summary>
+        /// Occurs when we need the client of this class to perform a match on a
+        /// filename for us.
+        /// </summary>
+        public event FileNameMatchRequestedEventHandler FileNameMatchRequested;
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MassFileRenamer.Objects.FileRenamer.ExceptionRaised" />
@@ -876,6 +885,33 @@ namespace MassFileRenamer.Objects
         /// </param>
         protected virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
             => ExceptionRaised?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.FileNameMatchRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <returns>
+        /// <code>True</code>
+        /// if the filename presented matches according to the textual criteria
+        /// set by the client, or <c>false</c> otherwise.
+        /// </returns>
+        protected virtual bool OnFileNameMatchRequested(
+            FileNameMatchRequestedEventArgs e)
+        {
+            if (FileNameMatchRequested == null)
+                return false;
+
+            FileNameMatchRequested?.Invoke(this, e);
+            return e.DoesMatch;
+        }
 
         /// <summary>
         /// Raises the

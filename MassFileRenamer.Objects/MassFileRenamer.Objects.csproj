@@ -110,6 +110,9 @@
     <Compile Include="ExceptionRaisedEventHandler.cs" />
     <Compile Include="FileInfoExtensions.cs" />
     <Compile Include="FileInfoFactory.cs" />
+    <Compile Include="FileNameMatcher.cs" />
+    <Compile Include="FileNameMatchRequestedEventArgs.cs" />
+    <Compile Include="FileNameMatchRequestedEventHandler.cs" />
     <Compile Include="FilePathValidator.cs" />
     <Compile Include="FileRenamer.cs" />
     <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="FormFoldedEventHandler.cs" />
     <Compile Include="HistoryManager.cs" />
     <Compile Include="IConfiguration.cs" />
+    <Compile Include="IFileNameMatcher.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="IHistoryManager.cs" />
     <Compile Include="InvalidPathException.cs" />

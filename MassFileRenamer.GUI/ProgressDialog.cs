@@ -31,7 +31,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Gets or sets a string containing the new detailed status.
         /// </summary>
-        public string DetailedStatus
+        public string CurrentFile
         {
             [DebuggerStepThrough] get => detailedStatusLabel.Text;
             set => detailedStatusLabel.InvokeIfRequired(
@@ -112,7 +112,7 @@ namespace MassFileRenamer.GUI
             ProgressBarMaximum = 100;
             ProgressBarValue = 0;
 
-            Status = DetailedStatus = string.Empty;
+            Status = CurrentFile = string.Empty;
 
             this.InvokeIfRequired(RedrawDisplay);
         }

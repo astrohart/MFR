@@ -40,6 +40,7 @@ namespace MassFileRenamer.GUI
             this.replaceWithComboBox = new System.Windows.Forms.ComboBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +76,6 @@ namespace MassFileRenamer.GUI
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
-            this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -175,10 +175,18 @@ namespace MassFileRenamer.GUI
             // statusBarMessage
             // 
             this.statusBarMessage.Name = "statusBarMessage";
-            this.statusBarMessage.Size = new System.Drawing.Size(448, 17);
+            this.statusBarMessage.Size = new System.Drawing.Size(581, 17);
             this.statusBarMessage.Spring = true;
             this.statusBarMessage.Text = "Ready";
             this.statusBarMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // statusBarProgressBar
+            // 
+            this.statusBarProgressBar.MarqueeAnimationSpeed = 300;
+            this.statusBarProgressBar.Name = "statusBarProgressBar";
+            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.statusBarProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.statusBarProgressBar.Visible = false;
             // 
             // menuBar
             // 
@@ -397,7 +405,6 @@ namespace MassFileRenamer.GUI
             // matchWholeWordCheckBox
             // 
             this.matchWholeWordCheckBox.AutoSize = true;
-            this.matchWholeWordCheckBox.Enabled = false;
             this.matchWholeWordCheckBox.Location = new System.Drawing.Point(7, 33);
             this.matchWholeWordCheckBox.Name = "matchWholeWordCheckBox";
             this.matchWholeWordCheckBox.Size = new System.Drawing.Size(125, 19);
@@ -408,7 +415,6 @@ namespace MassFileRenamer.GUI
             // matchCaseCheckBox
             // 
             this.matchCaseCheckBox.AutoSize = true;
-            this.matchCaseCheckBox.Enabled = false;
             this.matchCaseCheckBox.Location = new System.Drawing.Point(7, 7);
             this.matchCaseCheckBox.Name = "matchCaseCheckBox";
             this.matchCaseCheckBox.Size = new System.Drawing.Size(86, 19);
@@ -495,14 +501,6 @@ namespace MassFileRenamer.GUI
             this.foldButton.Text = "&More >>";
             this.foldButton.UseVisualStyleBackColor = true;
             this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
-            // 
-            // statusBarProgressBar
-            // 
-            this.statusBarProgressBar.MarqueeAnimationSpeed = 300;
-            this.statusBarProgressBar.Name = "statusBarProgressBar";
-            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 16);
-            this.statusBarProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.statusBarProgressBar.Visible = false;
             // 
             // MainWindow
             // 

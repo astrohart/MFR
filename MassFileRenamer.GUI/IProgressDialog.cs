@@ -13,7 +13,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Gets or sets a string containing the new detailed status.
         /// </summary>
-        string DetailedStatus
+        string CurrentFile
         {
             [DebuggerStepThrough] get;
             set;
