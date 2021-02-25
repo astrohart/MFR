@@ -497,12 +497,10 @@ namespace MassFileRenamer.Objects
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
                     .Where(file => !ShouldSkipFile(file) &&
                                    (findWhat.Contains(replaceWith) ||
-                                    !Path.GetFileName(file)
-                                        .Contains(replaceWith)) &&
-                                   OnFileNameMatchRequested(new
-                                       FileNameMatchRequestedEventArgs(
+                                        OnFileNameMatchRequested(new
+                                            FileNameMatchRequestedEventArgs(
                                            file, findWhat)
-                                       )).ToList();
+                                       ))).ToList();
                 if (!filenames.Any())
                     if (!AbortRequested)
                     {
