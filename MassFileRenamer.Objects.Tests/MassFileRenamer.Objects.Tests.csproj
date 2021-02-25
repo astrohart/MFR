@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileInfoExtensionsTests.cs" />
-    <Compile Include="FileNameMatcherTests.cs" />
+    <Compile Include="TextExpressionMatcherTests.cs" />
     <Compile Include="FileRenamerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

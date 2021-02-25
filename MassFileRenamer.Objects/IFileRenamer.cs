@@ -22,7 +22,7 @@ namespace MassFileRenamer.Objects
         /// Occurs when we need the client of this class to perform a match on a
         /// filename for us.
         /// </summary>
-        event FileNameMatchRequestedEventHandler FileNameMatchRequested;
+        event TestExpressionMatchRequestedEventHandler TestExpressionMatchRequested;
 
         /// <summary>
         /// Occurs when files to be renamed have been counted.

@@ -4,14 +4,14 @@ using System.IO;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Provides information for a FileNameMatchRequested event.
+    /// Provides information for a TestExpressionMatchRequested event.
     /// </summary>
-    public class FileNameMatchRequestedEventArgs : EventArgs
+    public class TestExpressionMatchRequestedEventArgs : EventArgs
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs" />
+        ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="path">
@@ -19,23 +19,31 @@ namespace MassFileRenamer.Objects
         /// perform a match against.
         /// </param>
         /// <param name="findWhat">
-        /// (Required.) String containing the textual criteria for the
-        /// match.
+        /// (Required.) String containing the textual criteria for the match.
         /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the either of the required parameters,
-        /// <paramref
-        ///     name="path" />
-        /// or <<paramref name="findWhat" />, are passed
-        /// blank or <c>null</c> strings for values.
+        /// <param name="type">
+        /// (Required.) One of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// describes what operation is being performed.
+        /// </param>
+        /// <exception
+        ///     cref="T:System.ArgumentException">
+        /// Thrown if the either of the
+        /// required parameters, <paramref name="path" /> or <<paramref
+        ///                                                       name="findWhat" />
+        /// , are passed blank or <c>null</c> strings for
+        /// values.
         /// </exception>
         /// <exception
         ///     cref="T:System.IO.FileNotFoundException">
-        /// Thrown if the system
-        /// is unable to locate the file whose pathname is specified by the
+        /// Thrown if the system is
+        /// unable to locate the file whose pathname is specified by the
         /// <paramref name="path" /> parameter on the disk.
         /// </exception>
-        public FileNameMatchRequestedEventArgs(string path, string findWhat)
+        public TestExpressionMatchRequestedEventArgs(string path,
+            string findWhat, OperationType type)
         {
             if (string.IsNullOrWhiteSpace(path))
                 throw new ArgumentException(
@@ -52,11 +60,11 @@ namespace MassFileRenamer.Objects
 
             Path = path;
             FindWhat = findWhat;
+            OperationType = type;
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the file name matches
-        /// the criteria.
+        /// Gets or sets a value indicating whether the file name matches the criteria.
         /// </summary>
         public bool DoesMatch
         {
@@ -69,6 +77,15 @@ namespace MassFileRenamer.Objects
         /// whether the name of the file is to be targeted by a rename operation.
         /// </summary>
         public string FindWhat
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="T:MassFileRenamer.Objects.OperationType" /> value
+        /// that describes what operation is being performed.
+        /// </summary>
+        public OperationType OperationType
         {
             get;
         }

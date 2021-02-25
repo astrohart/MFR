@@ -5,12 +5,12 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Applies criteria to match file names against textual expressions.
     /// </summary>
-    public class FileNameMatcher : IFileNameMatcher
+    public class TextExpressionMatcher : ITextExpressionMatcher
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcher" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -18,7 +18,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <c>null</c> value.
         /// </exception>
-        public FileNameMatcher(IConfiguration configuration)
+        public TextExpressionMatcher(IConfiguration configuration)
         {
             Configuration = configuration ??
                             throw new ArgumentNullException(

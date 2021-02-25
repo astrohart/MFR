@@ -497,9 +497,9 @@ namespace MassFileRenamer.Objects
                     .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
                     .Where(file => !ShouldSkipFile(file) &&
                                    (findWhat.Contains(replaceWith) ||
-                                        OnFileNameMatchRequested(new
-                                            FileNameMatchRequestedEventArgs(
-                                           file, findWhat)
+                                        OnTestExpressionMatchRequested(new
+                                            TestExpressionMatchRequestedEventArgs(
+                                           file, findWhat, OperationType.RenameFilesInFolder)
                                        ))).ToList();
                 if (!filenames.Any())
                     if (!AbortRequested)
@@ -869,7 +869,7 @@ namespace MassFileRenamer.Objects
         /// Occurs when we need the client of this class to perform a match on a
         /// filename for us.
         /// </summary>
-        public event FileNameMatchRequestedEventHandler FileNameMatchRequested;
+        public event TestExpressionMatchRequestedEventHandler TestExpressionMatchRequested;
 
         /// <summary>
         /// Raises the
@@ -887,13 +887,13 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MassFileRenamer.Objects.FileRenamer.FileNameMatchRequested" />
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.TestExpressionMatchRequested" />
         /// event.
         /// </summary>
         /// <param name="e">
         /// A
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs" />
+        ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <returns>
@@ -901,13 +901,13 @@ namespace MassFileRenamer.Objects
         /// if the filename presented matches according to the textual criteria
         /// set by the client, or <c>false</c> otherwise.
         /// </returns>
-        protected virtual bool OnFileNameMatchRequested(
-            FileNameMatchRequestedEventArgs e)
+        protected virtual bool OnTestExpressionMatchRequested(
+            TestExpressionMatchRequestedEventArgs e)
         {
-            if (FileNameMatchRequested == null)
+            if (TestExpressionMatchRequested == null)
                 return false;
 
-            FileNameMatchRequested?.Invoke(this, e);
+            TestExpressionMatchRequested?.Invoke(this, e);
             return e.DoesMatch;
         }
 

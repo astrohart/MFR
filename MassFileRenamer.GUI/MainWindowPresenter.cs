@@ -42,7 +42,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.IFileNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatcher" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -50,7 +50,7 @@ namespace MassFileRenamer.GUI
         /// string matches a pattern based on settings specified by the
         /// configuration object.
         /// </remarks>
-        private IFileNameMatcher _fileNameMatcher;
+        private ITextExpressionMatcher _fileNameMatcher;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -948,14 +948,14 @@ namespace MassFileRenamer.GUI
         ///     cref="F:MassFileRenamer.GUI.MainWindowPresenter._fileNameMatcher" />
         /// field to have a reference to a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcher" />
         /// that has the
         /// <see
         ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.Configuration" />
         /// property's value composed with it.
         /// </summary>
-        private void InitializeFileNameMatcher()
-            => _fileNameMatcher = new FileNameMatcher(Configuration);
+        private void InitializeTextExpressionMatcher()
+            => _fileNameMatcher = new TextExpressionMatcher(Configuration);
 
         /// <summary>
         /// Sets the properties of the FileRenamer object that we are working
@@ -987,7 +987,7 @@ namespace MassFileRenamer.GUI
                     eventArgs.Pathname
                 );
             _renamer.Finished += (x, y) => OnFinished();
-            _renamer.FileNameMatchRequested += OnRenamerFileNameMatchRequested;
+            _renamer.TestExpressionMatchRequested += OnRenamerTestExpressionMatchRequested;
         }
 
         /// <summary>
@@ -1024,7 +1024,7 @@ namespace MassFileRenamer.GUI
 
             Configuration = ConfigurationSerializer.Load(ConfigurationPathname);
 
-            InitializeFileNameMatcher();
+            InitializeTextExpressionMatcher();
 
             InitializeFileRenamer();
 
@@ -1082,7 +1082,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.FileNameMatchRequested" />
+        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.TestExpressionMatchRequested" />
         /// event raised by the file renamer object to request that we find a
         /// match to a file name according to settings specified by the user in
         /// the configuration.
@@ -1093,7 +1093,7 @@ namespace MassFileRenamer.GUI
         /// <param name="e">
         /// A
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs" />
+        ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <remarks>
@@ -1104,18 +1104,18 @@ namespace MassFileRenamer.GUI
         /// field, to determine if a match(es) exist between the text pattern in
         /// the
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs.FindWhat" />
+        ///     cref="P:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs.FindWhat" />
         /// property and the
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs.Path" />
+        ///     cref="P:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs.Path" />
         /// property, according to settings specified by the user in the
         /// configuration. The result of the matching operation is stored in the
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs.DoesMatch" />
+        ///     cref="P:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs.DoesMatch" />
         /// property, which is then read by the object that raised this event.
         /// </remarks>
-        private void OnRenamerFileNameMatchRequested(object sender,
-            FileNameMatchRequestedEventArgs e)
+        private void OnRenamerTestExpressionMatchRequested(object sender,
+            TestExpressionMatchRequestedEventArgs e)
         {
             if (_fileNameMatcher == null)
                 return;
@@ -1124,7 +1124,9 @@ namespace MassFileRenamer.GUI
                 return;
 
             e.DoesMatch = _fileNameMatcher.IsMatch(
-                Path.GetFileNameWithoutExtension(e.Path), e.FindWhat
+                Configuration.MatchWholeWord
+                    ? Path.GetFileNameWithoutExtension(e.Path)
+                    : Path.GetFileName(e.Path), e.FindWhat
             );
         }
 

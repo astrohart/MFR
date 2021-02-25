@@ -6,11 +6,11 @@ namespace MassFileRenamer.Objects.Tests
     /// <summary>
     /// Provides unit tests for the methods of the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
+    ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcher" />
     /// class.
     /// </summary>
     [TestFixture]
-    public class FileNameMatcherTests
+    public class TextExpressionMatcherTests
     {
         /// <summary>
         /// Initializes the state of this fixture for every unit test session.
@@ -20,7 +20,7 @@ namespace MassFileRenamer.Objects.Tests
         {
             _configuration =
                 new Configuration {MatchWholeWord = true, MatchCase = true};
-            _matcher = new FileNameMatcher(_configuration);
+            _matcher = new TextExpressionMatcher(_configuration);
         }
 
         /// <summary>
@@ -34,15 +34,15 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.IFileNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatcher" />
         /// interface.
         /// </summary>
-        private IFileNameMatcher _matcher;
+        private ITextExpressionMatcher _matcher;
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if the empty string
         /// is passed for both of its parameters.
@@ -57,7 +57,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if strings
         /// containing whitespace are passed for both of its parameters.
@@ -72,7 +72,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if strings
         /// containing whitespace are passed for both of its parameters.
@@ -87,7 +87,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if the empty string
         /// is passed for its first parameter, with a non-blank string passed in
@@ -103,7 +103,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if a <c>null</c>
         /// value is passed for its first parameter, with a non-blank string
@@ -119,7 +119,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if a string
         /// containing whitespace is passed for the first parameter, with a
@@ -135,7 +135,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if the empty string
         /// is passed for its second parameter, with a non-blank string passed
@@ -151,7 +151,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if the <c>null</c>
         /// string is passed for the second parameter.
@@ -166,7 +166,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// throws <see cref="T:System.ArgumentException" /> if a string
         /// containing whitespace is passed for the second parameter, with a
@@ -182,7 +182,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, (b) the source string does contain the
@@ -202,7 +202,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = false and MatchWholeWord
         /// = true in the configuration, (b) the source string contains the
@@ -223,7 +223,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = true and MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
@@ -244,7 +244,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>true</c> in the event that (a) MatchCase = true and MatchWholeWord
         /// = false in the configuration, (b) the source string contains the
@@ -265,7 +265,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = true and MatchWholeWord
         /// = false in the configuration, (b) the source string contains the
@@ -286,7 +286,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = true and MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
@@ -307,7 +307,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = true and MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
@@ -330,7 +330,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
@@ -351,7 +351,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>true</c> in the event that (a) MatchCase = false and MatchWholeWord
         /// = true in the configuration, (b) the source string exactly matches the
@@ -372,7 +372,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>true</c> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, (b) the source string exactly matches the
@@ -392,7 +392,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>true</c> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, and (b) the source string exactly matches the
@@ -410,7 +410,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>false</c> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, (b) the source string does not exactly match the
@@ -430,7 +430,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// does not throw any exception if it is passed non-blank strings for
         /// each of its respective parameters.
@@ -443,7 +443,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IFileNameMatcher.IsMatch" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method
         /// returns <c>true</c> in the event that (a) MatchCase = MatchWholeWord
         /// = false in the configuration, (b) the source string contains the

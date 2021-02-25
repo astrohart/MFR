@@ -9,9 +9,9 @@
     /// <param name="e">
     /// A
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.FileNameMatchRequestedEventArgs" />
+    ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
     /// that contains the event data.
     /// </param>
-    public delegate void FileNameMatchRequestedEventHandler(object sender,
-        FileNameMatchRequestedEventArgs e);
+    public delegate void TestExpressionMatchRequestedEventHandler(object sender,
+        TestExpressionMatchRequestedEventArgs e);
 }

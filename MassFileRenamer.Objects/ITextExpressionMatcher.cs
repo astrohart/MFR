@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the public-exposed methods and properties of a filename-matcher object.
     /// </summary>
-    public interface IFileNameMatcher
+    public interface ITextExpressionMatcher
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
