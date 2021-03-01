@@ -14,7 +14,7 @@ max_line_length = 80
 #Formatting - indentation options
 
 #do not indent switch labels
-csharp_indent_switch_labels = false
+csharp_indent_switch_labels = true
 
 #Formatting - new line options
 

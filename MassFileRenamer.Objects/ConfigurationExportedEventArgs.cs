@@ -8,9 +8,8 @@ namespace MassFileRenamer.Objects
     public class ConfigurationExportedEventArgs : EventArgs
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs" />
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs"/>
         /// and returns a reference to it.
         /// </summary>
         /// <param name="path">
@@ -18,7 +17,7 @@ namespace MassFileRenamer.Objects
         /// configuration data was exported to.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="path" />, is passed
+        /// Thrown if the required parameter, <paramref name="path"/>, is passed
         /// a blank or <c>null</c> value.
         /// </exception>
         public ConfigurationExportedEventArgs(string path)

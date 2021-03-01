@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="ComboBoxInitializer.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="ConfigurationComposedObjectBase.cs" />
     <Compile Include="ConfigurationExportedEventHandler.cs" />
     <Compile Include="ConfigurationExportedEventArgs.cs" />
     <Compile Include="ConfigurationExtensions.cs" />
@@ -110,8 +111,17 @@
     <Compile Include="ExceptionRaisedEventHandler.cs" />
     <Compile Include="FileInfoExtensions.cs" />
     <Compile Include="FileInfoFactory.cs" />
+    <Compile Include="FileNameReplacementEngine.cs" />
+    <Compile Include="FolderNameMatcher.cs" />
+    <Compile Include="FolderNameReplacementEngine.cs" />
     <Compile Include="GetMatchExpression.cs" />
-    <Compile Include="TextExpressionMatcher.cs" />
+    <Compile Include="GetTextReplacementEngine.cs" />
+    <Compile Include="GetTextExpressionMatcher.cs" />
+    <Compile Include="IConfigurationComposedObject.cs" />
+    <Compile Include="ITextReplacementEngine.cs" />
+    <Compile Include="MatchExpression.cs" />
+    <Compile Include="FileNameMatcher.cs" />
+    <Compile Include="StringExtensions.cs" />
     <Compile Include="TestExpressionMatchRequestedEventArgs.cs" />
     <Compile Include="TestExpressionMatchRequestedEventHandler.cs" />
     <Compile Include="FilePathValidator.cs" />
@@ -159,6 +169,10 @@
     <Compile Include="StatusUpdateEventArgs.cs" />
     <Compile Include="StatusUpdateEventHandler.cs" />
     <Compile Include="SystemPreparer.cs" />
+    <Compile Include="TextExpressionMatcherBase.cs" />
+    <Compile Include="TextInFileMatcher.cs" />
+    <Compile Include="TextInFileReplacementEngine.cs" />
+    <Compile Include="TextReplacementEngineBase.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="VisualStudioManager.cs" />
   </ItemGroup>

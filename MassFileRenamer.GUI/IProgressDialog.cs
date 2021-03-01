@@ -11,11 +11,18 @@ namespace MassFileRenamer.GUI
     public interface IProgressDialog : IForm
     {
         /// <summary>
+        /// Raised when the user clicks the Cancel button in order to request
+        /// that the operation be aborted.
+        /// </summary>
+        event EventHandler CancelRequested;
+
+        /// <summary>
         /// Gets or sets a string containing the new detailed status.
         /// </summary>
         string CurrentFile
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
             set;
         }
 
@@ -24,7 +31,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         int ProgressBarMaximum
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
             set;
         }
 
@@ -33,7 +41,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         int ProgressBarMinimum
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
             set;
         }
 
@@ -42,7 +51,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         ProgressBarStyle ProgressBarStyle
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
             set;
         }
 
@@ -51,7 +61,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         int ProgressBarValue
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
             set;
         }
 
@@ -60,15 +71,10 @@ namespace MassFileRenamer.GUI
         /// </summary>
         string Status
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
             set;
         }
-
-        /// <summary>
-        /// Raised when the user clicks the Cancel button in order to request
-        /// that the operation be aborted.
-        /// </summary>
-        event EventHandler CancelRequested;
 
         /// <summary>
         /// Clears the status text and progress bar.

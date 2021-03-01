@@ -12,10 +12,8 @@ namespace MassFileRenamer.Objects
     public class HistoryManager : IHistoryManager
     {
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MassFileRenamer.Objects.IConfiguration"/> interface.
         /// </summary>
         /// <remarks>
         /// This object provides access to configuration information.
@@ -23,10 +21,8 @@ namespace MassFileRenamer.Objects
         private readonly IConfiguration _configuration;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:System.Windows.Forms.IWin32Window" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:System.Windows.Forms.IWin32Window"/> interface.
         /// </summary>
         /// <remarks>
         /// This field is supposed to be filled with a reference to an object
@@ -35,29 +31,25 @@ namespace MassFileRenamer.Objects
         private readonly IWin32Window _messageBoxParentWindow;
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.HistoryManager" />
-        /// and returns a
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.HistoryManager"/> and returns a
         /// reference to it.
         /// </summary>
         /// ///
         /// <param name="messageBoxParentWindow">
         /// (Required.) Reference to an instance of an object that implements
-        /// <see cref="T:System.Windows.Forms.IWin32Window" /> that will serve as
+        /// <see cref="T:System.Windows.Forms.IWin32Window"/> that will serve as
         /// the parent window of any message boxes displayed by this object.
         /// </param>
         /// ///
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
         /// that allows access to configuration data.
         /// </param>
         /// <exception cref="T:ArgumentNullException">
-        /// Thrown if the either of the required parameters,
-        /// <paramref
-        ///     name="messageBoxParentWindow" />
-        /// or <paramref name="configuration" />,
+        /// Thrown if the either of the required parameters, <paramref
+        /// name="messageBoxParentWindow"/> or <paramref name="configuration"/>,
         /// are passed a <c>null</c> value.
         /// </exception>
         public HistoryManager(IWin32Window messageBoxParentWindow,

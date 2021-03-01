@@ -7,7 +7,7 @@
     /// Reference to the instance of the object that raised the event.
     /// </param>
     /// <param name="e">
-    /// A <see cref="T:MassFileRenamer.Objects.ConfigurationImportedEventArgs" />
+    /// A <see cref="T:MassFileRenamer.Objects.ConfigurationImportedEventArgs"/>
     /// that contains the event data.
     /// </param>
     public delegate void ConfigurationImportedEventHandler(object sender,

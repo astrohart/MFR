@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace MassFileRenamer.Objects
 {
+    /// <summary>
+    /// Contains properties whose values are set by the user.
+    /// </summary>
+    /// <remarks>
+    /// The values of this class' properties are used to affect the behavior of
+    /// the application.
+    /// </remarks>
     public class Configuration : IConfiguration
     {
         /// <summary>

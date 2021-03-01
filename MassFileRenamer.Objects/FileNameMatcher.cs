@@ -5,12 +5,12 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Applies criteria to match file names against textual expressions.
     /// </summary>
-    public class TextExpressionMatcher : ITextExpressionMatcher
+    public class FileNameMatcher : TextExpressionMatcherBase
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -18,22 +18,27 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <c>null</c> value.
         /// </exception>
-        public TextExpressionMatcher(IConfiguration configuration)
-        {
-            Configuration = configuration ??
-                            throw new ArgumentNullException(
-                                nameof(configuration)
-                            );
-        }
+        public FileNameMatcher(IConfiguration configuration) : base(
+            configuration
+        ) { }
 
         /// <summary>
-        /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface.
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
+        /// and returns a
+        /// reference to it.
         /// </summary>
-        public IConfiguration Configuration
+        /// <remarks>
+        /// NOTE: This constructor is marked as <c>internal</c>. This is to
+        /// limit the scope of invocation to abstract factories only.
+        /// <para />
+        /// Clients who want to new up an instance of this class directly must
+        /// use the <c>public</c> constructor.
+        /// </remarks>
+        internal FileNameMatcher()
         {
-            get;
-            set;
+            // TODO: Add default object initialization code here
         }
 
         /// <summary>
@@ -51,15 +56,18 @@ namespace MassFileRenamer.Objects
         /// Thrown if either of the required parameters,
         /// <paramref
         ///     name="source" />
-        /// or <paramref name="pattern" />, are passed blank or
-        /// <c>null</c> string for values.
+        /// , <paramref name="pattern" />, or
+        /// <paramref
+        ///     name="dest" />
+        /// , are passed blank or <c>null</c> string for values.
         /// </exception>
         /// <returns>
         /// Returns <c>true</c> if the <paramref name="source" /> is a match
         /// against the provided <paramref name="pattern" />; <c>false</c> if no
         /// matches are found.
         /// </returns>
-        public bool IsMatch(string source, string pattern)
+        public override bool IsMatch(string source, string pattern,
+            string dest = "")
         {
             if (string.IsNullOrWhiteSpace(source))
                 throw new ArgumentException(
@@ -68,6 +76,10 @@ namespace MassFileRenamer.Objects
             if (string.IsNullOrWhiteSpace(pattern))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(pattern)
+                );
+            if (string.IsNullOrWhiteSpace(dest))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(dest)
                 );
 
             /*
@@ -79,12 +91,17 @@ namespace MassFileRenamer.Objects
                 if (Configuration.MatchWholeWord)
                     return source.Equals(pattern);
                 else
-                    return source.Contains(pattern);
+                    return source.Contains(pattern) &&
+                           (pattern.Contains(dest) || !source.Contains(dest));
             if (Configuration.MatchWholeWord)
                 return source.ToLowerInvariant()
                     .Equals(pattern.ToLowerInvariant());
             return source.ToLowerInvariant()
-                .Contains(pattern.ToLowerInvariant());
+                       .Contains(pattern.ToLowerInvariant()) &&
+                   (pattern.ToLowerInvariant()
+                        .Contains(dest.ToLowerInvariant()) ||
+                    !source.ToLowerInvariant()
+                        .Contains(dest.ToLowerInvariant()));
         }
     }
 }

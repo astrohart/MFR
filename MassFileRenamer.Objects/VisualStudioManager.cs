@@ -11,6 +11,20 @@ namespace MassFileRenamer.Objects
 {
     public static class VisualStudioManager
     {
+        public static DTE GetVsProcessHavingSolutionOpened(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path) || !path.EndsWith(".sln"))
+                return null;
+
+            return (from p in Process.GetProcessesByName("devenv")
+                    select LaunchVsIde(p)
+                into dte
+                    where dte != null
+                    let sln = (SolutionClass)dte.Solution
+                    where path.Equals(sln.FullName)
+                    select dte).FirstOrDefault();
+        }
+
         public static DTE LaunchVsIde(Process p)
         {
             if (p == null)
@@ -40,20 +54,6 @@ namespace MassFileRenamer.Objects
             throw new TimeoutException(
                 $"Failed to retrieve DTE object. Current running objects: {string.Join(";", runningObjectDisplayNames ?? Array.Empty<string>())}"
             );
-        }
-
-        public static DTE GetVsProcessHavingSolutionOpened(string path)
-        {
-            if (string.IsNullOrWhiteSpace(path) || !path.EndsWith(".sln"))
-                return null;
-
-            return (from p in Process.GetProcessesByName("devenv")
-                select LaunchVsIde(p)
-                into dte
-                where dte != null
-                let sln = (SolutionClass)dte.Solution
-                where path.Equals(sln.FullName)
-                select dte).FirstOrDefault();
         }
 
         private static object GetRunningObject(string displayName,

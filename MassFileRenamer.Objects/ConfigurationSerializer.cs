@@ -2,34 +2,34 @@
 
 namespace MassFileRenamer.Objects
 {
-   public static class ConfigurationSerializer
-   {
-      public static IConfiguration Load(string pathname)
-      {
-         if (!File.Exists(pathname))
-            return null;
+    public static class ConfigurationSerializer
+    {
+        public static IConfiguration Load(string pathname)
+        {
+            if (!File.Exists(pathname))
+                return null;
 
-         var content = File.ReadAllText(pathname);
-         return ConvertConfiguration.FromJson(content);
-      }
+            var content = File.ReadAllText(pathname);
+            return ConvertConfiguration.FromJson(content);
+        }
 
-      public static void Save(string pathname, IConfiguration configuration)
-      {
-         if (string.IsNullOrWhiteSpace(pathname))
-            return;
+        public static void Save(string pathname, IConfiguration configuration)
+        {
+            if (string.IsNullOrWhiteSpace(pathname))
+                return;
 
-         if (configuration == null)
-            return;
+            if (configuration == null)
+                return;
 
-         var content = ConvertConfiguration.ToJson(configuration);
+            var content = ConvertConfiguration.ToJson(configuration);
 
-         if (string.IsNullOrWhiteSpace(content))
-            return;
+            if (string.IsNullOrWhiteSpace(content))
+                return;
 
-         if (File.Exists(pathname))
-            File.Delete(pathname);
+            if (File.Exists(pathname))
+                File.Delete(pathname);
 
-         File.WriteAllText(pathname, content);
-      }
-   }
+            File.WriteAllText(pathname, content);
+        }
+    }
 }

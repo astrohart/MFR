@@ -1,5 +1,6 @@
 ﻿using MassFileRenamer.Objects;
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -7,8 +8,7 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.GUI
 {
     /// <summary>
-    /// Provides the entry point for the program and all application-level
-    /// functionality.
+    /// Provides the entry point for the program and all application-level functionality.
     /// </summary>
     public static class Program
     {

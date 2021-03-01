@@ -7,19 +7,11 @@ namespace MassFileRenamer.Objects
     /// </summary>
     public class DataOperationEventArgs : EventArgs
     {
-        /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.DataOperationEventArgs" />
-        /// and returns
-        /// a reference to it.
-        /// </summary>
-        /// ///
-        /// <param name="message">
-        /// (Required.)
-        /// String containing message text to be displayed to the user while the
-        /// operation is progressing.
-        /// </param
+        /// <summary> Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.DataOperationEventArgs" /> and
+        /// returns a reference to it. </summary> /// <param name="message">
+        /// (Required.) String containing message text to be displayed to the
+        /// user while the operation is progressing. </param
         public DataOperationEventArgs(string message)
         {
             Message = message;

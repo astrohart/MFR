@@ -7,9 +7,8 @@
     /// Reference to the instance of the object that raised the event.
     /// </param>
     /// <param name="e">
-    /// A
-    /// <see
-    ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
+    /// A <see
+    /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"/>
     /// that contains the event data.
     /// </param>
     public delegate void TestExpressionMatchRequestedEventHandler(object sender,

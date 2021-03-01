@@ -12,16 +12,14 @@ namespace MassFileRenamer.Objects
     public static class ComboBoxInitializer
     {
         /// <summary>
-        /// Initializes a <see cref="T:System.Windows.Forms.ComboBox" /> to have
-        /// the specified <paramref name="itemList" /> as the items in its
-        /// drop-down, and <paramref name="currentItem" /> as the
+        /// Initializes a <see cref="T:System.Windows.Forms.ComboBox"/> to have
+        /// the specified <paramref name="itemList"/> as the items in its
+        /// drop-down, and <paramref name="currentItem"/> as the
         /// currently-selected item.
         /// </summary>
         /// <param name="comboBox">
-        /// (Required.) Reference to the
-        /// <see
-        ///     cref="T:System.Windows.Forms.ComboBox" />
-        /// to be initialized.
+        /// (Required.) Reference to the <see
+        /// cref="T:System.Windows.Forms.ComboBox"/> to be initialized.
         /// </param>
         /// <param name="currentItem">
         /// (Optional.) String containing the value to set as the
@@ -32,8 +30,8 @@ namespace MassFileRenamer.Objects
         /// history list of items in the combo box's body.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameters, <paramref name="comboBox" /> and
-        /// <paramref name="itemList" />, are passed <c>null</c> reference for values.
+        /// Thrown if the required parameters, <paramref name="comboBox"/> and
+        /// <paramref name="itemList"/>, are passed <c>null</c> reference for values.
         /// </exception>
         /// <remarks>
         /// This method is intended to be utilized in order to fill combo box

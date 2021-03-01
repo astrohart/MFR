@@ -10,10 +10,8 @@ namespace MassFileRenamer.GUI
     internal partial class AboutDialog : Form
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.AboutDialog" />
-        /// and returns a reference
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.GUI.AboutDialog"/> and returns a reference
         /// to it.
         /// </summary>
         public AboutDialog()
@@ -122,7 +120,7 @@ namespace MassFileRenamer.GUI
         /// </summary>
         /// <param name="owner">
         /// (Optional.) Reference to an instance of an object that implements
-        /// the <see cref="T:System.Windows.Forms.IWin32Window" /> interface and
+        /// the <see cref="T:System.Windows.Forms.IWin32Window"/> interface and
         /// which represents the parent window of this dialog box.
         /// </param>
         public static void Display(IWin32Window owner = null)

@@ -11,10 +11,8 @@ namespace MassFileRenamer.GUI
     public partial class ProgressDialog : Form, IProgressDialog
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.ProgressDialog" />
-        /// and returns a
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.GUI.ProgressDialog"/> and returns a
         /// reference to it.
         /// </summary>
         public ProgressDialog()
@@ -33,7 +31,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public string CurrentFile
         {
-            [DebuggerStepThrough] get => detailedStatusLabel.Text;
+            [DebuggerStepThrough]
+            get => detailedStatusLabel.Text;
             set => detailedStatusLabel.InvokeIfRequired(
                 () => detailedStatusLabel.Text = value
             );
@@ -44,7 +43,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public ProgressBar ProgressBar
         {
-            [DebuggerStepThrough] get => progressBar;
+            [DebuggerStepThrough]
+            get => progressBar;
         }
 
         /// <summary>
@@ -52,7 +52,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public int ProgressBarMaximum
         {
-            [DebuggerStepThrough] get => progressBar.Maximum;
+            [DebuggerStepThrough]
+            get => progressBar.Maximum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Maximum = value
@@ -64,7 +65,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public int ProgressBarMinimum
         {
-            [DebuggerStepThrough] get => progressBar.Minimum;
+            [DebuggerStepThrough]
+            get => progressBar.Minimum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Minimum = value
@@ -76,7 +78,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public ProgressBarStyle ProgressBarStyle
         {
-            [DebuggerStepThrough] get => progressBar.Style;
+            [DebuggerStepThrough]
+            get => progressBar.Style;
             set
                 => progressBar.InvokeIfRequired(() => progressBar.Style = value)
             ;
@@ -87,7 +90,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public int ProgressBarValue
         {
-            [DebuggerStepThrough] get => progressBar.Value;
+            [DebuggerStepThrough]
+            get => progressBar.Value;
             set
                 => progressBar.InvokeIfRequired(() => progressBar.Value = value)
             ;
@@ -98,7 +102,8 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public string Status
         {
-            [DebuggerStepThrough] get => statusLabel.Text;
+            [DebuggerStepThrough]
+            get => statusLabel.Text;
             set => statusLabel.InvokeIfRequired(() => statusLabel.Text = value);
         }
 
@@ -118,19 +123,17 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.ProgressDialog.CancelRequested" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.ProgressDialog.CancelRequested"/> event.
         /// </summary>
         protected virtual void OnCancelRequested()
             => CancelRequested?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
+        /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method sets the title of the dialog to match the application's name.
@@ -146,19 +149,19 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
+        /// Handles the <see cref="E:System.Windows.Forms.Control.Click"/> event
         /// for the Cancel button.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when the user chooses the Cancel button or
         /// presses the ESCAPE key. This method responds merely by raising the
-        /// <see cref="E:MassFileRenamer.GUI.ProgressDialog.CancelRequested" />
+        /// <see cref="E:MassFileRenamer.GUI.ProgressDialog.CancelRequested"/>
         /// event. This event directs the caller of this dialog box to attempt
         /// to abort the operation and close down this dialog box from its GUI thread.
         /// </remarks>

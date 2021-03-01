@@ -6,7 +6,8 @@ using System.Windows.Forms;
 namespace MassFileRenamer.GUI
 {
     /// <summary>
-    /// Wraps System.Windows.Forms.OpenFileDialog to make it present a vista-style Folder Select dialog.
+    /// Wraps System.Windows.Forms.OpenFileDialog to make it present a
+    /// vista-style Folder Select dialog.
     /// </summary>
     public class FolderSelectDialog : IDisposable
     {
@@ -33,16 +34,23 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public string FileName
         {
-            get { return _ofd.FileName; }
+            get {
+                return _ofd.FileName;
+            }
         }
 
         /// <summary>
-        /// Gets/Sets the initial folder to be selected. A null value selects the current directory.
+        /// Gets/Sets the initial folder to be selected. A null value selects
+        /// the current directory.
         /// </summary>
         public string InitialDirectory
         {
-            get { return _ofd.InitialDirectory; }
-            set { _ofd.InitialDirectory = string.IsNullOrEmpty(value) ? Environment.CurrentDirectory : value; }
+            get {
+                return _ofd.InitialDirectory;
+            }
+            set {
+                _ofd.InitialDirectory = string.IsNullOrEmpty(value) ? Environment.CurrentDirectory : value;
+            }
         }
 
         /// <summary>
@@ -50,12 +58,21 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public string Title
         {
-            get { return _ofd.Title; }
-            set { _ofd.Title = value ?? "Select a folder"; }
+            get {
+                return _ofd.Title;
+            }
+            set {
+                _ofd.Title = value ?? "Select a folder";
+            }
         }
 
-        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
-        /// <filterpriority>2</filterpriority>
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing,
+        /// releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <filterpriority>
+        /// 2
+        /// </filterpriority>
         public void Dispose()
         {
             if (_ofd != null)
@@ -68,18 +85,26 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Shows the dialog
         /// </summary>
-        /// <returns>True if the user presses OK else false</returns>
+        /// <returns>
+        /// True if the user presses OK else false
+        /// </returns>
         public bool ShowDialog()
         {
             return ShowDialog(IntPtr.Zero);
         }
 
         /// <summary>
-        /// Shows this <see cref="T:FolderSelectDialog"/> to the user to allow the user to select a folder on their 
-        /// computer.  Returns a value indicating whether the dialog ended with the OK or Cancel button being clicked.
+        /// Shows this <see cref="T:FolderSelectDialog"/> to the user to allow
+        /// the user to select a folder on their computer. Returns a value
+        /// indicating whether the dialog ended with the OK or Cancel button
+        /// being clicked.
         /// </summary>
-        /// <param name="hWndOwner">Handle of the control to be parent</param>
-        /// <returns>True if the user presses OK else false</returns>
+        /// <param name="hWndOwner">
+        /// Handle of the control to be parent
+        /// </param>
+        /// <returns>
+        /// True if the user presses OK else false
+        /// </returns>
         public bool ShowDialog(IntPtr hWndOwner)
         {
             var flag = false;

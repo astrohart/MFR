@@ -28,8 +28,8 @@ namespace MassFileRenamer.Objects
         {
             if (dwRejectType == 2)
 
-                // flag = SERVERCALL_RETRYLATER.
-                // Retry the thread call immediately if return >=0 & <100.
+                // flag = SERVERCALL_RETRYLATER. Retry the thread call
+                // immediately if return >=0 & <100.
                 return 99;
 
             // Too busy; cancel call.

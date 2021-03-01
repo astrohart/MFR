@@ -8,16 +8,13 @@ namespace MassFileRenamer.Objects
     public abstract class SearchFilter : ISearchFilterItem
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.SearchFilter" />
-        /// and returns a
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.SearchFilter"/> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="descriptor">
-        /// (Required.) A
-        /// glob pattern, or a file or folder pathname that describes how to
-        /// search for items.
+        /// (Required.) A glob pattern, or a file or folder pathname that
+        /// describes how to search for items.
         /// </param>
         protected SearchFilter(string descriptor)
         {

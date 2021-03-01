@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace MassFileRenamer.Objects
 {
@@ -9,39 +10,65 @@ namespace MassFileRenamer.Objects
     public static class GetMatchExpression
     {
         /// <summary>
-        /// Given a
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
+        /// Given a <see
+        /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"/>
         /// as input, provides a string to be used in matching text against
         /// user-specified criteria.
         /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
+        /// and which represents the configuration settings chosen by the user.
+        /// </param>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs" />
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"/>
         /// that contains the match data.
         /// </param>
         /// <returns>
-        /// String containing the data to match against a user-specified
-        /// pattern, or blank if an issue occurred.
+        /// A <see cref="T:MassFileRenamer.Objects.MatchExpression"/> containing
+        /// the data to match against a user-specified pattern, or <c>null</c>
+        /// if an issue occurred.
         /// </returns>
-        public static string For(TestExpressionMatchRequestedEventArgs e)
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if any of the required parameters, <paramref
+        /// name="configuration"/> or <paramref name="e"/> are passed
+        /// <c>null</c> values.
+        /// </exception>
+        public static MatchExpression For(IConfiguration configuration,
+            TestExpressionMatchRequestedEventArgs e)
         {
-            var result = string.Empty;
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+            if (e == null)
+                throw new ArgumentNullException(nameof(e));
+
+            MatchExpression expression;
 
             switch (e.OperationType)
             {
                 case OperationType.RenameFilesInFolder:
+                    expression = new MatchExpression
+                    {
+                        Source =
+                            configuration.MatchWholeWord
+                                ? Path.GetFileNameWithoutExtension(e.Path)
+                                : Path.GetFileName(e.Path),
+                        Pattern = e.FindWhat
+                    };
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(e.OperationType), e.OperationType,
-                        "The OperationType value, '{type}', supplied is not supported."
-                    );
+                    expression = new MatchExpression
+                    {
+                        Source = e.Path,
+                        Pattern = e.FindWhat,
+                        SubstitutionDestination = e.ReplaceWith
+                    };
+                    break;
             }
 
-            return result;
+            return expression;
         }
     }
 }

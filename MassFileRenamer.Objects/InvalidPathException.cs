@@ -10,10 +10,8 @@ namespace MassFileRenamer.Objects
     public class InvalidPathException : ArgumentException
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.InvalidPathException" />
-        /// and returns
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -28,10 +26,8 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.InvalidPathException" />
-        /// and returns
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -50,10 +46,8 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.InvalidPathException" />
-        /// and returns
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -64,8 +58,8 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <param name="innerException">
         /// The exception that is the cause of the current exception. If the
-        /// <paramref name="innerException" /> parameter is not a null reference,
-        /// the current exception is raised in a <see langword="catch" /> block
+        /// <paramref name="innerException"/> parameter is not a null reference,
+        /// the current exception is raised in a <see langword="catch"/> block
         /// that handles the inner exception.
         /// </param>
         public InvalidPathException(string message, string path,
@@ -75,10 +69,8 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.InvalidPathException" />
-        /// and returns
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -92,8 +84,8 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <param name="innerException">
         /// The exception that is the cause of the current exception. If the
-        /// <paramref name="innerException" /> parameter is not a null reference,
-        /// the current exception is raised in a <see langword="catch" /> block
+        /// <paramref name="innerException"/> parameter is not a null reference,
+        /// the current exception is raised in a <see langword="catch"/> block
         /// that handles the inner exception.
         /// </param>
         public InvalidPathException(string message, string path,
@@ -105,10 +97,8 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.InvalidPathException" />
-        /// and returns
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <remarks>
@@ -116,7 +106,9 @@ namespace MassFileRenamer.Objects
         /// class are forced to use one of the other constructor overloads that
         /// take parameters.
         /// </remarks>
-        protected InvalidPathException() { }
+        protected InvalidPathException()
+        {
+        }
 
         /// <summary>
         /// Gets a string containing the pathname that failed to meet operating

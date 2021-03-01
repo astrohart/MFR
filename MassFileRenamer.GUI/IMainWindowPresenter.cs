@@ -10,18 +10,6 @@ namespace MassFileRenamer.GUI
     public interface IMainWindowPresenter
     {
         /// <summary>
-        /// Gets or sets a reference to an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.IConfiguration" />
-        /// interface that
-        /// contains the configuration details.
-        /// </summary>
-        IConfiguration Configuration
-        {
-            get;
-        }
-
-        /// <summary>
         /// Occurs when all the history has been cleared.
         /// </summary>
         event EventHandler AllHistoryCleared;
@@ -64,6 +52,16 @@ namespace MassFileRenamer.GUI
         event EventHandler Started;
 
         /// <summary>
+        /// Gets or sets a reference to an object that implements the <see
+        /// cref="T:MassFileRenamer.GUI.IConfiguration"/> interface that
+        /// contains the configuration details.
+        /// </summary>
+        IConfiguration Configuration
+        {
+            get;
+        }
+
+        /// <summary>
         /// Clears all the history lists in the configuration.
         /// </summary>
         void ClearAllHistory();
@@ -80,7 +78,7 @@ namespace MassFileRenamer.GUI
         /// (Required.) String containing the pathname of the file to be written.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="pathname" />, is
+        /// Thrown if the required parameter, <paramref name="pathname"/>, is
         /// passed a blank or <c>null</c> value.
         /// </exception>
         void ExportConfiguration(string pathname);
@@ -92,7 +90,7 @@ namespace MassFileRenamer.GUI
         /// (Required.) String containing the path to the file.
         /// </param>
         /// <remarks>
-        /// This method does nothing if the <paramref name="pathname" />
+        /// This method does nothing if the <paramref name="pathname"/>
         /// parameter is blank or the file does not exist.
         /// </remarks>
         void ImportConfiguration(string pathname);
@@ -119,11 +117,9 @@ namespace MassFileRenamer.GUI
         void ShowProgressDialog();
 
         /// <summary>
-        /// Updates data. Moves data from the screen to the model (
-        /// <paramref
-        ///     name="bSavingAndValidating" />
-        /// equals <c>true</c>) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
+        /// Updates data. Moves data from the screen to the model ( <paramref
+        /// name="bSavingAndValidating"/> equals <c>true</c>) or from the model
+        /// to the screen ( <paramref name="bSavingAndValidating"/> equals <c>false</c>).
         /// </summary>
         /// <param name="bSavingAndValidating">
         /// Set to <c>true</c> to move data from the screen to the model;

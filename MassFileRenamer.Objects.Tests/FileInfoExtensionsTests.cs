@@ -5,10 +5,8 @@ using System.IO;
 namespace MassFileRenamer.Objects.Tests
 {
     /// <summary>
-    /// Provides unit tests for the methods in the
-    /// <see
-    ///     cref="T:MassFileRenamer.Objects.FileInfoExtensions" />
-    /// class.
+    /// Provides unit tests for the methods in the <see
+    /// cref="T:MassFileRenamer.Objects.FileInfoExtensions"/> class.
     /// </summary>
     [TestFixture]
     public class FileInfoExtensionsTests

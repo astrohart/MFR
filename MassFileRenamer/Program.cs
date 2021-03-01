@@ -42,21 +42,21 @@ namespace MassFileRenamer.Console
         {
             switch (e.OperationType)
             {
-            case OperationType.ReplaceTextInFiles:
-                System.Console.WriteLine(
-                   $"Replace Text in Files: Processing '{e.Pathname}'..."
-                );
-                break;
+                case OperationType.ReplaceTextInFiles:
+                    System.Console.WriteLine(
+                       $"Replace Text in Files: Processing '{e.Pathname}'..."
+                    );
+                    break;
 
-            case OperationType.RenameFilesInFolder:
-                System.Console.WriteLine($"Rename Files: Processing '{e.Pathname}'...");
-                break;
+                case OperationType.RenameFilesInFolder:
+                    System.Console.WriteLine($"Rename Files: Processing '{e.Pathname}'...");
+                    break;
 
-            case OperationType.RenameSubFolders:
-                System.Console.WriteLine(
-                   $"Rename Subfolders: Processing '{e.Pathname}'..."
-                );
-                break;
+                case OperationType.RenameSubFolders:
+                    System.Console.WriteLine(
+                       $"Rename Subfolders: Processing '{e.Pathname}'..."
+                    );
+                    break;
             }
         }
 
@@ -71,23 +71,23 @@ namespace MassFileRenamer.Console
         {
             switch (e.OperationType)
             {
-            case OperationType.ReplaceTextInFiles:
-                System.Console.WriteLine(
-                   $"Replace Text in Files: {e.Count} files are to be processed."
-                );
-                break;
+                case OperationType.ReplaceTextInFiles:
+                    System.Console.WriteLine(
+                       $"Replace Text in Files: {e.Count} files are to be processed."
+                    );
+                    break;
 
-            case OperationType.RenameFilesInFolder:
-                System.Console.WriteLine(
-                   $"Rename Files: {e.Count} files are to be processed."
-                );
-                break;
+                case OperationType.RenameFilesInFolder:
+                    System.Console.WriteLine(
+                       $"Rename Files: {e.Count} files are to be processed."
+                    );
+                    break;
 
-            case OperationType.RenameSubFolders:
-                System.Console.WriteLine(
-                   $"Rename Subfolders: {e.Count} folders are to be processed."
-                );
-                break;
+                case OperationType.RenameSubFolders:
+                    System.Console.WriteLine(
+                       $"Rename Subfolders: {e.Count} folders are to be processed."
+                    );
+                    break;
             }
         }
     }

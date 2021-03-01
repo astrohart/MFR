@@ -5,21 +5,21 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Creates new instances of <see cref="T:System.IO.DirectoryInfo" />.
+    /// Creates new instances of <see cref="T:System.IO.DirectoryInfo"/>.
     /// </summary>
     public static class DirectoryInfoFactory
     {
         /// <summary>
-        /// Creates a new instance of <see cref="T:System.IO.DirectoryInfo" />
-        /// that wraps the folder with the specified <paramref name="path" /> and
+        /// Creates a new instance of <see cref="T:System.IO.DirectoryInfo"/>
+        /// that wraps the folder with the specified <paramref name="path"/> and
         /// returns a reference to it.
         /// </summary>
         /// <param name="path">
         /// (Required.) String containing the path of the folder to be wrapped.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.DirectoryInfo" />
-        /// that represents the folder with the specified <paramref name="path" />.
+        /// Reference to an instance of <see cref="T:System.IO.DirectoryInfo"/>
+        /// that represents the folder with the specified <paramref name="path"/>.
         /// </returns>
         public static DirectoryInfo Make(string path)
         {

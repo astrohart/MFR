@@ -17,10 +17,8 @@ namespace MassFileRenamer.Objects
         private bool _isFolded;
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.FoldUnfoldButton" />
-        /// and returns a
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.FoldUnfoldButton"/> and returns a
         /// reference to it.
         /// </summary>
         public FoldUnfoldButton()
@@ -32,6 +30,11 @@ namespace MassFileRenamer.Objects
             FoldedText = "&More >>";
             UnfoldedText = "&Less <<";
         }
+
+        /// <summary>
+        /// Occurs when the Folded state of the parent form is to be changed.
+        /// </summary>
+        public event FormFoldedEventHandler FormFolded;
 
         /// <summary>
         /// Gets or sets the text that this button displays when the hosting
@@ -52,7 +55,7 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:System.Drawing.Size" /> of the parent
+        /// Gets or sets the <see cref="T:System.Drawing.Size"/> of the parent
         /// form when the form is folded.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -69,7 +72,7 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:System.Drawing.Size" /> of the parent
+        /// Gets or sets the <see cref="T:System.Drawing.Size"/> of the parent
         /// form when the form is unfolded.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -128,12 +131,7 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Occurs when the Folded state of the parent form is to be changed.
-        /// </summary>
-        public event FormFoldedEventHandler FormFolded;
-
-        /// <summary>
-        /// Sets the <see cref="P:System.Windows.Forms.ButtonBase.Text" />
+        /// Sets the <see cref="P:System.Windows.Forms.ButtonBase.Text"/>
         /// property of this button to correspond to whether the hosting form is
         /// in the Folded state or not.
         /// </summary>
@@ -141,10 +139,10 @@ namespace MassFileRenamer.Objects
             => Text = IsFolded ? FoldedText : UnfoldedText;
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.Click" /> event.
+        /// Raises the <see cref="E:System.Windows.Forms.Control.Click"/> event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         protected override void OnClick(EventArgs e)
         {
@@ -154,10 +152,8 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.FoldUnfoldButton.Folded" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.Objects.FoldUnfoldButton.Folded"/> event.
         /// </summary>
         protected virtual void OnFormFolded(FormFoldedEventArgs e)
         {

@@ -5,10 +5,8 @@ using System.Windows.Forms;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Extension methods for objects implementing the
-    /// <see
-    ///     cref="T:MassFileRenamer.GUI.IConfiguration" />
-    /// interface.
+    /// Extension methods for objects implementing the <see
+    /// cref="T:MassFileRenamer.GUI.IConfiguration"/> interface.
     /// </summary>
     public static class ConfigurationExtensions
     {
@@ -18,21 +16,17 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
         /// and which allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
-        /// (Required.) Reference to an instance of
-        /// <see
-        ///     cref="T:System.Windows.Forms.ComboBox" />
-        /// that is the control
+        /// (Required.) Reference to an instance of <see
+        /// cref="T:System.Windows.Forms.ComboBox"/> that is the control
         /// displaying the Find What content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="config" />
-        /// or <paramref name="comboBox" />, are passed a
+        /// Thrown if either of the required parameters, <paramref
+        /// name="config"/> or <paramref name="comboBox"/>, are passed a
         /// <c>null</c> value.
         /// </exception>
         public static void SaveCurrentFindWhatAndHistory(
@@ -55,21 +49,17 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
         /// and which allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
-        /// (Required.) Reference to an instance of
-        /// <see
-        ///     cref="T:System.Windows.Forms.ComboBox" />
-        /// that is the control
+        /// (Required.) Reference to an instance of <see
+        /// cref="T:System.Windows.Forms.ComboBox"/> that is the control
         /// displaying the Replace With content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="config" />
-        /// or <paramref name="comboBox" />, are passed a
+        /// Thrown if either of the required parameters, <paramref
+        /// name="config"/> or <paramref name="comboBox"/>, are passed a
         /// <c>null</c> value.
         /// </exception>
         public static void SaveCurrentReplaceWithAndHistory(
@@ -94,21 +84,17 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
         /// and which allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
-        /// (Required.) Reference to an instance of
-        /// <see
-        ///     cref="T:System.Windows.Forms.ComboBox" />
-        /// that is the control
+        /// (Required.) Reference to an instance of <see
+        /// cref="T:System.Windows.Forms.ComboBox"/> that is the control
         /// displaying the Starting Folder content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="config" />
-        /// or <paramref name="comboBox" />, are passed a
+        /// Thrown if either of the required parameters, <paramref
+        /// name="config"/> or <paramref name="comboBox"/>, are passed a
         /// <c>null</c> value.
         /// </exception>
         public static void SaveCurrentStartingFolderAndHistory(

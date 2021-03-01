@@ -32,10 +32,8 @@ namespace MassFileRenamer.Objects
         /// configuration file if it already exists.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the <paramref name="folder" /> or
-        /// <paramref
-        ///     name="configFileName" />
-        /// parameters are blank.
+        /// Thrown if either of the <paramref name="folder"/> or <paramref
+        /// name="configFileName"/> parameters are blank.
         /// </exception>
         public static string CreateConfigFile(string folder,
             string configFileName = "config.json")
@@ -146,14 +144,12 @@ namespace MassFileRenamer.Objects
         /// This parameter is blank by default.
         /// </param>
         /// <returns>
-        /// String containing the value data, or the value of the
-        /// <paramref
-        ///     name="defaultValue" />
-        /// parameter if the value was not found or a
+        /// String containing the value data, or the value of the <paramref
+        /// name="defaultValue"/> parameter if the value was not found or a
         /// problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="keyName" />, is blank.
+        /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
         /// </exception>
         public static string GetProfileString(string keyName, string valueName,
             string defaultValue = "")
@@ -239,7 +235,7 @@ namespace MassFileRenamer.Objects
         /// blank if you want to set the value's data to be blank.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="keyName" />, is blank.
+        /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
         /// </exception>
         public static void SetProfileString(string keyName, string valueName,
             string valueData = "")

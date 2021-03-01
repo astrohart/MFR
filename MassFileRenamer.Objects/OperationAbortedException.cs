@@ -8,10 +8,8 @@ namespace MassFileRenamer.Objects
     public class OperationAbortedException : Exception
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationAbortedException" />
-        /// and
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.OperationAbortedException"/> and
         /// returns a reference to it.
         /// </summary>
         /// <param name="message">
@@ -20,10 +18,8 @@ namespace MassFileRenamer.Objects
         public OperationAbortedException(string message) : base(message) { }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationAbortedException" />
-        /// and
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.OperationAbortedException"/> and
         /// returns a reference to it.
         /// </summary>
         /// <param name="message">
@@ -36,12 +32,12 @@ namespace MassFileRenamer.Objects
             Exception innerException) : base(message, innerException) { }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationAbortedException" />
-        /// and
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.Objects.OperationAbortedException"/> and
         /// returns a reference to it.
         /// </summary>
-        protected OperationAbortedException() { }
+        protected OperationAbortedException()
+        {
+        }
     }
 }

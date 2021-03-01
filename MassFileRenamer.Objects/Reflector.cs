@@ -6,9 +6,10 @@ using System.Windows.Forms;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// This class is from the Front-End for Dosbox and is used to present a 'vista' dialog box to
-    /// select folders. Being able to use a vista style dialog box to select folders is much better
-    /// then using the shell folder browser. http://code.google.com/p/fed/ Example: var r = new Reflector("System.Windows.Forms");
+    /// This class is from the Front-End for Dosbox and is used to present a
+    /// 'vista' dialog box to select folders. Being able to use a vista style
+    /// dialog box to select folders is much better then using the shell folder
+    /// browser. http://code.google.com/p/fed/ Example: var r = new Reflector("System.Windows.Forms");
     /// </summary>
     public class Reflector
     {

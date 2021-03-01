@@ -7,7 +7,7 @@
     /// Reference to the instance of the object that raised the event.
     /// </param>
     /// <param name="e">
-    /// A <see cref="T:MassFileRenamer.Objects.ModifiedEventArgs" /> that
+    /// A <see cref="T:MassFileRenamer.Objects.ModifiedEventArgs"/> that
     /// contains the event data.
     /// </param>
     /// <remarks>

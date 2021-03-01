@@ -1,0 +1,67 @@
+﻿namespace MassFileRenamer.Objects
+{
+    /// <summary>
+    /// Defines the public-exposed methods and properties of a text-replacement object.
+    /// </summary>
+    /// <remarks>
+    /// These objects specify rules as to how to replace text when matches have
+    /// already been located.
+    /// </remarks>
+    public interface ITextReplacementEngine
+    {
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface.
+        /// </summary>
+        IConfiguration Configuration
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Carries out the replacement operation using the values specified by
+        /// the provided <paramref name="expression"/>. Returns a string
+        /// </summary>
+        /// <param name="source">
+        /// (Required.) String containing the data upon which the replacement
+        /// operation is to be carried out.
+        /// </param>
+        /// <param name="pattern">
+        /// (Required.) String containing the pattern that allows us to match
+        /// the data to be replaced.
+        /// </param>
+        /// <param name="dest">
+        /// (Optional.) Default is blank. String containing the new data that
+        /// should be substituted for the replaced text.
+        /// </param>
+        /// <returns>
+        /// String containing the new data.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either of the required parameters, <paramref
+        /// name="source"/> or <paramref name="pattern"/>, are passed blank or
+        /// <c>null</c> string for values.
+        /// </exception>
+        string Replace(string source, string pattern, string dest = "");
+
+        /// <summary>
+        /// Carries out the replacement operation using the values specified by
+        /// the provided <paramref name="expression"/>. Returns a string
+        /// containing the results.
+        /// </summary>
+        /// <param name="expression">
+        /// (Required.) A <see
+        /// cref="T:MassFileRenamer.Objects.MatchExpression"/> that contains the
+        /// replacement data.
+        /// </param>
+        /// <returns>
+        /// String containing the new data.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="expression"/>, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        string Replace(MatchExpression expression);
+    }
+}
