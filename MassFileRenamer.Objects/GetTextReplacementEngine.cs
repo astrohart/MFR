@@ -2,28 +2,60 @@
 
 namespace MassFileRenamer.Objects
 {
+    /// <summary>
+    /// Creates instances of objects that implement the
+    /// <see
+    ///     cref="T:MassFileRenamer.Objects.ITextReplacementEngine" />
+    /// interface.
+    /// </summary>
     public static class GetTextReplacementEngine
     {
-        public static ITextReplacementEngine For(OperationType type,
-            IConfiguration configuration)
+        /// <summary>
+        /// Gets an instance of the object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ITextReplacementEngine" />
+        /// interface
+        /// corresponding to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// specified.
+        /// </summary>
+        /// <param name="type">
+        /// (Required.) One of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// specifies which operation is being performed.
+        /// </param>
+        /// <returns>
+        /// Reference to the instance of the object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ITextReplacementEngine" />
+        /// interface
+        /// corresponding to the operation of the <paramref name="type" />
+        /// specified, or <c>null</c> if no object supports the specified
+        /// <paramref name="type" /> of operation.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// Thrown if the <paramref name="type" /> parameter specifies an
+        /// operation modality that is not supported.
+        /// </exception>
+        public static ITextReplacementEngine For(OperationType type)
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
-
-            ITextReplacementEngine engine = null;
+            ITextReplacementEngine engine;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    engine = new FileNameReplacementEngine(configuration);
+                    engine = new FileNameReplacementEngine();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    engine = new TextInFileReplacementEngine(configuration);
+                    engine = new TextInFileReplacementEngine();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    engine = new FolderNameReplacementEngine(configuration);
+                    engine = new FolderNameReplacementEngine();
                     break;
 
                 default:

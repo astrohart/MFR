@@ -16,8 +16,10 @@ namespace MassFileRenamer.Objects
     public class FileRenamer : IFileRenamer
     {
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.FileRenamer"/> and returns a
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileRenamer" />
+        /// and returns a
         /// reference to it.
         /// </summary>
         public FileRenamer()
@@ -26,8 +28,10 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.FileRenamer"/> and returns a
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileRenamer" />
+        /// and returns a
         /// reference to it.
         /// </summary>
         /// <param name="rootDirectoryPath">
@@ -42,6 +46,27 @@ namespace MassFileRenamer.Objects
                 );
 
             RootDirectoryPath = rootDirectoryPath;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        private bool ShouldReOpenSolution
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -106,18 +131,16 @@ namespace MassFileRenamer.Objects
         /// Occurs when we need the client of this class to perform a match on a
         /// filename for us.
         /// </summary>
-        public event TestExpressionMatchRequestedEventHandler
-            TestExpressionMatchRequested;
+        public event TextExpressionMatchRequestedEventHandler
+            TextExpressionMatchRequested;
 
         /// <summary>
-        /// Gets a value that indicates whether an abort of the current
-        /// operation has been requested.
+        /// Asks the client to perform text replacement according to rules set
+        /// by our heuristics in combination with configuration settings as
+        /// adjusted by the user.
         /// </summary>
-        public bool AbortRequested
-        {
-            get;
-            private set;
-        }
+        public event TextReplacementRequestedEventHandler
+            TextReplacementRequested;
 
         /// <summary>
         /// Gets a string containing the full pathname of the folder where all
@@ -130,28 +153,19 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Gets or sets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        private bool ShouldReOpenSolution
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
-        /// the pathname stored in the <see
-        /// cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath"/> property.
+        /// the pathname stored in the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.FileRenamer.RootDirectoryPath" />
+        /// property.
         /// </summary>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
         /// (Optional.) If specified, a delegate that accepts as its sole
@@ -229,7 +243,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
-        /// the pathname specified by the <paramref name="rootDirectoryPath"/> parameter.
+        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
         /// </summary>
         /// <param name="rootDirectoryPath">
         /// Path to the recursion root.
@@ -239,7 +253,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
         /// (Optional.) If specified, a delegate that accepts as its sole
@@ -420,8 +434,10 @@ namespace MassFileRenamer.Objects
 
         /// <summary>
         /// Renames all the files in the all the subfolders etc., recursively,
-        /// of the folder whose pathname is specified by the <paramref
-        /// name="rootFolderPath"/> parameter.
+        /// of the folder whose pathname is specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// parameter.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of an existing
@@ -432,7 +448,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
         /// (Optional.) If specified, a delegate that accepts as its sole
@@ -443,12 +459,16 @@ namespace MassFileRenamer.Objects
         /// is excluded.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
-        /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -493,8 +513,8 @@ namespace MassFileRenamer.Objects
                     .Where(
                         file => !ShouldSkipFile(file) &&
                                 (findWhat.Contains(replaceWith) ||
-                                 OnTestExpressionMatchRequested(
-                                     new TestExpressionMatchRequestedEventArgs(
+                                 OnTextExpressionMatchRequested(
+                                     new TextExpressionMatchRequestedEventArgs(
                                          file, findWhat, string.Empty,
                                          OperationType.RenameFilesInFolder
                                      )
@@ -537,12 +557,14 @@ namespace MassFileRenamer.Objects
                         FileInfoFactory.Make(filename).RenameTo(
                             Path.Combine(
                                 directoryName,
-                                Path.GetFileName(filename).Replace(
-                                    findWhat, replaceWith
+                                OnTextReplacementRequested(
+                                    new TextReplacementRequestedEventArgs(
+                                        filename, findWhat, replaceWith,
+                                        OperationType.RenameFilesInFolder
+                                    )
                                 )
                             )
                         );
-                        ;
                     }
                     catch (Exception ex)
                     {
@@ -571,9 +593,9 @@ namespace MassFileRenamer.Objects
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
-        /// pathname specified by <paramref name="rootFolderPath"/>, replacing
-        /// any occurrences of the text in the <paramref name="findWhat"/>
-        /// parameter with the values in the <paramref name="replaceWith"/> parameter.
+        /// pathname specified by <paramref name="rootFolderPath" />, replacing
+        /// any occurrences of the text in the <paramref name="findWhat" />
+        /// parameter with the values in the <paramref name="replaceWith" /> parameter.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of an existing
@@ -584,7 +606,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
         /// (Optional.) If specified, a delegate that accepts as its sole
@@ -595,12 +617,16 @@ namespace MassFileRenamer.Objects
         /// is excluded.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
-        /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -643,8 +669,8 @@ namespace MassFileRenamer.Objects
                 {
                     if (ShouldSkipFolder(folder)) continue;
 
-                    if (!OnTestExpressionMatchRequested(
-                        new TestExpressionMatchRequestedEventArgs(
+                    if (!OnTextExpressionMatchRequested(
+                        new TextExpressionMatchRequestedEventArgs(
                             folder, findWhat, replaceWith,
                             OperationType.RenameSubFolders
                         )
@@ -713,9 +739,11 @@ namespace MassFileRenamer.Objects
                         );
 
                         dirInfo.RenameTo(
-                            Path.Combine(
-                                dirInfo.Parent.FullName,
-                                dirInfo.Name.Replace(findWhat, replaceWith)
+                            OnTextReplacementRequested(
+                                new TextReplacementRequestedEventArgs(
+                                    dirInfo.FullName, findWhat, replaceWith,
+                                    OperationType.RenameSubFolders
+                                )
                             )
                         );
                     }
@@ -745,10 +773,14 @@ namespace MassFileRenamer.Objects
 
         /// <summary>
         /// Iterates recursively through a directory tree, starting at the
-        /// folder with pathname <paramref name="rootFolderPath"/> and replacing
-        /// every occurrence of the text specified by the <paramref
-        /// name="findWhat"/> parameter with the text specified by the <paramref
-        /// name="replaceWith"/> parameter. A case-sensitive, not-in-whole-word
+        /// folder with pathname <paramref name="rootFolderPath" /> and replacing
+        /// every occurrence of the text specified by the
+        /// <paramref
+        ///     name="findWhat" />
+        /// parameter with the text specified by the
+        /// <paramref
+        ///     name="replaceWith" />
+        /// parameter. A case-sensitive, not-in-whole-word
         /// search is performed.
         /// </summary>
         /// <param name="rootFolderPath">
@@ -758,19 +790,23 @@ namespace MassFileRenamer.Objects
         /// (Required.) Text to be found in each file contained in the directory tree.
         /// </param>
         /// <param name="replaceWith">
-        /// (Optional.) Text to replace all the instances of <paramref
-        /// name="findWhat"/> with. If this parameter is blank (the default),
+        /// (Optional.) Text to replace all the instances of
+        /// <paramref
+        ///     name="findWhat" />
+        /// with. If this parameter is blank (the default),
         /// then the text is deleted.
         /// </param>
         /// <param name="pathFilter">
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/> or the
-        /// <paramref name="findWhat"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -834,14 +870,19 @@ namespace MassFileRenamer.Objects
                         );
 
                         var text = File.ReadAllText(filename);
-                        if (!OnTestExpressionMatchRequested(
-                            new TestExpressionMatchRequestedEventArgs(
+                        if (!OnTextExpressionMatchRequested(
+                            new TextExpressionMatchRequestedEventArgs(
                                 text, findWhat, replaceWith,
                                 OperationType.ReplaceTextInFiles
                             )
                         )) continue;
 
-                        text = text.Replace(findWhat, replaceWith);
+                        text = OnTextReplacementRequested(
+                            new TextReplacementRequestedEventArgs(
+                                text, findWhat, replaceWith,
+                                OperationType.ReplaceTextInFiles
+                            )
+                        );
 
                         if (File.Exists(filename))
                             File.Delete(filename);
@@ -876,23 +917,28 @@ namespace MassFileRenamer.Objects
             => AbortRequested = true;
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.ExceptionRaised"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.ExceptionRaised" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs"/>
+        /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs" />
         /// that contains the event data.
         /// </param>
         protected virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
             => ExceptionRaised?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.TestExpressionMatchRequested"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.TextExpressionMatchRequested" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"/>
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <returns>
@@ -900,35 +946,64 @@ namespace MassFileRenamer.Objects
         /// if the filename presented matches according to the textual criteria
         /// set by the client, or <c>false</c> otherwise.
         /// </returns>
-        protected virtual bool OnTestExpressionMatchRequested(
-            TestExpressionMatchRequestedEventArgs e)
+        protected virtual bool OnTextExpressionMatchRequested(
+            TextExpressionMatchRequestedEventArgs e)
         {
-            if (TestExpressionMatchRequested == null)
+            if (TextExpressionMatchRequested == null)
                 return false;
 
-            TestExpressionMatchRequested?.Invoke(this, e);
+            TextExpressionMatchRequested?.Invoke(this, e);
             return e.DoesMatch;
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.FilesToBeRenamedCounted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.TextReplacementRequested" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs"/>
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextReplacementRequestedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <returns>
+        /// String containing the result of the replacement. If no replacement
+        /// was done, then the original text is returned.
+        /// </returns>
+        protected virtual string OnTextReplacementRequested(
+            TextReplacementRequestedEventArgs e)
+        {
+            TextReplacementRequested?.Invoke(this, e);
+            return e.Result;
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.FilesToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
         /// that contains the event data.
         /// </param>
         private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
             => FilesToBeRenamedCounted?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.FilesToHaveTextReplacedCounted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.FilesToHaveTextReplacedCounted" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs"/>
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
         /// that contains the event data.
         /// </param>
         private void OnFilesToHaveTextReplacedCounted(
@@ -936,112 +1011,117 @@ namespace MassFileRenamer.Objects
             => FilesToHaveTextReplacedCounted?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs"/>
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs" />
         /// that contains the event data.
         /// </param>
         private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
             => FileSystemEntrySkipped?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.Finished"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.Finished" />
+        /// event.
         /// </summary>
         private void OnFinished()
             => Finished?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.OperationFinished"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.OperationFinished" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see
-        /// cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs"/> that
+        /// An
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
+        /// that
         /// contains the event data.
         /// </param>
         private void OnOperationFinished(OperationFinishedEventArgs e)
             => OperationFinished?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.OperationStarted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.OperationStarted" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs"/>
+        /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs" />
         /// that contains the event data.
         /// </param>
         private void OnOperationStarted(OperationStartedEventArgs e)
             => OperationStarted?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.ProcessingOperation"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.ProcessingOperation" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs"/> that
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs" />
+        /// that
         /// contains the event data.
         /// </param>
         private void OnProcessingOperation(ProcessingOperationEventArgs e)
             => ProcessingOperation?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.Started"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.Started" />
+        /// event.
         /// </summary>
         private void OnStarted()
             => Started?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.StatusUpdate"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.StatusUpdate" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs"/> that
+        /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs" /> that
         /// contains the event data.
         /// </param>
         private void OnStatusUpdate(StatusUpdateEventArgs e)
             => StatusUpdate?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MassFileRenamer.Objects.FileRenamer.SubfoldersToBeRenamedCounted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.FileRenamer.SubfoldersToBeRenamedCounted" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs"/>
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
         /// that contains the event data.
         /// </param>
         private void OnSubfoldersToBeRenamedCounted(
             FilesOrFoldersCountedEventArgs e)
             => SubfoldersToBeRenamedCounted?.Invoke(this, e);
 
-        private bool PathAlreadyContains(FileSystemInfo entry, string findWhat)
-        {
-            if (entry == null)
-                return false;
-
-            if (!entry.Exists)
-                return false;
-
-            if (string.IsNullOrWhiteSpace(findWhat))
-                return false;
-
-            var result = FolderPathValidator.PathContains(entry.Name, findWhat);
-            if (!result)
-                OnFileSystemEntrySkipped(
-                    new FileSystemEntrySkippedEventArgs(entry.FullName)
-                );
-            return result;
-        }
-
         /// <summary>
-        /// Alias for the <see
-        /// cref="M:MassFileRenamer.Objects.FilePathValidator.ShouldSkipFile"/> method.
+        /// Alias for the
+        /// <see
+        ///     cref="M:MassFileRenamer.Objects.FilePathValidator.ShouldSkipFile" />
+        /// method.
         /// </summary>
         /// <param name="file">
         /// (Required.) String containing the path of the file whose path should
@@ -1057,6 +1137,9 @@ namespace MassFileRenamer.Objects
             if (string.IsNullOrWhiteSpace(file))
                 return true;
 
+            if (!File.Exists(file))
+                return true;
+
             var result = FilePathValidator.ShouldSkipFile(file);
             if (result)
                 OnFileSystemEntrySkipped(
@@ -1065,9 +1148,24 @@ namespace MassFileRenamer.Objects
             return result;
         }
 
+        /// <summary>
+        /// Gets a value corresponding to whether the folder with
+        /// fully-qualified pathname, <paramref name="dir" />, should be skipped
+        /// because of what key words its pathname contains.
+        /// </summary>
+        /// <param name="dir">
+        /// (Required.) String containing the fully-qualified pathname of the
+        /// folder to be examined.
+        /// </param>
+        /// <returns>
+        /// <c>true</c> if the folder should be skipped; <c>false</c> otherwise.
+        /// </returns>
         private bool ShouldSkipFolder(string dir)
         {
             if (string.IsNullOrWhiteSpace(dir))
+                return true;
+
+            if (!Directory.Exists(dir))
                 return true;
 
             var result = FolderPathValidator.ShouldSkipFolder(dir);

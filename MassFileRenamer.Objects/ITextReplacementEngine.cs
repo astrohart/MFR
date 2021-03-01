@@ -7,18 +7,8 @@
     /// These objects specify rules as to how to replace text when matches have
     /// already been located.
     /// </remarks>
-    public interface ITextReplacementEngine
+    public interface ITextReplacementEngine : IConfigurationComposedObject
     {
-        /// <summary>
-        /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface.
-        /// </summary>
-        IConfiguration Configuration
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Carries out the replacement operation using the values specified by
         /// the provided <paramref name="expression"/>. Returns a string

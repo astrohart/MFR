@@ -8,24 +8,45 @@ namespace MassFileRenamer.Objects
     /// </summary>
     public class FolderNameReplacementEngine : TextReplacementEngineBase
     {
-        /// <summary> Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.TextReplacementEngineBase" /> and
-        /// returns a reference to it. </summary> (Required.) Reference to an
-        /// instance of an object that implements the <see
-        /// cref="T:MassFileRenamer.Objects.IConfiguration" /> interface that
-        /// holds settings that are specified by the user. </param> <exception
-        /// cref="T:System.ArgumentNullException"> Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
-        /// <c>null</c> value. </exception>
-        public FolderNameReplacementEngine(IConfiguration configuration) : base(
-            configuration
-        )
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FolderNameReplacementEngine" />
+        /// and
+        /// returns a reference to it.
+        /// </summary>
+        public FolderNameReplacementEngine()
         {
+            // TODO: Add default object initialization here
         }
 
         /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextReplacementEngineBase" />
+        /// and
+        /// returns a reference to it.
+        /// </summary>
+        /// (Required.) Reference to an
+        /// instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface that
+        /// holds settings that are specified by the user.
+        /// </param>
+        /// <exception
+        ///     cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="configuration" />, is passed a
+        /// <c>null</c> value.
+        /// </exception>
+        public FolderNameReplacementEngine(IConfiguration configuration) : base(
+            configuration
+        ) { }
+
+        /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression"/>. Returns a string
+        /// the provided <paramref name="expression" />. Returns a string
         /// </summary>
         /// <param name="source">
         /// (Required.) String containing the data upon which the replacement
@@ -43,9 +64,13 @@ namespace MassFileRenamer.Objects
         /// String containing the new data.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="source"/> , <paramref name="pattern"/>, or <paramref
-        /// name="dest"/> , are passed blank or <c>null</c> string for values.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="source" />
+        /// , <paramref name="pattern" />, or
+        /// <paramref
+        ///     name="dest" />
+        /// , are passed blank or <c>null</c> string for values.
         /// </exception>
         public override string Replace(string source, string pattern,
             string dest = "")

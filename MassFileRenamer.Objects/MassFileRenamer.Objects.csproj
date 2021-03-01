@@ -172,7 +172,10 @@
     <Compile Include="TextExpressionMatcherBase.cs" />
     <Compile Include="TextInFileMatcher.cs" />
     <Compile Include="TextInFileReplacementEngine.cs" />
+    <Compile Include="TextPatternMatchEventArgs.cs" />
     <Compile Include="TextReplacementEngineBase.cs" />
+    <Compile Include="TextReplacementRequestedEventArgs.cs" />
+    <Compile Include="TextReplacementRequestedEventHandler.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="VisualStudioManager.cs" />
   </ItemGroup>

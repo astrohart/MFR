@@ -6,38 +6,48 @@ namespace MassFileRenamer.Objects
     /// Defines the methods, properties, and events that are common to all
     /// text-replacement engine object implementations.
     /// </summary>
-    public abstract class TextReplacementEngineBase : ITextReplacementEngine
+    public abstract class
+        TextReplacementEngineBase : ConfigurationComposedObjectBase,
+            ITextReplacementEngine
     {
-        /// <summary> Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.TextReplacementEngineBase"/> and
-        /// returns a reference to it. </summary> (Required.) Reference to an
-        /// instance of an object that implements the <see
-        /// cref="T:MassFileRenamer.Objects.IConfiguration"/> interface that
-        /// holds settings that are specified by the user. </param> <exception
-        /// cref="T:System.ArgumentNullException"> Thrown if the required
-        /// parameter, <paramref name="configuration"/>, is passed a <c>null</c>
-        /// value. </exception>
-        protected TextReplacementEngineBase(IConfiguration configuration)
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextReplacementEngineBase" />
+        /// and
+        /// returns a reference to it.
+        /// </summary>
+        protected TextReplacementEngineBase()
         {
-            Configuration = configuration ??
-                            throw new ArgumentNullException(
-                                nameof(configuration)
-                            );
+            // TODO: Add default object-initialization code here.
         }
 
         /// <summary>
-        /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface.
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextReplacementEngineBase" />
+        /// and
+        /// returns a reference to it.
         /// </summary>
-        public IConfiguration Configuration
-        {
-            get;
-            set;
-        }
+        /// (Required.) Reference to an
+        /// instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface that
+        /// holds settings that are specified by the user.
+        /// </param>
+        /// <exception
+        ///     cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="configuration" />, is passed a <c>null</c>
+        /// value.
+        /// </exception>
+        protected TextReplacementEngineBase(IConfiguration configuration) :
+            base(configuration) { }
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression"/>. Returns a string
+        /// the provided <paramref name="expression" />. Returns a string
         /// </summary>
         /// <param name="source">
         /// (Required.) String containing the data upon which the replacement
@@ -55,27 +65,32 @@ namespace MassFileRenamer.Objects
         /// String containing the new data.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="source"/> or <paramref name="pattern"/>, are passed blank or
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="source" />
+        /// or <paramref name="pattern" />, are passed blank or
         /// <c>null</c> string for values.
         /// </exception>
-        public abstract string Replace(string source, string pattern, string dest = "");
+        public abstract string Replace(string source, string pattern,
+            string dest = "");
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression"/>. Returns a string
+        /// the provided <paramref name="expression" />. Returns a string
         /// containing the results.
         /// </summary>
         /// <param name="expression">
-        /// (Required.) A <see
-        /// cref="T:MassFileRenamer.Objects.MatchExpression"/> that contains the
+        /// (Required.) A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.MatchExpression" />
+        /// that contains the
         /// replacement data.
         /// </param>
         /// <returns>
         /// String containing the new data.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="expression"/>, is
+        /// Thrown if the required parameter, <paramref name="expression" />, is
         /// passed a <c>null</c> value.
         /// </exception>
         public string Replace(MatchExpression expression)

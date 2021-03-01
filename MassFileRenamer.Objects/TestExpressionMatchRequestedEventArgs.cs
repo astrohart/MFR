@@ -1,57 +1,83 @@
-﻿using System;
-using System.IO;
-
-namespace MassFileRenamer.Objects
+﻿namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Provides information for a TestExpressionMatchRequested event.
+    /// Provides information for a TextExpressionMatchRequested event.
     /// </summary>
-    public class TestExpressionMatchRequestedEventArgs : EventArgs
+    public class
+        TextExpressionMatchRequestedEventArgs : TextPatternMatchEventArgs
     {
-        /// <summary> Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"
-        /// /> and returns a reference to it. </summary> <param name="path">
-        /// (Required.) String containing the full pathname to the file to
-        /// perform a match against. </param> <param name="findWhat">
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs" />
+        /// and
+        /// returns a reference to it.
+        /// </summary>
+        /// <param name="source">
+        /// (Required.) String containing the text that is to be searched for
+        /// the pattern in <paramref name="findWhat" />.<para/>This is typically the
+        /// fully-qualified pathname of a file or folder; however, if we are
+        /// doing the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType.ReplaceTextInFiles" />
+        /// operation, then this is the text of the current file before
+        /// find-and-replace has been done.
+        /// </param>
+        /// <param name="findWhat">
         /// (Required.) String containing the textual criteria for the match.
-        /// </param> <param name="replaceWith"> (Required.) String containing
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing
         /// the data that any occurrences of <paramref name="findWhat" /> in the
-        /// <paramref name="path" /> should be replaced with. </param> <param
-        /// name="type"> (Required.) One of the <see
-        /// cref="T:MassFileRenamer.Objects.OperationType" /> values that
-        /// describes what operation is being performed. </param> <exception
-        /// cref="T:System.ArgumentException"> Thrown if the either of the
-        /// required parameters, <paramref name="path" />. <<paramref
-        /// name="findWhat" /> , or <paramref name="replaceWith" /> , are passed
-        /// blank or <c>null</c> strings for values. </exception> <exception
-        /// cref="T:System.IO.FileNotFoundException"> Thrown if the system is
+        /// <paramref name="source" /> should be replaced with.
+        /// </param>
+        /// <param
+        ///     name="type">
+        /// (Required.) One of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// describes what operation is being performed.
+        /// </param>
+        /// <exception
+        ///     cref="T:System.ArgumentException">
+        /// Thrown if the either of the
+        /// required parameters, <paramref name="source" />. <paramref
+        ///                                                     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> , are passed
+        /// blank or <c>null</c> strings for values.
+        /// </exception>
+        /// <exception
+        ///     cref="T:System.IO.FileNotFoundException">
+        /// Thrown if the system is
         /// unable to locate the file whose pathname is specified by the
-        /// <paramref name="path" /> parameter on the disk. </exception>
-        public TestExpressionMatchRequestedEventArgs(string path,
-            string findWhat, string replaceWith, OperationType type)
+        /// <paramref name="source" /> parameter on the disk (unless we are performing the <see cref="T:MassFileRenamer.Objects.OperationType.ReplaceTextInFiles"/> operation).
+        /// </exception>
+        public TextExpressionMatchRequestedEventArgs(string source,
+            string findWhat, string replaceWith, OperationType type) : base(
+            source, findWhat, replaceWith, type
+        )
         {
-            if (string.IsNullOrWhiteSpace(path))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(path)
-                );
-            if (string.IsNullOrWhiteSpace(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(findWhat)
-                );
-            if (string.IsNullOrWhiteSpace(replaceWith))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(replaceWith)
-                );
-            if (!File.Exists(path))
-                throw new FileNotFoundException(
-                    "The system cannot find the file specified.", path
-                );
-
-            Path = path;
-            FindWhat = findWhat;
-            ReplaceWith = replaceWith;
-            OperationType = type;
+            // TODO: Add code here to initialize this event-argument object.
         }
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs" />
+        /// and returns a
+        /// reference to it.
+        /// </summary>
+        /// <param name="type">
+        /// (Required.) One of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// specifies the operation being performed.
+        /// </param>
+        public TextExpressionMatchRequestedEventArgs(OperationType type) : base(
+            type
+        ) { }
 
         /// <summary>
         /// Gets or sets a value indicating whether the file name matches the criteria.
@@ -60,43 +86,6 @@ namespace MassFileRenamer.Objects
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Gets a string containing the textual criteria for determining
-        /// whether the name of the file is to be targeted by a rename operation.
-        /// </summary>
-        public string FindWhat
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets the <see cref="T:MassFileRenamer.Objects.OperationType"/> value
-        /// that describes what operation is being performed.
-        /// </summary>
-        public OperationType OperationType
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string containing the full pathname of the file to run a
-        /// match operation again.
-        /// </summary>
-        public string Path
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets the text that any found occurrences of the data in the <see
-        /// cref="P:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs.FindWhat"/>
-        /// should be replaced with.
-        /// </summary>
-        public string ReplaceWith
-        {
-            get;
         }
     }
 }

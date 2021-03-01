@@ -11,7 +11,7 @@ namespace MassFileRenamer.Objects
     {
         /// <summary>
         /// Given a <see
-        /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"/>
+        /// cref="T:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs"/>
         /// as input, provides a string to be used in matching text against
         /// user-specified criteria.
         /// </summary>
@@ -21,9 +21,9 @@ namespace MassFileRenamer.Objects
         /// and which represents the configuration settings chosen by the user.
         /// </param>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MassFileRenamer.Objects.TestExpressionMatchRequestedEventArgs"/>
-        /// that contains the match data.
+        /// An instance of an object that inherits from <see
+        /// cref="T:MassFileRenamer.Objects.TextPatternMatchEventArgs"/>
+        /// and contains the match data.
         /// </param>
         /// <returns>
         /// A <see cref="T:MassFileRenamer.Objects.MatchExpression"/> containing
@@ -36,7 +36,7 @@ namespace MassFileRenamer.Objects
         /// <c>null</c> values.
         /// </exception>
         public static MatchExpression For(IConfiguration configuration,
-            TestExpressionMatchRequestedEventArgs e)
+            TextPatternMatchEventArgs e)
         {
             if (configuration == null)
                 throw new ArgumentNullException(nameof(configuration));
@@ -52,8 +52,8 @@ namespace MassFileRenamer.Objects
                     {
                         Source =
                             configuration.MatchWholeWord
-                                ? Path.GetFileNameWithoutExtension(e.Path)
-                                : Path.GetFileName(e.Path),
+                                ? Path.GetFileNameWithoutExtension(e.Source)
+                                : Path.GetFileName(e.Source),
                         Pattern = e.FindWhat
                     };
                     break;
@@ -61,7 +61,7 @@ namespace MassFileRenamer.Objects
                 default:
                     expression = new MatchExpression
                     {
-                        Source = e.Path,
+                        Source = e.Source,
                         Pattern = e.FindWhat,
                         SubstitutionDestination = e.ReplaceWith
                     };
