@@ -272,6 +272,8 @@ namespace MassFileRenamer.Objects
                     nameof(rootDirectoryPath)
                 );
 
+            ProgramFlowHelper.StartDebugger();
+
             MessageFilter.Register();
 
             RootDirectoryPath = rootDirectoryPath;
