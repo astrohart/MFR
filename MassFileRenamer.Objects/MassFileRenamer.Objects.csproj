@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.9.1-preview\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.1-preview\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
@@ -19,7 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>True</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -31,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>True</SkipPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -77,8 +79,21 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=6.9.1.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.6.9.1-preview\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=6.9.1.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.9.1-preview\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.9.1.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.9.1-preview\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.8.9.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.8.9\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\stdole.16.7.30508.193\lib\net45\stdole.dll</HintPath>
@@ -94,37 +109,103 @@
   <ItemGroup>
     <Compile Include="ComboBoxInitializer.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="ActionBase.cs" />
+    <Compile Include="ActionType.cs" />
+    <Compile Include="CommandBase.cs" />
     <Compile Include="ConfigurationComposedObjectBase.cs" />
     <Compile Include="ConfigurationExportedEventHandler.cs" />
     <Compile Include="ConfigurationExportedEventArgs.cs" />
     <Compile Include="ConfigurationExtensions.cs" />
     <Compile Include="ConfigurationImportedEventArgs.cs" />
     <Compile Include="ConfigurationImportedEventHandler.cs" />
+    <Compile Include="ConfigurationNotAttachedException.cs" />
     <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="GetCommand.cs" />
+    <Compile Include="GetMessage.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="LoadConfigurationFromFileAction.cs" />
+    <Compile Include="MakeNewRegOperationMetadata.cs" />
+    <Compile Include="MessageBase.cs" />
+    <Compile Include="RequestBase.cs" />
     <Compile Include="ConfigurationSerializer.cs" />
     <Compile Include="ConvertConfiguration.cs" />
     <Compile Include="DataOperationEventArgs.cs" />
     <Compile Include="DataOperationEventHandler.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="DirectoryInfoFactory.cs" />
+    <Compile Include="DirectoryValidator.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="ExceptionRaisedEventArgs.cs" />
     <Compile Include="ExceptionRaisedEventHandler.cs" />
+    <Compile Include="FileAndFolderMatchExpressionFactoryBase.cs" />
+    <Compile Include="FileAndFolderNameFileSystemEntryListRetrieverBase.cs" />
+    <Compile Include="FileAndFolderTextValueRetrieverBase.cs" />
+    <Compile Include="FileHelpers.cs" />
     <Compile Include="FileInfoExtensions.cs" />
     <Compile Include="FileInfoFactory.cs" />
     <Compile Include="FileNameReplacementEngine.cs" />
+    <Compile Include="FileNameReplacementMatchExpressionFactory.cs" />
+    <Compile Include="FilenameTextValueRetriever.cs" />
+    <Compile Include="FilesToRenameRetriever.cs" />
+    <Compile Include="FileSystemEntry.cs" />
+    <Compile Include="FileSystemEntryExtensions.cs" />
+    <Compile Include="FileSystemEntryListRetrieverBase.cs" />
+    <Compile Include="FileSystemEntryValidator.cs" />
+    <Compile Include="FileSystemEntryValidatorBase.cs" />
+    <Compile Include="FileValidator.cs" />
+    <Compile Include="FixedActionTypeObjectBase.cs" />
     <Compile Include="FolderNameMatcher.cs" />
     <Compile Include="FolderNameReplacementEngine.cs" />
-    <Compile Include="GetMatchExpression.cs" />
+    <Compile Include="FolderNameReplacementMatchExpressionFactory.cs" />
+    <Compile Include="FolderTextValueRetriever.cs" />
+    <Compile Include="FolderToRenameRetriever.cs" />
+    <Compile Include="GetRequest.cs" />
+    <Compile Include="GetFileSystemEntryListRetriever.cs" />
+    <Compile Include="GetFileSystemEntryValidator.cs" />
+    <Compile Include="GetMatchExpressionFactory.cs" />
+    <Compile Include="GetNewProcessIdProvider.cs" />
+    <Compile Include="GetRegistryExpressionValidator.cs" />
     <Compile Include="GetTextReplacementEngine.cs" />
     <Compile Include="GetTextExpressionMatcher.cs" />
+    <Compile Include="GetTextValueRetriever.cs" />
+    <Compile Include="GlobalAspects.cs" />
+    <Compile Include="IAction.cs" />
+    <Compile Include="GetAction.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="IConfigurationComposedObject.cs" />
+    <Compile Include="IRequest.cs" />
+    <Compile Include="IFileSystemEntry.cs" />
+    <Compile Include="IFileSystemEntryListRetriever.cs" />
+    <Compile Include="IFileSystemEntryValidator.cs" />
+    <Compile Include="IFixedActionTypeObject.cs" />
+    <Compile Include="IFixedOperationSpecificObject.cs" />
+    <Compile Include="IMatchExpression.cs" />
+    <Compile Include="IMatchExpressionFactory.cs" />
+    <Compile Include="IOperationSpecificObject.cs" />
+    <Compile Include="IProcessIdProvider.cs" />
+    <Compile Include="IRegOperationMetadata.cs" />
+    <Compile Include="IRegQueryExpression.cs" />
+    <Compile Include="IRegQueryExpressionValidator.cs" />
     <Compile Include="ITextReplacementEngine.cs" />
+    <Compile Include="ITextValueRetriever.cs" />
+    <Compile Include="LoadStringFromRegistryAction.cs" />
+    <Compile Include="MakeNewFileRenamer.cs" />
+    <Compile Include="MakeHistoryManager.cs" />
+    <Compile Include="MakeNewFileSystemEntry.cs" />
+    <Compile Include="MakeNewRegQueryExpression.cs" />
     <Compile Include="MatchExpression.cs" />
     <Compile Include="FileNameMatcher.cs" />
+    <Compile Include="MatchExpressionFactoryBase.cs" />
+    <Compile Include="OperationSpecificObjectBase.cs" />
+    <Compile Include="ProcessIdProvider.cs" />
     <Compile Include="ProgramFlowHelper.cs" />
+    <Compile Include="RegMetadataBase.cs" />
+    <Compile Include="RegOperationMetadata.cs" />
+    <Compile Include="RegQueryExpression.cs" />
+    <Compile Include="RegQueryExpressionValidator.cs" />
+    <Compile Include="ReplaceTextInFileMatchExpressionFactory.cs" />
+    <Compile Include="SaveStringToRegistryCommand.cs" />
     <Compile Include="StringExtensions.cs" />
-    <Compile Include="TestExpressionMatchRequestedEventArgs.cs" />
-    <Compile Include="TestExpressionMatchRequestedEventHandler.cs" />
     <Compile Include="FilePathValidator.cs" />
     <Compile Include="FileRenamer.cs" />
     <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
@@ -132,7 +213,6 @@
     <Compile Include="FileSystemEntrySkippedEventArgs.cs" />
     <Compile Include="FileSystemEntrySkippedEventHandler.cs" />
     <Compile Include="FormFoldedEventArgs.cs" />
-    <Compile Include="FolderPathValidator.cs" />
     <Compile Include="FoldUnfoldButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,10 +253,11 @@
     <Compile Include="TextExpressionMatcherBase.cs" />
     <Compile Include="TextInFileMatcher.cs" />
     <Compile Include="TextInFileReplacementEngine.cs" />
+    <Compile Include="TextInFilesRetriever.cs" />
+    <Compile Include="TextInFileTextValueRetriever.cs" />
     <Compile Include="TextPatternMatchEventArgs.cs" />
     <Compile Include="TextReplacementEngineBase.cs" />
-    <Compile Include="TextReplacementRequestedEventArgs.cs" />
-    <Compile Include="TextReplacementRequestedEventHandler.cs" />
+    <Compile Include="TextValueRetrieverBase.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="VisualStudioManager.cs" />
   </ItemGroup>
@@ -188,14 +269,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
+    <Compile Include="RegistryHiveExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="bower.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
@@ -208,5 +291,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.1-preview\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.1-preview\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.1-preview\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.1-preview\build\PostSharp.targets'))" />
   </Target>
+  <Import Project="..\packages\PostSharp.6.9.1-preview\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.1-preview\build\PostSharp.targets')" />
 </Project>

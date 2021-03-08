@@ -61,7 +61,7 @@ namespace MassFileRenamer.Objects.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to clear the Starting Folder, Find What, and Replace WIth hisotry lists?\n\nThis action cannot be undone..
+        ///   Looks up a localized string similar to Are you sure you want to clear the Starting Folder, Find What, and Replace WIth hisotry lists?\n\nThis message cannot be undone..
         /// </summary>
         internal static string Confirm_ClearAllHistory {
             get {

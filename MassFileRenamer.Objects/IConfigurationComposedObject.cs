@@ -41,6 +41,40 @@
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <c>null</c> value.
         /// </exception>
-        dynamic AndAttachConfiguration(IConfiguration configuration);
+        dynamic AndAttachConfiguration(
+            IConfiguration configuration);
+
+        /// <summary>
+        /// Updates the configuration currently being used with a new value.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// which has the new settings.
+        /// </param>
+        /// <remarks>
+        /// The settings in the object specified will be used for all matching
+        /// from this point forward.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <c>null</c> value.
+        /// </exception>
+        void UpdateConfiguration(IConfiguration configuration);
+
+        /// <summary>
+        /// Verifies that configuration has been attached to this object.
+        /// </summary>
+        /// <remarks>
+        /// If no configuration is attached to this object, then a new
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationNotAttachedException" />
+        /// exception is thrown.
+        /// </remarks>
+        /// <exception
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationNotAttachedException">
+        /// Thrown if no configuration data is attached to this object.
+        /// </exception>
+        void VerifyConfigurationAttached();
     }
 }

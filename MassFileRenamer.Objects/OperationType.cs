@@ -11,6 +11,7 @@
         OpenActiveSolution,
         RenameFilesInFolder,
         ReplaceTextInFiles,
-        RenameSubFolders
+        RenameSubFolders,
+        Unknown = -1
     }
 }

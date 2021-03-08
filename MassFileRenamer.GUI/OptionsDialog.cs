@@ -1,4 +1,5 @@
 ﻿using MassFileRenamer.Objects;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -168,6 +169,7 @@ namespace MassFileRenamer.GUI
         /// <remarks>
         /// This method is called to update the enabled or disabled state of controls.
         /// </remarks>
+        [Log(AttributeExclude=true)] // do not log this method
         private void OnUpdateCmdUI(object sender, EventArgs e)
             => applyButton.Enabled = IsModified;
 

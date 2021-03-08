@@ -1,6 +1,6 @@
 ﻿using MassFileRenamer.Objects;
+using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -8,7 +8,8 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.GUI
 {
     /// <summary>
-    /// Provides the entry point for the program and all application-level functionality.
+    /// Provides the entry point for the program and all application-level
+    /// functionality.
     /// </summary>
     public static class Program
     {
@@ -16,7 +17,13 @@ namespace MassFileRenamer.GUI
         /// Gets the title text that should be utilized for the main application window.
         /// </summary>
         public static string MainWindowTitle
-            => ShortCompanyName + " " + Application.ProductName;
+            => $"{ShortCompanyName} {ProductNameWithoutCompany}";
+
+        /// <summary>
+        /// Gets the product name without the company name.
+        /// </summary>
+        private static string ProductNameWithoutCompany
+            => Application.ProductName.Replace(ShortCompanyName, string.Empty);
 
         /// <summary>
         /// Gets the short name (without prefixes or suffixes) of the company
@@ -39,60 +46,42 @@ namespace MassFileRenamer.GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            LogFileManager.InitializeLogging(false);
-
-            InitApplication();
+            LogFileManager.InitializeLogging(
+                false, infrastructureType: LoggingInfrastructureType.PostSharp
+            );
 
             Application.Run(
                 new MainWindow(ConfigurationProvider.ConfigurationFilePath)
             );
-
-            ConfigurationProvider.SaveConfigurationPath();
         }
-
-        private static void InitApplication()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In Program.InitApplication"
-            );
-
-            try
-            {
-                ConfigurationProvider.LoadConfigurationPath();
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                MessageBox.Show(
-                    ex.Message, Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
-                );
-
-                Environment.Exit(-1);
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** Loaded the path of the configuration file from the system Registry."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "Program.InitApplication: Done."
-            );
-        }
-
+        
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:System.Windows.Forms.Application.ThreadException" />
+        /// event
+        /// raised by the application when an exception is thrown but goes
+        /// unhandled by a try/catch block that is not there in the code.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This handler responds to the event by writing the exception
+        /// information to the log file and then by displaying a user-friendly
+        /// error dialog box.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
         private static void OnThreadException(object sender,
             ThreadExceptionEventArgs e)
         {
-            MessageBox.Show(
-                e.Exception.Message, Application.ProductName,
-                MessageBoxButtons.OK, MessageBoxIcon.Stop,
-                MessageBoxDefaultButton.Button1
-            );
+            // dump all the exception info to the log
+            DebugUtils.LogException(e.Exception);
+
+            ErrorDialogLauncher.Display(Application.OpenForms[0], e.Exception);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MassFileRenamer.Objects
 {
-    public interface IFileRenamer
+    public interface IFileRenamer : IConfigurationComposedObject
     {
         /// <summary>
         /// Gets a string containing the full pathname of the folder where all
@@ -70,20 +70,6 @@ namespace MassFileRenamer.Objects
         event FilesOrFoldersCountedEventHandler SubfoldersToBeRenamedCounted;
 
         /// <summary>
-        /// Occurs when we need the client of this class to perform a match on a
-        /// filename for us.
-        /// </summary>
-        event TextExpressionMatchRequestedEventHandler
-            TextExpressionMatchRequested;
-
-        /// <summary>
-        /// Asks the client to perform text replacement according to rules set
-        /// by our heuristics in combination with configuration settings as
-        /// adjusted by the user.
-        /// </summary>
-        event TextReplacementRequestedEventHandler TextReplacementRequested;
-
-        /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
         /// the pathname stored in the
@@ -99,15 +85,20 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         void ProcessAll(string findWhat, string replaceWith,
-            Func<string, bool> pathFilter = null);
+            Predicate<string> pathFilter = null);
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
@@ -125,15 +116,20 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         void ProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null);
+            string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>
         /// Renames all the files in the all the subfolders etc., recursively,
@@ -154,12 +150,17 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
@@ -177,7 +178,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if a file operation does not succeed.
         /// </exception>
         void RenameFilesInFolder(string rootFolderPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null);
+            string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
@@ -197,12 +198,17 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
@@ -220,7 +226,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if a file operation does not succeed.
         /// </exception>
         void RenameSubFoldersOf(string rootFolderPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null);
+            string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>
         /// Iterates recursively through a directory tree, starting at the
@@ -248,6 +254,17 @@ namespace MassFileRenamer.Objects
         /// then the text is deleted.
         /// </param>
         /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" /> or the
@@ -263,7 +280,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if a file operation does not succeed.
         /// </exception>
         void ReplaceTextInFiles(string rootFolderPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null);
+            string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>
         /// Sets a flag requesting the currently-executing operation to abort as

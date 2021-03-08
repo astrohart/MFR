@@ -80,6 +80,23 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets or sets a flag that indicates whether to attempt to close and
+        /// then re-open the Visual Studio solution, if open, that contains the
+        /// project(s) being renamed.
+        /// <para />
+        /// </summary>
+        /// <remarks>
+        /// If this is set to <c>true</c>, and the containing solution is open,
+        /// then the solution will be closed prior to the start of the selected
+        /// operation(s) and then re-opened when the selected operation(s) are complete.
+        /// </remarks>
+        bool ReOpenSolution
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value that indicates whether we should replace text
         /// in files.
         /// </summary>

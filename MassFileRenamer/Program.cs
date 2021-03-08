@@ -44,17 +44,17 @@ namespace MassFileRenamer.Console
             {
                 case OperationType.ReplaceTextInFiles:
                     System.Console.WriteLine(
-                       $"Replace Text in Files: Processing '{e.Pathname}'..."
+                       $"Replace Text in Files: Processing '{e.Entry}'..."
                     );
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    System.Console.WriteLine($"Rename Files: Processing '{e.Pathname}'...");
+                    System.Console.WriteLine($"Rename Files: Processing '{e.Entry}'...");
                     break;
 
                 case OperationType.RenameSubFolders:
                     System.Console.WriteLine(
-                       $"Rename Subfolders: Processing '{e.Pathname}'..."
+                       $"Rename Subfolders: Processing '{e.Entry}'..."
                     );
                     break;
             }

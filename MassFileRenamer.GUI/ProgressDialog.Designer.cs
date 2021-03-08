@@ -76,7 +76,6 @@ namespace MassFileRenamer.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(417, 138);
-            this.ControlBox = false;
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.progressBar);

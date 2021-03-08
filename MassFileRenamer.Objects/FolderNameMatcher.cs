@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -11,6 +12,21 @@ namespace MassFileRenamer.Objects
     public class FolderNameMatcher : TextExpressionMatcherBase
 
     {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
+        /// and
+        /// returns a reference to it.
+        /// </summary>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <c>null</c> value.
+        /// </exception>
+        public FolderNameMatcher(IConfiguration configuration) : base(
+            configuration
+        ) { }
+
         /// <summary>
         /// Constructs a new instance of
         /// <see
@@ -31,97 +47,104 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
-        /// and
-        /// returns a reference to it.
-        /// </summary>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
-        /// </exception>
-        public FolderNameMatcher(IConfiguration configuration) : base(
-            configuration
-        ) { }
-
-        /// <summary>
-        /// Determines whether a <paramref name="source" /> string is a match
-        /// against a <paramref name="pattern" />, according to how the
+        /// Determines whether a <paramref name="value" /> string is a match
+        /// against a <paramref name="findWhat" />, according to how the
         /// application is configured.
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the value to check for matches.
         /// </param>
-        /// <param name="pattern">
+        /// <param name="findWhat">
         /// (Required.) String containing the pattern that specifies the search criteria.
         /// </param>
-        /// <param name="dest">
+        /// <param name="replaceWith">
         /// (Required.) String containing the value that the found text is to be
         /// replaced with. Cannot be blank.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
-        /// , <paramref name="pattern" />, or
+        ///     name="value" />
+        /// , <paramref name="findWhat" />, or
         /// <paramref
-        ///     name="dest" />
+        ///     name="replaceWith" />
         /// are passed blank or <c>null</c> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="source" /> is a match
-        /// against the provided <paramref name="pattern" />; <c>false</c> if no
+        /// Returns <c>true</c> if the <paramref name="value" /> is a match
+        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
         /// matches are found.
         /// </returns>
-        public override bool IsMatch(string source, string pattern,
-            string dest = "")
+        public override bool IsMatch(string value, string findWhat,
+            string replaceWith = "")
         {
-            if (string.IsNullOrWhiteSpace(source))
+            base.IsMatch(value, findWhat, replaceWith);
+
+            if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(source)
+                    "Value cannot be null or whitespace.", nameof(value)
                 );
-            if (string.IsNullOrWhiteSpace(pattern))
+            if (string.IsNullOrWhiteSpace(findWhat))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pattern)
+                    "Value cannot be null or whitespace.", nameof(findWhat)
                 );
-            if (string.IsNullOrWhiteSpace(dest))
+            if (string.IsNullOrWhiteSpace(replaceWith))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(dest)
+                    "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            if (!Configuration.MatchWholeWord)
+            bool result;
+
+            try
             {
-                if (Configuration.MatchCase)
-                    return source.Contains(pattern) &&
-                           (pattern.Contains(dest) || !source.Contains(dest));
+                if (!Configuration.MatchWholeWord)
+                {
+                    if (Configuration.MatchCase)
+                        result = value.Contains(findWhat) &&
+                                 (findWhat.Contains(replaceWith) ||
+                                  !value.Contains(replaceWith));
+                    else
+                        result = value.ToLowerInvariant()
+                                       .Contains(findWhat.ToLowerInvariant()) &&
+                                 (findWhat.ToLowerInvariant()
+                                         .Contains(replaceWith.ToLowerInvariant()) ||
+                                 !value
+                                  .ToLowerInvariant()
+                                  .Contains(replaceWith.ToLowerInvariant()));
+                }
+                else
+                {
+                    /*
+                     * OKAY, a whole-word search on a folder path is somewhat different
+                     * than for a file. For a folder, it's made up of parts, each of which are delimited by a backslash (@'\'). Split the string along the backslashes.
+                     * In a whole-word search, if any part matches the pattern exactly,
+                     * then we are golden.
+                     */
 
-                return source.ToLowerInvariant()
-                           .Contains(pattern.ToLowerInvariant()) &&
-                       (pattern.ToLowerInvariant()
-                            .Contains(dest.ToLowerInvariant()) ||
-                        !source.ToLowerInvariant()
-                            .Contains(dest.ToLowerInvariant()));
+                    var parts = value.Split(
+                        new[] {'\\'}, StringSplitOptions.RemoveEmptyEntries
+                    );
+                    if (!parts.Any())
+                        result = false; // obviously no chance of being a match
+                    else if (Configuration.MatchCase)
+                        result = parts.Any(findWhat.Equals);
+                    else
+                        result = parts.Select(s => s.ToLowerInvariant())
+                                      .Any(
+                                          findWhat.ToLowerInvariant()
+                                                 .Equals
+                                      );
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
             }
 
-            /*
-             * OKAY, a whole-word search on a folder path is somewhat different than for a file.
-             * For a folder, it's made up of parts, each of which are delimited by a backslash (@'\').
-             * Split the string along the backslashes.  In a whole-word search, if any part matches the
-             * pattern exactly, then we are golden.
-             */
-
-            var parts = source.Split(
-                new[] {'\\'}, StringSplitOptions.RemoveEmptyEntries
-            );
-            if (!parts.Any())
-                return false; // obviously no chance of being a match
-
-            if (Configuration.MatchCase)
-                return parts.Any(pattern.Equals);
-
-            return parts.Select(s => s.ToLowerInvariant())
-                .Any(pattern.ToLowerInvariant().Equals);
+            return result;
         }
     }
 }

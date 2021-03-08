@@ -11,7 +11,7 @@
     {
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression"/>. Returns a string
+        /// the provided <paramref name="expression" />. Returns a string
         /// </summary>
         /// <param name="source">
         /// (Required.) String containing the data upon which the replacement
@@ -29,29 +29,31 @@
         /// String containing the new data.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="source"/> or <paramref name="pattern"/>, are passed blank or
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="source" />
+        /// or <paramref name="pattern" />, are passed blank or
         /// <c>null</c> string for values.
         /// </exception>
         string Replace(string source, string pattern, string dest = "");
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression"/>. Returns a string
+        /// the provided <paramref name="expression" />. Returns a string
         /// containing the results.
         /// </summary>
         /// <param name="expression">
-        /// (Required.) A <see
-        /// cref="T:MassFileRenamer.Objects.MatchExpression"/> that contains the
-        /// replacement data.
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IMatchExpression" />
+        /// interface that contains the replacement data.
         /// </param>
         /// <returns>
         /// String containing the new data.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="expression"/>, is
+        /// Thrown if the required parameter, <paramref name="expression" />, is
         /// passed a <c>null</c> value.
         /// </exception>
-        string Replace(MatchExpression expression);
+        string Replace(IMatchExpression expression);
     }
 }

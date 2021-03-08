@@ -14,10 +14,10 @@ namespace MassFileRenamer.Objects
         /// Creates a blank config.json file in the specified folder. This
         /// method also attempts to create the folder if it does not already exist.
         /// </summary>
-        /// <param name="folder">
+        /// <param name="folderName">
         /// (Required.) Path to the folder in which to store the config.json file.
         /// </param>
-        /// <param name="configFileName">
+        /// <param name="fileName">
         /// (Optional.) Filename to use for the config file. Config.json is the
         /// default. If this parameter is specified, it can't be a blank string
         /// and must be a valid filename.
@@ -32,51 +32,47 @@ namespace MassFileRenamer.Objects
         /// configuration file if it already exists.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the <paramref name="folder"/> or <paramref
-        /// name="configFileName"/> parameters are blank.
+        /// Thrown if either of the <paramref name="folderName"/> or <paramref
+        /// name="fileName"/> parameters are blank.
         /// </exception>
-        public static string CreateConfigFile(string folder,
-            string configFileName = "config.json")
+        public static string CreateOrOpenConfigFile(string folderName,
+            string fileName = "config.json")
         {
-            if (string.IsNullOrWhiteSpace(folder))
+            if (string.IsNullOrWhiteSpace(folderName))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(folder)
+                    "Value cannot be null or whitespace.", nameof(folderName)
                 );
-            if (string.IsNullOrWhiteSpace(configFileName))
+            if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
-                    nameof(configFileName)
+                    nameof(fileName)
                 );
 
-            var fullyQualifiedPath = Path.Combine(folder, configFileName);
-            if (!DebugFileAndFolderHelper.IsValidPath(fullyQualifiedPath))
+            var result = Path.Combine(folderName, fileName);
+            if (!DebugFileAndFolderHelper.IsValidPath(result))
                 throw new InvalidPathException(
-                    "The path specified is not valid.", fullyQualifiedPath
+                    "The path specified is not valid.", result
                 );
-
-            var result = fullyQualifiedPath;
-
+            
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** INFO: Checking whether the folder '{folder}' already exists..."
+                $"*** INFO: Checking whether the folder '{folderName}' already exists..."
             );
 
-            if (Directory.Exists(folder))
+            if (Directory.Exists(folderName))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** SUCCESS *** The folder '{folder}' already exists."
+                    $"*** SUCCESS *** The folder '{folderName}' already exists."
                 );
 
-                result = fullyQualifiedPath;
-
-                DebugUtils.WriteLine(
+               DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"SystemPreparer.CreateConfigFile: Result = '{result}'"
+                    $"SystemPreparer.CreateOrOpenConfigFile: Result = '{result}'"
                 );
 
                 DebugUtils.WriteLine(
-                    DebugLevel.Debug, "SystemPreparer.CreateConfigFile: Done."
+                    DebugLevel.Debug, "SystemPreparer.CreateOrOpenConfigFile: Done."
                 );
 
                 return result;
@@ -84,21 +80,22 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** INFO: The folder '{folder}' was not found."
+                $"*** INFO: The folder '{folderName}' was not found."
             );
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"SystemPreparer.CreateConfigFile: Attempting to create the folder '{folder}'..."
+                $"SystemPreparer.CreateOrOpenConfigFile: Attempting to create the folder '{folderName}'..."
             );
 
             try
             {
                 // Attempt to create the folder specified if it does not already exist.
-                DebugFileAndFolderHelper.CreateDirectoryIfNotExists(folder);
+                DebugFileAndFolderHelper.CreateDirectoryIfNotExists(folderName);
 
-                // return the fully qualified path name to the configuration file.
-                result = fullyQualifiedPath;
+                // if the file itself does not exist in the folder specified, then
+                // create a new zero-byte file at the pathname specified.
+                if (!File.Exists(result)) File.CreateText(result).Close();
             }
             catch (Exception ex)
             {
@@ -112,24 +109,23 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** SUCCESS *** Created or found a folder at the pathname '{folder}'."
+                $"*** SUCCESS *** Created or found a folder at the pathname '{folderName}'."
             );
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.CreateConfigFile: Result = '{result}'"
+                $"SystemPreparer.CreateOrOpenConfigFile: Result = '{result}'"
             );
 
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "SystemPreparer.CreateConfigFile: Done."
+                DebugLevel.Debug, "SystemPreparer.CreateOrOpenConfigFile: Done."
             );
 
             return result;
         }
 
         /// <summary>
-        /// Obtains a string value from the system Registry under the
-        /// <c>HKEY_CURRENT_USER\SOFTWARE</c> key.
+        /// Obtains a string value from the system Registry key.
         /// </summary>
         /// <param name="keyName">
         /// (Required.) String containing the name of the subkey under which the
@@ -151,13 +147,13 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
         /// </exception>
-        public static string GetProfileString(string keyName, string valueName,
+        public static string GetRegistryString(string keyName, string valueName,
             string defaultValue = "")
         {
             // write the name of the current class and method we are now
             // entering, into the log
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "In SystemPreparer.GetProfileString"
+                DebugLevel.Debug, "In SystemPreparer.GetRegistryString"
             );
 
             var result = string.Empty;
@@ -165,7 +161,7 @@ namespace MassFileRenamer.Objects
             // Dump the variable keyName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.GetProfileString: keyName = '{keyName}'"
+                $"SystemPreparer.GetRegistryString: keyName = '{keyName}'"
             );
 
             if (string.IsNullOrWhiteSpace(keyName))
@@ -176,11 +172,11 @@ namespace MassFileRenamer.Objects
             // Dump the variable defaultValue to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.GetProfileString: defaultValue = '{defaultValue}'"
+                $"SystemPreparer.GetRegistryString: defaultValue = '{defaultValue}'"
             );
 
             using (var baseKey = RegistryKey.OpenBaseKey(
-                RegistryHive.CurrentUser, RegistryView.Default
+                keyName.ToRegistryHive(), RegistryView.Default
             ))
             using (var key = baseKey.OpenSubKey(
                 keyName, RegistryKeyPermissionCheck.ReadSubTree
@@ -204,16 +200,16 @@ namespace MassFileRenamer.Objects
                 finally
                 {
                     key?.Close();
-                    baseKey?.Close();
+                    baseKey.Close();
                 }
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.GetProfileString: Result = '{result}'"
+                $"SystemPreparer.GetRegistryString: Result = '{result}'"
             );
 
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "SystemPreparer.GetProfileString: Done."
+                DebugLevel.Debug, "SystemPreparer.GetRegistryString: Done."
             );
 
             return result;
@@ -221,7 +217,7 @@ namespace MassFileRenamer.Objects
 
         /// <summary>
         /// Writes profile data (i.e., application settings) to the system
-        /// Registry, using a subkey of the <c>HKEY_CURRENT_USER</c> hive.
+        /// Registry.
         /// </summary>
         /// <param name="keyName">
         /// (Required.) String containing the path to the subkey.
@@ -237,19 +233,19 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
         /// </exception>
-        public static void SetProfileString(string keyName, string valueName,
+        public static void SetRegistryString(string keyName, string valueName,
             string valueData = "")
         {
             // write the name of the current class and method we are now
             // entering, into the log
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "In SystemPreparer.SetProfileString"
+                DebugLevel.Debug, "In SystemPreparer.SetRegistryString"
             );
 
             // Dump the variable keyName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.SetProfileString: keyName = '{keyName}'"
+                $"SystemPreparer.SetRegistryString: keyName = '{keyName}'"
             );
 
             if (string.IsNullOrWhiteSpace(keyName))
@@ -260,13 +256,13 @@ namespace MassFileRenamer.Objects
             // Dump the variable valueName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.SetProfileString: valueName = '{valueName}'"
+                $"SystemPreparer.SetRegistryString: valueName = '{valueName}'"
             );
 
             // Dump the variable valueData to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SystemPreparer.SetProfileString: valueData = '{valueData}'"
+                $"SystemPreparer.SetRegistryString: valueData = '{valueData}'"
             );
 
             DebugUtils.WriteLine(
@@ -275,7 +271,7 @@ namespace MassFileRenamer.Objects
             );
 
             using (var baseKey = RegistryKey.OpenBaseKey(
-                RegistryHive.CurrentUser, RegistryView.Default
+                keyName.ToRegistryHive(), RegistryView.Default
             ))
             using (var key = baseKey.CreateSubKey(keyName))
                 try
@@ -298,11 +294,11 @@ namespace MassFileRenamer.Objects
                 finally
                 {
                     key?.Close();
-                    baseKey?.Close();
+                    baseKey.Close();
                 }
 
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "SystemPreparer.SetProfileString: Done."
+                DebugLevel.Debug, "SystemPreparer.SetRegistryString: Done."
             );
         }
     }

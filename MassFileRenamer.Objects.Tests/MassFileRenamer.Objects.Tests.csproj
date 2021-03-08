@@ -75,17 +75,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationBuilder.cs" />
+    <Compile Include="DirectoryInfoExtensionsTests.cs" />
     <Compile Include="FileInfoExtensionsTests.cs" />
     <Compile Include="FolderNameMatcherTests.cs" />
     <Compile Include="FileNameMatcherTests.cs" />
     <Compile Include="FileRenamerTests.cs" />
+    <Compile Include="FolderNameReplacementEngineTests.cs" />
+    <Compile Include="LoadConfigurationFromFileActionTests.cs" />
+    <Compile Include="LoadStringFromRegistryActionTests.cs" />
+    <Compile Include="ProcessIdProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RegistryDataExchangeTestsBase.cs" />
+    <Compile Include="RegistryHiveExtensionsTests.cs" />
+    <Compile Include="SaveStringToRegistryCommandTests.cs" />
     <Compile Include="TextExpressionMatcherTestBase.cs" />
+    <Compile Include="TextReplacementEngineTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

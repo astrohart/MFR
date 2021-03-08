@@ -64,7 +64,7 @@
         /// Sets the value of the
         /// <see
         ///     cref="F:MassFileRenamer.Objects.Tests.ConfigurationBuilder._matchCase" />
-        /// field.
+        /// field to the value of the <paramref name="matchCase"/> parameter.
         /// </summary>
         /// <param name="matchCase">
         /// (Optional.) New value for the
@@ -99,7 +99,7 @@
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        public ConfigurationBuilder SetMatchWholeWord(
+        public ConfigurationBuilder AndSetMatchWholeWord(
             bool matchWholeWord = true)
 
         {

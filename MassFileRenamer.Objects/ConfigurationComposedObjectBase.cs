@@ -30,7 +30,6 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         protected ConfigurationComposedObjectBase()
         {
-            EnforceClientRequirementToCallAttachConfiguration();
         }
 
         /// <summary>
@@ -55,8 +54,6 @@ namespace MassFileRenamer.Objects
                             throw new ArgumentNullException(
                                 nameof(configuration)
                             );
-            if (Configuration != null)
-                RemoveClientRequirementToCallAttachConfiguration();
         }
 
         /// <summary>
@@ -65,15 +62,16 @@ namespace MassFileRenamer.Objects
         /// <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface.
         /// </summary>
         protected bool IsConfigurationAttached
-        {
-            get;
-            set;
-        }
+            => Configuration != null;
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
         /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface.
         /// </summary>
+        /// <remarks>
+        /// This object's properties give us access to the settings configured
+        /// by the user of the application.
+        /// </remarks>
         public IConfiguration Configuration
         {
             get;
@@ -101,52 +99,55 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <c>null</c> value.
         /// </exception>
-        public dynamic AndAttachConfiguration(IConfiguration configuration)
+        public dynamic AndAttachConfiguration(IConfiguration configuration) 
         {
             Configuration = configuration ??
                             throw new ArgumentNullException(
                                 nameof(configuration)
                             );
 
-            if (Configuration != null)
-                RemoveClientRequirementToCallAttachConfiguration();
-
             return this;
         }
 
         /// <summary>
-        /// Sets the
-        /// <see
-        ///     cref="P:MassFileRenamer.Objects.ConfigurationComposedObjectBase.IsConfigurationAttached" />
-        /// property to <c>false</c>.
+        /// Updates the configuration currently being used with a new value.
         /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// which has the new settings.
+        /// </param>
         /// <remarks>
-        /// This setting for the property ensures that the client must call the
-        /// <see
-        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.AndAttachConfiguration" />
-        /// method prior to any match operation commencing (the operation will
-        /// throw a <see cref="T:System.InvalidOperationException" /> if this is
-        /// the case).
+        /// The settings in the object specified will be used for all matching
+        /// from this point forward.
         /// </remarks>
-        protected void EnforceClientRequirementToCallAttachConfiguration()
-
-            // Enforce the calling of the AttachConfiguration fluent-builder method.
-            => IsConfigurationAttached = false;
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <c>null</c> value.
+        /// </exception>
+        public void UpdateConfiguration(IConfiguration configuration)
+            => Configuration = configuration ??
+                               throw new ArgumentNullException(
+                                   nameof(configuration)
+                               );
 
         /// <summary>
-        /// Sets the
-        /// <see
-        ///     cref="P:MassFileRenamer.Objects.ConfigurationComposedObjectBase.IsConfigurationAttached" />
-        /// property to <c>true</c>.
+        /// Verifies that configuration has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// This setting for the property removes the requirement that the
-        /// client of this object call the
+        /// If no configuration is attached to this object, then a new
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.AndAttachConfiguration" />
-        /// method prior to invoking any other method of this class.
+        ///     cref="T:MassFileRenamer.Objects.ConfigurationNotAttachedException" />
+        /// exception is thrown.
         /// </remarks>
-        protected void RemoveClientRequirementToCallAttachConfiguration()
-            => IsConfigurationAttached = true;
+        /// <exception cref="T:MassFileRenamer.Objects.ConfigurationNotAttachedException">
+        /// Thrown if no configuration data is attached to this object.
+        /// </exception>
+        public void VerifyConfigurationAttached()
+        {
+            if (IsConfigurationAttached)
+                return;
+            throw new ConfigurationNotAttachedException();
+        }
     }
 }

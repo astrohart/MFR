@@ -42,7 +42,7 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void Initialize()
         {
             _configuration = ConfigurationBuilder.Instance.SetMatchCase(false)
-                .SetMatchWholeWord(false).Build();
+                .AndSetMatchWholeWord(false).Build();
 
             Assert.IsNotNull(_configuration);
             Assert.IsFalse(_configuration.MatchCase);

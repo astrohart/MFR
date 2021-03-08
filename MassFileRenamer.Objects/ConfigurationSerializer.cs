@@ -10,7 +10,7 @@ namespace MassFileRenamer.Objects
                 return null;
 
             var content = File.ReadAllText(pathname);
-            return ConvertConfiguration.FromJson(content);
+            return string.IsNullOrWhiteSpace(content) ? new Configuration() : ConvertConfiguration.FromJson(content);
         }
 
         public static void Save(string pathname, IConfiguration configuration)

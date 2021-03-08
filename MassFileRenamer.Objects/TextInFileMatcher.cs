@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace MassFileRenamer.Objects
 {
@@ -39,52 +40,89 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Determines whether a <paramref name="source" /> string is a match
-        /// against a <paramref name="pattern" />, according to how the
+        /// Determines whether a <paramref name="value" /> string is a match
+        /// against a <paramref name="findWhat" />, according to how the
         /// application is configured.
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the value to check for matches.
         /// </param>
-        /// <param name="pattern">
+        /// <param name="findWhat">
         /// (Required.) String containing the pattern that specifies the search criteria.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
-        /// or <paramref name="pattern" />, are passed blank or
+        ///     name="value" />
+        /// or <paramref name="findWhat" />, are passed blank or
         /// <c>null</c> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="source" /> is a match
-        /// against the provided <paramref name="pattern" />; <c>false</c> if no
+        /// Returns <c>true</c> if the <paramref name="value" /> is a match
+        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
         /// matches are found.
         /// </returns>
-        public override bool IsMatch(string source, string pattern,
-            string dest = "")
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="findWhat" />, is
+        /// passed either the empty or <c>null</c> string for a value.
+        /// <para />
+        /// This makes logical sense; if the <paramref name="findWhat" /> is
+        /// blank, then we have nothing to search against!
+        /// <para />
+        /// NOTE: This parameter MAY have whitespace characters since these can
+        /// be matched inside the content of a text file, which is what we
+        /// expect to be passed for the <paramref name="value" /> parameter.
+        /// </exception>
+        /// <remarks>
+        /// It is expected that the <paramref name="value" /> parameter has the
+        /// contents of the file. Sometimes, files contain zero bytes of data.
+        /// <para />
+        /// If this is the case, then this method does nothing and returns the
+        /// default result of <c>false</c>.
+        /// </remarks>
+        public override bool IsMatch(
+            string value, /* data from a file, encoded as a string of bytes */
+            string findWhat, /* the pattern to search against, which may contain whitespace chars */
+            string replaceWith =
+                "" /* optional replacement value; blank erases text. */
+        )
         {
+            base.IsMatch(value, findWhat, replaceWith);
+
+            // can't match if there is no data against which to search. BUT if
+            // the file whose content is being passed in the 'source' parameter
+            // contains only whitespace, then this is OK to match against.
+            if (string.IsNullOrEmpty(value))
+                return false;
+
+            if (string.IsNullOrEmpty(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or the empty string. It CAN be whitespace, however.",
+                    nameof(findWhat)
+                );
+
             if (Configuration.MatchWholeWord)
             {
                 if (Configuration.MatchCase)
-                    return Regex.IsMatch(source, $@"\b({pattern})\b");
+                    return Regex.IsMatch(
+                        value, $@"\b({Regex.Escape(findWhat)})\b"
+                    );
 
                 return Regex.IsMatch(
-                    source.ToLowerInvariant(),
-                    $@"\b({pattern.ToLowerInvariant()})\b"
+                    value.ToLowerInvariant(),
+                    $@"\b({findWhat.ToLowerInvariant()})\b"
                 );
             }
 
             if (Configuration.MatchCase)
-                return source.Contains(pattern) &&
-                       (pattern.Contains(dest) || !source.Contains(dest));
+                return value.Contains(findWhat) &&
+                       (findWhat.Contains(replaceWith) || !value.Contains(replaceWith));
 
-            return source.ToLowerInvariant()
-                       .Contains(pattern.ToLowerInvariant()) &&
-                   (pattern.ToLowerInvariant()
-                        .Contains(dest.ToLowerInvariant()) ||
-                    !source.ToLowerInvariant()
-                        .Contains(dest.ToLowerInvariant()));
+            return value.ToLowerInvariant()
+                         .Contains(findWhat.ToLowerInvariant()) && (findWhat
+                .ToLowerInvariant()
+                .Contains(replaceWith.ToLowerInvariant()) || !value.ToLowerInvariant()
+                .Contains(replaceWith.ToLowerInvariant()));
         }
     }
 }

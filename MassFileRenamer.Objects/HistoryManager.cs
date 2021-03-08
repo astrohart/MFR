@@ -12,17 +12,10 @@ namespace MassFileRenamer.Objects
     public class HistoryManager : IHistoryManager
     {
         /// <summary>
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MassFileRenamer.Objects.IConfiguration"/> interface.
-        /// </summary>
-        /// <remarks>
-        /// This object provides access to configuration information.
-        /// </remarks>
-        private readonly IConfiguration _configuration;
-
-        /// <summary>
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:System.Windows.Forms.IWin32Window"/> interface.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:System.Windows.Forms.IWin32Window" />
+        /// interface.
         /// </summary>
         /// <remarks>
         /// This field is supposed to be filled with a reference to an object
@@ -31,38 +24,41 @@ namespace MassFileRenamer.Objects
         private readonly IWin32Window _messageBoxParentWindow;
 
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.HistoryManager"/> and returns a
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides access to configuration information.
+        /// </remarks>
+        private IConfiguration _configuration;
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.HistoryManager" />
+        /// and returns a
         /// reference to it.
         /// </summary>
-        /// ///
         /// <param name="messageBoxParentWindow">
         /// (Required.) Reference to an instance of an object that implements
-        /// <see cref="T:System.Windows.Forms.IWin32Window"/> that will serve as
-        /// the parent window of any message boxes displayed by this object.
+        /// the <see cref="T:System.Windows.Forms.IWin32Window" /> interface and
+        /// which will serve as the parent window for any message boxes
+        /// displayed by this object.
         /// </param>
-        /// ///
-        /// <param name="configuration">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
-        /// that allows access to configuration data.
-        /// </param>
-        /// <exception cref="T:ArgumentNullException">
-        /// Thrown if the either of the required parameters, <paramref
-        /// name="messageBoxParentWindow"/> or <paramref name="configuration"/>,
-        /// are passed a <c>null</c> value.
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="messageBoxParentWindow" />
+        /// , is passed a <c>null</c> value.
         /// </exception>
-        public HistoryManager(IWin32Window messageBoxParentWindow,
-            IConfiguration configuration)
+        public HistoryManager(IWin32Window messageBoxParentWindow)
         {
             _messageBoxParentWindow = messageBoxParentWindow ??
                                       throw new ArgumentNullException(
                                           nameof(messageBoxParentWindow)
                                       );
-            _configuration = configuration ??
-                             throw new ArgumentNullException(
-                                 nameof(configuration)
-                             );
         }
 
         /// <summary>
@@ -77,11 +73,20 @@ namespace MassFileRenamer.Objects
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
-            var historyLists = _configuration.GetType().GetProperties()
-                .Where(
-                    x => x.PropertyType.GetActualType() != x.PropertyType &&
-                         x.Name.Contains("History")
-                ).Select(p => p.GetValue(_configuration) as IList).ToArray();
+            var historyLists = _configuration.GetType()
+                                             .GetProperties()
+                                             .Where(
+                                                 x => x.PropertyType
+                                                         .GetActualType() !=
+                                                     x.PropertyType &&
+                                                     x.Name.Contains("History")
+                                             )
+                                             .Select(
+                                                 p => p.GetValue(
+                                                     _configuration
+                                                 ) as IList
+                                             )
+                                             .ToArray();
             if (!historyLists.Any())
                 return;
 
@@ -92,6 +97,34 @@ namespace MassFileRenamer.Objects
             // basically like a "Reset Form" button on a website.
             _configuration.StartingFolder = _configuration.FindWhat =
                 _configuration.ReplaceWith = string.Empty;
+        }
+
+        /// <summary>
+        /// Fluent-builder method to associate this History Manager object with
+        /// a configuration object.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface. This object represents the settings chosen by the user to
+        /// change the behavior of this app.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <c>null</c> value.
+        /// </exception>
+        public IHistoryManager AttachConfig(IConfiguration configuration)
+        {
+            _configuration = configuration ??
+                             throw new ArgumentNullException(
+                                 nameof(configuration)
+                             );
+
+            return this;
         }
 
         /// <summary>

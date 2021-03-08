@@ -83,7 +83,7 @@ namespace MassFileRenamer.GUI
                     );
                 return attributes.Length == 0
                     ? ""
-                    : $"{Program.ShortCompanyName} {((AssemblyProductAttribute)attributes[0]).Product}";
+                    : ((AssemblyProductAttribute)attributes[0]).Product;
             }
         }
 

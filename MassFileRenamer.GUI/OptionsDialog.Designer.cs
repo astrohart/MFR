@@ -33,21 +33,25 @@ namespace MassFileRenamer.GUI
             this.applyButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okayButton = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.optionsTabControl = new System.Windows.Forms.TabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
-            this.configPathnameLabel = new System.Windows.Forms.Label();
-            this.configPathnameBrowseButton = new System.Windows.Forms.Button();
-            this.configPathnameTextBox = new System.Windows.Forms.TextBox();
             this.configPathnamePromptLabel = new System.Windows.Forms.Label();
+            this.configPathnameTextBox = new System.Windows.Forms.TextBox();
+            this.configPathnameBrowseButton = new System.Windows.Forms.Button();
+            this.configPathnameLabel = new System.Windows.Forms.Label();
+            this.visualStudioTabPage = new System.Windows.Forms.TabPage();
+            this.reOpenSolutionLabel = new System.Windows.Forms.Label();
+            this.reOpenSolutionCheckBox = new System.Windows.Forms.CheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.tabControl1.SuspendLayout();
+            this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
+            this.visualStudioTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // applyButton
             // 
             this.applyButton.Enabled = false;
-            this.applyButton.Location = new System.Drawing.Point(242, 392);
+            this.applyButton.Location = new System.Drawing.Point(366, 392);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(87, 27);
             this.applyButton.TabIndex = 3;
@@ -58,7 +62,7 @@ namespace MassFileRenamer.GUI
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(149, 392);
+            this.cancelButton.Location = new System.Drawing.Point(273, 392);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 2;
@@ -68,21 +72,22 @@ namespace MassFileRenamer.GUI
             // okayButton
             // 
             this.okayButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okayButton.Location = new System.Drawing.Point(56, 392);
+            this.okayButton.Location = new System.Drawing.Point(180, 392);
             this.okayButton.Name = "okayButton";
             this.okayButton.Size = new System.Drawing.Size(87, 27);
             this.okayButton.TabIndex = 1;
             this.okayButton.Text = "OK";
             this.okayButton.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // optionsTabControl
             // 
-            this.tabControl1.Controls.Add(this.generalTabPage);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(316, 373);
-            this.tabControl1.TabIndex = 0;
+            this.optionsTabControl.Controls.Add(this.generalTabPage);
+            this.optionsTabControl.Controls.Add(this.visualStudioTabPage);
+            this.optionsTabControl.Location = new System.Drawing.Point(13, 13);
+            this.optionsTabControl.Name = "optionsTabControl";
+            this.optionsTabControl.SelectedIndex = 0;
+            this.optionsTabControl.Size = new System.Drawing.Size(444, 373);
+            this.optionsTabControl.TabIndex = 0;
             // 
             // generalTabPage
             // 
@@ -93,23 +98,30 @@ namespace MassFileRenamer.GUI
             this.generalTabPage.Location = new System.Drawing.Point(4, 24);
             this.generalTabPage.Name = "generalTabPage";
             this.generalTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.generalTabPage.Size = new System.Drawing.Size(308, 345);
+            this.generalTabPage.Size = new System.Drawing.Size(436, 345);
             this.generalTabPage.TabIndex = 0;
             this.generalTabPage.Text = "General";
             this.generalTabPage.UseVisualStyleBackColor = true;
             // 
-            // configPathnameLabel
+            // configPathnamePromptLabel
             // 
-            this.configPathnameLabel.AutoSize = true;
-            this.configPathnameLabel.Location = new System.Drawing.Point(4, 57);
-            this.configPathnameLabel.Name = "configPathnameLabel";
-            this.configPathnameLabel.Size = new System.Drawing.Size(160, 15);
-            this.configPathnameLabel.TabIndex = 1;
-            this.configPathnameLabel.Text = "&Configuration file pathname:";
+            this.configPathnamePromptLabel.Location = new System.Drawing.Point(17, 17);
+            this.configPathnamePromptLabel.Name = "configPathnamePromptLabel";
+            this.configPathnamePromptLabel.Size = new System.Drawing.Size(295, 37);
+            this.configPathnamePromptLabel.TabIndex = 0;
+            this.configPathnamePromptLabel.Text = "Where on your computer should we store the configuration file?";
+            // 
+            // configPathnameTextBox
+            // 
+            this.configPathnameTextBox.Location = new System.Drawing.Point(17, 85);
+            this.configPathnameTextBox.Name = "configPathnameTextBox";
+            this.configPathnameTextBox.Size = new System.Drawing.Size(382, 23);
+            this.configPathnameTextBox.TabIndex = 2;
+            this.configPathnameTextBox.TextChanged += new System.EventHandler(this.OnTextChangedConfiguraitonFilePathname);
             // 
             // configPathnameBrowseButton
             // 
-            this.configPathnameBrowseButton.Location = new System.Drawing.Point(266, 74);
+            this.configPathnameBrowseButton.Location = new System.Drawing.Point(405, 85);
             this.configPathnameBrowseButton.Name = "configPathnameBrowseButton";
             this.configPathnameBrowseButton.Size = new System.Drawing.Size(25, 23);
             this.configPathnameBrowseButton.TabIndex = 3;
@@ -117,21 +129,45 @@ namespace MassFileRenamer.GUI
             this.configPathnameBrowseButton.UseVisualStyleBackColor = true;
             this.configPathnameBrowseButton.Click += new System.EventHandler(this.OnClickConfigPathnameBrowseButton);
             // 
-            // configPathnameTextBox
+            // configPathnameLabel
             // 
-            this.configPathnameTextBox.Location = new System.Drawing.Point(7, 75);
-            this.configPathnameTextBox.Name = "configPathnameTextBox";
-            this.configPathnameTextBox.Size = new System.Drawing.Size(253, 23);
-            this.configPathnameTextBox.TabIndex = 2;
-            this.configPathnameTextBox.TextChanged += new System.EventHandler(this.OnTextChangedConfiguraitonFilePathname);
+            this.configPathnameLabel.AutoSize = true;
+            this.configPathnameLabel.Location = new System.Drawing.Point(14, 67);
+            this.configPathnameLabel.Name = "configPathnameLabel";
+            this.configPathnameLabel.Size = new System.Drawing.Size(160, 15);
+            this.configPathnameLabel.TabIndex = 1;
+            this.configPathnameLabel.Text = "&Configuration file pathname:";
             // 
-            // configPathnamePromptLabel
+            // visualStudioTabPage
             // 
-            this.configPathnamePromptLabel.Location = new System.Drawing.Point(7, 7);
-            this.configPathnamePromptLabel.Name = "configPathnamePromptLabel";
-            this.configPathnamePromptLabel.Size = new System.Drawing.Size(295, 37);
-            this.configPathnamePromptLabel.TabIndex = 0;
-            this.configPathnamePromptLabel.Text = "Where on your computer should we store the configuration file?";
+            this.visualStudioTabPage.Controls.Add(this.reOpenSolutionLabel);
+            this.visualStudioTabPage.Controls.Add(this.reOpenSolutionCheckBox);
+            this.visualStudioTabPage.Location = new System.Drawing.Point(4, 24);
+            this.visualStudioTabPage.Name = "visualStudioTabPage";
+            this.visualStudioTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.visualStudioTabPage.Size = new System.Drawing.Size(436, 345);
+            this.visualStudioTabPage.TabIndex = 1;
+            this.visualStudioTabPage.Text = "Visual Studio";
+            this.visualStudioTabPage.UseVisualStyleBackColor = true;
+            // 
+            // reOpenSolutionLabel
+            // 
+            this.reOpenSolutionLabel.Location = new System.Drawing.Point(39, 14);
+            this.reOpenSolutionLabel.Name = "reOpenSolutionLabel";
+            this.reOpenSolutionLabel.Size = new System.Drawing.Size(331, 38);
+            this.reOpenSolutionLabel.TabIndex = 1;
+            this.reOpenSolutionLabel.Text = "Close and then re-open containing solution before\r\nand after operation(s)";
+            // 
+            // reOpenSolutionCheckBox
+            // 
+            this.reOpenSolutionCheckBox.AutoSize = true;
+            this.reOpenSolutionCheckBox.Checked = true;
+            this.reOpenSolutionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.reOpenSolutionCheckBox.Location = new System.Drawing.Point(18, 18);
+            this.reOpenSolutionCheckBox.Name = "reOpenSolutionCheckBox";
+            this.reOpenSolutionCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.reOpenSolutionCheckBox.TabIndex = 0;
+            this.reOpenSolutionCheckBox.UseVisualStyleBackColor = true;
             // 
             // configPathBrowseBox
             // 
@@ -145,8 +181,8 @@ namespace MassFileRenamer.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(341, 431);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(469, 431);
+            this.Controls.Add(this.optionsTabControl);
             this.Controls.Add(this.okayButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.applyButton);
@@ -160,9 +196,11 @@ namespace MassFileRenamer.GUI
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Options";
-            this.tabControl1.ResumeLayout(false);
+            this.optionsTabControl.ResumeLayout(false);
             this.generalTabPage.ResumeLayout(false);
             this.generalTabPage.PerformLayout();
+            this.visualStudioTabPage.ResumeLayout(false);
+            this.visualStudioTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -172,12 +210,15 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.Button applyButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okayButton;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl optionsTabControl;
         private System.Windows.Forms.TabPage generalTabPage;
         private System.Windows.Forms.Label configPathnameLabel;
         private System.Windows.Forms.TextBox configPathnameTextBox;
         private System.Windows.Forms.Button configPathnameBrowseButton;
         private System.Windows.Forms.Label configPathnamePromptLabel;
         private System.Windows.Forms.OpenFileDialog configPathBrowseBox;
+        private System.Windows.Forms.TabPage visualStudioTabPage;
+        private System.Windows.Forms.CheckBox reOpenSolutionCheckBox;
+        private System.Windows.Forms.Label reOpenSolutionLabel;
     }
 }

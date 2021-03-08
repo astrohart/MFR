@@ -1,19 +1,31 @@
 ﻿using EnvDTE;
 using MassFileRenamer.Objects.Properties;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using Process = System.Diagnostics.Process;
 using Thread = System.Threading.Thread;
 
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Provides file- an folder-rename services.
+    /// Provides file- and folder-rename services.
     /// </summary>
-    public class FileRenamer : IFileRenamer
+    /// <remarks>
+    /// NOTE: Instances of this class must be composed with an instance of an
+    /// object that implements the
+    /// <see
+    ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+    /// interface.
+    /// <para />
+    /// Such an object is necessary because it provides settings specified by
+    /// the user that change the behavior of this object.
+    /// </remarks>
+    public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
     {
         /// <summary>
         /// Constructs a new instance of
@@ -56,6 +68,30 @@ namespace MassFileRenamer.Objects
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MassFileRenamer.Objects.FileRenamer.ProcessAll" />
+        /// method is
+        /// called, do nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -128,21 +164,6 @@ namespace MassFileRenamer.Objects
             SubfoldersToBeRenamedCounted;
 
         /// <summary>
-        /// Occurs when we need the client of this class to perform a match on a
-        /// filename for us.
-        /// </summary>
-        public event TextExpressionMatchRequestedEventHandler
-            TextExpressionMatchRequested;
-
-        /// <summary>
-        /// Asks the client to perform text replacement according to rules set
-        /// by our heuristics in combination with configuration settings as
-        /// adjusted by the user.
-        /// </summary>
-        public event TextReplacementRequestedEventHandler
-            TextReplacementRequested;
-
-        /// <summary>
         /// Gets a string containing the full pathname of the folder where all
         /// operations start.
         /// </summary>
@@ -168,15 +189,21 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other
+        /// inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         public void ProcessAll(string findWhat, string replaceWith,
-            Func<string, bool> pathFilter = null)
+            Predicate<string> pathFilter = null)
         {
             if (string.IsNullOrWhiteSpace(RootDirectoryPath))
                 throw new ArgumentException(
@@ -256,23 +283,27 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other
+        /// inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         public void ProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null)
+            string replaceWith, Predicate<string> pathFilter = null)
         {
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
                     nameof(rootDirectoryPath)
                 );
-
-            ProgramFlowHelper.StartDebugger();
 
             MessageFilter.Register();
 
@@ -311,10 +342,7 @@ namespace MassFileRenamer.Objects
                 // Visual Studio, if any, that is (a) currently open and (b)
                 // currently has the solution open
                 dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
-                    Path.Combine(
-                        RootDirectoryPath,
-                        Path.GetFileName(RootDirectoryPath) + ".sln"
-                    )
+                    solutionPathByConvention
                 );
                 ShouldReOpenSolution = dte != null;
 
@@ -324,7 +352,8 @@ namespace MassFileRenamer.Objects
                 // the solution and then we will instruct VS to re-open the
                 // solution once we're done processing the user's requested operation(s).
             }
-            else if (Process.GetProcessesByName("devenv").Any())
+            else if (Process.GetProcessesByName("devenv")
+                            .Any())
             {
                 ShouldReOpenSolution = false;
 
@@ -453,12 +482,18 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other
+        /// inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
@@ -476,8 +511,32 @@ namespace MassFileRenamer.Objects
         /// Thrown if a file operation does not succeed.
         /// </exception>
         public void RenameFilesInFolder(string rootFolderPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null)
+            string replaceWith, Predicate<string> pathFilter = null)
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In FileRenamer.RenameFilesInFolder"
+            );
+
+            // Dump the parameter rootFolderPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameFilesInFolder: rootFolderPath = '{rootFolderPath}'"
+            );
+
+            // Dump the parameter findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameFilesInFolder: findWhat = '{findWhat}'"
+            );
+
+            // Dump the parameter replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameFilesInFolder: replaceWith = '{replaceWith}'"
+            );
+
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -500,73 +559,95 @@ namespace MassFileRenamer.Objects
             {
                 OnOperationStarted(
                     new OperationStartedEventArgs(
-                        OperationType.RenameFilesInFolder
-                    )
-                );
-
-                OnOperationStarted(
-                    new OperationStartedEventArgs(
                         OperationType.GettingListOfFilesToBeRenamed
                     )
                 );
 
-                var filenames = Directory
-                    .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-                    .Where(
-                        file => !ShouldSkipFile(file) &&
-                                (findWhat.Contains(replaceWith) ||
-                                 OnTextExpressionMatchRequested(
-                                     new TextExpressionMatchRequestedEventArgs(
-                                         file, findWhat, string.Empty,
-                                         OperationType.RenameFilesInFolder
-                                     )
-                                 ))
-                    ).ToList();
-                if (!filenames.Any())
+                List<IFileSystemEntry> entries = GetFileSystemEntryListRetriever
+                                                 .For(
+                                                     OperationType
+                                                         .RenameFilesInFolder
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     Configuration
+                                                 )
+                                                 .UsingSearchPattern("*")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath,
+                                                     pathFilter
+                                                 )
+                                                 .ToList();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: {entries.Count} files found that might need to be renamed."
+                );
+
+                if (!entries.Any())
                     if (!AbortRequested)
                     {
                         OnOperationFinished(
                             new OperationFinishedEventArgs(
-                                OperationType.RenameFilesInFolder
+                                OperationType.GettingListOfFilesToBeRenamed
                             )
                         );
                         return;
                     }
 
-                OnFilesToBeRenamedCounted(
-                    new FilesOrFoldersCountedEventArgs(
-                        filenames.Count, OperationType.RenameFilesInFolder
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.GettingListOfFilesToBeRenamed
                     )
                 );
 
-                foreach (var filename in filenames.Where(
-                    filename => pathFilter == null || pathFilter(filename)
-                ))
+                OnFilesToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        entries.Count, OperationType.RenameFilesInFolder
+                    )
+                );
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameFilesInFolder
+                    )
+                );
+
+                foreach (var entry in entries)
                 {
                     try
                     {
                         if (AbortRequested) break;
 
-                        OnProcessingOperation(
-                            new ProcessingOperationEventArgs(
-                                filename, OperationType.RenameFilesInFolder
-                            )
-                        );
-
-                        var directoryName = Path.GetDirectoryName(filename);
-                        if (string.IsNullOrWhiteSpace(directoryName)) continue;
-
-                        FileInfoFactory.Make(filename).RenameTo(
-                            Path.Combine(
-                                directoryName,
-                                OnTextReplacementRequested(
-                                    new TextReplacementRequestedEventArgs(
-                                        filename, findWhat, replaceWith,
-                                        OperationType.RenameFilesInFolder
-                                    )
-                                )
-                            )
-                        );
+                        entry.ToFileInfo()
+                             .RenameTo(
+                                 (string)GetTextReplacementEngine.For(
+                                         OperationType.RenameFilesInFolder
+                                     )
+                                     .AndAttachConfiguration(Configuration)
+                                     .Replace(
+                                         GetMatchExpressionFactory.For(
+                                                 OperationType
+                                                     .RenameFilesInFolder
+                                             )
+                                             .AndAttachConfiguration(
+                                                 Configuration
+                                             )
+                                             .ForTextValue(
+                                                 GetTextValueRetriever.For(
+                                                         OperationType
+                                                             .RenameFilesInFolder
+                                                     )
+                                                     .GetTextValue(entry)
+                                             )
+                                             .ToFindWhat(findWhat)
+                                             .AndReplaceItWith(replaceWith)
+                                     )
+                             );
                     }
                     catch (Exception ex)
                     {
@@ -591,6 +672,12 @@ namespace MassFileRenamer.Objects
                 throw new OperationAbortedException(
                     "The operation has been aborted."
                 );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.RenameFilesInFolder
+                )
+            );
         }
 
         /// <summary>
@@ -611,12 +698,18 @@ namespace MassFileRenamer.Objects
         /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) If specified, a delegate that accepts as its sole
-        /// parameter a string containing the pathname to the item currently
-        /// being processed, and that returns a Boolean value. If the value
-        /// returned is <c>true</c>, the item with the pathname matching that of
-        /// the input is included in the operations; <c>false</c> means the item
-        /// is excluded.
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other
+        /// inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
@@ -634,7 +727,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if a file operation does not succeed.
         /// </exception>
         public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
-            string replaceWith, Func<string, bool> pathFilter = null)
+            string replaceWith, Predicate<string> pathFilter = null)
         {
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
@@ -663,25 +756,25 @@ namespace MassFileRenamer.Objects
                 );
 
                 // Build list of folders to be processed
-                var subFolders = new List<string>();
-
-                foreach (var folder in Directory.GetDirectories(
-                    rootFolderPath, "*", SearchOption.AllDirectories
-                ))
-                {
-                    if (ShouldSkipFolder(folder)) continue;
-
-                    if (!OnTextExpressionMatchRequested(
-                        new TextExpressionMatchRequestedEventArgs(
-                            folder, findWhat, replaceWith,
-                            OperationType.RenameSubFolders
-                        )
-                    )) continue;
-
-                    if (pathFilter != null && !pathFilter(folder)) continue;
-
-                    subFolders.Add(folder);
-                }
+                List<IFileSystemEntry> entries = GetFileSystemEntryListRetriever
+                                                 .For(
+                                                     OperationType
+                                                         .RenameSubFolders
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     Configuration
+                                                 )
+                                                 .UsingSearchPattern("*")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath,
+                                                     pathFilter
+                                                 )
+                                                 .ToList();
 
                 /*
                 var subFolders = Directory
@@ -695,7 +788,12 @@ namespace MassFileRenamer.Objects
                     ).ToList();
                 */
 
-                if (!subFolders.Any())
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.RenameSubFoldersOf: {entries.Count} folders are to be renamed."
+                );
+
+                if (!entries.Any())
                     if (!AbortRequested)
                     {
                         /*
@@ -716,7 +814,7 @@ namespace MassFileRenamer.Objects
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
-                        subFolders.Count, OperationType.RenameSubFolders
+                        entries.Count, OperationType.RenameSubFolders
                     )
                 );
 
@@ -727,27 +825,42 @@ namespace MassFileRenamer.Objects
                  * settings specified by the user.
                  */
 
-                foreach (var folder in subFolders)
+                foreach (var entry in entries)
                     try
                     {
                         if (AbortRequested) break;
 
-                        var dirInfo = new DirectoryInfo(folder);
-
                         OnProcessingOperation(
                             new ProcessingOperationEventArgs(
-                                dirInfo.FullName, OperationType.RenameSubFolders
+                                entry, OperationType.RenameSubFolders
                             )
                         );
 
-                        dirInfo.RenameTo(
-                            OnTextReplacementRequested(
-                                new TextReplacementRequestedEventArgs(
-                                    dirInfo.FullName, findWhat, replaceWith,
-                                    OperationType.RenameSubFolders
-                                )
-                            )
-                        );
+                        entry.ToDirectoryInfo()
+                             .RenameTo(
+                                 (string)GetTextReplacementEngine
+                                         .For(OperationType.RenameSubFolders)
+                                         .AndAttachConfiguration(Configuration)
+                                         .Replace(
+                                             (IMatchExpression)
+                                             GetMatchExpressionFactory.For(
+                                                     OperationType
+                                                         .RenameSubFolders
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     Configuration
+                                                 )
+                                                 .ForTextValue(
+                                                     GetTextValueRetriever.For(
+                                                             OperationType
+                                                                 .RenameSubFolders
+                                                         )
+                                                         .GetTextValue(entry)
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                         )
+                             );
                     }
                     catch (Exception ex)
                     {
@@ -799,6 +912,18 @@ namespace MassFileRenamer.Objects
         /// then the text is deleted.
         /// </param>
         /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <c>true</c> if the file should be
+        /// included in the operation or <c>false</c> otherwise.
+        /// <para />
+        /// This parameter is <c>null</c> by default. This method should return
+        /// <c>true</c> to specify that a given file-system entry is to be
+        /// included in the output collection -- barring other
+        /// inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" /> or the
@@ -814,7 +939,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if a file operation does not succeed.
         /// </exception>
         public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
-            string replaceWith = "", Func<string, bool> pathFilter = null)
+            string replaceWith = "", Predicate<string> pathFilter = null)
         {
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
@@ -834,14 +959,23 @@ namespace MassFileRenamer.Objects
                 new OperationStartedEventArgs(OperationType.ReplaceTextInFiles)
             );
 
-            var filenames = Directory
-                .GetFiles(rootFolderPath, "*", SearchOption.AllDirectories)
-                .Where(
-                    file => !ShouldSkipFile(file) &&
-                            (pathFilter == null || pathFilter(file))
-                ).ToList();
+            List<IFileSystemEntry> fileSystemEntries =
+                GetFileSystemEntryListRetriever
+                    .For(OperationType.ReplaceTextInFiles)
+                    .AndAttachConfiguration(Configuration)
+                    .UsingSearchPattern("*")
+                    .WithSearchOption(SearchOption.AllDirectories)
+                    .ToFindWhat(findWhat)
+                    .AndReplaceItWith(replaceWith)
+                    .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
+                    .ToList();
 
-            if (!filenames.Any())
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: {fileSystemEntries.Count} files found that might have text in them that needs replacing."
+            );
+
+            if (!fileSystemEntries.Any())
                 if (!AbortRequested)
                 {
                     OnOperationFinished(
@@ -854,42 +988,72 @@ namespace MassFileRenamer.Objects
 
             OnFilesToHaveTextReplacedCounted(
                 new FilesOrFoldersCountedEventArgs(
-                    filenames.Count, OperationType.ReplaceTextInFiles
+                    fileSystemEntries.Count, OperationType.ReplaceTextInFiles
                 )
             );
 
             try
             {
-                foreach (var filename in filenames)
+                foreach (var entry in fileSystemEntries)
                     try
                     {
                         if (AbortRequested) break;
 
                         OnProcessingOperation(
                             new ProcessingOperationEventArgs(
-                                filename, OperationType.ReplaceTextInFiles
+                                entry, OperationType.ReplaceTextInFiles
                             )
                         );
 
-                        var text = File.ReadAllText(filename);
-                        if (!OnTextExpressionMatchRequested(
-                            new TextExpressionMatchRequestedEventArgs(
-                                text, findWhat, replaceWith,
-                                OperationType.ReplaceTextInFiles
-                            )
-                        )) continue;
+                        string replacementData = GetTextReplacementEngine
+                                                 .For(
+                                                     OperationType
+                                                         .ReplaceTextInFiles
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     Configuration
+                                                 )
+                                                 .Replace(
+                                                     (IMatchExpression)
+                                                     GetMatchExpressionFactory
+                                                         .For(
+                                                             OperationType
+                                                                 .ReplaceTextInFiles
+                                                         )
+                                                         .AndAttachConfiguration(
+                                                             Configuration
+                                                         )
+                                                         .ForTextValue(
+                                                             GetTextValueRetriever
+                                                                 .For(
+                                                                     OperationType
+                                                                         .ReplaceTextInFiles
+                                                                 )
+                                                                 .GetTextValue(
+                                                                     entry
+                                                                 )
+                                                         )
+                                                         .ToFindWhat(findWhat)
+                                                         .AndReplaceItWith(
+                                                             replaceWith
+                                                         )
+                                                 );
 
-                        text = OnTextReplacementRequested(
-                            new TextReplacementRequestedEventArgs(
-                                text, findWhat, replaceWith,
-                                OperationType.ReplaceTextInFiles
-                            )
-                        );
+                        if (File.Exists(entry.Path))
+                            File.Delete(entry.Path);
 
-                        if (File.Exists(filename))
-                            File.Delete(filename);
-
-                        File.WriteAllText(filename, text);
+                        /*
+                         * OKAY, check whether the replacement file data has zero byte length.
+                         * If so, then the file-deletion operation above suffices to remove the
+                         * file whose data is being replaced.
+                         *
+                         * We only will carry out the writing of data to the file on the disk
+                         * in the event that the replacementData variable has more than zero byte
+                         * length.  We are willing to write whitespace to the file, in order to
+                         * support the Whitespace programming language.
+                         */
+                        if (!string.IsNullOrEmpty(replacementData))
+                            File.WriteAllText(entry.Path, replacementData);
                     }
                     catch (Exception ex)
                     {
@@ -904,19 +1068,38 @@ namespace MassFileRenamer.Objects
                         )
                     );
             }
-            catch (Exception ex)
-            {
-                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
-            }
+            catch (Exception ex) { }
 
             if (AbortRequested)
                 throw new OperationAbortedException(
                     "The operation has been aborted."
                 );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** Text replacement in files operation completed successfully."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "FileRenamer.ReplaceTextInFiles: Done."
+            );
         }
 
         public void RequestAbort()
             => AbortRequested = true;
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
 
         /// <summary>
         /// Raises the
@@ -928,58 +1111,9 @@ namespace MassFileRenamer.Objects
         /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs" />
         /// that contains the event data.
         /// </param>
-        protected virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
             => ExceptionRaised?.Invoke(this, e);
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.FileRenamer.TextExpressionMatchRequested" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        /// <returns>
-        /// <code>True</code>
-        /// if the filename presented matches according to the textual criteria
-        /// set by the client, or <c>false</c> otherwise.
-        /// </returns>
-        protected virtual bool OnTextExpressionMatchRequested(
-            TextExpressionMatchRequestedEventArgs e)
-        {
-            if (TextExpressionMatchRequested == null)
-                return false;
-
-            TextExpressionMatchRequested?.Invoke(this, e);
-            return e.DoesMatch;
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.TextReplacementRequested" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextReplacementRequestedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        /// <returns>
-        /// String containing the result of the replacement. If no replacement
-        /// was done, then the original text is returned.
-        /// </returns>
-        protected virtual string OnTextReplacementRequested(
-            TextReplacementRequestedEventArgs e)
-        {
-            TextReplacementRequested?.Invoke(this, e);
-            return e.Result;
-        }
 
         /// <summary>
         /// Raises the
@@ -1118,64 +1252,5 @@ namespace MassFileRenamer.Objects
         private void OnSubfoldersToBeRenamedCounted(
             FilesOrFoldersCountedEventArgs e)
             => SubfoldersToBeRenamedCounted?.Invoke(this, e);
-
-        /// <summary>
-        /// Alias for the
-        /// <see
-        ///     cref="M:MassFileRenamer.Objects.FilePathValidator.ShouldSkipFile" />
-        /// method.
-        /// </summary>
-        /// <param name="file">
-        /// (Required.) String containing the path of the file whose path should
-        /// checked against exclusion rules.
-        /// </param>
-        /// <returns>
-        /// If the file should not be processed, then this method returns
-        /// <c>true</c>. Otherwise, the value <c>false</c> is returned, which
-        /// signifies that the file is to be included in the operation(s).
-        /// </returns>
-        private bool ShouldSkipFile(string file)
-        {
-            if (string.IsNullOrWhiteSpace(file))
-                return true;
-
-            if (!File.Exists(file))
-                return true;
-
-            var result = FilePathValidator.ShouldSkipFile(file);
-            if (result)
-                OnFileSystemEntrySkipped(
-                    new FileSystemEntrySkippedEventArgs(file)
-                );
-            return result;
-        }
-
-        /// <summary>
-        /// Gets a value corresponding to whether the folder with
-        /// fully-qualified pathname, <paramref name="dir" />, should be skipped
-        /// because of what key words its pathname contains.
-        /// </summary>
-        /// <param name="dir">
-        /// (Required.) String containing the fully-qualified pathname of the
-        /// folder to be examined.
-        /// </param>
-        /// <returns>
-        /// <c>true</c> if the folder should be skipped; <c>false</c> otherwise.
-        /// </returns>
-        private bool ShouldSkipFolder(string dir)
-        {
-            if (string.IsNullOrWhiteSpace(dir))
-                return true;
-
-            if (!Directory.Exists(dir))
-                return true;
-
-            var result = FolderPathValidator.ShouldSkipFolder(dir);
-            if (result)
-                OnFileSystemEntrySkipped(
-                    new FileSystemEntrySkippedEventArgs(dir)
-                );
-            return result;
-        }
     }
 }

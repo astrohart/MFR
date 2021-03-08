@@ -93,14 +93,14 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="expression" />, is
         /// passed a <c>null</c> value.
         /// </exception>
-        public string Replace(MatchExpression expression)
+        public string Replace(IMatchExpression expression)
         {
             if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
 
             return Replace(
-                expression.Source, expression.Pattern,
-                expression.SubstitutionDestination
+                expression.Value, expression.FindWhat,
+                expression.ReplaceWith
             );
         }
     }

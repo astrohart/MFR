@@ -42,44 +42,46 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Determines whether a <paramref name="source" /> string is a match
-        /// against a <paramref name="pattern" />, according to how the
+        /// Determines whether a <paramref name="value" /> string is a match
+        /// against a <paramref name="findWhat" />, according to how the
         /// application is configured.
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the value to check for matches.
         /// </param>
-        /// <param name="pattern">
+        /// <param name="findWhat">
         /// (Required.) String containing the pattern that specifies the search criteria.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
-        /// , <paramref name="pattern" />, or
+        ///     name="value" />
+        /// , <paramref name="findWhat" />, or
         /// <paramref
-        ///     name="dest" />
+        ///     name="replaceWith" />
         /// , are passed blank or <c>null</c> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="source" /> is a match
-        /// against the provided <paramref name="pattern" />; <c>false</c> if no
+        /// Returns <c>true</c> if the <paramref name="value" /> is a match
+        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
         /// matches are found.
         /// </returns>
-        public override bool IsMatch(string source, string pattern,
-            string dest = "")
+        public override bool IsMatch(string value, string findWhat,
+            string replaceWith = "")
         {
-            if (string.IsNullOrWhiteSpace(source))
+            base.IsMatch(value, findWhat, replaceWith);
+
+            if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(source)
+                    "Value cannot be null or whitespace.", nameof(value)
                 );
-            if (string.IsNullOrWhiteSpace(pattern))
+            if (string.IsNullOrWhiteSpace(findWhat))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pattern)
+                    "Value cannot be null or whitespace.", nameof(findWhat)
                 );
-            if (string.IsNullOrWhiteSpace(dest))
+            if (string.IsNullOrWhiteSpace(replaceWith))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(dest)
+                    "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
             /*
@@ -89,19 +91,19 @@ namespace MassFileRenamer.Objects
 
             if (Configuration.MatchCase)
                 if (Configuration.MatchWholeWord)
-                    return source.Equals(pattern);
+                    return value.Equals(findWhat);
                 else
-                    return source.Contains(pattern) &&
-                           (pattern.Contains(dest) || !source.Contains(dest));
+                    return value.Contains(findWhat) &&
+                           (findWhat.Contains(replaceWith) || !value.Contains(replaceWith));
             if (Configuration.MatchWholeWord)
-                return source.ToLowerInvariant()
-                    .Equals(pattern.ToLowerInvariant());
-            return source.ToLowerInvariant()
-                       .Contains(pattern.ToLowerInvariant()) &&
-                   (pattern.ToLowerInvariant()
-                        .Contains(dest.ToLowerInvariant()) ||
-                    !source.ToLowerInvariant()
-                        .Contains(dest.ToLowerInvariant()));
+                return value.ToLowerInvariant()
+                    .Equals(findWhat.ToLowerInvariant());
+            return value.ToLowerInvariant()
+                       .Contains(findWhat.ToLowerInvariant()) &&
+                   (findWhat.ToLowerInvariant()
+                        .Contains(replaceWith.ToLowerInvariant()) ||
+                    !value.ToLowerInvariant()
+                        .Contains(replaceWith.ToLowerInvariant()));
         }
     }
 }

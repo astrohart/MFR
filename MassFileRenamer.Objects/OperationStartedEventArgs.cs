@@ -10,11 +10,11 @@
         /// cref="T:MassFileRenamer.Objects.OperationEventArgs"/> and returns a
         /// reference to it.
         /// </summary>
-        /// <param name="type">
+        /// <param name="operationType">
         /// (Required.) One of the <see
         /// cref="T:MassFileRenamer.Objects.OperationType"/> values that
         /// specifies the operation being performed.
         /// </param>
-        public OperationStartedEventArgs(OperationType type) : base(type) { }
+        public OperationStartedEventArgs(OperationType operationType) : base(operationType) { }
     }
 }

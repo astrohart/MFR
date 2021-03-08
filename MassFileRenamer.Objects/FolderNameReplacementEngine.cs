@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MassFileRenamer.Objects
 {
@@ -142,24 +143,24 @@ namespace MassFileRenamer.Objects
                 // to be called from a recursive algorithm.
 
                 if (!Configuration.MatchWholeWord)
-                    return Path.Combine(
+                    result = Path.Combine(
                         parentDirectoryInfo
                             .FullName, // full pathname of parent folder
                         Configuration.MatchCase
                             ? directoryInfo.Name.Replace(pattern, dest)
                             : directoryInfo.Name.ReplaceNoCase(pattern, dest)
                     );
-
-                return Path.Combine(
-                    parentDirectoryInfo.FullName,
-                    Configuration.MatchCase
-                        ? directoryInfo.Name.RegexReplaceWithCase(
-                            $@"\b({pattern})\b", dest
-                        )
-                        : directoryInfo.Name.RegexReplaceNoCase(
-                            $@"\b({pattern})\b", dest
-                        )
-                );
+                else
+                    result = Path.Combine(
+                        parentDirectoryInfo.FullName,
+                        Configuration.MatchCase
+                            ? directoryInfo.Name.RegexReplaceWithCase(
+                                $@"\b({Regex.Escape(pattern)})\b", dest
+                            )
+                            : directoryInfo.Name.RegexReplaceNoCase(
+                                $@"\b({Regex.Escape(pattern)})\b", dest
+                            )
+                    );
             }
             catch
             {

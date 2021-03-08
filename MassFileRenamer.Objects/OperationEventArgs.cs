@@ -9,18 +9,34 @@ namespace MassFileRenamer.Objects
     public class OperationEventArgs : EventArgs
     {
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MassFileRenamer.Objects.OperationEventArgs"/> and returns a
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationEventArgs" />
+        /// and returns a
         /// reference to it.
         /// </summary>
-        /// <param name="type">
-        /// (Required.) One of the <see
-        /// cref="T:MassFileRenamer.Objects.OperationType"/> values that
+        /// <param name="operationType">
+        /// (Required.) One of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
         /// specifies the operation being performed.
         /// </param>
-        public OperationEventArgs(OperationType type)
+        /// <exception cref="T:System.NotSupportedException">
+        /// Thrown if
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType.Unknown" />
+        /// is passed
+        /// for the <paramref name="operationType" /> parameter.
+        /// </exception>
+        public OperationEventArgs(OperationType operationType)
         {
-            OperationType = type;
+            if (OperationType.Unknown == operationType)
+                throw new NotSupportedException(
+                    "The 'Unknown' OperationType value is not supported."
+                );
+
+            OperationType = operationType;
         }
 
         /// <summary>

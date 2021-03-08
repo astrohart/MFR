@@ -14,12 +14,12 @@
         /// (Required.) A zero or positive integer specifying the number of
         /// files to be processed by the operation.
         /// </param>
-        /// <param name="type">
+        /// <param name="operationType">
         /// (Required.) One of the <see
         /// cref="T:MassFileRenamer.Objects.OperationType"/> values that
         /// specifies the operation being performed.
         /// </param>
-        public FilesOrFoldersCountedEventArgs(int count, OperationType type) : base(type)
+        public FilesOrFoldersCountedEventArgs(int count, OperationType operationType) : base(operationType)
         {
             Count = count;
         }

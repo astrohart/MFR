@@ -13,6 +13,17 @@ namespace MassFileRenamer.Objects
     public class Configuration : IConfiguration
     {
         /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.Configuration" />
+        /// and returns a reference to it.
+        /// </summary>
+        public Configuration()
+        {
+            Reset();
+        }
+
+        /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
         /// by the user.
         /// </summary>
@@ -92,6 +103,24 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets or sets a flag that indicates whether to attempt to close and
+        /// then re-open the Visual Studio solution, if open, that contains the
+        /// project(s) being renamed.
+        /// <para />
+        /// </summary>
+        /// <remarks>
+        /// If this is set to <c>true</c>, and the containing solution is open,
+        /// then the solution will be closed prior to the start of the selected
+        /// operation(s) and then re-opened when the selected operation(s) are complete.
+        /// </remarks>
+        [JsonProperty("reOpenSolution")]
+        public bool ReOpenSolution
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value that indicates whether we should replace text
         /// in files.
         /// </summary>
@@ -155,5 +184,14 @@ namespace MassFileRenamer.Objects
             get;
             set;
         } = new List<string>();
+
+        /// <summary>
+        /// Sets the values of this class' properties to their default values.
+        /// </summary>
+        /// <remarks>
+        /// This method typically is called from a class constructor.
+        /// </remarks>
+        public void Reset()
+            => ReOpenSolution = true;
     }
 }

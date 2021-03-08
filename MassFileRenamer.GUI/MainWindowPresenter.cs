@@ -1,5 +1,6 @@
 ﻿using MassFileRenamer.GUI.Properties;
 using MassFileRenamer.Objects;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace MassFileRenamer.GUI
     /// </summary>
     public class MainWindowPresenter : IMainWindowPresenter
     {
+        private IFileRenamer _fileRenamer;
+
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
@@ -24,7 +27,7 @@ namespace MassFileRenamer.GUI
         /// This object's sole purpose in life is to provide the service of
         /// maintaining the history lists in the configuration data source.
         /// </remarks>
-        private readonly IHistoryManager _historyManager;
+        private IHistoryManager _historyManager;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -35,9 +38,7 @@ namespace MassFileRenamer.GUI
         /// <remarks>
         /// This object provides the functionality of the main window of the application.
         /// </remarks>
-        private readonly IMainWindow _mainWindow;
-
-        private readonly IFileRenamer _renamer;
+        private IMainWindow _mainWindow;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -54,52 +55,21 @@ namespace MassFileRenamer.GUI
         /// and returns a
         /// reference to it.
         /// </summary>
-        /// <param name="mainWindow">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface.
-        /// </param>
-        /// <param name="renamer">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IFileRenamer" /> interface.
-        /// </param>
         /// <param name="configurationPathname">
         /// (Required.) String containing the pathname of the configuration file.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required <paramref name="mainWindow" /> or
-        /// <paramref name="renamer" /> parameters have a <c>null</c> value.
-        /// </exception>
-        public MainWindowPresenter(IMainWindow mainWindow, IFileRenamer renamer,
-            string configurationPathname)
+        public MainWindowPresenter()
         {
-            if (string.IsNullOrWhiteSpace(configurationPathname))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(configurationPathname)
-                );
-
-            _mainWindow = mainWindow ??
-                          throw new ArgumentNullException(nameof(mainWindow));
-            _renamer = renamer ??
-                       throw new ArgumentNullException(nameof(renamer));
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.MainWindowPresenter"
+            );
 
             ReinitializeProgressDialog();
-
-            LoadConfiguration(configurationPathname);
-
-            _historyManager = new HistoryManager(_mainWindow, Configuration);
-        }
-
-        /// <summary>
-        /// String containing the pathname to the configuration file.
-        /// </summary>
-        private string ConfigurationPathname
-        {
-            get => ConfigurationProvider.ConfigurationFilePath;
-            set => ConfigurationProvider.ConfigurationFilePath = value;
         }
 
         /// <summary>
@@ -220,15 +190,127 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Instructs the presenter to load the configuration file with the
+        /// specified <paramref name="path" />.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname to the
+        /// configuration file.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either of the required parameter, <paramref name="path" />,
+        /// is passed a blank or <c>null</c> string for its value.
+        /// </exception>
+        /// <exception cref="T:System.IO.FileNotFoundException">
+        /// Thrown if the file having the path specified by the contents of the
+        /// <paramref name="path" /> parameter cannot be located on the disk.
+        /// </exception>
+        public IMainWindowPresenter AndConfigFile(string path)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.AndConfigFile"
+            );
+
+            // Dump the parameter configurationPathname to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.AndFinallyLoadTheConfigFile: configurationPathname = '{path}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(path)
+                );
+
+            // Just in case, strip out any double quotes
+            path = path.Replace("\"", "");
+
+            if (!File.Exists(path))
+                throw new FileNotFoundException(
+                    $"The system cannot find the configuration file.\n\nPath: {path}"
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to load the configuration..."
+            );
+
+            // Load the config file. Be sure to strip out any quotes in the
+            // pathname (such as if it is loaded from the system Registry, for example).
+            LoadConfiguration(path.Replace("\"", ""));
+
+            if (Configuration != null)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** The configuration values were loaded from the file having path '{path}'."
+                );
+
+                _historyManager?.AttachConfig(Configuration);
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.AndFinallyLoadTheConfigFile: Done."
+            );
+
+            return this; // fluent
+        }
+
+        /// <summary>
+        /// Fluent-builder method for initializing the history manager
+        /// dependency of this Presenter class. History Manager objects control
+        /// the flow of values into and out of the list of previously-specified
+        /// values in prior searches.
+        /// </summary>
+        /// <param name="historyManager">
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IHistoryManager" />
+        /// on which this
+        /// Presenter should depend.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        public IMainWindowPresenter AndHistoryManager(
+            IHistoryManager historyManager)
+        {
+            _historyManager = historyManager ??
+                              throw new ArgumentNullException(
+                                  nameof(historyManager)
+                              );
+
+            return this;
+        }
+
+        /// <summary>
         /// Clears all the history lists in the configuration.
         /// </summary>
         public void ClearAllHistory()
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.ClearAllHistory"
+            );
+
             _historyManager.ClearAll();
 
             UpdateData(false);
 
             OnAllHistoryCleared();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.ClearAllHistory: Done."
+            );
         }
 
         /// <summary>
@@ -298,7 +380,7 @@ namespace MassFileRenamer.GUI
                 if (File.Exists(pathname))
                     File.Delete(pathname);
 
-                new FileInfo(ConfigurationPathname).CopyTo(pathname);
+                new FileInfo(ConfigurationProvider.ConfigurationFilePath).CopyTo(pathname);
 
                 if (File.Exists(pathname))
                     OnConfigurationExported(
@@ -433,17 +515,17 @@ namespace MassFileRenamer.GUI
                     "*** INFO: Removing the existing configuration file.."
                 );
 
-                if (File.Exists(ConfigurationPathname))
-                    File.Delete(ConfigurationPathname);
+                if (File.Exists(ConfigurationProvider.ConfigurationFilePath))
+                    File.Delete(ConfigurationProvider.ConfigurationFilePath);
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** INFO: Copying the file with path '{pathname}' to the path '{ConfigurationPathname}'.."
+                    $"*** INFO: Copying the file with path '{pathname}' to the path '{ConfigurationProvider.ConfigurationFilePath}'.."
                 );
 
-                new FileInfo(pathname).CopyTo(ConfigurationPathname);
+                new FileInfo(pathname).CopyTo(ConfigurationProvider.ConfigurationFilePath);
 
-                if (File.Exists(ConfigurationPathname))
+                if (File.Exists(ConfigurationProvider.ConfigurationFilePath))
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
                         $"*** SUCCESS *** The file with path '{pathname}' has been copied to the destination successfully."
@@ -452,7 +534,7 @@ namespace MassFileRenamer.GUI
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"MainWindowPresenter.ImportConfiguration: Failed to copy the file with path '{pathname}' to the path '{ConfigurationPathname}'."
+                        $"MainWindowPresenter.ImportConfiguration: Failed to copy the file with path '{pathname}' to the path '{ConfigurationProvider.ConfigurationFilePath}'."
                     );
 
                     DebugUtils.WriteLine(
@@ -474,11 +556,13 @@ namespace MassFileRenamer.GUI
                     return;
                 }
 
-                LoadConfiguration(ConfigurationPathname);
+                LoadConfiguration(ConfigurationProvider.ConfigurationFilePath);
 
                 OnConfigurationImported(
                     new ConfigurationImportedEventArgs(pathname)
                 );
+
+                _fileRenamer.UpdateConfiguration(Configuration);
             }
             catch (Exception ex)
             {
@@ -510,11 +594,62 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Fluent-builder method to set a reference to the main window of the application.
+        /// </summary>
+        /// <param name="mainWindow">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface and
+        /// which represents the main window of the application.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to associate the Main Window to its Presenter..."
+            );
+
+            _mainWindow = mainWindow ??
+                          throw new ArgumentNullException(nameof(mainWindow));
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The Main Window has been attached to the Presenter."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.MainWindowReference: Done."
+            );
+
+            return this;
+        }
+
+        /// <summary>
         /// Begins the rename operation.
         /// </summary>
         public void Process()
         {
-            if (_mainWindow == null || _renamer == null)
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.Process"
+            );
+
+            if (_mainWindow == null || _fileRenamer == null)
                 return;
 
             ReinitializeProgressDialog();
@@ -522,6 +657,10 @@ namespace MassFileRenamer.GUI
             ValidateInputs();
 
             CommenceRenameOperation();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.Process: Done."
+            );
         }
 
         /// <summary>
@@ -529,13 +668,23 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void SaveConfiguration()
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.SaveConfiguration"
+            );
+
             OnDataOperationStarted(
                 new DataOperationEventArgs("Saving configuration...")
             );
 
-            ConfigurationSerializer.Save(ConfigurationPathname, Configuration);
+            ConfigurationSerializer.Save(ConfigurationProvider.ConfigurationFilePath, Configuration);
 
             OnDataOperationFinished();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.SaveConfiguration: Done."
+            );
         }
 
         /// <summary>
@@ -561,6 +710,18 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         public void UpdateData(bool bSavingAndValidating = true)
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.UpdateData"
+            );
+
+            // Dump the parameter bSavingAndValidating to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.UpdateData: bSavingAndValidating = {bSavingAndValidating}"
+            );
+
             // Since moving data to/from the screen may potentially take some
             // time, show the marquee-style progress bar on the status bar in
             // the interim
@@ -624,6 +785,53 @@ namespace MassFileRenamer.GUI
             }
 
             OnDataOperationFinished();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.UpdateData: Done."
+            );
+        }
+
+        /// <summary>
+        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// </summary>
+        /// <param name="fileRenamer">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IFileRenamer" /> interface.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.WithFileRenamer"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to associate the File Renamer object with this Presenter..."
+            );
+
+            _fileRenamer = fileRenamer ??
+                           throw new ArgumentNullException(nameof(fileRenamer));
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The File Renamer object has been attached."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.WithFileRenamer: Done."
+            );
+
+            return this;
         }
 
         /// <summary>
@@ -632,6 +840,13 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void SaveOperationSelections()
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.SaveOperationSelections"
+            );
+
             Configuration.RenameFiles =
                 _mainWindow.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Files"
@@ -644,6 +859,11 @@ namespace MassFileRenamer.GUI
                 _mainWindow.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.SaveOperationSelections: Done."
+            );
         }
 
         /// <summary>
@@ -758,6 +978,7 @@ namespace MassFileRenamer.GUI
         /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs" />
         /// that contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
             => OperationError?.Invoke(this, e);
 
@@ -855,7 +1076,9 @@ namespace MassFileRenamer.GUI
         /// </summary>
         private void CommenceRenameOperation()
             => Task.Run(
-                () => _renamer.ProcessAll(StartingFolder, FindWhat, ReplaceWith)
+                () => _fileRenamer.ProcessAll(
+                    StartingFolder, FindWhat, ReplaceWith
+                )
             );
 
         /// <summary>
@@ -867,7 +1090,7 @@ namespace MassFileRenamer.GUI
         /// be processed in the current operation.
         /// </param>
         /// <remarks>
-        /// Takes the action of resetting the progress dialog and reconfiguring
+        /// Takes the message of resetting the progress dialog and reconfiguring
         /// the progress bar such that the <paramref name="count" /> parameter
         /// specifies the new maximum value of the progress bar.
         /// </remarks>
@@ -939,34 +1162,78 @@ namespace MassFileRenamer.GUI
         /// </summary>
         private void InitializeFileRenamer()
         {
-            if (_renamer == null) return;
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.InitializeFileRenamer"
+            );
 
-            _renamer.ExceptionRaised += OnExceptionRaised;
-            _renamer.OperationFinished += (sender, eventArgs)
-                => ResetProgressBar();
-            _renamer.OperationStarted += (sender, eventArgs)
-                => ShowCalculatingProgressBar(
-                    GetOperationStartedText(eventArgs.OperationType)
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the _fileRenamer field has a null reference for a value..."
+            );
+
+            // Check to see if the required field, _fileRenamer, is null. If it
+            // is, send an error to the log file and quit.
+            if (_fileRenamer == null)
+            {
+                // the field _fileRenamer is required.
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR: The _fileRenamer field has a null reference.  This field is required."
                 );
-            _renamer.FilesToBeRenamedCounted += (sender, eventArgs)
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "MainWindowPresenter.InitializeFileRenamer: Done."
+                );
+
+                // stop.
+                return;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The _fileRenamer field has a valid object reference for its value."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to hook up events to the File Renamer..."
+            );
+
+            _fileRenamer.UpdateConfiguration(Configuration);
+
+            _fileRenamer.ExceptionRaised -= OnExceptionRaised;
+            _fileRenamer.ExceptionRaised += OnExceptionRaised;
+            _fileRenamer.OperationFinished -= OnFileRenamerOperationFinished;
+            _fileRenamer.OperationFinished += OnFileRenamerOperationFinished;
+            _fileRenamer.OperationStarted += OnFileRenamerOperationStarted;
+            _fileRenamer.FilesToBeRenamedCounted += (sender, eventArgs)
                 => HandleFilesCountedEvent(eventArgs.Count);
-            _renamer.FilesToHaveTextReplacedCounted += (sender, eventArgs)
+            _fileRenamer.FilesToHaveTextReplacedCounted += (sender, eventArgs)
                 => HandleFilesCountedEvent(eventArgs.Count);
-            _renamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
+            _fileRenamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
                 => HandleFilesCountedEvent(eventArgs.Count);
-            _renamer.Started += (x, y) => OnStarted();
-            _renamer.StatusUpdate += (sender, eventArgs)
+            _fileRenamer.Started += (x, y) => OnStarted();
+            _fileRenamer.StatusUpdate += (sender, eventArgs)
                 => Console.WriteLine(eventArgs.Text);
-            _renamer.ProcessingOperation += (sender, eventArgs)
+            _fileRenamer.ProcessingOperation += (sender, eventArgs)
                 => IncrementProgressBar(
                     GetOperationDescriptionFor(eventArgs.OperationType),
-                    eventArgs.Pathname
+                    eventArgs.Entry.Path
                 );
-            _renamer.Finished += (x, y) => OnFinished();
-            _renamer.TextExpressionMatchRequested +=
-                OnRenamerTextExpressionMatchRequested;
-            _renamer.TextReplacementRequested +=
-                OnRenamerTextReplacementRequested;
+            _fileRenamer.Finished += (x, y) => OnFinished();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** File Renamer event handlers hooked up."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.InitializeFileRenamer: Done."
+            );
         }
 
         /// <summary>
@@ -980,6 +1247,18 @@ namespace MassFileRenamer.GUI
         /// </exception>
         private void LoadConfiguration(string configurationPathname)
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.LoadConfiguration"
+            );
+
+            // Dump the parameter configurationPathname to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.LoadConfiguration: configurationPathname = '{configurationPathname}'"
+            );
+
             if (string.IsNullOrWhiteSpace(configurationPathname))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -990,22 +1269,25 @@ namespace MassFileRenamer.GUI
                 new DataOperationEventArgs("Loading configuration...")
             );
 
-            // Since loading the configuration may take awhile, given that it
-            // potentially may come from either a large JSON file or slow
-            // database connection show the progress dialog in a marquee mode.
+            Configuration = GetAction
+                            .For<IFileSystemEntry, IConfiguration>(
+                                MessageType.LoadConfigurationFromFile
+                            )
+                            .WithInput(
+                                MakeNewFileSystemEntry.ForPath(
+                                    configurationPathname
+                                )
+                            )
+                            .Execute();
 
-            ConfigurationPathname = configurationPathname;
-
-            ConfigurationPathname = SystemPreparer.CreateConfigFile(
-                Path.GetDirectoryName(ConfigurationPathname),
-                Path.GetFileName(ConfigurationPathname)
-            );
-
-            Configuration = ConfigurationSerializer.Load(ConfigurationPathname);
-
-            InitializeFileRenamer();
+            if (Configuration != null)
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** SUCCESS *** Configuration loaded."
+                );
 
             OnDataOperationFinished();
+
+            InitializeFileRenamer();
         }
 
         /// <summary>
@@ -1024,17 +1306,59 @@ namespace MassFileRenamer.GUI
         /// This method responds to such an event by showing the user a message
         /// box, logging the error, and then aborting the operation.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private void OnExceptionRaised(object sender,
             ExceptionRaisedEventArgs e)
         {
-            MessageBox.Show(
-                _mainWindow, $"A problem has occurred.\n{e.Exception.Message}",
-                Application.ProductName, MessageBoxButtons.OK,
-                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
-            );
+            _fileRenamer.RequestAbort();
+
             OnOperationError(new ExceptionRaisedEventArgs(e.Exception));
-            _renamer.RequestAbort();
         }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.OperationFinished" />
+        /// event raised by the file renamer object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by telling the progress dialog to
+        /// reset the progress bar back to the starting point.
+        /// </remarks>
+        private void OnFileRenamerOperationFinished(object sender,
+            OperationFinishedEventArgs e)
+            => ResetProgressBar();
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.OperationStarted" />
+        /// event raised by the file-renamer object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by telling the progress dialog to
+        /// show the marquee progress bar for the operation type whose
+        /// processing is now being started.
+        /// </remarks>
+        private void OnFileRenamerOperationStarted(object sender,
+            OperationStartedEventArgs e)
+            => ShowCalculatingProgressBar(
+                GetOperationStartedText(e.OperationType)
+            );
 
         /// <summary>
         /// Handles the
@@ -1050,108 +1374,39 @@ namespace MassFileRenamer.GUI
         /// </param>
         /// <remarks>
         /// This method handles the situation in which the user has clicked the
-        /// Cancel button on the progress dialog. The action taken by this
+        /// Cancel button on the progress dialog. The message taken by this
         /// method is to tell the File Renamer Object to attempt to abort.
         /// </remarks>
         private void OnProgressDialogRequestedCancel(object sender, EventArgs e)
-            => _renamer.RequestAbort();
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.TextExpressionMatchRequested" />
-        /// event raised by the file renamer object to request that we find a
-        /// match to a file name according to settings specified by the user in
-        /// the configuration.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds by calling on the object, a reference to which
-        /// is stored in the
-        /// <see
-        ///     cref="F:MassFileRenamer.GUI.MainWindowPresenter._fileNameMatcher" />
-        /// field, to determine if a match(es) exist between the text pattern in
-        /// the
-        /// <see
-        ///     cref="P:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs.FindWhat" />
-        /// property and the
-        /// <see
-        ///     cref="P:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs.Path" />
-        /// property, according to settings specified by the user in the
-        /// configuration. The result of the matching operation is stored in the
-        /// <see
-        ///     cref="P:MassFileRenamer.Objects.TextExpressionMatchRequestedEventArgs.DoesMatch" />
-        /// property, which is then read by the object that raised this event.
-        /// </remarks>
-        private void OnRenamerTextExpressionMatchRequested(object sender,
-            TextExpressionMatchRequestedEventArgs e)
-        {
-            if (Configuration == null)
-                return;
-
-            ITextExpressionMatcher textExpressionMatcher =
-                GetTextExpressionMatcher.For(e.OperationType)
-                    .AndAttachConfiguration(Configuration);
-            if (textExpressionMatcher == null)
-                return;
-            ;
-            e.DoesMatch = textExpressionMatcher.IsMatch(
-                GetMatchExpression.For(Configuration, e)
-            );
-        }
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.TextReplacementRequested" />
-        /// event raised by the file renamer object.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextReplacementRequestedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// </remarks>
-        private void OnRenamerTextReplacementRequested(object sender,
-            TextReplacementRequestedEventArgs e)
-        {
-            if (Configuration == null)
-                return;
-
-            ITextReplacementEngine textReplacementEngine =
-                GetTextReplacementEngine.For(e.OperationType)
-                    .AndAttachConfiguration(Configuration);
-            if (textReplacementEngine == null)
-                return;
-
-            e.Result = textReplacementEngine.Replace(
-                GetMatchExpression.For(Configuration, e)
-            );
-        }
+            => _fileRenamer.RequestAbort();
 
         /// <summary>
         /// Sets the progress dialog and/or reinitializes it from prior use.
         /// </summary>
         private void ReinitializeProgressDialog()
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.ReinitializeProgressDialog"
+            );
+
             _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
             _progressDialog.DoIfDisposed(
                 () => _progressDialog = new ProgressDialog()
             );
             _progressDialog.CancelRequested += OnProgressDialogRequestedCancel;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The progress dialog has been reinitialized."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.ReinitializeProgressDialog: Done."
+            );
         }
 
         /// <summary>
@@ -1175,6 +1430,19 @@ namespace MassFileRenamer.GUI
         /// </exception>
         private void ShowCalculatingProgressBar(string text)
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.ShowCalculatingProgressBar"
+            );
+
+            // Dump the parameter text to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.ShowCalculatingProgressBar: text = '{text}'"
+            );
+
             if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(text)
@@ -1187,6 +1455,11 @@ namespace MassFileRenamer.GUI
             );
             _progressDialog.DoIfNotDisposed(
                 () => _progressDialog.Status = text
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.ShowCalculatingProgressBar: Done."
             );
         }
 
@@ -1221,6 +1494,12 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private void ValidateInputs()
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.ValidateInputs"
+            );
+
             if (!Directory.Exists(StartingFolder))
                 throw new DirectoryNotFoundException(
                     string.Format(
@@ -1235,6 +1514,15 @@ namespace MassFileRenamer.GUI
                 throw new InvalidOperationException(
                     Resources.Error_ReplaceWithBlank
                 );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** All inputs have been successfully validated."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.ValidateInputs: Done."
+            );
         }
     }
 }

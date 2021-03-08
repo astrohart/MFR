@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -12,12 +11,60 @@ namespace MassFileRenamer.Objects
     public static class ConfigurationProvider
     {
         /// <summary>
+        /// Gets a reference to the instance of the object that implements the
+        /// <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface and
+        /// which exposes settings changed by the user in order to modify the
+        /// application's behavior.
+        /// </summary>
+        public static IConfiguration Configuration
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the pathname of the configuration file.
         /// </summary>
         public static string ConfigurationFilePath
         {
-            get;
-            set;
+            get
+                => GetAction
+                   .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                       MessageType.LoadStringFromRegistry
+                   )
+                   .WithInput(
+                       MakeNewRegQueryExpression.FromScatch<string>()
+                                                .ForKeyPath(
+                                                    ConfigurationKeyName
+                                                )
+                                                .AndValueName(
+                                                    ConfigurationPathValueName
+                                                )
+                                                .WithDefaultValue(
+                                                    Path.Combine(
+                                                        DefaultConfigDir,
+                                                        DefaultConfigFileName
+                                                    )
+                                                )
+                   )
+                   .Execute()
+                   .Path;
+            set
+                => GetCommand
+                   .For<IRegOperationMetadata<string>>(
+                       MessageType.SaveStringToRegistry
+                   )
+                   .WithInput(
+                       MakeNewRegOperationMetadata.FromScatch<string>()
+                                                  .ForKeyPath(
+                                                      ConfigurationKeyName
+                                                  )
+                                                  .AndValueName(
+                                                      ConfigurationPathValueName
+                                                  )
+                                                  .WithValue(value)
+                   )
+                   .Execute();
         }
 
         /// <summary>
@@ -25,7 +72,7 @@ namespace MassFileRenamer.Objects
         /// the paths of files.
         /// </summary>
         public static string ConfigurationKeyName
-            => $@"SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Paths";
+            => $@"HKEY_CURRENT_USER\SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Paths";
 
         /// <summary>
         /// Gets the name of the Registry value that holds the path to the
@@ -59,78 +106,5 @@ namespace MassFileRenamer.Objects
         {
             get;
         } = "config.json";
-
-        /// <summary>
-        /// Loads the path to the application's configuration file from the
-        /// system Registry.
-        /// </summary>
-        /// <returns>
-        /// String containing the path value loaded, if any.
-        /// </returns>
-        public static string LoadConfigurationPath()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In ConfigurationProvider.LoadConfigurationPath"
-            );
-
-            var configPathname = SystemPreparer.GetProfileString(
-                ConfigurationKeyName, ConfigurationPathValueName,
-                Path.Combine(DefaultConfigDir, DefaultConfigFileName)
-            );
-
-            if (string.IsNullOrWhiteSpace(configPathname))
-                throw new InvalidOperationException(
-                    "Unable to load the path to the configuration file."
-                );
-
-            // Dump the variable configPathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"ConfigurationProvider.LoadConfigurationPath: configPathname = '{configPathname}'"
-            );
-
-            ConfigurationFilePath = configPathname;
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "ConfigurationProvider.LoadConfigurationPath: Done."
-            );
-
-            return configPathname;
-        }
-
-        /// <summary>
-        /// Saves the path to the configuration file in the system Registry.
-        /// </summary>
-        public static void SaveConfigurationPath()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In ConfigurationProvider.SaveConfigurationPath"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Saving the path to the configuration file in the system Registry..."
-            );
-
-            if (string.IsNullOrWhiteSpace(ConfigurationFilePath))
-                return; // do not save a blank value
-
-            SystemPreparer.SetProfileString(
-                ConfigurationKeyName, ConfigurationPathValueName,
-                ConfigurationFilePath
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "ConfigurationProvider.SaveConfigurationPath: Done."
-            );
-        }
     }
 }
