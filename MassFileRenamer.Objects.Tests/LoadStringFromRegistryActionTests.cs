@@ -10,7 +10,8 @@ namespace MassFileRenamer.Objects.Tests
     /// class.
     /// </summary>
     [TestFixture]
-    public class LoadStringFromRegistryActionTests : RegistryDataExchangeTestsBase
+    public class
+        LoadStringFromRegistryActionTests : RegistryDataExchangeTestsBase
     {
         /// <summary>
         /// Asserts that the
@@ -31,15 +32,15 @@ namespace MassFileRenamer.Objects.Tests
                                  .AndValueName(VALUE_NAME)
                                  .WithDefaultValue(
                                      Path.Combine(
-                                         CONFIG_FILE_DIR,
-                                         CONFIG_FILE_NAME
+                                         CONFIG_FILE_DIR, CONFIG_FILE_NAME
                                      )
                                  )
                          )
                          .Execute()
                          .Path;
 
-            Assert.IsFalse(string.IsNullOrWhiteSpace(result));
+            Assert.That(!string.IsNullOrWhiteSpace(result));
+            Assert.That(result, Is.EqualTo(CONFIG_FILE_PATH.Replace("\"", "")));
         }
     }
 }

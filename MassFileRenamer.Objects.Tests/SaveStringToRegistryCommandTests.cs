@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System.IO;
 
 namespace MassFileRenamer.Objects.Tests
 {
@@ -21,7 +20,8 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()
-            => Assert.DoesNotThrow(
+        {
+            Assert.DoesNotThrow(
                 () => GetCommand
                       .For<IRegOperationMetadata<string>>(
                           MessageType.SaveStringToRegistry
@@ -30,13 +30,18 @@ namespace MassFileRenamer.Objects.Tests
                           MakeNewRegOperationMetadata.FromScatch<string>()
                               .ForKeyPath(KEY_PATH)
                               .AndValueName(VALUE_NAME)
-                              .WithValue(
-                                  Path.Combine(
-                                      CONFIG_FILE_DIR, CONFIG_FILE_NAME
-                                  )
-                              )
+                              .WithValue(CONFIG_FILE_PATH)
                       )
                       .Execute()
             );
+
+            Assert.That(KEY_PATH.HasValueWithName(VALUE_NAME));
+            Assert.That(
+                CONFIG_FILE_PATH,
+                Is.EqualTo(
+                    SystemPreparer.GetRegistryString(KEY_PATH, VALUE_NAME)
+                )
+            );
+        }
     }
 }

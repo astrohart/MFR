@@ -215,7 +215,7 @@ namespace MassFileRenamer.GUI
 
             _presenter.UpdateData();
 
-            _presenter.SaveConfiguration();
+            ConfigurationProvider.Save();
         }
 
         /// <summary>
@@ -239,6 +239,34 @@ namespace MassFileRenamer.GUI
             );
 
             FoldButton.SetFoldedStateText();
+        }
+
+        /// <summary>
+        /// Runs code that should execute when either the OK or Apply buttons
+        /// are clicked on the Tools -&gt; Options dialog box.
+        /// </summary>
+        /// <param name="dialog">
+        /// (Required.) Reference to an instance of
+        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        private static void SaveConfigurationDataFrom(OptionsDialog dialog)
+        {
+            if (dialog == null) throw new ArgumentNullException(nameof(dialog));
+
+            if (ConfigurationProvider.ConfigurationFilePath !=
+                dialog.ConfigPathname)
+                GetNewFileInfo.ForPath(
+                                  ConfigurationProvider.ConfigurationFilePath
+                              )
+                              .RenameTo(dialog.ConfigPathname);
+
+            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+            ConfigurationProvider.Configuration.ReOpenSolution =
+                dialog.ShouldReOpenVisualStudioSolution;
         }
 
         /// <summary>
@@ -282,6 +310,10 @@ namespace MassFileRenamer.GUI
                                      )
                                      .AndHistoryManager(
                                          MakeHistoryManager.ForForm(this)
+                                             .AndAttachConfiguration(
+                                                 ConfigurationProvider
+                                                     .Configuration
+                                             )
                                      )
                                      .AndConfigFile(configurationPathname);
 
@@ -386,10 +418,9 @@ namespace MassFileRenamer.GUI
             if (!ValidateData()) return;
 
             UseWaitCursor = true;
-
-            _presenter.SaveConfiguration();
-
             Enabled = false;
+
+            ConfigurationProvider.Save(); // save the configuration to disk
 
             try
             {
@@ -429,7 +460,7 @@ namespace MassFileRenamer.GUI
         private void OnFileExit(object sender, EventArgs e)
         {
             // Save the configuration one last time
-            _presenter.SaveConfiguration();
+            ConfigurationProvider.Save();
 
             Close();
         }
@@ -455,7 +486,7 @@ namespace MassFileRenamer.GUI
 
             FoldButton.SetFoldedStateText();
 
-            _presenter.Configuration.IsFolded = e.Folded;
+            ConfigurationProvider.Configuration.IsFolded = e.Folded;
         }
 
         /// <summary>
@@ -539,7 +570,7 @@ namespace MassFileRenamer.GUI
             var dialog = (OptionsDialog)sender;
             if (dialog == null) return;
 
-            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+            SaveConfigurationDataFrom(dialog);
 
             e.Handled =
                 true; // instruct the Options dialog box to re-gray out the Apply button
@@ -795,7 +826,7 @@ namespace MassFileRenamer.GUI
             if (exportConfigDialog.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            _presenter.ExportConfiguration(exportConfigDialog.FileName);
+            ConfigurationProvider.Export(exportConfigDialog.FileName);
         }
 
         /// <summary>
@@ -843,7 +874,7 @@ namespace MassFileRenamer.GUI
             if (importConfigDialog.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            _presenter.ImportConfiguration(importConfigDialog.FileName);
+            ConfigurationProvider.Import(importConfigDialog.FileName);
         }
 
         /// <summary>
@@ -872,9 +903,8 @@ namespace MassFileRenamer.GUI
 
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    ConfigurationProvider.ConfigurationFilePath =
-                        dialog.ConfigPathname;
-                    _presenter.SaveConfiguration();
+                    SaveConfigurationDataFrom(dialog);
+                    ;
                 }
             }
         }

@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace MassFileRenamer.Objects
+{
+    /// <summary>
+    /// Provides information for DataOperationError event handlers.
+    /// </summary>
+    public class DataOperationErrorEventArgs : ExceptionRaisedEventArgs
+    {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.DataOperationErrorEventArgs" />
+        /// and
+        /// returns a reference to it.
+        /// </summary>
+        /// <param name="exception">
+        /// (Required.) Reference to an instance of
+        /// <see
+        ///     cref="T:System.Exception" />
+        /// , or a child of it, that provides error details.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="exception" />, is
+        /// passed a <c>null</c> reference for a value.
+        /// </exception>
+        public DataOperationErrorEventArgs(Exception exception) : base(
+            exception
+        ) { }
+    }
+}

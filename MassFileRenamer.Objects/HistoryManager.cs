@@ -9,7 +9,7 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Manages the configuration history on behalf of the application.
     /// </summary>
-    public class HistoryManager : IHistoryManager
+    public class HistoryManager : ConfigurationComposedObjectBase, IHistoryManager
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -22,17 +22,6 @@ namespace MassFileRenamer.Objects
         /// that represents the main window of the application.
         /// </remarks>
         private readonly IWin32Window _messageBoxParentWindow;
-
-        /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object provides access to configuration information.
-        /// </remarks>
-        private IConfiguration _configuration;
 
         /// <summary>
         /// Constructs a new instance of
@@ -73,7 +62,7 @@ namespace MassFileRenamer.Objects
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
-            var historyLists = _configuration.GetType()
+            var historyLists = Configuration.GetType()
                                              .GetProperties()
                                              .Where(
                                                  x => x.PropertyType
@@ -83,7 +72,7 @@ namespace MassFileRenamer.Objects
                                              )
                                              .Select(
                                                  p => p.GetValue(
-                                                     _configuration
+                                                     Configuration
                                                  ) as IList
                                              )
                                              .ToArray();
@@ -95,36 +84,8 @@ namespace MassFileRenamer.Objects
 
             // Finally, clear out all the current values of the form. This is
             // basically like a "Reset Form" button on a website.
-            _configuration.StartingFolder = _configuration.FindWhat =
-                _configuration.ReplaceWith = string.Empty;
-        }
-
-        /// <summary>
-        /// Fluent-builder method to associate this History Manager object with
-        /// a configuration object.
-        /// </summary>
-        /// <param name="configuration">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" />
-        /// interface. This object represents the settings chosen by the user to
-        /// change the behavior of this app.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
-        /// </exception>
-        public IHistoryManager AttachConfig(IConfiguration configuration)
-        {
-            _configuration = configuration ??
-                             throw new ArgumentNullException(
-                                 nameof(configuration)
-                             );
-
-            return this;
+            Configuration.StartingFolder = Configuration.FindWhat =
+                Configuration.ReplaceWith = string.Empty;
         }
 
         /// <summary>
@@ -142,9 +103,9 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         private bool CanClearAll()
         {
-            if (!_configuration.StartingFolderHistory.Any() &&
-                !_configuration.FindWhatHistory.Any() &&
-                !_configuration.ReplaceWithHistory.Any())
+            if (!Configuration.StartingFolderHistory.Any() &&
+                !Configuration.FindWhatHistory.Any() &&
+                !Configuration.ReplaceWithHistory.Any())
                 return false;
 
             return DialogResult.Yes == MessageBox.Show(

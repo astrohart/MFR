@@ -1089,6 +1089,50 @@ namespace MassFileRenamer.Objects
             => AbortRequested = true;
 
         /// <summary>
+        /// Initializes the value of the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.IFileRenamer.RootDirectoryPath" />
+        /// property to the value specified in the
+        /// <paramref
+        ///     name="rootDirectoryPath" />
+        /// parameter.
+        /// <para />
+        /// The value is the starting location of the search operations.
+        /// </summary>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="rootDirectoryPath" />
+        /// , is passed a blank or <c>null</c> string
+        /// for a value.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the value of the <paramref name="rootDirectoryPath" />
+        /// parameter is not set to the location of a folder that actually
+        /// exists on the disk.
+        /// </exception>
+        public IFileRenamer StartingFrom(string rootDirectoryPath)
+        {
+            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootDirectoryPath)
+                );
+            if (!Directory.Exists(rootDirectoryPath))
+                throw new DirectoryNotFoundException(
+                    $"The system could not find the folder having pathname '{rootDirectoryPath}'."
+                );
+
+            RootDirectoryPath = rootDirectoryPath;
+
+            return this;
+        }
+
+        /// <summary>
         /// Enables this object to perform some or all of the operations specified.
         /// </summary>
         /// <param name="operations">

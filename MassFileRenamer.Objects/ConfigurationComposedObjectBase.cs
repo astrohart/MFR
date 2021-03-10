@@ -28,9 +28,7 @@ namespace MassFileRenamer.Objects
         /// method by whosoever invokes this constructor in order to finish
         /// building this object.
         /// </remarks>
-        protected ConfigurationComposedObjectBase()
-        {
-        }
+        protected ConfigurationComposedObjectBase() { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -99,7 +97,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <c>null</c> value.
         /// </exception>
-        public dynamic AndAttachConfiguration(IConfiguration configuration) 
+        public dynamic AndAttachConfiguration(IConfiguration configuration)
         {
             Configuration = configuration ??
                             throw new ArgumentNullException(
@@ -120,12 +118,16 @@ namespace MassFileRenamer.Objects
         /// <remarks>
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
+        /// <para />
+        /// NOTE:This member may be overriden by a child class. If this is the
+        /// case, the overrider must call the base class method before doing any
+        /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <c>null</c> value.
         /// </exception>
-        public void UpdateConfiguration(IConfiguration configuration)
+        public virtual void UpdateConfiguration(IConfiguration configuration)
             => Configuration = configuration ??
                                throw new ArgumentNullException(
                                    nameof(configuration)

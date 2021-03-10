@@ -50,9 +50,15 @@ namespace MassFileRenamer.GUI
                 false, infrastructureType: LoggingInfrastructureType.PostSharp
             );
 
+            // Load the configuration from the disk.
+            ConfigurationProvider.Load();
+
             Application.Run(
                 new MainWindow(ConfigurationProvider.ConfigurationFilePath)
             );
+
+            // Save changes in the configuration back out to the disk.
+            ConfigurationProvider.Save();
         }
         
         /// <summary>

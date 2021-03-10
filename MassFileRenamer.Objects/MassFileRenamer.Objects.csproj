@@ -107,10 +107,14 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachedActionBase.cs" />
     <Compile Include="ComboBoxInitializer.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ActionBase.cs" />
-    <Compile Include="ActionType.cs" />
+    <Compile Include="DataOperationErrorEventArgs.cs" />
+    <Compile Include="DataOperationErrorEventHandler.cs" />
+    <Compile Include="ActionCacheProvider.cs" />
+    <Compile Include="MessageType.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="ConfigurationComposedObjectBase.cs" />
     <Compile Include="ConfigurationExportedEventHandler.cs" />
@@ -142,7 +146,7 @@
     <Compile Include="FileAndFolderTextValueRetrieverBase.cs" />
     <Compile Include="FileHelpers.cs" />
     <Compile Include="FileInfoExtensions.cs" />
-    <Compile Include="FileInfoFactory.cs" />
+    <Compile Include="GetNewFileInfo.cs" />
     <Compile Include="FileNameReplacementEngine.cs" />
     <Compile Include="FileNameReplacementMatchExpressionFactory.cs" />
     <Compile Include="FilenameTextValueRetriever.cs" />
@@ -204,6 +208,7 @@
     <Compile Include="RegQueryExpression.cs" />
     <Compile Include="RegQueryExpressionValidator.cs" />
     <Compile Include="ReplaceTextInFileMatchExpressionFactory.cs" />
+    <Compile Include="SaveConfigurationToFileCommand.cs" />
     <Compile Include="SaveStringToRegistryCommand.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="FilePathValidator.cs" />

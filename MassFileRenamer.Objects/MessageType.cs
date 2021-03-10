@@ -26,16 +26,6 @@
         SaveConfigurationToFile,
 
         /// <summary>
-        /// Imports the configuration from a file on the disk.
-        /// </summary>
-        ImportConfigurationFromFile,
-
-        /// <summary>
-        /// Exports the configuration to a file on the disk.
-        /// </summary>
-        ExportConfigurationToFile,
-
-        /// <summary>
         /// Generic, unknown message.
         /// </summary>
         Unknown

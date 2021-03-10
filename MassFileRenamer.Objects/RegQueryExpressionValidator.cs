@@ -1,5 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -36,6 +37,7 @@ namespace MassFileRenamer.Objects
         /// interface
         /// that is being validated.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public IRegQueryExpression<T> Expression
         {
             get;
@@ -77,6 +79,12 @@ namespace MassFileRenamer.Objects
         /// </exception>
         public void Validate()
         {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In RegQueryExpressionValidator.Validate"
+            );
+
             if (string.IsNullOrWhiteSpace(Expression.KeyPath))
                 throw new InvalidOperationException(
                     "The specified expression's Registry key path is invalid."
@@ -86,6 +94,15 @@ namespace MassFileRenamer.Objects
                 throw new InvalidOperationException(
                     "The specified expression's Registry key path must be the fully-qualified path, including the Registry hive (HKEY_CLASSES_ROOT etc)."
                 );
+
+            /*
+             * OKAY, if we are here, then our validation rules have been passed.
+             */
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The registry query expression has passed validation."
+            );
         }
     }
 }

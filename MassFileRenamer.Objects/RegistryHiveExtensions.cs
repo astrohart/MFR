@@ -14,6 +14,111 @@ namespace MassFileRenamer.Objects
     public static class RegistryHiveExtensions
     {
         /// <summary>
+        /// Determines whether a value with the specified
+        /// <paramref
+        ///     name="valueName" />
+        /// exists under the Registry key with the
+        /// <paramref
+        ///     name="keyPath" />
+        /// given.
+        /// </summary>
+        /// <param name="keyPath">
+        /// (Required.) Fully-qualified path, including the hive, of the key you
+        /// want to access.
+        /// </param>
+        /// <param name="valueName">
+        /// (Required.) Name of the value.
+        /// <para />
+        /// <b>NOTE:</b> This parameter is required to be non-blank. Normally,
+        /// if a blank value is specified for <paramref name="valueName" />, the
+        /// (Default) value would be accessed; however, since it's always the
+        /// case that such a value exists for every Registry key, this is a
+        /// non-sequitur to this method.
+        /// </param>
+        /// <returns>
+        /// <c>true</c> if a value with the specified name exists under the
+        /// specified Registry key; <c>false</c> otherwise.
+        /// </returns>
+        public static bool HasValueWithName(this string keyPath,
+            string valueName)
+        {
+            var result = false;
+
+            if (string.IsNullOrWhiteSpace(keyPath)) return false;
+            if (string.IsNullOrWhiteSpace(valueName)) return false;
+
+            using (var baseKey = RegistryKey.OpenBaseKey(
+                keyPath.ToRegistryHive(), RegistryView.Default
+            ))
+            using (var key = baseKey.OpenSubKey(
+                keyPath.RemoveHiveName(), RegistryKeyPermissionCheck.ReadSubTree
+            ))
+                try
+                {
+                    result = key?.GetValue(valueName) != null;
+                }
+                catch
+                {
+                    result = false;
+                }
+                finally
+                {
+                    key?.Close();
+                    baseKey.Close();
+                }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Attempts to strip the hive name from a path to a Registry key with
+        /// the specified <paramref name="keyPath" />.
+        /// </summary>
+        /// <param name="keyPath">
+        /// (Required.) String containing the path to the Registry key that
+        /// might contain the name of a hive.
+        /// </param>
+        /// <returns>
+        /// The Registry key path with the hive name (if present) stripped.
+        /// </returns>
+        /// <remarks>
+        /// If the <paramref name="keyPath" />'s value does not contain
+        /// backslashes, is blank, or does not start with 'HKEY', then this
+        /// method devolves to the identity map.
+        /// <para />
+        /// The output of this method is also the same as that of the identity
+        /// map in the case where an exception is thrown by the system during
+        /// the parsing operation.
+        /// </remarks>
+        public static string RemoveHiveName(this string keyPath)
+        {
+            if (string.IsNullOrWhiteSpace(keyPath)) return keyPath;
+
+            if (!keyPath.Contains(@"\")) return keyPath;
+
+            if (!keyPath.StartsWith("HKEY_")) return keyPath;
+
+            string result;
+
+            try
+            {
+                result = string.Join(
+                    @"\", keyPath.Split(
+                                     new[] {@"\"},
+                                     StringSplitOptions.RemoveEmptyEntries
+                                 )
+                                 .Skip(1)
+                );
+            }
+            catch
+            {
+                result = keyPath;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Determines whether the <paramref name="keyPath" /> provided starts
         /// with the name of a Registry hive.
         /// </summary>

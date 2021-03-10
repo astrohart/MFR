@@ -150,6 +150,11 @@ namespace MassFileRenamer.GUI
         public event ConfigurationImportedEventHandler ConfigurationImported;
 
         /// <summary>
+        /// Occurs when an error happens during a data operation.
+        /// </summary>
+        public event DataOperationErrorEventHandler DataOperationError;
+
+        /// <summary>
         /// Occurs when data is finished being moved to and fro between the
         /// screen and the configuration data source.
         /// </summary>
@@ -175,93 +180,6 @@ namespace MassFileRenamer.GUI
         /// Occurs when the processing has started.
         /// </summary>
         public event EventHandler Started;
-
-        /// <summary>
-        /// Gets or sets a reference to an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.IConfiguration" />
-        /// interface that
-        /// contains the configuration details.
-        /// </summary>
-        public IConfiguration Configuration
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Instructs the presenter to load the configuration file with the
-        /// specified <paramref name="path" />.
-        /// </summary>
-        /// <param name="path">
-        /// (Required.) String containing the fully-qualified pathname to the
-        /// configuration file.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameter, <paramref name="path" />,
-        /// is passed a blank or <c>null</c> string for its value.
-        /// </exception>
-        /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if the file having the path specified by the contents of the
-        /// <paramref name="path" /> parameter cannot be located on the disk.
-        /// </exception>
-        public IMainWindowPresenter AndConfigFile(string path)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.AndConfigFile"
-            );
-
-            // Dump the parameter configurationPathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.AndFinallyLoadTheConfigFile: configurationPathname = '{path}'"
-            );
-
-            if (string.IsNullOrWhiteSpace(path))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(path)
-                );
-
-            // Just in case, strip out any double quotes
-            path = path.Replace("\"", "");
-
-            if (!File.Exists(path))
-                throw new FileNotFoundException(
-                    $"The system cannot find the configuration file.\n\nPath: {path}"
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to load the configuration..."
-            );
-
-            // Load the config file. Be sure to strip out any quotes in the
-            // pathname (such as if it is loaded from the system Registry, for example).
-            LoadConfiguration(path.Replace("\"", ""));
-
-            if (Configuration != null)
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** SUCCESS *** The configuration values were loaded from the file having path '{path}'."
-                );
-
-                _historyManager?.AttachConfig(Configuration);
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.AndFinallyLoadTheConfigFile: Done."
-            );
-
-            return this; // fluent
-        }
 
         /// <summary>
         /// Fluent-builder method for initializing the history manager
@@ -320,322 +238,22 @@ namespace MassFileRenamer.GUI
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
 
         /// <summary>
-        /// Exports the configuration to a file on the disk.
-        /// </summary>
-        /// <param name="pathname">
-        /// (Required.) String containing the pathname of the file to be written.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="pathname" />, is
-        /// passed a blank or <c>null</c> value.
-        /// </exception>
-        public void ExportConfiguration(string pathname)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.ExportConfiguration"
-            );
-
-            // Dump the variable pathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.ExportConfiguration: pathname = '{pathname}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the 'pathname' parameter is blank.."
-            );
-
-            if (string.IsNullOrWhiteSpace(pathname))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pathname)
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The 'pathname' parameter is not blank."
-            );
-
-            try
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** INFO: Saving the current configuration to the default location.."
-                );
-
-                SaveConfiguration();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** SUCCESS *** The configuration has been saved."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: Exporting the configuration to the path '{pathname}'.."
-                );
-
-                if (File.Exists(pathname))
-                    File.Delete(pathname);
-
-                new FileInfo(ConfigurationProvider.ConfigurationFilePath).CopyTo(pathname);
-
-                if (File.Exists(pathname))
-                    OnConfigurationExported(
-                        new ConfigurationExportedEventArgs(pathname)
-                    );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** SUCCESS *** Configuration has been exported successfully."
-                );
-            }
-            catch (Exception ex)
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR *** Failed to export the configuration."
-                );
-
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.ExportConfiguration: Done."
-            );
-        }
-
-        /// <summary>
-        /// Imports configuration from a JSON file located on the disk.
-        /// </summary>
-        /// <param name="pathname">
-        /// (Required.) String containing the path to the file.
-        /// </param>
-        /// <remarks>
-        /// This method does nothing if the <paramref name="pathname" />
-        /// parameter is blank or the file does not exist.
-        /// </remarks>
-        public void ImportConfiguration(string pathname)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.ImportConfiguration"
-            );
-
-            // Dump the variable pathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.ImportConfiguration: pathname = '{pathname}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the 'pathname' parameter is blank.."
-            );
-
-            if (string.IsNullOrWhiteSpace(pathname))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "MainWindowPresenter.ImportConfiguration: Blank value passed for pathname parameter. This parameter is required."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "MainWindowPresenter.ImportConfiguration: Done."
-                );
-
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The 'pathname' parameter is not blank."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the file referenced by the 'pathname' parameter exists.."
-            );
-
-            if (!File.Exists(pathname))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    $"MainWindowPresenter.ImportConfiguration: The file with path '{pathname}' does not exist.  We have nothing to do."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "MainWindowPresenter.ImportConfiguration: Done."
-                );
-
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** SUCCESS *** The file with path '{pathname}' has been found."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** INFO: Checking whether the file with path '{pathname}' is in JSON format.."
-            );
-
-            if (!".json".Equals(Path.GetExtension(pathname)))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    $"MainWindowPresenter.ImportConfiguration: The file with path '{pathname}' must be in the JavaScript Over Network (JSON) format."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "MainWindowPresenter.ImportConfiguration: Done."
-                );
-
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** SUCCESS *** The file with path '{pathname}' appears to be in the correct format."
-            );
-
-            try
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** INFO: Removing the existing configuration file.."
-                );
-
-                if (File.Exists(ConfigurationProvider.ConfigurationFilePath))
-                    File.Delete(ConfigurationProvider.ConfigurationFilePath);
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: Copying the file with path '{pathname}' to the path '{ConfigurationProvider.ConfigurationFilePath}'.."
-                );
-
-                new FileInfo(pathname).CopyTo(ConfigurationProvider.ConfigurationFilePath);
-
-                if (File.Exists(ConfigurationProvider.ConfigurationFilePath))
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        $"*** SUCCESS *** The file with path '{pathname}' has been copied to the destination successfully."
-                    );
-                else
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        $"MainWindowPresenter.ImportConfiguration: Failed to copy the file with path '{pathname}' to the path '{ConfigurationProvider.ConfigurationFilePath}'."
-                    );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        "*** INFO: Saving the current configuration to disk.."
-                    );
-
-                    SaveConfiguration(); // restore the configuration file on the disk.
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info, "*** SUCCESS *** Configuration saved."
-                    );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        "MainWindowPresenter.ImportConfiguration: Done."
-                    );
-
-                    return;
-                }
-
-                LoadConfiguration(ConfigurationProvider.ConfigurationFilePath);
-
-                OnConfigurationImported(
-                    new ConfigurationImportedEventArgs(pathname)
-                );
-
-                _fileRenamer.UpdateConfiguration(Configuration);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.ImportConfiguration: Done."
-            );
-        }
-
-        /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
         /// based on configuration settings.
         /// </summary>
         public void InitializeOperationSelections()
         {
             _mainWindow.OperationsCheckedListBox.CheckByName(
-                "Rename Files", Configuration.RenameFiles
+                "Rename Files", ConfigurationProvider.Configuration.RenameFiles
             );
             _mainWindow.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders", Configuration.RenameSubfolders
+                "Rename Subfolders",
+                ConfigurationProvider.Configuration.RenameSubfolders
             );
             _mainWindow.OperationsCheckedListBox.CheckByName(
-                "Replace in Files", Configuration.ReplaceInFiles
+                "Replace in Files",
+                ConfigurationProvider.Configuration.ReplaceInFiles
             );
-        }
-
-        /// <summary>
-        /// Fluent-builder method to set a reference to the main window of the application.
-        /// </summary>
-        /// <param name="mainWindow">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface and
-        /// which represents the main window of the application.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to associate the Main Window to its Presenter..."
-            );
-
-            _mainWindow = mainWindow ??
-                          throw new ArgumentNullException(nameof(mainWindow));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The Main Window has been attached to the Presenter."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.MainWindowReference: Done."
-            );
-
-            return this;
         }
 
         /// <summary>
@@ -652,6 +270,12 @@ namespace MassFileRenamer.GUI
             if (_mainWindow == null || _fileRenamer == null)
                 return;
 
+            // just in case, have the file renamer object update its
+            // configuration to match that which we have access to
+            _fileRenamer.UpdateConfiguration(
+                ConfigurationProvider.Configuration
+            );
+
             ReinitializeProgressDialog();
 
             ValidateInputs();
@@ -660,30 +284,6 @@ namespace MassFileRenamer.GUI
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "MainWindowPresenter.Process: Done."
-            );
-        }
-
-        /// <summary>
-        /// Saves the configuration to disk.
-        /// </summary>
-        public void SaveConfiguration()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.SaveConfiguration"
-            );
-
-            OnDataOperationStarted(
-                new DataOperationEventArgs("Saving configuration...")
-            );
-
-            ConfigurationSerializer.Save(ConfigurationProvider.ConfigurationFilePath, Configuration);
-
-            OnDataOperationFinished();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.SaveConfiguration: Done."
             );
         }
 
@@ -733,25 +333,32 @@ namespace MassFileRenamer.GUI
 
             if (bSavingAndValidating)
             {
-                Configuration.SaveCurrentStartingFolderAndHistory(
-                    _mainWindow.StartingFolderComboBox
-                );
+                ConfigurationProvider.Configuration
+                                     .SaveCurrentStartingFolderAndHistory(
+                                         _mainWindow.StartingFolderComboBox
+                                     );
 
-                Configuration.SaveCurrentFindWhatAndHistory(
-                    _mainWindow.FindWhatComboBox
-                );
+                ConfigurationProvider.Configuration
+                                     .SaveCurrentFindWhatAndHistory(
+                                         _mainWindow.FindWhatComboBox
+                                     );
 
-                Configuration.SaveCurrentReplaceWithAndHistory(
-                    _mainWindow.ReplaceWithComboBox
-                );
+                ConfigurationProvider.Configuration
+                                     .SaveCurrentReplaceWithAndHistory(
+                                         _mainWindow.ReplaceWithComboBox
+                                     );
 
-                Configuration.IsFolded = _mainWindow.IsFolded;
+                ConfigurationProvider.Configuration.IsFolded =
+                    _mainWindow.IsFolded;
 
-                Configuration.MatchCase = _mainWindow.MatchCase;
+                ConfigurationProvider.Configuration.MatchCase =
+                    _mainWindow.MatchCase;
 
-                Configuration.MatchWholeWord = _mainWindow.MatchWholeWord;
+                ConfigurationProvider.Configuration.MatchWholeWord =
+                    _mainWindow.MatchWholeWord;
 
-                Configuration.SelectedOptionTab = _mainWindow.SelectedOptionTab;
+                ConfigurationProvider.Configuration.SelectedOptionTab =
+                    _mainWindow.SelectedOptionTab;
 
                 SaveOperationSelections();
             }
@@ -759,28 +366,35 @@ namespace MassFileRenamer.GUI
             {
                 InitializeOperationSelections();
 
-                _mainWindow.SelectedOptionTab = Configuration.SelectedOptionTab;
+                _mainWindow.SelectedOptionTab = ConfigurationProvider
+                                                .Configuration
+                                                .SelectedOptionTab;
 
-                _mainWindow.MatchWholeWord = Configuration.MatchWholeWord;
+                _mainWindow.MatchWholeWord = ConfigurationProvider.Configuration
+                    .MatchWholeWord;
 
-                _mainWindow.MatchCase = Configuration.MatchCase;
+                _mainWindow.MatchCase =
+                    ConfigurationProvider.Configuration.MatchCase;
 
-                _mainWindow.IsFolded = Configuration.IsFolded;
+                _mainWindow.IsFolded =
+                    ConfigurationProvider.Configuration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.StartingFolderComboBox,
-                    Configuration.StartingFolderHistory,
-                    Configuration.StartingFolder
+                    ConfigurationProvider.Configuration.StartingFolderHistory,
+                    ConfigurationProvider.Configuration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox, Configuration.FindWhatHistory,
-                    Configuration.FindWhat
+                    _mainWindow.FindWhatComboBox,
+                    ConfigurationProvider.Configuration.FindWhatHistory,
+                    ConfigurationProvider.Configuration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.ReplaceWithComboBox,
-                    Configuration.ReplaceWithHistory, Configuration.ReplaceWith
+                    ConfigurationProvider.Configuration.ReplaceWithHistory,
+                    ConfigurationProvider.Configuration.ReplaceWith
                 );
             }
 
@@ -789,6 +403,51 @@ namespace MassFileRenamer.GUI
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "MainWindowPresenter.UpdateData: Done."
             );
+        }
+
+        /// <summary>
+        /// Fluent-builder method to set a reference to the main window of the application.
+        /// </summary>
+        /// <param name="mainWindow">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface and
+        /// which represents the main window of the application.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to associate the Main Window to its Presenter..."
+            );
+
+            _mainWindow = mainWindow ??
+                          throw new ArgumentNullException(nameof(mainWindow));
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The Main Window has been attached to the Presenter."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.MainWindowReference: Done."
+            );
+
+            return this;
         }
 
         /// <summary>
@@ -847,15 +506,15 @@ namespace MassFileRenamer.GUI
                 "In MainWindowPresenter.SaveOperationSelections"
             );
 
-            Configuration.RenameFiles =
+            ConfigurationProvider.Configuration.RenameFiles =
                 _mainWindow.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Files"
                 );
-            Configuration.RenameSubfolders =
+            ConfigurationProvider.Configuration.RenameSubfolders =
                 _mainWindow.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Subfolders"
                 );
-            Configuration.ReplaceInFiles =
+            ConfigurationProvider.Configuration.ReplaceInFiles =
                 _mainWindow.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
@@ -910,6 +569,23 @@ namespace MassFileRenamer.GUI
         protected virtual void OnConfigurationImported(
             ConfigurationImportedEventArgs e)
             => ConfigurationImported?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationError" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.DataOperationErrorEventArgs" />
+        /// that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnDataOperationError(
+            DataOperationErrorEventArgs e)
+            => DataOperationError?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -1202,7 +878,10 @@ namespace MassFileRenamer.GUI
                 "*** INFO: Attempting to hook up events to the File Renamer..."
             );
 
-            _fileRenamer.UpdateConfiguration(Configuration);
+            _fileRenamer.StartingFrom(StartingFolder)
+                        .UpdateConfiguration(
+                            ConfigurationProvider.Configuration
+                        );
 
             _fileRenamer.ExceptionRaised -= OnExceptionRaised;
             _fileRenamer.ExceptionRaised += OnExceptionRaised;
@@ -1234,60 +913,6 @@ namespace MassFileRenamer.GUI
                 DebugLevel.Debug,
                 "MainWindowPresenter.InitializeFileRenamer: Done."
             );
-        }
-
-        /// <summary>
-        /// Loads the configuration.
-        /// </summary>
-        /// <param name="configurationPathname">
-        /// (Required.) String containing the pathname of the configuration file.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
-        /// </exception>
-        private void LoadConfiguration(string configurationPathname)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.LoadConfiguration"
-            );
-
-            // Dump the parameter configurationPathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.LoadConfiguration: configurationPathname = '{configurationPathname}'"
-            );
-
-            if (string.IsNullOrWhiteSpace(configurationPathname))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(configurationPathname)
-                );
-
-            OnDataOperationStarted(
-                new DataOperationEventArgs("Loading configuration...")
-            );
-
-            Configuration = GetAction
-                            .For<IFileSystemEntry, IConfiguration>(
-                                MessageType.LoadConfigurationFromFile
-                            )
-                            .WithInput(
-                                MakeNewFileSystemEntry.ForPath(
-                                    configurationPathname
-                                )
-                            )
-                            .Execute();
-
-            if (Configuration != null)
-                DebugUtils.WriteLine(
-                    DebugLevel.Info, "*** SUCCESS *** Configuration loaded."
-                );
-
-            OnDataOperationFinished();
-
-            InitializeFileRenamer();
         }
 
         /// <summary>

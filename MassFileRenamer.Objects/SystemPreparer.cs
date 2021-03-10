@@ -179,7 +179,7 @@ namespace MassFileRenamer.Objects
                 keyName.ToRegistryHive(), RegistryView.Default
             ))
             using (var key = baseKey.OpenSubKey(
-                keyName, RegistryKeyPermissionCheck.ReadSubTree
+                keyName.RemoveHiveName(), RegistryKeyPermissionCheck.ReadSubTree
             ))
                 try
                 {
@@ -228,13 +228,14 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <param name="valueData">
         /// (Optional.) String containing the new data for the value. Set to
-        /// blank if you want to set the value's data to be blank.
+        /// blank if you want to set the value's new data to be blank.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
         /// </exception>
-        public static void SetRegistryString(string keyName, string valueName,
-            string valueData = "")
+        public static void SetRegistryString(string keyName,  /* mandatory */
+            string valueName = "",  /* setting this to blank sets the (Default) entry */
+            string valueData = "" /* setting this to blank clears the value's data */)
         {
             // write the name of the current class and method we are now
             // entering, into the log
@@ -273,7 +274,7 @@ namespace MassFileRenamer.Objects
             using (var baseKey = RegistryKey.OpenBaseKey(
                 keyName.ToRegistryHive(), RegistryView.Default
             ))
-            using (var key = baseKey.CreateSubKey(keyName))
+            using (var key = baseKey.CreateSubKey(keyName.RemoveHiveName()))
                 try
                 {
                     DebugUtils.WriteLine(
@@ -284,7 +285,8 @@ namespace MassFileRenamer.Objects
                     key.SetValue(valueName, valueData);
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Info, $@"*** SUCCESS *** Value data written to the '{key.Name}\{valueName} value'.");
+                        DebugLevel.Info, $@"*** SUCCESS *** Value data written to the '{key.Name}\{valueName} value'."
+                        );
                 }
                 catch (Exception ex)
                 {

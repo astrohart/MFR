@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="RegistryDataExchangeTestsBase.cs" />
     <Compile Include="RegistryHiveExtensionsTests.cs" />
+    <Compile Include="SaveConfigurationToFileCommandTests.cs" />
     <Compile Include="SaveStringToRegistryCommandTests.cs" />
     <Compile Include="TextExpressionMatcherTestBase.cs" />
     <Compile Include="TextReplacementEngineTestBase.cs" />

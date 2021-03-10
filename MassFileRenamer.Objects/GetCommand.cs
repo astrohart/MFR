@@ -9,8 +9,8 @@ namespace MassFileRenamer.Objects
     /// interface.
     /// </summary>
     /// <remarks>
-    /// In our vernacular, a <c>command</c> object is an object that
-    /// performs an operation that accepts input, but has no output.
+    /// In our vernacular, a <c>command</c> object is an object that performs an
+    /// operation that accepts input, but has no output.
     /// </remarks>
     public static class GetCommand
     {
@@ -31,6 +31,12 @@ namespace MassFileRenamer.Objects
                 case MessageType.SaveStringToRegistry:
                     command =
                         (ICommand<TInput>)SaveStringToRegistryCommand.Instance;
+                    break;
+
+                case MessageType.SaveConfigurationToFile:
+                    command =
+                        (ICommand<TInput>)SaveConfigurationToFileCommand
+                            .Instance;
                     break;
 
                 default:

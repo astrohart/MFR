@@ -2,9 +2,9 @@ using System.IO;
 
 namespace MassFileRenamer.Objects
 {
-    public static class FileInfoFactory
+    public static class GetNewFileInfo
     {
-        public static FileInfo Make(string path)
+        public static FileInfo ForPath(string path)
         {
             FileInfo result;
 
