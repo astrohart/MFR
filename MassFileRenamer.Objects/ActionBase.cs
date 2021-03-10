@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace MassFileRenamer.Objects
 {
@@ -17,11 +16,8 @@ namespace MassFileRenamer.Objects
     /// Name of the class or data type that will carry user state information
     /// about the results of the message.
     /// </typeparam>
-    public abstract class
-        ActionBase<TInput, TResult> :
-            RequestBase<TResult>,
-            IAction<TInput, TResult> where TInput : class
-        where TResult : class
+    public abstract class ActionBase<TInput, TResult> : RequestBase<TResult>,
+        IAction<TInput, TResult> where TInput : class where TResult : class
     {
         /// <summary>
         /// Reference to an instance of <typeparamref name="TInput" /> that
@@ -33,8 +29,8 @@ namespace MassFileRenamer.Objects
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MassFileRenamer.Objects.ActionBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a
+        /// reference to it.
         /// </summary>
         protected ActionBase()
         {
@@ -45,13 +41,39 @@ namespace MassFileRenamer.Objects
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MassFileRenamer.Objects.ActionBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a
+        /// reference to it.
         /// </summary>
         protected ActionBase(TInput input)
         {
             _input = input;
         }
+
+        /// <summary>
+        /// Returns a reference to this same object, but cast to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </summary>
+        /// <returns>
+        /// Reference to the same object instance as that which invoked this
+        /// method, cast to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </returns>
+        /// <exception cref="T:System.InvalidCastException">
+        /// Thrown if the implementing object does not also implement the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </exception>
+        /// <remarks>
+        /// Overriders of this method must not call the base class.
+        /// </remarks>
+        public virtual ICachedResultAction<TInput, TResult>
+            AsCachedResultAction()
+            => throw new InvalidCastException();
 
         /// <summary>
         /// Composes this object's <paramref name="input" /> with it.

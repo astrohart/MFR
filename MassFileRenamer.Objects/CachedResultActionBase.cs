@@ -1,6 +1,5 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Collections.Generic;
 using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
@@ -26,15 +25,46 @@ namespace MassFileRenamer.Objects
     /// non-negligible reduction in performance.
     /// </remarks>
     public abstract class
-        CachedActionBase<TInput, TResult> : ActionBase<TInput, TResult>
-        where TInput : class where TResult : class
+        CachedResultActionBase<TInput, TResult> : ActionBase<TInput, TResult>,
+            ICachedResultAction<TInput, TResult> where TInput : class
+        where TResult : class
     {
+        /// <summary>
+        /// Returns a reference to this same object, but cast to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </summary>
+        /// <returns>
+        /// Reference to the same object instance as that which invoked this
+        /// method, cast to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </returns>
+        /// <exception cref="T:System.InvalidCastException">
+        /// Thrown if the implementing object does not also implement the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </exception>
+        /// <remarks>
+        /// Overriders of this method must not call the base class.
+        /// </remarks>
+        public override ICachedResultAction<TInput, TResult>
+            AsCachedResultAction()
+            => this;
+
+        public virtual void ClearResultCache(
+            Action<TInput, TResult> elementAction = null)
+            => ActionCacheProvider<TInput, TResult>.Clear(elementAction);
+
         /// <summary>
         /// Allows an object to try to free resources and perform other cleanup
         /// operations before it is reclaimed by garbage collection.
         /// </summary>
         [Log(AttributeExclude = true)]
-        ~CachedActionBase()
+        ~CachedResultActionBase()
         {
             // Upon disposal of this object, clear the result cache first.
             ClearResultCache();
@@ -53,101 +83,7 @@ namespace MassFileRenamer.Objects
         /// to be associated with the current input value.
         /// </param>
         protected virtual void AddResultToCache(TResult resultToAdd)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In CachedActionBase.AddResultToCache"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "CachedActionBase.AddResultToCache: Checking whether the 'resultToAdd' method parameter has a null reference for a value..."
-            );
-
-            // Check to see if the required parameter, resultToAdd, is null. If
-            // it is, send an error to the log file and quit, returning from
-            // this method.
-            if (resultToAdd == null)
-            {
-                // the parameter resultToAdd is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "CachedActionBase.AddResultToCache: A null reference was passed for the 'resultToAdd' method parameter."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "CachedActionBase.AddResultToCache: This method parameter is required to have a valid object reference."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "CachedActionBase.AddResultToCache: Done."
-                );
-
-                // stop.
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "CachedActionBase.AddResultToCache: We have been passed a valid object reference for the 'resultToAdd' method parameter."
-            );
-
-            try
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "CachedActionBase.AddResultToCache: Associating the most-recently returned result with the input parameters..."
-                );
-
-                _resultCache[_input] = resultToAdd;
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** SUCCESS *** The cache has been updated."
-                );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "CachedActionBase.AddResultToCache: Done."
-            );
-        }
-
-        /// <summary>
-        /// Clears all entries that are currently stored in the result cache.
-        /// <para />
-        /// Optionally invokes a delegate for each element of the result cache
-        /// prior to performing the clear operation.
-        /// </summary>
-        /// <param name="actionForEachElement">
-        /// (Optional.) Reference to an instance of an instance of a
-        /// <see
-        ///     cref="T:System.Action{TInput}" />
-        /// delegate.
-        /// <para />
-        /// If this parameter is not a <c>null</c> reference, then the code
-        /// referenced by this delegate is invoked for every element of the
-        /// result cache, prior to the cache being cleared.
-        /// <para />
-        /// This parameter can be useful should callers, say, need to run
-        /// cleanup code to properly release system resources consumed by
-        /// elements of the cache, prior to the cache itself being emptied.
-        /// </param>
-        protected virtual void ClearResultCache(
-            Action<KeyValuePair<TInput, TResult>> actionForEachElement = null)
-        {
-            if (actionForEachElement != null)
-                foreach (var element in _resultCache)
-                    actionForEachElement(element);
-
-            _resultCache.Clear();
-        }
+            => ActionCacheProvider<TInput, TResult>.Add(_input, resultToAdd);
 
         /// <summary>
         /// Executes this message.
@@ -309,6 +245,8 @@ namespace MassFileRenamer.Objects
         /// override's code with a call to the base class.
         /// </remarks>
         protected virtual bool TryGetCachedResult(out TResult result)
-            => _resultCache.TryGetValue(_input, out result);
+            => ActionCacheProvider<TInput, TResult>.ResultCache.TryGetValue(
+                _input, out result
+            );
     }
 }

@@ -107,13 +107,15 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CachedActionBase.cs" />
+    <Compile Include="CachedResultActionBase.cs" />
     <Compile Include="ComboBoxInitializer.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ActionBase.cs" />
     <Compile Include="DataOperationErrorEventArgs.cs" />
     <Compile Include="DataOperationErrorEventHandler.cs" />
     <Compile Include="ActionCacheProvider.cs" />
+    <Compile Include="GetSaveConfigPathCommand.cs" />
+    <Compile Include="ICachedResultAction.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="ConfigurationComposedObjectBase.cs" />

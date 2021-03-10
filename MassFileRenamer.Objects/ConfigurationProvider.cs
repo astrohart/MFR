@@ -29,43 +29,19 @@ namespace MassFileRenamer.Objects
         public static string ConfigurationFilePath
         {
             get
-                => GetAction
-                   .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                       MessageType.LoadStringFromRegistry
-                   )
-                   .WithInput(
-                       MakeNewRegQueryExpression.FromScatch<string>()
-                                                .ForKeyPath(
-                                                    ConfigurationKeyName
-                                                )
-                                                .AndValueName(
-                                                    ConfigurationPathValueName
-                                                )
-                                                .WithDefaultValue(
-                                                    Path.Combine(
-                                                        DefaultConfigDir,
-                                                        DefaultConfigFileName
-                                                    )
-                                                )
-                   )
-                   .Execute()
-                   .Path;
-            set
-                => GetCommand
-                   .For<IRegOperationMetadata<string>>(
-                       MessageType.SaveStringToRegistry
-                   )
-                   .WithInput(
-                       MakeNewRegOperationMetadata.FromScatch<string>()
-                                                  .ForKeyPath(
-                                                      ConfigurationKeyName
-                                                  )
-                                                  .AndValueName(
-                                                      ConfigurationPathValueName
-                                                  )
-                                                  .WithValue(value)
-                   )
-                   .Execute();
+                => LoadConfigPathAction.Execute()
+                                       .Path;
+            set {
+                GetSaveConfigPathCommand
+                    .ForPath(value)
+                  .Execute();
+
+                /* Clear out the cache of previously-loaded path
+                 for this same operation. */
+                LoadConfigPathAction
+                    .AsCachedResultAction()
+                    .ClearResultCache();
+            }
         }
 
         /// <summary>
@@ -107,6 +83,26 @@ namespace MassFileRenamer.Objects
         {
             get;
         } = "config.json";
+
+        private static IAction<IRegQueryExpression<string>, IFileSystemEntry>
+            LoadConfigPathAction
+            => GetAction
+               .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                   MessageType.LoadStringFromRegistry
+               )
+               .WithInput(
+                   MakeNewRegQueryExpression.FromScatch<string>()
+                                            .ForKeyPath(ConfigurationKeyName)
+                                            .AndValueName(
+                                                ConfigurationPathValueName
+                                            )
+                                            .WithDefaultValue(
+                                                Path.Combine(
+                                                    DefaultConfigDir,
+                                                    DefaultConfigFileName
+                                                )
+                                            )
+               );
 
         /// <summary>
         /// Exports configuration data to a file other than the master

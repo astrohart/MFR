@@ -6,7 +6,7 @@ namespace MassFileRenamer.Objects
     /// Accesses a key and value in the system Registry to load the pathname of
     /// the master configuration file.
     /// </summary>
-    public class LoadStringFromRegistryAction : CachedActionBase<
+    public class LoadStringFromRegistryAction : CachedResultActionBase<
         IRegQueryExpression<string>, IFileSystemEntry>
     {
         /// <summary>

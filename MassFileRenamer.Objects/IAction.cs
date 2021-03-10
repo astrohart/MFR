@@ -59,10 +59,30 @@
     /// Name of the class or data type that will carry user state information
     /// about the results of the operation.
     /// </typeparam>
-    public interface
-        IAction<TInput, TResult> : IRequest<TResult>
+    public interface IAction<TInput, TResult> : IRequest<TResult>
         where TInput : class where TResult : class
     {
+        /// <summary>
+        /// Returns a reference to this same object, but cast to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </summary>
+        /// <returns>
+        /// Reference to the same object instance as that which invoked this
+        /// method, cast to the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </returns>
+        /// <exception cref="T:System.InvalidCastException">
+        /// Thrown if the implementing object does not also implement the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.ICachedResultAction" />
+        /// interface.
+        /// </exception>
+        ICachedResultAction<TInput, TResult> AsCachedResultAction();
+
         /// <summary>
         /// Composes this object's <paramref name="input" /> with it.
         /// </summary>
