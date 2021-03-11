@@ -54,7 +54,7 @@ namespace MassFileRenamer.GUI
             ConfigurationProvider.Load();
 
             Application.Run(
-                new MainWindow()
+                MainWindow.Instance
             );
 
             // Save changes in the configuration back out to the disk.
