@@ -28,25 +28,11 @@ namespace MassFileRenamer.GUI
         ///     cref="T:MassFileRenamer.GUI.MainWindow" />
         /// and returns a reference to it.
         /// </summary>
-        /// <param name="configurationPathname">
-        /// (Required.) String containing the pathname of the configuration file.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
-        /// </exception>
-        public MainWindow(string configurationPathname)
+        public MainWindow()
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            if (string.IsNullOrWhiteSpace(configurationPathname))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(configurationPathname)
-                );
-
             InitializeComponent();
 
-            InitializePresenter(configurationPathname);
+            InitializePresenter();
 
             Application.Idle += OnUpdateCmdUI;
         }
@@ -250,26 +236,8 @@ namespace MassFileRenamer.GUI
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
         /// </exception>
-        private void InitializePresenter(string configurationPathname)
+        private void InitializePresenter()
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindow.InitializePresenter"
-            );
-
-            // Dump the parameter configurationPathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindow.InitializePresenter: configurationPathname = '{configurationPathname}'"
-            );
-
-            if (string.IsNullOrWhiteSpace(configurationPathname))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(configurationPathname)
-                );
-
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "*** INFO: Attempting to obtain new Presenter object..."
