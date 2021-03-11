@@ -117,6 +117,7 @@
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IMainWindow.cs" />
     <Compile Include="IMainWindowPresenter.cs" />
+    <Compile Include="IPresenter.cs" />
     <Compile Include="IProgressDialog.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
