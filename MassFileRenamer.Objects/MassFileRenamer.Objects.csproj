@@ -108,14 +108,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CachedResultActionBase.cs" />
+    <Compile Include="CloseActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="ComboBoxInitializer.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ActionBase.cs" />
     <Compile Include="DataOperationErrorEventArgs.cs" />
     <Compile Include="DataOperationErrorEventHandler.cs" />
     <Compile Include="ActionCacheProvider.cs" />
+    <Compile Include="FindVisualStudioOperationStartedDescription.cs" />
+    <Compile Include="GetOperationDescription.cs" />
+    <Compile Include="GetOperationStartedDescription.cs" />
     <Compile Include="GetSaveConfigPathCommand.cs" />
+    <Compile Include="GettingListOfFilesToBeRenamedOperationStartedDescription.cs" />
     <Compile Include="ICachedResultAction.cs" />
+    <Compile Include="IOperationDescription.cs" />
+    <Compile Include="IOperationStartedDescription.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="ConfigurationComposedObjectBase.cs" />
@@ -132,6 +139,13 @@
     <Compile Include="LoadConfigurationFromFileAction.cs" />
     <Compile Include="MakeNewRegOperationMetadata.cs" />
     <Compile Include="MessageBase.cs" />
+    <Compile Include="OpenActiveSolutionOperationStartedDescription.cs" />
+    <Compile Include="RenameFilesInFolderOperationDescription.cs" />
+    <Compile Include="RenameFilesInFolderOperationStartedDescription.cs" />
+    <Compile Include="RenameSubFoldersOperationDescription.cs" />
+    <Compile Include="RenameSubFoldersOperationStartedDescription.cs" />
+    <Compile Include="ReplaceTextInFilesOperationDescription.cs" />
+    <Compile Include="ReplaceTextInFilesOperationStartedDescription.cs" />
     <Compile Include="RequestBase.cs" />
     <Compile Include="ConfigurationSerializer.cs" />
     <Compile Include="ConvertConfiguration.cs" />

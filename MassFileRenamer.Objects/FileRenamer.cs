@@ -405,22 +405,7 @@ namespace MassFileRenamer.Objects
                         )
                     );
                 }
-
-                /*
-                if (findWhat.Contains(replaceWith) ||
-                    replaceWith.Contains(findWhat))
-                {
-                    /* If the findWhat and/or replaceWith contain substrings of each other,
-                       then first replace findWhat -> some GUID and then that GUID -> replaceWith
-
-                    var someGuid = Guid.NewGuid().ToString("N");
-
-                    ProcessAll(findWhat, someGuid, pathFilter);
-
-                    ProcessAll(someGuid, replaceWith, pathFilter);
-                }
-                else
-                    */
+                
                 ProcessAll(findWhat, replaceWith, pathFilter);
 
                 // If Visual Studio is open and it currently has the solution

@@ -125,4 +125,34 @@
 
 Just in case we're wrong, after we've finished the operation(s) selected, any currently-open Visual Studio solutions of which the project to be renamed is a member will have to be reloaded by choosing File -&gt; Reopen Workspace when the selected rename operation(s) have completed.</value>
   </data>
+  <data name="OperationDescription_RenameFilesInFolder" xml:space="preserve">
+    <value>Renaming files..</value>
+  </data>
+  <data name="OperationDescription_ReplaceTextInFiles" xml:space="preserve">
+    <value>Replacing text in files..</value>
+  </data>
+  <data name="OperationDescription_RenameSubFolders" xml:space="preserve">
+    <value>Renaming subfolders..</value>
+  </data>
+  <data name="OperationStartedDescription_CloseActiveSolution" xml:space="preserve">
+    <value>Closing solution containing the item(s) to be processed...</value>
+  </data>
+  <data name="OperationStartedDescription_FindVisualStudio" xml:space="preserve">
+    <value>Determining whether Visual Studio is open...</value>
+  </data>
+  <data name="OperationStartedDescription_GettingListOfFilesToBeRenamed" xml:space="preserve">
+    <value>Getting list of files to be renamed...</value>
+  </data>
+  <data name="OperationStartedDescription_OpenActiveSolution" xml:space="preserve">
+    <value>Reloading the solution containing the item(s) that were processed...</value>
+  </data>
+  <data name="OperationStartedDescription_RenameFilesInFolder" xml:space="preserve">
+    <value>Calculating files to be renamed..</value>
+  </data>
+  <data name="OperationStartedDescription_ReplaceTextInFiles" xml:space="preserve">
+    <value>Calculating files in which to replace text..</value>
+  </data>
+  <data name="OperationStartedDescription_RenameSubFolders" xml:space="preserve">
+    <value>Calculating folders to be renamed..</value>
+  </data>
 </root>

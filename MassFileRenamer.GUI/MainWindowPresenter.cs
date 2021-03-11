@@ -17,19 +17,15 @@ namespace MassFileRenamer.GUI
         IMainWindowPresenter
     {
         /// <summary>
-        /// Reference to an instance of a
-        /// <see
-        ///     cref="T:System.Windows.Forms.SaveFileDialog" />
-        /// that allows the user
+        /// Reference to an instance of a <see
+        /// cref="T:System.Windows.Forms.SaveFileDialog"/> that allows the user
         /// to choose where they want to export the configuration data.
         /// </summary>
         private SaveFileDialog _exportConfigDialog;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.IFileRenamer" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MassFileRenamer.Objects.IFileRenamer"/> interface.
         /// </summary>
         /// <remarks>
         /// THis object provides the core services that this application offers.
@@ -37,10 +33,8 @@ namespace MassFileRenamer.GUI
         private IFileRenamer _fileRenamer;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.IHistoryManager" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MassFileRenamer.Objects.IHistoryManager"/> interface.
         /// </summary>
         /// <remarks>
         /// This object's sole purpose in life is to provide the service of
@@ -49,10 +43,8 @@ namespace MassFileRenamer.GUI
         private IHistoryManager _historyManager;
 
         /// <summary>
-        /// Reference to an instance of
-        /// <see
-        ///     cref="T:System.Windows.Forms.OpenFileDialog" />
-        /// that allows the user
+        /// Reference to an instance of <see
+        /// cref="T:System.Windows.Forms.OpenFileDialog"/> that allows the user
         /// to choose a filename on the disk.
         /// </summary>
         /// <remarks>
@@ -62,10 +54,8 @@ namespace MassFileRenamer.GUI
         private OpenFileDialog _importConfigDialog;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.IMainWindow" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MassFileRenamer.GUI.IMainWindow"/> interface.
         /// </summary>
         /// <remarks>
         /// This object provides the functionality of the main window of the application.
@@ -73,25 +63,21 @@ namespace MassFileRenamer.GUI
         private IMainWindow _mainWindow;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.IProgressDialog" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MassFileRenamer.GUI.IProgressDialog"/> interface.
         /// </summary>
         private IProgressDialog _progressDialog;
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.GUI.MainWindowPresenter" />
-        /// and returns a
+        /// Constructs a new instance of <see
+        /// cref="T:MassFileRenamer.GUI.MainWindowPresenter"/> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="configurationPathname">
         /// (Required.) String containing the pathname of the configuration file.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
+        /// Thrown if the <paramref name="configurationPathname"/> parameter is blank.
         /// </exception>
         public MainWindowPresenter()
         {
@@ -105,6 +91,53 @@ namespace MassFileRenamer.GUI
 
             ReinitializeProgressDialog();
         }
+
+        /// <summary>
+        /// Occurs when all the history has been cleared.
+        /// </summary>
+        public event EventHandler AllHistoryCleared;
+
+        /// <summary>
+        /// Occurs when the configuration has been exported to a file.
+        /// </summary>
+        public event ConfigurationExportedEventHandler ConfigurationExported;
+
+        /// <summary>
+        /// Occurs when the configuration has been updated, say, by an import process.
+        /// </summary>
+        public event ConfigurationImportedEventHandler ConfigurationImported;
+
+        /// <summary>
+        /// Occurs when an error happens during a data operation.
+        /// </summary>
+        public event DataOperationErrorEventHandler DataOperationError;
+
+        /// <summary>
+        /// Occurs when data is finished being moved to and fro between the
+        /// screen and the configuration data source.
+        /// </summary>
+        public event EventHandler DataOperationFinished;
+
+        /// <summary>
+        /// Occurs when data is about to be moved to and fro between the screen
+        /// and the configuration data source.
+        /// </summary>
+        public event DataOperationEventHandler DataOperationStarted;
+
+        /// <summary>
+        /// Occurs when the processing is done.
+        /// </summary>
+        public event EventHandler Finished;
+
+        /// <summary>
+        /// Occurs when an exception is thrown during a file operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler OperationError;
+
+        /// <summary>
+        /// Occurs when the processing has started.
+        /// </summary>
+        public event EventHandler Started;
 
         /// <summary>
         /// Gets the text to be searched for during the operations.
@@ -169,63 +202,14 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Occurs when all the history has been cleared.
-        /// </summary>
-        public event EventHandler AllHistoryCleared;
-
-        /// <summary>
-        /// Occurs when the configuration has been exported to a file.
-        /// </summary>
-        public event ConfigurationExportedEventHandler ConfigurationExported;
-
-        /// <summary>
-        /// Occurs when the configuration has been updated, say, by an import process.
-        /// </summary>
-        public event ConfigurationImportedEventHandler ConfigurationImported;
-
-        /// <summary>
-        /// Occurs when an error happens during a data operation.
-        /// </summary>
-        public event DataOperationErrorEventHandler DataOperationError;
-
-        /// <summary>
-        /// Occurs when data is finished being moved to and fro between the
-        /// screen and the configuration data source.
-        /// </summary>
-        public event EventHandler DataOperationFinished;
-
-        /// <summary>
-        /// Occurs when data is about to be moved to and fro between the screen
-        /// and the configuration data source.
-        /// </summary>
-        public event DataOperationEventHandler DataOperationStarted;
-
-        /// <summary>
-        /// Occurs when the processing is done.
-        /// </summary>
-        public event EventHandler Finished;
-
-        /// <summary>
-        /// Occurs when an exception is thrown during a file operation.
-        /// </summary>
-        public event ExceptionRaisedEventHandler OperationError;
-
-        /// <summary>
-        /// Occurs when the processing has started.
-        /// </summary>
-        public event EventHandler Started;
-
-        /// <summary>
         /// Fluent-builder method for initializing the history manager
         /// dependency of this Presenter class. History Manager objects control
         /// the flow of values into and out of the list of previously-specified
         /// values in prior searches.
         /// </summary>
         /// <param name="historyManager">
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.IHistoryManager" />
-        /// on which this
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MassFileRenamer.Objects.IHistoryManager"/> on which this
         /// Presenter should depend.
         /// </param>
         /// <returns>
@@ -294,7 +278,7 @@ namespace MassFileRenamer.GUI
         /// </summary>
         /// <param name="mainWindow">
         /// (Required.) Reference to an instance of an object that is of the
-        /// <typeparamref name="TView" /> type and which represents the form that
+        /// <typeparamref name="TView"/> type and which represents the form that
         /// is to be associated with this presenter.
         /// </param>
         /// <returns>
@@ -302,7 +286,7 @@ namespace MassFileRenamer.GUI
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
+        /// Thrown if the required parameter, <paramref name="mainWindow"/>, is
         /// passed a <c>null</c> value.
         /// </exception>
         public IMainWindowPresenter HavingWindowReference(IMainWindow view)
@@ -391,11 +375,10 @@ namespace MassFileRenamer.GUI
         /// are clicked on the Tools -&gt; Options dialog box.
         /// </summary>
         /// <param name="dialog">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
+        /// (Required.) Reference to an instance of <see cref="T:MassFileRenamer.GUI.OptionsDialog"/>.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// Thrown if the required parameter, <paramref name="dialog"/>, is
         /// passed a <c>null</c> value.
         /// </exception>
         public void SaveConfigurationDataFrom(OptionsDialog dialog)
@@ -416,6 +399,38 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the <see cref="T:MassFileRenamer.Objects.Configuration"/> object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.SaveOperationSelections"
+            );
+
+            Configuration.RenameFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Files"
+                );
+            Configuration.RenameSubfolders =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Subfolders"
+                );
+            Configuration.ReplaceInFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Replace in Files"
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.SaveOperationSelections: Done."
+            );
+        }
+
+        /// <summary>
         /// Shows the progress window.
         /// </summary>
         public void ShowProgressDialog()
@@ -426,19 +441,19 @@ namespace MassFileRenamer.GUI
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
         /// which has the new settings.
         /// </param>
         /// <remarks>
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
-        /// <para />
+        /// <para/>
         /// NOTE:This member may be overriden by a child class. If this is the
         /// case, the overrider must call the base class method before doing any
         /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="configuration"/>,
         /// is passed a <c>null</c> value.
         /// </exception>
         public override void UpdateConfiguration(IConfiguration configuration)
@@ -452,11 +467,9 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Updates data. Moves data from the screen to the model (
-        /// <paramref
-        ///     name="bSavingAndValidating" />
-        /// equals <c>true</c>) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
+        /// Updates data. Moves data from the screen to the model ( <paramref
+        /// name="bSavingAndValidating"/> equals <c>true</c>) or from the model
+        /// to the screen ( <paramref name="bSavingAndValidating"/> equals <c>false</c>).
         /// </summary>
         /// <param name="bSavingAndValidating">
         /// Set to <c>true</c> to move data from the screen to the model;
@@ -585,18 +598,63 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// Fluent-builder method to set a reference to the main window of the application.
         /// </summary>
-        /// <param name="fileRenamer">
+        /// <param name="mainWindow">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IFileRenamer" /> interface.
+        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow"/> interface and
+        /// which represents the main window of the application.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
+        /// Thrown if the required parameter, <paramref name="mainWindow"/>, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to associate the Main Window to its Presenter..."
+            );
+
+            _mainWindow = mainWindow ??
+                          throw new ArgumentNullException(nameof(mainWindow));
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The Main Window has been attached to the Presenter."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.MainWindowReference: Done."
+            );
+
+            return this;
+        }
+
+        /// <summary>
+        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// </summary>
+        /// <param name="fileRenamer">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IFileRenamer"/> interface.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="fileRenamer"/>, is
         /// passed a <c>null</c> value.
         /// </exception>
         public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
@@ -640,87 +698,8 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MassFileRenamer.Objects.Configuration" /> object.
-        /// </summary>
-        public void SaveOperationSelections()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.SaveOperationSelections"
-            );
-
-            Configuration.RenameFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Files"
-                );
-            Configuration.RenameSubfolders =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Subfolders"
-                );
-            Configuration.ReplaceInFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Replace in Files"
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.SaveOperationSelections: Done."
-            );
-        }
-
-        /// <summary>
-        /// Fluent-builder method to set a reference to the main window of the application.
-        /// </summary>
-        /// <param name="mainWindow">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow" /> interface and
-        /// which represents the main window of the application.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to associate the Main Window to its Presenter..."
-            );
-
-            _mainWindow = mainWindow ??
-                          throw new ArgumentNullException(nameof(mainWindow));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The Main Window has been attached to the Presenter."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.MainWindowReference: Done."
-            );
-
-            return this;
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.AllHistoryCleared" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.AllHistoryCleared"/> event.
         /// </summary>
         /// <remarks>
         /// The objective of calling this method is to inform interested parties
@@ -730,15 +709,12 @@ namespace MassFileRenamer.GUI
             => AllHistoryCleared?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationExported" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationExported"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs" />
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.ConfigurationExportedEventArgs"/>
         /// that contains the event data.
         /// </param>
         protected virtual void OnConfigurationExported(
@@ -746,15 +722,12 @@ namespace MassFileRenamer.GUI
             => ConfigurationExported?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationImported" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.ConfigurationImported"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.ConfigurationImportedEventArgs" />
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.ConfigurationImportedEventArgs"/>
         /// that contains the event data.
         /// </param>
         protected virtual void OnConfigurationImported(
@@ -762,16 +735,12 @@ namespace MassFileRenamer.GUI
             => ConfigurationImported?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationError" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationError"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.DataOperationErrorEventArgs" />
-        /// that
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.DataOperationErrorEventArgs"/> that
         /// contains the event data.
         /// </param>
         protected virtual void OnDataOperationError(
@@ -779,10 +748,8 @@ namespace MassFileRenamer.GUI
             => DataOperationError?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationFinished" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationFinished"/> event.
         /// </summary>
         /// <remarks>
         /// Ideally, it should be the main application window that handles this
@@ -796,16 +763,12 @@ namespace MassFileRenamer.GUI
             => DataOperationFinished?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationStarted" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.DataOperationStarted"/> event.
         /// </summary>
         /// <param name="e">
-        /// (Required.) A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.DataOperationEventArgs" />
-        /// that
+        /// (Required.) A <see
+        /// cref="T:MassFileRenamer.Objects.DataOperationEventArgs"/> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -820,40 +783,8 @@ namespace MassFileRenamer.GUI
             => DataOperationStarted?.Invoke(this, e);
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.Finished" />
-        /// event.
-        /// </summary>
-        /// <remarks>
-        /// This event lets client objects know that the presenter is about to
-        /// finish an operation. Typically, the client object is the main
-        /// application window, which should respond by dismissing any progress
-        /// dialog that may have been previously shown during the operation and
-        /// re-enabling user input.
-        /// </remarks>
-        protected virtual void OnFinished()
-            => Finished?.Invoke(this, EventArgs.Empty);
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.OperationError" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
-            => OperationError?.Invoke(this, e);
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started"/> event.
         /// </summary>
         /// <remarks>
         /// This event lets client objects know that the presenter is about to
@@ -863,80 +794,44 @@ namespace MassFileRenamer.GUI
         /// displaying the progress dialog to inform the user of the status of
         /// the operation.
         /// </remarks>
+        [Log(AttributeExclude = true)]
+        protected virtual void OnFileRenamerStarted(object sender, EventArgs e)
+            => OnStarted();
+
+        /// <summary>
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.Finished"/> event.
+        /// </summary>
+        /// <remarks>
+        /// This event lets client objects know that the presenter is about to
+        /// finish an operation. Typically, the client object is the main
+        /// application window, which should respond by dismissing any progress
+        /// dialog that may have been previously shown during the operation and
+        /// re-enabling user input.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        protected virtual void OnFinished()
+            => Finished?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.OperationError"/> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MassFileRenamer.Objects.ExceptionRaisedEventArgs"/>
+        /// that contains the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
+            => OperationError?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see
+        /// cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started"/> event.
+        /// </summary>
+        [Log(AttributeExclude = true)]
         protected virtual void OnStarted()
             => Started?.Invoke(this, EventArgs.Empty);
-
-        private static string GetOperationDescriptionFor(OperationType type)
-        {
-            var result = string.Empty;
-
-            switch (type)
-            {
-                case OperationType.RenameFilesInFolder:
-                    result = "Renaming files..";
-                    break;
-
-                case OperationType.ReplaceTextInFiles:
-                    result = "Replacing text in files..";
-                    break;
-
-                case OperationType.RenameSubFolders:
-                    result = "Renaming subfolders..";
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(type), type, null
-                    );
-            }
-
-            return result;
-        }
-
-        private static string GetOperationStartedText(OperationType type)
-        {
-            var result = string.Empty;
-
-            switch (type)
-            {
-                case OperationType.CloseActiveSolution:
-                    result =
-                        "Closing solution containing the item(s) to be processed...";
-                    break;
-
-                case OperationType.FindVisualStudio:
-                    result = "Determining whether Visual Studio is open...";
-                    break;
-
-                case OperationType.GettingListOfFilesToBeRenamed:
-                    result = "Getting list of files to be renamed...";
-                    break;
-
-                case OperationType.OpenActiveSolution:
-                    result =
-                        "Reloading the solution containing the item(s) that were processed...";
-                    break;
-
-                case OperationType.RenameFilesInFolder:
-                    result = "Calculating files to be renamed..";
-                    break;
-
-                case OperationType.ReplaceTextInFiles:
-                    result = "Calculating files in which to replace text..";
-                    break;
-
-                case OperationType.RenameSubFolders:
-                    result = "Calculating folders to be renamed..";
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(type), type, null
-                    );
-            }
-
-            return result;
-        }
 
         /// <summary>
         /// Actually begins the rename process.
@@ -958,11 +853,11 @@ namespace MassFileRenamer.GUI
         /// </param>
         /// <remarks>
         /// Takes the message of resetting the progress dialog and reconfiguring
-        /// the progress bar such that the <paramref name="count" /> parameter
+        /// the progress bar such that the <paramref name="count"/> parameter
         /// specifies the new maximum value of the progress bar.
         /// </remarks>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <paramref name="count" /> parameter is zero or
+        /// Thrown if the <paramref name="count"/> parameter is zero or
         /// negative. This parameter describes a count of files; therefore, it
         /// is expected that it should be 1 or greater.
         /// </exception>
@@ -993,10 +888,8 @@ namespace MassFileRenamer.GUI
         /// currently being processed.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="statusLabelText" />
-        /// or <paramref name="currentFileLabelText" />,
+        /// Thrown if either of the required parameters, <paramref
+        /// name="statusLabelText"/> or <paramref name="currentFileLabelText"/>,
         /// are passed blank or <c>null</c> string for values.
         /// </exception>
         private void IncrementProgressBar(string statusLabelText,
@@ -1106,20 +999,24 @@ namespace MassFileRenamer.GUI
             _fileRenamer.OperationFinished += OnFileRenamerOperationFinished;
             _fileRenamer.OperationStarted -= OnFileRenamerOperationStarted;
             _fileRenamer.OperationStarted += OnFileRenamerOperationStarted;
+            _fileRenamer.FilesToBeRenamedCounted -=
+                OnFileRenamerFilesToBeRenamedCounted;
             _fileRenamer.FilesToBeRenamedCounted +=
                 OnFileRenamerFilesToBeRenamedCounted;
-            _fileRenamer.FilesToHaveTextReplacedCounted += (sender, eventArgs)
-                => HandleFilesCountedEvent(eventArgs.Count);
-            _fileRenamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
-                => HandleFilesCountedEvent(eventArgs.Count);
-            _fileRenamer.Started += (x, y) => OnStarted();
+            _fileRenamer.FilesToHaveTextReplacedCounted -=
+                OnFileRenamerFilesToHaveTextReplacedCounted;
+            _fileRenamer.FilesToHaveTextReplacedCounted +=
+                OnFileRenamerFilesToHaveTextReplacedCounted;
+            _fileRenamer.SubfoldersToBeRenamedCounted -=
+                OnFileRenamerSubfoldersToBeRenamedCounted;
+            _fileRenamer.SubfoldersToBeRenamedCounted +=
+                OnFileRenamerSubfoldersToBeRenamedCounted;
+            _fileRenamer.Started -= OnFileRenamerStarted;
+            _fileRenamer.Started += OnFileRenamerStarted;
             _fileRenamer.StatusUpdate += (sender, eventArgs)
                 => Console.WriteLine(eventArgs.Text);
-            _fileRenamer.ProcessingOperation += (sender, eventArgs)
-                => IncrementProgressBar(
-                    GetOperationDescriptionFor(eventArgs.OperationType),
-                    eventArgs.Entry.Path
-                );
+            _fileRenamer.ProcessingOperation +=
+                OnFileRenamerProcessingOperation;
             _fileRenamer.Finished += (x, y) => OnFinished();
 
             DebugUtils.WriteLine(
@@ -1134,16 +1031,14 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.ExceptionRaised" />
-        /// event.
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.ExceptionRaised"/> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to such an event by showing the user a message
@@ -1159,9 +1054,8 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.FilesToBeRenamedCounted" />
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.FilesToBeRenamedCounted"/>
         /// event raised by the file renamer object when it's finished
         /// determining the set of file system entries upon which the current
         /// operation should act.
@@ -1170,55 +1064,76 @@ namespace MassFileRenamer.GUI
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs"/>
         /// that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
+        /// back to zero, and then updating the value of its <see
+        /// cref="P:System.Windows.Forms.ProgressBar.Maximum"/> property to have
         /// the same value as the count of file system entries.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private void OnFileRenamerFilesToBeRenamedCounted(object sender,
             FilesOrFoldersCountedEventArgs e)
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.OperationFinished" />
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.FilesToHaveTextReplacedCounted"/>
+        /// event raised by the File Renamer object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs"/>
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by resetting the progress dialog's progress bar
+        /// back to zero, and then updating the value of its <see
+        /// cref="P:System.Windows.Forms.ProgressBar.Maximum"/> property to have
+        /// the same value as the count of file system entries.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private void OnFileRenamerFilesToHaveTextReplacedCounted(object sender,
+            FilesOrFoldersCountedEventArgs e)
+            => HandleFilesCountedEvent(e.Count);
+
+        /// <summary>
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.OperationFinished"/>
         /// event raised by the file renamer object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs" />
+        /// A <see cref="T:MassFileRenamer.Objects.OperationFinishedEventArgs"/>
         /// that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the event by telling the progress dialog to
         /// reset the progress bar back to the starting point.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private void OnFileRenamerOperationFinished(object sender,
             OperationFinishedEventArgs e)
             => ResetProgressBar();
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.OperationStarted" />
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.OperationStarted"/>
         /// event raised by the file-renamer object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs" />
+        /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs"/>
         /// that contains the event data.
         /// </param>
         /// <remarks>
@@ -1226,35 +1141,100 @@ namespace MassFileRenamer.GUI
         /// show the marquee progress bar for the operation type whose
         /// processing is now being started.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private void OnFileRenamerOperationStarted(object sender,
             OperationStartedEventArgs e)
             => ShowCalculatingProgressBar(
-                GetOperationStartedText(e.OperationType)
+                GetOperationStartedDescription.For(e.OperationType).Text
             );
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.IProgressDialog.CancelRequested" />
-        /// event.
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.ProcessingOperation"/>
+        /// event raised by the File Renamer object when it moves on to
+        /// processing the next file system entry in its list.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs"/> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by first checking the values passed in the <see
+        /// cref="T:MassFileRenamer.Objects.ProcessingOperationEventArgs"/> for
+        /// valid values.
+        /// <para/>
+        /// If the checks fail, then this method does nothing.
+        /// <para/>
+        /// Otherwise, the method responds by incrementing the progress dialog's
+        /// progress bar to the next notch, and updating the text of the lower
+        /// status label in the progress dialog to contain the path to the file
+        /// currently being worked on.
+        /// </remarks>
+        private void OnFileRenamerProcessingOperation(object sender,
+            ProcessingOperationEventArgs e)
+        {
+            if (e.OperationType == OperationType.Unknown) return;
+            if (e.Entry == null) return;
+            if (string.IsNullOrWhiteSpace(e.Entry.Path)) return;
+
+            IncrementProgressBar(
+                GetOperationDescription.For(e.OperationType)
+                                       .Text, e.Entry.Path
+            );
+        }
+
+        /// <summary>
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.Objects.IFileRenamer.SubfoldersToBeRenamedCounted"/>
+        /// event raised by the File Renamer object when it has finished
+        /// calculating how many subfolders are to be renamed.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see
+        /// cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs"/>
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by resetting the progress dialog's progress bar
+        /// back to zero, and then updating the value of its <see
+        /// cref="P:System.Windows.Forms.ProgressBar.Maximum"/> property to have
+        /// the same value as the count of file system entries.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private void OnFileRenamerSubfoldersToBeRenamedCounted(object sender,
+            FilesOrFoldersCountedEventArgs e)
+            => HandleFilesCountedEvent(e.Count);
+
+        /// <summary>
+        /// Handles the <see
+        /// cref="E:MassFileRenamer.GUI.IProgressDialog.CancelRequested"/> event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method handles the situation in which the user has clicked the
         /// Cancel button on the progress dialog. The message taken by this
         /// method is to tell the File Renamer Object to attempt to abort.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private void OnProgressDialogRequestedCancel(object sender, EventArgs e)
             => _fileRenamer.RequestAbort();
 
         /// <summary>
         /// Sets the progress dialog and/or reinitializes it from prior use.
         /// </summary>
+        [Log(AttributeExclude = true)]
         private void ReinitializeProgressDialog()
         {
             // write the name of the current class and method we are now
@@ -1284,6 +1264,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Resets the progress bar back to the beginning.
         /// </summary>
+        [Log(AttributeExclude = true)]
         private void ResetProgressBar()
             => _progressDialog.DoIfNotDisposed(_progressDialog.Reset);
 
@@ -1297,9 +1278,10 @@ namespace MassFileRenamer.GUI
         /// (Required.) String containing the text to display in the progress dialog.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="text" />, is passed
+        /// Thrown if the required parameter, <paramref name="text"/>, is passed
         /// a blank or <c>null</c> string for a value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         private void ShowCalculatingProgressBar(string text)
         {
             // write the name of the current class and method we are now
@@ -1337,30 +1319,25 @@ namespace MassFileRenamer.GUI
 
         /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are
-        /// valid. Throws a <see cref="T:System.Exception" /> if a validation
+        /// valid. Throws a <see cref="T:System.Exception"/> if a validation
         /// rule fails.
         /// </summary>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the directory whose pathname is referenced by
-        /// <see
-        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.StartingFolder" />
-        /// is
+        /// Thrown if the directory whose pathname is referenced by <see
+        /// cref="P:MassFileRenamer.GUI.MainWindowPresenter.StartingFolder"/> is
         /// not found on the disk.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if either of the
-        /// <see
-        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.FindWhat" />
-        /// or
-        /// <see
-        ///     cref="P:MassFileRenamer.GUI.MainWindowPresenter.ReplaceWith" />
+        /// Thrown if either of the <see
+        /// cref="P:MassFileRenamer.GUI.MainWindowPresenter.FindWhat"/> or <see
+        /// cref="P:MassFileRenamer.GUI.MainWindowPresenter.ReplaceWith"/>
         /// properties are blank.
         /// </exception>
         /// <remarks>
         /// This method should be called in a try/catch handler. Upon catching
         /// an exception, instead of logging the error, the application should
         /// also respond by displaying a Stop message box to the user with the
-        /// value of the <see cref="P:System.Exception.Message" /> property of
+        /// value of the <see cref="P:System.Exception.Message"/> property of
         /// the caught exception as its text, and then set the focus to the
         /// offending field (if feasible).
         /// </remarks>

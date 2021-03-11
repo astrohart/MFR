@@ -61,7 +61,7 @@ namespace MassFileRenamer.Objects.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to clear the Starting Folder, Find What, and Replace WIth hisotry lists?\n\nThis message cannot be undone..
+        ///   Looks up a localized string similar to Are you sure you want to clear the Starting Folder, Find What, and Replace WIth hisotry lists?\n\nThis action cannot be undone..
         /// </summary>
         internal static string Confirm_ClearAllHistory {
             get {
@@ -77,6 +77,96 @@ namespace MassFileRenamer.Objects.Properties {
         internal static string Confirm_PerformRename {
             get {
                 return ResourceManager.GetString("Confirm_PerformRename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renaming files...
+        /// </summary>
+        internal static string OperationDescription_RenameFilesInFolder {
+            get {
+                return ResourceManager.GetString("OperationDescription_RenameFilesInFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renaming subfolders...
+        /// </summary>
+        internal static string OperationDescription_RenameSubFolders {
+            get {
+                return ResourceManager.GetString("OperationDescription_RenameSubFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replacing text in files...
+        /// </summary>
+        internal static string OperationDescription_ReplaceTextInFiles {
+            get {
+                return ResourceManager.GetString("OperationDescription_ReplaceTextInFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closing solution containing the item(s) to be processed....
+        /// </summary>
+        internal static string OperationStartedDescription_CloseActiveSolution {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_CloseActiveSolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determining whether Visual Studio is open....
+        /// </summary>
+        internal static string OperationStartedDescription_FindVisualStudio {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_FindVisualStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting list of files to be renamed....
+        /// </summary>
+        internal static string OperationStartedDescription_GettingListOfFilesToBeRenamed {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_GettingListOfFilesToBeRenamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reloading the solution containing the item(s) that were processed....
+        /// </summary>
+        internal static string OperationStartedDescription_OpenActiveSolution {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_OpenActiveSolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculating files to be renamed...
+        /// </summary>
+        internal static string OperationStartedDescription_RenameFilesInFolder {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_RenameFilesInFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculating folders to be renamed...
+        /// </summary>
+        internal static string OperationStartedDescription_RenameSubFolders {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_RenameSubFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculating files in which to replace text...
+        /// </summary>
+        internal static string OperationStartedDescription_ReplaceTextInFiles {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_ReplaceTextInFiles", resourceCulture);
             }
         }
     }
