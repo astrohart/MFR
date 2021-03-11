@@ -283,6 +283,10 @@ namespace MassFileRenamer.GUI
                 return;
 
             ConfigurationProvider.Export(_exportConfigDialog.FileName);
+
+            OnConfigurationExported(
+                new ConfigurationExportedEventArgs(_exportConfigDialog.FileName)
+            );
         }
 
         /// <summary>
@@ -304,6 +308,11 @@ namespace MassFileRenamer.GUI
         public IMainWindowPresenter HavingWindowReference(IMainWindow view)
         {
             _mainWindow = view ?? throw new ArgumentNullException(nameof(view));
+
+            UpdateData(
+                false
+            ); // at this step, move data from the configuration to the screen
+
             return this;
         }
 
@@ -325,6 +334,10 @@ namespace MassFileRenamer.GUI
             ConfigurationProvider.Import(_importConfigDialog.FileName);
 
             UpdateConfiguration(ConfigurationProvider.Configuration);
+
+            OnConfigurationImported(
+                new ConfigurationImportedEventArgs(_importConfigDialog.FileName)
+            );
         }
 
         /// <summary>
@@ -371,6 +384,35 @@ namespace MassFileRenamer.GUI
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "MainWindowPresenter.Process: Done."
             );
+        }
+
+        /// <summary>
+        /// Runs code that should execute when either the OK or Apply buttons
+        /// are clicked on the Tools -&gt; Options dialog box.
+        /// </summary>
+        /// <param name="dialog">
+        /// (Required.) Reference to an instance of
+        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public void SaveConfigurationDataFrom(OptionsDialog dialog)
+        {
+            if (dialog == null) throw new ArgumentNullException(nameof(dialog));
+
+            if (ConfigurationProvider.ConfigurationFilePath !=
+                dialog.ConfigPathname)
+                GetNewFileInfo.ForPath(
+                                  ConfigurationProvider.ConfigurationFilePath
+                              )
+                              .RenameTo(dialog.ConfigPathname);
+
+            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+            ConfigurationProvider.Configuration.ReOpenSolution =
+                dialog.ShouldReOpenVisualStudioSolution;
+            UpdateConfiguration(ConfigurationProvider.Configuration);
         }
 
         /// <summary>
@@ -430,6 +472,39 @@ namespace MassFileRenamer.GUI
             // entering, into the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "In MainWindowPresenter.UpdateData"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the 'Configuration' property has a null reference for a value..."
+            );
+
+            // Check to see if the required property, Configuration, is null. If
+            // it is, send an error to the log file and quit, returning from the method.
+            if (Configuration == null)
+            {
+                // the property Configuration is required.
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR: The 'Configuration' property has a null reference. "
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR: This property is required to be set to a valid object reference before we can proceed."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, "MainWindowPresenter.UpdateData: Done."
+                );
+
+                // stop.
+                return;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The 'Configuration' property has a valid object reference for its value."
             );
 
             // Dump the parameter bSavingAndValidating to the log
@@ -562,35 +637,6 @@ namespace MassFileRenamer.GUI
             );
 
             return this;
-        }
-
-        /// <summary>
-        /// Runs code that should execute when either the OK or Apply buttons
-        /// are clicked on the Tools -&gt; Options dialog box.
-        /// </summary>
-        /// <param name="dialog">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
-        /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        public void SaveConfigurationDataFrom(OptionsDialog dialog)
-        {
-            if (dialog == null) throw new ArgumentNullException(nameof(dialog));
-
-            if (ConfigurationProvider.ConfigurationFilePath !=
-                dialog.ConfigPathname)
-                GetNewFileInfo.ForPath(
-                                  ConfigurationProvider.ConfigurationFilePath
-                              )
-                              .RenameTo(dialog.ConfigPathname);
-
-            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
-            ConfigurationProvider.Configuration.ReOpenSolution =
-                dialog.ShouldReOpenVisualStudioSolution;
-            UpdateConfiguration(ConfigurationProvider.Configuration);
         }
 
         /// <summary>
@@ -1051,7 +1097,7 @@ namespace MassFileRenamer.GUI
                 "*** INFO: Attempting to hook up events to the File Renamer..."
             );
 
-            _fileRenamer.StartingFrom(StartingFolder)
+            _fileRenamer.StartingFrom(Configuration.StartingFolder)
                         .UpdateConfiguration(Configuration);
 
             _fileRenamer.ExceptionRaised -= OnExceptionRaised;
