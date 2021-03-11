@@ -15,7 +15,10 @@
         ///     cref="T:MassFileRenamer.GUI.IMainWindowPresenter" />
         /// interface.
         /// </returns>
-        public static IMainWindowPresenter Having()
-            => new MainWindowPresenter();
+        public static TPresenterInterface ForView<TView, TPresenterInterface>()
+            where TView : class
+            where TPresenterInterface : class,
+            IPresenter<TView, TPresenterInterface>
+            => new MainWindowPresenter() as TPresenterInterface;
     }
 }

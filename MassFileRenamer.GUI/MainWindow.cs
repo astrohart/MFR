@@ -242,34 +242,6 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Runs code that should execute when either the OK or Apply buttons
-        /// are clicked on the Tools -&gt; Options dialog box.
-        /// </summary>
-        /// <param name="dialog">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
-        /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        private static void SaveConfigurationDataFrom(OptionsDialog dialog)
-        {
-            if (dialog == null) throw new ArgumentNullException(nameof(dialog));
-
-            if (ConfigurationProvider.ConfigurationFilePath !=
-                dialog.ConfigPathname)
-                GetNewFileInfo.ForPath(
-                                  ConfigurationProvider.ConfigurationFilePath
-                              )
-                              .RenameTo(dialog.ConfigPathname);
-
-            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
-            ConfigurationProvider.Configuration.ReOpenSolution =
-                dialog.ShouldReOpenVisualStudioSolution;
-        }
-
-        /// <summary>
         /// Sets up the presenter object and attaches handlers to events that it exposes.
         /// </summary>
         /// <param name="configurationPathname">
@@ -303,19 +275,20 @@ namespace MassFileRenamer.GUI
                 "*** INFO: Attempting to obtain new Presenter object..."
             );
 
-            _presenter = GetPresenter.Having()
-                                     .WindowReference(this)
-                                     .WithFileRenamer(
-                                         MakeNewFileRenamer.FromScratch()
-                                     )
-                                     .AndHistoryManager(
-                                         MakeHistoryManager.ForForm(this)
-                                             .AndAttachConfiguration(
-                                                 ConfigurationProvider
-                                                     .Configuration
-                                             )
-                                     )
-                                     .AndConfigFile(configurationPathname);
+            _presenter = GetPresenter
+                         .ForView<IMainWindow, IMainWindowPresenter>()
+                         .HavingWindowReference(this)
+                         .WithFileRenamer(MakeNewFileRenamer.FromScratch())
+                         .AndHistoryManager(
+                             MakeHistoryManager.ForForm(this)
+                                               .AndAttachConfiguration(
+                                                   ConfigurationProvider
+                                                       .Configuration
+                                               )
+                         )
+                         .AndAttachConfiguraiton(
+                             ConfigurationProvider.Configuration
+                         );
 
             if (_presenter == null)
                 throw new InvalidOperationException(
@@ -570,7 +543,7 @@ namespace MassFileRenamer.GUI
             var dialog = (OptionsDialog)sender;
             if (dialog == null) return;
 
-            SaveConfigurationDataFrom(dialog);
+            _presenter.SaveConfigurationDataFrom(dialog);
 
             e.Handled =
                 true; // instruct the Options dialog box to re-gray out the Apply button
@@ -819,15 +792,7 @@ namespace MassFileRenamer.GUI
         /// that the user wants the configuration data to be exported to.
         /// </remarks>
         private void OnToolsExportConfig(object sender, EventArgs e)
-        {
-            exportConfigDialog.InitialDirectory =
-                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-            if (exportConfigDialog.ShowDialog(this) != DialogResult.OK)
-                return;
-
-            ConfigurationProvider.Export(exportConfigDialog.FileName);
-        }
+            => _presenter.ExportConfiguration();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
@@ -867,15 +832,7 @@ namespace MassFileRenamer.GUI
         /// import, and then calls the presenter to perform the import operation.
         /// </remarks>
         private void OnToolsImportConfig(object sender, EventArgs e)
-        {
-            importConfigDialog.InitialDirectory =
-                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-            if (importConfigDialog.ShowDialog(this) != DialogResult.OK)
-                return;
-
-            ConfigurationProvider.Import(importConfigDialog.FileName);
-        }
+            => _presenter.ImportConfiguration();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
@@ -901,11 +858,10 @@ namespace MassFileRenamer.GUI
                     ConfigurationProvider.ConfigurationFilePath;
                 dialog.Modified += OnOptionsModified;
 
-                if (dialog.ShowDialog(this) == DialogResult.OK)
-                {
-                    SaveConfigurationDataFrom(dialog);
-                    ;
-                }
+                if (dialog.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+               _presenter.SaveConfigurationDataFrom(dialog);
             }
         }
 

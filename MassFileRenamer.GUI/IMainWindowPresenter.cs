@@ -7,7 +7,7 @@ namespace MassFileRenamer.GUI
     /// Defines the public-exposed methods and properties of the presenter
     /// object for the main application window..
     /// </summary>
-    public interface IMainWindowPresenter
+    public interface IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
         /// <summary>
         /// Occurs when all the history has been cleared.
@@ -80,11 +80,6 @@ namespace MassFileRenamer.GUI
         void ClearAllHistory();
 
         /// <summary>
-        /// Dismisses the progress dialog.
-        /// </summary>
-        void CloseProgressDialog();
-
-        /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
         /// based on configuration settings.
         /// </summary>
@@ -94,44 +89,6 @@ namespace MassFileRenamer.GUI
         /// Begins the rename operation.
         /// </summary>
         void Process();
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        void ShowProgressDialog();
-
-        /// <summary>
-        /// Updates data. Moves data from the screen to the model ( <paramref
-        /// name="bSavingAndValidating"/> equals <c>true</c>) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating"/> equals <c>false</c>).
-        /// </summary>
-        /// <param name="bSavingAndValidating">
-        /// Set to <c>true</c> to move data from the screen to the model;
-        /// <c>false</c> to move data from the model to the screen.
-        /// </param>
-        /// <remarks>
-        /// Note that whatever operations this method performs may potentially
-        /// throw exceptions.
-        /// </remarks>
-        void UpdateData(bool bSavingAndValidating = true);
-
-        /// <summary>
-        /// Fluent-builder method to set a reference to the main window of the application.
-        /// </summary>
-        /// <param name="mainWindow">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.GUI.IMainWindow"/> interface and
-        /// which represents the main window of the application.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow"/>, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        IMainWindowPresenter WindowReference(IMainWindow mainWindow);
 
         /// <summary>
         /// Fluent-builder method for composing a file-renamer object with this presenter.
@@ -149,5 +106,26 @@ namespace MassFileRenamer.GUI
         /// passed a <c>null</c> value.
         /// </exception>
         IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
+
+        void ImportConfiguration();
+
+        /// <summary>
+        /// Exports the current configuration data to a file on the user's hard drive.
+        /// </summary>
+        void ExportConfiguration();
+
+        /// <summary>
+        /// Runs code that should execute when either the OK or Apply buttons
+        /// are clicked on the Tools -&gt; Options dialog box.
+        /// </summary>
+        /// <param name="dialog">
+        /// (Required.) Reference to an instance of
+        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        void SaveConfigurationDataFrom(OptionsDialog dialog);
     }
 }

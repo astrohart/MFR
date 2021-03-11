@@ -63,8 +63,6 @@ namespace MassFileRenamer.GUI
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
-            this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
             this.optionsTabControl = new System.Windows.Forms.TabControl();
             this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
             this.matchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
@@ -362,22 +360,6 @@ namespace MassFileRenamer.GUI
             this.helpAbout.Text = "&About [App Title]";
             this.helpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
-            // importConfigDialog
-            // 
-            this.importConfigDialog.DefaultExt = "json";
-            this.importConfigDialog.FileName = "config.json";
-            this.importConfigDialog.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
-            this.importConfigDialog.RestoreDirectory = true;
-            this.importConfigDialog.Title = "Import Configuration";
-            // 
-            // exportConfigDialog
-            // 
-            this.exportConfigDialog.DefaultExt = "json";
-            this.exportConfigDialog.FileName = "config.json";
-            this.exportConfigDialog.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
-            this.exportConfigDialog.RestoreDirectory = true;
-            this.exportConfigDialog.Title = "Export Configuration";
-            // 
             // optionsTabControl
             // 
             this.optionsTabControl.Controls.Add(this.findReplaceOptionsTabPage);
@@ -567,8 +549,6 @@ namespace MassFileRenamer.GUI
         private System.Windows.Forms.ToolStripMenuItem toolsImportConfig;
         private System.Windows.Forms.ToolStripMenuItem toolsExportConfig;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.OpenFileDialog importConfigDialog;
-        private System.Windows.Forms.SaveFileDialog exportConfigDialog;
         private System.Windows.Forms.ToolStripMenuItem operationsMenu;
         private System.Windows.Forms.ToolStripMenuItem operationsPerform;
         private System.Windows.Forms.TabControl optionsTabControl;

@@ -13,8 +13,27 @@ namespace MassFileRenamer.GUI
     /// <summary>
     /// Presenter for the main application window.
     /// </summary>
-    public class MainWindowPresenter : IMainWindowPresenter
+    public class MainWindowPresenter : ConfigurationComposedObjectBase,
+        IMainWindowPresenter
     {
+        /// <summary>
+        /// Reference to an instance of a
+        /// <see
+        ///     cref="T:System.Windows.Forms.SaveFileDialog" />
+        /// that allows the user
+        /// to choose where they want to export the configuration data.
+        /// </summary>
+        private SaveFileDialog _exportConfigDialog;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IFileRenamer" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// THis object provides the core services that this application offers.
+        /// </remarks>
         private IFileRenamer _fileRenamer;
 
         /// <summary>
@@ -28,6 +47,19 @@ namespace MassFileRenamer.GUI
         /// maintaining the history lists in the configuration data source.
         /// </remarks>
         private IHistoryManager _historyManager;
+
+        /// <summary>
+        /// Reference to an instance of
+        /// <see
+        ///     cref="T:System.Windows.Forms.OpenFileDialog" />
+        /// that allows the user
+        /// to choose a filename on the disk.
+        /// </summary>
+        /// <remarks>
+        /// The file chosen by this dialog is to be used for importing
+        /// configuration data.
+        /// </remarks>
+        private OpenFileDialog _importConfigDialog;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -68,6 +100,8 @@ namespace MassFileRenamer.GUI
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "In MainWindowPresenter.MainWindowPresenter"
             );
+
+            InitializeComponents();
 
             ReinitializeProgressDialog();
         }
@@ -238,21 +272,75 @@ namespace MassFileRenamer.GUI
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
 
         /// <summary>
+        /// Exports the current configuration data to a file on the user's hard drive.
+        /// </summary>
+        public void ExportConfiguration()
+        {
+            _exportConfigDialog.InitialDirectory =
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            if (_exportConfigDialog.ShowDialog(_mainWindow) != DialogResult.OK)
+                return;
+
+            ConfigurationProvider.Export(_exportConfigDialog.FileName);
+        }
+
+        /// <summary>
+        /// Fluent-builder method to set a reference to the main window of the application.
+        /// </summary>
+        /// <param name="mainWindow">
+        /// (Required.) Reference to an instance of an object that is of the
+        /// <typeparamref name="TView" /> type and which represents the form that
+        /// is to be associated with this presenter.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public IMainWindowPresenter HavingWindowReference(IMainWindow view)
+        {
+            _mainWindow = view ?? throw new ArgumentNullException(nameof(view));
+            return this;
+        }
+
+        /// <summary>
+        /// Imports the configuration data for this application.
+        /// </summary>
+        /// <remarks>
+        /// The data is presumed to be located inside of a JSON-formatted file
+        /// that exists on the user's hard drive and has the <c>.json</c> extension.
+        /// </remarks>
+        public void ImportConfiguration()
+        {
+            _importConfigDialog.InitialDirectory =
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            if (_importConfigDialog.ShowDialog(_mainWindow) != DialogResult.OK)
+                return;
+
+            ConfigurationProvider.Import(_importConfigDialog.FileName);
+
+            UpdateConfiguration(ConfigurationProvider.Configuration);
+        }
+
+        /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
         /// based on configuration settings.
         /// </summary>
         public void InitializeOperationSelections()
         {
             _mainWindow.OperationsCheckedListBox.CheckByName(
-                "Rename Files", ConfigurationProvider.Configuration.RenameFiles
+                "Rename Files", Configuration.RenameFiles
             );
             _mainWindow.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders",
-                ConfigurationProvider.Configuration.RenameSubfolders
+                "Rename Subfolders", Configuration.RenameSubfolders
             );
             _mainWindow.OperationsCheckedListBox.CheckByName(
-                "Replace in Files",
-                ConfigurationProvider.Configuration.ReplaceInFiles
+                "Replace in Files", Configuration.ReplaceInFiles
             );
         }
 
@@ -272,9 +360,7 @@ namespace MassFileRenamer.GUI
 
             // just in case, have the file renamer object update its
             // configuration to match that which we have access to
-            _fileRenamer.UpdateConfiguration(
-                ConfigurationProvider.Configuration
-            );
+            _fileRenamer.UpdateConfiguration(Configuration);
 
             ReinitializeProgressDialog();
 
@@ -292,6 +378,36 @@ namespace MassFileRenamer.GUI
         /// </summary>
         public void ShowProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
+
+        /// <summary>
+        /// Updates the configuration currently being used with a new value.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
+        /// which has the new settings.
+        /// </param>
+        /// <remarks>
+        /// The settings in the object specified will be used for all matching
+        /// from this point forward.
+        /// <para />
+        /// NOTE:This member may be overriden by a child class. If this is the
+        /// case, the overrider must call the base class method before doing any
+        /// of its own processing.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <c>null</c> value.
+        /// </exception>
+        public override void UpdateConfiguration(IConfiguration configuration)
+        {
+            base.UpdateConfiguration(configuration);
+
+            _fileRenamer.UpdateConfiguration(configuration);
+            _historyManager.UpdateConfiguration(configuration);
+
+            InitializeFileRenamer();
+        }
 
         /// <summary>
         /// Updates data. Moves data from the screen to the model (
@@ -333,32 +449,25 @@ namespace MassFileRenamer.GUI
 
             if (bSavingAndValidating)
             {
-                ConfigurationProvider.Configuration
-                                     .SaveCurrentStartingFolderAndHistory(
-                                         _mainWindow.StartingFolderComboBox
-                                     );
+                Configuration.SaveCurrentStartingFolderAndHistory(
+                    _mainWindow.StartingFolderComboBox
+                );
 
-                ConfigurationProvider.Configuration
-                                     .SaveCurrentFindWhatAndHistory(
-                                         _mainWindow.FindWhatComboBox
-                                     );
+                Configuration.SaveCurrentFindWhatAndHistory(
+                    _mainWindow.FindWhatComboBox
+                );
 
-                ConfigurationProvider.Configuration
-                                     .SaveCurrentReplaceWithAndHistory(
-                                         _mainWindow.ReplaceWithComboBox
-                                     );
+                Configuration.SaveCurrentReplaceWithAndHistory(
+                    _mainWindow.ReplaceWithComboBox
+                );
 
-                ConfigurationProvider.Configuration.IsFolded =
-                    _mainWindow.IsFolded;
+                Configuration.IsFolded = _mainWindow.IsFolded;
 
-                ConfigurationProvider.Configuration.MatchCase =
-                    _mainWindow.MatchCase;
+                Configuration.MatchCase = _mainWindow.MatchCase;
 
-                ConfigurationProvider.Configuration.MatchWholeWord =
-                    _mainWindow.MatchWholeWord;
+                Configuration.MatchWholeWord = _mainWindow.MatchWholeWord;
 
-                ConfigurationProvider.Configuration.SelectedOptionTab =
-                    _mainWindow.SelectedOptionTab;
+                Configuration.SelectedOptionTab = _mainWindow.SelectedOptionTab;
 
                 SaveOperationSelections();
             }
@@ -370,31 +479,26 @@ namespace MassFileRenamer.GUI
                                                 .Configuration
                                                 .SelectedOptionTab;
 
-                _mainWindow.MatchWholeWord = ConfigurationProvider.Configuration
-                    .MatchWholeWord;
+                _mainWindow.MatchWholeWord = Configuration.MatchWholeWord;
 
-                _mainWindow.MatchCase =
-                    ConfigurationProvider.Configuration.MatchCase;
+                _mainWindow.MatchCase = Configuration.MatchCase;
 
-                _mainWindow.IsFolded =
-                    ConfigurationProvider.Configuration.IsFolded;
+                _mainWindow.IsFolded = Configuration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.StartingFolderComboBox,
-                    ConfigurationProvider.Configuration.StartingFolderHistory,
-                    ConfigurationProvider.Configuration.StartingFolder
+                    Configuration.StartingFolderHistory,
+                    Configuration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox,
-                    ConfigurationProvider.Configuration.FindWhatHistory,
-                    ConfigurationProvider.Configuration.FindWhat
+                    _mainWindow.FindWhatComboBox, Configuration.FindWhatHistory,
+                    Configuration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     _mainWindow.ReplaceWithComboBox,
-                    ConfigurationProvider.Configuration.ReplaceWithHistory,
-                    ConfigurationProvider.Configuration.ReplaceWith
+                    Configuration.ReplaceWithHistory, Configuration.ReplaceWith
                 );
             }
 
@@ -402,6 +506,122 @@ namespace MassFileRenamer.GUI
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "MainWindowPresenter.UpdateData: Done."
+            );
+        }
+
+        /// <summary>
+        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// </summary>
+        /// <param name="fileRenamer">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IFileRenamer" /> interface.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.WithFileRenamer"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to associate the File Renamer object with this Presenter..."
+            );
+
+            _fileRenamer = fileRenamer ??
+                           throw new ArgumentNullException(nameof(fileRenamer));
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The File Renamer object has been attached."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Initializing the File Renamer object supplied..."
+            );
+
+            InitializeFileRenamer();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The File Renamer object has been initialized."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "MainWindowPresenter.WithFileRenamer: Done."
+            );
+
+            return this;
+        }
+
+        /// <summary>
+        /// Runs code that should execute when either the OK or Apply buttons
+        /// are clicked on the Tools -&gt; Options dialog box.
+        /// </summary>
+        /// <param name="dialog">
+        /// (Required.) Reference to an instance of
+        /// <see cref="T:MassFileRenamer.GUI.OptionsDialog" />.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// passed a <c>null</c> value.
+        /// </exception>
+        public void SaveConfigurationDataFrom(OptionsDialog dialog)
+        {
+            if (dialog == null) throw new ArgumentNullException(nameof(dialog));
+
+            if (ConfigurationProvider.ConfigurationFilePath !=
+                dialog.ConfigPathname)
+                GetNewFileInfo.ForPath(
+                                  ConfigurationProvider.ConfigurationFilePath
+                              )
+                              .RenameTo(dialog.ConfigPathname);
+
+            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+            ConfigurationProvider.Configuration.ReOpenSolution =
+                dialog.ShouldReOpenVisualStudioSolution;
+            UpdateConfiguration(ConfigurationProvider.Configuration);
+        }
+
+        /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the <see cref="T:MassFileRenamer.Objects.Configuration" /> object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.SaveOperationSelections"
+            );
+
+            Configuration.RenameFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Files"
+                );
+            Configuration.RenameSubfolders =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Subfolders"
+                );
+            Configuration.ReplaceInFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Replace in Files"
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.SaveOperationSelections: Done."
             );
         }
 
@@ -448,81 +668,6 @@ namespace MassFileRenamer.GUI
             );
 
             return this;
-        }
-
-        /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this presenter.
-        /// </summary>
-        /// <param name="fileRenamer">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IFileRenamer" /> interface.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.WithFileRenamer"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to associate the File Renamer object with this Presenter..."
-            );
-
-            _fileRenamer = fileRenamer ??
-                           throw new ArgumentNullException(nameof(fileRenamer));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The File Renamer object has been attached."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.WithFileRenamer: Done."
-            );
-
-            return this;
-        }
-
-        /// <summary>
-        /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MassFileRenamer.Objects.Configuration" /> object.
-        /// </summary>
-        public void SaveOperationSelections()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.SaveOperationSelections"
-            );
-
-            ConfigurationProvider.Configuration.RenameFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Files"
-                );
-            ConfigurationProvider.Configuration.RenameSubfolders =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Subfolders"
-                );
-            ConfigurationProvider.Configuration.ReplaceInFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Replace in Files"
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.SaveOperationSelections: Done."
-            );
         }
 
         /// <summary>
@@ -833,6 +978,34 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
+        /// Initializes the values of those dependencies which are not
+        /// configurable by use of fluent-builder methods.
+        /// </summary>
+        private void InitializeComponents()
+
+        {
+            // exportConfigDialog
+            _exportConfigDialog = new SaveFileDialog {
+                DefaultExt = "json",
+                FileName = "config.json",
+                Filter =
+                    "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
+                RestoreDirectory = true,
+                Title = "Export Configuration"
+            };
+
+            // importConfigDialog
+            _importConfigDialog = new OpenFileDialog {
+                DefaultExt = "json",
+                FileName = "config.json",
+                Filter =
+                    "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
+                RestoreDirectory = true,
+                Title = "Import Configuration"
+            };
+        }
+
+        /// <summary>
         /// Sets the properties of the FileRenamer object that we are working
         /// with and subscribes to the events that it emits.
         /// </summary>
@@ -879,17 +1052,16 @@ namespace MassFileRenamer.GUI
             );
 
             _fileRenamer.StartingFrom(StartingFolder)
-                        .UpdateConfiguration(
-                            ConfigurationProvider.Configuration
-                        );
+                        .UpdateConfiguration(Configuration);
 
             _fileRenamer.ExceptionRaised -= OnExceptionRaised;
             _fileRenamer.ExceptionRaised += OnExceptionRaised;
             _fileRenamer.OperationFinished -= OnFileRenamerOperationFinished;
             _fileRenamer.OperationFinished += OnFileRenamerOperationFinished;
+            _fileRenamer.OperationStarted -= OnFileRenamerOperationStarted;
             _fileRenamer.OperationStarted += OnFileRenamerOperationStarted;
-            _fileRenamer.FilesToBeRenamedCounted += (sender, eventArgs)
-                => HandleFilesCountedEvent(eventArgs.Count);
+            _fileRenamer.FilesToBeRenamedCounted +=
+                OnFileRenamerFilesToBeRenamedCounted;
             _fileRenamer.FilesToHaveTextReplacedCounted += (sender, eventArgs)
                 => HandleFilesCountedEvent(eventArgs.Count);
             _fileRenamer.SubfoldersToBeRenamedCounted += (sender, eventArgs)
@@ -939,6 +1111,35 @@ namespace MassFileRenamer.GUI
 
             OnOperationError(new ExceptionRaisedEventArgs(e.Exception));
         }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MassFileRenamer.Objects.IFileRenamer.FilesToBeRenamedCounted" />
+        /// event raised by the file renamer object when it's finished
+        /// determining the set of file system entries upon which the current
+        /// operation should act.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by resetting the progress dialog's progress bar
+        /// back to zero, and then updating the value of its
+        /// <see
+        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
+        /// property to have
+        /// the same value as the count of file system entries.
+        /// </remarks>
+        private void OnFileRenamerFilesToBeRenamedCounted(object sender,
+            FilesOrFoldersCountedEventArgs e)
+            => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
         /// Handles the
