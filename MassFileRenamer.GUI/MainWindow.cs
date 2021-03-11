@@ -31,15 +31,6 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.GUI.MainWindow"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static MainWindow Instance
-        {
-            get;
-        } = new MainWindow();
-
-        /// <summary>
         /// Constructs a new instance of <see
         /// cref="T:MassFileRenamer.GUI.MainWindow"/> and returns a reference to it.
         /// </summary>
@@ -52,6 +43,15 @@ namespace MassFileRenamer.GUI
 
             Application.Idle += OnUpdateCmdUI;
         }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.GUI.MainWindow"/>.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MainWindow Instance
+        {
+            get;
+        } = new MainWindow();
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -185,7 +185,7 @@ namespace MassFileRenamer.GUI
         /// <remarks>
         /// Thanks to <a href="
         /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
-        /// "> Kiran Suthar </a> 's answer on the Microsoft forums.
+        /// ">Kiran Suthar</a> 's answer on the Microsoft forums.
         /// </remarks>
         [Log(AttributeExclude = true)] // do not log this method
         public string Version
@@ -258,6 +258,9 @@ namespace MassFileRenamer.GUI
             _presenter = GetPresenter
                          .ForView<IMainWindow, IMainWindowPresenter>()
                          .HavingWindowReference(this)
+                         .AndAttachConfiguration(
+                             ConfigurationProvider.Configuration
+                         )
                          .WithFileRenamer(MakeNewFileRenamer.FromScratch())
                          .AndHistoryManager(
                              MakeHistoryManager.ForForm(this)
@@ -265,10 +268,9 @@ namespace MassFileRenamer.GUI
                                                    ConfigurationProvider
                                                        .Configuration
                                                )
-                         )
-                         .AndAttachConfiguraiton(
-                             ConfigurationProvider.Configuration
                          );
+
+            _presenter.UpdateData(false);
 
             if (_presenter == null)
                 throw new InvalidOperationException(
