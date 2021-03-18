@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Queues.Messages;
 using Process = System.Diagnostics.Process;
 using Thread = System.Threading.Thread;
 
@@ -405,7 +406,7 @@ namespace MassFileRenamer.Objects
                         )
                     );
                 }
-                
+
                 ProcessAll(findWhat, replaceWith, pathFilter);
 
                 // If Visual Studio is open and it currently has the solution
@@ -1053,7 +1054,13 @@ namespace MassFileRenamer.Objects
                         )
                     );
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
 
             if (AbortRequested)
                 throw new OperationAbortedException(
@@ -1100,6 +1107,7 @@ namespace MassFileRenamer.Objects
         /// parameter is not set to the location of a folder that actually
         /// exists on the disk.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public IFileRenamer StartingFrom(string rootDirectoryPath)
         {
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
@@ -1122,6 +1130,7 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <param name="operations">
         /// </param>
+        [Log(AttributeExclude = true)]
         public void EnableOperations(params OperationType[] operations)
         {
             if (!operations.Any())
@@ -1142,7 +1151,14 @@ namespace MassFileRenamer.Objects
         /// </param>
         [Log(AttributeExclude = true)]
         public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-            => ExceptionRaised?.Invoke(this, e);
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
+        }
 
         /// <summary>
         /// Raises the
@@ -1156,8 +1172,15 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
         /// that contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
-            => FilesToBeRenamedCounted?.Invoke(this, e);
+        {
+            FilesToBeRenamedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED
+                );
+        }
 
         /// <summary>
         /// Raises the
@@ -1171,10 +1194,18 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
         /// that contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnFilesToHaveTextReplacedCounted(
             FilesOrFoldersCountedEventArgs e)
-            => FilesToHaveTextReplacedCounted?.Invoke(this, e);
+        {
+            FilesToHaveTextReplacedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED
+                );
+        }
 
+/*
         /// <summary>
         /// Raises the
         /// <see
@@ -1187,8 +1218,16 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs" />
         /// that contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
-            => FileSystemEntrySkipped?.Invoke(this, e);
+        {
+            FileSystemEntrySkipped?.Invoke(this, e);
+            SendMessage<FileSystemEntrySkippedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED
+                );
+        }
+*/
 
         /// <summary>
         /// Raises the
@@ -1196,8 +1235,13 @@ namespace MassFileRenamer.Objects
         ///     cref="E:MassFileRenamer.Objects.FileRenamer.Finished" />
         /// event.
         /// </summary>
+        [Log(AttributeExclude = true)]
         private void OnFinished()
-            => Finished?.Invoke(this, EventArgs.Empty);
+        {
+            Finished?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.NoArgs()
+                       .ForMessageId(FileRenamerMessages.FRM_FINISHED);
+        }
 
         /// <summary>
         /// Raises the
@@ -1212,8 +1256,16 @@ namespace MassFileRenamer.Objects
         /// that
         /// contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnOperationFinished(OperationFinishedEventArgs e)
-            => OperationFinished?.Invoke(this, e);
+        {
+            OperationFinished?.Invoke(this, e);
+            SendMessage<OperationFinishedEventArgs>.Having.Args(this, e)
+                                                   .ForMessageId(
+                                                       FileRenamerMessages
+                                                           .FRM_OPERATION_FINISHED
+                                                   );
+        }
 
         /// <summary>
         /// Raises the
@@ -1225,8 +1277,16 @@ namespace MassFileRenamer.Objects
         /// A <see cref="T:MassFileRenamer.Objects.OperationStartedEventArgs" />
         /// that contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnOperationStarted(OperationStartedEventArgs e)
-            => OperationStarted?.Invoke(this, e);
+        {
+            OperationStarted?.Invoke(this, e);
+            SendMessage<OperationStartedEventArgs>.Having.Args(this, e)
+                                                  .ForMessageId(
+                                                      FileRenamerMessages
+                                                          .FRM_OPERATION_STARTED
+                                                  );
+        }
 
         /// <summary>
         /// Raises the
@@ -1241,8 +1301,13 @@ namespace MassFileRenamer.Objects
         /// that
         /// contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnProcessingOperation(ProcessingOperationEventArgs e)
-            => ProcessingOperation?.Invoke(this, e);
+        {
+            ProcessingOperation?.Invoke(this, e);
+            SendMessage<ProcessingOperationEventArgs>.Having.Args(this, e)
+                .ForMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION);
+        }
 
         /// <summary>
         /// Raises the
@@ -1250,8 +1315,13 @@ namespace MassFileRenamer.Objects
         ///     cref="E:MassFileRenamer.Objects.FileRenamer.Started" />
         /// event.
         /// </summary>
+        [Log(AttributeExclude = true)]
         private void OnStarted()
-            => Started?.Invoke(this, EventArgs.Empty);
+        {
+            Started?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.NoArgs()
+                       .ForMessageId(FileRenamerMessages.FRM_STARTED);
+        }
 
         /// <summary>
         /// Raises the
@@ -1263,8 +1333,16 @@ namespace MassFileRenamer.Objects
         /// A <see cref="T:MassFileRenamer.Objects.StatusUpdateEventArgs" /> that
         /// contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnStatusUpdate(StatusUpdateEventArgs e)
-            => StatusUpdate?.Invoke(this, e);
+        {
+            StatusUpdate?.Invoke(this, e);
+            SendMessage<StatusUpdateEventArgs>.Having.Args(this, e)
+                                              .ForMessageId(
+                                                  FileRenamerMessages
+                                                      .FRM_STATUS_UPDATE
+                                              );
+        }
 
         /// <summary>
         /// Raises the
@@ -1278,8 +1356,15 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.FilesOrFoldersCountedEventArgs" />
         /// that contains the event data.
         /// </param>
+        [Log(AttributeExclude = true)]
         private void OnSubfoldersToBeRenamedCounted(
             FilesOrFoldersCountedEventArgs e)
-            => SubfoldersToBeRenamedCounted?.Invoke(this, e);
+        {
+            SubfoldersToBeRenamedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED
+                );
+        }
     }
 }
