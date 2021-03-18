@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages;
 
 namespace MassFileRenamer.GUI
 {
@@ -292,17 +293,42 @@ namespace MassFileRenamer.GUI
                 "*** SUCCESS *** Obtained a reference to the Presenter.  Attaching event handlers..."
             );
 
-            _presenter.AllHistoryCleared += OnPresenterAllHistoryCleared;
-            _presenter.ConfigurationImported +=
-                OnPresenterConfigurationImported;
-            _presenter.ConfigurationExported +=
-                OnPresenterConfigurationExported;
-            _presenter.DataOperationFinished +=
-                OnPresenterDataOperationFinished;
-            _presenter.DataOperationStarted += OnPresenterDataOperationStarted;
-            _presenter.OperationError += OnPresenterOperationError;
-            _presenter.Finished += OnPresenterFinished;
-            _presenter.Started += OnPresenterStarted;
+            NewMessageMapping.Associate.WithMessageId(
+                                 MainWindowPresenterMessages
+                                     .MWP_ALL_HISTORY_CLEARED
+                             )
+                             .AndEventHandler(OnPresenterAllHistoryCleared);
+            NewMessageMapping<ConfigurationExportedEventArgs>.Associate
+                .WithMessageId(
+                    MainWindowPresenterMessages.MWP_CONFIGURATION_EXPORTED
+                )
+                .AndEventHandler(OnPresenterConfigurationExported);
+            NewMessageMapping<ConfigurationImportedEventArgs>.Associate
+                .WithMessageId(
+                    MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
+                )
+                .AndEventHandler(OnPresenterConfigurationImported);
+            NewMessageMapping.Associate.WithMessageId(
+                                 MainWindowPresenterMessages
+                                     .MWP_DATA_OPERATION_FINISHED
+                             )
+                             .AndEventHandler(OnPresenterDataOperationFinished);
+            NewMessageMapping<DataOperationEventArgs>.Associate.WithMessageId(
+                    MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED
+                )
+                .AndEventHandler(OnPresenterDataOperationStarted);
+            NewMessageMapping<ExceptionRaisedEventArgs>.Associate.WithMessageId(
+                    MainWindowPresenterMessages.MWP_OPERATION_ERROR
+                )
+                .AndEventHandler(OnPresenterOperationError);
+            NewMessageMapping
+                .Associate
+                .WithMessageId(MainWindowPresenterMessages.MWP_FINISHED)
+                .AndEventHandler(OnPresenterFinished);
+            NewMessageMapping.Associate.WithMessageId(
+                                 MainWindowPresenterMessages.MWP_STARTED
+                             )
+                             .AndHandler(new Action(OnPresenterStarted));
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "MainWindow.InitializePresenter: Done."
@@ -557,8 +583,14 @@ namespace MassFileRenamer.GUI
         /// This method responds to the event by clearing out all the text in
         /// the combo boxes on this form.
         /// </remarks>
-        private void
-            OnPresenterAllHistoryCleared(object sender, EventArgs e) { }
+        private void OnPresenterAllHistoryCleared(object sender, EventArgs e)
+        {
+            StartingFolderComboBox.Clear();
+            FindWhatComboBox.Clear();
+            ReplaceWithComboBox.Clear();
+
+            StartingFolderComboBox.Focus();
+        }
 
         /// <summary>
         /// Handles the
@@ -741,12 +773,6 @@ namespace MassFileRenamer.GUI
         ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Started" />
         /// event.
         /// </summary>
-        /// <param name="sender">
-        /// The sender of the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> containing the event data.
-        /// </param>
         /// <remarks>
         /// This handler is called when the
         /// <see
@@ -754,7 +780,7 @@ namespace MassFileRenamer.GUI
         /// begins its
         /// execution. This method responds by showing the progress dialog.
         /// </remarks>
-        private void OnPresenterStarted(object sender, EventArgs e)
+        private void OnPresenterStarted()
             => startingFolderBrowseButton.InvokeIfRequired(
                 () =>
                 {
