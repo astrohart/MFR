@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages;
 
 namespace MassFileRenamer.GUI
 {
@@ -727,7 +728,13 @@ namespace MassFileRenamer.GUI
         /// that the operation of clearing all the history is complete.
         /// </remarks>
         protected virtual void OnAllHistoryCleared()
-            => AllHistoryCleared?.Invoke(this, EventArgs.Empty);
+        {
+            AllHistoryCleared?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(
+                           MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED
+                       );
+        }
 
         /// <summary>
         /// Raises the
@@ -743,7 +750,13 @@ namespace MassFileRenamer.GUI
         /// </param>
         protected virtual void OnConfigurationExported(
             ConfigurationExportedEventArgs e)
-            => ConfigurationExported?.Invoke(this, e);
+        {
+            ConfigurationExported?.Invoke(this, e);
+            SendMessage<ConfigurationExportedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    MainWindowPresenterMessages.MWP_CONFIGURATION_EXPORTED
+                );
+        }
 
         /// <summary>
         /// Raises the
@@ -759,7 +772,13 @@ namespace MassFileRenamer.GUI
         /// </param>
         protected virtual void OnConfigurationImported(
             ConfigurationImportedEventArgs e)
-            => ConfigurationImported?.Invoke(this, e);
+        {
+            ConfigurationImported?.Invoke(this, e);
+            SendMessage<ConfigurationImportedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
+                );
+        }
 
         /// <summary>
         /// Raises the
@@ -776,7 +795,14 @@ namespace MassFileRenamer.GUI
         /// </param>
         protected virtual void OnDataOperationError(
             DataOperationErrorEventArgs e)
-            => DataOperationError?.Invoke(this, e);
+        {
+            DataOperationError?.Invoke(this, e);
+            SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
+                                                    .ForMessageId(
+                                                        MainWindowPresenterMessages
+                                                            .MWP_DATA_OPERAITON_ERROR
+                                                    );
+        }
 
         /// <summary>
         /// Raises the
@@ -793,7 +819,14 @@ namespace MassFileRenamer.GUI
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
         protected virtual void OnDataOperationFinished()
-            => DataOperationFinished?.Invoke(this, EventArgs.Empty);
+        {
+            DataOperationFinished?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(
+                           MainWindowPresenterMessages
+                               .MWP_DATA_OPERATION_FINISHED
+                       );
+        }
 
         /// <summary>
         /// Raises the
@@ -817,25 +850,37 @@ namespace MassFileRenamer.GUI
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
         protected virtual void OnDataOperationStarted(DataOperationEventArgs e)
-            => DataOperationStarted?.Invoke(this, e);
+        {
+            DataOperationStarted?.Invoke(this, e);
+            SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
+                                                    .ForMessageId(
+                                                        MainWindowPresenterMessages
+                                                            .MWP_DATA_OPERATION_STARTED
+                                                    );
+        }
 
         /// <summary>
         /// Handles the
         /// <see
         ///     cref="E:MassFileRenamer.Objects.IFileRenamer.Started" />
-        /// event
-        /// raised by the File Renamer object. This event is raised when the
-        /// rename operations are all completed.
+        /// event raised
+        /// by the File Renamer object. This event is raised when the rename
+        /// operations are all completed.
         /// </summary>
         /// <remarks>
         /// This method responds merely by raising the
         /// <see
         ///     cref="E:MassFileRenamer.GUI.IMainWindowPresenter.Started" />
-        /// event, in turn.
+        /// event,
+        /// in turn.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        protected virtual void OnFileRenamerStarted(object sender, EventArgs e)
-            => OnStarted();
+        protected virtual void OnFileRenamerStarted()
+        {
+            Started?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
+        }
 
         /// <summary>
         /// Raises the
@@ -852,7 +897,11 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         [Log(AttributeExclude = true)]
         protected virtual void OnFinished()
-            => Finished?.Invoke(this, EventArgs.Empty);
+        {
+            Finished?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(MainWindowPresenterMessages.MWP_FINISHED);
+        }
 
         /// <summary>
         /// Raises the
@@ -866,17 +915,14 @@ namespace MassFileRenamer.GUI
         /// </param>
         [Log(AttributeExclude = true)]
         protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
-            => OperationError?.Invoke(this, e);
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.GUI.MainWindowPresenter.Started" />
-        /// event.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        protected virtual void OnStarted()
-            => Started?.Invoke(this, EventArgs.Empty);
+        {
+            OperationError?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     MainWindowPresenterMessages
+                                                         .MWP_OPERATION_ERROR
+                                                 );
+        }
 
         /// <summary>
         /// Actually begins the rename process.
@@ -1037,34 +1083,82 @@ namespace MassFileRenamer.GUI
                 "*** INFO: Attempting to hook up events to the File Renamer..."
             );
 
-            _fileRenamer.ExceptionRaised -= OnExceptionRaised;
-            _fileRenamer.ExceptionRaised += OnExceptionRaised;
-            _fileRenamer.OperationFinished -= OnFileRenamerOperationFinished;
-            _fileRenamer.OperationFinished += OnFileRenamerOperationFinished;
-            _fileRenamer.OperationStarted -= OnFileRenamerOperationStarted;
-            _fileRenamer.OperationStarted += OnFileRenamerOperationStarted;
-            _fileRenamer.FilesToBeRenamedCounted -=
-                OnFileRenamerFilesToBeRenamedCounted;
-            _fileRenamer.FilesToBeRenamedCounted +=
-                OnFileRenamerFilesToBeRenamedCounted;
-            _fileRenamer.FilesToHaveTextReplacedCounted -=
-                OnFileRenamerFilesToHaveTextReplacedCounted;
-            _fileRenamer.FilesToHaveTextReplacedCounted +=
-                OnFileRenamerFilesToHaveTextReplacedCounted;
-            _fileRenamer.SubfoldersToBeRenamedCounted -=
-                OnFileRenamerSubfoldersToBeRenamedCounted;
-            _fileRenamer.SubfoldersToBeRenamedCounted +=
-                OnFileRenamerSubfoldersToBeRenamedCounted;
-            _fileRenamer.Started -= OnFileRenamerStarted;
-            _fileRenamer.Started += OnFileRenamerStarted;
-            _fileRenamer.StatusUpdate -= OnFileRenamerStatusUpdate;
-            _fileRenamer.StatusUpdate += OnFileRenamerStatusUpdate;
-            _fileRenamer.ProcessingOperation -=
-                OnFileRenamerProcessingOperation;
-            _fileRenamer.ProcessingOperation +=
-                OnFileRenamerProcessingOperation;
-            _fileRenamer.Finished -= OnFileRenamerFinished;
-            _fileRenamer.Finished += OnFileRenamerFinished;
+
+            NewMessageMapping<ExceptionRaisedEventArgs>.Associate
+                .WithMessageId(FileRenamerMessages.FRM_EXCEPTION_RAISED)
+                .AndHandler(
+                    new Action<object, ExceptionRaisedEventArgs>(
+                        OnFileRenamerExceptionRaised
+                    )
+                );
+            NewMessageMapping<OperationFinishedEventArgs>.Associate
+                .WithMessageId(FileRenamerMessages.FRM_OPERATION_FINISHED)
+                .AndHandler(
+                    new Action<object, OperationFinishedEventArgs>(
+                        OnFileRenamerOperationFinished
+                    )
+                );
+            NewMessageMapping<OperationStartedEventArgs>.Associate
+                .WithMessageId(FileRenamerMessages.FRM_OPERATION_STARTED)
+                .AndHandler(
+                    new Action<object, OperationStartedEventArgs>(
+                        OnFileRenamerOperationStarted
+                    )
+                );
+            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
+                .WithMessageId(
+                    FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED
+                )
+                .AndHandler(
+                    new Action<object, FilesOrFoldersCountedEventArgs>(
+                        OnFileRenamerFilesToBeRenamedCounted
+                    )
+                );
+            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
+                .WithMessageId(
+                    FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED
+                )
+                .AndHandler(
+                    new Action<object, FilesOrFoldersCountedEventArgs>(
+                        OnFileRenamerFilesToHaveTextReplacedCounted
+                    )
+                );
+            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
+                .WithMessageId(
+                    FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED
+                )
+                .AndHandler(
+                    new Action<object, FilesOrFoldersCountedEventArgs>(
+                        OnFileRenamerSubfoldersToBeRenamedCounted
+                    )
+                );
+            NewMessageMapping.Associate
+                             .WithMessageId(FileRenamerMessages.FRM_STARTED)
+                             .AndHandler(new Action(OnFileRenamerStarted));
+            NewMessageMapping<StatusUpdateEventArgs>.Associate
+                                                    .WithMessageId(
+                                                        FileRenamerMessages
+                                                            .FRM_STATUS_UPDATE
+                                                    )
+                                                    .AndHandler(
+                                                        new Action<object,
+                                                            StatusUpdateEventArgs
+                                                        >(
+                                                            OnFileRenamerStatusUpdate
+                                                        )
+                                                    );
+            NewMessageMapping<ProcessingOperationEventArgs>.Associate
+                .WithMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION)
+                .AndHandler(
+                    new Action<object, ProcessingOperationEventArgs>(
+                        OnFileRenamerProcessingOperation
+                    )
+                );
+
+            NewMessageMapping.Associate.WithMessageId(
+                                 FileRenamerMessages.FRM_FINISHED
+                             )
+                             .AndHandler(new Action(OnFileRenamerFinished));
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -1094,7 +1188,7 @@ namespace MassFileRenamer.GUI
         /// box, logging the error, and then aborting the operation.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnExceptionRaised(object sender,
+        private void OnFileRenamerExceptionRaised(object sender,
             ExceptionRaisedEventArgs e)
         {
             _fileRenamer.RequestAbort();
@@ -1168,12 +1262,6 @@ namespace MassFileRenamer.GUI
         /// raised by the File Renamer object. This event is raised when the
         /// rename operations are all completed.
         /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
         /// <remarks>
         /// This method responds merely by raising the
         /// <see
@@ -1182,7 +1270,7 @@ namespace MassFileRenamer.GUI
         /// in turn.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerFinished(object sender, EventArgs e)
+        private void OnFileRenamerFinished()
             => OnFinished();
 
         /// <summary>
