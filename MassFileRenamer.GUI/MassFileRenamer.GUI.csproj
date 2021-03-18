@@ -106,6 +106,7 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComboBoxExtensions.cs" />
     <Compile Include="ErrorDialogLauncher.cs" />
     <Compile Include="ErrorReportDialog.cs">
       <SubType>Form</SubType>
@@ -126,6 +127,7 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindowPresenter.cs" />
+    <Compile Include="MainWindowPresenterMessages.cs" />
     <Compile Include="OptionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +152,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
@@ -187,6 +190,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
+      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
+      <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\MassFileRenamer.Objects\MassFileRenamer.Objects.csproj">
       <Project>{84c1f71a-aaa4-4a08-9728-19e710965e4d}</Project>
