@@ -304,7 +304,7 @@ namespace MassFileRenamer.GUI
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public IMainWindowPresenter HavingWindowReference(IMainWindow view)
         {
@@ -397,7 +397,7 @@ namespace MassFileRenamer.GUI
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="dialog" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public void SaveConfigurationDataFrom(OptionsDialog dialog)
         {
@@ -440,7 +440,7 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(IConfiguration configuration)
         {
@@ -456,12 +456,12 @@ namespace MassFileRenamer.GUI
         /// Updates data. Moves data from the screen to the model (
         /// <paramref
         ///     name="bSavingAndValidating" />
-        /// equals <c>true</c>) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
+        /// equals <see langword="true" />) or from the model
+        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <see langword="false" />).
         /// </summary>
         /// <param name="bSavingAndValidating">
-        /// Set to <c>true</c> to move data from the screen to the model;
-        /// <c>false</c> to move data from the model to the screen.
+        /// Set to <see langword="true" /> to move data from the screen to the model;
+        /// <see langword="false" /> to move data from the model to the screen.
         /// </param>
         /// <remarks>
         /// Note that whatever operations this method performs may potentially
@@ -598,7 +598,7 @@ namespace MassFileRenamer.GUI
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
         {
@@ -686,7 +686,7 @@ namespace MassFileRenamer.GUI
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
         {
@@ -989,7 +989,7 @@ namespace MassFileRenamer.GUI
         /// <paramref
         ///     name="statusLabelText" />
         /// or <paramref name="currentFileLabelText" />,
-        /// are passed blank or <c>null</c> string for values.
+        /// are passed blank or <see langword="null" /> string for values.
         /// </exception>
         private void IncrementProgressBar(string statusLabelText,
             string currentFileLabelText)
@@ -1481,7 +1481,7 @@ namespace MassFileRenamer.GUI
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="text" />, is passed
-        /// a blank or <c>null</c> string for a value.
+        /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         [Log(AttributeExclude = true)]
         private void ShowCalculatingProgressBar(string text)
