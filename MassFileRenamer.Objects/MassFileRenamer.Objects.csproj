@@ -308,7 +308,7 @@
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
-      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
+      <Project>{4d8579d8-33e9-4be6-9155-330f87548eb7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
   </ItemGroup>
