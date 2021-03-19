@@ -19,16 +19,8 @@ namespace MassFileRenamer.Objects
         /// <param name="path">
         /// (Required.) String containing the pathname of the file-system entry.
         /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="path" />, is passed
-        /// a blank or <c>null</c> string for a value.
-        /// </exception>
         public FileSystemEntry(string path)
         {
-            if (string.IsNullOrWhiteSpace(path))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(path)
-                );
             Path = path;
         }
 
