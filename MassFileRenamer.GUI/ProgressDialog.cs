@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.GUI
@@ -32,9 +33,13 @@ namespace MassFileRenamer.GUI
         public string CurrentFile
         {
             [DebuggerStepThrough]
-            get => detailedStatusLabel.Text;
-            set => detailedStatusLabel.InvokeIfRequired(
-                () => detailedStatusLabel.Text = value
+            get => currentFileLabel.Text;
+            set => currentFileLabel.InvokeIfRequired(
+                () =>
+                {
+                    currentFileLabel.Text = value;
+                    DebugUtils.WriteLine(DebugLevel.Info, $"*** CURRENT FILE: {value}");
+                }
             );
         }
 

@@ -83,12 +83,11 @@ namespace MassFileRenamer.Objects
                                       rootFolderPath, SearchPattern,
                                       SearchOption
                                   )
+                                  .Where(ShouldNotSkipFileSystemEntry)
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
                                       fse
-                                          => ShouldNotSkipFileSystemEntry(
-                                                 fse
-                                             ) && IsPathMatchToCriteria(fse) &&
+                                          => SearchCriteriaMatch(fse) &&
                                              PassesPathFilter(pathFilter, fse)
                                   );
             }

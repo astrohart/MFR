@@ -37,107 +37,16 @@ namespace MassFileRenamer.Objects
         public static string GetContent(string path,
             Predicate<string> pathFilter = null)
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In FileHelpers.GetContent");
-
-            // Dump the parameter path to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, $"FileHelpers.GetContent: path = '{path}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileHelpers.GetContent: Attempting to read the data in the file having path '{path}'..."
-            );
-
             var result = string.Empty;
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the value of the 'path' parameter is blank..."
-            );
+            if (string.IsNullOrWhiteSpace(path)) return result;
 
-            if (string.IsNullOrWhiteSpace(path))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "FileHelpers.GetContent: Blank value passed for the 'path' parameter. This parameter is required."
-                );
+            if (!File.Exists(path)) return result;
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileHelpers.GetContent: Result = '{result}'"
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "FileHelpers.GetContent: Done."
-                );
-
-                return result;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The parameter 'path' is not blank.  Continuing..."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** INFO: Checking whether the file with path '{path}' exists on the disk..."
-            );
-
-            if (!File.Exists(path))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    $"*** ERROR *** The system could not locate the file having the path '{path}' on the disk.  This file is required to exist in order for us to proceed."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileHelpers.GetContent: Result = '{result}'"
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "FileHelpers.GetContent: Done."
-                );
-
-                return result;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** SUCCESS *** The file with path '{path}' was found on the disk.  Proceeding..."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "FileHelpers.GetContent: Checking whether the path-filtering criteria are met..."
-            );
-
-            if (!(pathFilter?.Invoke(path) ?? true))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR *** The path-filtering criteria were not met."
-                );
-
-                return result;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The path-filtering criteria were met."
-            );
+            if (!(pathFilter?.Invoke(path) ?? true)) return result;
 
             try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: Attempting to read the contents of the file having path '{path}'..."
-                );
-
                 result = File.ReadAllText(path);
             }
             catch (Exception ex)
@@ -145,19 +54,8 @@ namespace MassFileRenamer.Objects
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** INFO: Setting the return value of this method to the empty string..."
-                );
-
                 result = string.Empty;
             }
-
-            if (!string.IsNullOrWhiteSpace(result))
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** SUCCESS *** The contents of the file having path '{path}' have been read."
-                );
 
             return result;
         }

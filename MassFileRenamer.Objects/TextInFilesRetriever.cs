@@ -104,6 +104,7 @@ namespace MassFileRenamer.Objects
                                       rootFolderPath, SearchPattern,
                                       SearchOption
                                   )
+                                  .Where(ShouldNotSkipFileSystemEntry)
                                   .Select(
                                       path => MakeNewFileSystemEntry
                                               .ForPath(path)
@@ -113,9 +114,7 @@ namespace MassFileRenamer.Objects
                                   )
                                   .Where(
                                       fse
-                                          => ShouldNotSkipFileSystemEntry(
-                                                 fse
-                                             ) && IsPathMatchToCriteria(fse) &&
+                                          => SearchCriteriaMatch(fse) &&
                                              PassesPathFilter(pathFilter, fse)
                                   );
             }

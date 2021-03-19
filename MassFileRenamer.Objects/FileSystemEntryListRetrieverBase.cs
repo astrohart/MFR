@@ -71,9 +71,9 @@ namespace MassFileRenamer.Objects
         /// Gets or sets a string that contains a wildcard search pattern.
         /// </summary>
         /// <remarks>
-        /// This property may have a blank or <see langword="null" /> value. The default
-        /// value of this property is nominally an asterisk; however, classes
-        /// that implement this interface may specify something different.
+        /// This property may have a blank or <see langword="null" /> value. The
+        /// default value of this property is nominally an asterisk; however,
+        /// classes that implement this interface may specify something different.
         /// </remarks>
         protected string SearchPattern
         {
@@ -149,16 +149,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         /// <returns>
         /// Collection of instances of objects that implement the
@@ -231,7 +231,8 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="findWhat" />, is
-        /// passed either the empty string or <see langword="null" /> string for a value.
+        /// passed either the empty string or <see langword="null" /> string for
+        /// a value.
         /// <para />
         /// Whitespace may be passed for <paramref name="findWhat" />.
         /// </exception>
@@ -359,7 +360,10 @@ namespace MassFileRenamer.Objects
         /// <see langword="false" />.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the file-system <paramref name="entry"/> passed the path-filtering criteria in <paramref name="pathFilter"/>, or if <paramref name="pathFilter"/> is <see langword="null" />; otherwise, <see langword="false" /> is returned.
+        /// <see langword="true" /> if the file-system <paramref name="entry" />
+        /// passed the path-filtering criteria in <paramref name="pathFilter" />,
+        /// or if <paramref name="pathFilter" /> is <see langword="null" />;
+        /// otherwise, <see langword="false" /> is returned.
         /// </returns>
         protected static bool PassesPathFilter(Predicate<string> pathFilter,
             IFileSystemEntry entry)
@@ -379,16 +383,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         /// <returns>
         /// Collection of instances of objects that implement the
@@ -489,13 +493,13 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        protected bool IsPathMatchToCriteria(IFileSystemEntry entry)
+        protected bool SearchCriteriaMatch(IFileSystemEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));
             return TextExpressionMatcherSays.IsMatch(ForFileSystemEntry(entry));
         }
 
-        protected bool ShouldNotSkipFileSystemEntry(IFileSystemEntry entry)
-            => !FileSystemEntryValidatorSays.ShouldSkip(entry);
+        protected bool ShouldNotSkipFileSystemEntry(string path)
+            => !FileSystemEntryValidatorSays.ShouldSkip(path);
     }
 }

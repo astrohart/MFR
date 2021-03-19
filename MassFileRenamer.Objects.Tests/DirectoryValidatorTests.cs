@@ -93,10 +93,10 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsFalse(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
+                                               
                                                    StringConstants
                                                        .FOLDER_MATCHING_OPERATION_CRITIERIA
-                                               )
+                                               
                                            )
             );
 
@@ -108,9 +108,9 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
+                                               
                                                    StringConstants.EMPTY_STRING
-                                               )
+                                               
                                            )
             );
 
@@ -122,10 +122,10 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
+                                               
                                                    StringConstants
                                                        .DOTFOLDER_PATH
-                                               )
+
                                            )
             );
 
@@ -137,10 +137,9 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
+                                               
                                                    StringConstants
                                                        .SUBFOLDER_OF_BIN_DIR
-                                               )
                                            )
             );
 
@@ -152,10 +151,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
                                                    StringConstants
                                                        .SUBFOLDER_OF_OBJ_FOLDER
-                                               )
                                            )
             );
 
@@ -177,9 +174,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
                                                    StringConstants.NULL_STRING
-                                               )
                                            )
             );
 
@@ -189,10 +184,8 @@ namespace MassFileRenamer.Objects.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder()
         {
-            var testingFileSystemEntry = MakeNewFileSystemEntry.ForPath(
-                StringConstants.NONEXISTENT_FOLDER
-            );
-            Assert.IsNotNull(testingFileSystemEntry);
+            var path = StringConstants.NONEXISTENT_FOLDER;
+            Assert.IsNotNull(path);
 
             var directoryValidator =
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders);
@@ -200,11 +193,11 @@ namespace MassFileRenamer.Objects.Tests
             Assert.IsTrue(directoryValidator is DirectoryValidator);
 
             Assert.IsFalse(
-                directoryValidator.DoesExist(testingFileSystemEntry)
+                Directory.Exists(path)
             );
 
             Assert.IsTrue(
-                directoryValidator.ShouldSkip(testingFileSystemEntry)
+                directoryValidator.ShouldSkip(path)
             );
         }
 
@@ -216,10 +209,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
                                                    StringConstants
                                                        .SUBFOLDER_OF_GIT_FOLDER
-                                               )
                                            )
             );
 
@@ -231,10 +222,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
                                                    StringConstants
                                                        .SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
-                                               )
                                            )
             );
 
@@ -246,10 +235,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
                                                    StringConstants
                                                        .SUBFOLDER_OF_VS_DOTFOLDER
-                                               )
                                            )
             );
 
@@ -261,9 +248,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               MakeNewFileSystemEntry.ForPath(
                                                    StringConstants.WHITESPACE
-                                               )
                                            )
             );
 

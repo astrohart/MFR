@@ -22,9 +22,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedFile()
             => Assert.IsFalse(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.PaymentMethods.Tests\CoinbasePaymentMethodsTests.cs"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.PaymentMethods.Tests\CoinbasePaymentMethodsTests.cs"
                 )
             );
 
@@ -33,11 +31,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForBlankPath()
-            => Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath("")
-                )
-            );
+            => Assert.IsTrue(ThatTheFileValidatorSays.ShouldSkip(string.Empty));
 
         /// <summary>
         /// TODO: Add unit test documentation here
@@ -46,9 +40,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForDotfile()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\.bash_history"
-                    )
+                    @"C:\Users\Administrator\.bash_history"
                 )
             );
 
@@ -59,9 +51,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInBinDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MassFileRenamer.Objects.Tests\bin\x86\Release\Newtonsoft.Json.dll"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MassFileRenamer.Objects.Tests\bin\x86\Release\Newtonsoft.Json.dll"
                 )
             );
 
@@ -72,9 +62,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInGitDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.git\index.old.2"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.git\index.old.2"
                 )
             );
 
@@ -85,9 +73,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInObjDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MassFileRenamer.Objects.Tests\obj\x86\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MassFileRenamer.Objects.Tests\obj\x86\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs"
                 )
             );
 
@@ -98,9 +84,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInPackagesDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\packages\EntityFramework.6.4.4\EntityFramework.6.4.4.nupkg"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\packages\EntityFramework.6.4.4\EntityFramework.6.4.4.nupkg"
                 )
             );
 
@@ -111,9 +95,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInVsDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs\PortfolioMonitor\config\applicationhost.config"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs\PortfolioMonitor\config\applicationhost.config"
                 )
             );
 
@@ -131,9 +113,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFile()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\sfdkjlsdfjlksdlk.txt"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\sfdkjlsdfjlksdlk.txt"
                 )
             );
 
@@ -144,9 +124,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForPathWithNoFileExtension()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\LICENSE"
-                    )
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\LICENSE"
                 )
             );
 
@@ -156,9 +134,7 @@ namespace MassFileRenamer.Objects.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForZeroLengthFile()
             => Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(Path.GetTempFileName())
-                )
+                ThatTheFileValidatorSays.ShouldSkip(Path.GetTempFileName())
             );
 
         /// <summary>
@@ -168,9 +144,7 @@ namespace MassFileRenamer.Objects.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForZeroLengthFile2()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    MakeNewFileSystemEntry.ForPath(
-                        StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE
-                    )
+                    StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE
                 )
             );
     }

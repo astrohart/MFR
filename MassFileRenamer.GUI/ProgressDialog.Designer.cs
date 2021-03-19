@@ -30,7 +30,7 @@ namespace MassFileRenamer.GUI
       private void InitializeComponent()
       {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressDialog));
-            this.detailedStatusLabel = new System.Windows.Forms.Label();
+            this.currentFileLabel = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -38,10 +38,10 @@ namespace MassFileRenamer.GUI
             // 
             // detailedStatusLabel
             // 
-            this.detailedStatusLabel.Location = new System.Drawing.Point(12, 46);
-            this.detailedStatusLabel.Name = "detailedStatusLabel";
-            this.detailedStatusLabel.Size = new System.Drawing.Size(392, 46);
-            this.detailedStatusLabel.TabIndex = 1;
+            this.currentFileLabel.Location = new System.Drawing.Point(12, 46);
+            this.currentFileLabel.Name = "currentFileLabel";
+            this.currentFileLabel.Size = new System.Drawing.Size(392, 46);
+            this.currentFileLabel.TabIndex = 1;
             // 
             // progressBar
             // 
@@ -79,7 +79,7 @@ namespace MassFileRenamer.GUI
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.detailedStatusLabel);
+            this.Controls.Add(this.currentFileLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -96,7 +96,7 @@ namespace MassFileRenamer.GUI
 
       #endregion
 
-      private System.Windows.Forms.Label detailedStatusLabel;
+      private System.Windows.Forms.Label currentFileLabel;
       private System.Windows.Forms.ProgressBar progressBar;
       private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Button cancelButton;
