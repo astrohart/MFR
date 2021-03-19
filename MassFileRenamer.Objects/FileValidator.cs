@@ -107,13 +107,48 @@ namespace MassFileRenamer.Objects
         /// otherwise, <c>false</c> is returned.
         /// </returns>
         public override bool ShouldSkip(IFileSystemEntry entry)
-            => entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-               string.IsNullOrWhiteSpace(Path.GetExtension(entry.Path)) ||
-               !File.Exists(entry.Path) || entry.Path.Contains("packages") ||
-               entry.Path.Contains(".git") || entry.Path.Contains(".vs") ||
-               entry.Path.Contains(@"\bin") || entry.Path.Contains(@"\obj") ||
-               Path.GetFileName(entry.Path)
-                   .StartsWith(".");
+        {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(DebugLevel.Debug, "In FileValidator.ShouldSkip");
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileValidator.ShouldSkip: Determining whether the file having path '{entry.Path}' should be skipped..."
+            );
+
+            bool result;
+
+            try
+            {
+                result = entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                         string.IsNullOrWhiteSpace(Path.GetExtension(entry.Path)) ||
+                         !File.Exists(entry.Path) ||
+                         entry.Path.Contains("packages") ||
+                         entry.Path.Contains(".git") || entry.Path.Contains(".vs") ||
+                         entry.Path.Contains(@"\bin") ||
+                         entry.Path.Contains(@"\obj") || Path.GetFileName(entry.Path)
+                             .StartsWith(".");
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            if (result)
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileValidator.ShouldSkip: The file having path '{entry.Path}' should be skipped."
+                );
+
+            DebugUtils.WriteLine(DebugLevel.Debug, $"FileValidator.ShouldSkip: Result = {result}");
+
+            DebugUtils.WriteLine(DebugLevel.Debug, "FileValidator.ShouldSkip: Done.");
+
+            return result;
+        }
 
         /// <summary>
         /// Determines whether a file system <paramref name="entry" /> exists on
