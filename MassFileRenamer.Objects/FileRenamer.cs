@@ -742,25 +742,18 @@ namespace MassFileRenamer.Objects
                 );
 
                 // Build list of folders to be processed
-                List<IFileSystemEntry> entries = GetFileSystemEntryListRetriever
-                                                 .For(
-                                                     OperationType
-                                                         .RenameSubFolders
-                                                 )
-                                                 .AndAttachConfiguration(
-                                                     Configuration
-                                                 )
-                                                 .UsingSearchPattern("*")
-                                                 .WithSearchOption(
-                                                     SearchOption.AllDirectories
-                                                 )
-                                                 .ToFindWhat(findWhat)
-                                                 .AndReplaceItWith(replaceWith)
-                                                 .GetMatchingFileSystemPaths(
-                                                     RootDirectoryPath,
-                                                     pathFilter
-                                                 )
-                                                 .ToList();
+                IEnumerable<IFileSystemEntry> entryCollection =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameSubFolders)
+                        .AndAttachConfiguration(Configuration)
+                        .UsingSearchPattern("*")
+                        .WithSearchOption(SearchOption.AllDirectories)
+                        .ToFindWhat(findWhat)
+                        .AndReplaceItWith(replaceWith)
+                        .GetMatchingFileSystemPaths(
+                            RootDirectoryPath, pathFilter
+                        );
+                var entries = entryCollection.ToList();
 
                 /*
                 var subFolders = Directory
