@@ -74,11 +74,11 @@ namespace MassFileRenamer.GUI
         /// If the
         /// <see
         ///     cref="P:MassFileRenamer.Objects.ModifiedEventArgs.Handled" />
-        /// property is set <c>true</c> by the event's handler, then the
+        /// property is set <see langword="true" /> by the event's handler, then the
         /// <see
         ///     cref="P:MassFileRenamer.GUI.OptionsDialog.IsModified" />
         /// will be set
-        /// to <c>false</c>.
+        /// to <see langword="false" />.
         /// </remarks>
         protected virtual void OnModified(ModifiedEventArgs e)
         {
@@ -170,7 +170,7 @@ namespace MassFileRenamer.GUI
         /// <see
         ///     cref="P:MassFileRenamer.GUI.OptionsDialog.IsModified" />
         /// property to
-        /// be <c>true</c> by calling the
+        /// be <see langword="true" /> by calling the
         /// <see
         ///     cref="M:MassFileRenamer.GUI.OptionsDialog.SetModifiedFlag" />
         /// method.
@@ -199,8 +199,8 @@ namespace MassFileRenamer.GUI
         /// Sets the dirty state of the data of this dialog box.
         /// </summary>
         /// <param name="dirty">
-        /// Set to <c>true</c> to indicate data has changed; <c>false</c>
-        /// otherwise. Default is <c>true</c>.
+        /// Set to <see langword="true" /> to indicate data has changed; <see langword="false" />
+        /// otherwise. Default is <see langword="true" />.
         /// </param>
         private void SetModifiedFlag(bool dirty = true)
             => IsModified = dirty;
