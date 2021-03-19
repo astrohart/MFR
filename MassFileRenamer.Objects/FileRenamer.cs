@@ -549,25 +549,18 @@ namespace MassFileRenamer.Objects
                     )
                 );
 
-                List<IFileSystemEntry> entries = GetFileSystemEntryListRetriever
-                                                 .For(
-                                                     OperationType
-                                                         .RenameFilesInFolder
-                                                 )
-                                                 .AndAttachConfiguration(
-                                                     Configuration
-                                                 )
-                                                 .UsingSearchPattern("*")
-                                                 .WithSearchOption(
-                                                     SearchOption.AllDirectories
-                                                 )
-                                                 .ToFindWhat(findWhat)
-                                                 .AndReplaceItWith(replaceWith)
-                                                 .GetMatchingFileSystemPaths(
-                                                     RootDirectoryPath,
-                                                     pathFilter
-                                                 )
-                                                 .ToList();
+                IEnumerable<IFileSystemEntry> entryCollection =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameFilesInFolder)
+                        .AndAttachConfiguration(Configuration)
+                        .UsingSearchPattern("*")
+                        .WithSearchOption(SearchOption.AllDirectories)
+                        .ToFindWhat(findWhat)
+                        .AndReplaceItWith(replaceWith)
+                        .GetMatchingFileSystemPaths(
+                            RootDirectoryPath, pathFilter
+                        );
+                var entries = entryCollection.ToList();
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
@@ -938,7 +931,7 @@ namespace MassFileRenamer.Objects
                 new OperationStartedEventArgs(OperationType.ReplaceTextInFiles)
             );
 
-            List<IFileSystemEntry> fileSystemEntries =
+            IEnumerable<IFileSystemEntry> entryCollection =
                 GetFileSystemEntryListRetriever
                     .For(OperationType.ReplaceTextInFiles)
                     .AndAttachConfiguration(Configuration)
@@ -946,8 +939,8 @@ namespace MassFileRenamer.Objects
                     .WithSearchOption(SearchOption.AllDirectories)
                     .ToFindWhat(findWhat)
                     .AndReplaceItWith(replaceWith)
-                    .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
-                    .ToList();
+                    .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter);
+            var fileSystemEntries = entryCollection.ToList();
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -1198,29 +1191,26 @@ namespace MassFileRenamer.Objects
                 );
         }
 
-/*
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
-        {
-            FileSystemEntrySkipped?.Invoke(this, e);
-            SendMessage<FileSystemEntrySkippedEventArgs>.Having.Args(this, e)
-                .ForMessageId(
-                    FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED
-                );
-        }
-*/
+        /*
+                /// <summary>
+                /// Raises the <see
+                /// cref="E:MassFileRenamer.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped"/> event.
+                /// </summary>
+                /// <param name="e">
+                /// A <see
+                /// cref="T:MassFileRenamer.Objects.FileSystemEntrySkippedEventArgs"/>
+                /// that contains the event data.
+                /// </param>
+                [Log(AttributeExclude = true)]
+                private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
+                {
+                    FileSystemEntrySkipped?.Invoke(this, e);
+                    SendMessage<FileSystemEntrySkippedEventArgs>.Having.Args(this, e)
+                        .ForMessageId(
+                            FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED
+                        );
+                }
+        */
 
         /// <summary>
         /// Raises the
