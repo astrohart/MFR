@@ -24,7 +24,7 @@ namespace MassFileRenamer.Objects
         ///     cref="T:System.Action{TInput, TResult}" />
         /// delegate.
         /// <para />
-        /// If this parameter is not a <c>null</c> reference, then the code
+        /// If this parameter is not a <see langword="null" /> reference, then the code
         /// referenced by this delegate is invoked for every element of the
         /// result cache, prior to the cache being cleared.
         /// <para />

@@ -67,23 +67,31 @@
     <RootNamespace>MassFileRenamer.Objects.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=3.13.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationBuilder.cs" />
     <Compile Include="DirectoryInfoExtensionsTests.cs" />
+    <Compile Include="DirectoryValidatorTests.cs" />
     <Compile Include="FileInfoExtensionsTests.cs" />
     <Compile Include="FileValidatorTests.cs" />
     <Compile Include="FolderNameMatcherTests.cs" />
     <Compile Include="FileNameMatcherTests.cs" />
     <Compile Include="FileRenamerTests.cs" />
     <Compile Include="FolderNameReplacementEngineTests.cs" />
+    <Compile Include="FolderToRenameRetrieverTests.cs" />
+    <Compile Include="GetFileSystemEntryListRetrieverTests.cs" />
+    <Compile Include="GetFileSystemEntryValidatorTests.cs" />
+    <Compile Include="GetMatchExpressionFactoryTests.cs" />
+    <Compile Include="GetTextExpressionMatcherTests.cs" />
     <Compile Include="LoadConfigurationFromFileActionTests.cs" />
     <Compile Include="LoadStringFromRegistryActionTests.cs" />
+    <Compile Include="MakeNewFileInfoTests.cs" />
+    <Compile Include="PathFilterInvokerBaseTests.cs" />
     <Compile Include="ProcessIdProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -95,6 +103,7 @@
     <Compile Include="RegistryHiveExtensionsTests.cs" />
     <Compile Include="SaveConfigurationToFileCommandTests.cs" />
     <Compile Include="SaveStringToRegistryCommandTests.cs" />
+    <Compile Include="StringConstants.cs" />
     <Compile Include="TextExpressionMatcherTestBase.cs" />
     <Compile Include="TextReplacementEngineTestBase.cs" />
   </ItemGroup>

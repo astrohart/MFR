@@ -18,7 +18,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="path"/>, is passed
-        /// a blank or <c>null</c> value.
+        /// a blank or <see langword="null" /> value.
         /// </exception>
         public ConfigurationExportedEventArgs(string path)
         {

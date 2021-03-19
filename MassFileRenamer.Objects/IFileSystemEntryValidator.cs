@@ -22,12 +22,12 @@
         /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the file-system <paramref name="entry" /> exists on
-        /// the disk; <c>false</c> otherwise.
+        /// <see langword="true" /> if the file-system <paramref name="entry" /> exists on
+        /// the disk; <see langword="false" /> otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         bool DoesExist(IFileSystemEntry entry);
 
@@ -42,9 +42,9 @@
         /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
-        /// <c>true</c> is returned by this method if the file-system specified
+        /// <see langword="true" /> is returned by this method if the file-system specified
         /// <paramref name="entry" /> is to be skipped by the operation;
-        /// otherwise, <c>false</c> is returned.
+        /// otherwise, <see langword="false" /> is returned.
         /// </returns>
         bool ShouldSkip(IFileSystemEntry entry);
 
@@ -59,7 +59,7 @@
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the pathname to a folder is passed in the
@@ -78,11 +78,11 @@
         /// and the path stored in the entry refers to a file-system object that
         /// exists on the disk, then this method does nothing.
         /// <para />
-        /// If an object instance variable or property has a <c>null</c>
+        /// If an object instance variable or property has a <see langword="null" />
         /// reference, or if the path stored in the entry refers to a
         /// file-system object that does not exist on the disk, then an
         /// exception is thrown.
         /// </remarks>
-        void Validate(IFileSystemEntry entry);
+        void IsValid(IFileSystemEntry entry);
     }
 }

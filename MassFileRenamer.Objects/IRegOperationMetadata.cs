@@ -47,7 +47,7 @@ namespace MassFileRenamer.Objects
         /// or from which data is to be retrieved.
         /// </summary>
         /// <remarks>
-        /// Set this property to <c>null</c> to retrieve data from, or store
+        /// Set this property to <see langword="null" /> to retrieve data from, or store
         /// data to, the (Default) value under a particular registry key.
         /// </remarks>
         string ValueName
@@ -85,7 +85,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="keyPath" />, is
-        /// passed a blank or <c>null</c> string for a value.
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         IRegOperationMetadata<T> ForKeyPath(string keyPath);
 

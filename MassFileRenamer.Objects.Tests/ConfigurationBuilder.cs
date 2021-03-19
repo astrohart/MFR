@@ -93,7 +93,7 @@
         /// (Optional.) New value for the
         /// <see
         ///     cref="F:MassFileRenamer.Objects.Tests.ConfigurationBuilder._matchWholeWord" />
-        /// field. Default is <c>true</c>.
+        /// field. Default is <see langword="true" />.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this

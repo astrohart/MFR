@@ -23,20 +23,6 @@ namespace MassFileRenamer.Objects.Tests
             Assert.IsNotNull(_processIdProvider);
         }
 
-        private const string DEVENV_FILENAME = "devenv.exe";
-
-        private const string GIBBERISH = "kjfsadjlksdfajlksdfkjldf";
-
-        /// <summary>
-        /// Constant containing whitespace (three spaces and a tab character).
-        /// </summary>
-        private const string WHITESPACE = "   \t";
-
-        /// <summary>
-        /// Constant whose value is the empty string.
-        /// </summary>
-        private static readonly string EMPTY_STRING = string.Empty;
-
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
@@ -81,7 +67,7 @@ namespace MassFileRenamer.Objects.Tests
         public void
             Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename()
             => Assert.IsTrue(
-                _processIdProvider.GetAllProcessIDsOf(DEVENV_FILENAME)
+                _processIdProvider.GetAllProcessIDsOf(StringConstants.DEVENV_FILENAME)
                                   .Any()
             );
 
@@ -96,7 +82,7 @@ namespace MassFileRenamer.Objects.Tests
             Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish()
             => Assert.AreEqual(
                 EmptyIntegerCollection,
-                _processIdProvider.GetAllProcessIDsOf(GIBBERISH)
+                _processIdProvider.GetAllProcessIDsOf(StringConstants.GIBBERISH)
             );
 
         /// <summary>
@@ -104,7 +90,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.IProcessIdProvider.GetAllProcessIDsOf" />
         /// method returns the empty collection when it is passed the
-        /// <c>null</c> string as input.
+        /// <see langword="null" /> string as input.
         /// </summary>
         [Test]
         public void Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull()
@@ -124,7 +110,7 @@ namespace MassFileRenamer.Objects.Tests
             Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace()
             => Assert.AreEqual(
                 EmptyIntegerCollection,
-                _processIdProvider.GetAllProcessIDsOf(WHITESPACE)
+                _processIdProvider.GetAllProcessIDsOf(StringConstants.WHITESPACE)
             );
 
         /// <summary>
@@ -137,7 +123,7 @@ namespace MassFileRenamer.Objects.Tests
         [Test]
         public void Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank()
             => Assert.AreEqual(
-                -1, _processIdProvider.GetProcessIDOf(EMPTY_STRING)
+                -1, _processIdProvider.GetProcessIDOf(StringConstants.EMPTY_STRING)
             );
 
         /// <summary>
@@ -149,7 +135,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         public void Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish()
             => Assert.AreEqual(
-                -1, _processIdProvider.GetProcessIDOf(GIBBERISH)
+                -1, _processIdProvider.GetProcessIDOf(StringConstants.GIBBERISH)
             );
 
         /// <summary>
@@ -157,7 +143,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.IProcessIdProvider.GetProcessIDOf" />
         /// method returns <c>-1</c> for the process ID when passed the
-        /// <c>null</c> string as input.
+        /// <see langword="null" /> string as input.
         /// </summary>
         [Test]
         public void Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull()
@@ -173,7 +159,7 @@ namespace MassFileRenamer.Objects.Tests
         [Test]
         public void Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace()
             => Assert.AreEqual(
-                -1, _processIdProvider.GetProcessIDOf(WHITESPACE)
+                -1, _processIdProvider.GetProcessIDOf(StringConstants.WHITESPACE)
             );
 
         /// <summary>
@@ -191,7 +177,7 @@ namespace MassFileRenamer.Objects.Tests
         [Test]
         public void Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename()
             => Assert.IsTrue(
-                _processIdProvider.GetProcessIDOf(DEVENV_FILENAME) > 0
+                _processIdProvider.GetProcessIDOf(StringConstants.DEVENV_FILENAME) > 0
             );
     }
 }

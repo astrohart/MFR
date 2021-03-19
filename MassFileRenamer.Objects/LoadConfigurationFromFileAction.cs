@@ -57,7 +57,7 @@ namespace MassFileRenamer.Objects
         /// <see
         ///     cref="F:MassFileRenamer.Objects.ActionBase._input" />
         /// field is blank
-        /// or <c>null</c>.
+        /// or <see langword="null" />.
         /// </exception>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality

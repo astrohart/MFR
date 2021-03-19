@@ -42,7 +42,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Attempts to find the Visual Studio instance that has the solution
         /// with pathname <paramref name="path" /> currently loaded. Returns
-        /// <c>null</c> if such an instance cannot be found.
+        /// <see langword="null" /> if such an instance cannot be found.
         /// </summary>
         /// <param name="path">
         /// (Required.) String containing the fully-qualified pathname of a
@@ -53,7 +53,7 @@ namespace MassFileRenamer.Objects
         /// <see
         ///     cref="T:EnvDTE.DTE" />
         /// automation interface for the Visual Studio
-        /// instance that has the solution opened; <c>null</c> if such an
+        /// instance that has the solution opened; <see langword="null" /> if such an
         /// instance cannot be located.
         /// </returns>
         public static DTE GetVsProcessHavingSolutionOpened(string path)

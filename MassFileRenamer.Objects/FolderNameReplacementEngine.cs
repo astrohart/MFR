@@ -39,11 +39,25 @@ namespace MassFileRenamer.Objects
         ///     cref="T:System.ArgumentNullException">
         /// Thrown if the required
         /// parameter, <paramref name="configuration" />, is passed a
-        /// <c>null</c> value.
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public FolderNameReplacementEngine(IConfiguration configuration) : base(
             configuration
         ) { }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -71,7 +85,8 @@ namespace MassFileRenamer.Objects
         /// , <paramref name="pattern" />, or
         /// <paramref
         ///     name="dest" />
-        /// , are passed blank or <c>null</c> string for values.
+        /// , are passed blank or <see langword="null" /> string
+        /// for values.
         /// </exception>
         public override string Replace(string source, string pattern,
             string dest = "")

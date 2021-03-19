@@ -27,7 +27,7 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if either of the required parameters, <paramref
         /// name="config"/> or <paramref name="comboBox"/>, are passed a
-        /// <c>null</c> value.
+        /// <see langword="null" /> value.
         /// </exception>
         public static void SaveCurrentFindWhatAndHistory(
             this IConfiguration config, ComboBox comboBox)
@@ -60,7 +60,7 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if either of the required parameters, <paramref
         /// name="config"/> or <paramref name="comboBox"/>, are passed a
-        /// <c>null</c> value.
+        /// <see langword="null" /> value.
         /// </exception>
         public static void SaveCurrentReplaceWithAndHistory(
             this IConfiguration config, ComboBox comboBox)
@@ -95,7 +95,7 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if either of the required parameters, <paramref
         /// name="config"/> or <paramref name="comboBox"/>, are passed a
-        /// <c>null</c> value.
+        /// <see langword="null" /> value.
         /// </exception>
         public static void SaveCurrentStartingFolderAndHistory(
             this IConfiguration config, ComboBox comboBox)

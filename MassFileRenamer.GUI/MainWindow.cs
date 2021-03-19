@@ -861,7 +861,7 @@ namespace MassFileRenamer.GUI
         /// This method responds to the event by updating the enabled/disabled
         /// state of controls and menu items, unless the <see
         /// cref="P:System.Windows.Forms.Control.Enabled"/> property is
-        /// <c>false</c>, which means an operation is in progress.
+        /// <see langword="false" />, which means an operation is in progress.
         /// </remarks>
         [Log(AttributeExclude = true)] // do not log this method
         private void OnUpdateCmdUI(object sender, EventArgs e)
@@ -912,12 +912,12 @@ namespace MassFileRenamer.GUI
         /// user if otherwise is the case.
         /// </summary>
         /// <returns>
-        /// Returns <c>true</c> if all the fields have valid data; <c>false</c> otherwise.
+        /// Returns <see langword="true" /> if all the fields have valid data; <see langword="false" /> otherwise.
         /// </returns>
         /// <remarks>
         /// Use the return value of this method from the calling method to
         /// decide whether to proceed with the operation. A return value of
-        /// <c>false</c> means an operation should not proceed. If a value is
+        /// <see langword="false" /> means an operation should not proceed. If a value is
         /// invalid, a message box is displayed to the user telling the user
         /// what the user needs to fix. Then, the input focus is set to the
         /// offending field.

@@ -43,7 +43,7 @@
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="userState" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         IFileSystemEntry AndHavingUserState(dynamic userState);
     }

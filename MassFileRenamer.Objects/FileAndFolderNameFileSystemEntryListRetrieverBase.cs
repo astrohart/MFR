@@ -27,7 +27,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="replaceWith" />, is
-        /// passed a blank or <c>null</c> string for a value.
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         public override IFileSystemEntryListRetriever AndReplaceItWith(
             string replaceWith)

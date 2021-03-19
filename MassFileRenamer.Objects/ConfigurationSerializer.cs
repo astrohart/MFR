@@ -23,12 +23,12 @@ namespace MassFileRenamer.Objects
         /// <see
         ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
         /// interface that has
-        /// been initialized with the data present in the file; or <c>null</c>
+        /// been initialized with the data present in the file; or <see langword="null" />
         /// if a problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="pathname" />, is
-        /// passed a blank or <c>null</c> string for a value.
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file, the path to which is specified by the

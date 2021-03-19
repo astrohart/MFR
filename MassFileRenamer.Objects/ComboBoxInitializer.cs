@@ -31,7 +31,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameters, <paramref name="comboBox"/> and
-        /// <paramref name="itemList"/>, are passed <c>null</c> reference for values.
+        /// <paramref name="itemList"/>, are passed <see langword="null" /> reference for values.
         /// </exception>
         /// <remarks>
         /// This method is intended to be utilized in order to fill combo box

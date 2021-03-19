@@ -119,11 +119,14 @@
     <Compile Include="FindVisualStudioOperationStartedDescription.cs" />
     <Compile Include="GetOperationDescription.cs" />
     <Compile Include="GetOperationStartedDescription.cs" />
+    <Compile Include="DoesPathFilterInvoker.cs" />
     <Compile Include="GetSaveConfigPathCommand.cs" />
     <Compile Include="GettingListOfFilesToBeRenamedOperationStartedDescription.cs" />
     <Compile Include="ICachedResultAction.cs" />
     <Compile Include="IOperationDescription.cs" />
     <Compile Include="IOperationStartedDescription.cs" />
+    <Compile Include="IPathFilterInvoker.cs" />
+    <Compile Include="MakeNewFileInfo.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="ConfigurationComposedObjectBase.cs" />
@@ -141,6 +144,7 @@
     <Compile Include="MakeNewRegOperationMetadata.cs" />
     <Compile Include="MessageBase.cs" />
     <Compile Include="OpenActiveSolutionOperationStartedDescription.cs" />
+    <Compile Include="PathFilterInvokerBase.cs" />
     <Compile Include="RenameFilesInFolderOperationDescription.cs" />
     <Compile Include="RenameFilesInFolderOperationStartedDescription.cs" />
     <Compile Include="RenameSubFoldersOperationDescription.cs" />

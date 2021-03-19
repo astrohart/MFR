@@ -53,7 +53,7 @@ namespace MassFileRenamer.Objects
         /// . <paramref name="findWhat" /> , or
         /// <paramref
         ///     name="replaceWith" />
-        /// , are passed blank or <c>null</c> strings for values.
+        /// , are passed blank or <see langword="null" /> strings for values.
         /// </exception>
         public TextPatternMatchEventArgs(string source, string findWhat,
             string replaceWith, OperationType operationType) : base(

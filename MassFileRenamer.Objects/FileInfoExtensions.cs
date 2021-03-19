@@ -6,21 +6,62 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Helper methods for working with instances of <see cref="T:System.IO.FileInfo"/>.
+    /// Helper methods for working with instances of
+    /// <see cref="T:System.IO.FileInfo" />.
     /// </summary>
     public static class FileInfoExtensions
     {
         /// <summary>
+        /// Determines whether a file is zero bytes in length or not.
+        /// </summary>
+        /// <param name="fileInfo">
+        /// (Required.) A <see cref="T:System.IO.FileInfo" /> that represents the
+        /// file whose length is to be checked.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the <paramref name="fileInfo" /> references
+        /// a file that exists yet is zero bytes in length.
+        /// <see
+        ///     langword="false" />
+        /// if the file does not exist or if the length of
+        /// the file is greater than zero.
+        /// </returns>
+        public static bool IsZeroLengthFile(this FileInfo fileInfo)
+        {
+            var result = true;
+
+            if (fileInfo == null)
+                return result;
+
+            try
+            {
+                result = fileInfo.Exists && fileInfo.Length == 0;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = true;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo"/> describing the file to be renamed.
+        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the pathname of the renamed file.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the rename operation is successful; <c>false</c> otherwise.
+        /// <see langword="true" /> if the rename operation is successful;
+        /// <see
+        ///     langword="false" />
+        /// otherwise.
         /// </returns>
         public static bool RenameTo(this FileInfo existingFile,
             string newFilePath, int maxRetries = 5)
@@ -515,14 +556,14 @@ namespace MassFileRenamer.Objects
                 );
 
                 DebugUtils.WriteLine(
-                    DebugLevel.Info, $"*** INFO: Performing file operation..."
+                    DebugLevel.Info, "*** INFO: Performing file operation..."
                 );
 
                 File.Copy(_tempFileName, newFilePath);
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** INFO: A 'Copy' file operation has been performed."
+                    "*** INFO: A 'Copy' file operation has been performed."
                 );
 
                 /*

@@ -47,11 +47,11 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
         /// interface whose
         /// properties are initialized to the data values read in from the JSON
-        /// text, or <c>null</c> if a problem occurred.
+        /// text, or <see langword="null" /> if a problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="json" />, is passed
-        /// a blank or <c>null</c> string for a value.
+        /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         public static IConfiguration FromJson(string json)
         {
@@ -82,7 +82,7 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public static string ToJson(IConfiguration configuration)
         {

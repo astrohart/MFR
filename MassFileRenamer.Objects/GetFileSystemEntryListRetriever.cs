@@ -34,7 +34,8 @@ namespace MassFileRenamer.Objects
 
                 default:
                     throw new ArgumentOutOfRangeException(
-                        nameof(type), type, null
+                        nameof(type), type,
+                        $"There is no file or folder list retriever object available for the '{type}' operation type."
                     );
             }
 

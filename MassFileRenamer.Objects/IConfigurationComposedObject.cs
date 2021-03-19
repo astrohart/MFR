@@ -39,7 +39,7 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         dynamic AndAttachConfiguration(
             IConfiguration configuration);
@@ -58,7 +58,7 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         void UpdateConfiguration(IConfiguration configuration);
 

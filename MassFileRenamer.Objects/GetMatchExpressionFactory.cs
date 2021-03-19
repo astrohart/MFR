@@ -49,11 +49,12 @@ namespace MassFileRenamer.Objects
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    factory = new FolderNameReplacementMatchExpressionFactory();
+                    factory = new ReplaceTextInFileMatchExpressionFactory();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    factory = new ReplaceTextInFileMatchExpressionFactory();
+                    factory = new FolderNameReplacementMatchExpressionFactory();
+
                     break;
 
                 default:

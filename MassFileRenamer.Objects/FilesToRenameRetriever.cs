@@ -36,15 +36,15 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <c>true</c> if the file should be
-        /// included in the operation or <c>false</c> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file should be
+        /// included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <c>null</c> by default. This method should return
-        /// <c>true</c> to specify that a given file-system entry is to be
+        /// This parameter is <see langword="null" /> by default. This method should return
+        /// <see langword="true" /> to specify that a given file-system entry is to be
         /// included in the output collection -- barring other
         /// inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <c>null</c>, no path filtering
+        /// In the event that this parameter is <see langword="null" />, no path filtering
         /// is done.
         /// </param>
         /// <returns>
@@ -66,7 +66,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
-        /// is passed a blank or <c>null</c> string for a value.
+        /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:MassFileRenamer.Objects.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
@@ -85,17 +85,11 @@ namespace MassFileRenamer.Objects
                                   )
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
-                                      fse => !GetFileSystemEntryValidator
-                                              .For(OperationType)
-                                              .ShouldSkip(fse) &&
-                                             GetTextExpressionMatcher
-                                                 .For(OperationType)
-                                                 .IsMatch(
-                                                     GetMatchExpressionFor(fse)
-                                                 ) && (pathFilter?.Invoke(
-                                                     fse.Path
-                                                 ) ??
-                                                 true)
+                                      fse
+                                          => ShouldNotSkipFileSystemEntry(
+                                                 fse
+                                             ) && IsPathMatchToCriteria(fse) &&
+                                             PassesPathFilter(pathFilter, fse)
                                   );
             }
             catch (Exception ex)

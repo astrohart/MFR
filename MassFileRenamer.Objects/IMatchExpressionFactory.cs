@@ -47,7 +47,7 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="replaceWith" />, is
-        /// passed a blank or <c>null</c> string for a value, EXCEPT for the
+        /// passed a blank or <see langword="null" /> string for a value, EXCEPT for the
         /// Replace Text in Files operation type.
         /// </exception>
         IMatchExpression AndReplaceItWith(string replaceWith);
@@ -64,7 +64,7 @@
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="value" />, is
-        /// passed a blank or <c>null</c> string for a value.
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <remarks>
         /// Among the fluent-builder methods of this class, this one must be
@@ -82,7 +82,7 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="value" />, is
-        /// passed either the empty or <c>null</c> string for a value.
+        /// passed either the empty or <see langword="null" /> string for a value.
         /// Whitespace is allowed ONLY for the Replace Text in Files operation type.
         /// </exception>
         IMatchExpressionFactory ForTextValue(string value);
@@ -100,7 +100,7 @@
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="findWhat" />, is
-        /// passed a blank or <c>null</c> string for a value.
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <remarks>
         /// It is recommended to call this method after calling the
@@ -114,7 +114,7 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="findWhat" />, is
-        /// passed either the empty string or <c>null</c> string for a value.
+        /// passed either the empty string or <see langword="null" /> string for a value.
         /// Whitespace is allowed, but ONLY for the Replace Text in Files
         /// operation type.
         /// </exception>

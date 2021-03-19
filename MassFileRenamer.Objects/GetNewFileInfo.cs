@@ -22,11 +22,11 @@ namespace MassFileRenamer.Objects
         /// Reference to the resulting instance of <see
         /// cref="T:System.IO.FileInfo"/> that encapsulates access to the file
         /// whose pathname is passed in the <paramref name="path"/> parameter;
-        /// or <c>null</c> if an error occurred.
+        /// or <see langword="null" /> if an error occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="path"/>, is passed
-        /// a blank or <c>null</c> string for a value.
+        /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file, the path to which is specified by the <paramref

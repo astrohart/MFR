@@ -7,7 +7,7 @@
     /// These objects specify rules as to how to replace text when matches have
     /// already been located.
     /// </remarks>
-    public interface ITextReplacementEngine : IConfigurationComposedObject
+    public interface ITextReplacementEngine : IConfigurationComposedObject, IFixedOperationSpecificObject
     {
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -33,7 +33,7 @@
         /// <paramref
         ///     name="source" />
         /// or <paramref name="pattern" />, are passed blank or
-        /// <c>null</c> string for values.
+        /// <see langword="null" /> string for values.
         /// </exception>
         string Replace(string source, string pattern, string dest = "");
 
@@ -52,7 +52,7 @@
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         string Replace(IMatchExpression expression);
     }

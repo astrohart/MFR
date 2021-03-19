@@ -18,7 +18,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown in the event that the
@@ -26,7 +26,7 @@ namespace MassFileRenamer.Objects
         ///     cref="P:MassFileRenamer.Objects.IFileSystemEntry.Path" />
         /// property of
         /// the object referenced by the <paramref name="entry" /> parameter is a
-        /// blank or <c>null</c> string.
+        /// blank or <see langword="null" /> string.
         /// </exception>
         public static void ValidateFileSystemEntry(IFileSystemEntry entry)
         {

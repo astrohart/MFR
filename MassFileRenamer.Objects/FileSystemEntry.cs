@@ -40,7 +40,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Gets or sets the pathname of the file-system entry.
         /// </summary>
-        public string Path
+        [Log(AttributeExclude = true)] public string Path
         {
             get;
             set;
@@ -54,7 +54,7 @@ namespace MassFileRenamer.Objects
         /// then this property might contain the file's contents from them
         /// having been previously read in.
         /// </remarks>
-        public dynamic UserState
+        [Log(AttributeExclude = true)] public dynamic UserState
         {
             get;
             set;
@@ -74,7 +74,7 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="userState" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public IFileSystemEntry AndHavingUserState(dynamic userState)
         {

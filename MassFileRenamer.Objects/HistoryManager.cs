@@ -40,7 +40,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter,
         /// <paramref
         ///     name="messageBoxParentWindow" />
-        /// , is passed a <c>null</c> value.
+        /// , is passed a <see langword="null" /> value.
         /// </exception>
         public HistoryManager(IWin32Window messageBoxParentWindow)
         {
@@ -93,11 +93,11 @@ namespace MassFileRenamer.Objects
         /// or not.
         /// </summary>
         /// <returns>
-        /// <c>true</c> if the user confirms that all the history can be
-        /// cleared; <c>false</c> otherwise.
+        /// <see langword="true" /> if the user confirms that all the history can be
+        /// cleared; <see langword="false" /> otherwise.
         /// </returns>
         /// <remarks>
-        /// This method does nothing but return <c>false</c> if all the history
+        /// This method does nothing but return <see langword="false" /> if all the history
         /// lists are already clear, since, in that event, this means that there
         /// is nothing to do.
         /// </remarks>

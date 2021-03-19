@@ -134,7 +134,7 @@ namespace MassFileRenamer.Objects
             /// cref="T:System.Action{TInput, TResult}"/> delegate that is run
             /// for each element of the cache, just prior to the cache being cleared.
             /// <para/>
-            /// If this parameter is not a <c>null</c> reference, then the code
+            /// If this parameter is not a <see langword="null" /> reference, then the code
             /// referenced by this delegate is invoked for every element of the
             /// result cache, prior to the cache being cleared.
             /// <para/>
@@ -155,11 +155,11 @@ namespace MassFileRenamer.Objects
 
             /// <summary>
             /// Gets a value specifying whether the result cache is a
-            /// <c>null</c> reference or if it contains zero items.
+            /// <see langword="null" /> reference or if it contains zero items.
             /// </summary>
             /// <returns>
-            /// <c>true</c> if the result cache is <c>null</c> or contains zero
-            /// items; <c>false</c> otherwise.
+            /// <see langword="true" /> if the result cache is <see langword="null" /> or contains zero
+            /// items; <see langword="false" /> otherwise.
             /// </returns>
             public static bool IsNullOrEmpty()
                 => ResultCache == null || ResultCache.Count == 0;

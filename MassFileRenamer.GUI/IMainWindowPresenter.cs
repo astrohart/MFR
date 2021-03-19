@@ -103,7 +103,7 @@ namespace MassFileRenamer.GUI
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="fileRenamer"/>, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
 
@@ -124,7 +124,7 @@ namespace MassFileRenamer.GUI
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="dialog" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         void SaveConfigurationDataFrom(OptionsDialog dialog);
     }

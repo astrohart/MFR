@@ -23,7 +23,7 @@ namespace MassFileRenamer.Objects
         /// (Optional.) Set to the maximum retries before giving up. Default is 5.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the rename operation is successful; <c>false</c> otherwise.
+        /// <see langword="true" /> if the rename operation is successful; <see langword="false" /> otherwise.
         /// </returns>
         /// <remarks>
         /// A <paramref name="maxRetries"/> parameter is necessary since, during

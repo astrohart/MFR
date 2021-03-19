@@ -71,7 +71,7 @@ namespace MassFileRenamer.Objects
         /// object's functionality.
         /// <para />
         /// This method is to stop executing, without throwing any exceptions,
-        /// if the input is <c>null</c>.
+        /// if the input is <see langword="null" />.
         /// </remarks>
         protected override void CommonExecute()
         {

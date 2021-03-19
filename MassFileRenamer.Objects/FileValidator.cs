@@ -14,17 +14,20 @@ namespace MassFileRenamer.Objects
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FileValidator() { }
+        static FileValidator()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected FileValidator() { }
+        protected FileValidator()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MassFileRenamer.Objects.FileValidator" />.
+        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.FileValidator"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static FileValidator Instance
@@ -33,29 +36,27 @@ namespace MassFileRenamer.Objects
         } = new FileValidator();
 
         /// <summary>
-        /// Determines whether the specified file-system
-        /// <paramref
-        ///     name="entry" />
-        /// exists on the disk.
+        /// Determines whether the specified file-system <paramref
+        /// name="entry"/> exists on the disk.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry"/> interface.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the file-system <paramref name="entry" /> exists on
-        /// the disk; <c>false</c> otherwise.
+        /// <see langword="true"/> if the file-system <paramref name="entry"/>
+        /// exists on the disk; <see langword="false"/> otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// Thrown if the required parameter, <paramref name="entry"/>, is
+        /// passed a <see langword="null"/> value.
         /// </exception>
         [Log(AttributeExclude = true)]
         public override bool DoesExist(IFileSystemEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));
 
-            if (string.IsNullOrWhiteSpace(entry.Path)) 
+            if (string.IsNullOrWhiteSpace(entry.Path))
                 return false;
 
             DebugUtils.WriteLine(
@@ -92,23 +93,64 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
-        /// Determines whether the specified file-system
-        /// <paramref
-        ///     name="entry" />
-        /// should be skipped during an operation.
+        /// Determines whether a file system <paramref name="entry"/> exists on
+        /// the disk at the pathname indicated.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry"/>
+        /// interface containing information about the entry to be checked.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="entry"/>, is
+        /// passed a <see langword="null"/> value.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the pathname to a folder is passed in the <paramref
+        /// name="entry"/> parameter and the folder cannot be located on the disk.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the pathname to a file is passed in the <paramref
+        /// name="entry"/> parameter and the file cannot be located on the disk.
+        /// </exception>
+        /// <remarks>
+        /// If the properties of the <paramref name="entry"/> have valid data
+        /// and the path stored in the entry refers to a file-system object that
+        /// exists on the disk, then this method does nothing.
+        /// <para/>
+        /// If an object instance variable or property has a <see
+        /// langword="null"/> reference, or if the path stored in the entry
+        /// refers to a file-system object that does not exist on the disk, then
+        /// an exception is thrown.
+        /// </remarks>
+        public override void IsValid(IFileSystemEntry entry)
+        {
+            if (entry == null)
+                throw new ArgumentNullException(nameof(entry));
+
+            if (!DoesExist(entry))
+                throw new FileNotFoundException(
+                    "The system cannot find the file specified.", entry.Path
+                );
+        }
+
+        /// <summary>
+        /// Determines whether the specified file-system <paramref
+        /// name="entry"/> should be skipped during an operation.
+        /// </summary>
+        /// <param name="entry">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry"/> interface.
         /// </param>
         /// <returns>
-        /// <c>true</c> is returned by this method if the file-system specified
-        /// <paramref name="entry" /> is to be skipped by the operation;
-        /// otherwise, <c>false</c> is returned.
+        /// <see langword="true"/> is returned by this method if the file-system
+        /// specified <paramref name="entry"/> is to be skipped by the
+        /// operation; otherwise, <see langword="false"/> is returned.
         /// </returns>
         public override bool ShouldSkip(IFileSystemEntry entry)
         {
-            // write the name of the current class and method we are now entering, into the log
+            // write the name of the current class and method we are now
+            // entering, into the log
             DebugUtils.WriteLine(DebugLevel.Debug, "In FileValidator.ShouldSkip");
 
             if (entry != null) DebugUtils.WriteLine(
@@ -120,14 +162,21 @@ namespace MassFileRenamer.Objects
 
             try
             {
-                result = entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-                         string.IsNullOrWhiteSpace(Path.GetExtension(entry.Path)) ||
-                         !File.Exists(entry.Path) ||
+                result = entry == null ||
+                         string.IsNullOrWhiteSpace(entry.Path) ||
+                         string.IsNullOrWhiteSpace(
+                             Path.GetExtension(entry.Path)
+                         ) || !File.Exists(entry.Path) ||
                          entry.Path.Contains("packages") ||
-                         entry.Path.Contains(".git") || entry.Path.Contains(".vs") ||
+                         entry.Path.Contains(".git") ||
+                         entry.Path.Contains(".vs") ||
                          entry.Path.Contains(@"\bin") ||
-                         entry.Path.Contains(@"\obj") || Path.GetFileName(entry.Path)
-                             .StartsWith(".");
+                         entry.Path.Contains(@"\obj") || Path
+                             .GetFileName(entry.Path)
+                             .StartsWith(".") || MakeNewFileInfo
+                                                 .FromFileSystemEntry(entry)
+                                                 .IsZeroLengthFile();
+                ;
             }
             catch (Exception ex)
             {
@@ -148,52 +197,6 @@ namespace MassFileRenamer.Objects
             DebugUtils.WriteLine(DebugLevel.Debug, "FileValidator.ShouldSkip: Done.");
 
             return result;
-        }
-
-        /// <summary>
-        /// Determines whether a file system <paramref name="entry" /> exists on
-        /// the disk at the pathname indicated.
-        /// </summary>
-        /// <param name="entry">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" />
-        /// interface containing information about the entry to be checked.
-        /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
-        /// </exception>
-        /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the pathname to a folder is passed in the
-        /// <paramref
-        ///     name="entry" />
-        /// parameter and the folder cannot be located on the disk.
-        /// </exception>
-        /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the pathname to a file is passed in the
-        /// <paramref
-        ///     name="entry" />
-        /// parameter and the file cannot be located on the disk.
-        /// </exception>
-        /// <remarks>
-        /// If the properties of the <paramref name="entry" /> have valid data
-        /// and the path stored in the entry refers to a file-system object that
-        /// exists on the disk, then this method does nothing.
-        /// <para />
-        /// If an object instance variable or property has a <c>null</c>
-        /// reference, or if the path stored in the entry refers to a
-        /// file-system object that does not exist on the disk, then an
-        /// exception is thrown.
-        /// </remarks>
-        public override void Validate(IFileSystemEntry entry)
-        {
-            if (entry == null) 
-                throw new ArgumentNullException(nameof(entry));
-
-            if (!DoesExist(entry))
-                throw new FileNotFoundException(
-                    "The system cannot find the file specified.", entry.Path
-                );
         }
     }
 }

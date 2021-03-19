@@ -32,7 +32,7 @@
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         IRegQueryExpressionValidator<T> ForRegQueryExpression(
             IRegQueryExpression<T> expression);

@@ -39,11 +39,25 @@ namespace MassFileRenamer.Objects
         /// <exception
         ///     cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a <c>null</c>
+        /// parameter, <paramref name="configuration" />, is passed a
+        /// <see
+        ///     langword="null" />
         /// value.
         /// </exception>
         protected TextReplacementEngineBase(IConfiguration configuration) :
             base(configuration) { }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public abstract OperationType OperationType
+        {
+            get;
+        }
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -69,7 +83,7 @@ namespace MassFileRenamer.Objects
         /// <paramref
         ///     name="source" />
         /// or <paramref name="pattern" />, are passed blank or
-        /// <c>null</c> string for values.
+        /// <see langword="null" /> string for values.
         /// </exception>
         public abstract string Replace(string source, string pattern,
             string dest = "");
@@ -91,7 +105,7 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public string Replace(IMatchExpression expression)
         {
@@ -99,8 +113,7 @@ namespace MassFileRenamer.Objects
                 throw new ArgumentNullException(nameof(expression));
 
             return Replace(
-                expression.Value, expression.FindWhat,
-                expression.ReplaceWith
+                expression.Value, expression.FindWhat, expression.ReplaceWith
             );
         }
     }

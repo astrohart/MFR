@@ -23,7 +23,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="exception" />, is
-        /// passed a <c>null</c> reference for a value.
+        /// passed a <see langword="null" /> reference for a value.
         /// </exception>
         public ExceptionRaisedEventArgs(Exception exception)
         {

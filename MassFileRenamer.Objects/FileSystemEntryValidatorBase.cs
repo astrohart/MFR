@@ -18,12 +18,12 @@
         /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the file-system <paramref name="entry" /> exists on
-        /// the disk; <c>false</c> otherwise.
+        /// <see langword="true" /> if the file-system <paramref name="entry" /> exists on
+        /// the disk; <see langword="false" /> otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public abstract bool DoesExist(IFileSystemEntry entry);
 
@@ -38,9 +38,9 @@
         /// the <see cref="T:MassFileRenamer.Objects.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
-        /// <c>true</c> is returned by this method if the file-system specified
+        /// <see langword="true" /> is returned by this method if the file-system specified
         /// <paramref name="entry" /> is to be skipped by the operation;
-        /// otherwise, <c>false</c> is returned.
+        /// otherwise, <see langword="false" /> is returned.
         /// </returns>
         public abstract bool ShouldSkip(IFileSystemEntry entry);
 
@@ -55,7 +55,7 @@
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the pathname to a folder is passed in the
@@ -69,6 +69,6 @@
         ///     name="entry" />
         /// parameter and the file cannot be located on the disk.
         /// </exception>
-        public abstract void Validate(IFileSystemEntry entry);
+        public abstract void IsValid(IFileSystemEntry entry);
     }
 }

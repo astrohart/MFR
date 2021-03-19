@@ -44,7 +44,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         protected ConfigurationComposedObjectBase(IConfiguration configuration)
         {
@@ -95,7 +95,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public dynamic AndAttachConfiguration(IConfiguration configuration)
         {
@@ -125,7 +125,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public virtual void UpdateConfiguration(IConfiguration configuration)
             => Configuration = configuration ??

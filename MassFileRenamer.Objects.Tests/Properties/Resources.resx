@@ -98,4 +98,7 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER" xml:space="preserve">
+		<value>C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\packages\EntityFramework.6.4.4</value>
+	</data>
 </root>

@@ -37,14 +37,14 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required property,
         /// <see
         ///     cref="P:MassFileRenamer.Objects.IFileSystemEntry.Path" />
         /// , is passed
-        /// a blank or <c>null</c> string for a value.
+        /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         public static DirectoryInfo ToDirectoryInfo(this IFileSystemEntry entry)
         {
@@ -85,14 +85,14 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required property,
         /// <see
         ///     cref="P:MassFileRenamer.Objects.IFileSystemEntry.Path" />
         /// , is passed
-        /// a blank or <c>null</c> string for a value.
+        /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         public static FileInfo ToFileInfo(this IFileSystemEntry entry)
         {

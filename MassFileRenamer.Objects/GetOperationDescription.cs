@@ -31,7 +31,7 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.IOperationDescription" />
         /// interface
         /// that corresponds to the specified operation <paramref name="type" />,
-        /// or <c>null</c> if no such object can be located.
+        /// or <see langword="null" /> if no such object can be located.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if the <see cref="T:MassFileRenamer.Objects.OperationType" />

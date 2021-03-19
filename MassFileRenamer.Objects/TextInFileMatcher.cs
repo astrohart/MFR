@@ -14,7 +14,7 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public TextInFileMatcher(IConfiguration configuration) : base(
             configuration
@@ -40,6 +40,18 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.ReplaceTextInFiles;
+
+        /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
         /// against a <paramref name="findWhat" />, according to how the
         /// application is configured.
@@ -55,16 +67,18 @@ namespace MassFileRenamer.Objects
         /// <paramref
         ///     name="value" />
         /// or <paramref name="findWhat" />, are passed blank or
-        /// <c>null</c> string for values.
+        /// <see langword="null" /> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
-        /// matches are found.
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
+        /// match against the provided <paramref name="findWhat" />;
+        /// <see
+        ///     langword="false" />
+        /// if no matches are found.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="findWhat" />, is
-        /// passed either the empty or <c>null</c> string for a value.
+        /// passed either the empty or <see langword="null" /> string for a value.
         /// <para />
         /// This makes logical sense; if the <paramref name="findWhat" /> is
         /// blank, then we have nothing to search against!
@@ -78,7 +92,7 @@ namespace MassFileRenamer.Objects
         /// contents of the file. Sometimes, files contain zero bytes of data.
         /// <para />
         /// If this is the case, then this method does nothing and returns the
-        /// default result of <c>false</c>.
+        /// default result of <see langword="false" />.
         /// </remarks>
         public override bool IsMatch(
             string value, /* data from a file, encoded as a string of bytes */
@@ -116,12 +130,14 @@ namespace MassFileRenamer.Objects
 
             if (Configuration.MatchCase)
                 return value.Contains(findWhat) &&
-                       (findWhat.Contains(replaceWith) || !value.Contains(replaceWith));
+                       (findWhat.Contains(replaceWith) ||
+                        !value.Contains(replaceWith));
 
             return value.ToLowerInvariant()
-                         .Contains(findWhat.ToLowerInvariant()) && (findWhat
+                        .Contains(findWhat.ToLowerInvariant()) && (findWhat
                 .ToLowerInvariant()
-                .Contains(replaceWith.ToLowerInvariant()) || !value.ToLowerInvariant()
+                .Contains(replaceWith.ToLowerInvariant()) || !value
+                .ToLowerInvariant()
                 .Contains(replaceWith.ToLowerInvariant()));
         }
     }

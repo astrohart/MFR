@@ -11,16 +11,6 @@ namespace MassFileRenamer.Objects.Tests
     public abstract class TextExpressionMatcherTestBase
     {
         /// <summary>
-        /// Whitespace value for testing.
-        /// </summary>
-        protected const string WHITESPACE = "   \t";
-
-        /// <summary>
-        /// The empty string (string.Empty).
-        /// </summary>
-        protected static readonly string EMPTY_STRING = string.Empty;
-
-        /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
@@ -42,7 +32,8 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void Initialize()
         {
             _configuration = ConfigurationBuilder.Instance.SetMatchCase(false)
-                .AndSetMatchWholeWord(false).Build();
+                                                 .AndSetMatchWholeWord(false)
+                                                 .Build();
 
             Assert.IsNotNull(_configuration);
             Assert.IsFalse(_configuration.MatchCase);
@@ -58,10 +49,8 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public virtual void
-            Test_ArgumentException_Thrown_If_AllThreeParams_Of_IsMatch_Method_AreBlank()
-            => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(EMPTY_STRING, EMPTY_STRING, EMPTY_STRING)
-            );
+            Test_ArgumentException_NotThrown_If_AllThreeParams_Of_IsMatch_Method_AreNonBlank()
+            => Assert.DoesNotThrow(() => _matcher.IsMatch("Foo", "Bar", "Baz"));
 
         /// <summary>
         /// Asserts that the
@@ -72,9 +61,12 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public virtual void
-            Test_ArgumentException_NotThrown_If_AllThreeParams_Of_IsMatch_Method_AreNonBlank()
-            => Assert.DoesNotThrow(
-                () => _matcher.IsMatch("Foo", "Bar", "Baz")
+            Test_ArgumentException_Thrown_If_AllThreeParams_Of_IsMatch_Method_AreBlank()
+            => Assert.Throws<ArgumentException>(
+                () => _matcher.IsMatch(
+                    StringConstants.EMPTY_STRING, StringConstants.EMPTY_STRING,
+                    StringConstants.EMPTY_STRING
+                )
             );
 
         /// <summary>
@@ -102,7 +94,10 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_AllThreeParams_Of_IsMatch_Method_AreWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(WHITESPACE, WHITESPACE, WHITESPACE)
+                () => _matcher.IsMatch(
+                    StringConstants.WHITESPACE, StringConstants.WHITESPACE,
+                    StringConstants.WHITESPACE
+                )
             );
 
         /// <summary>
@@ -117,7 +112,10 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_FirstAndSecondParams_Of_IsMatch_Method_AreBlank()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(EMPTY_STRING, EMPTY_STRING, "Foo")
+                () => _matcher.IsMatch(
+                    StringConstants.EMPTY_STRING, StringConstants.EMPTY_STRING,
+                    "Foo"
+                )
             );
 
         /// <summary>
@@ -147,7 +145,10 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_FirstAndSecondParams_Of_IsMatch_Method_AreWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(WHITESPACE, WHITESPACE, "Foo")
+                () => _matcher.IsMatch(
+                    StringConstants.WHITESPACE, StringConstants.WHITESPACE,
+                    "Foo"
+                )
             );
 
         /// <summary>
@@ -162,7 +163,10 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_FirstAndThirdParams_Of_IsMatch_Method_AreBlank()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(EMPTY_STRING, "Foo", EMPTY_STRING)
+                () => _matcher.IsMatch(
+                    StringConstants.EMPTY_STRING, "Foo",
+                    StringConstants.EMPTY_STRING
+                )
             );
 
         /// <summary>
@@ -192,7 +196,10 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_FirstAndThirdParams_Of_IsMatch_Method_AreWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(WHITESPACE, "Foo", WHITESPACE)
+                () => _matcher.IsMatch(
+                    StringConstants.WHITESPACE, "Foo",
+                    StringConstants.WHITESPACE
+                )
             );
 
         /// <summary>
@@ -214,7 +221,9 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyFirstParam_Of_IsMatch_Method_IsBlank()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(EMPTY_STRING, "Foo", "Bar")
+                () => _matcher.IsMatch(
+                    StringConstants.EMPTY_STRING, "Foo", "Bar"
+                )
             );
 
         /// <summary>
@@ -222,7 +231,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// first parameter is <c>null</c>.
+        /// first parameter is <see langword="null" />.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
@@ -258,7 +267,7 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyFirstParam_Of_IsMatch_Method_IsWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(WHITESPACE, "Foo", "Bar")
+                () => _matcher.IsMatch(StringConstants.WHITESPACE, "Foo", "Bar")
             );
 
         /// <summary>
@@ -280,7 +289,9 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlySecondParam_Of_IsMatch_Method_IsBlank()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", EMPTY_STRING, "Bar")
+                () => _matcher.IsMatch(
+                    "Foo", StringConstants.EMPTY_STRING, "Bar"
+                )
             );
 
         /// <summary>
@@ -288,7 +299,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// second parameter is <c>null</c>.
+        /// second parameter is <see langword="null" />.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
@@ -324,7 +335,7 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlySecondParam_Of_IsMatch_Method_IsWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", WHITESPACE, "Bar")
+                () => _matcher.IsMatch("Foo", StringConstants.WHITESPACE, "Bar")
             );
 
         /// <summary>
@@ -346,7 +357,9 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyThirdParam_Of_IsMatch_Method_IsBlank()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", "Bar", EMPTY_STRING)
+                () => _matcher.IsMatch(
+                    "Foo", "Bar", StringConstants.EMPTY_STRING
+                )
             );
 
         /// <summary>
@@ -354,7 +367,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// third parameter is <c>null</c>.
+        /// third parameter is <see langword="null" />.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
@@ -390,7 +403,7 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyThirdParam_Of_IsMatch_Method_IsWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", "Bar", WHITESPACE)
+                () => _matcher.IsMatch("Foo", "Bar", StringConstants.WHITESPACE)
             );
 
         /// <summary>
@@ -405,7 +418,10 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_SecondAndThirdParams_Of_IsMatch_Method_AreBlank()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", EMPTY_STRING, EMPTY_STRING)
+                () => _matcher.IsMatch(
+                    "Foo", StringConstants.EMPTY_STRING,
+                    StringConstants.EMPTY_STRING
+                )
             );
 
         /// <summary>
@@ -435,34 +451,17 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_SecondAndThirdParams_Of_IsMatch_Method_AreWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", WHITESPACE, WHITESPACE)
+                () => _matcher.IsMatch(
+                    "Foo", StringConstants.WHITESPACE,
+                    StringConstants.WHITESPACE
+                )
             );
 
         /// <summary>
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = MatchWholeWord
-        /// = true in the configuration, (b) the source string does contain the
-        /// pattern string as a substring, and (c) the cases do not match in the
-        /// first sub-case.
-        /// </summary>
-        [Test]
-        public void
-            Test_WhenMatchCaseOn_AndMatchWholeWordOn_FalseReturned_IfSourceContainsPattern
-            ()
-        {
-            _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchWholeWord = true};
-            Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
-        }
-
-        /// <summary>
-        /// Asserts the
-        /// <see
-        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = true
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
         /// and MatchWholeWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, but (c) the cases do not match in
@@ -483,7 +482,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = false
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = false
         /// and MatchWholeWord
         /// = true in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
@@ -504,7 +503,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
@@ -524,7 +523,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = true
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
         /// and MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and even if (c) the cases do not
@@ -545,7 +544,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = true
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
         /// and MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases do not match in
@@ -566,7 +565,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = true
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
         /// and MatchWholeWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases match in both the
@@ -587,7 +586,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>true</c> in the event that (a) MatchCase = false
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = false
         /// and MatchWholeWord
         /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string, and (c) the cases do not match in the first sub-case
@@ -608,7 +607,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>false</c> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, (b) the source string does not exactly
         /// match the pattern string as a substring, and if (c) the cases do not
         /// match in the first sub-case.
@@ -627,7 +626,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>true</c> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string as a substring, except if (c) the cases do not match
         /// in the first sub-case.
@@ -638,15 +637,19 @@ namespace MassFileRenamer.Objects.Tests
         {
             _matcher.Configuration =
                 new Configuration {MatchCase = true, MatchWholeWord = true};
-            Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo.Tests", "Bar.Tests"));
-            Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests"));
+            Assert.IsFalse(
+                _matcher.IsMatch("foo.tests", "Foo.Tests", "Bar.Tests")
+            );
+            Assert.IsTrue(
+                _matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests")
+            );
         }
 
         /// <summary>
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>true</c> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchWholeWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
@@ -666,7 +669,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>true</c> in the event that (a) MatchCase = true
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = true
         /// and MatchWholeWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and if (c) the cases match in the
@@ -688,7 +691,7 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <c>true</c> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchWholeWord
         /// = true in the configuration, and (b) the source string exactly
         /// matches the pattern string as a substring (including case).
         /// </summary>
@@ -698,7 +701,28 @@ namespace MassFileRenamer.Objects.Tests
         {
             _matcher.Configuration =
                 new Configuration {MatchCase = true, MatchWholeWord = true};
-            Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests"));
+            Assert.IsTrue(
+                _matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests")
+            );
+        }
+
+        /// <summary>
+        /// Asserts the
+        /// <see
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchWholeWord
+        /// = true in the configuration, (b) the source string does contain the
+        /// pattern string as a substring, and (c) the cases do not match in the
+        /// first sub-case.
+        /// </summary>
+        [Test]
+        public void
+            Test_WhenMatchCaseOn_AndMatchWholeWordOn_FalseReturned_IfSourceContainsPattern()
+        {
+            _matcher.Configuration =
+                new Configuration {MatchCase = true, MatchWholeWord = true};
+            Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
         }
 
         /// <summary>
@@ -722,9 +746,9 @@ namespace MassFileRenamer.Objects.Tests
         /// value that the factory supports.
         /// </exception>
         protected void CreateMatcherFor(OperationType type)
-            => _matcher =
-                GetTextExpressionMatcher.For(type)
-                        .AndAttachConfiguration(_configuration) as
-                    ITextExpressionMatcher;
+            => _matcher = GetTextExpressionMatcher.For(type)
+                                                  .AndAttachConfiguration(
+                                                      _configuration
+                                                  ) as ITextExpressionMatcher;
     }
 }

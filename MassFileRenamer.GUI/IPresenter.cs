@@ -23,12 +23,12 @@ namespace MassFileRenamer.GUI
         /// Updates data. Moves data from the screen to the model (
         /// <paramref
         ///     name="bSavingAndValidating" />
-        /// equals <c>true</c>) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <c>false</c>).
+        /// equals <see langword="true" />) or from the model
+        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <see langword="false" />).
         /// </summary>
         /// <param name="bSavingAndValidating">
-        /// Set to <c>true</c> to move data from the screen to the model;
-        /// <c>false</c> to move data from the model to the screen.
+        /// Set to <see langword="true" /> to move data from the screen to the model;
+        /// <see langword="false" /> to move data from the model to the screen.
         /// </param>
         /// <remarks>
         /// Note that whatever operations this method performs may potentially
@@ -50,7 +50,7 @@ namespace MassFileRenamer.GUI
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         TChildPresenterInterface HavingWindowReference(TView view);
     }

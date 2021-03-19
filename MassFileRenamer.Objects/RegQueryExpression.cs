@@ -27,7 +27,7 @@ namespace MassFileRenamer.Objects
         /// or from which data is to be retrieved.
         /// </summary>
         /// <remarks>
-        /// Set this property to <c>null</c> to retrieve data from, or store
+        /// Set this property to <see langword="null" /> to retrieve data from, or store
         /// data to, the (Default) value under a particular registry key.
         /// </remarks>
         public string ValueName
@@ -71,7 +71,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="keyPath" />, is
-        /// passed a blank or <c>null</c> string for a value.
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         public IRegQueryExpression<T> ForKeyPath(string keyPath)
         {
@@ -102,15 +102,15 @@ namespace MassFileRenamer.Objects
         /// <remarks>
         /// Calling this method is optional.
         /// <para />
-        /// NOTE: If this method is called, then the value <c>null</c> is not
+        /// NOTE: If this method is called, then the value <see langword="null" /> is not
         /// acceptable to be passed for the <paramref name="defaultValue" /> parameter.
         /// <para />
-        /// If <c>null</c> is passed, then this method throws
+        /// If <see langword="null" /> is passed, then this method throws
         /// <see cref="T:System.ArgumentNullException" />.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="defaultValue" />,
-        /// is passed <c>null</c>.
+        /// is passed <see langword="null" />.
         /// </exception>
         public IRegQueryExpression<T> WithDefaultValue(T defaultValue)
         {

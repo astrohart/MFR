@@ -127,7 +127,7 @@ namespace MassFileRenamer.Objects
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="exportFileName" />,
-        /// is passed a blank or <c>null</c> string for a value.
+        /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         public static void Export(string exportFileName)
         {
@@ -153,7 +153,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="sourceFilePath" />,
-        /// is passed a blank or <c>null</c> string for a value.
+        /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file, the path to which is specified by the
@@ -205,7 +205,7 @@ namespace MassFileRenamer.Objects
         /// The value of the
         /// <see
         ///     cref="P:MassFileRenamer.Objects.ConfigurationProvider.Configuration" />
-        /// property is set to <c>null</c> if an error occurs during loading.
+        /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         public static void Load(string pathname = "")
         {

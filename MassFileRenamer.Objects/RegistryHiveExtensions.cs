@@ -36,8 +36,8 @@ namespace MassFileRenamer.Objects
         /// non-sequitur to this method.
         /// </param>
         /// <returns>
-        /// <c>true</c> if a value with the specified name exists under the
-        /// specified Registry key; <c>false</c> otherwise.
+        /// <see langword="true" /> if a value with the specified name exists under the
+        /// specified Registry key; <see langword="false" /> otherwise.
         /// </returns>
         public static bool HasValueWithName(this string keyPath,
             string valueName)
@@ -127,8 +127,8 @@ namespace MassFileRenamer.Objects
         /// Registry key.
         /// </param>
         /// <returns>
-        /// <c>true</c> if the <paramref name="keyPath" /> parameter is passed
-        /// the path of a valid Registry key; <c>false</c> otherwise.
+        /// <see langword="true" /> if the <paramref name="keyPath" /> parameter is passed
+        /// the path of a valid Registry key; <see langword="false" /> otherwise.
         /// </returns>
         public static bool StartsWithValidHiveName(this string keyPath)
         {
@@ -177,7 +177,7 @@ namespace MassFileRenamer.Objects
         /// is thrown.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if <paramref name="hiveName" /> is <c>null</c>, whitespace,
+        /// Thrown if <paramref name="hiveName" /> is <see langword="null" />, whitespace,
         /// blank, or not the name of a Registry hive, or contains a
         /// fully-qualified pathname of a subkey.
         /// </exception>

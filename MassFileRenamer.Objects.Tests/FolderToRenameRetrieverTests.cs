@@ -1,0 +1,71 @@
+﻿using NUnit.Framework;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace MassFileRenamer.Objects.Tests
+{
+    /// <summary>
+    /// Provides unit tests for the methods, properties, and events of the
+    /// <see
+    ///     cref="T:MassFileRenamer.Objects.FolderToRenameRetriever" />
+    /// class.
+    /// </summary>
+    [TestFixture]
+    public class FolderToRenameRetrieverTests
+    {
+        /// <summary>
+        /// Initializes the state of this fixture for every unit test session.
+        /// </summary>
+        [SetUp]
+        public void Initialize()
+            => Assert.IsTrue(Retriever is FolderToRenameRetriever);
+
+        private const string FIND_WHAT =
+            @"PortfolioMonitor.ExchangeDirection.Constants";
+
+        private const string REPLACE_WITH =
+            @"PortfolioMonitor.Exchanges.Constants";
+
+        private const string ROOT_FOLDER_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
+
+        /// <summary>
+        /// Gets a reference to an instance of the object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IFileSystemEntryListRetriever" />
+        /// interface for renaming folders.
+        /// </summary>
+        private IFileSystemEntryListRetriever Retriever
+            => GetFileSystemEntryListRetriever.For(
+                OperationType.RenameSubFolders
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch()
+            => Assert.IsTrue(
+                ((IEnumerable<IFileSystemEntry>)Retriever
+                                                .AndAttachConfiguration(
+                                                    ConfigurationBuilder
+                                                        .Instance.SetMatchCase()
+                                                        .AndSetMatchWholeWord(
+                                                            false
+                                                        )
+                                                        .Build()
+                                                )
+                                                .UsingSearchPattern("*")
+                                                .WithSearchOption(
+                                                    SearchOption.AllDirectories
+                                                )
+                                                .ToFindWhat(REPLACE_WITH)
+                                                .AndReplaceItWith(FIND_WHAT)
+                                                .GetMatchingFileSystemPaths(
+                                                    ROOT_FOLDER_PATH
+                                                )).Any()
+            );
+    }
+}

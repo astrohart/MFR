@@ -16,7 +16,7 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public FileNameMatcher(IConfiguration configuration) : base(
             configuration
@@ -59,11 +59,11 @@ namespace MassFileRenamer.Objects
         /// , <paramref name="findWhat" />, or
         /// <paramref
         ///     name="replaceWith" />
-        /// , are passed blank or <c>null</c> string for values.
+        /// , are passed blank or <see langword="null" /> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a match
+        /// against the provided <paramref name="findWhat" />; <see langword="false" /> if no
         /// matches are found.
         /// </returns>
         public override bool IsMatch(string value, string findWhat,
@@ -105,5 +105,17 @@ namespace MassFileRenamer.Objects
                     !value.ToLowerInvariant()
                         .Contains(replaceWith.ToLowerInvariant()));
         }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.RenameFilesInFolder;
     }
 }

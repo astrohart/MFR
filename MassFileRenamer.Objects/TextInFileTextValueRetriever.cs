@@ -35,8 +35,10 @@ namespace MassFileRenamer.Objects
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
-        [Log(AttributeExclude = true)] public override OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string containing the text to be searched, from the
@@ -57,14 +59,14 @@ namespace MassFileRenamer.Objects
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public override string GetTextValue(IFileSystemEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));
 
             GetFileSystemEntryValidator.For(OperationType)
-                                       .Validate(entry);
+                                       .IsValid(entry);
 
             if (entry.UserState == null)
                 throw new InvalidOperationException(

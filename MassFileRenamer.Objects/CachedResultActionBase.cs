@@ -192,7 +192,7 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <returns>
         /// Reference to an instance of <typeparamref name="TResult" /> that
-        /// corresponds to the current input or <c>null</c> if an issue occurred.
+        /// corresponds to the current input or <see langword="null" /> if an issue occurred.
         /// </returns>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality
@@ -221,7 +221,7 @@ namespace MassFileRenamer.Objects
         /// <param name="result">
         /// Reference to a memory location that will receive a reference to an
         /// instance of <typeparamref name="TResult" /> if one is found in the
-        /// result cache; otherwise, will be assigned the <c>null</c> reference.
+        /// result cache; otherwise, will be assigned the <see langword="null" /> reference.
         /// </param>
         /// <returns>
         /// If the current value of the
@@ -231,8 +231,8 @@ namespace MassFileRenamer.Objects
         /// present in the result cache dictionary and associated with a
         /// corresponding result, then the <paramref name="result" /> parameter
         /// is filled with the corresponding value, and this method returns
-        /// <c>true</c>; otherwise, the method returns <c>false</c> and the
-        /// <paramref name="result" /> parameter is assigned a <c>null</c> reference.
+        /// <see langword="true" />; otherwise, the method returns <see langword="false" /> and the
+        /// <paramref name="result" /> parameter is assigned a <see langword="null" /> reference.
         /// </returns>
         /// <remarks>
         /// This method really is merely an alias for the

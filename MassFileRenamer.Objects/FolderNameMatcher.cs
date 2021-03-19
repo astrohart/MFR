@@ -21,7 +21,7 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public FolderNameMatcher(IConfiguration configuration) : base(
             configuration
@@ -47,6 +47,18 @@ namespace MassFileRenamer.Objects
         }
 
         /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.RenameSubFolders;
+
+        /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
         /// against a <paramref name="findWhat" />, according to how the
         /// application is configured.
@@ -68,12 +80,15 @@ namespace MassFileRenamer.Objects
         /// , <paramref name="findWhat" />, or
         /// <paramref
         ///     name="replaceWith" />
-        /// are passed blank or <c>null</c> string for values.
+        /// are passed blank or <see langword="null" />
+        /// string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
-        /// matches are found.
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
+        /// match against the provided <paramref name="findWhat" />;
+        /// <see
+        ///     langword="false" />
+        /// if no matches are found.
         /// </returns>
         public override bool IsMatch(string value, string findWhat,
             string replaceWith = "")
@@ -105,12 +120,15 @@ namespace MassFileRenamer.Objects
                                   !value.Contains(replaceWith));
                     else
                         result = value.ToLowerInvariant()
-                                       .Contains(findWhat.ToLowerInvariant()) &&
+                                      .Contains(findWhat.ToLowerInvariant()) &&
                                  (findWhat.ToLowerInvariant()
-                                         .Contains(replaceWith.ToLowerInvariant()) ||
-                                 !value
-                                  .ToLowerInvariant()
-                                  .Contains(replaceWith.ToLowerInvariant()));
+                                          .Contains(
+                                              replaceWith.ToLowerInvariant()
+                                          ) ||
+                                  !value.ToLowerInvariant()
+                                        .Contains(
+                                            replaceWith.ToLowerInvariant()
+                                        ));
                 }
                 else
                 {
@@ -132,7 +150,7 @@ namespace MassFileRenamer.Objects
                         result = parts.Select(s => s.ToLowerInvariant())
                                       .Any(
                                           findWhat.ToLowerInvariant()
-                                                 .Equals
+                                                  .Equals
                                       );
                 }
             }

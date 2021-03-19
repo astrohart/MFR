@@ -35,7 +35,7 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <c>null</c> value.
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         protected TextExpressionMatcherBase(IConfiguration configuration) :
             base(configuration) { }
@@ -56,11 +56,11 @@ namespace MassFileRenamer.Objects
         /// <paramref
         ///     name="value" />
         /// or <paramref name="findWhat" />, are passed blank or
-        /// <c>null</c> string for values.
+        /// <see langword="null" /> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <c>true</c> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <c>false</c> if no
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a match
+        /// against the provided <paramref name="findWhat" />; <see langword="false" /> if no
         /// matches are found.
         /// </returns>
         /// <remarks>
@@ -90,11 +90,11 @@ namespace MassFileRenamer.Objects
         /// interface and whose properties contain the match and pattern data.
         /// </param>
         /// <returns>
-        /// <c>true</c> if more than zero matches are found; <c>false</c> otherwise.
+        /// <see langword="true" /> if more than zero matches are found; <see langword="false" /> otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <c>null</c> value.
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public bool IsMatch(IMatchExpression expression)
         {
@@ -105,6 +105,18 @@ namespace MassFileRenamer.Objects
             return IsMatch(
                 expression.Value, expression.FindWhat, expression.ReplaceWith
             );
+        }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public abstract OperationType OperationType
+        {
+            get;
         }
     }
 }

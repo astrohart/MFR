@@ -35,7 +35,9 @@ namespace MassFileRenamer.Objects
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
-        [Log(AttributeExclude = true)] public override OperationType OperationType
-            => OperationType.RenameSubFolders;
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.RenameSubFolders;
     }
 }

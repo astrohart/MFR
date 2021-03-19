@@ -47,7 +47,7 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <returns>
         /// Reference to an instance of <typeparamref name="TResult" /> that
-        /// corresponds to the current input or <c>null</c> if an issue occurred.
+        /// corresponds to the current input or <see langword="null" /> if an issue occurred.
         /// </returns>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality

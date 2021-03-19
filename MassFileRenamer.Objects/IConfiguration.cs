@@ -31,7 +31,7 @@ namespace MassFileRenamer.Objects
         /// Gets a value indicating whether the form is in the Folded state.
         /// </summary>
         /// <remarks>
-        /// If this value is <c>true</c> when the form is loaded, then ensure
+        /// If this value is <see langword="true" /> when the form is loaded, then ensure
         /// that the form displays in the folded state.
         /// </remarks>
         bool IsFolded
@@ -86,7 +86,7 @@ namespace MassFileRenamer.Objects
         /// <para />
         /// </summary>
         /// <remarks>
-        /// If this is set to <c>true</c>, and the containing solution is open,
+        /// If this is set to <see langword="true" />, and the containing solution is open,
         /// then the solution will be closed prior to the start of the selected
         /// operation(s) and then re-opened when the selected operation(s) are complete.
         /// </remarks>

@@ -33,7 +33,7 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.ITextReplacementEngine" />
         /// interface
         /// corresponding to the operation of the <paramref name="type" />
-        /// specified, or <c>null</c> if no object supports the specified
+        /// specified, or <see langword="null" /> if no object supports the specified
         /// <paramref name="type" /> of operation.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">

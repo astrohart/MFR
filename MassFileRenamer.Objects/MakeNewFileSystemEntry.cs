@@ -36,7 +36,7 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="path" />, is passed
-        /// a blank or <c>null</c> string for a value.
+        /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         public static IFileSystemEntry ForPath(string path)
             => new FileSystemEntry(path);

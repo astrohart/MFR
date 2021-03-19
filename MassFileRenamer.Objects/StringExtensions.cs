@@ -34,7 +34,7 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if any of the required parameters, <paramref name="value" />,
         /// <paramref name="search" />, or <paramref name="replacement" />, are
-        /// passed blank or <c>null</c> strings for values.
+        /// passed blank or <see langword="null" /> strings for values.
         /// </exception>
         public static string RegexReplaceNoCase(this string value,
             string search, string replacement)
@@ -83,7 +83,7 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if any of the required parameters, <paramref name="value" />,
         /// <paramref name="search" />, or <paramref name="replacement" />, are
-        /// passed blank or <c>null</c> strings for values.
+        /// passed blank or <see langword="null" /> strings for values.
         /// </exception>
         public static string RegexReplaceWithCase(this string value,
             string search, string replacement)
@@ -128,7 +128,7 @@ namespace MassFileRenamer.Objects
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if any of the required parameters, <paramref name="value" />,
         /// <paramref name="search" />, or <paramref name="replacement" />, are
-        /// passed blank or <c>null</c> strings for values.
+        /// passed blank or <see langword="null" /> strings for values.
         /// </exception>
         public static string ReplaceNoCase(this string value, string search,
             string replacement)
@@ -174,7 +174,7 @@ namespace MassFileRenamer.Objects
         /// <paramref
         ///     name="value" />
         /// or <paramref name="delimiter" />, are passed blank or
-        /// <c>null</c> strings for values.
+        /// <see langword="null" /> strings for values.
         /// </exception>
         public static string[] SplitOn(this string value, string delimiter)
         {
