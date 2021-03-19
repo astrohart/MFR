@@ -47,7 +47,7 @@ namespace MassFileRenamer.GUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             LogFileManager.InitializeLogging(
-                false, infrastructureType: LoggingInfrastructureType.PostSharp
+                true, infrastructureType: LoggingInfrastructureType.PostSharp
             );
 
             // Load the configuration from the disk.

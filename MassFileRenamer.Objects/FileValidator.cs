@@ -149,15 +149,6 @@ namespace MassFileRenamer.Objects
         /// </returns>
         public override bool ShouldSkip(IFileSystemEntry entry)
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In FileValidator.ShouldSkip");
-
-            if (entry != null) DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileValidator.ShouldSkip: Determining whether the file having path '{entry.Path}' should be skipped..."
-            );
-
             bool result;
 
             try
@@ -185,16 +176,6 @@ namespace MassFileRenamer.Objects
 
                 result = false;
             }
-
-            if (result && entry != null)
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileValidator.ShouldSkip: The file having path '{entry.Path}' should be skipped."
-                );
-
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileValidator.ShouldSkip: Result = {result}");
-
-            DebugUtils.WriteLine(DebugLevel.Debug, "FileValidator.ShouldSkip: Done.");
 
             return result;
         }
