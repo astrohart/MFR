@@ -77,6 +77,7 @@
     <Compile Include="ConfigurationBuilder.cs" />
     <Compile Include="DirectoryInfoExtensionsTests.cs" />
     <Compile Include="FileInfoExtensionsTests.cs" />
+    <Compile Include="FileValidatorTests.cs" />
     <Compile Include="FolderNameMatcherTests.cs" />
     <Compile Include="FileNameMatcherTests.cs" />
     <Compile Include="FileRenamerTests.cs" />
