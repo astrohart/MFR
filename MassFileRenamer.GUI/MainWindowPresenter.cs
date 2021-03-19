@@ -867,6 +867,12 @@ namespace MassFileRenamer.GUI
         /// by the File Renamer object. This event is raised when the rename
         /// operations are all completed.
         /// </summary>
+        /// <param name="sender">
+        /// Reference to the instance of the object that raised this event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
         /// <remarks>
         /// This method responds merely by raising the
         /// <see
@@ -875,7 +881,7 @@ namespace MassFileRenamer.GUI
         /// in turn.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        protected virtual void OnFileRenamerStarted()
+        protected virtual void OnFileRenamerStarted(object sender, EventArgs e)
         {
             Started?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
@@ -1083,7 +1089,6 @@ namespace MassFileRenamer.GUI
                 "*** INFO: Attempting to hook up events to the File Renamer..."
             );
 
-
             NewMessageMapping<ExceptionRaisedEventArgs>.Associate
                 .WithMessageId(FileRenamerMessages.FRM_EXCEPTION_RAISED)
                 .AndHandler(
@@ -1134,7 +1139,7 @@ namespace MassFileRenamer.GUI
                 );
             NewMessageMapping.Associate
                              .WithMessageId(FileRenamerMessages.FRM_STARTED)
-                             .AndHandler(new Action(OnFileRenamerStarted));
+                             .AndEventHandler(OnFileRenamerStarted);
             NewMessageMapping<StatusUpdateEventArgs>.Associate
                                                     .WithMessageId(
                                                         FileRenamerMessages
