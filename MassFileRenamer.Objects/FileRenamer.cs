@@ -1319,7 +1319,7 @@ namespace MassFileRenamer.Objects
         private void OnStarted()
         {
             Started?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.NoArgs()
+            SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(FileRenamerMessages.FRM_STARTED);
         }
 
