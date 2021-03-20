@@ -19,9 +19,39 @@ namespace MassFileRenamer.Objects
         /// <param name="path">
         /// (Required.) String containing the pathname of the file-system entry.
         /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="path" />, is passed
+        /// a blank or <see langword="null" /> string for a value.
+        /// </exception>
         public FileSystemEntry(string path)
         {
+            /*
+             * OKAY, this class is POCO-ish, and normally, we do
+             * not throw exceptions, EVER, from the constructor
+             * of a POCO! However, here we have to check for a
+             * blank input because we attempt to automatically
+             * initialize the ContainingFolder property from the
+             * path specified -- if the path parameter is blank,
+             * then we're screwed.  Not only that, it represents
+             * a major error in this program, since we are technically
+             * only supposed to be creating these objects for
+             * non-blank path values.
+             */
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(path)
+                );
+            ContainingFolder = System.IO.Path.GetDirectoryName(path);
             Path = path;
+        }
+
+        /// <summary>
+        /// Gets or sets the pathname of the parent folder of this file system entry.
+        /// </summary>
+        public string ContainingFolder
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -31,7 +61,8 @@ namespace MassFileRenamer.Objects
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        [Log(AttributeExclude = true)] public override OperationType OperationType
+        [Log(AttributeExclude = true)]
+        public override OperationType OperationType
         {
             get;
             protected set;
@@ -40,7 +71,8 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Gets or sets the pathname of the file-system entry.
         /// </summary>
-        [Log(AttributeExclude = true)] public string Path
+        [Log(AttributeExclude = true)]
+        public string Path
         {
             get;
             set;
@@ -54,7 +86,8 @@ namespace MassFileRenamer.Objects
         /// then this property might contain the file's contents from them
         /// having been previously read in.
         /// </remarks>
-        [Log(AttributeExclude = true)] public dynamic UserState
+        [Log(AttributeExclude = true)]
+        public dynamic UserState
         {
             get;
             set;

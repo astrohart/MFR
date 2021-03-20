@@ -16,6 +16,41 @@
         IConfigurationComposedObject
     {
         /// <summary>
+        /// Gets or sets a string containing the pattern to be utilized as
+        /// search criteria.
+        /// </summary>
+        string FindWhat
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a string containing the text that all occurrences of
+        /// the pattern in the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.MatchExpressionFactoryBase.FindWhat" />
+        /// property get replaced with in the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.MatchExpressionFactoryBase.Value" />
+        /// property.
+        /// </summary>
+        string ReplaceWith
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a string containing the text data to be searched.
+        /// </summary>
+        string Value
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Initializes the value that text matching the pattern specified by
         /// the
         /// <see
@@ -47,8 +82,8 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="replaceWith" />, is
-        /// passed a blank or <see langword="null" /> string for a value, EXCEPT for the
-        /// Replace Text in Files operation type.
+        /// passed a blank or <see langword="null" /> string for a value, EXCEPT
+        /// for the Replace Text in Files operation type.
         /// </exception>
         IMatchExpression AndReplaceItWith(string replaceWith);
 
@@ -82,8 +117,9 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="value" />, is
-        /// passed either the empty or <see langword="null" /> string for a value.
-        /// Whitespace is allowed ONLY for the Replace Text in Files operation type.
+        /// passed either the empty or <see langword="null" /> string for a
+        /// value. Whitespace is allowed ONLY for the Replace Text in Files
+        /// operation type.
         /// </exception>
         IMatchExpressionFactory ForTextValue(string value);
 
@@ -114,9 +150,9 @@
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="findWhat" />, is
-        /// passed either the empty string or <see langword="null" /> string for a value.
-        /// Whitespace is allowed, but ONLY for the Replace Text in Files
-        /// operation type.
+        /// passed either the empty string or <see langword="null" /> string for
+        /// a value. Whitespace is allowed, but ONLY for the Replace Text in
+        /// Files operation type.
         /// </exception>
         IMatchExpressionFactory ToFindWhat(string findWhat);
     }

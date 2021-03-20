@@ -1,5 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System.IO;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -46,8 +47,16 @@ namespace MassFileRenamer.Objects
         /// Whitespace is allowed ONLY for the Replace Text in Files operation type.
         /// </exception>
         public override IMatchExpressionFactory ForTextValue(string value)
-            => base.ForTextValue(Configuration.MatchWholeWord
+        {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(DebugLevel.Debug, "In FileNameReplacementMatchExpressionFactory.ForTextValue");
+
+            var newValue = Configuration.MatchWholeWord
                 ? Path.GetFileNameWithoutExtension(value)
-                : Path.GetFileName(value));
+                : Path.GetFileName(value);
+            return base.ForTextValue(
+                newValue
+            );
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -8,6 +10,41 @@ namespace MassFileRenamer.Objects
     /// </summary>
     public static class StringExtensions
     {
+        /// <summary>
+        /// Determines whether the specified <paramref name="path" /> is a
+        /// fully-qualified, absolute path or not.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the path to be checked.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the <paramref name="path" /> specified is a
+        /// fully-qualified, absolute path; <see langword="false" /> otherwise.
+        /// </returns>
+        public static bool IsAbsolutePath(this string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return false; // obviously not the case
+
+            var result = false;
+
+            try
+            {
+                result = Path.IsPathRooted(path) && !Path.GetPathRoot(path)
+                    .Equals(
+                        Path.DirectorySeparatorChar.ToString(),
+                        StringComparison.Ordinal
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Replaces the string specified by <paramref name="search" /> by the
         /// <paramref name="replacement" /> string in the

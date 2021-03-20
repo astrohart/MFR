@@ -15,7 +15,7 @@
         /// Gets or sets a string containing the pattern to be utilized as
         /// search criteria.
         /// </summary>
-        protected string FindWhat
+        public string FindWhat
         {
             get;
             set;
@@ -31,7 +31,7 @@
         ///     cref="P:MassFileRenamer.Objects.MatchExpressionFactoryBase.Value" />
         /// property.
         /// </summary>
-        protected string ReplaceWith
+        public string ReplaceWith
         {
             get;
             set;
@@ -40,7 +40,7 @@
         /// <summary>
         /// Gets or sets a string containing the text data to be searched.
         /// </summary>
-        protected string Value
+        public string Value
         {
             get;
             set;

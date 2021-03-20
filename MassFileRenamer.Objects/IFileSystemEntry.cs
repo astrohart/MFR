@@ -7,6 +7,15 @@
     public interface IFileSystemEntry : IOperationSpecificObject
     {
         /// <summary>
+        /// Gets or sets the pathname of the parent folder of this file system entry.
+        /// </summary>
+        string ContainingFolder
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the pathname of the file-system entry.
         /// </summary>
         string Path

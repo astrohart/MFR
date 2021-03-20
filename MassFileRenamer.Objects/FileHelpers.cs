@@ -59,5 +59,29 @@ namespace MassFileRenamer.Objects
 
             return result;
         }
+
+        /// <summary>
+        /// Fills a file with random garbage data of varying size.
+        /// </summary>
+        /// <param name="path">(Required.) Fully-qualified pathname to the file to be filled with the data.<para/>This method throws <see cref="T:System.InvalidOperationException" /> if the pathname is not an absolute pathname to a file on the disk.</param>
+        public static void FillWithJunk(string path)
+        {
+            if (File.Exists(path))
+                File.Delete(path);
+
+            var junk = string.Empty;
+
+            var rng = new Random(
+                Guid.NewGuid()
+                    .GetHashCode()
+            );
+            for (var i = 0;
+                i < rng.Next(0, 100);
+                i++)
+                junk += Guid.NewGuid()
+                            .ToString("N");
+
+            File.WriteAllText(path, junk);
+        }
     }
 }

@@ -55,7 +55,7 @@ namespace MassFileRenamer.Objects
         /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
-        /// String containing the pathname of the renamed file.
+        /// String containing the fully-qualified pathname of the renamed file.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the rename operation is successful;
@@ -183,6 +183,35 @@ namespace MassFileRenamer.Objects
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "*** SUCCESS *** The parameter 'newFilePath' is not blank.  Continuing..."
+            );
+
+            /*
+             * OKAY, this method is implemented such that it will only work correctly if the newFileName parameter
+             * is passed a fully-qualified pathname.  Check if this is so.  If not, then stop with an error.
+             */
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Checking whether the path '{newFilePath}' is an absolute path or not..."
+            );
+
+            if (!newFilePath.IsAbsolutePath())
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"*** ERROR ** The new file path, '{newFilePath}', is not a fully-qualified pathname.  It's necessary fo r this to be the case in order for this method to work correctly."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done."
+                );
+
+                return result;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The new file path, '{newFilePath}' is a fully-qualified pathname."
             );
 
             DebugUtils.WriteLine(
@@ -380,6 +409,30 @@ namespace MassFileRenamer.Objects
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 $"*** SUCCESS *** The file with path '{existingFile.FullName}' was found on the disk.  Proceeding..."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Checking whether the path '{newFilePath}' is an absolute path or not..."
+            );
+
+            if (!newFilePath.IsAbsolutePath())
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"*** ERROR ** The new file path, '{newFilePath}', is not a fully-qualified pathname.  It's necessary fo r this to be the case in order for this method to work correctly."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done."
+                );
+
+                return result;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The new file path, '{newFilePath}' is a fully-qualified pathname."
             );
 
             try

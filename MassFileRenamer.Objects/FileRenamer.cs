@@ -192,16 +192,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         public void ProcessAll(string findWhat, string replaceWith,
             Predicate<string> pathFilter = null)
@@ -286,16 +286,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         public void ProcessAll(string rootDirectoryPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
@@ -470,16 +470,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
@@ -604,28 +604,44 @@ namespace MassFileRenamer.Objects
 
                         entry.ToFileInfo()
                              .RenameTo(
-                                 (string)GetTextReplacementEngine.For(
-                                         OperationType.RenameFilesInFolder
-                                     )
-                                     .AndAttachConfiguration(Configuration)
-                                     .Replace(
-                                         GetMatchExpressionFactory.For(
-                                                 OperationType
-                                                     .RenameFilesInFolder
-                                             )
-                                             .AndAttachConfiguration(
-                                                 Configuration
-                                             )
-                                             .ForTextValue(
-                                                 GetTextValueRetriever.For(
-                                                         OperationType
-                                                             .RenameFilesInFolder
-                                                     )
-                                                     .GetTextValue(entry)
-                                             )
-                                             .ToFindWhat(findWhat)
-                                             .AndReplaceItWith(replaceWith)
-                                     )
+                                 Path.Combine(
+                                     entry.ContainingFolder,
+                                     /*
+                                      * OKAY, the code below is going to actually figure
+                                      * out the new name of the file.  Not the entire new
+                                      * PATH to the file...just the new NAME for the FILE
+                                      * ITSELF.
+                                      *
+                                      * Since the FileInfoExtensions.RenameTo() method must
+                                      * be passed the destination file as a fully-qualified,
+                                      * absolute pathname, we do the combination with the
+                                      * ContainingFolder property of the current
+                                      * FileSystemEntry we are processing.  (The Containing
+                                      * Folder property is filled during its construction.)
+                                      */
+                                     (string)GetTextReplacementEngine.For(
+                                             OperationType.RenameFilesInFolder
+                                         )
+                                         .AndAttachConfiguration(Configuration)
+                                         .Replace(
+                                             GetMatchExpressionFactory.For(
+                                                     OperationType
+                                                         .RenameFilesInFolder
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     Configuration
+                                                 )
+                                                 .ForTextValue(
+                                                     GetTextValueRetriever.For(
+                                                             OperationType
+                                                                 .RenameFilesInFolder
+                                                         )
+                                                         .GetTextValue(entry)
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                         )
+                                 )
                              );
                     }
                     catch (Exception ex)
@@ -679,16 +695,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
@@ -886,16 +902,16 @@ namespace MassFileRenamer.Objects
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" /> or the
@@ -1085,8 +1101,10 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter,
         /// <paramref
         ///     name="rootDirectoryPath" />
-        /// , is passed a blank or <see langword="null" /> string
-        /// for a value.
+        /// , is passed a blank or
+        /// <see
+        ///     langword="null" />
+        /// string for a value.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the value of the <paramref name="rootDirectoryPath" />
