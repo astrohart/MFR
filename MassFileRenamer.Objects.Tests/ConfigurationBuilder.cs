@@ -1,4 +1,6 @@
-﻿namespace MassFileRenamer.Objects.Tests
+﻿using NUnit.Framework;
+
+namespace MassFileRenamer.Objects.Tests
 {
     /// <summary>
     /// Builds instances of fake
@@ -106,6 +108,46 @@
             _matchWholeWord = matchWholeWord;
 
             return this;
+        }
+
+        /// <summary>
+        /// Provides an instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface with its
+        /// <paramref name="matchCase" /> and <paramref name="matchWholeWord" />
+        /// settings configured as specified for the current use case.
+        /// </summary>
+        /// <param name="matchCase">
+        /// (Required.) Specifies whether the case is matched when searching and replacing.
+        /// </param>
+        /// <param name="matchWholeWord">
+        /// (Required.) Specifies whether search text must be a part of another
+        /// word or pattern or can only be matched if it consists of a whole word.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface whose
+        /// <see cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" /> and
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        /// properties are set to the same values as were passed for the
+        /// <paramref name="matchCase" /> and <paramref name="matchWholeWord" />
+        /// parameters.
+        /// </returns>
+        public static IConfiguration BuildConfigurationForUseCase(
+            bool matchCase, bool matchWholeWord)
+        {
+            var configuration = Instance.SetMatchCase(matchCase)
+                                .AndSetMatchWholeWord(matchWholeWord)
+                                .Build();
+
+            Assert.IsNotNull(configuration);
+            Assert.AreEqual(matchCase, configuration.MatchCase);
+            Assert.AreEqual(matchWholeWord, configuration.MatchWholeWord);
+            return configuration;
         }
     }
 }

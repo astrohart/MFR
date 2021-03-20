@@ -8,9 +8,6 @@ namespace MassFileRenamer.Objects.Tests
     /// </summary>
     public static class StringConstants
     {
-        public const string PORTFOLIO_MONITOR_X_UDL_FILE =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\x.udl";
-
         /// <summary>
         /// The executable filename of the DevEnv (Visual Studio) application.
         /// </summary>
@@ -33,6 +30,9 @@ namespace MassFileRenamer.Objects.Tests
         /// String consisting of complete gibberish.
         /// </summary>
         public const string GIBBERISH = "kjfsadjlksdfajlksdfkjldf";
+
+        public const string PORTFOLIO_MONITOR_X_UDL_FILE =
+            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\x.udl";
 
         /// <summary>
         /// String consisting of the path to a subfolder of a project's \bin folder.
@@ -77,6 +77,60 @@ namespace MassFileRenamer.Objects.Tests
         public static readonly string EMPTY_STRING = string.Empty;
 
         /// <summary>
+        /// String consisting of the fully-qualified pathname of a
+        /// randomly-created, zero-length temporary file.
+        /// </summary>
+        public static readonly string EXISTING_TEMP_FILE =
+            Path.GetTempFileName();
+
+        /// <summary>
+        /// String consisting of the path to a file that is guaranteed to exist
+        /// on the local machine.
+        /// </summary>
+        /// <remarks>
+        /// We started by making this constant equal to the path to NOTEPAD.EXE.
+        /// </remarks>
+        public static readonly string FILE_GUARANTEED_TO_EXIST = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.System),
+            "NOTEPAD.EXE"
+        );
+
+        /// <summary String consisting of the same text as the
+        /// <see
+        ///     cref="F:MassFileRenamer.Objects.Tests.StringConstants.FILE_GUARANTEED_TO_EXIST" />
+        /// constant, but with just a filename and extension.
+        /// </summary>
+        public static readonly string FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY =
+            Path.GetFileName(FILE_GUARANTEED_TO_EXIST);
+
+        /// <summary>
+        /// String consisting of the filename and extension only of the
+        /// <see
+        ///     cref="F:MassFileRenamer.Objects.Tests.StringConstants.FILE_GUARANTEED_TO_EXIST" />
+        /// constant.
+        /// </summary>
+        public static readonly string
+            FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION =
+                Path.GetFileNameWithoutExtension(FILE_GUARANTEED_TO_EXIST);
+
+        /// <summary>
+        /// String consisting of the fully-qualified pathname of a
+        /// randomly-created, zero-length temporary file that is to be used in a
+        /// file-rename operation test.
+        /// </summary>
+        public static readonly string NEW_TEMP_FILE = Path.GetTempFileName();
+
+        /// <summary>
+        /// String consisting of the same value as the
+        /// <see
+        ///     cref="F:MassFileRenamer.Objects.Tests.StringConstants.NEW_TEMP_FILE" />
+        /// constant, but only containing the filename and extension of the file
+        /// instead of the full path.
+        /// </summary>
+        public static readonly string NEW_TEMP_FILE_FILENAME_ONLY =
+            Path.GetFileName(NEW_TEMP_FILE);
+
+        /// <summary>
         /// String consisting of the path to a file. The path contains only
         /// gibberish, so the file referenced is, more or less, guaranteed not
         /// to exist on the disk.
@@ -91,11 +145,6 @@ namespace MassFileRenamer.Objects.Tests
         public static readonly string NONEXISTENT_FOLDER =
             $@"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\{GIBBERISH}";
 
-        public static readonly string NOTEPAD_PATH = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.System),
-            "NOTEPAD.EXE"
-        );
-
         /// <summary>
         /// Constant whose value is the null string.
         /// </summary>
@@ -108,5 +157,15 @@ namespace MassFileRenamer.Objects.Tests
             Environment.GetFolderPath(Environment.SpecialFolder.Windows),
             "System32"
         );
+
+        /// <summary>
+        /// String consisting of the same value as the
+        /// <see
+        ///     cref="F:MassFileRenamer.Objects.Tests.StringConstants.EXISTING_TEMP_FILE" />
+        /// constant, but only containing the filename and extension of the file
+        /// instead of the full path.
+        /// </summary>
+        private static readonly string EXISTING_TEMP_FILE_FILENAME_ONLY =
+            Path.GetFileName(EXISTING_TEMP_FILE);
     }
 }

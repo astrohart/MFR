@@ -23,7 +23,7 @@ namespace MassFileRenamer.Objects.Tests
 
             Assert.DoesNotThrow(
                 () => fileInfo =
-                    MakeNewFileInfo.ForPath(StringConstants.NOTEPAD_PATH)
+                    MakeNewFileInfo.ForPath(StringConstants.FILE_GUARANTEED_TO_EXIST)
             );
             Assert.IsNotNull(fileInfo);
             Assert.IsInstanceOf<FileInfo>(fileInfo);

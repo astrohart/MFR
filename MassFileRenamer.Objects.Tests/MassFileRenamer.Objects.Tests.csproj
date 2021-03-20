@@ -77,7 +77,9 @@
     <Compile Include="ConfigurationBuilder.cs" />
     <Compile Include="DirectoryInfoExtensionsTests.cs" />
     <Compile Include="DirectoryValidatorTests.cs" />
+    <Compile Include="FileHelpersTests.cs" />
     <Compile Include="FileInfoExtensionsTests.cs" />
+    <Compile Include="FileNameReplacementMatchExpressionFactoryTests.cs" />
     <Compile Include="FileValidatorTests.cs" />
     <Compile Include="FolderNameMatcherTests.cs" />
     <Compile Include="FileNameMatcherTests.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="SaveConfigurationToFileCommandTests.cs" />
     <Compile Include="SaveStringToRegistryCommandTests.cs" />
     <Compile Include="StringConstants.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="TextExpressionMatcherTestBase.cs" />
     <Compile Include="TextReplacementEngineTestBase.cs" />
   </ItemGroup>
@@ -121,6 +124,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MassFileRenamer.Objects\MassFileRenamer.Objects.csproj">
       <Project>{84c1f71a-aaa4-4a08-9728-19e710965e4d}</Project>
       <Name>MassFileRenamer.Objects</Name>
