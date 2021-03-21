@@ -285,16 +285,6 @@ namespace MassFileRenamer.Objects
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref
-        /// name="rootDirectoryPath"/>, is passed a blank or <see langword="null" /> string
-        /// for a value.
-        /// </exception>
-        /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the value of the <paramref name="rootDirectoryPath"/>
-        /// parameter is not set to the location of a folder that actually
-        /// exists on the disk.
-        /// </exception>e
         IFileRenamer StartingFrom(string rootDirectoryPath);
     }
 }

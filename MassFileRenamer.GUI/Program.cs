@@ -20,12 +20,6 @@ namespace MassFileRenamer.GUI
             => $"{ShortCompanyName} {ProductNameWithoutCompany}";
 
         /// <summary>
-        /// Gets the product name without the company name.
-        /// </summary>
-        private static string ProductNameWithoutCompany
-            => Application.ProductName.Replace(ShortCompanyName, string.Empty);
-
-        /// <summary>
         /// Gets the short name (without prefixes or suffixes) of the company
         /// that manufactured this tool.
         /// </summary>
@@ -33,18 +27,24 @@ namespace MassFileRenamer.GUI
             => Application.CompanyName.Replace(", LLC", string.Empty);
 
         /// <summary>
+        /// Gets the product name without the company name.
+        /// </summary>
+        private static string ProductNameWithoutCompany
+            => Application.ProductName.Replace(ShortCompanyName, string.Empty);
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         public static void Main()
         {
-            Application.ThreadException += OnThreadException;
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             Application.SetUnhandledExceptionMode(
                 UnhandledExceptionMode.CatchException
             );
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadException += OnThreadException;
 
             LogFileManager.InitializeLogging(
                 true, infrastructureType: LoggingInfrastructureType.PostSharp
@@ -53,14 +53,12 @@ namespace MassFileRenamer.GUI
             // Load the configuration from the disk.
             ConfigurationProvider.Load();
 
-            Application.Run(
-                MainWindow.Instance
-            );
+            Application.Run(MainWindow.Instance);
 
             // Save changes in the configuration back out to the disk.
             ConfigurationProvider.Save();
         }
-        
+
         /// <summary>
         /// Handles the
         /// <see
