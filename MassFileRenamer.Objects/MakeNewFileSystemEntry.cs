@@ -27,7 +27,7 @@ namespace MassFileRenamer.Objects
         /// <see
         ///     cref="T:MassFileRenamer.Objects.IFileSystemEntry" />
         /// interface,
-        /// initialized with the specified <paramref name="path" />.
+        /// initialized with the specified <paramref name="path" />, or <see langword="null" /> if either an exception is thrown during the create operation or if <paramref name="path"/> is a blank value.
         /// </returns>
         /// <remarks>
         /// NOTE: The caller must also call the
@@ -44,6 +44,11 @@ namespace MassFileRenamer.Objects
         /// </exception>
         public static IFileSystemEntry ForPath(string path)
         {
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(path)
+                );
+
             IFileSystemEntry result;
 
             try
