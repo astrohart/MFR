@@ -1,4 +1,7 @@
-﻿namespace MassFileRenamer.Objects
+﻿using System;
+using xyLOGIX.Core.Debug;
+
+namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Creates new instances of objects that implement the
@@ -28,7 +31,8 @@
         /// </returns>
         /// <remarks>
         /// NOTE: The caller must also call the
-        /// <see cref="M:MassFileRenamer.Objects.IOperationSpecificObject.AndOperationType" /> method,
+        /// <see cref="M:MassFileRenamer.Objects.IOperationSpecificObject.AndOperationType" />
+        /// method,
         /// and, optionally, the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.IFileSystemEntry.WithUserState" />
@@ -39,6 +43,22 @@
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         public static IFileSystemEntry ForPath(string path)
-            => new FileSystemEntry(path);
+        {
+            IFileSystemEntry result;
+
+            try
+            {
+                result = new FileSystemEntry(path);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = null;
+            }
+
+            return result;
+        }
     }
 }
