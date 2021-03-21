@@ -22,6 +22,7 @@ namespace MassFileRenamer.Objects
         public static readonly JsonSerializerSettings Settings =
             new JsonSerializerSettings {
                 MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
+                Formatting = Formatting.Indented,
                 DateParseHandling = DateParseHandling.None,
                 Converters = {
                     new IsoDateTimeConverter {

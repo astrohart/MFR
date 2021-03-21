@@ -602,6 +602,12 @@ namespace MassFileRenamer.Objects
                     {
                         if (AbortRequested) break;
 
+                        OnProcessingOperation(
+                            new ProcessingOperationEventArgs(
+                                entry, OperationType.RenameFilesInFolder
+                            )
+                        );
+
                         entry.ToFileInfo()
                              .RenameTo(
                                  Path.Combine(
