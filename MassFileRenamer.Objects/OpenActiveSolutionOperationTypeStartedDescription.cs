@@ -8,14 +8,14 @@ namespace MassFileRenamer.Objects
     /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        OpenActiveSolutionOperationStartedDescription :
-            IOperationStartedDescription
+        OpenActiveSolutionOperationTypeStartedDescription :
+            IOperationTypeStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static OpenActiveSolutionOperationStartedDescription()
+        static OpenActiveSolutionOperationTypeStartedDescription()
         {
         }
 
@@ -23,7 +23,7 @@ namespace MassFileRenamer.Objects
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected OpenActiveSolutionOperationStartedDescription()
+        protected OpenActiveSolutionOperationTypeStartedDescription()
         {
         }
 
@@ -32,10 +32,10 @@ namespace MassFileRenamer.Objects
         /// cref="T:MassFileRenamer.Objects.OpenActiveSolutionOperationStartedDescription"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static OpenActiveSolutionOperationStartedDescription Instance
+        public static OpenActiveSolutionOperationTypeStartedDescription Instance
         {
             get;
-        } = new OpenActiveSolutionOperationStartedDescription();
+        } = new OpenActiveSolutionOperationTypeStartedDescription();
 
         /// <summary>
         /// Gets one of the <see

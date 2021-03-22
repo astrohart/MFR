@@ -8,13 +8,13 @@ namespace MassFileRenamer.Objects
     /// Text In Files operation.
     /// </summary>
     public class
-        ReplaceTextInFilesOperationDescription : IOperationDescription
+        ReplaceTextInFilesOperationTypeDescription : IOperationTypeDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static ReplaceTextInFilesOperationDescription()
+        static ReplaceTextInFilesOperationTypeDescription()
         {
         }
 
@@ -22,7 +22,7 @@ namespace MassFileRenamer.Objects
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ReplaceTextInFilesOperationDescription()
+        protected ReplaceTextInFilesOperationTypeDescription()
         {
         }
 
@@ -30,10 +30,10 @@ namespace MassFileRenamer.Objects
         /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.ReplaceTextInFilesOperationDescription"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesOperationDescription Instance
+        public static ReplaceTextInFilesOperationTypeDescription Instance
         {
             get;
-        } = new ReplaceTextInFilesOperationDescription();
+        } = new ReplaceTextInFilesOperationTypeDescription();
 
         /// <summary>
         /// Gets one of the <see

@@ -1,4 +1,6 @@
-﻿namespace MassFileRenamer.Objects
+﻿using PostSharp.Patterns.Diagnostics;
+
+namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that is
@@ -10,7 +12,7 @@
     /// <remarks>
     /// This interface represents an object for which the operation type is immutable.
     /// </remarks>
-    public interface IFixedOperationSpecificObject
+    public interface IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Gets one of the
@@ -19,7 +21,7 @@
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        OperationType OperationType
+        [Log(AttributeExclude = true)] OperationType OperationType
         {
             get;
         }

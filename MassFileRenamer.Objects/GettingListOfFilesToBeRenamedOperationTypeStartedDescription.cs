@@ -5,16 +5,17 @@ namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Replace Text In Files operation.
+    /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        ReplaceTextInFilesOperationStartedDescription : IOperationStartedDescription
+        GettingListOfFilesToBeRenamedOperationTypeStartedDescription :
+            IOperationTypeStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static ReplaceTextInFilesOperationStartedDescription()
+        static GettingListOfFilesToBeRenamedOperationTypeStartedDescription()
         {
         }
 
@@ -22,18 +23,19 @@ namespace MassFileRenamer.Objects
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ReplaceTextInFilesOperationStartedDescription()
+        protected GettingListOfFilesToBeRenamedOperationTypeStartedDescription()
         {
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.ReplaceTextInFilesOperationStartedDescription"/>.
+        /// Gets a reference to the one and only instance of <see
+        /// cref="T:MassFileRenamer.Objects.GettingListOfFilesToBeRenamedOperationStartedDescription"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesOperationStartedDescription Instance
+        public static GettingListOfFilesToBeRenamedOperationTypeStartedDescription Instance
         {
             get;
-        } = new ReplaceTextInFilesOperationStartedDescription();
+        } = new GettingListOfFilesToBeRenamedOperationTypeStartedDescription();
 
         /// <summary>
         /// Gets one of the <see
@@ -43,7 +45,7 @@ namespace MassFileRenamer.Objects
         public OperationType OperationType
         {
             get;
-        } = OperationType.ReplaceTextInFiles;
+        } = OperationType.GettingListOfFilesToBeRenamed;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -55,6 +57,6 @@ namespace MassFileRenamer.Objects
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_ReplaceTextInFiles;
+        } = Resources.OperationStartedDescription_GettingListOfFilesToBeRenamed;
     }
 }

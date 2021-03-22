@@ -8,7 +8,7 @@ namespace MassFileRenamer.Objects
     /// In our vocabulary, a <c>message</c> object performs an operation that
     /// does not have either inputs or outputs.
     /// </summary>
-    public interface IMessage : IFixedMessageTypeObject
+    public interface IMessage : IFixedMessageTypeSpecificObject
     {
         /// <summary>
         /// Executes this command and does not return anything.

@@ -4,31 +4,31 @@ using PostSharp.Patterns.Diagnostics;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user during a Rename Files in Folder operation.
+    /// Gets the descriptive text to be displayed to the user at the start of a Rename Files in Folder operation.
     /// </summary>
     public class
-        RenameFilesInFolderOperationDescription : IOperationDescription
+        RenameFilesInFolderOperationTypeStartedDescription : IOperationTypeStartedDescription
     {
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.RenameFilesInFolderOperationDescription"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.RenameFilesInFolderOperationStartedDescription"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderOperationDescription Instance
+        public static RenameFilesInFolderOperationTypeStartedDescription Instance
         {
             get;
-        } = new RenameFilesInFolderOperationDescription();
+        } = new RenameFilesInFolderOperationTypeStartedDescription();
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameFilesInFolderOperationDescription() { }
+        static RenameFilesInFolderOperationTypeStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameFilesInFolderOperationDescription() { }
+        protected RenameFilesInFolderOperationTypeStartedDescription() { }
 
         /// <summary>
         /// Gets one of the
@@ -52,6 +52,6 @@ namespace MassFileRenamer.Objects
         public string Text
         {
             get;
-        } = Resources.OperationDescription_RenameFilesInFolder;
+        } = Resources.OperationStartedDescription_RenameFilesInFolder;
     }
 }

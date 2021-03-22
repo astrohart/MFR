@@ -4,31 +4,36 @@ using PostSharp.Patterns.Diagnostics;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a Rename Files in Folder operation.
+    /// Gets the descriptive text to be displayed to the user at the start of a
+    /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        RenameFilesInFolderOperationStartedDescription : IOperationStartedDescription
+        RenameSubFoldersOperationTypeStartedDescription :
+            IOperationTypeStartedDescription
     {
-        /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.RenameFilesInFolderOperationStartedDescription"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderOperationStartedDescription Instance
-        {
-            get;
-        } = new RenameFilesInFolderOperationStartedDescription();
-
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameFilesInFolderOperationStartedDescription() { }
+        static RenameSubFoldersOperationTypeStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameFilesInFolderOperationStartedDescription() { }
+        protected RenameSubFoldersOperationTypeStartedDescription() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.RenameSubFoldersOperationStartedDescription" />
+        /// .
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static RenameSubFoldersOperationTypeStartedDescription Instance
+        {
+            get;
+        } = new RenameSubFoldersOperationTypeStartedDescription();
 
         /// <summary>
         /// Gets one of the
@@ -40,7 +45,7 @@ namespace MassFileRenamer.Objects
         public OperationType OperationType
         {
             get;
-        } = OperationType.RenameFilesInFolder;
+        } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -52,6 +57,6 @@ namespace MassFileRenamer.Objects
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_RenameFilesInFolder;
+        } = Resources.OperationStartedDescription_RenameSubFolders;
     }
 }

@@ -38,24 +38,24 @@ namespace MassFileRenamer.Objects
         /// value specified in the <paramref name="type" /> parameter does not
         /// have a corresponding Operation Description object associated with it.
         /// </exception>
-        public static IOperationDescription For(OperationType type)
+        public static IOperationTypeDescription For(OperationType type)
         {
-            IOperationDescription description;
+            IOperationTypeDescription typeDescription;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    description = RenameFilesInFolderOperationDescription
+                    typeDescription = RenameFilesInFolderOperationTypeDescription
                         .Instance;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    description = ReplaceTextInFilesOperationDescription
+                    typeDescription = ReplaceTextInFilesOperationTypeDescription
                         .Instance;
                     break;
 
                 case OperationType.RenameSubFolders:
-                    description = RenameSubFoldersOperationDescription.Instance;
+                    typeDescription = RenameSubFoldersOperationTypeDescription.Instance;
                     break;
 
                 default:
@@ -65,7 +65,7 @@ namespace MassFileRenamer.Objects
                     );
             }
 
-            return description;
+            return typeDescription;
         }
     }
 }

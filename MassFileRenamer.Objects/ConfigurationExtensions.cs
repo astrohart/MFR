@@ -5,29 +5,85 @@ using System.Windows.Forms;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Extension methods for objects implementing the <see
-    /// cref="T:MassFileRenamer.GUI.IConfiguration"/> interface.
+    /// Extension methods for objects implementing the
+    /// <see
+    ///     cref="T:MassFileRenamer.GUI.IConfiguration" />
+    /// interface.
     /// </summary>
     public static class ConfigurationExtensions
     {
+        /// <summary>
+        /// Gets the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        /// value that
+        /// corresponds to the values set in the configuration object, a
+        /// reference to which is passed by the <paramref name="config" /> parameter.
+        /// </summary>
+        /// <param name="config">
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
+        /// interface.
+        /// </param>
+        /// <returns>
+        /// The <see cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        /// value that corresponds to the values of the
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" />
+        /// and
+        /// <see
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        /// properties.
+        /// </returns>
+        public static MatchingConfiguration GetMatchingConfiguration(
+            this IConfiguration config)
+        {
+            MatchingConfiguration result;
+
+            switch (config.MatchCase)
+            {
+                case true when !config.MatchWholeWord:
+                    result = MatchingConfiguration.MatchCaseOnly;
+                    break;
+                case false when config.MatchWholeWord:
+                    result = MatchingConfiguration.MatchWholeWordOnly;
+                    break;
+                case true when config.MatchWholeWord:
+                    result = MatchingConfiguration.MatchCaseAndWholeWord;
+                    break;
+                default:
+                    result = MatchingConfiguration.NeitherMatchCaseNorWholeWord;
+                    break;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Saves the currently-selected Find What text item and the history to
         /// the configuration.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
         /// and which allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
-        /// (Required.) Reference to an instance of <see
-        /// cref="T:System.Windows.Forms.ComboBox"/> that is the control
+        /// (Required.) Reference to an instance of
+        /// <see
+        ///     cref="T:System.Windows.Forms.ComboBox" />
+        /// that is the control
         /// displaying the Find What content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="config"/> or <paramref name="comboBox"/>, are passed a
-        /// <see langword="null" /> value.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="config" />
+        /// or <paramref name="comboBox" />, are passed a
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public static void SaveCurrentFindWhatAndHistory(
             this IConfiguration config, ComboBox comboBox)
@@ -49,18 +105,24 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
         /// and which allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
-        /// (Required.) Reference to an instance of <see
-        /// cref="T:System.Windows.Forms.ComboBox"/> that is the control
+        /// (Required.) Reference to an instance of
+        /// <see
+        ///     cref="T:System.Windows.Forms.ComboBox" />
+        /// that is the control
         /// displaying the Replace With content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="config"/> or <paramref name="comboBox"/>, are passed a
-        /// <see langword="null" /> value.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="config" />
+        /// or <paramref name="comboBox" />, are passed a
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public static void SaveCurrentReplaceWithAndHistory(
             this IConfiguration config, ComboBox comboBox)
@@ -84,18 +146,24 @@ namespace MassFileRenamer.Objects
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration"/> interface
+        /// the <see cref="T:MassFileRenamer.Objects.IConfiguration" /> interface
         /// and which allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
-        /// (Required.) Reference to an instance of <see
-        /// cref="T:System.Windows.Forms.ComboBox"/> that is the control
+        /// (Required.) Reference to an instance of
+        /// <see
+        ///     cref="T:System.Windows.Forms.ComboBox" />
+        /// that is the control
         /// displaying the Starting Folder content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="config"/> or <paramref name="comboBox"/>, are passed a
-        /// <see langword="null" /> value.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="config" />
+        /// or <paramref name="comboBox" />, are passed a
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public static void SaveCurrentStartingFolderAndHistory(
             this IConfiguration config, ComboBox comboBox)

@@ -5,47 +5,45 @@ namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Replace Text In Files operation.
     /// </summary>
     public class
-        FindVisualStudioOperationStartedDescription :
-            IOperationStartedDescription
+        ReplaceTextInFilesOperationTypeStartedDescription : IOperationTypeStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FindVisualStudioOperationStartedDescription() { }
+        static ReplaceTextInFilesOperationTypeStartedDescription()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected FindVisualStudioOperationStartedDescription() { }
+        protected ReplaceTextInFilesOperationTypeStartedDescription()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.FindVisualStudioOperationStartedDescription" />
-        /// .
+        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.ReplaceTextInFilesOperationStartedDescription"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static FindVisualStudioOperationStartedDescription Instance
+        public static ReplaceTextInFilesOperationTypeStartedDescription Instance
         {
             get;
-        } = new FindVisualStudioOperationStartedDescription();
+        } = new ReplaceTextInFilesOperationTypeStartedDescription();
 
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationType" />
-        /// values that
+        /// Gets one of the <see
+        /// cref="T:MassFileRenamer.Objects.OperationType"/> values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
         {
             get;
-        } = OperationType.FindVisualStudio;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -57,6 +55,6 @@ namespace MassFileRenamer.Objects
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_FindVisualStudio;
+        } = Resources.OperationStartedDescription_ReplaceTextInFiles;
     }
 }

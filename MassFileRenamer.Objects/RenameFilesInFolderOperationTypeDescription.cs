@@ -4,36 +4,31 @@ using PostSharp.Patterns.Diagnostics;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Gets the descriptive text to be displayed to the user during a Rename Files in Folder operation.
     /// </summary>
     public class
-        CloseActiveSolutionOperationStartedDescription :
-            IOperationStartedDescription
+        RenameFilesInFolderOperationTypeDescription : IOperationTypeDescription
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.RenameFilesInFolderOperationDescription"/>.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static RenameFilesInFolderOperationTypeDescription Instance
+        {
+            get;
+        } = new RenameFilesInFolderOperationTypeDescription();
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static CloseActiveSolutionOperationStartedDescription() { }
+        static RenameFilesInFolderOperationTypeDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected CloseActiveSolutionOperationStartedDescription() { }
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.CloseActiveSolutionOperationStartedDescription" />
-        /// .
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static CloseActiveSolutionOperationStartedDescription Instance
-        {
-            get;
-        } = new CloseActiveSolutionOperationStartedDescription();
+        protected RenameFilesInFolderOperationTypeDescription() { }
 
         /// <summary>
         /// Gets one of the
@@ -45,7 +40,7 @@ namespace MassFileRenamer.Objects
         public OperationType OperationType
         {
             get;
-        } = OperationType.CloseActiveSolution;
+        } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -57,6 +52,6 @@ namespace MassFileRenamer.Objects
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_CloseActiveSolution;
+        } = Resources.OperationDescription_RenameFilesInFolder;
     }
 }

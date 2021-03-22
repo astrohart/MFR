@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 using System.IO;
 
 namespace MassFileRenamer.Objects.Tests
@@ -12,48 +13,6 @@ namespace MassFileRenamer.Objects.Tests
     [TestFixture]
     public class DirectoryValidatorTests
     {
-        /// <summary>
-        /// TODO: Add unit test documentation here
-        /// </summary>
-        [Test]
-        public void Test_DoesExist_ReturnsFalse_ForBlankPath()
-            => Assert.IsFalse(
-                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                           .DoesExist(
-                                               MakeNewFileSystemEntry.ForPath(
-                                                   StringConstants.EMPTY_STRING
-                                               )
-                                           )
-            );
-
-        /// <summary>
-        /// TODO: Add unit test documentation here
-        /// </summary>
-        [Test]
-        public void Test_DoesExist_ReturnsFalse_ForNullPath()
-            => Assert.IsFalse(
-                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                           .DoesExist(
-                                               MakeNewFileSystemEntry.ForPath(
-                                                   StringConstants.NULL_STRING
-                                               )
-                                           )
-            );
-
-        /// <summary>
-        /// TODO: Add unit test documentation here
-        /// </summary>
-        [Test]
-        public void Test_DoesExist_ReturnsFalse_ForWhitespacePath()
-            => Assert.IsFalse(
-                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                           .DoesExist(
-                                               MakeNewFileSystemEntry.ForPath(
-                                                   StringConstants.EMPTY_STRING
-                                               )
-                                           )
-            );
-
         /// <summary>
         /// TODO: Add unit test documentation here
         /// </summary>
@@ -89,14 +48,127 @@ namespace MassFileRenamer.Objects.Tests
         /// TODO: Add unit test documentation here
         /// </summary>
         [Test]
+        public void Test_DoesExist_ThrowsArgumentException_ForBlankPath()
+            => Assert.Throws<ArgumentException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .DoesExist(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.EMPTY_STRING
+                          )
+                      )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void Test_DoesExist_ThrowsArgumentException_ForNullPath()
+            => Assert.Throws<ArgumentException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .DoesExist(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.NULL_STRING
+                          )
+                      )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void Test_DoesExist_ThrowsArgumentException_ForWhitespacePath()
+            => Assert.Throws<ArgumentException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .DoesExist(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.EMPTY_STRING
+                          )
+                      )
+            );
+
+        [Test]
+        public void Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder()
+            => Assert.DoesNotThrow(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .IsValid(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.WINDOWS_SYSTEM_FOLDER
+                          )
+                      )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void Test_IsValid_ThrowsArgumentException_ForBlankPath()
+            => Assert.Throws<ArgumentException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .IsValid(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.EMPTY_STRING
+                          )
+                      )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void Test_IsValid_ThrowsArgumentException_ForNullPath()
+            => Assert.Throws<ArgumentException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .IsValid(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.NULL_STRING
+                          )
+                      )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void Test_IsValid_ThrowsArgumentException_ForWhitespacePath()
+            => Assert.Throws<ArgumentException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .IsValid(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.WHITESPACE
+                          )
+                      )
+            );
+
+        [Test]
+        public void
+            Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder()
+            => Assert.Throws<DirectoryNotFoundException>(
+                () => GetFileSystemEntryValidator
+                      .For(OperationType.RenameSubFolders)
+                      .IsValid(
+                          MakeNewFileSystemEntry.ForPath(
+                              StringConstants.NONEXISTENT_FOLDER
+                          )
+                      )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedDir()
             => Assert.IsFalse(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               
-                                                   StringConstants
-                                                       .FOLDER_MATCHING_OPERATION_CRITIERIA
-                                               
+                                               StringConstants
+                                                   .FOLDER_MATCHING_OPERATION_CRITIERIA
                                            )
             );
 
@@ -108,9 +180,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               
-                                                   StringConstants.EMPTY_STRING
-                                               
+                                               StringConstants.EMPTY_STRING
                                            )
             );
 
@@ -122,10 +192,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               
-                                                   StringConstants
-                                                       .DOTFOLDER_PATH
-
+                                               StringConstants.DOTFOLDER_PATH
                                            )
             );
 
@@ -137,9 +204,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               
-                                                   StringConstants
-                                                       .SUBFOLDER_OF_BIN_DIR
+                                               StringConstants
+                                                   .SUBFOLDER_OF_BIN_DIR
                                            )
             );
 
@@ -151,8 +217,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                                   StringConstants
-                                                       .SUBFOLDER_OF_OBJ_FOLDER
+                                               StringConstants
+                                                   .SUBFOLDER_OF_OBJ_FOLDER
                                            )
             );
 
@@ -174,7 +240,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                                   StringConstants.NULL_STRING
+                                               StringConstants.NULL_STRING
                                            )
             );
 
@@ -192,13 +258,9 @@ namespace MassFileRenamer.Objects.Tests
             Assert.IsNotNull(directoryValidator);
             Assert.IsTrue(directoryValidator is DirectoryValidator);
 
-            Assert.IsFalse(
-                Directory.Exists(path)
-            );
+            Assert.IsFalse(Directory.Exists(path));
 
-            Assert.IsTrue(
-                directoryValidator.ShouldSkip(path)
-            );
+            Assert.IsTrue(directoryValidator.ShouldSkip(path));
         }
 
         /// <summary>
@@ -209,8 +271,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                                   StringConstants
-                                                       .SUBFOLDER_OF_GIT_FOLDER
+                                               StringConstants
+                                                   .SUBFOLDER_OF_GIT_FOLDER
                                            )
             );
 
@@ -222,8 +284,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                                   StringConstants
-                                                       .SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
+                                               StringConstants
+                                                   .SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
                                            )
             );
 
@@ -235,8 +297,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                                   StringConstants
-                                                       .SUBFOLDER_OF_VS_DOTFOLDER
+                                               StringConstants
+                                                   .SUBFOLDER_OF_VS_DOTFOLDER
                                            )
             );
 
@@ -248,80 +310,8 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                                   StringConstants.WHITESPACE
+                                               StringConstants.WHITESPACE
                                            )
-            );
-
-        [Test]
-        public void Test_Validate_DoesNotThrowException_ForWindowsSystemFolder()
-            => Assert.DoesNotThrow(
-                () => GetFileSystemEntryValidator
-                      .For(OperationType.RenameSubFolders)
-                      .IsValid(
-                          MakeNewFileSystemEntry.ForPath(
-                              StringConstants.WINDOWS_SYSTEM_FOLDER
-                          )
-                      )
-            );
-
-        /// <summary>
-        /// TODO: Add unit test documentation here
-        /// </summary>
-        [Test]
-        public void
-            Test_Validate_ThrowsDirectoryNotFoundException_ForBlankPath()
-            => Assert.Throws<DirectoryNotFoundException>(
-                () => GetFileSystemEntryValidator
-                      .For(OperationType.RenameSubFolders)
-                      .IsValid(
-                          MakeNewFileSystemEntry.ForPath(
-                              StringConstants.EMPTY_STRING
-                          )
-                      )
-            );
-
-        [Test]
-        public void
-            Test_Validate_ThrowsDirectoryNotFoundException_ForNonexistentFolder()
-            => Assert.Throws<DirectoryNotFoundException>(
-                () => GetFileSystemEntryValidator
-                      .For(OperationType.RenameSubFolders)
-                      .IsValid(
-                          MakeNewFileSystemEntry.ForPath(
-                              StringConstants.NONEXISTENT_FOLDER
-                          )
-                      )
-            );
-
-        /// <summary>
-        /// TODO: Add unit test documentation here
-        /// </summary>
-        [Test]
-        public void Test_Validate_ThrowsDirectoryNotFoundException_ForNullPath()
-            => Assert.Throws<DirectoryNotFoundException>(
-                () => GetFileSystemEntryValidator
-                      .For(OperationType.RenameSubFolders)
-                      .IsValid(
-                          MakeNewFileSystemEntry.ForPath(
-                              StringConstants.NULL_STRING
-                          )
-                      )
-            );
-
-        /// <summary>
-        /// TODO: Add unit test documentation here
-        /// </summary>
-        [Test]
-        public void
-            Test_Validate_ThrowsDirectoryNotFoundException_ForWhitespacePath()
-            => Assert.Throws<DirectoryNotFoundException>(
-                () => GetFileSystemEntryValidator
-                      .For(OperationType.RenameSubFolders)
-                      .IsValid(
-                          MakeNewFileSystemEntry.ForPath(
-                              StringConstants.WHITESPACE
-                          )
-                      )
             );
     }
 }

@@ -7,7 +7,7 @@
     /// These objects specify rules as to how to replace text when matches have
     /// already been located.
     /// </remarks>
-    public interface ITextReplacementEngine : IConfigurationComposedObject, IFixedOperationSpecificObject
+    public interface ITextReplacementEngine : IConfigurationComposedObject, IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Carries out the replacement operation using the values specified by

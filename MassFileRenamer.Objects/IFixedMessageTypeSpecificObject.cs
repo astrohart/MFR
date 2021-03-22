@@ -9,7 +9,7 @@
     /// Objects that implement this interface should treat the configuration
     /// message type as being immutable.
     /// </remarks>
-    public interface IFixedMessageTypeObject
+    public interface IFixedMessageTypeSpecificObject
     {
         /// <summary>
         /// Gets the <see

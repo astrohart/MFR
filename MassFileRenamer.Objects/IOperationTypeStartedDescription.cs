@@ -8,7 +8,7 @@
     /// <remarks>
     /// It is up to the implementers of this interface to supply the proper text.
     /// </remarks>
-    public interface IOperationStartedDescription : IOperationDescription
+    public interface IOperationTypeStartedDescription : IOperationTypeDescription
     {
         // TODO: Add method, property, and event definitions here
     }

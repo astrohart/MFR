@@ -9,7 +9,7 @@ namespace MassFileRenamer.Objects
     /// <remarks>
     /// All message objects perform operations that do not require any input or output.
     /// </remarks>
-    public abstract class MessageBase : FixedMessageTypeObjectBase, IMessage
+    public abstract class MessageBase : FixedMessageTypeSpecificObjectBase, IMessage
     {
         /// <summary>
         /// Executes this command and does not return anything.

@@ -113,21 +113,27 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(dest)
                 );
 
-            /*
-             * OKAY, we can assume that the 'source', 'pattern', and
-             * 'dest' parameters are already set up for us and we can
-             * just go ahead and begin the replace operation.
-             */
+            return GetStringReplacer.For(OperationType)
+                             .AndMatchingConfiguration(
+                                 Configuration.GetMatchingConfiguration()
+                             )
+                             .Replace(source, pattern, dest);
 
-            if (Configuration.MatchWholeWord)
+
+            switch (Configuration.MatchWholeWord)
             {
-                if (!Configuration.MatchCase)
+                case true when !Configuration.MatchCase:
                     return Regex.Replace(
                         source.ToLowerInvariant(),
                         $@"\b(${pattern.ToLowerInvariant()})\b", dest
                     );
-
-                return Regex.Replace(source, $@"\b(${pattern})\b", dest);
+                /*
+             * OKAY, we can assume that the 'source', 'pattern', and
+             * 'dest' parameters are already set up for us and we can
+             * just go ahead and begin the replace operation.
+             */
+                case true:
+                    return Regex.Replace(source, $@"\b(${pattern})\b", dest);
             }
 
             if (!Configuration.MatchCase)

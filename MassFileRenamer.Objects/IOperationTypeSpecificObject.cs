@@ -4,7 +4,7 @@
     /// Defines the public-exposed methods and properties of an object whose
     /// behavior varies depending on the type of operation being performed.
     /// </summary>
-    public interface IOperationSpecificObject : IFixedOperationSpecificObject
+    public interface IOperationTypeSpecificObject : IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Initializes the

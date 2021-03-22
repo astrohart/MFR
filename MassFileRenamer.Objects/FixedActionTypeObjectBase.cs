@@ -8,7 +8,7 @@
     /// enumeration value.
     /// </summary>
     public abstract class
-        FixedMessageTypeObjectBase : IFixedMessageTypeObject
+        FixedMessageTypeSpecificObjectBase : IFixedMessageTypeSpecificObject
     {
         /// <summary>
         /// Gets the

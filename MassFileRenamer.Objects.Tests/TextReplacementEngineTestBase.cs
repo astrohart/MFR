@@ -10,16 +10,6 @@ namespace MassFileRenamer.Objects.Tests
     public abstract class TextReplacementEngineTestBase
     {
         /// <summary>
-        /// Whitespace value for testing.
-        /// </summary>
-        protected const string WHITESPACE = "   \t";
-
-        /// <summary>
-        /// The empty string (string.Empty).
-        /// </summary>
-        protected static readonly string EMPTY_STRING = string.Empty;
-
-        /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.IConfiguration" />

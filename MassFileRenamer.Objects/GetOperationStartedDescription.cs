@@ -41,45 +41,45 @@ namespace MassFileRenamer.Objects
         /// have a corresponding Operation Started Description object associated
         /// with it.
         /// </exception>
-        public static IOperationStartedDescription For(OperationType type)
+        public static IOperationTypeStartedDescription For(OperationType type)
         {
-            IOperationStartedDescription description;
+            IOperationTypeStartedDescription description;
 
             switch (type)
             {
                 case OperationType.CloseActiveSolution:
-                    description = CloseActiveSolutionOperationStartedDescription
+                    description = CloseActiveSolutionOperationTypeStartedDescription
                         .Instance;
                     break;
 
                 case OperationType.FindVisualStudio:
-                    description = FindVisualStudioOperationStartedDescription
+                    description = FindVisualStudioOperationTypeStartedDescription
                         .Instance;
                     break;
 
                 case OperationType.GettingListOfFilesToBeRenamed:
                     description =
-                        GettingListOfFilesToBeRenamedOperationStartedDescription
+                        GettingListOfFilesToBeRenamedOperationTypeStartedDescription
                             .Instance;
                     break;
 
                 case OperationType.OpenActiveSolution:
-                    description = OpenActiveSolutionOperationStartedDescription
+                    description = OpenActiveSolutionOperationTypeStartedDescription
                         .Instance;
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    description = RenameFilesInFolderOperationStartedDescription
+                    description = RenameFilesInFolderOperationTypeStartedDescription
                         .Instance;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    description = ReplaceTextInFilesOperationStartedDescription
+                    description = ReplaceTextInFilesOperationTypeStartedDescription
                         .Instance;
                     break;
 
                 case OperationType.RenameSubFolders:
-                    description = RenameSubFoldersOperationStartedDescription
+                    description = RenameSubFoldersOperationTypeStartedDescription
                         .Instance;
                     break;
 

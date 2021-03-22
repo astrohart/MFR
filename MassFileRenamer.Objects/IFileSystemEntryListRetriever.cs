@@ -14,7 +14,7 @@ namespace MassFileRenamer.Objects
     /// The results of the searching and filtering is then returned.
     /// </summary>
     public interface
-        IFileSystemEntryListRetriever : IFixedOperationSpecificObject,
+        IFileSystemEntryListRetriever : IFixedOperationTypeSpecificObject,
             IConfigurationComposedObject
     {
         /// <summary>

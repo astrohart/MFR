@@ -8,44 +8,44 @@ namespace MassFileRenamer.Objects
     /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        GettingListOfFilesToBeRenamedOperationStartedDescription :
-            IOperationStartedDescription
+        FindVisualStudioOperationTypeStartedDescription :
+            IOperationTypeStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static GettingListOfFilesToBeRenamedOperationStartedDescription()
-        {
-        }
+        static FindVisualStudioOperationTypeStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected GettingListOfFilesToBeRenamedOperationStartedDescription()
-        {
-        }
+        protected FindVisualStudioOperationTypeStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see
-        /// cref="T:MassFileRenamer.Objects.GettingListOfFilesToBeRenamedOperationStartedDescription"/> .
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.FindVisualStudioOperationStartedDescription" />
+        /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static GettingListOfFilesToBeRenamedOperationStartedDescription Instance
+        public static FindVisualStudioOperationTypeStartedDescription Instance
         {
             get;
-        } = new GettingListOfFilesToBeRenamedOperationStartedDescription();
+        } = new FindVisualStudioOperationTypeStartedDescription();
 
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MassFileRenamer.Objects.OperationType"/> values that
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
         {
             get;
-        } = OperationType.GettingListOfFilesToBeRenamed;
+        } = OperationType.FindVisualStudio;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -57,6 +57,6 @@ namespace MassFileRenamer.Objects
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_GettingListOfFilesToBeRenamed;
+        } = Resources.OperationStartedDescription_FindVisualStudio;
     }
 }

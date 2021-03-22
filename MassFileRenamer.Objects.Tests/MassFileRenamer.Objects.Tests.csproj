@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationBuilder.cs" />
+    <Compile Include="ConfigurationExtensionsTests.cs" />
     <Compile Include="DirectoryInfoExtensionsTests.cs" />
     <Compile Include="DirectoryValidatorTests.cs" />
     <Compile Include="FileHelpersTests.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="GetFileSystemEntryListRetrieverTests.cs" />
     <Compile Include="GetFileSystemEntryValidatorTests.cs" />
     <Compile Include="GetMatchExpressionFactoryTests.cs" />
+    <Compile Include="GetStringReplacerTests.cs" />
     <Compile Include="GetTextExpressionMatcherTests.cs" />
     <Compile Include="LoadConfigurationFromFileActionTests.cs" />
     <Compile Include="LoadStringFromRegistryActionTests.cs" />
@@ -103,6 +105,9 @@
     </Compile>
     <Compile Include="RegistryDataExchangeTestsBase.cs" />
     <Compile Include="RegistryHiveExtensionsTests.cs" />
+    <Compile Include="RenameFilesInFolderStringReplacerFactoryTests.cs" />
+    <Compile Include="RenameSubFoldersStringReplacerFactoryTests.cs" />
+    <Compile Include="ReplaceTextInFilesStringReplacerFactoryTests.cs" />
     <Compile Include="SaveConfigurationToFileCommandTests.cs" />
     <Compile Include="SaveStringToRegistryCommandTests.cs" />
     <Compile Include="StringConstants.cs" />

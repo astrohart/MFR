@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the public-exposed methods and properties of a filename-matcher object.
     /// </summary>
-    public interface ITextExpressionMatcher : IConfigurationComposedObject, IFixedOperationSpecificObject
+    public interface ITextExpressionMatcher : IConfigurationComposedObject, IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match

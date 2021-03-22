@@ -34,11 +34,12 @@ namespace MassFileRenamer.Objects.Tests
         public void MainTestBed()
         {
             var configuration =
-                ConfigurationBuilder.BuildConfigurationForUseCase(false, false);
+                ConfigurationBuilder.BuildConfigurationForUseCase(true, /* match case */
+                    true); /* match whole word */
 
             IFileSystemEntry newFileSystemEntry = MakeNewFileSystemEntry
                                                   .ForPath(
-                                                      @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                      @"C:\Users\Administrator\source\junk\MyJunkSolution\FizzBuzz\FizzBuzz.csproj"
                                                   )
                                                   .AndOperationType(
                                                       OperationType
@@ -52,9 +53,9 @@ namespace MassFileRenamer.Objects.Tests
                                          .For(OperationType.RenameFilesInFolder)
                                          .AndAttachConfiguration(configuration)
                                          .ForTextValue(textValue)
-                                         .ToFindWhat("Foo");
+                                         .ToFindWhat("FizzBuzz");
             IMatchExpression expression = matchExpressionFactory
-                .AndReplaceItWith("Bar");
+                .AndReplaceItWith("FizzBlazzle");
             ITextReplacementEngine engine = GetTextReplacementEngine
                                             .For(
                                                 OperationType
@@ -68,9 +69,9 @@ namespace MassFileRenamer.Objects.Tests
 
             var result = engine.Replace(expression);
 
-            Assert.AreEqual("Bar.csproj", result);
+            Assert.AreEqual("FizzBlazzle.csproj", result);
 
-            Console.WriteLine(result);  // Bar.csproj
+            Console.WriteLine(result);  // FizzBlazzle.csproj
 
             /*
              * OKAY, so now we have to glue back on, the pathname of the parent folder of the original file.

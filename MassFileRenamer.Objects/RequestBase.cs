@@ -7,7 +7,7 @@ namespace MassFileRenamer.Objects
     /// configuration-request objects share.
     /// </summary>
     public abstract class
-        RequestBase<TResult> : FixedMessageTypeObjectBase,
+        RequestBase<TResult> : FixedMessageTypeSpecificObjectBase,
             IRequest<TResult> where TResult : class
     {
         /// <summary>

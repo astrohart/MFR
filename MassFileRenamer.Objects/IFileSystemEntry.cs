@@ -4,7 +4,7 @@
     /// Defines the public-exposed methods and properties of a POCO that
     /// encapsulates data about a file-system entry.
     /// </summary>
-    public interface IFileSystemEntry : IOperationSpecificObject
+    public interface IFileSystemEntry : IOperationTypeSpecificObject
     {
         /// <summary>
         /// Gets or sets the pathname of the parent folder of this file system entry.

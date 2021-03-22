@@ -7,7 +7,7 @@ namespace MassFileRenamer.Objects
     /// POCO to encapsulate the details of a file-system entry, such as a file
     /// or a folder.
     /// </summary>
-    public class FileSystemEntry : OperationSpecificObjectBase, IFileSystemEntry
+    public class FileSystemEntry : OperationTypeSpecificObjectBase, IFileSystemEntry
     {
         /// <summary>
         /// Constructs a new instance of

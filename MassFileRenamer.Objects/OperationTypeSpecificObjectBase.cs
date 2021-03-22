@@ -4,7 +4,7 @@
     /// Provides functionality that is shared among all operation-type-specific
     /// objects.
     /// </summary>
-    public abstract class OperationSpecificObjectBase : IOperationSpecificObject
+    public abstract class OperationTypeSpecificObjectBase : IOperationTypeSpecificObject
     {
         /// <summary>
         /// Gets one of the
@@ -60,7 +60,7 @@
         /// <summary>
         /// Constructs a new instance of <see cref="T:MassFileRenamer.Objects.OperationSpecificObjectBase" /> and returns a reference to it.
         /// </summary>
-        protected OperationSpecificObjectBase()
+        protected OperationTypeSpecificObjectBase()
         {
             OperationType = OperationType.Unknown;  // default
         }

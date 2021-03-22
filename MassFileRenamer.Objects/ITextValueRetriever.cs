@@ -13,7 +13,7 @@
     /// The specific data to be utilized varies from one type of operation to
     /// the other.
     /// </remarks>
-    public interface ITextValueRetriever : IFixedOperationSpecificObject
+    public interface ITextValueRetriever : IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Gets a string containing the text to be searched, from the

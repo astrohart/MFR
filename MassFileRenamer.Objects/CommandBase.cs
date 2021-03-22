@@ -20,7 +20,7 @@ namespace MassFileRenamer.Objects
     /// Name of the class or data type that will carry user state information
     /// about the results of the operation.
     /// </typeparam>
-    public abstract class CommandBase<TInput> : FixedMessageTypeObjectBase,
+    public abstract class CommandBase<TInput> : FixedMessageTypeSpecificObjectBase,
         ICommand<TInput> where TInput : class
     {
         /// <summary>

@@ -19,7 +19,7 @@ namespace MassFileRenamer.Objects
     /// To make a request that does not return an output, compose this object
     /// with <see cref="T:System.Void" />.
     /// </remarks>
-    public interface IRequest<TResult> : IFixedMessageTypeObject
+    public interface IRequest<TResult> : IFixedMessageTypeSpecificObject
         where TResult : class
     {
         /// <summary>

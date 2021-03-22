@@ -12,7 +12,7 @@
     /// whose behavior is affected by the specific operation type and
     /// configuration settings.
     /// </remarks>
-    public interface IMatchExpressionFactory : IFixedOperationSpecificObject,
+    public interface IMatchExpressionFactory : IFixedOperationTypeSpecificObject,
         IConfigurationComposedObject
     {
         /// <summary>
