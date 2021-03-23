@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.IO;
 
 namespace MassFileRenamer.Objects
@@ -48,6 +49,7 @@ namespace MassFileRenamer.Objects
         /// <remarks>
         /// This method typically is called from a class constructor.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         public override void Reset()
             => SearchOption = SearchOption.AllDirectories;
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -18,6 +19,7 @@ namespace MassFileRenamer.Objects
         ///     cref="T:MassFileRenamer.Objects.FileSystemEntryListRetrieverBase" />
         /// and returns a reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected FileSystemEntryListRetrieverBase()
         {
             Reset();
@@ -92,6 +94,7 @@ namespace MassFileRenamer.Objects
         /// The property is designed to be called as part of a fluent
         /// criteria-evaluation expression.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private IFileSystemEntryValidator FileSystemEntryValidatorSays
             => GetFileSystemEntryValidator.For(OperationType);
 
@@ -107,6 +110,7 @@ namespace MassFileRenamer.Objects
         /// The property is designed to be called as part of a fluent
         /// criteria-evaluation expression.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private ITextExpressionMatcher TextExpressionMatcherSays
             => GetTextExpressionMatcher.For(OperationType)
                                        .AndAttachConfiguration(Configuration);
@@ -118,6 +122,7 @@ namespace MassFileRenamer.Objects
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public abstract OperationType OperationType
         {
             get;
