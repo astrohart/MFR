@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnvDTE;
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
@@ -183,10 +184,8 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(replacement)
                 );
 
-            return Regex.Replace(
-                value, Regex.Escape(search), replacement.Replace("$", "$$"),
-                RegexOptions.IgnoreCase
-            );
+            return value.ToLowerInvariant()
+                        .Replace(search.ToLowerInvariant(), replacement);
         }
 
         /// <summary>

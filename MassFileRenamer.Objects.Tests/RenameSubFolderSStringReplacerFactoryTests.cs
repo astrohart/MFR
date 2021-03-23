@@ -14,43 +14,43 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndMatchingConfiguration" />
+        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method returns an instance of the correct concrete type that
         /// corresponds to the particular
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// value that
         /// is passed as its argument.
         /// </summary>
         [Test]
         public void
-            Test_AndMatchingConfiguration_Returns_AppropriateReplacer_ForEach_MatchingConfigurationValue()
+            Test_AndTextMatchingConfiguration_Returns_AppropriateReplacer_ForEach_TextMatchingConfigurationValue()
         {
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseOnly
                                  ),
                 Is.InstanceOf<MatchCaseOnlyFolderNameStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchWholeWordOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchWholeWordOnly
                                  ),
                 Is.InstanceOf<MatchWholeWordOnlyFolderNameStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseAndWholeWord
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseAndWholeWord
                                  ),
                 Is.InstanceOf<MatchCaseAndWholeWordFolderNameStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration
                                          .NeitherMatchCaseNorWholeWord
                                  ),
                 Is.InstanceOf<NeitherMatchCaseNorWholeWordFolderNameStringReplacer
@@ -61,7 +61,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that each object reference returned by the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndMatchingConfiguration" />
+        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method for the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.OperationType.RenameSubFolders" />
@@ -72,30 +72,30 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_AndMatchingConfiguration_Returns_ImplementerOf_IStringReplacer()
+            Test_AndTextMatchingConfiguration_Returns_ImplementerOf_IStringReplacer()
         {
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseOnly
                                  ), Is.InstanceOf<IStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchWholeWordOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchWholeWordOnly
                                  ), Is.InstanceOf<IStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseAndWholeWord
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseAndWholeWord
                                  ), Is.InstanceOf<IStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration
                                          .NeitherMatchCaseNorWholeWord
                                  ), Is.InstanceOf<IStringReplacer>()
             );
@@ -104,48 +104,48 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IFixedMatchingConfigurationSpecificObject.MatchingConfiguration" />
+        ///     cref="P:MassFileRenamer.Objects.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration" />
         /// property of each of the concrete types returned by the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndMatchingConfiguration" />
+        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method has the same value as was supplied to the method.
         /// </summary>
         [Test]
         public void
-            Test_MatchingConfiguration_OfEachConcreteReplacerType_HasCorrectValue()
+            Test_TextMatchingConfiguration_OfEachConcreteReplacerType_HasCorrectValue()
         {
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseOnly
                                  )
-                                 .MatchingConfiguration,
-                Is.EqualTo(MatchingConfiguration.MatchCaseOnly)
+                                 .TextMatchingConfiguration,
+                Is.EqualTo(TextMatchingConfiguration.MatchCaseOnly)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchWholeWordOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchWholeWordOnly
                                  )
-                                 .MatchingConfiguration,
-                Is.EqualTo(MatchingConfiguration.MatchWholeWordOnly)
+                                 .TextMatchingConfiguration,
+                Is.EqualTo(TextMatchingConfiguration.MatchWholeWordOnly)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseAndWholeWord
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseAndWholeWord
                                  )
-                                 .MatchingConfiguration,
-                Is.EqualTo(MatchingConfiguration.MatchCaseAndWholeWord)
+                                 .TextMatchingConfiguration,
+                Is.EqualTo(TextMatchingConfiguration.MatchCaseAndWholeWord)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration
                                          .NeitherMatchCaseNorWholeWord
                                  )
-                                 .MatchingConfiguration,
-                Is.EqualTo(MatchingConfiguration.NeitherMatchCaseNorWholeWord)
+                                 .TextMatchingConfiguration,
+                Is.EqualTo(TextMatchingConfiguration.NeitherMatchCaseNorWholeWord)
             );
         }
 
@@ -155,10 +155,10 @@ namespace MassFileRenamer.Objects.Tests
         ///     cref="P:MassFileRenamer.Objects.IFixedOperationTypeSpecificObject.OperationType" />
         /// property of each of the objects returned by the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndMatchingConfiguration" />
+        ///     cref="M:MassFileRenamer.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method for each
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// value, and
         /// for the
         /// <see
@@ -170,32 +170,32 @@ namespace MassFileRenamer.Objects.Tests
         {
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseOnly
                                  )
                                  .OperationType,
                 Is.EqualTo(OperationType.RenameSubFolders)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchWholeWordOnly
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchWholeWordOnly
                                  )
                                  .OperationType,
                 Is.EqualTo(OperationType.RenameSubFolders)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration.MatchCaseAndWholeWord
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration.MatchCaseAndWholeWord
                                  )
                                  .OperationType,
                 Is.EqualTo(OperationType.RenameSubFolders)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-                                 .AndMatchingConfiguration(
-                                     MatchingConfiguration
+                                 .AndTextMatchingConfiguration(
+                                     TextMatchingConfiguration
                                          .NeitherMatchCaseNorWholeWord
                                  )
                                  .OperationType,

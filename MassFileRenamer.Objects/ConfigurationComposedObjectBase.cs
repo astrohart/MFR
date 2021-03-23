@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace MassFileRenamer.Objects
 {
@@ -9,6 +10,7 @@ namespace MassFileRenamer.Objects
     ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public abstract class
         ConfigurationComposedObjectBase : IConfigurationComposedObject
     {

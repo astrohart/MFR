@@ -15,7 +15,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Gets the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// value that
         /// corresponds to the values set in the configuration object, a
         /// reference to which is passed by the <paramref name="config" /> parameter.
@@ -27,7 +27,7 @@ namespace MassFileRenamer.Objects
         /// interface.
         /// </param>
         /// <returns>
-        /// The <see cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        /// The <see cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// value that corresponds to the values of the
         /// <see
         ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" />
@@ -36,24 +36,24 @@ namespace MassFileRenamer.Objects
         ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
         /// properties.
         /// </returns>
-        public static MatchingConfiguration GetMatchingConfiguration(
+        public static TextMatchingConfiguration GetTextMatchingConfiguration(
             this IConfiguration config)
         {
-            MatchingConfiguration result;
+            TextMatchingConfiguration result;
 
             switch (config.MatchCase)
             {
                 case true when !config.MatchWholeWord:
-                    result = MatchingConfiguration.MatchCaseOnly;
+                    result = TextMatchingConfiguration.MatchCaseOnly;
                     break;
                 case false when config.MatchWholeWord:
-                    result = MatchingConfiguration.MatchWholeWordOnly;
+                    result = TextMatchingConfiguration.MatchWholeWordOnly;
                     break;
                 case true when config.MatchWholeWord:
-                    result = MatchingConfiguration.MatchCaseAndWholeWord;
+                    result = TextMatchingConfiguration.MatchCaseAndWholeWord;
                     break;
                 default:
-                    result = MatchingConfiguration.NeitherMatchCaseNorWholeWord;
+                    result = TextMatchingConfiguration.NeitherMatchCaseNorWholeWord;
                     break;
             }
 

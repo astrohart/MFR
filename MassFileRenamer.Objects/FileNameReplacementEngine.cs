@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -113,34 +113,26 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(dest)
                 );
 
-            return GetStringReplacer.For(OperationType)
-                             .AndMatchingConfiguration(
-                                 Configuration.GetMatchingConfiguration()
-                             )
-                             .Replace(source, pattern, dest);
+            var result = source;    // by default, no replacement
 
-
-            switch (Configuration.MatchWholeWord)
+            try
             {
-                case true when !Configuration.MatchCase:
-                    return Regex.Replace(
-                        source.ToLowerInvariant(),
-                        $@"\b(${pattern.ToLowerInvariant()})\b", dest
-                    );
-                /*
-             * OKAY, we can assume that the 'source', 'pattern', and
-             * 'dest' parameters are already set up for us and we can
-             * just go ahead and begin the replace operation.
-             */
-                case true:
-                    return Regex.Replace(source, $@"\b(${pattern})\b", dest);
+                result = GetStringReplacer.For(OperationType)
+                                          .AndTextMatchingConfiguration(
+                                              Configuration
+                                                  .GetTextMatchingConfiguration()
+                                          )
+                                          .Replace(source, pattern, dest);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = source;
             }
 
-            if (!Configuration.MatchCase)
-                return source.ToLowerInvariant()
-                             .Replace(pattern.ToLowerInvariant(), dest);
-
-            return source.Replace(pattern, dest);
+            return result;
         }
     }
 }

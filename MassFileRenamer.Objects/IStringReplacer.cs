@@ -1,7 +1,7 @@
 ﻿namespace MassFileRenamer.Objects
 {
     public interface IStringReplacer :
-        IFixedMatchingConfigurationSpecificObject,
+        IFixedTextMatchingConfigurationSpecificObject,
         IFixedOperationTypeSpecificObject
     {
         /// <summary>

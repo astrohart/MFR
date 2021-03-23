@@ -95,6 +95,7 @@
     <Compile Include="LoadConfigurationFromFileActionTests.cs" />
     <Compile Include="LoadStringFromRegistryActionTests.cs" />
     <Compile Include="MakeNewFileInfoTests.cs" />
+    <Compile Include="MatchCaseAndWholeWordFolderNameStringReplacerTests.cs" />
     <Compile Include="PathFilterInvokerBaseTests.cs" />
     <Compile Include="ProcessIdProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

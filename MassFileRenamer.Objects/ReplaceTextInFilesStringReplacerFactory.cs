@@ -56,14 +56,14 @@ namespace MassFileRenamer.Objects
         /// interface and
         /// returns a reference to it for the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// value that
         /// is specified by the <paramref name="matchingConfig" /> parameter.
         /// </summary>
         /// <param name="matchingConfig">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// values that
         /// specifies which type of matching is being done.
         /// </param>
@@ -77,45 +77,45 @@ namespace MassFileRenamer.Objects
         /// Thrown if the value passed in the <paramref name="matchingConfig" />
         /// is not one of the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// values.
         /// </exception>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if a string replacer object is not defined for the Replace
         /// Text in Files operation type that supports the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// value
         /// passed in the <paramref name="matchingConfig" /> parameter.
         /// </exception>
-        public IStringReplacer AndMatchingConfiguration(
-            MatchingConfiguration matchingConfig)
+        public IStringReplacer AndTextMatchingConfiguration(
+            TextMatchingConfiguration matchingConfig)
         {
-            if (!Enum.IsDefined(typeof(MatchingConfiguration), matchingConfig))
+            if (!Enum.IsDefined(typeof(TextMatchingConfiguration), matchingConfig))
                 throw new InvalidEnumArgumentException(
                     nameof(matchingConfig), (int)matchingConfig,
-                    typeof(MatchingConfiguration)
+                    typeof(TextMatchingConfiguration)
                 );
 
             IStringReplacer replacer;
 
             switch (matchingConfig)
             {
-                case MatchingConfiguration.MatchCaseOnly:
+                case TextMatchingConfiguration.MatchCaseOnly:
                     replacer = MatchCaseOnlyTextInFilesStringReplacer.Instance;
                     break;
 
-                case MatchingConfiguration.MatchWholeWordOnly:
+                case TextMatchingConfiguration.MatchWholeWordOnly:
                     replacer = MatchWholeWordOnlyTextInFilesStringReplacer
                         .Instance;
                     break;
 
-                case MatchingConfiguration.MatchCaseAndWholeWord:
+                case TextMatchingConfiguration.MatchCaseAndWholeWord:
                     replacer = MatchCaseAndWholeWordTextInFilesStringReplacer
                         .Instance;
                     break;
 
-                case MatchingConfiguration.NeitherMatchCaseNorWholeWord:
+                case TextMatchingConfiguration.NeitherMatchCaseNorWholeWord:
                     replacer =
                         NeitherMatchCaseNorWholeWordTextInFilesStringReplacer
                             .Instance;

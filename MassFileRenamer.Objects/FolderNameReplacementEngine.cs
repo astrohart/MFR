@@ -1,6 +1,7 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.IO;
-using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -16,6 +17,7 @@ namespace MassFileRenamer.Objects
         /// and
         /// returns a reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public FolderNameReplacementEngine()
         {
             // TODO: Add default object initialization here
@@ -43,6 +45,7 @@ namespace MassFileRenamer.Objects
         ///     langword="null" />
         /// value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public FolderNameReplacementEngine(IConfiguration configuration) : base(
             configuration
         ) { }
@@ -54,6 +57,7 @@ namespace MassFileRenamer.Objects
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public override OperationType OperationType
         {
             get;
@@ -124,62 +128,40 @@ namespace MassFileRenamer.Objects
              * (3) The 'dest' parameter contains the text that should
              * be used instead of the matching text in 'source', and
              * (4) That all 3 of the parameters passed to this method
-             * are blank.  Moreover,
+             * are never blank.  Moreover,
              * (5) The only part of the folder path that should have the
              * replacement done on it is the name of the folder that is
              * lowest-level in the directory tree.
              */
 
-            var result = string.Empty;
-
-            // A directory pathname is passed in 'source.' Get the pathname to
-            // the current folder's parent.
-            var directoryInfo = new DirectoryInfo(source);
-            var parentDirectoryInfo = directoryInfo.Parent;
-            if (parentDirectoryInfo == null)
-                return result; // no parent directory? stop.
-
-            /*
-
-            dirInfo.RenameTo(
-                Path.Combine(
-                    dirInfo.Parent.FullName,
-                    dirInfo.Name.Replace(findWhat, replaceWith)
-                )
-            );
-
-             */
+            var result = source;    // no replacement is to occur if an exception is thrown
 
             try
             {
-                // gimme the new pathname of the folder after replacing the
-                // specified text with the specified data in the lowest-level
-                // folder name only. This is because this method is most likely
-                // to be called from a recursive algorithm.
+                var parentFolder = Path.GetDirectoryName(source);
+                if (string.IsNullOrWhiteSpace(parentFolder)) return result;
 
-                if (!Configuration.MatchWholeWord)
-                    result = Path.Combine(
-                        parentDirectoryInfo
-                            .FullName, // full pathname of parent folder
-                        Configuration.MatchCase
-                            ? directoryInfo.Name.Replace(pattern, dest)
-                            : directoryInfo.Name.ReplaceNoCase(pattern, dest)
-                    );
-                else
-                    result = Path.Combine(
-                        parentDirectoryInfo.FullName,
-                        Configuration.MatchCase
-                            ? directoryInfo.Name.RegexReplaceWithCase(
-                                $@"\b({Regex.Escape(pattern)})\b", dest
-                            )
-                            : directoryInfo.Name.RegexReplaceNoCase(
-                                $@"\b({Regex.Escape(pattern)})\b", dest
-                            )
-                    );
+                var folderName = Path.GetFileName(source);
+                if (string.IsNullOrWhiteSpace(folderName)) return result;
+
+                result = Path.Combine(
+                    parentFolder,
+                    /* only search and replace on the name of the lowest-
+                     level folder in the pathname */
+                    GetStringReplacer.For(OperationType.RenameSubFolders)
+                                     .AndTextMatchingConfiguration(
+                                         Configuration
+                                             .GetTextMatchingConfiguration()
+                                     )
+                                     .Replace(folderName, pattern, dest)
+                );
             }
-            catch
+            catch (Exception ex)
             {
-                result = string.Empty;
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = source;
             }
 
             return result;

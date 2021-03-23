@@ -321,7 +321,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="bower.json" />
-    <Compile Include="MatchingConfiguration.cs" />
+    <Compile Include="TextMatchingConfiguration.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

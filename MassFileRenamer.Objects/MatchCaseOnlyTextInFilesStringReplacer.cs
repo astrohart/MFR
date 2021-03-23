@@ -1,5 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -7,24 +8,13 @@ namespace MassFileRenamer.Objects
     /// Replaces text in strings when Match Case is set to
     /// <see
     ///     langword="true" />
-    /// but Match Whole Word is set to
-    /// <see
-    ///     langword="false" />
+    /// but Match Whole Word is set to <see langword="false" />
     /// , for the Replace Text in Files operation type.
     /// </summary>
     public class
         MatchCaseOnlyTextInFilesStringReplacer :
             ReplaceTextInfilesStringReplacerBase
     {
-        /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MassFileRenamer.Objects.MatchCaseOnlyTextInFilesStringReplacer"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static MatchCaseOnlyTextInFilesStringReplacer Instance
-        {
-            get;
-        } = new MatchCaseOnlyTextInFilesStringReplacer();
-
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -38,16 +28,27 @@ namespace MassFileRenamer.Objects
         protected MatchCaseOnlyTextInFilesStringReplacer() { }
 
         /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MassFileRenamer.Objects.MatchCaseOnlyTextInFilesStringReplacer" />
+        /// .
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MatchCaseOnlyTextInFilesStringReplacer Instance
+        {
+            get;
+        } = new MatchCaseOnlyTextInFilesStringReplacer();
+
+        /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        public override MatchingConfiguration MatchingConfiguration
+        public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        } = MatchingConfiguration.MatchCaseOnly;
+        } = TextMatchingConfiguration.MatchCaseOnly;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -67,19 +68,57 @@ namespace MassFileRenamer.Objects
         /// </param>
         /// <returns>
         /// String containing the new data.
+        /// <para />
+        /// For this style of searching ONLY, the <paramref name="dest" />
+        /// parameter can be passed a blank value.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
         ///     name="source" />
-        /// , <paramref name="pattern" />, or
-        /// <paramref
-        ///     name="dest" />
-        /// , are passed blank or <see langword="null" /> string
-        /// for values.
+        /// or <paramref name="pattern" />, are passed blank or
+        /// <see langword="null" /> strings for values.
+        /// <para />
+        /// <b>NOTE:</b> For this search, a blank value is allowed for the
+        /// <paramref name="dest" /> parameter.
         /// </exception>
         public override string Replace(string source, string pattern,
             string dest = "")
-            => throw new NotImplementedException();
+        {
+            if (string.IsNullOrWhiteSpace(source))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(source)
+                );
+            if (string.IsNullOrWhiteSpace(pattern))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(pattern)
+                );
+
+            /*
+             * OKAY, the source parameter holds the current content of the file in
+             * which we are to replace text.  The pattern parameter holds the value
+             * to be searched for.  The dest parameter holds the value to replace
+             * the pattern with.  We then return the new text that the file is
+             * now supposed to have after the operation.  Note that here, a blank
+             * value is allowable for the dest parameter, as this merely erases
+             * text in the destination file.
+             */
+
+            string result;
+
+            try
+            {
+                result = source.Replace(pattern, dest);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
     }
 }

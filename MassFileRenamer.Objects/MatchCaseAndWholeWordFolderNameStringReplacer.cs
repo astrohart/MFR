@@ -40,15 +40,15 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public override MatchingConfiguration MatchingConfiguration
+        public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        } = MatchingConfiguration.MatchCaseAndWholeWord;
+        } = TextMatchingConfiguration.MatchCaseAndWholeWord;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -109,8 +109,8 @@ namespace MassFileRenamer.Objects
 
             try
             {
-                var regex = $@"\b({pattern})\b";
-                result = Regex.Replace(source, regex, dest);
+                var regex = $@"^{Regex.Escape(pattern)}$";   // here, 'match whole word' means 'exact match'
+                result = source.RegexReplaceWithCase(regex, dest);
             }
             catch (Exception ex)
             {

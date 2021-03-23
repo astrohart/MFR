@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Text.RegularExpressions;
 
 namespace MassFileRenamer.Objects
@@ -16,6 +17,7 @@ namespace MassFileRenamer.Objects
         /// and
         /// returns a reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public TextInFileReplacementEngine()
         {
             // TODO: Add default object initialization here
@@ -43,6 +45,7 @@ namespace MassFileRenamer.Objects
         ///     langword="null" />
         /// value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public TextInFileReplacementEngine(IConfiguration configuration) : base(
             configuration
         ) { }
@@ -54,6 +57,7 @@ namespace MassFileRenamer.Objects
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public override OperationType OperationType
         {
             get;

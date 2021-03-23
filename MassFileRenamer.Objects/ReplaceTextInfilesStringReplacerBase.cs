@@ -9,11 +9,11 @@
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        public abstract MatchingConfiguration MatchingConfiguration
+        public abstract TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace MassFileRenamer.Objects
 {
@@ -17,6 +18,7 @@ namespace MassFileRenamer.Objects
         /// and
         /// returns a reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected TextReplacementEngineBase()
         {
             // TODO: Add default object-initialization code here.
@@ -44,6 +46,7 @@ namespace MassFileRenamer.Objects
         ///     langword="null" />
         /// value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         protected TextReplacementEngineBase(IConfiguration configuration) :
             base(configuration) { }
 
@@ -54,6 +57,7 @@ namespace MassFileRenamer.Objects
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public abstract OperationType OperationType
         {
             get;
@@ -85,6 +89,7 @@ namespace MassFileRenamer.Objects
         /// or <paramref name="pattern" />, are passed blank or
         /// <see langword="null" /> string for values.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public abstract string Replace(string source, string pattern,
             string dest = "");
 

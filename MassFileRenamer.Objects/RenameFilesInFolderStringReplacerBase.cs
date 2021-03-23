@@ -12,12 +12,12 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchingConfiguration" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public abstract MatchingConfiguration MatchingConfiguration
+        public abstract TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
         }

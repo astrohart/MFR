@@ -4,7 +4,7 @@
     /// Values that specify whether we are matching case, matching whole word,
     /// or both, or neither.
     /// </summary>
-    public enum MatchingConfiguration
+    public enum TextMatchingConfiguration
     {
         /// <summary>
         /// The user has toggled Match Case to true and Match Whole Word to false.
