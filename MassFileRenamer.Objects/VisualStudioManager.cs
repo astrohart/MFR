@@ -178,9 +178,7 @@ namespace MassFileRenamer.Objects
                                            .Where(dte => dte != null)
                                            .Select(
                                                dte => new {
-                                                   dte,
-                                                   sln = (SolutionClass)dte
-                                                       .Solution
+                                                   dte, sln = dte.Solution
                                                }
                                            )
                                            .Where(
@@ -252,8 +250,11 @@ namespace MassFileRenamer.Objects
                     result = default;
                 }
 
-                Thread.Sleep(1000);
-                retries--;
+                if (result == default)
+                {
+                    Thread.Sleep(1000);
+                    retries--;
+                }
             }
 
             return result;
