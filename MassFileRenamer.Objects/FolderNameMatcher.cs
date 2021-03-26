@@ -108,7 +108,7 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            bool result;
+            var result = false;
 
             try
             {

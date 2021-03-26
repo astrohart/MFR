@@ -59,7 +59,7 @@ namespace MassFileRenamer.Objects
             if (string.IsNullOrWhiteSpace(entry.Path))
                 return false;
 
-            bool result;
+            var result = false;
 
             try
             {
@@ -139,7 +139,7 @@ namespace MassFileRenamer.Objects
         /// </returns>
         public override bool ShouldSkip(string path)
         {
-            bool result;
+            var result = false;
 
             try
             {

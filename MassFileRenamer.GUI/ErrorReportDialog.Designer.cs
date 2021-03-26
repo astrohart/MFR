@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace MassFileRenamer.GUI
 {
     partial class ErrorReportDialog
@@ -6,7 +9,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -175,15 +178,15 @@ namespace MassFileRenamer.GUI
 
         #endregion
 
-        private System.Windows.Forms.PictureBox appIconPictureBox;
-        private System.Windows.Forms.Label mainInstructionLabel;
-        private System.Windows.Forms.GroupBox bevel;
-        private System.Windows.Forms.Label secondaryInstructionLabel;
-        private System.Windows.Forms.Label tertiaryInstructionLabel;
-        private System.Windows.Forms.LinkLabel viewReportLinkLabel;
-        private System.Windows.Forms.Label reproductionStepsLabel;
-        private System.Windows.Forms.TextBox reproductionStepsTextBox;
-        private System.Windows.Forms.Button sendButton;
-        private System.Windows.Forms.Button dontSendButton;
+        private PictureBox appIconPictureBox;
+        private Label mainInstructionLabel;
+        private GroupBox bevel;
+        private Label secondaryInstructionLabel;
+        private Label tertiaryInstructionLabel;
+        private LinkLabel viewReportLinkLabel;
+        private Label reproductionStepsLabel;
+        private TextBox reproductionStepsTextBox;
+        private Button sendButton;
+        private Button dontSendButton;
     }
 }

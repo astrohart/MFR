@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.IO;
 
 namespace MassFileRenamer.Objects.Tests

@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace MassFileRenamer.GUI
 {
    partial class ProgressDialog
@@ -6,7 +9,7 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Required designer variable.
       /// </summary>
-      private System.ComponentModel.IContainer components = null;
+      private IContainer components = null;
 
       /// <summary>
       /// Clean up any resources being used.
@@ -96,9 +99,9 @@ namespace MassFileRenamer.GUI
 
       #endregion
 
-      private System.Windows.Forms.Label currentFileLabel;
-      private System.Windows.Forms.ProgressBar progressBar;
-      private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Button cancelButton;
+      private Label currentFileLabel;
+      private ProgressBar progressBar;
+      private Label statusLabel;
+        private Button cancelButton;
     }
 }

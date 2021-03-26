@@ -56,7 +56,7 @@ namespace MassFileRenamer.Objects
             if (entry == null) throw new ArgumentNullException(nameof(entry));
             if (string.IsNullOrWhiteSpace(entry.Path)) return false;
 
-            bool result;
+            var result = false;
 
             try
             {
@@ -136,7 +136,7 @@ namespace MassFileRenamer.Objects
         /// </returns>
         public override bool ShouldSkip(string path)
         {
-            bool result;
+            var result = false;
 
             try
             {

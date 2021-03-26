@@ -1,5 +1,4 @@
 ﻿using MassFileRenamer.Objects;
-using System.Windows.Forms;
 
 namespace MassFileRenamer.GUI
 {

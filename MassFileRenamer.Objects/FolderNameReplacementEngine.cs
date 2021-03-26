@@ -92,6 +92,10 @@ namespace MassFileRenamer.Objects
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// Thrown if the <paramref name="source" /> parameter does not contain
+        /// the fully-qualified, absolute pathname to a folder.
+        /// </exception>
         public override string Replace(string source, string pattern,
             string dest = "")
         {
@@ -119,6 +123,15 @@ namespace MassFileRenamer.Objects
                 );
 
             /*
+             * If the source parameter does not contain an absolute path,
+             * then we cannot operate.
+             */
+            if (!source.IsAbsolutePath())
+                throw new InvalidOperationException(
+                    "You must pass an absolute (fully-qualified) pathname to a folder in the 'source' parameter."
+                );
+
+            /*
              * In this method, we make the following assumptions:
              *
              * (1) The 'source' parameter contains the full pathname of
@@ -134,7 +147,8 @@ namespace MassFileRenamer.Objects
              * lowest-level in the directory tree.
              */
 
-            var result = source;    // no replacement is to occur if an exception is thrown
+            var result =
+                source; // no replacement is to occur if an exception is thrown
 
             try
             {

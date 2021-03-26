@@ -1,4 +1,8 @@
 ﻿
+using MassFileRenamer.Objects;
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace MassFileRenamer.GUI
 {
    partial class MainWindow
@@ -6,7 +10,7 @@ namespace MassFileRenamer.GUI
       /// <summary>
       /// Required designer variable.
       /// </summary>
-      private System.ComponentModel.IContainer components = null;
+      private IContainer components = null;
 
       /// <summary>
       /// Clean up any resources being used.
@@ -527,50 +531,50 @@ namespace MassFileRenamer.GUI
 
       #endregion
 
-      private System.Windows.Forms.Label startingFolderLabel;
-      private System.Windows.Forms.Button startingFolderBrowseButton;
-      private System.Windows.Forms.Label findWhatLabel;
-      private System.Windows.Forms.Label replaceWithLabel;
-      private System.Windows.Forms.Button performOperationButton;
-      private MassFileRenamer.Objects.FoldUnfoldButton foldButton;
-      private System.Windows.Forms.ComboBox startingFolderComboBox;
-      private System.Windows.Forms.ComboBox findWhatcomboBox;
-      private System.Windows.Forms.ComboBox replaceWithComboBox;
-        private System.Windows.Forms.StatusStrip statusBar;
-        private System.Windows.Forms.MenuStrip menuBar;
-        private System.Windows.Forms.ToolStripMenuItem fileMenu;
-        private System.Windows.Forms.ToolStripMenuItem fileExit;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolsOptions;
-        private System.Windows.Forms.ToolStripStatusLabel statusBarMessage;
-        private System.Windows.Forms.ToolStripMenuItem viewMenu;
-        private System.Windows.Forms.ToolStripMenuItem viewStatusBar;
-        private System.Windows.Forms.ToolStripMenuItem toolsImportExportConfigMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolsImportConfig;
-        private System.Windows.Forms.ToolStripMenuItem toolsExportConfig;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem operationsMenu;
-        private System.Windows.Forms.ToolStripMenuItem operationsPerform;
-        private System.Windows.Forms.TabControl optionsTabControl;
-        private System.Windows.Forms.TabPage findReplaceOptionsTabPage;
-        private System.Windows.Forms.TabPage operationsTabPage;
-        private System.Windows.Forms.TabPage inclusionsTabPage;
-        private System.Windows.Forms.TabPage exclusionsTabPage;
-        private System.Windows.Forms.CheckedListBox operationsCheckedListBox;
-        private System.Windows.Forms.CheckBox selectDeselectAllCheckBox;
-        private System.Windows.Forms.Label tabPageInstructionLabel;
-        private System.Windows.Forms.CheckBox matchWholeWordCheckBox;
-        private System.Windows.Forms.CheckBox matchCaseCheckBox;
-        private System.Windows.Forms.ToolStripMenuItem helpMenu;
-        private System.Windows.Forms.ToolStripMenuItem helpAbout;
-        private System.Windows.Forms.ToolStripMenuItem toolsHistoryMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearStartingFolderHistory;
-        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearFindWhatHistory;
-        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
-        private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearAll;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripProgressBar statusBarProgressBar;
+      private Label startingFolderLabel;
+      private Button startingFolderBrowseButton;
+      private Label findWhatLabel;
+      private Label replaceWithLabel;
+      private Button performOperationButton;
+      private FoldUnfoldButton foldButton;
+      private ComboBox startingFolderComboBox;
+      private ComboBox findWhatcomboBox;
+      private ComboBox replaceWithComboBox;
+        private StatusStrip statusBar;
+        private MenuStrip menuBar;
+        private ToolStripMenuItem fileMenu;
+        private ToolStripMenuItem fileExit;
+        private ToolStripMenuItem toolsMenu;
+        private ToolStripMenuItem toolsOptions;
+        private ToolStripStatusLabel statusBarMessage;
+        private ToolStripMenuItem viewMenu;
+        private ToolStripMenuItem viewStatusBar;
+        private ToolStripMenuItem toolsImportExportConfigMenu;
+        private ToolStripMenuItem toolsImportConfig;
+        private ToolStripMenuItem toolsExportConfig;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem operationsMenu;
+        private ToolStripMenuItem operationsPerform;
+        private TabControl optionsTabControl;
+        private TabPage findReplaceOptionsTabPage;
+        private TabPage operationsTabPage;
+        private TabPage inclusionsTabPage;
+        private TabPage exclusionsTabPage;
+        private CheckedListBox operationsCheckedListBox;
+        private CheckBox selectDeselectAllCheckBox;
+        private Label tabPageInstructionLabel;
+        private CheckBox matchWholeWordCheckBox;
+        private CheckBox matchCaseCheckBox;
+        private ToolStripMenuItem helpMenu;
+        private ToolStripMenuItem helpAbout;
+        private ToolStripMenuItem toolsHistoryMenu;
+        private ToolStripMenuItem toolsHistoryClearMenu;
+        private ToolStripMenuItem toolsHistoryClearStartingFolderHistory;
+        private ToolStripMenuItem toolsHistoryClearFindWhatHistory;
+        private ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
+        private ToolStripMenuItem toolsHistoryClearAll;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripProgressBar statusBarProgressBar;
     }
 }
 

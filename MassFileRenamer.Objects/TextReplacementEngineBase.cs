@@ -89,7 +89,6 @@ namespace MassFileRenamer.Objects
         /// or <paramref name="pattern" />, are passed blank or
         /// <see langword="null" /> string for values.
         /// </exception>
-        [Log(AttributeExclude = true)]
         public abstract string Replace(string source, string pattern,
             string dest = "");
 

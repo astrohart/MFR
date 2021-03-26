@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
@@ -118,14 +119,14 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** INFO: Checking whether 'maxRetries' is a positive number..."
+                "*** INFO: Checking whether 'maxRetries' is a positive number..."
             );
 
             if (maxRetries <= 0)
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    $"DirectoryInfoExtensions.RenameTo: The 'maxRetries' parameter can only be 1 or greater.  It's not.  Stopping."
+                    "DirectoryInfoExtensions.RenameTo: The 'maxRetries' parameter can only be 1 or greater.  It's not.  Stopping."
                 );
 
                 DebugUtils.WriteLine(
@@ -139,7 +140,7 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** SUCCESS *** The 'maxRetries' parameter is a valid value."
+                "*** SUCCESS *** The 'maxRetries' parameter is a valid value."
             );
 
             DebugUtils.WriteLine(
@@ -192,14 +193,14 @@ namespace MassFileRenamer.Objects
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"DirectoryInfoExtensions.RenameTo: Attempting to perform the rename operation..."
+                    "DirectoryInfoExtensions.RenameTo: Attempting to perform the rename operation..."
                 );
 
                 if (TryRenameFolder(folderToBeRenamed, newSubFolderPath))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"*** SUCCESS *** The rename operation succeeded."
+                        "*** SUCCESS *** The rename operation succeeded."
                     );
 
                     break;
@@ -210,7 +211,7 @@ namespace MassFileRenamer.Objects
                     $"*** ERROR *** The attempt #{attempts} did not succeed.  Waiting 50 milliseconds and trying again (unless we've hit maxRetries = {maxRetries} attempts)..."
                 );
 
-                System.Threading.Thread.Sleep(50);  // rest for 50 milliseconds
+                Thread.Sleep(50);  // rest for 50 milliseconds
             }
 
             DebugUtils.WriteLine(
@@ -223,7 +224,7 @@ namespace MassFileRenamer.Objects
             if (result)
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** SUCCESS *** The rename operation succeeded."
+                    "*** SUCCESS *** The rename operation succeeded."
                 );
 
             DebugUtils.WriteLine(DebugLevel.Debug, $"DirectoryInfoExtensions.RenameTo: Result = {result}");

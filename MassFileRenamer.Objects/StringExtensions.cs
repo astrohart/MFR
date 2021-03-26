@@ -1,5 +1,4 @@
-﻿using EnvDTE;
-using System;
+﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
@@ -41,6 +40,33 @@ namespace MassFileRenamer.Objects
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+            }
+
+            return result;
+        }
+
+        public static bool IsFolderPath(this string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return false; // obviously not the case
+
+            var result = false;
+
+            try
+            {
+                // get the file attributes for file or directory
+                var attr = File.GetAttributes(path);
+
+                //detect whether its a directory or file
+                result = (attr & FileAttributes.Directory) ==
+                         FileAttributes.Directory;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
             }
 
             return result;

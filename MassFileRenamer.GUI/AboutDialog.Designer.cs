@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace MassFileRenamer.GUI
 {
     partial class AboutDialog
@@ -6,7 +9,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -177,13 +180,13 @@ namespace MassFileRenamer.GUI
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Label labelCopyright;
-        private System.Windows.Forms.Label labelCompanyName;
-        private System.Windows.Forms.TextBox textBoxDescription;
-        private System.Windows.Forms.Button okButton;
+        private TableLayoutPanel tableLayoutPanel;
+        private PictureBox logoPictureBox;
+        private Label labelProductName;
+        private Label labelVersion;
+        private Label labelCopyright;
+        private Label labelCompanyName;
+        private TextBox textBoxDescription;
+        private Button okButton;
     }
 }

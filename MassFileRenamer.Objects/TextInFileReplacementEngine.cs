@@ -1,6 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -116,18 +116,26 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(pattern)
                 );
 
-            if (!Configuration.MatchWholeWord)
-                return Configuration.MatchCase
-                    ? source.Replace(pattern, dest)
-                    : source.ReplaceNoCase(pattern, dest);
+            var result = source; // no replacement if error
 
-            return Configuration.MatchCase
-                ? source.RegexReplaceWithCase(
-                    $@"\b({Regex.Escape(pattern)})\b", dest
-                )
-                : source.RegexReplaceNoCase(
-                    $@"\b({Regex.Escape(pattern)})\b", dest
-                );
+            try
+            {
+                result = GetStringReplacer.For(OperationType.ReplaceTextInFiles)
+                                          .AndTextMatchingConfiguration(
+                                              Configuration
+                                                  .GetTextMatchingConfiguration()
+                                          )
+                                          .Replace(source, pattern, dest);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = source;
+            }
+
+            return result;
         }
     }
 }

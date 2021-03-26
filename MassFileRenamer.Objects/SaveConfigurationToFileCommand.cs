@@ -118,7 +118,7 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** INFO: Checking whether the value of the '_input.Path' property is blank..."
+                "*** INFO: Checking whether the value of the '_input.Path' property is blank..."
             );
 
             if (string.IsNullOrWhiteSpace(_input.Path))
@@ -135,7 +135,7 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** SUCCESS *** The property '_input.Path' is not blank.  Continuing..."
+                "*** SUCCESS *** The property '_input.Path' is not blank.  Continuing..."
             );
 
             DebugUtils.WriteLine(

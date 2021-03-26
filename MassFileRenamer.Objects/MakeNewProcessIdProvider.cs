@@ -6,7 +6,7 @@
     ///     cref="T:MassFileRenamer.Objects.IProcessIdProvider" />
     /// interface.
     /// </summary>
-    public static class GetNewProcessIdProvider
+    public static class MakeNewProcessIdProvider
     {
         /// <summary>
         /// Creates a new instance of an object that implements the

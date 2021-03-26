@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace MassFileRenamer.GUI
 {
     partial class OptionsDialog
@@ -6,7 +9,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -207,18 +210,18 @@ namespace MassFileRenamer.GUI
 
         #endregion
 
-        private System.Windows.Forms.Button applyButton;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button okayButton;
-        private System.Windows.Forms.TabControl optionsTabControl;
-        private System.Windows.Forms.TabPage generalTabPage;
-        private System.Windows.Forms.Label configPathnameLabel;
-        private System.Windows.Forms.TextBox configPathnameTextBox;
-        private System.Windows.Forms.Button configPathnameBrowseButton;
-        private System.Windows.Forms.Label configPathnamePromptLabel;
-        private System.Windows.Forms.OpenFileDialog configPathBrowseBox;
-        private System.Windows.Forms.TabPage visualStudioTabPage;
-        private System.Windows.Forms.CheckBox reOpenSolutionCheckBox;
-        private System.Windows.Forms.Label reOpenSolutionLabel;
+        private Button applyButton;
+        private Button cancelButton;
+        private Button okayButton;
+        private TabControl optionsTabControl;
+        private TabPage generalTabPage;
+        private Label configPathnameLabel;
+        private TextBox configPathnameTextBox;
+        private Button configPathnameBrowseButton;
+        private Label configPathnamePromptLabel;
+        private OpenFileDialog configPathBrowseBox;
+        private TabPage visualStudioTabPage;
+        private CheckBox reOpenSolutionCheckBox;
+        private Label reOpenSolutionLabel;
     }
 }

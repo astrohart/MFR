@@ -19,7 +19,7 @@ namespace MassFileRenamer.Objects.Tests
         [SetUp]
         public void Initialize()
         {
-            _processIdProvider = GetNewProcessIdProvider.FromScratch();
+            _processIdProvider = MakeNewProcessIdProvider.FromScratch();
             Assert.IsNotNull(_processIdProvider);
         }
 
