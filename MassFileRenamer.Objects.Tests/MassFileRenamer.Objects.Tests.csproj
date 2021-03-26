@@ -127,6 +127,7 @@
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="TextExpressionMatcherTestBase.cs" />
     <Compile Include="TextReplacementEngineTestBase.cs" />
+    <Compile Include="VisualStudioManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
