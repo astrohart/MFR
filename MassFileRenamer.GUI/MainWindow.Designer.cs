@@ -78,6 +78,7 @@ namespace MassFileRenamer.GUI
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
+            this.hiddenFocusLabel = new System.Windows.Forms.Label();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -142,6 +143,7 @@ namespace MassFileRenamer.GUI
             this.startingFolderComboBox.Name = "startingFolderComboBox";
             this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
             this.startingFolderComboBox.TabIndex = 1;
+            this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // findWhatcomboBox
             // 
@@ -152,6 +154,7 @@ namespace MassFileRenamer.GUI
             this.findWhatcomboBox.Name = "findWhatcomboBox";
             this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
             this.findWhatcomboBox.TabIndex = 4;
+            this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // replaceWithComboBox
             // 
@@ -162,13 +165,14 @@ namespace MassFileRenamer.GUI
             this.replaceWithComboBox.Name = "replaceWithComboBox";
             this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
             this.replaceWithComboBox.TabIndex = 6;
+            this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // statusBar
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarMessage,
             this.statusBarProgressBar});
-            this.statusBar.Location = new System.Drawing.Point(0, 454);
+            this.statusBar.Location = new System.Drawing.Point(0, 456);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -488,12 +492,22 @@ namespace MassFileRenamer.GUI
             this.foldButton.UseVisualStyleBackColor = true;
             this.foldButton.FormFolded += new MassFileRenamer.Objects.FormFoldedEventHandler(this.OnFormFolded);
             // 
+            // hiddenFocusLabel
+            // 
+            this.hiddenFocusLabel.AutoSize = true;
+            this.hiddenFocusLabel.Location = new System.Drawing.Point(648, 245);
+            this.hiddenFocusLabel.Name = "hiddenFocusLabel";
+            this.hiddenFocusLabel.Size = new System.Drawing.Size(0, 15);
+            this.hiddenFocusLabel.TabIndex = 12;
+            this.hiddenFocusLabel.Visible = false;
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 476);
+            this.ClientSize = new System.Drawing.Size(596, 478);
+            this.Controls.Add(this.hiddenFocusLabel);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.replaceWithComboBox);
@@ -575,6 +589,7 @@ namespace MassFileRenamer.GUI
         private ToolStripMenuItem toolsHistoryClearAll;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripProgressBar statusBarProgressBar;
+        private Label hiddenFocusLabel;
     }
 }
 
