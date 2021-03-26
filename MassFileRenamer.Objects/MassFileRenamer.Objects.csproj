@@ -115,6 +115,9 @@
     <Compile Include="DataOperationErrorEventArgs.cs" />
     <Compile Include="DataOperationErrorEventHandler.cs" />
     <Compile Include="ActionCacheProvider.cs" />
+    <Compile Include="EntryRespectingComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FileRenamerMessages.cs" />
     <Compile Include="FindVisualStudioOperationTypeStartedDescription.cs" />
     <Compile Include="GetOperatingSystemObjectDisplayName.cs" />
