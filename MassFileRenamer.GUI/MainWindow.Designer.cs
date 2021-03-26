@@ -39,9 +39,9 @@ namespace MassFileRenamer.GUI
             this.findWhatLabel = new System.Windows.Forms.Label();
             this.replaceWithLabel = new System.Windows.Forms.Label();
             this.performOperationButton = new System.Windows.Forms.Button();
-            this.startingFolderComboBox = new System.Windows.Forms.ComboBox();
-            this.findWhatcomboBox = new System.Windows.Forms.ComboBox();
-            this.replaceWithComboBox = new System.Windows.Forms.ComboBox();
+            this.startingFolderComboBox = new MassFileRenamer.Objects.EntryRespectingComboBox();
+            this.findWhatcomboBox = new MassFileRenamer.Objects.EntryRespectingComboBox();
+            this.replaceWithComboBox = new MassFileRenamer.Objects.EntryRespectingComboBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -138,6 +138,7 @@ namespace MassFileRenamer.GUI
             // 
             this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.startingFolderComboBox.EnteredText = "";
             this.startingFolderComboBox.FormattingEnabled = true;
             this.startingFolderComboBox.Location = new System.Drawing.Point(15, 54);
             this.startingFolderComboBox.Name = "startingFolderComboBox";
@@ -149,6 +150,7 @@ namespace MassFileRenamer.GUI
             // 
             this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.findWhatcomboBox.EnteredText = "";
             this.findWhatcomboBox.FormattingEnabled = true;
             this.findWhatcomboBox.Location = new System.Drawing.Point(15, 109);
             this.findWhatcomboBox.Name = "findWhatcomboBox";
@@ -160,6 +162,7 @@ namespace MassFileRenamer.GUI
             // 
             this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.replaceWithComboBox.EnteredText = "";
             this.replaceWithComboBox.FormattingEnabled = true;
             this.replaceWithComboBox.Location = new System.Drawing.Point(15, 163);
             this.replaceWithComboBox.Name = "replaceWithComboBox";
@@ -551,9 +554,9 @@ namespace MassFileRenamer.GUI
       private Label replaceWithLabel;
       private Button performOperationButton;
       private FoldUnfoldButton foldButton;
-      private ComboBox startingFolderComboBox;
-      private ComboBox findWhatcomboBox;
-      private ComboBox replaceWithComboBox;
+      private EntryRespectingComboBox startingFolderComboBox;
+      private EntryRespectingComboBox findWhatcomboBox;
+      private EntryRespectingComboBox replaceWithComboBox;
         private StatusStrip statusBar;
         private MenuStrip menuBar;
         private ToolStripMenuItem fileMenu;
