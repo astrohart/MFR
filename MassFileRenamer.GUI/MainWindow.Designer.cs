@@ -39,9 +39,6 @@ namespace MassFileRenamer.GUI
             this.findWhatLabel = new System.Windows.Forms.Label();
             this.replaceWithLabel = new System.Windows.Forms.Label();
             this.performOperationButton = new System.Windows.Forms.Button();
-            this.startingFolderComboBox = new EntryRespectingComboBox();
-            this.findWhatcomboBox = new EntryRespectingComboBox();
-            this.replaceWithComboBox = new EntryRespectingComboBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -59,10 +56,9 @@ namespace MassFileRenamer.GUI
             this.toolsHistoryClearFindWhatHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearReplaceWithHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolsImportExportConfigMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsImportConfig = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsExportConfig = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +75,14 @@ namespace MassFileRenamer.GUI
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
             this.hiddenFocusLabel = new System.Windows.Forms.Label();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolsConfigApplyProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigProfiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceWithComboBox = new MassFileRenamer.GUI.EntryRespectingComboBox();
+            this.findWhatcomboBox = new MassFileRenamer.GUI.EntryRespectingComboBox();
+            this.startingFolderComboBox = new MassFileRenamer.GUI.EntryRespectingComboBox();
+            this.toolsConfigNewProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsSaveProfileAs = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -89,7 +93,7 @@ namespace MassFileRenamer.GUI
             // startingFolderLabel
             // 
             this.startingFolderLabel.AutoSize = true;
-            this.startingFolderLabel.Location = new System.Drawing.Point(12, 35);
+            this.startingFolderLabel.Location = new System.Drawing.Point(12, 68);
             this.startingFolderLabel.Name = "startingFolderLabel";
             this.startingFolderLabel.Size = new System.Drawing.Size(226, 15);
             this.startingFolderLabel.TabIndex = 0;
@@ -97,7 +101,7 @@ namespace MassFileRenamer.GUI
             // 
             // startingFolderBrowseButton
             // 
-            this.startingFolderBrowseButton.Location = new System.Drawing.Point(560, 51);
+            this.startingFolderBrowseButton.Location = new System.Drawing.Point(560, 84);
             this.startingFolderBrowseButton.Name = "startingFolderBrowseButton";
             this.startingFolderBrowseButton.Size = new System.Drawing.Size(24, 27);
             this.startingFolderBrowseButton.TabIndex = 2;
@@ -108,7 +112,7 @@ namespace MassFileRenamer.GUI
             // findWhatLabel
             // 
             this.findWhatLabel.AutoSize = true;
-            this.findWhatLabel.Location = new System.Drawing.Point(9, 90);
+            this.findWhatLabel.Location = new System.Drawing.Point(9, 123);
             this.findWhatLabel.Name = "findWhatLabel";
             this.findWhatLabel.Size = new System.Drawing.Size(109, 15);
             this.findWhatLabel.TabIndex = 3;
@@ -117,7 +121,7 @@ namespace MassFileRenamer.GUI
             // replaceWithLabel
             // 
             this.replaceWithLabel.AutoSize = true;
-            this.replaceWithLabel.Location = new System.Drawing.Point(9, 144);
+            this.replaceWithLabel.Location = new System.Drawing.Point(9, 177);
             this.replaceWithLabel.Name = "replaceWithLabel";
             this.replaceWithLabel.Size = new System.Drawing.Size(64, 15);
             this.replaceWithLabel.TabIndex = 5;
@@ -126,7 +130,7 @@ namespace MassFileRenamer.GUI
             // performOperationButton
             // 
             this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.performOperationButton.Location = new System.Drawing.Point(436, 192);
+            this.performOperationButton.Location = new System.Drawing.Point(436, 225);
             this.performOperationButton.Name = "performOperationButton";
             this.performOperationButton.Size = new System.Drawing.Size(148, 27);
             this.performOperationButton.TabIndex = 8;
@@ -134,48 +138,12 @@ namespace MassFileRenamer.GUI
             this.performOperationButton.UseVisualStyleBackColor = true;
             this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
             // 
-            // startingFolderComboBox
-            // 
-            this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.startingFolderComboBox.EnteredText = "";
-            this.startingFolderComboBox.FormattingEnabled = true;
-            this.startingFolderComboBox.Location = new System.Drawing.Point(15, 54);
-            this.startingFolderComboBox.Name = "startingFolderComboBox";
-            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
-            this.startingFolderComboBox.TabIndex = 1;
-            this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
-            // 
-            // findWhatcomboBox
-            // 
-            this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.findWhatcomboBox.EnteredText = "";
-            this.findWhatcomboBox.FormattingEnabled = true;
-            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 109);
-            this.findWhatcomboBox.Name = "findWhatcomboBox";
-            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
-            this.findWhatcomboBox.TabIndex = 4;
-            this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
-            // 
-            // replaceWithComboBox
-            // 
-            this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.replaceWithComboBox.EnteredText = "";
-            this.replaceWithComboBox.FormattingEnabled = true;
-            this.replaceWithComboBox.Location = new System.Drawing.Point(15, 163);
-            this.replaceWithComboBox.Name = "replaceWithComboBox";
-            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
-            this.replaceWithComboBox.TabIndex = 6;
-            this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
-            // 
             // statusBar
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarMessage,
             this.statusBarProgressBar});
-            this.statusBar.Location = new System.Drawing.Point(0, 456);
+            this.statusBar.Location = new System.Drawing.Point(0, 488);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -262,9 +230,8 @@ namespace MassFileRenamer.GUI
             // toolsMenu
             // 
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsConfigMenu,
             this.toolsHistoryMenu,
-            this.toolStripSeparator2,
-            this.toolsImportExportConfigMenu,
             this.toolStripSeparator1,
             this.toolsOptions});
             this.toolsMenu.Name = "toolsMenu";
@@ -277,7 +244,7 @@ namespace MassFileRenamer.GUI
             this.toolsHistoryClearMenu,
             this.toolsHistoryClearAll});
             this.toolsHistoryMenu.Name = "toolsHistoryMenu";
-            this.toolsHistoryMenu.Size = new System.Drawing.Size(247, 22);
+            this.toolsHistoryMenu.Size = new System.Drawing.Size(180, 22);
             this.toolsHistoryMenu.Text = "&History";
             // 
             // toolsHistoryClearMenu
@@ -315,43 +282,43 @@ namespace MassFileRenamer.GUI
             this.toolsHistoryClearAll.Text = "Clear &All";
             this.toolsHistoryClearAll.Click += new System.EventHandler(this.OnToolsHistoryClearAll);
             // 
-            // toolStripSeparator2
+            // toolsConfigMenu
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(244, 6);
+            this.toolsConfigMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsConfigImport,
+            this.toolsConfigExport,
+            this.toolStripSeparator2,
+            this.toolsSaveProfileAs,
+            this.toolsConfigApplyProfile,
+            this.toolsConfigProfiles,
+            this.toolsConfigNewProfile});
+            this.toolsConfigMenu.Name = "toolsConfigMenu";
+            this.toolsConfigMenu.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigMenu.Text = "&Configuration";
             // 
-            // toolsImportExportConfigMenu
+            // toolsConfigImport
             // 
-            this.toolsImportExportConfigMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsImportConfig,
-            this.toolsExportConfig});
-            this.toolsImportExportConfigMenu.Name = "toolsImportExportConfigMenu";
-            this.toolsImportExportConfigMenu.Size = new System.Drawing.Size(247, 22);
-            this.toolsImportExportConfigMenu.Text = "I&mport and Export Configuration";
+            this.toolsConfigImport.Name = "toolsConfigImport";
+            this.toolsConfigImport.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigImport.Text = "&Import...";
+            this.toolsConfigImport.Click += new System.EventHandler(this.OnToolsImportConfig);
             // 
-            // toolsImportConfig
+            // toolsConfigExport
             // 
-            this.toolsImportConfig.Name = "toolsImportConfig";
-            this.toolsImportConfig.Size = new System.Drawing.Size(196, 22);
-            this.toolsImportConfig.Text = "&Import Configuration...";
-            this.toolsImportConfig.Click += new System.EventHandler(this.OnToolsImportConfig);
-            // 
-            // toolsExportConfig
-            // 
-            this.toolsExportConfig.Name = "toolsExportConfig";
-            this.toolsExportConfig.Size = new System.Drawing.Size(196, 22);
-            this.toolsExportConfig.Text = "E&xport Configuration...";
-            this.toolsExportConfig.Click += new System.EventHandler(this.OnToolsExportConfig);
+            this.toolsConfigExport.Name = "toolsConfigExport";
+            this.toolsConfigExport.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigExport.Text = "&Export...";
+            this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsExportConfig);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(244, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsOptions
             // 
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(247, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(180, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
@@ -377,7 +344,7 @@ namespace MassFileRenamer.GUI
             this.optionsTabControl.Controls.Add(this.operationsTabPage);
             this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
             this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
-            this.optionsTabControl.Location = new System.Drawing.Point(15, 235);
+            this.optionsTabControl.Location = new System.Drawing.Point(15, 268);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
@@ -487,7 +454,7 @@ namespace MassFileRenamer.GUI
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 294);
             this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 515);
-            this.foldButton.Location = new System.Drawing.Point(15, 192);
+            this.foldButton.Location = new System.Drawing.Point(15, 225);
             this.foldButton.Name = "foldButton";
             this.foldButton.Size = new System.Drawing.Size(87, 27);
             this.foldButton.TabIndex = 7;
@@ -504,12 +471,77 @@ namespace MassFileRenamer.GUI
             this.hiddenFocusLabel.TabIndex = 12;
             this.hiddenFocusLabel.Visible = false;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolsConfigApplyProfile
+            // 
+            this.toolsConfigApplyProfile.Name = "toolsConfigApplyProfile";
+            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigApplyProfile.Text = "&Apply Profile";
+            // 
+            // toolsConfigProfiles
+            // 
+            this.toolsConfigProfiles.Name = "toolsConfigProfiles";
+            this.toolsConfigProfiles.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigProfiles.Text = "&Profiles...";
+            // 
+            // replaceWithComboBox
+            // 
+            this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.replaceWithComboBox.EnteredText = "";
+            this.replaceWithComboBox.FormattingEnabled = true;
+            this.replaceWithComboBox.Location = new System.Drawing.Point(15, 196);
+            this.replaceWithComboBox.Name = "replaceWithComboBox";
+            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
+            this.replaceWithComboBox.TabIndex = 6;
+            this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            // 
+            // findWhatcomboBox
+            // 
+            this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.findWhatcomboBox.EnteredText = "";
+            this.findWhatcomboBox.FormattingEnabled = true;
+            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 142);
+            this.findWhatcomboBox.Name = "findWhatcomboBox";
+            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
+            this.findWhatcomboBox.TabIndex = 4;
+            this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            // 
+            // startingFolderComboBox
+            // 
+            this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.startingFolderComboBox.EnteredText = "";
+            this.startingFolderComboBox.FormattingEnabled = true;
+            this.startingFolderComboBox.Location = new System.Drawing.Point(15, 87);
+            this.startingFolderComboBox.Name = "startingFolderComboBox";
+            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
+            this.startingFolderComboBox.TabIndex = 1;
+            this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            // 
+            // toolsConfigNewProfile
+            // 
+            this.toolsConfigNewProfile.Name = "toolsConfigNewProfile";
+            this.toolsConfigNewProfile.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigNewProfile.Text = "&New Profile";
+            // 
+            // toolsSaveProfileAs
+            // 
+            this.toolsSaveProfileAs.Name = "toolsSaveProfileAs";
+            this.toolsSaveProfileAs.Size = new System.Drawing.Size(180, 22);
+            this.toolsSaveProfileAs.Text = "&Save Profile...";
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 478);
+            this.ClientSize = new System.Drawing.Size(596, 510);
             this.Controls.Add(this.hiddenFocusLabel);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
@@ -566,9 +598,9 @@ namespace MassFileRenamer.GUI
         private ToolStripStatusLabel statusBarMessage;
         private ToolStripMenuItem viewMenu;
         private ToolStripMenuItem viewStatusBar;
-        private ToolStripMenuItem toolsImportExportConfigMenu;
-        private ToolStripMenuItem toolsImportConfig;
-        private ToolStripMenuItem toolsExportConfig;
+        private ToolStripMenuItem toolsConfigMenu;
+        private ToolStripMenuItem toolsConfigImport;
+        private ToolStripMenuItem toolsConfigExport;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem operationsMenu;
         private ToolStripMenuItem operationsPerform;
@@ -590,9 +622,13 @@ namespace MassFileRenamer.GUI
         private ToolStripMenuItem toolsHistoryClearFindWhatHistory;
         private ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
         private ToolStripMenuItem toolsHistoryClearAll;
-        private ToolStripSeparator toolStripSeparator2;
         private ToolStripProgressBar statusBarProgressBar;
         private Label hiddenFocusLabel;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem toolsConfigApplyProfile;
+        private ToolStripMenuItem toolsConfigProfiles;
+        private ToolStripMenuItem toolsSaveProfileAs;
+        private ToolStripMenuItem toolsConfigNewProfile;
     }
 }
 
