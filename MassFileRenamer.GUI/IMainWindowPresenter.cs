@@ -107,6 +107,13 @@ namespace MassFileRenamer.GUI
         /// </exception>
         IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
 
+        /// <summary>
+        /// Imports the configuration data for this application.
+        /// </summary>
+        /// <remarks>
+        /// The data is presumed to be located inside of a JSON-formatted file
+        /// that exists on the user's hard drive and has the <c>.json</c> extension.
+        /// </remarks>
         void ImportConfiguration();
 
         /// <summary>
