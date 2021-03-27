@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -60,10 +61,10 @@ namespace MassFileRenamer.GUI
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.Text) &&
-               Directory.Exists(StartingFolderComboBox.Text) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.Text) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text);
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
+               Directory.Exists(StartingFolderComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
 
         [Log(AttributeExclude = true)] // do not log this method
         private bool OnlyReplaceInFilesOperationIsEnabled
@@ -75,7 +76,7 @@ namespace MassFileRenamer.GUI
         /// specify the text to be found.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public ComboBox FindWhatComboBox
+        public EntryRespectingComboBox FindWhatComboBox
         {
             [DebuggerStepThrough] get => findWhatcomboBox;
         }
@@ -148,7 +149,7 @@ namespace MassFileRenamer.GUI
         /// specify the text to replace found text with.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public ComboBox ReplaceWithComboBox
+        public EntryRespectingComboBox ReplaceWithComboBox
         {
             [DebuggerStepThrough] get => replaceWithComboBox;
         }
@@ -179,7 +180,7 @@ namespace MassFileRenamer.GUI
         /// path to the starting folder.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public ComboBox StartingFolderComboBox
+        public EntryRespectingComboBox StartingFolderComboBox
         {
             [DebuggerStepThrough] get => startingFolderComboBox;
         }
@@ -243,6 +244,18 @@ namespace MassFileRenamer.GUI
             );
 
             FoldButton.SetFoldedStateText();
+        }
+
+        private static bool DoesDirectoryContainSolutionFile(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path)) return false;
+            if (!path.IsAbsolutePath()) return false;
+            if (!Directory.Exists(path)) return false;
+
+            return Directory.GetFiles(
+                                path, "*.sln", SearchOption.TopDirectoryOnly
+                            )
+                            .Any();
         }
 
         /// <summary>
@@ -376,15 +389,32 @@ namespace MassFileRenamer.GUI
         /// initialized to hold the pathname to the folder that the user selects.
         /// </para>
         /// </remarks>
-        private void OnClickBrowse(object sender, EventArgs e)
+        private void OnClickBrowseForStartingFolder(object sender, EventArgs e)
         {
             using (var fsd = new FolderSelectDialog())
             {
-                fsd.InitialDirectory = StartingFolderComboBox.Text;
+                fsd.InitialDirectory = StartingFolderComboBox.EnteredText;
                 fsd.Title = "Browse";
                 if (!fsd.ShowDialog(Handle))
                     return;
-                StartingFolderComboBox.Text = fsd.FileName;
+
+                /*
+                 * OKAY, the folder selected by the user must be a folder that contains
+                 * a Visual Studio Solution (*.sln) file.
+                 */
+
+                if (!DoesDirectoryContainSolutionFile(fsd.FileName))
+                {
+                    MessageBox.Show(
+                        this,
+                        "Please select a directory that contains a Visual Studio Solution (*.sln) file.",
+                        Application.ProductName, MessageBoxButtons.OK,
+                        MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                    );
+                    return;
+                }
+
+                StartingFolderComboBox.EnteredText = fsd.FileName;
             }
         }
 
@@ -407,6 +437,14 @@ namespace MassFileRenamer.GUI
             _presenter.UpdateData();
 
             if (!ValidateData()) return;
+
+            //MessageBox.Show(
+            //    this,
+            //    "For debugging purposes, the operation(s) selected have been canceled.",
+            //    Application.ProductName, MessageBoxButtons.OK,
+            //    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+            //);
+            //return;
 
             UseWaitCursor = true;
             Enabled = false;
@@ -994,8 +1032,8 @@ namespace MassFileRenamer.GUI
         /// </remarks>
         private bool ValidateData()
         {
-            if (string.IsNullOrWhiteSpace(StartingFolderComboBox.Text) ||
-                !Directory.Exists(StartingFolderComboBox.Text))
+            if (string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) ||
+                !Directory.Exists(StartingFolderComboBox.EnteredText))
             {
                 MessageBox.Show(
                     this,
@@ -1003,11 +1041,25 @@ namespace MassFileRenamer.GUI
                     Application.ProductName, MessageBoxButtons.OK,
                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
                 );
+                hiddenFocusLabel.Focus();
                 StartingFolderComboBox.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(FindWhatComboBox.Text))
+            if (!DoesDirectoryContainSolutionFile(
+                StartingFolderComboBox.EnteredText
+            ))
+            {
+                MessageBox.Show(
+                    this,
+                    "Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.",
+                    Application.ProductName, MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                );
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
             {
                 MessageBox.Show(
                     this,
@@ -1015,6 +1067,7 @@ namespace MassFileRenamer.GUI
                     Application.ProductName, MessageBoxButtons.OK,
                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
                 );
+                hiddenFocusLabel.Focus();
                 FindWhatComboBox.Focus();
                 return false;
             }
@@ -1027,6 +1080,7 @@ namespace MassFileRenamer.GUI
                     Application.ProductName, MessageBoxButtons.OK,
                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
                 );
+                hiddenFocusLabel.Focus();
                 StartingFolderComboBox.Focus();
                 return false;
             }
@@ -1035,7 +1089,7 @@ namespace MassFileRenamer.GUI
             // enabled, then we allow a blank value for the Replace With value.
             // Otherwise, mandate that the value be filled in
             if (!OnlyReplaceInFilesOperationIsEnabled &&
-                string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text))
+                string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText))
             {
                 MessageBox.Show(
                     this,
@@ -1043,6 +1097,31 @@ namespace MassFileRenamer.GUI
                     Application.ProductName, MessageBoxButtons.OK,
                     MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
                 );
+                hiddenFocusLabel.Focus();
+                ReplaceWithComboBox.Focus();
+                return false;
+            }
+
+            /*
+             * OKAY, Sometimes we also run into circumstances where the Text to Be Replaced
+             * field's value and the With What field's value are identically equal.  This
+             * means no replacement is to be done.  So, we prompt the user to try again, and
+             * fail validation.
+             */
+
+            if (!string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+                !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText) &&
+                FindWhatComboBox.EnteredText.Equals(
+                    ReplaceWithComboBox.EnteredText
+                ))
+            {
+                MessageBox.Show(
+                    this,
+                    "Please type different values in the Text to Be Replaced and With What fields.",
+                    Application.ProductName, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error, MessageBoxDefaultButton.Button1
+                );
+                hiddenFocusLabel.Focus();
                 ReplaceWithComboBox.Focus();
                 return false;
             }

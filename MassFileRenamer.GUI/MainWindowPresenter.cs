@@ -118,11 +118,11 @@ namespace MassFileRenamer.GUI
                     _mainWindow.FindWhatComboBox.Invoke(
                         (Action)(() =>
                         {
-                            result = _mainWindow.FindWhatComboBox.Text;
+                            result = _mainWindow.FindWhatComboBox.EnteredText;
                         })
                     );
                 else
-                    result = _mainWindow.FindWhatComboBox.Text;
+                    result = _mainWindow.FindWhatComboBox.EnteredText;
 
                 return result;
             }
@@ -139,11 +139,11 @@ namespace MassFileRenamer.GUI
                     _mainWindow.ReplaceWithComboBox.Invoke(
                         (Action)(() =>
                         {
-                            result = _mainWindow.ReplaceWithComboBox.Text;
+                            result = _mainWindow.ReplaceWithComboBox.EnteredText;
                         })
                     );
                 else
-                    result = _mainWindow.ReplaceWithComboBox.Text;
+                    result = _mainWindow.ReplaceWithComboBox.EnteredText;
                 return result;
             }
         }
@@ -159,11 +159,11 @@ namespace MassFileRenamer.GUI
                     _mainWindow.StartingFolderComboBox.Invoke(
                         (Action)(() =>
                         {
-                            result = _mainWindow.StartingFolderComboBox.Text;
+                            result = _mainWindow.StartingFolderComboBox.EnteredText;
                         })
                     );
                 else
-                    result = _mainWindow.StartingFolderComboBox.Text;
+                    result = _mainWindow.StartingFolderComboBox.EnteredText;
 
                 return result;
             }

@@ -51,10 +51,12 @@ namespace MassFileRenamer.Objects
         /// <remarks>
         /// Overriders of this method must not call the base class.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         public override ICachedResultAction<TInput, TResult>
             AsCachedResultAction()
             => this;
 
+        [Log(AttributeExclude = true)]
         public virtual void ClearResultCache(
             Action<TInput, TResult> elementAction = null)
             => ActionCacheProvider<TInput, TResult>.Clear(elementAction);
@@ -82,6 +84,7 @@ namespace MassFileRenamer.Objects
         /// Reference to an instance of <typeparamref name="TResult" /> that is
         /// to be associated with the current input value.
         /// </param>
+        [Log(AttributeExclude = true)]
         protected virtual void AddResultToCache(TResult resultToAdd)
             => ActionCacheProvider<TInput, TResult>.Add(_input, resultToAdd);
 
@@ -96,6 +99,7 @@ namespace MassFileRenamer.Objects
         /// Implementers shall override this method to provide the functionality
         /// of the request.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         protected sealed override TResult CommonExecute()
         {
             // write the name of the current class and method we are now
@@ -244,6 +248,7 @@ namespace MassFileRenamer.Objects
         /// provide additional processing; however, it is mandatory to begin the
         /// override's code with a call to the base class.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         protected virtual bool TryGetCachedResult(out TResult result)
             => ActionCacheProvider<TInput, TResult>.ResultCache.TryGetValue(
                 _input, out result

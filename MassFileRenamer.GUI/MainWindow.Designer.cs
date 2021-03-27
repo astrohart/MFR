@@ -39,9 +39,9 @@ namespace MassFileRenamer.GUI
             this.findWhatLabel = new System.Windows.Forms.Label();
             this.replaceWithLabel = new System.Windows.Forms.Label();
             this.performOperationButton = new System.Windows.Forms.Button();
-            this.startingFolderComboBox = new MassFileRenamer.Objects.EntryRespectingComboBox();
-            this.findWhatcomboBox = new MassFileRenamer.Objects.EntryRespectingComboBox();
-            this.replaceWithComboBox = new MassFileRenamer.Objects.EntryRespectingComboBox();
+            this.startingFolderComboBox = new EntryRespectingComboBox();
+            this.findWhatcomboBox = new EntryRespectingComboBox();
+            this.replaceWithComboBox = new EntryRespectingComboBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -103,7 +103,7 @@ namespace MassFileRenamer.GUI
             this.startingFolderBrowseButton.TabIndex = 2;
             this.startingFolderBrowseButton.Text = "...";
             this.startingFolderBrowseButton.UseVisualStyleBackColor = true;
-            this.startingFolderBrowseButton.Click += new System.EventHandler(this.OnClickBrowse);
+            this.startingFolderBrowseButton.Click += new System.EventHandler(this.OnClickBrowseForStartingFolder);
             // 
             // findWhatLabel
             // 

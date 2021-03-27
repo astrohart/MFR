@@ -58,10 +58,12 @@ namespace MassFileRenamer.Objects
 
             try
             {
-                foreach (var moniker in MakeNewMonikerCollection.FromScratch()
+                var collection = MakeNewMonikerCollection.FromScratch()
                     .AndAttachOperatingSystemEnumerator(monikerEnumerator)
                     .AndBindContext(bindContext)
-                    .AndRunningObjectTable(runningObjectTable))
+                    .AndRunningObjectTable(runningObjectTable);
+
+                foreach (var moniker in collection)
                 {
                     if (string.IsNullOrWhiteSpace(moniker.DisplayName))
                         continue;
@@ -74,6 +76,7 @@ namespace MassFileRenamer.Objects
                              throw new InvalidOperationException(
                                  $"Failed to obtain a reference to the running object having display name of '{displayName}'."
                              );
+                    if (result != null) break;  // we have what we need, so stop
                 }
             }
             catch (Exception ex)

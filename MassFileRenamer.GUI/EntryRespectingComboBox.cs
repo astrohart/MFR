@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MassFileRenamer.Objects
+namespace MassFileRenamer.GUI
 {
     /// <summary>
     /// Dropdown combo box that respects typed-in text entries.
@@ -17,7 +17,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.EntryRespectingComboBox" />
+        ///     cref="T:MassFileRenamer.GUI.EntryRespectingComboBox" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -50,7 +50,7 @@ namespace MassFileRenamer.Objects
                    DropDownStyle != ComboBoxStyle.DropDown
                     ? Text
                     : _enteredText;
-            set => _enteredText = value;
+            set => Text = _enteredText = value;
         }
 
         /// <summary>
@@ -59,25 +59,61 @@ namespace MassFileRenamer.Objects
         /// <param name="e">
         /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
+        /// <remarks>
+        /// This method responds by saving off any text directly typed by the
+        /// user into the
+        /// <see
+        ///     cref="P:MassFileRenamer.GUI.EntryRespectingComboBox.EnteredText" />
+        /// property and adding that text to the list.
+        /// </remarks>
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
 
-            _enteredText = Text; // save off the value of the Text property.
+            EnteredText = Text; // save off the value of the Text property.
+
+            if (DropDownStyle == ComboBoxStyle.DropDown &&
+                !Items.Contains(EnteredText))
+            {
+                Items.Insert(
+                    0, /* list goes by reverse chronological order of entry */
+                    EnteredText
+                ); // add the text typed by the user to the list of items
+                SelectedIndex = 0; // select the newly-added item
+            }
+
+            ClearSelection(); // remove the highlight
         }
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.TextChanged" /> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:System.Windows.Forms.ComboBox.SelectedIndexChanged" />
+        /// event.
         /// </summary>
         /// <param name="e">
         /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
-        protected override void OnTextChanged(EventArgs e)
+        /// <remarks>
+        /// This method responds by removing the highlight that persists in the
+        /// edit portion of the control after the selection has been changed.
+        /// </remarks>
+        protected override void OnSelectedIndexChanged(EventArgs e)
         {
-            base.OnTextChanged(e);
+            base.OnSelectedIndexChanged(e);
 
-            if (EnteredText != Text)
-                Text = EnteredText;
+            ClearSelection();
+        }
+
+        /// <summary>
+        /// Called to remove the selection highlight that persists on the text
+        /// in the edit portion of the control even after the selection is
+        /// changed or input focus leaves the control.
+        /// </summary>
+        private void ClearSelection()
+        {
+            SelectionStart = Text.Length;
+            SelectionLength = 0;
         }
     }
 }

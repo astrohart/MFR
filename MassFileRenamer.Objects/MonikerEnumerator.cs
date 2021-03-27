@@ -231,17 +231,77 @@ namespace MassFileRenamer.Objects
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                "*** INFO: Checking whether the '_enumerator' field has a null reference for a value..."
+                "*** INFO: Checking whether the '_bindContext' field has a null reference for a value..."
             );
 
-            // Check to see if the required field, '_enumerator', is null. If it
+            // Check to see if the required field, '_bindContext', is null. If
+            // it is, send an error to the log file and quit.
+            if (_bindContext == null)
+            {
+                // the field '_bindContext' is required.
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR: The '_bindContext' field has a null reference.  This field is required."
+                );
+
+                // log the result
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "MonikerEnumerator.MoveNext: Result = {0}", result
+                );
+
+                // stop.
+                return result;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The '_bindContext' field has a valid object reference for its value."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the '_runningObjectTable' field has a null reference for a value..."
+            );
+
+            // Check to see if the required field, '_runningObjectTable', is
+            // null. If it is, send an error to the log file and quit.
+            if (_runningObjectTable == null)
+            {
+                // the field '_runningObjectTable' is required.
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR: The '_runningObjectTable' field has a null reference.  This field is required."
+                );
+
+                // log the result
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "MonikerEnumerator.MoveNext: Result = {0}", result
+                );
+
+                // stop.
+                return result;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The '_runningObjectTable' field has a valid object reference for its value."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Checking whether the '_monikerEnumerator' field has a null reference for a value..."
+            );
+
+            // Check to see if the required field, '_monikerEnumerator', is null. If it
             // is, send an error to the log file and quit.
             if (_monikerEnumerator == null)
             {
                 // the field '_enumerator' is required.
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    "*** ERROR: The '_enumerator' field has a null reference.  This field is required.  Please call the AttachOperatingSystemEnumerator method prior to calling this method."
+                    "*** ERROR: The '_monikerEnumerator' field has a null reference.  This field is required.  Please call the AttachOperatingSystemEnumerator method prior to calling this method."
                 );
 
                 // log the result
@@ -267,7 +327,7 @@ namespace MassFileRenamer.Objects
              */
 
             var results =
-                new IMoniker [1]; // array where results will be placed by the operating system
+                new IMoniker[1]; // array where results will be placed by the operating system
 
             /*
              * OKAY, we call the IEnumMoniker.Next method here, with a value of 1 to
@@ -280,10 +340,10 @@ namespace MassFileRenamer.Objects
             {
                 var numberFetched = IntPtr.Zero;
                 result =
-                    0 == _monikerEnumerator.Next(1, results, numberFetched)
-                    && results[0] != null;
+                    0 == _monikerEnumerator.Next(1, results, numberFetched) &&
+                    results[0] != null;
                 if (result == false)
-                    return result;  /* stop here */
+                    return result; /* stop here */
 
                 var currentMoniker = results[0];
 
