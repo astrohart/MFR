@@ -1,19 +1,19 @@
 ﻿namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a String Replacer
-    /// Factory object.
+    /// Defines the publicly-exposed methods and properties of a String Matcher Factory
+    /// object.
     /// </summary>
     /// <remarks>
     /// There must be one implementer of this interface for each of the relevant
     /// operation types (Rename File in Folder etc.).
     /// </remarks>
-    public interface IStringReplacerFactory : IFixedOperationTypeSpecificObject
+    public interface IStringMatcherFactory : IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.IStringReplacer" />
+        ///     cref="T:MassFileRenamer.Objects.IStringMatcher" />
         /// interface and
         /// returns a reference to it for the
         /// <see
@@ -31,10 +31,10 @@
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.IStringReplacer" />
+        ///     cref="T:MassFileRenamer.Objects.IStringMatcher" />
         /// interface.
         /// </returns>
-        IStringReplacer AndTextMatchingConfiguration(
+        IStringMatcher AndTextMatchingConfiguration(
             TextMatchingConfiguration matchingConfig);
     }
 }
