@@ -90,8 +90,8 @@
     <Compile Include="FileInfoExtensionsTests.cs" />
     <Compile Include="FileNameReplacementMatchExpressionFactoryTests.cs" />
     <Compile Include="FileValidatorTests.cs" />
-    <Compile Include="FolderNameMatcherTests.cs" />
-    <Compile Include="FileNameMatcherTests.cs" />
+    <Compile Include="FolderNameMatchingEngineTests.cs" />
+    <Compile Include="FileNameMatchingEngineTests.cs" />
     <Compile Include="FileRenamerTests.cs" />
     <Compile Include="FolderNameReplacementEngineTests.cs" />
     <Compile Include="FolderToRenameRetrieverTests.cs" />
@@ -101,7 +101,7 @@
     <Compile Include="GetRunningObjectTableTests.cs" />
     <Compile Include="GetRunningObjectTests.cs" />
     <Compile Include="GetStringReplacerTests.cs" />
-    <Compile Include="GetTextExpressionMatcherTests.cs" />
+    <Compile Include="GetTextExpressionMatchingEngineTests.cs" />
     <Compile Include="LoadConfigurationFromFileActionTests.cs" />
     <Compile Include="LoadStringFromRegistryActionTests.cs" />
     <Compile Include="MakeNewBindContextTests.cs" />
@@ -125,7 +125,7 @@
     <Compile Include="SaveStringToRegistryCommandTests.cs" />
     <Compile Include="StringConstants.cs" />
     <Compile Include="StringExtensionsTests.cs" />
-    <Compile Include="TextExpressionMatcherTestBase.cs" />
+    <Compile Include="TextExpressionMatchingEngineTestBase.cs" />
     <Compile Include="TextReplacementEngineTestBase.cs" />
     <Compile Include="VisualStudioManagerTests.cs" />
   </ItemGroup>
