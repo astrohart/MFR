@@ -189,6 +189,7 @@
     <Compile Include="RenameSubFoldersStringReplacerFactory.cs" />
     <Compile Include="ReplaceTextInFilesOperationTypeDescription.cs" />
     <Compile Include="ReplaceTextInFilesOperationTypeStartedDescription.cs" />
+    <Compile Include="ReplaceTextInFilesStringMatcherBase.cs" />
     <Compile Include="ReplaceTextInfilesStringReplacerBase.cs" />
     <Compile Include="ReplaceTextInFilesStringReplacerFactory.cs" />
     <Compile Include="RequestBase.cs" />
