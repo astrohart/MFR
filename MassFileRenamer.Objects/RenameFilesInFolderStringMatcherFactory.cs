@@ -5,12 +5,94 @@ using System.ComponentModel;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Factory object that creates string matchers, specific to the Rename
-    /// Files in Folder type of operation, for the various combinations of
-    /// Match Case and Match Exact Word.
+    /// Matches strings only for the case where Match Case is set to
+    /// <see
+    ///     langword="true" />
+    /// but Match Exact Word is set to
+    /// <see
+    ///     langword="false" />
+    /// , for the case when a Rename Files in Folder operation
+    /// is being performed.
     /// </summary>
     public class
-        RenameFilesInFolderStringMatcherFactory : IStringMatcherFactory
+        MatchCaseOnlyFileNameStringMatcher :
+            RenameFilesInFolderStringMatcherBase
+    {
+        /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        static MatchCaseOnlyFileNameStringMatcher() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected MatchCaseOnlyFileNameStringMatcher() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MassFileRenamer.Objects.MatchCaseOnlyFileNameStringMatcher" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MatchCaseOnlyFileNameStringMatcher Instance
+        {
+            get;
+        } = new MatchCaseOnlyFileNameStringMatcher();
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
+        /// values
+        /// that corresponds to the type of operation being performed.
+        /// </summary>
+        public override TextMatchingConfiguration TextMatchingConfiguration
+        {
+            get;
+        } = TextMatchingConfiguration.MatchCaseOnly;
+
+        /// <summary>
+        /// Determines whether a <paramref name="value" /> string is a match
+        /// against a <paramref name="findWhat" />, according to how the
+        /// application is configured.
+        /// </summary>
+        /// <param name="value">
+        /// (Required.) String containing the value to check for matches.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Optional.) String containing the pattern that specifies the search criteria.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the data that all instances of
+        /// <paramref name="findWhat" /> in <paramref name="value" /> are to be
+        /// replaced with.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="value" />
+        /// or <paramref name="findWhat" />, are passed blank or
+        /// <see langword="null" /> string for values.
+        /// </exception>
+        /// <returns>
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
+        /// match against the provided <paramref name="findWhat" />;
+        /// <see
+        ///     langword="false" />
+        /// if no matches are found.
+        /// </returns>
+        public override bool IsMatch(string value, string findWhat,
+            string replaceWith = "")
+            => throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Factory object that creates string matchers, specific to the Rename
+    /// Files in Folder type of operation, for the various combinations of Match
+    /// Case and Match Exact Word.
+    /// </summary>
+    public class RenameFilesInFolderStringMatcherFactory : IStringMatcherFactory
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -57,15 +139,15 @@ namespace MassFileRenamer.Objects
         /// returns a reference to it for the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
-        /// value that
-        /// is specified by the <paramref name="matchingConfig" /> parameter.
+        /// value
+        /// that is specified by the <paramref name="matchingConfig" /> parameter.
         /// </summary>
         /// <param name="matchingConfig">
         /// (Required.) One of the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
-        /// values that
-        /// specifies which type of matching is being done.
+        /// values
+        /// that specifies which type of matching is being done.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
@@ -91,7 +173,9 @@ namespace MassFileRenamer.Objects
         public IStringMatcher AndTextMatchingConfiguration(
             TextMatchingConfiguration matchingConfig)
         {
-            if (!Enum.IsDefined(typeof(TextMatchingConfiguration), matchingConfig))
+            if (!Enum.IsDefined(
+                typeof(TextMatchingConfiguration), matchingConfig
+            ))
                 throw new InvalidEnumArgumentException(
                     nameof(matchingConfig), (int)matchingConfig,
                     typeof(TextMatchingConfiguration)
@@ -106,8 +190,7 @@ namespace MassFileRenamer.Objects
                     break;
 
                 case TextMatchingConfiguration.MatchExactWordOnly:
-                    matcher = MatchExactWordOnlyFileNameStringMatcher
-                        .Instance;
+                    matcher = MatchExactWordOnlyFileNameStringMatcher.Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchCaseAndExactWord:
@@ -116,9 +199,8 @@ namespace MassFileRenamer.Objects
                     break;
 
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
-                    matcher =
-                        NeitherMatchCaseNorExactWordFileNameStringMatcher
-                            .Instance;
+                    matcher = NeitherMatchCaseNorExactWordFileNameStringMatcher
+                        .Instance;
                     break;
 
                 default:
@@ -130,58 +212,5 @@ namespace MassFileRenamer.Objects
 
             return matcher;
         }
-    }
-
-    /// <summary>
-    /// Matches strings only for the case where Match Case is set to <see langword="true" /> but Match
-    /// Exact Word is set to <see langword="false" />, for the case when a Rename Files in Folder operation
-    /// is being performed.
-    /// </summary>
-    public class MatchCaseOnlyFileNameStringMatcher : RenameFilesInFolderStringMatcherBase
-    {
-        /// <summary>
-        /// Determines whether a <paramref name="value" /> string is a match
-        /// against a <paramref name="findWhat" />, according to how the
-        /// application is configured.
-        /// </summary>
-        /// <param name="value">
-        /// (Required.) String containing the value to check for matches.
-        /// </param>
-        /// <param name="findWhat">
-        /// (Optional.) String containing the pattern that specifies the search criteria.
-        /// </param>
-        /// <param name="replaceWith">
-        /// (Required.) String containing the data that all instances of
-        /// <paramref name="findWhat" /> in <paramref name="value" /> are to be
-        /// replaced with.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="value" />
-        /// or <paramref name="findWhat" />, are passed blank or
-        /// <see langword="null" /> string for values.
-        /// </exception>
-        /// <returns>
-        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
-        /// match against the provided <paramref name="findWhat" />;
-        /// <see
-        ///     langword="false" />
-        /// if no matches are found.
-        /// </returns>
-        public override bool IsMatch(string value, string findWhat, string replaceWith = "")
-            => throw new NotImplementedException();
-
-        /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration" />
-        /// values
-        /// that corresponds to the type of operation being performed.
-        /// </summary>
-        public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchCaseOnly;
     }
 }
