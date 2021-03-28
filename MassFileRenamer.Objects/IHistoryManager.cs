@@ -9,6 +9,10 @@
         /// <summary>
         /// Clears all the history objects in a configuration object.
         /// </summary>
-        void ClearAll();
+        /// <returns>
+        /// <see langword="true" /> if the Clear operation was carried out
+        /// successfully; <see langword="false" /> otherwise.
+        /// </returns>
+        bool ClearAll();
     }
 }

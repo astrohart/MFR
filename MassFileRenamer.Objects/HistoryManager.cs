@@ -1,4 +1,5 @@
 ﻿using MassFileRenamer.Objects.Properties;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Manages the configuration history on behalf of the application.
     /// </summary>
-    public class HistoryManager : ConfigurationComposedObjectBase, IHistoryManager
+    public class HistoryManager : ConfigurationComposedObjectBase,
+        IHistoryManager
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -53,31 +55,36 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Clears all the history objects in a configuration object.
         /// </summary>
-        public void ClearAll()
+        /// <returns>
+        /// <see langword="true" /> if the Clear operation was carried out
+        /// successfully; <see langword="false" /> otherwise.
+        /// </returns>
+        [Log(AttributeExclude = true)]
+        public bool ClearAll()
         {
             if (!CanClearAll())
-                return;
+                return false;
 
             // Since this configuration object may have god knows how many
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
             var historyLists = Configuration.GetType()
-                                             .GetProperties()
-                                             .Where(
-                                                 x => x.PropertyType
-                                                         .GetActualType() !=
-                                                     x.PropertyType &&
-                                                     x.Name.Contains("History")
-                                             )
-                                             .Select(
-                                                 p => p.GetValue(
-                                                     Configuration
-                                                 ) as IList
-                                             )
-                                             .ToArray();
+                                            .GetProperties()
+                                            .Where(
+                                                x => x.PropertyType
+                                                        .GetActualType() !=
+                                                    x.PropertyType &&
+                                                    x.Name.Contains("History")
+                                            )
+                                            .Select(
+                                                p => p.GetValue(
+                                                    Configuration
+                                                ) as IList
+                                            )
+                                            .ToArray();
             if (!historyLists.Any())
-                return;
+                return false;
 
             foreach (var list in historyLists)
                 list.Clear();
@@ -86,6 +93,8 @@ namespace MassFileRenamer.Objects
             // basically like a "Reset Form" button on a website.
             Configuration.StartingFolder = Configuration.FindWhat =
                 Configuration.ReplaceWith = string.Empty;
+
+            return true;    // success
         }
 
         /// <summary>
@@ -93,13 +102,13 @@ namespace MassFileRenamer.Objects
         /// or not.
         /// </summary>
         /// <returns>
-        /// <see langword="true" /> if the user confirms that all the history can be
-        /// cleared; <see langword="false" /> otherwise.
+        /// <see langword="true" /> if the user confirms that all the history can
+        /// be cleared; <see langword="false" /> otherwise.
         /// </returns>
         /// <remarks>
-        /// This method does nothing but return <see langword="false" /> if all the history
-        /// lists are already clear, since, in that event, this means that there
-        /// is nothing to do.
+        /// This method does nothing but return <see langword="false" /> if all
+        /// the history lists are already clear, since, in that event, this
+        /// means that there is nothing to do.
         /// </remarks>
         private bool CanClearAll()
         {

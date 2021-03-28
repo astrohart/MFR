@@ -247,6 +247,7 @@ namespace MassFileRenamer.GUI
         /// <summary>
         /// Clears all the history lists in the configuration.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public void ClearAllHistory()
         {
             // write the name of the current class and method we are now
@@ -255,7 +256,10 @@ namespace MassFileRenamer.GUI
                 DebugLevel.Debug, "In MainWindowPresenter.ClearAllHistory"
             );
 
-            _historyManager.ClearAll();
+            UpdateData();   // save data from the screen prior to doing the operation
+
+            if (!_historyManager.ClearAll())
+                return;         // clear operation canceled or not carried out
 
             UpdateData(false);
 

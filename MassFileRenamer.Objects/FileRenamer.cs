@@ -289,7 +289,7 @@ namespace MassFileRenamer.Objects
                 )
             );
         }
-
+        
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with

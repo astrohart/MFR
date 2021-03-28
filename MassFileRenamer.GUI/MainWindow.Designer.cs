@@ -46,19 +46,26 @@ namespace MassFileRenamer.GUI
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolBar = new System.Windows.Forms.ToolStripMenuItem();
             this.viewStatusBar = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsPerform = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolsSaveProfileAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigApplyProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigProfiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsConfigNewProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsHistoryMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearStartingFolderHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearFindWhatHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearReplaceWithHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsHistoryClearAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsConfigMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsConfigImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsConfigExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,25 +82,33 @@ namespace MassFileRenamer.GUI
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MassFileRenamer.Objects.FoldUnfoldButton();
             this.hiddenFocusLabel = new System.Windows.Forms.Label();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolsConfigApplyProfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsConfigProfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceWithComboBox = new MassFileRenamer.GUI.EntryRespectingComboBox();
             this.findWhatcomboBox = new MassFileRenamer.GUI.EntryRespectingComboBox();
             this.startingFolderComboBox = new MassFileRenamer.GUI.EntryRespectingComboBox();
-            this.toolsConfigNewProfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsSaveProfileAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.standardToolBar = new System.Windows.Forms.ToolStrip();
+            this.goButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.newProfileButton = new System.Windows.Forms.ToolStripButton();
+            this.saveProfileButton = new System.Windows.Forms.ToolStripButton();
+            this.manageProfilesButton = new System.Windows.Forms.ToolStripButton();
+            this.profileListComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportConfigButton = new System.Windows.Forms.ToolStripButton();
+            this.importConfigButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.clearAllHistoryButton = new System.Windows.Forms.ToolStripButton();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
             this.findReplaceOptionsTabPage.SuspendLayout();
             this.operationsTabPage.SuspendLayout();
+            this.standardToolBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // startingFolderLabel
             // 
             this.startingFolderLabel.AutoSize = true;
-            this.startingFolderLabel.Location = new System.Drawing.Point(12, 68);
+            this.startingFolderLabel.Location = new System.Drawing.Point(12, 62);
             this.startingFolderLabel.Name = "startingFolderLabel";
             this.startingFolderLabel.Size = new System.Drawing.Size(226, 15);
             this.startingFolderLabel.TabIndex = 0;
@@ -101,7 +116,7 @@ namespace MassFileRenamer.GUI
             // 
             // startingFolderBrowseButton
             // 
-            this.startingFolderBrowseButton.Location = new System.Drawing.Point(560, 84);
+            this.startingFolderBrowseButton.Location = new System.Drawing.Point(560, 78);
             this.startingFolderBrowseButton.Name = "startingFolderBrowseButton";
             this.startingFolderBrowseButton.Size = new System.Drawing.Size(24, 27);
             this.startingFolderBrowseButton.TabIndex = 2;
@@ -112,7 +127,7 @@ namespace MassFileRenamer.GUI
             // findWhatLabel
             // 
             this.findWhatLabel.AutoSize = true;
-            this.findWhatLabel.Location = new System.Drawing.Point(9, 123);
+            this.findWhatLabel.Location = new System.Drawing.Point(9, 117);
             this.findWhatLabel.Name = "findWhatLabel";
             this.findWhatLabel.Size = new System.Drawing.Size(109, 15);
             this.findWhatLabel.TabIndex = 3;
@@ -121,7 +136,7 @@ namespace MassFileRenamer.GUI
             // replaceWithLabel
             // 
             this.replaceWithLabel.AutoSize = true;
-            this.replaceWithLabel.Location = new System.Drawing.Point(9, 177);
+            this.replaceWithLabel.Location = new System.Drawing.Point(9, 171);
             this.replaceWithLabel.Name = "replaceWithLabel";
             this.replaceWithLabel.Size = new System.Drawing.Size(64, 15);
             this.replaceWithLabel.TabIndex = 5;
@@ -130,11 +145,14 @@ namespace MassFileRenamer.GUI
             // performOperationButton
             // 
             this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.performOperationButton.Location = new System.Drawing.Point(436, 225);
+            this.performOperationButton.Image = ((System.Drawing.Image)(resources.GetObject("performOperationButton.Image")));
+            this.performOperationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.performOperationButton.Location = new System.Drawing.Point(459, 219);
             this.performOperationButton.Name = "performOperationButton";
-            this.performOperationButton.Size = new System.Drawing.Size(148, 27);
+            this.performOperationButton.Size = new System.Drawing.Size(128, 27);
             this.performOperationButton.TabIndex = 8;
             this.performOperationButton.Text = "&Perform Operation";
+            this.performOperationButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.performOperationButton.UseVisualStyleBackColor = true;
             this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
             // 
@@ -143,7 +161,7 @@ namespace MassFileRenamer.GUI
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarMessage,
             this.statusBarProgressBar});
-            this.statusBar.Location = new System.Drawing.Point(0, 488);
+            this.statusBar.Location = new System.Drawing.Point(0, 482);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -197,10 +215,21 @@ namespace MassFileRenamer.GUI
             // viewMenu
             // 
             this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolBar,
             this.viewStatusBar});
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(44, 20);
             this.viewMenu.Text = "&View";
+            // 
+            // viewToolBar
+            // 
+            this.viewToolBar.Checked = true;
+            this.viewToolBar.CheckOnClick = true;
+            this.viewToolBar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewToolBar.Name = "viewToolBar";
+            this.viewToolBar.Size = new System.Drawing.Size(180, 22);
+            this.viewToolBar.Text = "&Toolbar";
+            this.viewToolBar.Click += new System.EventHandler(this.OnViewToolBar);
             // 
             // viewStatusBar
             // 
@@ -208,7 +237,7 @@ namespace MassFileRenamer.GUI
             this.viewStatusBar.CheckOnClick = true;
             this.viewStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewStatusBar.Name = "viewStatusBar";
-            this.viewStatusBar.Size = new System.Drawing.Size(126, 22);
+            this.viewStatusBar.Size = new System.Drawing.Size(180, 22);
             this.viewStatusBar.Text = "&Status Bar";
             this.viewStatusBar.Click += new System.EventHandler(this.OnViewStatusBar);
             // 
@@ -231,20 +260,91 @@ namespace MassFileRenamer.GUI
             // 
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsConfigMenu,
-            this.toolsHistoryMenu,
             this.toolStripSeparator1,
             this.toolsOptions});
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
             // 
+            // toolsConfigMenu
+            // 
+            this.toolsConfigMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsConfigImport,
+            this.toolsConfigExport,
+            this.toolStripSeparator2,
+            this.toolsSaveProfileAs,
+            this.toolsConfigApplyProfile,
+            this.toolsConfigProfiles,
+            this.toolsConfigNewProfile,
+            this.toolStripSeparator5,
+            this.toolsHistoryMenu});
+            this.toolsConfigMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigMenu.Image")));
+            this.toolsConfigMenu.Name = "toolsConfigMenu";
+            this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
+            this.toolsConfigMenu.Text = "&Configuration";
+            // 
+            // toolsConfigImport
+            // 
+            this.toolsConfigImport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigImport.Image")));
+            this.toolsConfigImport.Name = "toolsConfigImport";
+            this.toolsConfigImport.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigImport.Text = "&Import...";
+            this.toolsConfigImport.Click += new System.EventHandler(this.OnToolsConfigImport);
+            // 
+            // toolsConfigExport
+            // 
+            this.toolsConfigExport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigExport.Image")));
+            this.toolsConfigExport.Name = "toolsConfigExport";
+            this.toolsConfigExport.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigExport.Text = "&Export...";
+            this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsExportConfig);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            // 
+            // toolsSaveProfileAs
+            // 
+            this.toolsSaveProfileAs.Image = ((System.Drawing.Image)(resources.GetObject("toolsSaveProfileAs.Image")));
+            this.toolsSaveProfileAs.Name = "toolsSaveProfileAs";
+            this.toolsSaveProfileAs.Size = new System.Drawing.Size(159, 22);
+            this.toolsSaveProfileAs.Text = "&Save Profile As";
+            // 
+            // toolsConfigApplyProfile
+            // 
+            this.toolsConfigApplyProfile.Name = "toolsConfigApplyProfile";
+            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigApplyProfile.Text = "&Apply Profile";
+            // 
+            // toolsConfigProfiles
+            // 
+            this.toolsConfigProfiles.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigProfiles.Image")));
+            this.toolsConfigProfiles.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolsConfigProfiles.Name = "toolsConfigProfiles";
+            this.toolsConfigProfiles.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigProfiles.Text = "&Manage Profiles";
+            // 
+            // toolsConfigNewProfile
+            // 
+            this.toolsConfigNewProfile.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigNewProfile.Image")));
+            this.toolsConfigNewProfile.Name = "toolsConfigNewProfile";
+            this.toolsConfigNewProfile.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigNewProfile.Text = "&New Profile";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(156, 6);
+            // 
             // toolsHistoryMenu
             // 
             this.toolsHistoryMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsHistoryClearMenu,
             this.toolsHistoryClearAll});
+            this.toolsHistoryMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryMenu.Image")));
             this.toolsHistoryMenu.Name = "toolsHistoryMenu";
-            this.toolsHistoryMenu.Size = new System.Drawing.Size(180, 22);
+            this.toolsHistoryMenu.Size = new System.Drawing.Size(159, 22);
             this.toolsHistoryMenu.Text = "&History";
             // 
             // toolsHistoryClearMenu
@@ -277,48 +377,22 @@ namespace MassFileRenamer.GUI
             // 
             // toolsHistoryClearAll
             // 
+            this.toolsHistoryClearAll.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryClearAll.Image")));
             this.toolsHistoryClearAll.Name = "toolsHistoryClearAll";
             this.toolsHistoryClearAll.Size = new System.Drawing.Size(118, 22);
             this.toolsHistoryClearAll.Text = "Clear &All";
-            this.toolsHistoryClearAll.Click += new System.EventHandler(this.OnToolsHistoryClearAll);
-            // 
-            // toolsConfigMenu
-            // 
-            this.toolsConfigMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsConfigImport,
-            this.toolsConfigExport,
-            this.toolStripSeparator2,
-            this.toolsSaveProfileAs,
-            this.toolsConfigApplyProfile,
-            this.toolsConfigProfiles,
-            this.toolsConfigNewProfile});
-            this.toolsConfigMenu.Name = "toolsConfigMenu";
-            this.toolsConfigMenu.Size = new System.Drawing.Size(180, 22);
-            this.toolsConfigMenu.Text = "&Configuration";
-            // 
-            // toolsConfigImport
-            // 
-            this.toolsConfigImport.Name = "toolsConfigImport";
-            this.toolsConfigImport.Size = new System.Drawing.Size(180, 22);
-            this.toolsConfigImport.Text = "&Import...";
-            this.toolsConfigImport.Click += new System.EventHandler(this.OnToolsImportConfig);
-            // 
-            // toolsConfigExport
-            // 
-            this.toolsConfigExport.Name = "toolsConfigExport";
-            this.toolsConfigExport.Size = new System.Drawing.Size(180, 22);
-            this.toolsConfigExport.Text = "&Export...";
-            this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsExportConfig);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // toolsOptions
             // 
+            this.toolsOptions.Image = ((System.Drawing.Image)(resources.GetObject("toolsOptions.Image")));
+            this.toolsOptions.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(180, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(148, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
@@ -344,7 +418,7 @@ namespace MassFileRenamer.GUI
             this.optionsTabControl.Controls.Add(this.operationsTabPage);
             this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
             this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
-            this.optionsTabControl.Location = new System.Drawing.Point(15, 268);
+            this.optionsTabControl.Location = new System.Drawing.Point(15, 262);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
@@ -454,7 +528,7 @@ namespace MassFileRenamer.GUI
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 294);
             this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 515);
-            this.foldButton.Location = new System.Drawing.Point(15, 225);
+            this.foldButton.Location = new System.Drawing.Point(15, 219);
             this.foldButton.Name = "foldButton";
             this.foldButton.Size = new System.Drawing.Size(87, 27);
             this.foldButton.TabIndex = 7;
@@ -471,30 +545,13 @@ namespace MassFileRenamer.GUI
             this.hiddenFocusLabel.TabIndex = 12;
             this.hiddenFocusLabel.Visible = false;
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolsConfigApplyProfile
-            // 
-            this.toolsConfigApplyProfile.Name = "toolsConfigApplyProfile";
-            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(180, 22);
-            this.toolsConfigApplyProfile.Text = "&Apply Profile";
-            // 
-            // toolsConfigProfiles
-            // 
-            this.toolsConfigProfiles.Name = "toolsConfigProfiles";
-            this.toolsConfigProfiles.Size = new System.Drawing.Size(180, 22);
-            this.toolsConfigProfiles.Text = "&Profiles...";
-            // 
             // replaceWithComboBox
             // 
             this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.replaceWithComboBox.EnteredText = "";
             this.replaceWithComboBox.FormattingEnabled = true;
-            this.replaceWithComboBox.Location = new System.Drawing.Point(15, 196);
+            this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
             this.replaceWithComboBox.Name = "replaceWithComboBox";
             this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
             this.replaceWithComboBox.TabIndex = 6;
@@ -506,7 +563,7 @@ namespace MassFileRenamer.GUI
             this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.findWhatcomboBox.EnteredText = "";
             this.findWhatcomboBox.FormattingEnabled = true;
-            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 142);
+            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
             this.findWhatcomboBox.Name = "findWhatcomboBox";
             this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
             this.findWhatcomboBox.TabIndex = 4;
@@ -518,30 +575,132 @@ namespace MassFileRenamer.GUI
             this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.startingFolderComboBox.EnteredText = "";
             this.startingFolderComboBox.FormattingEnabled = true;
-            this.startingFolderComboBox.Location = new System.Drawing.Point(15, 87);
+            this.startingFolderComboBox.Items.AddRange(new object[] {
+            ""});
+            this.startingFolderComboBox.Location = new System.Drawing.Point(15, 81);
             this.startingFolderComboBox.Name = "startingFolderComboBox";
             this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
             this.startingFolderComboBox.TabIndex = 1;
             this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
-            // toolsConfigNewProfile
+            // standardToolBar
             // 
-            this.toolsConfigNewProfile.Name = "toolsConfigNewProfile";
-            this.toolsConfigNewProfile.Size = new System.Drawing.Size(180, 22);
-            this.toolsConfigNewProfile.Text = "&New Profile";
+            this.standardToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.standardToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.goButton,
+            this.toolStripSeparator3,
+            this.newProfileButton,
+            this.saveProfileButton,
+            this.manageProfilesButton,
+            this.profileListComboBox,
+            this.toolStripSeparator4,
+            this.exportConfigButton,
+            this.importConfigButton,
+            this.toolStripSeparator6,
+            this.clearAllHistoryButton});
+            this.standardToolBar.Location = new System.Drawing.Point(0, 24);
+            this.standardToolBar.Name = "standardToolBar";
+            this.standardToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.standardToolBar.Size = new System.Drawing.Size(596, 25);
+            this.standardToolBar.TabIndex = 13;
+            this.standardToolBar.Text = "Standard";
             // 
-            // toolsSaveProfileAs
+            // goButton
             // 
-            this.toolsSaveProfileAs.Name = "toolsSaveProfileAs";
-            this.toolsSaveProfileAs.Size = new System.Drawing.Size(180, 22);
-            this.toolsSaveProfileAs.Text = "&Save Profile...";
+            this.goButton.Image = ((System.Drawing.Image)(resources.GetObject("goButton.Image")));
+            this.goButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(42, 22);
+            this.goButton.Text = "&Go";
+            this.goButton.ToolTipText = "Perform Operation";
+            this.goButton.Click += new System.EventHandler(this.OnOperationsPerform);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // newProfileButton
+            // 
+            this.newProfileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newProfileButton.Image = ((System.Drawing.Image)(resources.GetObject("newProfileButton.Image")));
+            this.newProfileButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.newProfileButton.Name = "newProfileButton";
+            this.newProfileButton.Size = new System.Drawing.Size(23, 22);
+            this.newProfileButton.Text = "New Profile";
+            // 
+            // saveProfileButton
+            // 
+            this.saveProfileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveProfileButton.Image = ((System.Drawing.Image)(resources.GetObject("saveProfileButton.Image")));
+            this.saveProfileButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.saveProfileButton.Name = "saveProfileButton";
+            this.saveProfileButton.Size = new System.Drawing.Size(23, 22);
+            this.saveProfileButton.Text = "Save Profile As";
+            // 
+            // manageProfilesButton
+            // 
+            this.manageProfilesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.manageProfilesButton.Image = ((System.Drawing.Image)(resources.GetObject("manageProfilesButton.Image")));
+            this.manageProfilesButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.manageProfilesButton.Name = "manageProfilesButton";
+            this.manageProfilesButton.Size = new System.Drawing.Size(23, 22);
+            this.manageProfilesButton.Text = "Manage Profiles";
+            // 
+            // profileListComboBox
+            // 
+            this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.profileListComboBox.Name = "profileListComboBox";
+            this.profileListComboBox.Size = new System.Drawing.Size(200, 25);
+            this.profileListComboBox.ToolTipText = "Profiles";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // exportConfigButton
+            // 
+            this.exportConfigButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.exportConfigButton.Image = ((System.Drawing.Image)(resources.GetObject("exportConfigButton.Image")));
+            this.exportConfigButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.exportConfigButton.Name = "exportConfigButton";
+            this.exportConfigButton.Size = new System.Drawing.Size(23, 22);
+            this.exportConfigButton.Text = "Export Configuration";
+            this.exportConfigButton.Click += new System.EventHandler(this.OnToolsExportConfig);
+            // 
+            // importConfigButton
+            // 
+            this.importConfigButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.importConfigButton.Image = ((System.Drawing.Image)(resources.GetObject("importConfigButton.Image")));
+            this.importConfigButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.importConfigButton.Name = "importConfigButton";
+            this.importConfigButton.Size = new System.Drawing.Size(23, 22);
+            this.importConfigButton.Text = "Import Configuration";
+            this.importConfigButton.Click += new System.EventHandler(this.OnToolsConfigImport);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // clearAllHistoryButton
+            // 
+            this.clearAllHistoryButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.clearAllHistoryButton.Image = ((System.Drawing.Image)(resources.GetObject("clearAllHistoryButton.Image")));
+            this.clearAllHistoryButton.ImageTransparentColor = System.Drawing.Color.White;
+            this.clearAllHistoryButton.Name = "clearAllHistoryButton";
+            this.clearAllHistoryButton.Size = new System.Drawing.Size(23, 22);
+            this.clearAllHistoryButton.Text = "Clear All History";
+            this.clearAllHistoryButton.Click += new System.EventHandler(this.OnToolsHistoryClearAll);
             // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 510);
+            this.ClientSize = new System.Drawing.Size(596, 504);
+            this.Controls.Add(this.standardToolBar);
             this.Controls.Add(this.hiddenFocusLabel);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
@@ -573,6 +732,8 @@ namespace MassFileRenamer.GUI
             this.findReplaceOptionsTabPage.PerformLayout();
             this.operationsTabPage.ResumeLayout(false);
             this.operationsTabPage.PerformLayout();
+            this.standardToolBar.ResumeLayout(false);
+            this.standardToolBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -597,7 +758,6 @@ namespace MassFileRenamer.GUI
         private ToolStripMenuItem toolsOptions;
         private ToolStripStatusLabel statusBarMessage;
         private ToolStripMenuItem viewMenu;
-        private ToolStripMenuItem viewStatusBar;
         private ToolStripMenuItem toolsConfigMenu;
         private ToolStripMenuItem toolsConfigImport;
         private ToolStripMenuItem toolsConfigExport;
@@ -616,12 +776,6 @@ namespace MassFileRenamer.GUI
         private CheckBox matchCaseCheckBox;
         private ToolStripMenuItem helpMenu;
         private ToolStripMenuItem helpAbout;
-        private ToolStripMenuItem toolsHistoryMenu;
-        private ToolStripMenuItem toolsHistoryClearMenu;
-        private ToolStripMenuItem toolsHistoryClearStartingFolderHistory;
-        private ToolStripMenuItem toolsHistoryClearFindWhatHistory;
-        private ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
-        private ToolStripMenuItem toolsHistoryClearAll;
         private ToolStripProgressBar statusBarProgressBar;
         private Label hiddenFocusLabel;
         private ToolStripSeparator toolStripSeparator2;
@@ -629,6 +783,27 @@ namespace MassFileRenamer.GUI
         private ToolStripMenuItem toolsConfigProfiles;
         private ToolStripMenuItem toolsSaveProfileAs;
         private ToolStripMenuItem toolsConfigNewProfile;
+        private ToolStrip standardToolBar;
+        private ToolStripButton goButton;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton newProfileButton;
+        private ToolStripButton manageProfilesButton;
+        private ToolStripComboBox profileListComboBox;
+        private ToolStripMenuItem viewToolBar;
+        private ToolStripMenuItem viewStatusBar;
+        private ToolStripButton saveProfileButton;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem toolsHistoryMenu;
+        private ToolStripMenuItem toolsHistoryClearMenu;
+        private ToolStripMenuItem toolsHistoryClearStartingFolderHistory;
+        private ToolStripMenuItem toolsHistoryClearFindWhatHistory;
+        private ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
+        private ToolStripMenuItem toolsHistoryClearAll;
+        private ToolStripButton exportConfigButton;
+        private ToolStripButton importConfigButton;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripButton clearAllHistoryButton;
     }
 }
 
