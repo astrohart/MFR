@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace MassFileRenamer.Objects
 {
@@ -18,6 +19,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public FileNameMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
@@ -36,6 +38,7 @@ namespace MassFileRenamer.Objects
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         internal FileNameMatchingEngine()
         {
             // TODO: Add default object initialization code here
