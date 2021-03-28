@@ -339,8 +339,8 @@ namespace MassFileRenamer.GUI
             // toolsHistoryMenu
             // 
             this.toolsHistoryMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsHistoryClearMenu,
-            this.toolsHistoryClearAll});
+            this.toolsHistoryClearAll,
+            this.toolsHistoryClearMenu});
             this.toolsHistoryMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryMenu.Image")));
             this.toolsHistoryMenu.Name = "toolsHistoryMenu";
             this.toolsHistoryMenu.Size = new System.Drawing.Size(180, 22);
@@ -353,8 +353,8 @@ namespace MassFileRenamer.GUI
             this.toolsHistoryClearFindWhatHistory,
             this.toolsHistoryClearReplaceWithHistory});
             this.toolsHistoryClearMenu.Name = "toolsHistoryClearMenu";
-            this.toolsHistoryClearMenu.Size = new System.Drawing.Size(118, 22);
-            this.toolsHistoryClearMenu.Text = "&Clear";
+            this.toolsHistoryClearMenu.Size = new System.Drawing.Size(180, 22);
+            this.toolsHistoryClearMenu.Text = "Clear &Specifically";
             // 
             // toolsHistoryClearStartingFolderHistory
             // 
@@ -378,8 +378,8 @@ namespace MassFileRenamer.GUI
             // 
             this.toolsHistoryClearAll.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryClearAll.Image")));
             this.toolsHistoryClearAll.Name = "toolsHistoryClearAll";
-            this.toolsHistoryClearAll.Size = new System.Drawing.Size(118, 22);
-            this.toolsHistoryClearAll.Text = "Clear &All";
+            this.toolsHistoryClearAll.Size = new System.Drawing.Size(180, 22);
+            this.toolsHistoryClearAll.Text = "&Clear";
             // 
             // toolStripSeparator1
             // 
