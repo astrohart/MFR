@@ -278,16 +278,15 @@ namespace MassFileRenamer.GUI
             this.toolsConfigNewProfile,
             this.toolStripSeparator5,
             this.toolsHistoryMenu});
-            this.toolsConfigMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigMenu.Image")));
             this.toolsConfigMenu.Name = "toolsConfigMenu";
-            this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
+            this.toolsConfigMenu.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigMenu.Text = "&Configuration";
             // 
             // toolsConfigImport
             // 
             this.toolsConfigImport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigImport.Image")));
             this.toolsConfigImport.Name = "toolsConfigImport";
-            this.toolsConfigImport.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigImport.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigImport.Text = "&Import...";
             this.toolsConfigImport.Click += new System.EventHandler(this.OnToolsConfigImport);
             // 
@@ -295,26 +294,26 @@ namespace MassFileRenamer.GUI
             // 
             this.toolsConfigExport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigExport.Image")));
             this.toolsConfigExport.Name = "toolsConfigExport";
-            this.toolsConfigExport.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigExport.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigExport.Text = "&Export...";
             this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsExportConfig);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsSaveProfileAs
             // 
             this.toolsSaveProfileAs.Image = ((System.Drawing.Image)(resources.GetObject("toolsSaveProfileAs.Image")));
             this.toolsSaveProfileAs.Name = "toolsSaveProfileAs";
-            this.toolsSaveProfileAs.Size = new System.Drawing.Size(159, 22);
+            this.toolsSaveProfileAs.Size = new System.Drawing.Size(180, 22);
             this.toolsSaveProfileAs.Text = "&Save Profile As";
             // 
             // toolsConfigApplyProfile
             // 
             this.toolsConfigApplyProfile.Name = "toolsConfigApplyProfile";
-            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigApplyProfile.Text = "&Apply Profile";
             // 
             // toolsConfigProfiles
@@ -322,20 +321,20 @@ namespace MassFileRenamer.GUI
             this.toolsConfigProfiles.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigProfiles.Image")));
             this.toolsConfigProfiles.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsConfigProfiles.Name = "toolsConfigProfiles";
-            this.toolsConfigProfiles.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigProfiles.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigProfiles.Text = "&Manage Profiles";
             // 
             // toolsConfigNewProfile
             // 
             this.toolsConfigNewProfile.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigNewProfile.Image")));
             this.toolsConfigNewProfile.Name = "toolsConfigNewProfile";
-            this.toolsConfigNewProfile.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigNewProfile.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigNewProfile.Text = "&New Profile";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsHistoryMenu
             // 
@@ -344,7 +343,7 @@ namespace MassFileRenamer.GUI
             this.toolsHistoryClearAll});
             this.toolsHistoryMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryMenu.Image")));
             this.toolsHistoryMenu.Name = "toolsHistoryMenu";
-            this.toolsHistoryMenu.Size = new System.Drawing.Size(159, 22);
+            this.toolsHistoryMenu.Size = new System.Drawing.Size(180, 22);
             this.toolsHistoryMenu.Text = "&History";
             // 
             // toolsHistoryClearMenu
@@ -385,14 +384,14 @@ namespace MassFileRenamer.GUI
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsOptions
             // 
             this.toolsOptions.Image = ((System.Drawing.Image)(resources.GetObject("toolsOptions.Image")));
             this.toolsOptions.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(148, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(180, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
