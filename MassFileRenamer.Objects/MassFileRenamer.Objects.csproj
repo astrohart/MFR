@@ -216,7 +216,7 @@
     <Compile Include="FileSystemEntryValidatorBase.cs" />
     <Compile Include="FileValidator.cs" />
     <Compile Include="FixedMessageTypeSpecificObjectBase.cs" />
-    <Compile Include="FolderNameMatcher.cs" />
+    <Compile Include="FolderNameMatchingEngine.cs" />
     <Compile Include="FolderNameReplacementEngine.cs" />
     <Compile Include="FolderNameReplacementMatchExpressionFactory.cs" />
     <Compile Include="FolderTextValueRetriever.cs" />
@@ -228,7 +228,7 @@
     <Compile Include="MakeNewProcessIdProvider.cs" />
     <Compile Include="GetRegistryExpressionValidator.cs" />
     <Compile Include="GetTextReplacementEngine.cs" />
-    <Compile Include="GetTextExpressionMatcher.cs" />
+    <Compile Include="GetTextExpressionMatchingEngine.cs" />
     <Compile Include="GetTextValueRetriever.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IAction.cs" />
@@ -256,7 +256,7 @@
     <Compile Include="MakeNewFileSystemEntry.cs" />
     <Compile Include="MakeNewRegQueryExpression.cs" />
     <Compile Include="MatchExpression.cs" />
-    <Compile Include="FileNameMatcher.cs" />
+    <Compile Include="FileNameMatchingEngine.cs" />
     <Compile Include="MatchExpressionFactoryBase.cs" />
     <Compile Include="OperationTypeSpecificObjectBase.cs" />
     <Compile Include="ProcessIdProvider.cs" />
@@ -281,7 +281,7 @@
     <Compile Include="FormFoldedEventHandler.cs" />
     <Compile Include="HistoryManager.cs" />
     <Compile Include="IConfiguration.cs" />
-    <Compile Include="ITextExpressionMatcher.cs" />
+    <Compile Include="ITextExpressionMatchingEngine.cs" />
     <Compile Include="IFileRenamer.cs" />
     <Compile Include="IHistoryManager.cs" />
     <Compile Include="InvalidPathException.cs" />
@@ -312,8 +312,8 @@
     <Compile Include="StatusUpdateEventArgs.cs" />
     <Compile Include="StatusUpdateEventHandler.cs" />
     <Compile Include="SystemPreparer.cs" />
-    <Compile Include="TextExpressionMatcherBase.cs" />
-    <Compile Include="TextInFileMatcher.cs" />
+    <Compile Include="TextExpressionMatchingEngineBase.cs" />
+    <Compile Include="TextInFileMatchingEngine.cs" />
     <Compile Include="TextInFileReplacementEngine.cs" />
     <Compile Include="TextInFilesRetriever.cs" />
     <Compile Include="TextInFileTextValueRetriever.cs" />
