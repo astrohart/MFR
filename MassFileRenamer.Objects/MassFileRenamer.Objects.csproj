@@ -184,6 +184,7 @@
     <Compile Include="RenameFilesInFolderStringReplacerFactory.cs" />
     <Compile Include="RenameSubFoldersOperationTypeDescription.cs" />
     <Compile Include="RenameSubFoldersOperationTypeStartedDescription.cs" />
+    <Compile Include="RenameSubFoldersStringMatcherBase.cs" />
     <Compile Include="RenameSubFoldersStringReplacerBase.cs" />
     <Compile Include="RenameSubFoldersStringReplacerFactory.cs" />
     <Compile Include="ReplaceTextInFilesOperationTypeDescription.cs" />
