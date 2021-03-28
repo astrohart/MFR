@@ -179,6 +179,7 @@
     <Compile Include="PathFilterInvokerBase.cs" />
     <Compile Include="RenameFilesInFolderOperationTypeDescription.cs" />
     <Compile Include="RenameFilesInFolderOperationTypeStartedDescription.cs" />
+    <Compile Include="RenameFilesInFolderStringMatcherBase.cs" />
     <Compile Include="RenameFilesInFolderStringReplacerBase.cs" />
     <Compile Include="RenameFilesInFolderStringReplacerFactory.cs" />
     <Compile Include="RenameSubFoldersOperationTypeDescription.cs" />
