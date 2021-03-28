@@ -131,6 +131,7 @@
     <Compile Include="IMonikerEnumerable.cs" />
     <Compile Include="IMonikerEnumerator.cs" />
     <Compile Include="IMonikerWrapper.cs" />
+    <Compile Include="IStringMatcher.cs" />
     <Compile Include="MakeNewMonikerCollection.cs" />
     <Compile Include="MakeNewMonikerWrapper.cs" />
     <Compile Include="MonikerCollection.cs" />
