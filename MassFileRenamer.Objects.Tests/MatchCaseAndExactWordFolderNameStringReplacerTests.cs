@@ -13,7 +13,15 @@ namespace MassFileRenamer.Objects.Tests
     public class MatchCaseAndExactWordFolderNameStringReplacerTests
     {
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MassFileRenamer.Objects.IStringReplacer.Replace" />
+        /// method,
+        /// when the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.MatchCaseAndExactWord" />
+        /// matching configuration is used, properly does replacement in folder
+        /// names using an exact-word match.
         /// </summary>
         [Test]
         public void Test_Replace_Works()
@@ -49,20 +57,22 @@ namespace MassFileRenamer.Objects.Tests
                                              .MatchCaseAndExactWord
                                      )
                                      .Replace(
-                                         "PortfolioMonitor.Factories.Assets", "PortfolioMonitor.Factories.Assets",
+                                         "PortfolioMonitor.Factories.Assets",
+                                         "PortfolioMonitor.Factories.Assets",
                                          "PortfolioMonitor.Factories.Assets.Providers"
                                      )
                 )
             );
             Assert.That(
-                "PortfolioMonitor.Factories.Assets.Providers.Interfaces", Is.Not.EqualTo(
+                "PortfolioMonitor.Factories.Assets.Providers.Interfaces",
+                Is.Not.EqualTo(
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
                                              .MatchCaseAndExactWord
                                      )
                                      .Replace(
-                                         "PortfolioMonitor.Factories.Assets.Interfaces", 
+                                         "PortfolioMonitor.Factories.Assets.Interfaces",
                                          "PortfolioMonitor.Factories.Assets",
                                          "PortfolioMonitor.Factories.Assets.Providers"
                                      )
@@ -72,7 +82,8 @@ namespace MassFileRenamer.Objects.Tests
             Console.WriteLine(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndExactWord
+                                     TextMatchingConfiguration
+                                         .MatchCaseAndExactWord
                                  )
                                  .Replace(
                                      "Foo.Bar.Baz", "Foo.Bar.Baz", "Foo.Bim.Baz"
@@ -81,7 +92,8 @@ namespace MassFileRenamer.Objects.Tests
             Console.WriteLine(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndExactWord
+                                     TextMatchingConfiguration
+                                         .MatchCaseAndExactWord
                                  )
                                  .Replace("Foo.Bar.Baz", "Bar", "Bim")
             );

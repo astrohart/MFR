@@ -6,17 +6,17 @@ namespace MassFileRenamer.Objects
     /// Implements functionality common to all text-expression matcher objects.
     /// </summary>
     public abstract class
-        TextExpressionMatcherBase : ConfigurationComposedObjectBase,
-            ITextExpressionMatcher
+        TextExpressionMatchingEngineBase : ConfigurationComposedObjectBase,
+            ITextExpressionMatchingEngine
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngineBase" />
         /// and
         /// returns a reference to it.
         /// </summary>
-        protected TextExpressionMatcherBase()
+        protected TextExpressionMatchingEngineBase()
         {
             // TODO: Add default object-initialization code here.
         }
@@ -24,7 +24,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngineBase" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -37,7 +37,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        protected TextExpressionMatcherBase(IConfiguration configuration) :
+        protected TextExpressionMatchingEngineBase(IConfiguration configuration) :
             base(configuration) { }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace MassFileRenamer.Objects
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.ITextExpressionMatcher.Configuration" />
+        ///     cref="P:MassFileRenamer.Objects.ITextExpressionMatchingEngine.Configuration" />
         /// property.
         /// </summary>
         /// <param name="expression">

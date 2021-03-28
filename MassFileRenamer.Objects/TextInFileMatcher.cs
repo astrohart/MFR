@@ -3,12 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace MassFileRenamer.Objects
 {
-    public class TextInFileMatcher : TextExpressionMatcherBase
+    public class TextInFileMatchingEngine : TextExpressionMatchingEngineBase
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngineBase" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -16,14 +16,14 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public TextInFileMatcher(IConfiguration configuration) : base(
+        public TextInFileMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
 
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextInFileMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.TextInFileMatchingEngine" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -34,7 +34,7 @@ namespace MassFileRenamer.Objects
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
-        internal TextInFileMatcher()
+        internal TextInFileMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }

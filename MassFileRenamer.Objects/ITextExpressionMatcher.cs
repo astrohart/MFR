@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the public-exposed methods and properties of a filename-matcher object.
     /// </summary>
-    public interface ITextExpressionMatcher : IConfigurationComposedObject, IFixedOperationTypeSpecificObject
+    public interface ITextExpressionMatchingEngine : IConfigurationComposedObject, IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -41,7 +41,7 @@
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.ITextExpressionMatcher.Configuration" />
+        ///     cref="P:MassFileRenamer.Objects.ITextExpressionMatchingEngine.Configuration" />
         /// property.
         /// </summary>
         /// <param name="expression">

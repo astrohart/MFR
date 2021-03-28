@@ -225,7 +225,7 @@ namespace MassFileRenamer.Objects
         /// folder with pathname <paramref name="rootFolderPath"/> and replacing
         /// every occurrence of the text specified by the <paramref
         /// name="findWhat"/> parameter with the text specified by the <paramref
-        /// name="replaceWith"/> parameter. A case-sensitive, not-in-whole-word
+        /// name="replaceWith"/> parameter. A case-sensitive, not-in-exact-word
         /// search is performed.
         /// </summary>
         /// <param name="rootFolderPath">

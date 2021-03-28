@@ -102,7 +102,7 @@ namespace MassFileRenamer.Objects
         /// Fluent bridge property that accesses the appropriate text-expression
         /// matcher object, that implements the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatchingEngine" />
         /// interface,
         /// for the current operation type and configuration.
         /// </summary>
@@ -111,8 +111,8 @@ namespace MassFileRenamer.Objects
         /// criteria-evaluation expression.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private ITextExpressionMatcher TextExpressionMatcherSays
-            => GetTextExpressionMatcher.For(OperationType)
+        private ITextExpressionMatchingEngine TextExpressionMatchingEngineSays
+            => GetTextExpressionMatchingEngine.For(OperationType)
                                        .AndAttachConfiguration(Configuration);
 
         /// <summary>
@@ -501,7 +501,7 @@ namespace MassFileRenamer.Objects
         protected bool SearchCriteriaMatch(IFileSystemEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));
-            return TextExpressionMatcherSays.IsMatch(ForFileSystemEntry(entry));
+            return TextExpressionMatchingEngineSays.IsMatch(ForFileSystemEntry(entry));
         }
 
         protected bool ShouldNotSkipFileSystemEntry(string path)

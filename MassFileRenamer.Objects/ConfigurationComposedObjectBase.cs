@@ -35,7 +35,7 @@ namespace MassFileRenamer.Objects
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngineBase" />
         /// and
         /// returns a reference to it.
         /// </summary>

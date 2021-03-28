@@ -5,12 +5,12 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Applies criteria to match file names against textual expressions.
     /// </summary>
-    public class FileNameMatcher : TextExpressionMatcherBase
+    public class FileNameMatchingEngine : TextExpressionMatchingEngineBase
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.FileNameMatchingEngine" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -18,14 +18,14 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public FileNameMatcher(IConfiguration configuration) : base(
+        public FileNameMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
 
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FileNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.FileNameMatchingEngine" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -36,7 +36,7 @@ namespace MassFileRenamer.Objects
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
-        internal FileNameMatcher()
+        internal FileNameMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }

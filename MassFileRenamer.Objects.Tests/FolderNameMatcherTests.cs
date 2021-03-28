@@ -5,11 +5,11 @@ namespace MassFileRenamer.Objects.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.FolderNameMatcher" />
+    ///     cref="T:MassFileRenamer.Objects.FolderNameMatchingEngine" />
     /// class.
     /// </summary>
     [TestFixture]
-    public class FolderNameMatcherTests : TextExpressionMatcherTestBase
+    public class FolderNameMatchingEngineTests : TextExpressionMatchingEngineTestBase
     {
         /// <summary>
         /// TODO: Add unit test documentation here
@@ -47,7 +47,7 @@ namespace MassFileRenamer.Objects.Tests
         {
             base.Initialize();
 
-            CreateMatcherFor(OperationType.RenameSubFolders);
+            CreateMatchingEngineFor(OperationType.RenameSubFolders);
         }
     }
 }

@@ -9,13 +9,13 @@ namespace MassFileRenamer.Objects
     /// the pathnames of folders, according to rules specified by configuration
     /// settings.
     /// </summary>
-    public class FolderNameMatcher : TextExpressionMatcherBase
+    public class FolderNameMatchingEngine : TextExpressionMatchingEngineBase
 
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcherBase" />
+        ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngineBase" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -23,14 +23,14 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public FolderNameMatcher(IConfiguration configuration) : base(
+        public FolderNameMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
 
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.FolderNameMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.FolderNameMatchingEngine" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -41,7 +41,7 @@ namespace MassFileRenamer.Objects
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
-        internal FolderNameMatcher()
+        internal FolderNameMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }
@@ -133,9 +133,13 @@ namespace MassFileRenamer.Objects
                 else
                 {
                     /*
-                     * OKAY, a whole-word search on a folder path is somewhat different
-                     * than for a file. For a folder, it's made up of parts, each of which are delimited by a backslash (@'\'). Split the string along the backslashes.
-                     * In a whole-word search, if any part matches the pattern exactly,
+                     * OKAY, a exact-word search on a folder path is somewhat different
+                     * than for a file. For a folder, it's made up of parts, each of which
+                     * are delimited by a backslash (@'\'). Split the string along the backslashes.
+                     * We only do the search and replace on the folder the furthest down the
+                     * directory tree.
+                     *
+                     * In a exact-word search, if any part matches the pattern exactly,
                      * then we are golden.
                      */
 

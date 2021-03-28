@@ -5,11 +5,11 @@ namespace MassFileRenamer.Objects.Tests
     /// <summary>
     /// Provides unit tests for the methods of the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.TextExpressionMatcher" />
+    ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngine" />
     /// class.
     /// </summary>
     [TestFixture]
-    public class FileNameMatcherTests : TextExpressionMatcherTestBase
+    public class FileNameMatchingEngineTests : TextExpressionMatchingEngineTestBase
     {
         /// <summary>
         /// Initializes the state of this fixture for every unit test session.
@@ -19,7 +19,7 @@ namespace MassFileRenamer.Objects.Tests
         {
             base.Initialize();
 
-            CreateMatcherFor(OperationType.RenameFilesInFolder);
+            CreateMatchingEngineFor(OperationType.RenameFilesInFolder);
         }
     }
 }

@@ -5,16 +5,16 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatcher" />
+    ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatchingEngine" />
     /// interface and
     /// returns references to them.
     /// </summary>
-    public static class GetTextExpressionMatcher
+    public static class GetTextExpressionMatchingEngine
     {
         /// <summary>
         /// Creates instances of objects that implement the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatchingEngine" />
         /// interface
         /// and returns references to them.
         /// </summary>
@@ -29,7 +29,7 @@ namespace MassFileRenamer.Objects
         /// Reference to an instance of an object that
         /// implements the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatcher" />
+        ///     cref="T:MassFileRenamer.Objects.ITextExpressionMatchingEngine" />
         /// interface
         /// that can tell if data matches a value.
         /// </returns>
@@ -37,7 +37,7 @@ namespace MassFileRenamer.Objects
         /// After calling this method, callers must
         /// then invoke the fluent
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.WithConfiguration" />
+        ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatchingEngine.WithConfiguration" />
         /// method on the result of this method in order to attach an object
         /// that implements the
         /// <see
@@ -45,22 +45,22 @@ namespace MassFileRenamer.Objects
         /// interface to the
         /// new object instance.
         /// 
-        public static ITextExpressionMatcher For(OperationType type)
+        public static ITextExpressionMatchingEngine For(OperationType type)
         {
-            ITextExpressionMatcher matcher;
+            ITextExpressionMatchingEngine matcher;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    matcher = new FileNameMatcher();
+                    matcher = new FileNameMatchingEngine();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    matcher = new FolderNameMatcher();
+                    matcher = new FolderNameMatchingEngine();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    matcher = new TextInFileMatcher();
+                    matcher = new TextInFileMatchingEngine();
                     break;
 
                 default:
