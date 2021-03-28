@@ -6,36 +6,36 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Replaces strings only for the case where Match Whole Word is set to <see langword="true" /> but
+    /// Replaces strings only for the case where Match Exact Word is set to <see langword="true" /> but
     /// Match Case is set to <see langword="false" />, for the Rename Sub Folders operation type.
     /// </summary>
     public class
-        MatchWholeWordOnlyFolderNameStringReplacer :
+        MatchExactWordOnlyFolderNameStringReplacer :
             RenameSubFoldersStringReplacerBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MatchWholeWordOnlyFolderNameStringReplacer() { }
+        static MatchExactWordOnlyFolderNameStringReplacer() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected MatchWholeWordOnlyFolderNameStringReplacer() { }
+        protected MatchExactWordOnlyFolderNameStringReplacer() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchWholeWordOnlyFolderNameStringReplacer" />
+        ///     cref="T:MassFileRenamer.Objects.MatchExactWordOnlyFolderNameStringReplacer" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static MatchWholeWordOnlyFolderNameStringReplacer Instance
+        public static MatchExactWordOnlyFolderNameStringReplacer Instance
         {
             get;
-        } = new MatchWholeWordOnlyFolderNameStringReplacer();
+        } = new MatchExactWordOnlyFolderNameStringReplacer();
 
         /// <summary>
         /// Gets one of the
@@ -48,7 +48,7 @@ namespace MassFileRenamer.Objects
         public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        } = TextMatchingConfiguration.MatchWholeWordOnly;
+        } = TextMatchingConfiguration.MatchExactWordOnly;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

@@ -32,12 +32,12 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void Initialize()
         {
             _configuration = ConfigurationBuilder.Instance.SetMatchCase(false)
-                                                 .AndSetMatchWholeWord(false)
+                                                 .AndSetMatchExactWord(false)
                                                  .Build();
 
             Assert.IsNotNull(_configuration);
             Assert.IsFalse(_configuration.MatchCase);
-            Assert.IsFalse(_configuration.MatchWholeWord);
+            Assert.IsFalse(_configuration.MatchExactWord);
         }
 
         /// <summary>
@@ -462,17 +462,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceContainsPattern_WhenMatchWholeWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
+            Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchWholeWord = false
+                MatchCase = true, MatchExactWord = false
             };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "foo", "Bar"));
@@ -483,17 +483,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="false" /> in the event that (a) MatchCase = false
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = true in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case but the cases match in the second.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceContainsPattern_WhenMatchWholeWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
+            Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchWholeWord = true
+                MatchCase = false, MatchExactWord = true
             };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
@@ -503,17 +503,17 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchWholeWord_And_MatchCase_AreTurnedOff()
+            Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchWholeWord = false
+                MatchCase = false, MatchExactWord = false
             };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
@@ -524,17 +524,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and even if (c) the cases do not
         /// match in the first sub-case but the cases match in the second.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchWholeWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
+            Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchWholeWord = false
+                MatchCase = true, MatchExactWord = false
             };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
@@ -545,17 +545,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchWholeWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
+            Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchWholeWord = false
+                MatchCase = true, MatchExactWord = false
             };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "bar", "baz"));
@@ -566,17 +566,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases match in both the
         /// first sub-case and in the second.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchWholeWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesMatch()
+            Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesMatch()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchWholeWord = false
+                MatchCase = true, MatchExactWord = false
             };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
@@ -587,17 +587,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="true" /> in the event that (a) MatchCase = false
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string, and (c) the cases do not match in the first sub-case
         /// but the cases match in the second.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturned_IfSourceExactlyMatchesPattern_WhenMatchWholeWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
+            Test_FalseReturned_IfSourceExactlyMatchesPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchWholeWord = true
+                MatchCase = false, MatchExactWord = true
             };
             Assert.IsTrue(_matcher.IsMatch("foo", "Foo", "Bar"));
             Assert.IsTrue(_matcher.IsMatch("Foo", "Foo", "Bar"));
@@ -607,17 +607,17 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchExactWord
         /// = true in the configuration, (b) the source string does not exactly
         /// match the pattern string as a substring, and if (c) the cases do not
         /// match in the first sub-case.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturnedIfCaseDoesNotMatch_AndFalseReturnedWhenCaseDoesMatch_IfSourceDoesNotExactlyMatchesPattern_WhenMatchWholeWord_And_MatchCase_AreTurnedOn()
+            Test_FalseReturnedIfCaseDoesNotMatch_AndFalseReturnedWhenCaseDoesMatch_IfSourceDoesNotExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchWholeWord = true};
+                new Configuration {MatchCase = true, MatchExactWord = true};
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
         }
@@ -626,17 +626,17 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchExactWord
         /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string as a substring, except if (c) the cases do not match
         /// in the first sub-case.
         /// </summary>
         [Test]
         public void
-            Test_FalseReturnedIfCaseDoesNotMatch_AndTrueReturnedWhenCaseDoesMatch_IfSourceExactlyMatchesPattern_WhenMatchWholeWord_And_MatchCase_AreTurnedOn()
+            Test_FalseReturnedIfCaseDoesNotMatch_AndTrueReturnedWhenCaseDoesMatch_IfSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchWholeWord = true};
+                new Configuration {MatchCase = true, MatchExactWord = true};
             Assert.IsFalse(
                 _matcher.IsMatch("foo.tests", "Foo.Tests", "Bar.Tests")
             );
@@ -649,17 +649,17 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchExactWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
         [Test]
         public void
-            Test_TrueReturned_IfSourceContainsPattern_WhenMatchWholeWord_And_MatchCase_AreTurnedOff()
+            Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchWholeWord = false
+                MatchCase = false, MatchExactWord = false
             };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
@@ -670,17 +670,17 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
         /// method returns <see langword="true" /> in the event that (a) MatchCase = true
-        /// and MatchWholeWord
+        /// and MatchExactWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and if (c) the cases match in the
         /// first sub-case and in the second.
         /// </summary>
         [Test]
         public void
-            Test_TrueReturned_IfSourceContainsPattern_WhenMatchWholeWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
+            Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
             _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchWholeWord = false
+                MatchCase = true, MatchExactWord = false
             };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "foo", "Bar"));
             Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
@@ -691,16 +691,16 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchExactWord
         /// = true in the configuration, and (b) the source string exactly
         /// matches the pattern string as a substring (including case).
         /// </summary>
         [Test]
         public void
-            Test_TrueReturned_WhenSourceExactlyMatchesPattern_WhenMatchWholeWord_And_MatchCase_AreTurnedOn()
+            Test_TrueReturned_WhenSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchWholeWord = true};
+                new Configuration {MatchCase = true, MatchExactWord = true};
             Assert.IsTrue(
                 _matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests")
             );
@@ -710,17 +710,17 @@ namespace MassFileRenamer.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MassFileRenamer.Objects.ITextExpressionMatcher.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchWholeWord
+        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchExactWord
         /// = true in the configuration, (b) the source string does contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
         [Test]
         public void
-            Test_WhenMatchCaseOn_AndMatchWholeWordOn_FalseReturned_IfSourceContainsPattern()
+            Test_WhenMatchCaseOn_AndMatchExactWordOn_FalseReturned_IfSourceContainsPattern()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchWholeWord = true};
+                new Configuration {MatchCase = true, MatchExactWord = true};
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
         }

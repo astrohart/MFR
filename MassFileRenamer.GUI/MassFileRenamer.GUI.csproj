@@ -109,7 +109,7 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComboBoxExtensions.cs" />
+    <Compile Include="EntryRespectingComboBoxExtensions.cs" />
     <Compile Include="EntryRespectingComboBox.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -7,24 +7,24 @@
     public enum TextMatchingConfiguration
     {
         /// <summary>
-        /// The user has toggled Match Case to true and Match Whole Word to false.
+        /// The user has toggled Match Case to true and Match Exact Word to false.
         /// </summary>
         MatchCaseOnly,
 
         /// <summary>
-        /// The user has toggled Match Whole Word to true and Match Case to false.
+        /// The user has toggled Match Exact Word to true and Match Case to false.
         /// </summary>
-        MatchWholeWordOnly,
+        MatchExactWordOnly,
 
         /// <summary>
-        /// Both Match Case and Match Whole Word are toggled.
+        /// Both Match Case and Match Exact Word are toggled.
         /// </summary>
-        MatchCaseAndWholeWord,
+        MatchCaseAndExactWord,
 
         /// <summary>
-        /// Match Case is set to false, and so is Match Whole Word.
+        /// Match Case is set to false, and so is Match Exact Word.
         /// </summary>
-        NeitherMatchCaseNorWholeWord,
+        NeitherMatchCaseNorExactWord,
 
         /// <summary>
         /// We do not know what type of configuration is set.

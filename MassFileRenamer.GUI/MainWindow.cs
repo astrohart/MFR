@@ -117,13 +117,13 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets or sets the value of the Match Whole Word checkbox
+        /// Gets or sets the value of the Match Exact Word checkbox
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public bool MatchWholeWord
+        public bool MatchExactWord
         {
-            get => matchWholeWordCheckBox.Checked;
-            set => matchWholeWordCheckBox.Checked = value;
+            get => matchExactWordCheckBox.Checked;
+            set => matchExactWordCheckBox.Checked = value;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Replaces strings only for the case where Match Case is set to <see langword="true" /> but Match
-    /// Whole Word is set to <see langword="false" />, for the case when a Rename Files in Folder operation
+    /// Exact Word is set to <see langword="false" />, for the case when a Rename Files in Folder operation
     /// is being performed.
     /// </summary>
     public class

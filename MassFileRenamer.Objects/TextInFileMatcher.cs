@@ -115,7 +115,7 @@ namespace MassFileRenamer.Objects
                     nameof(findWhat)
                 );
 
-            if (Configuration.MatchWholeWord)
+            if (Configuration.MatchExactWord)
             {
                 if (Configuration.MatchCase)
                     return Regex.IsMatch(

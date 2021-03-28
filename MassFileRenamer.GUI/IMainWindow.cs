@@ -59,9 +59,9 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets or sets the value of the Match Whole Word checkbox
+        /// Gets or sets the value of the Match Exact Word checkbox
         /// </summary>
-        bool MatchWholeWord
+        bool MatchExactWord
         {
             get; set;
         }

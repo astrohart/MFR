@@ -19,7 +19,7 @@ namespace MassFileRenamer.Objects.Tests
         /// <summmary>
         /// Determines whether a whole word should be matched when
         /// searching for a string value. </summary>
-        private bool _matchWholeWord;
+        private bool _matchExactWord;
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -59,7 +59,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </remarks>
         public IConfiguration Build()
             => new Configuration {
-                MatchCase = _matchCase, MatchWholeWord = _matchWholeWord
+                MatchCase = _matchCase, MatchExactWord = _matchExactWord
             };
 
         /// <summary>
@@ -88,24 +88,24 @@ namespace MassFileRenamer.Objects.Tests
         /// <summary>
         /// Sets the value of the
         /// <see
-        ///     cref="F:MassFileRenamer.Objects.Tests.ConfigurationBuilder._matchWholeWord" />
-        /// field to the value of the <paramref name="matchWholeWord" /> parameter.
+        ///     cref="F:MassFileRenamer.Objects.Tests.ConfigurationBuilder._matchExactWord" />
+        /// field to the value of the <paramref name="matchExactWord" /> parameter.
         /// </summary>
-        /// <param name="matchWholeWord">
+        /// <param name="matchExactWord">
         /// (Optional.) New value for the
         /// <see
-        ///     cref="F:MassFileRenamer.Objects.Tests.ConfigurationBuilder._matchWholeWord" />
+        ///     cref="F:MassFileRenamer.Objects.Tests.ConfigurationBuilder._matchExactWord" />
         /// field. Default is <see langword="true" />.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        public ConfigurationBuilder AndSetMatchWholeWord(
-            bool matchWholeWord = true)
+        public ConfigurationBuilder AndSetMatchExactWord(
+            bool matchExactWord = true)
 
         {
-            _matchWholeWord = matchWholeWord;
+            _matchExactWord = matchExactWord;
 
             return this;
         }
@@ -115,13 +115,13 @@ namespace MassFileRenamer.Objects.Tests
         /// <see
         ///     cref="T:MassFileRenamer.Objects.IConfiguration" />
         /// interface with its
-        /// <paramref name="matchCase" /> and <paramref name="matchWholeWord" />
+        /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
         /// settings configured as specified for the current use case.
         /// </summary>
         /// <param name="matchCase">
         /// (Required.) Specifies whether the case is matched when searching and replacing.
         /// </param>
-        /// <param name="matchWholeWord">
+        /// <param name="matchExactWord">
         /// (Required.) Specifies whether search text must be a part of another
         /// word or pattern or can only be matched if it consists of a whole word.
         /// </param>
@@ -132,21 +132,21 @@ namespace MassFileRenamer.Objects.Tests
         /// interface whose
         /// <see cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" /> and
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchExactWord" />
         /// properties are set to the same values as were passed for the
-        /// <paramref name="matchCase" /> and <paramref name="matchWholeWord" />
+        /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
         /// parameters.
         /// </returns>
         public static IConfiguration BuildConfigurationForUseCase(
-            bool matchCase, bool matchWholeWord)
+            bool matchCase, bool matchExactWord)
         {
             var configuration = Instance.SetMatchCase(matchCase)
-                                .AndSetMatchWholeWord(matchWholeWord)
+                                .AndSetMatchExactWord(matchExactWord)
                                 .Build();
 
             Assert.IsNotNull(configuration);
             Assert.AreEqual(matchCase, configuration.MatchCase);
-            Assert.AreEqual(matchWholeWord, configuration.MatchWholeWord);
+            Assert.AreEqual(matchExactWord, configuration.MatchExactWord);
             return configuration;
         }
     }

@@ -52,7 +52,7 @@ namespace MassFileRenamer.Objects.Tests
                                                 .AndAttachConfiguration(
                                                     ConfigurationBuilder
                                                         .Instance.SetMatchCase()
-                                                        .AndSetMatchWholeWord(
+                                                        .AndSetMatchExactWord(
                                                             false
                                                         )
                                                         .Build()

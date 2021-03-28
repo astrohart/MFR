@@ -54,7 +54,7 @@ namespace MassFileRenamer.Objects
         /// Gets or sets a value indicating whether we should match the whole
         /// word on found text.
         /// </summary>
-        bool MatchWholeWord
+        bool MatchExactWord
         {
             get;
             set;

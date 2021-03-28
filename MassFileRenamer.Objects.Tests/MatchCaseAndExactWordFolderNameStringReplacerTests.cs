@@ -6,11 +6,11 @@ namespace MassFileRenamer.Objects.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.MatchCaseAndWholeWordFolderNameStringReplacer" />
+    ///     cref="T:MassFileRenamer.Objects.MatchCaseAndExactWordFolderNameStringReplacer" />
     /// class.
     /// </summary>
     [TestFixture]
-    public class MatchCaseAndWholeWordFolderNameStringReplacerTests
+    public class MatchCaseAndExactWordFolderNameStringReplacerTests
     {
         /// <summary>
         /// TODO: Add unit test documentation here
@@ -23,7 +23,7 @@ namespace MassFileRenamer.Objects.Tests
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
-                                             .MatchCaseAndWholeWord
+                                             .MatchCaseAndExactWord
                                      )
                                      .Replace(
                                          "Foo.Bar.Baz", "Foo.Bar.Baz",
@@ -36,7 +36,7 @@ namespace MassFileRenamer.Objects.Tests
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
-                                             .MatchCaseAndWholeWord
+                                             .MatchCaseAndExactWord
                                      )
                                      .Replace("Foo.Bar.Baz", "Bar", "Bim")
                 )
@@ -46,7 +46,7 @@ namespace MassFileRenamer.Objects.Tests
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
-                                             .MatchCaseAndWholeWord
+                                             .MatchCaseAndExactWord
                                      )
                                      .Replace(
                                          "PortfolioMonitor.Factories.Assets", "PortfolioMonitor.Factories.Assets",
@@ -59,7 +59,7 @@ namespace MassFileRenamer.Objects.Tests
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
-                                             .MatchCaseAndWholeWord
+                                             .MatchCaseAndExactWord
                                      )
                                      .Replace(
                                          "PortfolioMonitor.Factories.Assets.Interfaces", 
@@ -72,7 +72,7 @@ namespace MassFileRenamer.Objects.Tests
             Console.WriteLine(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndWholeWord
+                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                  )
                                  .Replace(
                                      "Foo.Bar.Baz", "Foo.Bar.Baz", "Foo.Bim.Baz"
@@ -81,7 +81,7 @@ namespace MassFileRenamer.Objects.Tests
             Console.WriteLine(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndWholeWord
+                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                  )
                                  .Replace("Foo.Bar.Baz", "Bar", "Bim")
             );

@@ -6,36 +6,36 @@ using xyLOGIX.Core.Debug;
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Replaces strings only for the case where Match Whole Word is set to <see langword="true" /> but
-    /// Match Case is set to <see langword="false" />, for the Replace Text in Files operation type.
+    /// Replaces strings only for the case where both Match Case and Match Whole
+    /// Word are set to <see langword="true" />, for the Rename Files in Folder operation type.
     /// </summary>
     public class
-        MatchWholeWordOnlyTextInFilesStringReplacer :
-            ReplaceTextInfilesStringReplacerBase
+        MatchCaseAndExactWordFileNameStringReplacer :
+            RenameFilesInFolderStringReplacerBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MatchWholeWordOnlyTextInFilesStringReplacer() { }
+        static MatchCaseAndExactWordFileNameStringReplacer() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected MatchWholeWordOnlyTextInFilesStringReplacer() { }
+        protected MatchCaseAndExactWordFileNameStringReplacer() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.MatchWholeWordOnlyTextInFilesStringReplacer" />
+        ///     cref="T:MassFileRenamer.Objects.MatchCaseAndExactWordFileNameStringReplacer" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static MatchWholeWordOnlyTextInFilesStringReplacer Instance
+        public static MatchCaseAndExactWordFileNameStringReplacer Instance
         {
             get;
-        } = new MatchWholeWordOnlyTextInFilesStringReplacer();
+        } = new MatchCaseAndExactWordFileNameStringReplacer();
 
         /// <summary>
         /// Gets one of the
@@ -48,7 +48,7 @@ namespace MassFileRenamer.Objects
         public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        } = TextMatchingConfiguration.MatchWholeWordOnly;
+        } = TextMatchingConfiguration.MatchCaseAndExactWord;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -92,13 +92,12 @@ namespace MassFileRenamer.Objects
                 );
 
             /*
-             * OKAY, the source parameter holds the current content of the file in
-             * which we are to replace text.  The pattern parameter holds the value
-             * to be searched for.  The dest parameter holds the value to replace
-             * the pattern with.  We then return the new text that the file is
-             * now supposed to have after the operation.  Note that here, a blank
-             * value is allowable for the dest parameter, as this merely erases
-             * text in the destination file.
+             * Normally, the 'dest' parameter is optional for this method.
+             * However, in the case of replacing text in the names of files,
+             * it's mandatory.  This is because, if 'dest' is blank or the
+             * empty string, we run the risk of trying to create a file that
+             * has no name, which is in violation of OS rules.  Therefore,
+             * we enforce that the dest parameter should have a value.
              */
 
             if (string.IsNullOrWhiteSpace(dest))
@@ -111,7 +110,7 @@ namespace MassFileRenamer.Objects
             try
             {
                 var regex = $@"\b({Regex.Escape(pattern)})\b";
-                result = source.RegexReplaceNoCase(regex, dest);
+                result = source.RegexReplaceWithCase(regex, dest);
             }
             catch (Exception ex)
             {

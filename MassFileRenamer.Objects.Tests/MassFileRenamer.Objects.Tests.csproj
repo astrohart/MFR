@@ -107,7 +107,7 @@
     <Compile Include="MakeNewBindContextTests.cs" />
     <Compile Include="MakeNewFileInfoTests.cs" />
     <Compile Include="MakeNewMonikerCollectionTests.cs" />
-    <Compile Include="MatchCaseAndWholeWordFolderNameStringReplacerTests.cs" />
+    <Compile Include="MatchCaseAndExactWordFolderNameStringReplacerTests.cs" />
     <Compile Include="PathFilterInvokerBaseTests.cs" />
     <Compile Include="ProcessIdProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

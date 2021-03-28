@@ -19,7 +19,7 @@ namespace MassFileRenamer.Objects.Tests
         {
             _configuration = ConfigurationBuilder.Instance
                                                  .SetMatchCase()
-                                                 .AndSetMatchWholeWord(false)
+                                                 .AndSetMatchExactWord(false)
                                                  .Build();
             _matcher.UpdateConfiguration(_configuration);
 

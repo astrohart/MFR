@@ -17,23 +17,23 @@ namespace MassFileRenamer.Objects.Tests
         ///     cref="M:MassFileRenamer.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.MatchCaseAndWholeWord" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.MatchCaseAndExactWord" />
         /// enum value for a configuration object whose
         /// <see
         ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" />
         /// property
         /// is set to <see langword="true" /> and whose
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchExactWord" />
         /// property is set to <see langword="true" />.
         /// </summary>
         [Test]
         public void
-            Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndWholeWord_WhenBothMatchCaseAndMatchWholeWordAreTrue()
+            Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue()
             => Assert.IsTrue(
-                TextMatchingConfiguration.MatchCaseAndWholeWord ==
+                TextMatchingConfiguration.MatchCaseAndExactWord ==
                 ConfigurationBuilder.Instance.SetMatchCase()
-                                    .AndSetMatchWholeWord()
+                                    .AndSetMatchExactWord()
                                     .Build()
                                     .GetTextMatchingConfiguration()
             );
@@ -51,7 +51,7 @@ namespace MassFileRenamer.Objects.Tests
         /// property
         /// is set to <see langword="true" /> and whose
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchExactWord" />
         /// property is set to <see langword="false" />.
         /// </summary>
         [Test]
@@ -60,7 +60,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 TextMatchingConfiguration.MatchCaseOnly == ConfigurationBuilder
                     .Instance.SetMatchCase()
-                    .AndSetMatchWholeWord(false)
+                    .AndSetMatchExactWord(false)
                     .Build()
                     .GetTextMatchingConfiguration()
             );
@@ -71,23 +71,23 @@ namespace MassFileRenamer.Objects.Tests
         ///     cref="M:MassFileRenamer.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.MatchWholeWordOnly" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.MatchExactWordOnly" />
         /// enum value for a configuration object whose
         /// <see
         ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" />
         /// property
         /// is set to <see langword="false" /> and whose
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchExactWord" />
         /// property is set to <see langword="true" />.
         /// </summary>
         [Test]
         public void
-            Test_GetTextMatchingConfiguration_ReturnsMatchWholeWordOnly_WhenOnlyMatchWholeWordIsTrue()
+            Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue()
             => Assert.IsTrue(
-                TextMatchingConfiguration.MatchWholeWordOnly == ConfigurationBuilder
+                TextMatchingConfiguration.MatchExactWordOnly == ConfigurationBuilder
                     .Instance.SetMatchCase(false)
-                    .AndSetMatchWholeWord()
+                    .AndSetMatchExactWord()
                     .Build()
                     .GetTextMatchingConfiguration()
             );
@@ -98,23 +98,23 @@ namespace MassFileRenamer.Objects.Tests
         ///     cref="M:MassFileRenamer.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.NeitherMatchCaseNorWholeWord" />
+        ///     cref="T:MassFileRenamer.Objects.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
         /// enum value for a configuration object whose
         /// <see
         ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" />
         /// property
         /// is set to <see langword="false" /> and whose
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchExactWord" />
         /// property is set to <see langword="false" />.
         /// </summary>
         [Test]
         public void
-            Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorWholeWord_WhenBothMatchCaseAndMatchWholeWordAreFalse()
+            Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse()
             => Assert.IsTrue(
-                TextMatchingConfiguration.NeitherMatchCaseNorWholeWord ==
+                TextMatchingConfiguration.NeitherMatchCaseNorExactWord ==
                 ConfigurationBuilder.Instance.SetMatchCase(false)
-                                    .AndSetMatchWholeWord(false)
+                                    .AndSetMatchExactWord(false)
                                     .Build()
                                     .GetTextMatchingConfiguration()
             );

@@ -28,7 +28,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -43,7 +43,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -58,7 +58,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseTrue_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseTrue_And_MatchExactWordFalse()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -73,7 +73,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseTrue_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseTrue_And_MatchExactWordTrue()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -88,7 +88,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseFalse_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseFalse_And_MatchExactWordFalse()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -103,7 +103,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseFalse_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseFalse_And_MatchExactWordTrue()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -118,7 +118,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseTrue_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseTrue_And_MatchExactWordFalse()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -133,7 +133,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseTrue_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForNullInput_WhenMatchCaseTrue_And_MatchExactWordTrue()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -148,7 +148,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseFalse_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseFalse_And_MatchExactWordFalse()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -163,7 +163,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseFalse_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseFalse_And_MatchExactWordTrue()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -178,7 +178,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseTrue_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseTrue_And_MatchExactWordFalse()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -193,7 +193,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseTrue_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_ThrowsArgumentException_ForWhitespaceInput_WhenMatchCaseTrue_And_MatchExactWordTrue()
             => Assert.Throws<ArgumentException>(
                 () => GetMatchExpressionFactoryConfiguredAccordingTo(
                         ConfigurationBuilder.BuildConfigurationForUseCase(
@@ -208,7 +208,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseFalse_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseFalse_And_MatchExactWordFalse()
             => Assert.AreEqual(
                 StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
                 GetMatchExpressionFactoryConfiguredAccordingTo(
@@ -225,7 +225,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseFalse_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseFalse_And_MatchExactWordTrue()
             => Assert.AreEqual(
                 StringConstants
                     .FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION,
@@ -243,7 +243,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseTrue_And_MatchWholeWordFalse()
+            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseTrue_And_MatchExactWordFalse()
             => Assert.AreEqual(
                 StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
                 GetMatchExpressionFactoryConfiguredAccordingTo(
@@ -260,7 +260,7 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseTrue_And_MatchWholeWordTrue()
+            Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseTrue_And_MatchExactWordTrue()
             => Assert.AreEqual(
                 StringConstants
                     .FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION,

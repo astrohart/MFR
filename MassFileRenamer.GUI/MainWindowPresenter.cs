@@ -545,7 +545,7 @@ namespace MassFileRenamer.GUI
 
                 Configuration.MatchCase = _mainWindow.MatchCase;
 
-                Configuration.MatchWholeWord = _mainWindow.MatchWholeWord;
+                Configuration.MatchExactWord = _mainWindow.MatchExactWord;
 
                 Configuration.SelectedOptionTab = _mainWindow.SelectedOptionTab;
 
@@ -559,7 +559,7 @@ namespace MassFileRenamer.GUI
                                                 .Configuration
                                                 .SelectedOptionTab;
 
-                _mainWindow.MatchWholeWord = Configuration.MatchWholeWord;
+                _mainWindow.MatchExactWord = Configuration.MatchExactWord;
 
                 _mainWindow.MatchCase = Configuration.MatchCase;
 

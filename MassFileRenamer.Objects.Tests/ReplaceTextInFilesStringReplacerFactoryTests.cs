@@ -36,24 +36,24 @@ namespace MassFileRenamer.Objects.Tests
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchWholeWordOnly
+                                     TextMatchingConfiguration.MatchExactWordOnly
                                  ),
-                Is.InstanceOf<MatchWholeWordOnlyTextInFilesStringReplacer>()
+                Is.InstanceOf<MatchExactWordOnlyTextInFilesStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndWholeWord
+                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                  ),
-                Is.InstanceOf<MatchCaseAndWholeWordTextInFilesStringReplacer>()
+                Is.InstanceOf<MatchCaseAndExactWordTextInFilesStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
                                      TextMatchingConfiguration
-                                         .NeitherMatchCaseNorWholeWord
+                                         .NeitherMatchCaseNorExactWord
                                  ),
-                Is.InstanceOf<NeitherMatchCaseNorWholeWordTextInFilesStringReplacer
+                Is.InstanceOf<NeitherMatchCaseNorExactWordTextInFilesStringReplacer
                 >()
             );
         }
@@ -83,20 +83,20 @@ namespace MassFileRenamer.Objects.Tests
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchWholeWordOnly
+                                     TextMatchingConfiguration.MatchExactWordOnly
                                  ), Is.InstanceOf<IStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndWholeWord
+                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                  ), Is.InstanceOf<IStringReplacer>()
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
                                      TextMatchingConfiguration
-                                         .NeitherMatchCaseNorWholeWord
+                                         .NeitherMatchCaseNorExactWord
                                  ), Is.InstanceOf<IStringReplacer>()
             );
         }
@@ -125,27 +125,27 @@ namespace MassFileRenamer.Objects.Tests
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchWholeWordOnly
+                                     TextMatchingConfiguration.MatchExactWordOnly
                                  )
                                  .TextMatchingConfiguration,
-                Is.EqualTo(TextMatchingConfiguration.MatchWholeWordOnly)
+                Is.EqualTo(TextMatchingConfiguration.MatchExactWordOnly)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndWholeWord
+                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                  )
                                  .TextMatchingConfiguration,
-                Is.EqualTo(TextMatchingConfiguration.MatchCaseAndWholeWord)
+                Is.EqualTo(TextMatchingConfiguration.MatchCaseAndExactWord)
             );
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
                                      TextMatchingConfiguration
-                                         .NeitherMatchCaseNorWholeWord
+                                         .NeitherMatchCaseNorExactWord
                                  )
                                  .TextMatchingConfiguration,
-                Is.EqualTo(TextMatchingConfiguration.NeitherMatchCaseNorWholeWord)
+                Is.EqualTo(TextMatchingConfiguration.NeitherMatchCaseNorExactWord)
             );
         }
 
@@ -179,7 +179,7 @@ namespace MassFileRenamer.Objects.Tests
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchWholeWordOnly
+                                     TextMatchingConfiguration.MatchExactWordOnly
                                  )
                                  .OperationType,
                 Is.EqualTo(OperationType.ReplaceTextInFiles)
@@ -187,7 +187,7 @@ namespace MassFileRenamer.Objects.Tests
             Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
-                                     TextMatchingConfiguration.MatchCaseAndWholeWord
+                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                  )
                                  .OperationType,
                 Is.EqualTo(OperationType.ReplaceTextInFiles)
@@ -196,7 +196,7 @@ namespace MassFileRenamer.Objects.Tests
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                  .AndTextMatchingConfiguration(
                                      TextMatchingConfiguration
-                                         .NeitherMatchCaseNorWholeWord
+                                         .NeitherMatchCaseNorExactWord
                                  )
                                  .OperationType,
                 Is.EqualTo(OperationType.ReplaceTextInFiles)

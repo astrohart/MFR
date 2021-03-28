@@ -90,12 +90,12 @@ namespace MassFileRenamer.Objects
              */
 
             if (Configuration.MatchCase)
-                if (Configuration.MatchWholeWord)
+                if (Configuration.MatchExactWord)
                     return value.Equals(findWhat);
                 else
                     return value.Contains(findWhat) &&
                            (findWhat.Contains(replaceWith) || !value.Contains(replaceWith));
-            if (Configuration.MatchWholeWord)
+            if (Configuration.MatchExactWord)
                 return value.ToLowerInvariant()
                     .Equals(findWhat.ToLowerInvariant());
             return value.ToLowerInvariant()

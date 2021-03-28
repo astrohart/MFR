@@ -51,7 +51,7 @@ namespace MassFileRenamer.Objects
             // write the name of the current class and method we are now entering, into the log
             DebugUtils.WriteLine(DebugLevel.Debug, "In FileNameReplacementMatchExpressionFactory.ForTextValue");
 
-            var newValue = Configuration.MatchWholeWord
+            var newValue = Configuration.MatchExactWord
                 ? Path.GetFileNameWithoutExtension(value)
                 : Path.GetFileName(value);
             return base.ForTextValue(

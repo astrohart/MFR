@@ -8,7 +8,7 @@ namespace MassFileRenamer.Objects
     /// Replaces text in strings when Match Case is set to
     /// <see
     ///     langword="true" />
-    /// but Match Whole Word is set to
+    /// but Match Exact Word is set to
     /// <see
     ///     langword="false" />
     /// , for the Rename Sub Folders operation type.

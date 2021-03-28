@@ -7,7 +7,7 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Factory object that creates string replacers, specific to the Replace
     /// Text in Files type of operation, for the various combinations of Match
-    /// Case and Match Whole Word.
+    /// Case and Match Exact Word.
     /// </summary>
     public class
         ReplaceTextInFilesStringReplacerFactory : IStringReplacerFactory
@@ -105,19 +105,19 @@ namespace MassFileRenamer.Objects
                     replacer = MatchCaseOnlyTextInFilesStringReplacer.Instance;
                     break;
 
-                case TextMatchingConfiguration.MatchWholeWordOnly:
-                    replacer = MatchWholeWordOnlyTextInFilesStringReplacer
+                case TextMatchingConfiguration.MatchExactWordOnly:
+                    replacer = MatchExactWordOnlyTextInFilesStringReplacer
                         .Instance;
                     break;
 
-                case TextMatchingConfiguration.MatchCaseAndWholeWord:
-                    replacer = MatchCaseAndWholeWordTextInFilesStringReplacer
+                case TextMatchingConfiguration.MatchCaseAndExactWord:
+                    replacer = MatchCaseAndExactWordTextInFilesStringReplacer
                         .Instance;
                     break;
 
-                case TextMatchingConfiguration.NeitherMatchCaseNorWholeWord:
+                case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     replacer =
-                        NeitherMatchCaseNorWholeWordTextInFilesStringReplacer
+                        NeitherMatchCaseNorExactWordTextInFilesStringReplacer
                             .Instance;
                     break;
 

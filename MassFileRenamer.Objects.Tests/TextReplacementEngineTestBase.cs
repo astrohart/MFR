@@ -39,12 +39,12 @@ namespace MassFileRenamer.Objects.Tests
         public virtual void Initialize()
         {
             Configuration = ConfigurationBuilder.Instance.SetMatchCase(false)
-                                                .AndSetMatchWholeWord(false)
+                                                .AndSetMatchExactWord(false)
                                                 .Build();
 
             Assert.IsNotNull(Configuration);
             Assert.IsFalse(Configuration.MatchCase);
-            Assert.IsFalse(Configuration.MatchWholeWord);
+            Assert.IsFalse(Configuration.MatchExactWord);
         }
 
         /// <summary>

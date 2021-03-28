@@ -1,41 +1,41 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Replaces strings only for the case where neither Match Case nor Match
-    /// Whole Word is set to <see langword="true" />, for the Rename Sub Folders operation type.
+    /// Replaces strings only for the case where Match Exact Word is enabled but
+    /// Match Case is not, for the Rename Files in Folder operation type.
     /// </summary>
     public class
-        NeitherMatchCaseNorWholeWordTextInFilesStringReplacer :
-            ReplaceTextInfilesStringReplacerBase
+        MatchExactWordOnlyFileNameStringReplacer :
+            RenameFilesInFolderStringReplacerBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static NeitherMatchCaseNorWholeWordTextInFilesStringReplacer() { }
+        static MatchExactWordOnlyFileNameStringReplacer() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected NeitherMatchCaseNorWholeWordTextInFilesStringReplacer() { }
+        protected MatchExactWordOnlyFileNameStringReplacer() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.NeitherMatchCaseNorWholeWordTextInFilesStringReplacer" />
+        ///     cref="T:MassFileRenamer.Objects.MatchExactWordOnlyFileNameStringReplacer" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static NeitherMatchCaseNorWholeWordTextInFilesStringReplacer
-            Instance
+        public static MatchExactWordOnlyFileNameStringReplacer Instance
         {
             get;
-        } = new NeitherMatchCaseNorWholeWordTextInFilesStringReplacer();
+        } = new MatchExactWordOnlyFileNameStringReplacer();
 
         /// <summary>
         /// Gets one of the
@@ -48,7 +48,7 @@ namespace MassFileRenamer.Objects
         public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        } = TextMatchingConfiguration.NeitherMatchCaseNorWholeWord;
+        } = TextMatchingConfiguration.MatchExactWordOnly;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -109,15 +109,14 @@ namespace MassFileRenamer.Objects
 
             try
             {
-                result = source.ReplaceNoCase(pattern, dest);
+                var regex = $@"\b({Regex.Escape(pattern)})\b";
+                result = source.RegexReplaceNoCase(regex, dest);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                // If an exception by some chance is thrown by the try block,
-                // then this method will just return the empty string.
                 result = string.Empty;
             }
 

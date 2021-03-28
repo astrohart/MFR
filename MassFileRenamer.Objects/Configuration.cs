@@ -74,8 +74,8 @@ namespace MassFileRenamer.Objects
         /// Gets or sets a value indicating whether we should match the whole
         /// word on found text.
         /// </summary>
-        [JsonProperty("matchWholeWord")]
-        public bool MatchWholeWord
+        [JsonProperty("matchExactWord")]
+        public bool MatchExactWord
         {
             get;
             set;

@@ -112,7 +112,7 @@ namespace MassFileRenamer.Objects
 
             try
             {
-                if (!Configuration.MatchWholeWord)
+                if (!Configuration.MatchExactWord)
                 {
                     if (Configuration.MatchCase)
                         result = value.Contains(findWhat) &&

@@ -72,7 +72,7 @@ namespace MassFileRenamer.GUI
             this.helpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsTabControl = new System.Windows.Forms.TabControl();
             this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
-            this.matchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchExactWordCheckBox = new System.Windows.Forms.CheckBox();
             this.matchCaseCheckBox = new System.Windows.Forms.CheckBox();
             this.operationsTabPage = new System.Windows.Forms.TabPage();
             this.tabPageInstructionLabel = new System.Windows.Forms.Label();
@@ -227,7 +227,7 @@ namespace MassFileRenamer.GUI
             this.viewToolBar.CheckOnClick = true;
             this.viewToolBar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewToolBar.Name = "viewToolBar";
-            this.viewToolBar.Size = new System.Drawing.Size(180, 22);
+            this.viewToolBar.Size = new System.Drawing.Size(126, 22);
             this.viewToolBar.Text = "&Toolbar";
             this.viewToolBar.Click += new System.EventHandler(this.OnViewToolBar);
             // 
@@ -237,7 +237,7 @@ namespace MassFileRenamer.GUI
             this.viewStatusBar.CheckOnClick = true;
             this.viewStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewStatusBar.Name = "viewStatusBar";
-            this.viewStatusBar.Size = new System.Drawing.Size(180, 22);
+            this.viewStatusBar.Size = new System.Drawing.Size(126, 22);
             this.viewStatusBar.Text = "&Status Bar";
             this.viewStatusBar.Click += new System.EventHandler(this.OnViewStatusBar);
             // 
@@ -426,7 +426,7 @@ namespace MassFileRenamer.GUI
             // 
             // findReplaceOptionsTabPage
             // 
-            this.findReplaceOptionsTabPage.Controls.Add(this.matchWholeWordCheckBox);
+            this.findReplaceOptionsTabPage.Controls.Add(this.matchExactWordCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
             this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 24);
             this.findReplaceOptionsTabPage.Name = "findReplaceOptionsTabPage";
@@ -436,15 +436,15 @@ namespace MassFileRenamer.GUI
             this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
             this.findReplaceOptionsTabPage.UseVisualStyleBackColor = true;
             // 
-            // matchWholeWordCheckBox
+            // matchExactWordCheckBox
             // 
-            this.matchWholeWordCheckBox.AutoSize = true;
-            this.matchWholeWordCheckBox.Location = new System.Drawing.Point(7, 33);
-            this.matchWholeWordCheckBox.Name = "matchWholeWordCheckBox";
-            this.matchWholeWordCheckBox.Size = new System.Drawing.Size(125, 19);
-            this.matchWholeWordCheckBox.TabIndex = 1;
-            this.matchWholeWordCheckBox.Text = "Matc&h whole word";
-            this.matchWholeWordCheckBox.UseVisualStyleBackColor = true;
+            this.matchExactWordCheckBox.AutoSize = true;
+            this.matchExactWordCheckBox.Location = new System.Drawing.Point(7, 33);
+            this.matchExactWordCheckBox.Name = "matchExactWordCheckBox";
+            this.matchExactWordCheckBox.Size = new System.Drawing.Size(125, 19);
+            this.matchExactWordCheckBox.TabIndex = 1;
+            this.matchExactWordCheckBox.Text = "Matc&h whole word";
+            this.matchExactWordCheckBox.UseVisualStyleBackColor = true;
             // 
             // matchCaseCheckBox
             // 
@@ -772,7 +772,7 @@ namespace MassFileRenamer.GUI
         private CheckedListBox operationsCheckedListBox;
         private CheckBox selectDeselectAllCheckBox;
         private Label tabPageInstructionLabel;
-        private CheckBox matchWholeWordCheckBox;
+        private CheckBox matchExactWordCheckBox;
         private CheckBox matchCaseCheckBox;
         private ToolStripMenuItem helpMenu;
         private ToolStripMenuItem helpAbout;

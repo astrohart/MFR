@@ -33,7 +33,7 @@ namespace MassFileRenamer.Objects
         ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchCase" />
         /// and
         /// <see
-        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchWholeWord" />
+        ///     cref="P:MassFileRenamer.Objects.IConfiguration.MatchExactWord" />
         /// properties.
         /// </returns>
         public static TextMatchingConfiguration GetTextMatchingConfiguration(
@@ -43,17 +43,17 @@ namespace MassFileRenamer.Objects
 
             switch (config.MatchCase)
             {
-                case true when !config.MatchWholeWord:
+                case true when !config.MatchExactWord:
                     result = TextMatchingConfiguration.MatchCaseOnly;
                     break;
-                case false when config.MatchWholeWord:
-                    result = TextMatchingConfiguration.MatchWholeWordOnly;
+                case false when config.MatchExactWord:
+                    result = TextMatchingConfiguration.MatchExactWordOnly;
                     break;
-                case true when config.MatchWholeWord:
-                    result = TextMatchingConfiguration.MatchCaseAndWholeWord;
+                case true when config.MatchExactWord:
+                    result = TextMatchingConfiguration.MatchCaseAndExactWord;
                     break;
                 default:
-                    result = TextMatchingConfiguration.NeitherMatchCaseNorWholeWord;
+                    result = TextMatchingConfiguration.NeitherMatchCaseNorExactWord;
                     break;
             }
 

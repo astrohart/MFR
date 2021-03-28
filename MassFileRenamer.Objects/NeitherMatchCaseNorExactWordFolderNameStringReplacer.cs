@@ -6,37 +6,36 @@ namespace MassFileRenamer.Objects
 {
     /// <summary>
     /// Replaces strings only for the case where neither Match Case nor Match
-    /// Whole Word is set to <see langword="true" />, for the Rename Files in
-    /// Folder operation type.
+    /// Exact Word is set to <see langword="true" />, for the Rename Sub Folders operation type.
     /// </summary>
     public class
-        NeitherMatchCaseNorWholeWordFileNameStringReplacer :
-            RenameFilesInFolderStringReplacerBase
+        NeitherMatchCaseNorExactWordFolderNameStringReplacer :
+            RenameSubFoldersStringReplacerBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static NeitherMatchCaseNorWholeWordFileNameStringReplacer() { }
+        static NeitherMatchCaseNorExactWordFolderNameStringReplacer() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected NeitherMatchCaseNorWholeWordFileNameStringReplacer() { }
+        protected NeitherMatchCaseNorExactWordFolderNameStringReplacer() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.NeitherMatchCaseNorWholeWordFileNameStringReplacer" />
+        ///     cref="T:MassFileRenamer.Objects.NeitherMatchCaseNorExactWordFolderNameStringReplacer" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static NeitherMatchCaseNorWholeWordFileNameStringReplacer
+        public static NeitherMatchCaseNorExactWordFolderNameStringReplacer
             Instance
         {
             get;
-        } = new NeitherMatchCaseNorWholeWordFileNameStringReplacer();
+        } = new NeitherMatchCaseNorExactWordFolderNameStringReplacer();
 
         /// <summary>
         /// Gets one of the
@@ -49,7 +48,7 @@ namespace MassFileRenamer.Objects
         public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        } = TextMatchingConfiguration.NeitherMatchCaseNorWholeWord;
+        } = TextMatchingConfiguration.NeitherMatchCaseNorExactWord;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

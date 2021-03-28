@@ -7,7 +7,7 @@ namespace MassFileRenamer.Objects
     /// <summary>
     /// Factory object that creates string replacers, specific to the Rename
     /// Sub Folders type of operation, for the various combinations of
-    /// Match Case and Match Whole Word.
+    /// Match Case and Match Exact Word.
     /// </summary>
     public class
         RenameSubFoldersStringReplacerFactory : IStringReplacerFactory
@@ -93,19 +93,19 @@ namespace MassFileRenamer.Objects
                     replacer = MatchCaseOnlyFolderNameStringReplacer.Instance;
                     break;
 
-                case TextMatchingConfiguration.MatchWholeWordOnly:
-                    replacer = MatchWholeWordOnlyFolderNameStringReplacer
+                case TextMatchingConfiguration.MatchExactWordOnly:
+                    replacer = MatchExactWordOnlyFolderNameStringReplacer
                         .Instance;
                     break;
 
-                case TextMatchingConfiguration.MatchCaseAndWholeWord:
-                    replacer = MatchCaseAndWholeWordFolderNameStringReplacer
+                case TextMatchingConfiguration.MatchCaseAndExactWord:
+                    replacer = MatchCaseAndExactWordFolderNameStringReplacer
                         .Instance;
                     break;
 
-                case TextMatchingConfiguration.NeitherMatchCaseNorWholeWord:
+                case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     replacer =
-                        NeitherMatchCaseNorWholeWordFolderNameStringReplacer
+                        NeitherMatchCaseNorExactWordFolderNameStringReplacer
                             .Instance;
                     break;
 
