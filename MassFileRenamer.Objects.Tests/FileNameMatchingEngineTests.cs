@@ -5,7 +5,7 @@ namespace MassFileRenamer.Objects.Tests
     /// <summary>
     /// Provides unit tests for the methods of the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.TextExpressionMatchingEngine" />
+    ///     cref="T:MassFileRenamer.Objects.FileNameMatchingEngine" />
     /// class.
     /// </summary>
     [TestFixture]
