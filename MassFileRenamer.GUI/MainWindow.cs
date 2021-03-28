@@ -107,7 +107,7 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets or sets the value of the Match Case checkbox
+        /// Gets or sets the value of the Match Case checkbox.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public bool MatchCase
@@ -117,7 +117,7 @@ namespace MassFileRenamer.GUI
         }
 
         /// <summary>
-        /// Gets or sets the value of the Match Exact Word checkbox
+        /// Gets or sets the value of the Match Exact Word checkbox.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public bool MatchExactWord

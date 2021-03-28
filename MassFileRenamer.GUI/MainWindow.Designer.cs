@@ -441,9 +441,9 @@ namespace MassFileRenamer.GUI
             this.matchExactWordCheckBox.AutoSize = true;
             this.matchExactWordCheckBox.Location = new System.Drawing.Point(7, 33);
             this.matchExactWordCheckBox.Name = "matchExactWordCheckBox";
-            this.matchExactWordCheckBox.Size = new System.Drawing.Size(125, 19);
+            this.matchExactWordCheckBox.Size = new System.Drawing.Size(121, 19);
             this.matchExactWordCheckBox.TabIndex = 1;
-            this.matchExactWordCheckBox.Text = "Matc&h whole word";
+            this.matchExactWordCheckBox.Text = "Match e&xact word";
             this.matchExactWordCheckBox.UseVisualStyleBackColor = true;
             // 
             // matchCaseCheckBox
