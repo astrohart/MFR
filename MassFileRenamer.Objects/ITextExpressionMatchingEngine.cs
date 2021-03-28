@@ -3,7 +3,8 @@
     /// <summary>
     /// Defines the public-exposed methods and properties of a filename-matcher object.
     /// </summary>
-    public interface ITextExpressionMatchingEngine : IConfigurationComposedObject, IFixedOperationTypeSpecificObject
+    public interface ITextExpressionMatchingEngine :
+        IConfigurationComposedObject, IFixedOperationTypeSpecificObject
     {
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -29,9 +30,11 @@
         /// <see langword="null" /> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <see langword="true" /> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <see langword="false" /> if no
-        /// matches are found.
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
+        /// match against the provided <paramref name="findWhat" />;
+        /// <see
+        ///     langword="false" />
+        /// if no matches are found.
         /// </returns>
         bool IsMatch(string value, string findWhat, string replaceWith = "");
 
@@ -50,7 +53,10 @@
         /// interface and whose properties contain the match and pattern data.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if more than zero matches are found; <see langword="false" /> otherwise.
+        /// <see langword="true" /> if more than zero matches are found;
+        /// <see
+        ///     langword="false" />
+        /// otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="expression" />, is
