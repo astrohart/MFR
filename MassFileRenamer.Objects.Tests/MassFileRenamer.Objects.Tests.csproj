@@ -100,6 +100,7 @@
     <Compile Include="GetMatchExpressionFactoryTests.cs" />
     <Compile Include="GetRunningObjectTableTests.cs" />
     <Compile Include="GetRunningObjectTests.cs" />
+    <Compile Include="GetStringMatcherTests.cs" />
     <Compile Include="GetStringReplacerTests.cs" />
     <Compile Include="GetTextExpressionMatchingEngineTests.cs" />
     <Compile Include="LoadConfigurationFromFileActionTests.cs" />
@@ -118,6 +119,7 @@
     </Compile>
     <Compile Include="RegistryDataExchangeTestsBase.cs" />
     <Compile Include="RegistryHiveExtensionsTests.cs" />
+    <Compile Include="RenameFilesInFolderStringMatcherFactoryTests.cs" />
     <Compile Include="RenameFilesInFolderStringReplacerFactoryTests.cs" />
     <Compile Include="RenameSubFoldersStringReplacerFactoryTests.cs" />
     <Compile Include="ReplaceTextInFilesStringReplacerFactoryTests.cs" />

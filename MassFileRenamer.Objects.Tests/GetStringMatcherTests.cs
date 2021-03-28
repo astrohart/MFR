@@ -5,19 +5,19 @@ namespace MassFileRenamer.Objects.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MassFileRenamer.Objects.GetStringReplacer" />
+    ///     cref="T:MassFileRenamer.Objects.GetStringMatcher" />
     /// class.
     /// </summary>
     [TestFixture]
-    public class GetStringReplacerTests
+    public class GetStringMatcherTests
     {
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.GetStringReplacer.For" />
+        ///     cref="M:MassFileRenamer.Objects.GetStringMatcher.For" />
         /// method
         /// returns a reference to an instance of an object that implements the
-        /// <see cref="T:MassFileRenamer.Objects.IStringReplacerFactory" />
+        /// <see cref="T:MassFileRenamer.Objects.IStringMatcherFactory" />
         /// interface when the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.OperationType.RenameFilesInFolder" />
@@ -25,20 +25,20 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_For_Returns_ImplementerOf_IStringReplacerFactory_When_RenameFilesInFolder_IsOperationType()
+            Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()
             => Assert.That(
-                GetStringReplacer.For(OperationType.RenameFilesInFolder),
-                Is.InstanceOf<IStringReplacerFactory>()
+                GetStringMatcher.For(OperationType.RenameFilesInFolder),
+                Is.InstanceOf<IStringMatcherFactory>()
             );
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.GetStringReplacer.For" />
+        ///     cref="M:MassFileRenamer.Objects.GetStringMatcher.For" />
         /// method
         /// returns a reference to an instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.RenameFilesInFolderStringReplacerFactory" />
+        ///     cref="T:MassFileRenamer.Objects.RenameFilesInFolderStringMatcherFactory" />
         /// when the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.OperationType.RenameFilesInFolder" />
@@ -46,19 +46,19 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_For_Returns_RenameFilesInFolderStringReplacerFactory_When_RenameFilesInFolder_IsOperationType()
-            => Assert.IsInstanceOf<RenameFilesInFolderStringReplacerFactory>(
-                GetStringReplacer.For(OperationType.RenameFilesInFolder)
+            Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()
+            => Assert.IsInstanceOf<RenameFilesInFolderStringMatcherFactory>(
+                GetStringMatcher.For(OperationType.RenameFilesInFolder)
             );
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.GetStringReplacer.For" />
+        ///     cref="M:MassFileRenamer.Objects.GetStringMatcher.For" />
         /// method
         /// returns a reference to an instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.RenameSubFoldersStringReplacerFactory" />
+        ///     cref="T:MassFileRenamer.Objects.RenameSubFoldersStringMatcherFactory" />
         /// when the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.OperationType.RenameSubFolders" />
@@ -66,19 +66,19 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_For_Returns_RenameSubFoldersStringReplacerFactory_When_RenameSubFolders_IsOperationType()
-            => Assert.IsInstanceOf<RenameSubFoldersStringReplacerFactory>(
-                GetStringReplacer.For(OperationType.RenameSubFolders)
+            Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType()
+            => Assert.IsInstanceOf<RenameSubFoldersStringMatcherFactory>(
+                GetStringMatcher.For(OperationType.RenameSubFolders)
             );
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MassFileRenamer.Objects.GetStringReplacer.For" />
+        ///     cref="M:MassFileRenamer.Objects.GetStringMatcher.For" />
         /// method
         /// returns a reference to an instance of
         /// <see
-        ///     cref="T:MassFileRenamer.Objects.ReplaceTextInFilesStringReplacerFactory" />
+        ///     cref="T:MassFileRenamer.Objects.ReplaceTextInFilesStringMatcherFactory" />
         /// when the
         /// <see
         ///     cref="T:MassFileRenamer.Objects.OperationType.ReplaceTextInFiles" />
@@ -86,9 +86,10 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         [Test]
         public void
-            Test_For_Returns_ReplaceTextInFilesStringReplacerFactory_When_ReplaceTextInFiles_IsOperationType()
-            => Assert.IsInstanceOf<ReplaceTextInFilesStringReplacerFactory>(
-                GetStringReplacer.For(OperationType.ReplaceTextInFiles)
+            Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType()
+            => Assert.IsInstanceOf<ReplaceTextInFilesStringMatcherFactory>(
+                GetStringMatcher.For(OperationType.ReplaceTextInFiles)
             );
+
     }
 }

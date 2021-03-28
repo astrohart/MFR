@@ -126,6 +126,7 @@
     <Compile Include="GetRunningObjectTable.cs" />
     <Compile Include="GetRunningOperatingSystemObject.cs" />
     <Compile Include="GetSaveConfigPathCommand.cs" />
+    <Compile Include="GetStringMatcher.cs" />
     <Compile Include="GetStringReplacer.cs" />
     <Compile Include="GettingListOfFilesToBeRenamedOperationTypeStartedDescription.cs" />
     <Compile Include="IMonikerEnumerable.cs" />
@@ -181,16 +182,19 @@
     <Compile Include="RenameFilesInFolderOperationTypeDescription.cs" />
     <Compile Include="RenameFilesInFolderOperationTypeStartedDescription.cs" />
     <Compile Include="RenameFilesInFolderStringMatcherBase.cs" />
+    <Compile Include="RenameFilesInFolderStringMatcherFactory.cs" />
     <Compile Include="RenameFilesInFolderStringReplacerBase.cs" />
     <Compile Include="RenameFilesInFolderStringReplacerFactory.cs" />
     <Compile Include="RenameSubFoldersOperationTypeDescription.cs" />
     <Compile Include="RenameSubFoldersOperationTypeStartedDescription.cs" />
     <Compile Include="RenameSubFoldersStringMatcherBase.cs" />
+    <Compile Include="RenameSubFoldersStringMatcherFactory.cs" />
     <Compile Include="RenameSubFoldersStringReplacerBase.cs" />
     <Compile Include="RenameSubFoldersStringReplacerFactory.cs" />
     <Compile Include="ReplaceTextInFilesOperationTypeDescription.cs" />
     <Compile Include="ReplaceTextInFilesOperationTypeStartedDescription.cs" />
     <Compile Include="ReplaceTextInFilesStringMatcherBase.cs" />
+    <Compile Include="ReplaceTextInFilesStringMatcherFactory.cs" />
     <Compile Include="ReplaceTextInfilesStringReplacerBase.cs" />
     <Compile Include="ReplaceTextInFilesStringReplacerFactory.cs" />
     <Compile Include="RequestBase.cs" />
