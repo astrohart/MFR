@@ -42,7 +42,7 @@ namespace MassFileRenamer.Objects.Tests
             Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType()
             => Assert.IsTrue(
                 GetTextExpressionMatchingEngine.For(OperationType.ReplaceTextInFiles)
-                    is TextInFileMatchingEngine
+                    is TextInFilesMatchingEngine
             );
 
         /// <summary>

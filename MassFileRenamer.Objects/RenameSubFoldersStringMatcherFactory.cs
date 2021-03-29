@@ -102,22 +102,22 @@ namespace MassFileRenamer.Objects
             switch (matchingConfig)
             {
                 case TextMatchingConfiguration.MatchCaseOnly:
-                    matcher = MatchCaseOnlyFileNameStringMatcher.Instance;
+                    matcher = MatchCaseOnlyFolderNameStringMatcher.Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchExactWordOnly:
-                    matcher = MatchExactWordOnlyFileNameStringMatcher
+                    matcher = MatchExactWordOnlyFolderNameStringMatcher
                         .Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchCaseAndExactWord:
-                    matcher = MatchCaseAndExactWordFileNameStringMatcher
+                    matcher = MatchCaseAndExactWordFolderNameStringMatcher
                         .Instance;
                     break;
 
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     matcher =
-                        NeitherMatchCaseNorExactWordFileNameStringMatcher
+                        NeitherMatchCaseNorExactWordFolderNameStringMatcher
                             .Instance;
                     break;
 

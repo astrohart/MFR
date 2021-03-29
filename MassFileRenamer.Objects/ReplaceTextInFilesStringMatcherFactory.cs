@@ -47,7 +47,7 @@ namespace MassFileRenamer.Objects
         public OperationType OperationType
         {
             get;
-        } = OperationType.RenameSubFolders;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -102,22 +102,22 @@ namespace MassFileRenamer.Objects
             switch (matchingConfig)
             {
                 case TextMatchingConfiguration.MatchCaseOnly:
-                    matcher = MatchCaseOnlyFileNameStringMatcher.Instance;
+                    matcher = MatchCaseOnlyTextInFilesStringMatcher.Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchExactWordOnly:
-                    matcher = MatchExactWordOnlyFileNameStringMatcher
+                    matcher = MatchExactWordOnlyTextInFilesStringMatcher
                         .Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchCaseAndExactWord:
-                    matcher = MatchCaseAndExactWordFileNameStringMatcher
+                    matcher = MatchCaseAndExactWordTextInFilesStringMatcher
                         .Instance;
                     break;
 
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     matcher =
-                        NeitherMatchCaseNorExactWordFileNameStringMatcher
+                        NeitherMatchCaseNorExactWordTextInFilesStringMatcher
                             .Instance;
                     break;
 

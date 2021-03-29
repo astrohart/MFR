@@ -1,26 +1,45 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Defines the methods, properties, and events that all String Matcher
-    /// objects for the Replace Text in Files operation type have in common.
+    /// Matches strings only for the case where Match Case is set to
+    /// <see
+    ///     langword="false" />
+    /// and Match Exact Word is set to <see langword="true" />
+    /// for the case when a Replace Text in Files operation is being performed.
     /// </summary>
-    public abstract class ReplaceTextInFilesStringMatcherBase : IStringMatcher
+    public class
+        MatchExactWordOnlyTextInFilesStringMatcher :
+            ReplaceTextInFilesStringMatcherBase
     {
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public OperationType OperationType
+        static MatchExactWordOnlyTextInFilesStringMatcher() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected MatchExactWordOnlyTextInFilesStringMatcher() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.MatchExactWordOnlyTextInFilesStringMatcher" />
+        /// .
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MatchExactWordOnlyTextInFilesStringMatcher Instance
         {
             get;
-        } = OperationType.ReplaceTextInFiles;
+        } = new MatchExactWordOnlyTextInFilesStringMatcher();
 
         /// <summary>
         /// Gets one of the
@@ -29,11 +48,10 @@ namespace MassFileRenamer.Objects
         /// values
         /// that corresponds to the type of operation being performed.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public abstract TextMatchingConfiguration TextMatchingConfiguration
+        public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        }
+        } = TextMatchingConfiguration.MatchExactWordOnly;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -65,24 +83,27 @@ namespace MassFileRenamer.Objects
         ///     langword="false" />
         /// if no matches are found.
         /// </returns>
-        /// <remarks>
-        /// The base class method contains default input-validation logic and
-        /// overriders should call the base class method while ignoring its
-        /// return value.
-        /// </remarks>
-        public virtual bool IsMatch(string value, string findWhat,
+        public override bool IsMatch(string value, string findWhat,
             string replaceWith = "")
         {
-            if (string.IsNullOrEmpty(value))
-                return false; // if we have a zero-byte input file, then stop.
+            base.IsMatch(value, findWhat, replaceWith);
 
-            if (string.IsNullOrEmpty(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or the empty string.  It CAN be whitespace, however.",
-                    nameof(findWhat)
-                );
+            bool result;
 
-            return false; /* this return value should not be used. */
+            try
+            {
+                var regex = $@"^{Regex.Escape(findWhat)}$";
+                result = value.RegexMatchesNoCase(regex);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
     }
 }

@@ -1,26 +1,42 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.Objects
 {
     /// <summary>
-    /// Defines the methods, properties, and events that all String Matcher
-    /// objects for the Replace Text in Files operation type have in common.
+    /// Matches strings only for the case where Match Case is set to
+    /// <see
+    ///     langword="true" />
+    /// and Match Exact Word is set to <see langword="false" />
+    /// for the case when a Replace Text in Files operation is being performed.
     /// </summary>
-    public abstract class ReplaceTextInFilesStringMatcherBase : IStringMatcher
+    public class
+        MatchCaseOnlyTextInFilesStringMatcher :
+            ReplaceTextInFilesStringMatcherBase
     {
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public OperationType OperationType
+        static MatchCaseOnlyTextInFilesStringMatcher() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected MatchCaseOnlyTextInFilesStringMatcher() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MassFileRenamer.Objects.MatchCaseOnlyTextInFilesStringMatcher" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MatchCaseOnlyTextInFilesStringMatcher Instance
         {
             get;
-        } = OperationType.ReplaceTextInFiles;
+        } = new MatchCaseOnlyTextInFilesStringMatcher();
 
         /// <summary>
         /// Gets one of the
@@ -29,11 +45,10 @@ namespace MassFileRenamer.Objects
         /// values
         /// that corresponds to the type of operation being performed.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public abstract TextMatchingConfiguration TextMatchingConfiguration
+        public override TextMatchingConfiguration TextMatchingConfiguration
         {
             get;
-        }
+        } = TextMatchingConfiguration.MatchCaseOnly;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -65,24 +80,31 @@ namespace MassFileRenamer.Objects
         ///     langword="false" />
         /// if no matches are found.
         /// </returns>
-        /// <remarks>
-        /// The base class method contains default input-validation logic and
-        /// overriders should call the base class method while ignoring its
-        /// return value.
-        /// </remarks>
-        public virtual bool IsMatch(string value, string findWhat,
+        public override bool IsMatch(string value, string findWhat,
             string replaceWith = "")
         {
-            if (string.IsNullOrEmpty(value))
-                return false; // if we have a zero-byte input file, then stop.
+            base.IsMatch(value, findWhat, replaceWith);
 
-            if (string.IsNullOrEmpty(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or the empty string.  It CAN be whitespace, however.",
-                    nameof(findWhat)
-                );
+            /*
+             * OKAY, for replacing text in a file, and to match case, we
+             * simply execute a "Contains" search.
+             */
 
-            return false; /* this return value should not be used. */
+            bool result;
+
+            try
+            {
+                result = value.MatchesWithCase(findWhat, replaceWith);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
     }
 }

@@ -14,12 +14,6 @@ namespace MassFileRenamer.Objects.Tests
         public const string DEVENV_FILENAME = "devenv.exe";
 
         /// <summary>
-        /// String containing the path to a 'dotfolder' -- i.e., a folder whose
-        /// name starts with a dot.
-        /// </summary>
-        public const string DOTFOLDER_PATH = @"C:\Users\Administrator\.android";
-
-        /// <summary>
         /// String containing the path of a folder that the RenameSubFolder
         /// operation would consider fair game for acting upon.
         /// </summary>
@@ -79,6 +73,22 @@ namespace MassFileRenamer.Objects.Tests
         public const string WHITESPACE = "   \t";
 
         /// <summary>
+        /// String containing the path to a 'dotfolder' -- i.e., a folder whose
+        /// name starts with a dot.
+        /// </summary>
+        /// <remarks>
+        /// Here, we pass the location of the .android folder, which is
+        /// guaranteed to be exist under the %USERPROFILE% folder since the
+        /// Visual Studio IDE is installed.
+        /// </remarks>
+        public static readonly string DOTFOLDER_PATH_KNOWN_TO_EXIST =
+            Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.UserProfile
+                ), ".android"
+            );
+
+        /// <summary>
         /// Constant whose value is the empty string.
         /// </summary>
         public static readonly string EMPTY_STRING = string.Empty;
@@ -121,6 +131,20 @@ namespace MassFileRenamer.Objects.Tests
                 Path.GetFileNameWithoutExtension(FILE_GUARANTEED_TO_EXIST);
 
         /// <summary>
+        /// String consisting of the path to a folder that we can guarantee will
+        /// not exist on the system.
+        /// </summary>
+        public static readonly string NONEXISTENT_FOLDER =
+            Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.Windows),
+                Guid.NewGuid()
+                    .ToString("N")
+            );
+
+        public static readonly string FOLDER_THAT_IS_GUARANTEED_TO_EXIST =
+            Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+
+        /// <summary>
         /// String consisting of the fully-qualified pathname of a
         /// randomly-created, zero-length temporary file that is to be used in a
         /// file-rename operation test.
@@ -144,13 +168,6 @@ namespace MassFileRenamer.Objects.Tests
         /// </summary>
         public static readonly string NONEXISTENT_FILE =
             @"C:\jkldasklopwmas\alwfvowlf\alrfn.sklj";
-
-        /// <summary>
-        /// String consisting of the path to a folder that we can guarantee will
-        /// not exist on the system.
-        /// </summary>
-        public static readonly string NONEXISTENT_FOLDER =
-            $@"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\{GIBBERISH}";
 
         /// <summary>
         /// Constant whose value is the null string.

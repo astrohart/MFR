@@ -108,55 +108,16 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            var result = false;
+            bool result;
 
             try
             {
-                if (!Configuration.MatchExactWord)
-                {
-                    if (Configuration.MatchCase)
-                        result = value.Contains(findWhat) &&
-                                 (findWhat.Contains(replaceWith) ||
-                                  !value.Contains(replaceWith));
-                    else
-                        result = value.ToLowerInvariant()
-                                      .Contains(findWhat.ToLowerInvariant()) &&
-                                 (findWhat.ToLowerInvariant()
-                                          .Contains(
-                                              replaceWith.ToLowerInvariant()
-                                          ) ||
-                                  !value.ToLowerInvariant()
-                                        .Contains(
-                                            replaceWith.ToLowerInvariant()
-                                        ));
-                }
-                else
-                {
-                    /*
-                     * OKAY, a exact-word search on a folder path is somewhat different
-                     * than for a file. For a folder, it's made up of parts, each of which
-                     * are delimited by a backslash (@'\'). Split the string along the backslashes.
-                     * We only do the search and replace on the folder the furthest down the
-                     * directory tree.
-                     *
-                     * In a exact-word search, if any part matches the pattern exactly,
-                     * then we are golden.
-                     */
-
-                    var parts = value.Split(
-                        new[] {'\\'}, StringSplitOptions.RemoveEmptyEntries
-                    );
-                    if (!parts.Any())
-                        result = false; // obviously no chance of being a match
-                    else if (Configuration.MatchCase)
-                        result = parts.Any(findWhat.Equals);
-                    else
-                        result = parts.Select(s => s.ToLowerInvariant())
-                                      .Any(
-                                          findWhat.ToLowerInvariant()
-                                                  .Equals
-                                      );
-                }
+                result = GetStringMatcher.For(OperationType.RenameSubFolders)
+                                         .AndTextMatchingConfiguration(
+                                             Configuration
+                                                 .GetTextMatchingConfiguration()
+                                         )
+                                         .IsMatch(value, findWhat, replaceWith);
             }
             catch (Exception ex)
             {

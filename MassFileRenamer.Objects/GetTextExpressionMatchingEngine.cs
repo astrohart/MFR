@@ -60,7 +60,7 @@ namespace MassFileRenamer.Objects
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    matcher = new TextInFileMatchingEngine();
+                    matcher = new TextInFilesMatchingEngine();
                     break;
 
                 default:

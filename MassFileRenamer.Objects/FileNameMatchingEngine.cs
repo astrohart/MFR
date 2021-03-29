@@ -1,5 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
@@ -12,8 +13,8 @@ namespace MassFileRenamer.Objects
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MassFileRenamer.Objects.FileNameMatchingEngine" />
-        /// and returns a
-        /// reference to it.
+        /// and
+        /// returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
@@ -28,8 +29,8 @@ namespace MassFileRenamer.Objects
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MassFileRenamer.Objects.FileNameMatchingEngine" />
-        /// and returns a
-        /// reference to it.
+        /// and
+        /// returns a reference to it.
         /// </summary>
         /// <remarks>
         /// NOTE: This constructor is marked as <c>internal</c>. This is to
@@ -43,6 +44,19 @@ namespace MassFileRenamer.Objects
         {
             // TODO: Add default object initialization code here
         }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MassFileRenamer.Objects.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -62,12 +76,15 @@ namespace MassFileRenamer.Objects
         /// , <paramref name="findWhat" />, or
         /// <paramref
         ///     name="replaceWith" />
-        /// , are passed blank or <see langword="null" /> string for values.
+        /// , are passed blank or <see langword="null" />
+        /// string for values.
         /// </exception>
         /// <returns>
-        /// Returns <see langword="true" /> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <see langword="false" /> if no
-        /// matches are found.
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
+        /// match against the provided <paramref name="findWhat" />;
+        /// <see
+        ///     langword="false" />
+        /// if no matches are found.
         /// </returns>
         public override bool IsMatch(string value, string findWhat,
             string replaceWith = "")
@@ -87,39 +104,26 @@ namespace MassFileRenamer.Objects
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            /*
-             * We could have used the ?: operator here, but a conscious choice has
-             * been made to use if/else, because then the code is more readable.
-             */
+            bool result;
 
-            if (Configuration.MatchCase)
-                if (Configuration.MatchExactWord)
-                    return value.Equals(findWhat);
-                else
-                    return value.Contains(findWhat) &&
-                           (findWhat.Contains(replaceWith) || !value.Contains(replaceWith));
-            if (Configuration.MatchExactWord)
-                return value.ToLowerInvariant()
-                    .Equals(findWhat.ToLowerInvariant());
-            return value.ToLowerInvariant()
-                       .Contains(findWhat.ToLowerInvariant()) &&
-                   (findWhat.ToLowerInvariant()
-                        .Contains(replaceWith.ToLowerInvariant()) ||
-                    !value.ToLowerInvariant()
-                        .Contains(replaceWith.ToLowerInvariant()));
+            try
+            {
+                result = GetStringMatcher.For(OperationType.RenameFilesInFolder)
+                                         .AndTextMatchingConfiguration(
+                                             Configuration
+                                                 .GetTextMatchingConfiguration()
+                                         )
+                                         .IsMatch(value, findWhat, replaceWith);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
-
-        /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MassFileRenamer.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public override OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameFilesInFolder;
     }
 }

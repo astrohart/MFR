@@ -136,6 +136,15 @@
     <Compile Include="IStringMatcherFactory.cs" />
     <Compile Include="MakeNewMonikerCollection.cs" />
     <Compile Include="MakeNewMonikerWrapper.cs" />
+    <Compile Include="MatchCaseAndExactWordFileNameStringMatcher.cs" />
+    <Compile Include="MatchCaseAndExactWordFolderNameStringMatcher.cs" />
+    <Compile Include="MatchCaseAndExactWordTextInFilesStringMatcher.cs" />
+    <Compile Include="MatchCaseOnlyFileNameStringMatcher.cs" />
+    <Compile Include="MatchCaseOnlyFolderNameStringMatcher.cs" />
+    <Compile Include="MatchCaseOnlyTextInFilesStringMatcher.cs" />
+    <Compile Include="MatchExactWordOnlyFileNameStringMatcher.cs" />
+    <Compile Include="MatchExactWordOnlyFolderNameStringMatcher.cs" />
+    <Compile Include="MatchExactWordOnlyTextInFilesStringMatcher.cs" />
     <Compile Include="MonikerCollection.cs" />
     <Compile Include="MonikerEnumerator.cs" />
     <Compile Include="MakeNewBindContext.cs" />
@@ -174,8 +183,11 @@
     <Compile Include="MessageBase.cs" />
     <Compile Include="MonikerWrapper.cs" />
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordFileNameStringMatcher.cs" />
     <Compile Include="NeitherMatchCaseNorExactWordFileNameStringReplacer.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordFolderNameStringMatcher.cs" />
     <Compile Include="NeitherMatchCaseNorExactWordFolderNameStringReplacer.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordTextInFilesStringMatcher.cs" />
     <Compile Include="NeitherMatchCaseNorExactWordTextInFilesStringReplacer.cs" />
     <Compile Include="OpenActiveSolutionOperationTypeStartedDescription.cs" />
     <Compile Include="PathFilterInvokerBase.cs" />
@@ -277,7 +289,6 @@
     <Compile Include="ReplaceTextInFileMatchExpressionFactory.cs" />
     <Compile Include="SaveConfigurationToFileCommand.cs" />
     <Compile Include="SaveStringToRegistryCommand.cs" />
-    <Compile Include="StringExtensions.cs" />
     <Compile Include="FileRenamer.cs" />
     <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
     <Compile Include="FilesOrFoldersCountedEventHandler.cs" />
@@ -322,7 +333,7 @@
     <Compile Include="StatusUpdateEventHandler.cs" />
     <Compile Include="SystemPreparer.cs" />
     <Compile Include="TextExpressionMatchingEngineBase.cs" />
-    <Compile Include="TextInFileMatchingEngine.cs" />
+    <Compile Include="TextInFilesMatchingEngine.cs" />
     <Compile Include="TextInFileReplacementEngine.cs" />
     <Compile Include="TextInFilesRetriever.cs" />
     <Compile Include="TextInFileTextValueRetriever.cs" />

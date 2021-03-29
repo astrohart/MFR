@@ -192,7 +192,7 @@ namespace MassFileRenamer.Objects.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
-                                               StringConstants.DOTFOLDER_PATH
+                                               StringConstants.DOTFOLDER_PATH_KNOWN_TO_EXIST
                                            )
             );
 

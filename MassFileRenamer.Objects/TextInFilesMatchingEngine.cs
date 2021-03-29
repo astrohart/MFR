@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
 
 namespace MassFileRenamer.Objects
 {
-    public class TextInFileMatchingEngine : TextExpressionMatchingEngineBase
+    public class TextInFilesMatchingEngine : TextExpressionMatchingEngineBase
     {
         /// <summary>
         /// Constructs a new instance of
@@ -16,7 +17,7 @@ namespace MassFileRenamer.Objects
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public TextInFileMatchingEngine(IConfiguration configuration) : base(
+        public TextInFilesMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
 
@@ -34,7 +35,7 @@ namespace MassFileRenamer.Objects
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
-        internal TextInFileMatchingEngine()
+        internal TextInFilesMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }
@@ -115,30 +116,26 @@ namespace MassFileRenamer.Objects
                     nameof(findWhat)
                 );
 
-            if (Configuration.MatchExactWord)
-            {
-                if (Configuration.MatchCase)
-                    return Regex.IsMatch(
-                        value, $@"\b({Regex.Escape(findWhat)})\b"
-                    );
+            bool result;
 
-                return Regex.IsMatch(
-                    value.ToLowerInvariant(),
-                    $@"\b({findWhat.ToLowerInvariant()})\b"
-                );
+            try
+            {
+                result = GetStringMatcher.For(OperationType.ReplaceTextInFiles)
+                                         .AndTextMatchingConfiguration(
+                                             Configuration
+                                                 .GetTextMatchingConfiguration()
+                                         )
+                                         .IsMatch(value, findWhat, replaceWith);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
             }
 
-            if (Configuration.MatchCase)
-                return value.Contains(findWhat) &&
-                       (findWhat.Contains(replaceWith) ||
-                        !value.Contains(replaceWith));
-
-            return value.ToLowerInvariant()
-                        .Contains(findWhat.ToLowerInvariant()) && (findWhat
-                .ToLowerInvariant()
-                .Contains(replaceWith.ToLowerInvariant()) || !value
-                .ToLowerInvariant()
-                .Contains(replaceWith.ToLowerInvariant()));
+            return result;
         }
     }
 }

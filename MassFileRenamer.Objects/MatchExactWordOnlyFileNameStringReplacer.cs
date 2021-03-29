@@ -2,6 +2,7 @@
 using System;
 using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.Objects
 {
@@ -109,7 +110,7 @@ namespace MassFileRenamer.Objects
 
             try
             {
-                var regex = $@"\b({Regex.Escape(pattern)})\b";
+                var regex = $@"^{Regex.Escape(pattern)}$";
                 result = source.RegexReplaceNoCase(regex, dest);
             }
             catch (Exception ex)

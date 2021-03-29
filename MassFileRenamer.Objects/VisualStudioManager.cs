@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 using Thread = System.Threading.Thread;
 
 namespace MassFileRenamer.Objects

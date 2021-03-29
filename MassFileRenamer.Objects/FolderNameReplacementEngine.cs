@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MassFileRenamer.Objects
 {
