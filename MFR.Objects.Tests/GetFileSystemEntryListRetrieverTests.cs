@@ -1,0 +1,99 @@
+using NUnit.Framework;
+using System;
+
+namespace MFR.Objects.Tests
+{
+    /// <summary>
+    /// Provides unit tests for the methods, properties, and events of the
+    /// <see
+    ///     cref="T:MFR.Objects.GetFileSystemEntryListRetriever" />
+    /// class.
+    /// </summary>
+    [TestFixture]
+    public class GetFileSystemEntryListRetrieverTests
+    {
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ReturnsFilesToRenameRetriever_For_RenameFilesInFolder_OperationType()
+            => Assert.IsTrue(
+                GetFileSystemEntryListRetriever.For(
+                    OperationType.RenameFilesInFolder
+                ) is FilesToRenameRetriever
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ReturnsFolderToRenameRetriever_For_RenameSubFolders_OperationType()
+            => Assert.IsTrue(
+                GetFileSystemEntryListRetriever.For(
+                    OperationType.RenameSubFolders
+                ) is FolderToRenameRetriever
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ReturnsTextInFilesRetriever_For_ReplaceTextInFiles_OperationType()
+            => Assert.IsTrue(
+                GetFileSystemEntryListRetriever.For(
+                    OperationType.ReplaceTextInFiles
+                ) is TextInFilesRetriever
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()
+            => Assert.Throws<ArgumentOutOfRangeException>(
+                () => GetFileSystemEntryListRetriever.For(
+                    OperationType.CloseActiveSolution
+                )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType()
+            => Assert.Throws<ArgumentOutOfRangeException>(
+                () => GetFileSystemEntryListRetriever.For(
+                    OperationType.FindVisualStudio
+                )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()
+            => Assert.Throws<ArgumentOutOfRangeException>(
+                () => GetFileSystemEntryListRetriever.For(
+                    OperationType.GettingListOfFilesToBeRenamed
+                )
+            );
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()
+            => Assert.Throws<ArgumentOutOfRangeException>(
+                () => GetFileSystemEntryListRetriever.For(
+                    OperationType.OpenActiveSolution
+                )
+            );
+    }
+}

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ProjectGuid>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</ProjectGuid>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>True</SkipPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>MFR.Objects</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>MFR.Objects</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\EnvDTE.16.9.31023.347\lib\net45\EnvDTE.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=6.9.3.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.6.9.3\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.9.3\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.9.3\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\stdole.16.9.31023.347\lib\net45\stdole.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CachedResultActionBase.cs" />
+    <Compile Include="CloseActiveSolutionOperationTypeStartedDescription.cs" />
+    <Compile Include="ComboBoxInitializer.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="ActionBase.cs" />
+    <Compile Include="DataOperationErrorEventArgs.cs" />
+    <Compile Include="DataOperationErrorEventHandler.cs" />
+    <Compile Include="ActionCacheProvider.cs" />
+    <Compile Include="FileRenamerMessages.cs" />
+    <Compile Include="FindVisualStudioOperationTypeStartedDescription.cs" />
+    <Compile Include="GetOperatingSystemObjectDisplayName.cs" />
+    <Compile Include="GetOperationDescription.cs" />
+    <Compile Include="GetOperationStartedDescription.cs" />
+    <Compile Include="DoesPathFilterInvoker.cs" />
+    <Compile Include="GetSaveConfigPathCommand.cs" />
+    <Compile Include="GetStringMatcher.cs" />
+    <Compile Include="GetStringReplacer.cs" />
+    <Compile Include="GettingListOfFilesToBeRenamedOperationTypeStartedDescription.cs" />
+    <Compile Include="IStringMatcher.cs" />
+    <Compile Include="IStringMatcherFactory.cs" />
+    <Compile Include="MatchCaseAndExactWordFileNameStringMatcher.cs" />
+    <Compile Include="MatchCaseAndExactWordFolderNameStringMatcher.cs" />
+    <Compile Include="MatchCaseAndExactWordTextInFilesStringMatcher.cs" />
+    <Compile Include="MatchCaseOnlyFileNameStringMatcher.cs" />
+    <Compile Include="MatchCaseOnlyFolderNameStringMatcher.cs" />
+    <Compile Include="MatchCaseOnlyTextInFilesStringMatcher.cs" />
+    <Compile Include="MatchExactWordOnlyFileNameStringMatcher.cs" />
+    <Compile Include="MatchExactWordOnlyFolderNameStringMatcher.cs" />
+    <Compile Include="MatchExactWordOnlyTextInFilesStringMatcher.cs" />
+    <Compile Include="ICachedResultAction.cs" />
+    <Compile Include="IStringReplacer.cs" />
+    <Compile Include="IStringReplacerFactory.cs" />
+    <Compile Include="IFixedTextMatchingConfigurationSpecificObject.cs" />
+    <Compile Include="IOperationTypeDescription.cs" />
+    <Compile Include="IOperationTypeStartedDescription.cs" />
+    <Compile Include="IPathFilterInvoker.cs" />
+    <Compile Include="MakeNewFileInfo.cs" />
+    <Compile Include="MatchCaseAndExactWordFileNameStringReplacer.cs" />
+    <Compile Include="MatchCaseAndExactWordFolderNameStringReplacer.cs" />
+    <Compile Include="MatchCaseAndExactWordTextInFilesStringReplacer.cs" />
+    <Compile Include="MatchCaseOnlyFileNameStringReplacer.cs" />
+    <Compile Include="MatchCaseOnlyFolderNameStringReplacer.cs" />
+    <Compile Include="MatchCaseOnlyTextInFilesStringReplacer.cs" />
+    <Compile Include="MatchExactWordOnlyFileNameStringReplacer.cs" />
+    <Compile Include="MatchExactWordOnlyFolderNameStringReplacer.cs" />
+    <Compile Include="MatchExactWordOnlyTextInFilesStringReplacer.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="CommandBase.cs" />
+    <Compile Include="ConfigurationComposedObjectBase.cs" />
+    <Compile Include="ConfigurationExportedEventHandler.cs" />
+    <Compile Include="ConfigurationExportedEventArgs.cs" />
+    <Compile Include="ConfigurationExtensions.cs" />
+    <Compile Include="ConfigurationImportedEventArgs.cs" />
+    <Compile Include="ConfigurationImportedEventHandler.cs" />
+    <Compile Include="ConfigurationNotAttachedException.cs" />
+    <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="GetCommand.cs" />
+    <Compile Include="GetMessage.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="LoadConfigurationFromFileAction.cs" />
+    <Compile Include="MakeNewRegOperationMetadata.cs" />
+    <Compile Include="MessageBase.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordFileNameStringMatcher.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordFileNameStringReplacer.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordFolderNameStringMatcher.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordFolderNameStringReplacer.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordTextInFilesStringMatcher.cs" />
+    <Compile Include="NeitherMatchCaseNorExactWordTextInFilesStringReplacer.cs" />
+    <Compile Include="OpenActiveSolutionOperationTypeStartedDescription.cs" />
+    <Compile Include="PathFilterInvokerBase.cs" />
+    <Compile Include="RenameFilesInFolderOperationTypeDescription.cs" />
+    <Compile Include="RenameFilesInFolderOperationTypeStartedDescription.cs" />
+    <Compile Include="RenameFilesInFolderStringMatcherBase.cs" />
+    <Compile Include="RenameFilesInFolderStringMatcherFactory.cs" />
+    <Compile Include="RenameFilesInFolderStringReplacerBase.cs" />
+    <Compile Include="RenameFilesInFolderStringReplacerFactory.cs" />
+    <Compile Include="RenameSubFoldersOperationTypeDescription.cs" />
+    <Compile Include="RenameSubFoldersOperationTypeStartedDescription.cs" />
+    <Compile Include="RenameSubFoldersStringMatcherBase.cs" />
+    <Compile Include="RenameSubFoldersStringMatcherFactory.cs" />
+    <Compile Include="RenameSubFoldersStringReplacerBase.cs" />
+    <Compile Include="RenameSubFoldersStringReplacerFactory.cs" />
+    <Compile Include="ReplaceTextInFilesOperationTypeDescription.cs" />
+    <Compile Include="ReplaceTextInFilesOperationTypeStartedDescription.cs" />
+    <Compile Include="ReplaceTextInFilesStringMatcherBase.cs" />
+    <Compile Include="ReplaceTextInFilesStringMatcherFactory.cs" />
+    <Compile Include="ReplaceTextInfilesStringReplacerBase.cs" />
+    <Compile Include="ReplaceTextInFilesStringReplacerFactory.cs" />
+    <Compile Include="RequestBase.cs" />
+    <Compile Include="ConfigurationSerializer.cs" />
+    <Compile Include="ConvertConfiguration.cs" />
+    <Compile Include="DataOperationEventArgs.cs" />
+    <Compile Include="DataOperationEventHandler.cs" />
+    <Compile Include="DirectoryInfoExtensions.cs" />
+    <Compile Include="DirectoryInfoFactory.cs" />
+    <Compile Include="DirectoryValidator.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="ExceptionRaisedEventArgs.cs" />
+    <Compile Include="ExceptionRaisedEventHandler.cs" />
+    <Compile Include="FileAndFolderMatchExpressionFactoryBase.cs" />
+    <Compile Include="FileAndFolderNameFileSystemEntryListRetrieverBase.cs" />
+    <Compile Include="FileAndFolderTextValueRetrieverBase.cs" />
+    <Compile Include="FileHelpers.cs" />
+    <Compile Include="FileInfoExtensions.cs" />
+    <Compile Include="GetNewFileInfo.cs" />
+    <Compile Include="FileNameReplacementEngine.cs" />
+    <Compile Include="FileNameReplacementMatchExpressionFactory.cs" />
+    <Compile Include="FilenameTextValueRetriever.cs" />
+    <Compile Include="FilesToRenameRetriever.cs" />
+    <Compile Include="FileSystemEntry.cs" />
+    <Compile Include="FileSystemEntryExtensions.cs" />
+    <Compile Include="FileSystemEntryListRetrieverBase.cs" />
+    <Compile Include="FileSystemEntryValidator.cs" />
+    <Compile Include="FileSystemEntryValidatorBase.cs" />
+    <Compile Include="FileValidator.cs" />
+    <Compile Include="FixedMessageTypeSpecificObjectBase.cs" />
+    <Compile Include="FolderNameMatchingEngine.cs" />
+    <Compile Include="FolderNameReplacementEngine.cs" />
+    <Compile Include="FolderNameReplacementMatchExpressionFactory.cs" />
+    <Compile Include="FolderTextValueRetriever.cs" />
+    <Compile Include="FolderToRenameRetriever.cs" />
+    <Compile Include="GetRequest.cs" />
+    <Compile Include="GetFileSystemEntryListRetriever.cs" />
+    <Compile Include="GetFileSystemEntryValidator.cs" />
+    <Compile Include="GetMatchExpressionFactory.cs" />
+    <Compile Include="GetRegistryExpressionValidator.cs" />
+    <Compile Include="GetTextReplacementEngine.cs" />
+    <Compile Include="GetTextExpressionMatchingEngine.cs" />
+    <Compile Include="GetTextValueRetriever.cs" />
+    <Compile Include="GlobalAspects.cs" />
+    <Compile Include="IAction.cs" />
+    <Compile Include="GetAction.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IConfigurationComposedObject.cs" />
+    <Compile Include="IRequest.cs" />
+    <Compile Include="IFileSystemEntry.cs" />
+    <Compile Include="IFileSystemEntryListRetriever.cs" />
+    <Compile Include="IFileSystemEntryValidator.cs" />
+    <Compile Include="IFixedMessageTypeSpecificObject.cs" />
+    <Compile Include="IFixedOperationTypeSpecificObject.cs" />
+    <Compile Include="IMatchExpression.cs" />
+    <Compile Include="IMatchExpressionFactory.cs" />
+    <Compile Include="IOperationTypeSpecificObject.cs" />
+    <Compile Include="IRegOperationMetadata.cs" />
+    <Compile Include="IRegQueryExpression.cs" />
+    <Compile Include="IRegQueryExpressionValidator.cs" />
+    <Compile Include="ITextReplacementEngine.cs" />
+    <Compile Include="ITextValueRetriever.cs" />
+    <Compile Include="LoadStringFromRegistryAction.cs" />
+    <Compile Include="MakeNewFileRenamer.cs" />
+    <Compile Include="MakeHistoryManager.cs" />
+    <Compile Include="MakeNewFileSystemEntry.cs" />
+    <Compile Include="MakeNewRegQueryExpression.cs" />
+    <Compile Include="MatchExpression.cs" />
+    <Compile Include="FileNameMatchingEngine.cs" />
+    <Compile Include="MatchExpressionFactoryBase.cs" />
+    <Compile Include="OperationTypeSpecificObjectBase.cs" />
+    <Compile Include="ProgramFlowHelper.cs" />
+    <Compile Include="RegMetadataBase.cs" />
+    <Compile Include="RegOperationMetadata.cs" />
+    <Compile Include="RegQueryExpression.cs" />
+    <Compile Include="RegQueryExpressionValidator.cs" />
+    <Compile Include="ReplaceTextInFileMatchExpressionFactory.cs" />
+    <Compile Include="SaveConfigurationToFileCommand.cs" />
+    <Compile Include="SaveStringToRegistryCommand.cs" />
+    <Compile Include="FileRenamer.cs" />
+    <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
+    <Compile Include="FilesOrFoldersCountedEventHandler.cs" />
+    <Compile Include="FileSystemEntrySkippedEventArgs.cs" />
+    <Compile Include="FileSystemEntrySkippedEventHandler.cs" />
+    <Compile Include="FormFoldedEventArgs.cs" />
+    <Compile Include="FoldUnfoldButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormFoldedEventHandler.cs" />
+    <Compile Include="HistoryManager.cs" />
+    <Compile Include="IConfiguration.cs" />
+    <Compile Include="ITextExpressionMatchingEngine.cs" />
+    <Compile Include="IFileRenamer.cs" />
+    <Compile Include="IHistoryManager.cs" />
+    <Compile Include="InvalidPathException.cs" />
+    <Compile Include="IOleMessageFilter.cs" />
+    <Compile Include="ISearchFilterItem.cs" />
+    <Compile Include="MessageFilter.cs" />
+    <Compile Include="ModifiedEventHandler.cs" />
+    <Compile Include="ModifiedEventArgs.cs" />
+    <Compile Include="OperationAbortedException.cs" />
+    <Compile Include="OperationCancelEventArgs.cs" />
+    <Compile Include="OperationEventArgs.cs" />
+    <Compile Include="OperationFinishedEventHandler.cs" />
+    <Compile Include="OperationFinishedEventArgs.cs" />
+    <Compile Include="OperationStartedEventArgs.cs" />
+    <Compile Include="OperationStartedEventHandler.cs" />
+    <Compile Include="OperationType.cs" />
+    <Compile Include="ProcessingOperationEventArgs.cs" />
+    <Compile Include="ProcessingOperationEventHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reflector.cs" />
+    <Compile Include="SearchFilter.cs" />
+    <Compile Include="SearchFilterType.cs" />
+    <Compile Include="StatusUpdateEventArgs.cs" />
+    <Compile Include="StatusUpdateEventHandler.cs" />
+    <Compile Include="SystemPreparer.cs" />
+    <Compile Include="TextExpressionMatchingEngineBase.cs" />
+    <Compile Include="TextInFilesMatchingEngine.cs" />
+    <Compile Include="TextInFileReplacementEngine.cs" />
+    <Compile Include="TextInFilesRetriever.cs" />
+    <Compile Include="TextInFileTextValueRetriever.cs" />
+    <Compile Include="TextPatternMatchEventArgs.cs" />
+    <Compile Include="TextReplacementEngineBase.cs" />
+    <Compile Include="TextValueRetrieverBase.cs" />
+    <Compile Include="TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1382_cogs.ico" />
+    <Compile Include="RegistryHiveExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="bower.json" />
+    <Compile Include="TextMatchingConfiguration.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
+      <Project>{4d8579d8-33e9-4be6-9155-330f87548eb7}</Project>
+      <Name>xyLOGIX.Queues.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.VisualStudio\MFR.Objects.VisualStudio.csproj">
+      <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
+      <Name>MFR.Objects.VisualStudio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
+  <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" />
+</Project>
