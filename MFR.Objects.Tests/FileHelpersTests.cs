@@ -1,3 +1,5 @@
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Helpers;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using xyLOGIX.Core.Debug;

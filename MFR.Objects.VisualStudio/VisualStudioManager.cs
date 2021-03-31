@@ -1,7 +1,7 @@
 using EnvDTE;
-using MFR.Objects.Interop.Factories;
 using MFR.Objects.Processes.Factories;
 using MFR.Objects.Processes.Interfaces;
+using MFR.Objects.RunningObjects.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -21,9 +21,9 @@ namespace MFR.Objects.VisualStudio
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IProcessIdProvider" />
-        /// interface and
-        /// that provides the ability to obtain the Process IDs (PIDs) of
-        /// running processes from the operating system.
+        /// interface and that
+        /// provides the ability to obtain the Process IDs (PIDs) of running
+        /// processes from the operating system.
         /// </summary>
         private static readonly IProcessIdProvider _processIdProvider;
 

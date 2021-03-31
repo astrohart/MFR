@@ -1,3 +1,4 @@
+using MFR.Objects.Interop.Factories;
 using NUnit.Framework;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -16,7 +17,8 @@ namespace MFR.Objects.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.MakeNewBindContext.FromScratch" />
-        /// method returns a valid object reference.
+        /// method returns
+        /// a valid object reference.
         /// </summary>
         [Test]
         public void Test_FromBindContextMethod_Works()
@@ -25,7 +27,7 @@ namespace MFR.Objects.Tests
 
             Assert.DoesNotThrow(
                 () => result =
-                    GetRunningObjectTable.FromBindContext(MakeNewBindContext())
+                    GetRunningObjectTable.FromBindContext(GetNewBindContext())
             );
 
             Assert.IsNotNull(result);
@@ -45,9 +47,9 @@ namespace MFR.Objects.Tests
         /// </summary>
         /// <returns>
         /// </returns>
-        private static IBindCtx MakeNewBindContext()
+        private static IBindCtx GetNewBindContext()
         {
-            var bindContext = Objects.MakeNewBindContext.FromScratch();
+            var bindContext = MakeNewBindContext.FromScratch();
 
             Assert.IsNotNull(bindContext);
             Assert.IsInstanceOf<IBindCtx>(bindContext);

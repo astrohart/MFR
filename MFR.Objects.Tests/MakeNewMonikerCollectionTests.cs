@@ -1,3 +1,5 @@
+using MFR.Objects.Interop.Monikers.Collections.Factories;
+using MFR.Objects.Interop.Monikers.Collections.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Objects.Tests

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" />
   <Import Project="..\packages\NUnit.3.13.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.1\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -71,17 +72,35 @@
       <HintPath>..\packages\EnvDTE.16.9.31023.347\lib\net45\EnvDTE.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=3.13.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=6.9.3.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.6.9.3\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.9.3\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.9.3\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\stdole.16.9.31023.347\lib\net45\stdole.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalAspects.cs" />
     <Compile Include="ConfigurationBuilder.cs" />
     <Compile Include="ConfigurationExtensionsTests.cs" />
     <Compile Include="DirectoryInfoExtensionsTests.cs" />
@@ -99,7 +118,6 @@
     <Compile Include="GetFileSystemEntryValidatorTests.cs" />
     <Compile Include="GetMatchExpressionFactoryTests.cs" />
     <Compile Include="GetRunningObjectTableTests.cs" />
-    <Compile Include="GetRunningObjectTests.cs" />
     <Compile Include="GetStringMatcherTests.cs" />
     <Compile Include="GetStringReplacerTests.cs" />
     <Compile Include="GetTextExpressionMatchingEngineTests.cs" />
@@ -152,6 +170,78 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
+      <Name>MFR.Objects.Configuration.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Helpers\MFR.Objects.Configuration.Helpers.csproj">
+      <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
+      <Name>MFR.Objects.Configuration.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
+      <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.Objects.FileSystem.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Helpers\MFR.Objects.FileSystem.Helpers.csproj">
+      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
+      <Name>MFR.Objects.FileSystem.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Factories\MFR.Objects.FileSystem.Validators.Factories.csproj">
+      <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
+      <Name>MFR.Objects.FileSystem.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Interfaces\MFR.Objects.FileSystem.Validators.Interfaces.csproj">
+      <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
+      <Name>MFR.Objects.FileSystem.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators\MFR.Objects.FileSystem.Validators.csproj">
+      <Project>{22D86888-ACAC-4E15-B860-10461CF0C079}</Project>
+      <Name>MFR.Objects.FileSystem.Validators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Interop.Factories\MFR.Objects.Interop.Factories.csproj">
+      <Project>{25E22A8B-A4F9-47D6-BBB8-7D537C39638D}</Project>
+      <Name>MFR.Objects.Interop.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Collections.Factories\MFR.Objects.Interop.Monikers.Collections.Factories.csproj">
+      <Project>{4CD6D764-8815-40E6-9578-7AD2728A6B26}</Project>
+      <Name>MFR.Objects.Interop.Monikers.Collections.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Collections.Interfaces\MFR.Objects.Interop.Monikers.Collections.Interfaces.csproj">
+      <Project>{B298C890-3D41-4ED3-8BFD-DD4DC5058CA2}</Project>
+      <Name>MFR.Objects.Interop.Monikers.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Invokers.Factories\MFR.Objects.Invokers.Factories.csproj">
+      <Project>{8D903CE7-2DBF-49ED-BD9E-A2BF31EB8ADB}</Project>
+      <Name>MFR.Objects.Invokers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Invokers.Interfaces\MFR.Objects.Invokers.Interfaces.csproj">
+      <Project>{05DD474A-352F-4BC2-BF0D-FB2D5823D2A3}</Project>
+      <Name>MFR.Objects.Invokers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Objects.Messages.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Processes.Factories\MFR.Objects.Processes.Factories.csproj">
       <Project>{4479E3F8-455F-47FD-BA84-9582F6DAC41F}</Project>
       <Name>MFR.Objects.Processes.Factories</Name>
@@ -163,10 +253,6 @@
     <ProjectReference Include="..\MFR.Objects.VisualStudio\MFR.Objects.VisualStudio.csproj">
       <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
       <Name>MFR.Objects.VisualStudio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects\MFR.Objects.csproj">
-      <Project>{84c1f71a-aaa4-4a08-9728-19e710965e4d}</Project>
-      <Name>MFR.Objects</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Processes.Interfaces\MFR.Objects.Processes.Interfaces.csproj">
       <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
@@ -180,6 +266,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.13.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.1\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
+  <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" />
 </Project>

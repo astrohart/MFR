@@ -33,7 +33,7 @@ namespace MFR.Objects.Tests
         /// <summary>
         /// Gets a reference to an instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
         /// interface for renaming folders.
         /// </summary>
         private IFileSystemEntryListRetriever Retriever

@@ -1,3 +1,7 @@
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Helpers;
+using MFR.Objects.FileSystem.Validators.Factories;
+using MFR.Objects.Operations.Constants;
 using NUnit.Framework;
 using System.IO;
 

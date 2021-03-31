@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{6C93E039-AF4D-45C2-92D5-7FA44E2915C0}</ProjectGuid>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -68,12 +71,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetRunningObject.cs" />
-    <Compile Include="GetRunningObjectTable.cs" />
-    <Compile Include="GetRunningOperatingSystemObject.cs" />
-    <Compile Include="MonikerCollection.cs" />
-    <Compile Include="MonikerEnumerator.cs" />
-    <Compile Include="MonikerWrapper.cs" />
+    <Compile Include="GlobalAspects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -95,14 +93,34 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Interop.Interfaces\MFR.Objects.Interop.Interfaces.csproj">
-      <Project>{49234A95-5714-46D3-BAFF-E107D522529E}</Project>
-      <Name>MFR.Objects.Interop.Interfaces</Name>
+    <ProjectReference Include="..\MFR.Objects.Interop.Factories\MFR.Objects.Interop.Factories.csproj">
+      <Project>{25E22A8B-A4F9-47D6-BBB8-7D537C39638D}</Project>
+      <Name>MFR.Objects.Interop.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects\MFR.Objects.csproj">
-      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
-      <Name>MFR.Objects</Name>
+    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Collections.Factories\MFR.Objects.Interop.Monikers.Collections.Factories.csproj">
+      <Project>{4CD6D764-8815-40E6-9578-7AD2728A6B26}</Project>
+      <Name>MFR.Objects.Interop.Monikers.Collections.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Collections.Interfaces\MFR.Objects.Interop.Monikers.Collections.Interfaces.csproj">
+      <Project>{B298C890-3D41-4ED3-8BFD-DD4DC5058CA2}</Project>
+      <Name>MFR.Objects.Interop.Monikers.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Wrappers.Interfaces\MFR.Objects.Interop.Monikers.Wrappers.Interfaces.csproj">
+      <Project>{39066E84-E15E-49B5-802B-3202D786B800}</Project>
+      <Name>MFR.Objects.Interop.Monikers.Wrappers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" />
 </Project>

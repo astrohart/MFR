@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Objects.Tests
@@ -58,7 +59,7 @@ namespace MFR.Objects.Tests
         /// provided to this class' other methods.
         /// </remarks>
         public IConfiguration Build()
-            => new Configuration {
+            => new Configuration.Configuration {
                 MatchCase = _matchCase, MatchExactWord = _matchExactWord
             };
 

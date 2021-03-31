@@ -1,21 +1,35 @@
+using MFR.Objects.Invokers.Factories;
+using MFR.Objects.Invokers.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Objects.Tests
 {
     /// <summary>
-    /// Provides unit tests for the methods, properties, and events of the <see cref="T:MFR.Objects.PathFilterInvokerBase"/> class.
+    /// Provides unit tests for the methods, properties, and events of the
+    /// <see
+    ///     cref="T:MFR.Objects.PathFilterInvokerBase" />
+    /// class.
     /// </summary>
     [TestFixture]
     public class PathFilterInvokerBaseTests
     {
+        /// <summary>
+        /// Reference to an instance of an object that implements the <see cref="T:MFR.Objects.Invokers.Interfaces.IPathFilterInvoker" /> interface.
+        /// </summary>
         private static IPathFilterInvoker Invoker
-            => DoesPathFilterInvoker.FromScratch();
+            => MakeNewPathFilterInvoker.FromScratch();
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.Invokers.Interfaces.IPathFilterInvoker.Passes" />
+        /// method returns <see langword="true" /> when passed
+        /// <see
+        ///     langword="null" />
+        /// for its parameter.
         /// </summary>
         [Test]
         public void Test_Pass_ReturnsTrue_ForNullPathFilter()
-            => Assert.IsTrue(Invoker.Pass(null));
+            => Assert.IsTrue(Invoker.Passes(null));
     }
 }
