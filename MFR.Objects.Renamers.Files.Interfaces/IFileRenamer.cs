@@ -1,8 +1,6 @@
-using MFR.Objects.Events;
-using MFR.Objects.Operations.Events;
 using System;
 
-namespace MFR.Objects
+namespace MFR.Objects.Renamers.Files.Interfaces
 {
     public interface IFileRenamer : IConfigurationComposedObject
     {
@@ -277,7 +275,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Initializes the value of the <see
-        /// cref="P:MFR.Objects.IFileRenamer.RootDirectoryPath"/>
+        /// cref="P:MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath"/>
         /// property to the value specified in the <paramref
         /// name="rootDirectoryPath"/> parameter.
         /// <para/>

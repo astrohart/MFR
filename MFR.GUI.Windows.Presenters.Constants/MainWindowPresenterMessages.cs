@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows.Presenters.Constants
 {
     /// <summary>
     /// Unique identifiers for the messages that are sent by the Presenter of

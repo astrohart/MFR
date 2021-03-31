@@ -1,23 +1,11 @@
-using EnvDTE;
-using MFR.Objects.Events;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Events;
-using MFR.Objects.Properties;
-using MFR.Objects.VisualStudio;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
 using Process = System.Diagnostics.Process;
 using Thread = System.Threading.Thread;
 
-namespace MFR.Objects
+namespace MFR.Objects.Renamers.Files
 {
     /// <summary>
     /// Provides file- and folder-rename services.
@@ -34,7 +22,7 @@ namespace MFR.Objects
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.FileRenamer"/> and returns a
+        /// cref="T:MFR.Objects.Renamers.Files.FileRenamer"/> and returns a
         /// reference to it.
         /// </summary>
         public FileRenamer()
@@ -44,7 +32,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.FileRenamer"/> and returns a
+        /// cref="T:MFR.Objects.Renamers.Files.FileRenamer"/> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="rootDirectoryPath">
@@ -1232,7 +1220,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.Finished"/> event.
+        /// cref="E:MFR.Objects.Renamers.Files.FileRenamer.Finished"/> event.
         /// </summary>
         [Log(AttributeExclude = true)]
         private void OnFinished()
@@ -1300,7 +1288,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.Started"/> event.
+        /// cref="E:MFR.Objects.Renamers.Files.FileRenamer.Started"/> event.
         /// </summary>
         [Log(AttributeExclude = true)]
         private void OnStarted()

@@ -1,9 +1,8 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Displays information to the user about an exception or error.
@@ -13,7 +12,7 @@ namespace MFR.GUI
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.GUI.ErrorReportDialog" />
+        ///     cref="T:MFR.GUI.Dialogs.ErrorReportDialog" />
         /// and returns a
         /// reference to it.
         /// </summary>

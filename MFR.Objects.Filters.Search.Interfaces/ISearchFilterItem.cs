@@ -1,4 +1,4 @@
-namespace MFR.Objects
+namespace MFR.Objects.Filters.Search.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a search filter

@@ -1,6 +1,4 @@
-using System.Windows.Forms;
-
-namespace MFR.Objects
+namespace MFR.Application.Managers.History.Factories
 {
     /// <summary>
     /// Creates new instances of History Manager objects.

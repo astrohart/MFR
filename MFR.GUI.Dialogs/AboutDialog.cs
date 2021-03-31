@@ -1,8 +1,7 @@
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Dialog box that displays information about this application to the user.
@@ -11,7 +10,7 @@ namespace MFR.GUI
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.GUI.AboutDialog"/> and returns a reference
+        /// cref="T:MFR.GUI.Dialogs.AboutDialog"/> and returns a reference
         /// to it.
         /// </summary>
         public AboutDialog()

@@ -1,11 +1,7 @@
-using MFR.Objects.Properties;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
-using System.Linq;
-using System.Windows.Forms;
 
-namespace MFR.Objects
+namespace MFR.Application.Managers.History
 {
     /// <summary>
     /// Manages the configuration history on behalf of the application.

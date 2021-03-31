@@ -1,4 +1,6 @@
-namespace MFR.GUI
+using MFR.GUI.Windows.Presenters;
+
+namespace MFR.GUI.Presenters.Associators
 {
     /// <summary>
     /// Associates presenters with views.

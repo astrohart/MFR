@@ -1,8 +1,6 @@
-using MFR.Objects;
 using System.Diagnostics;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of the main window of

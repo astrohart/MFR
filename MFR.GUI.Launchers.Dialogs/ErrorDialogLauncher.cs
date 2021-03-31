@@ -1,8 +1,6 @@
-using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Launchers.Dialogs
 {
     /// <summary>
     /// Provides helper methods to launch the error dialog.

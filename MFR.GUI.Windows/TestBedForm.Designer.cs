@@ -1,5 +1,5 @@
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows
 {
     partial class TestBedForm
     {

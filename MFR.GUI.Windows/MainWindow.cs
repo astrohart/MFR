@@ -1,19 +1,10 @@
-using MFR.GUI.Properties;
-using MFR.Objects;
-using MFR.Objects.Operations.Events;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows
 {
     /// <summary>
     /// Displays the main window of the application.
@@ -34,7 +25,7 @@ namespace MFR.GUI
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.GUI.MainWindow" />
+        ///     cref="T:MFR.GUI.Windows.MainWindow" />
         /// and returns a reference to it.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -49,7 +40,7 @@ namespace MFR.GUI
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.GUI.MainWindow" />.
+        /// <see cref="T:MFR.GUI.Windows.MainWindow" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static MainWindow Instance

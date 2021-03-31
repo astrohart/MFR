@@ -1,9 +1,6 @@
-using MFR.GUI.Properties;
-using MFR.Objects;
 using System;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Wraps System.Windows.Forms.OpenFileDialog to make it present a

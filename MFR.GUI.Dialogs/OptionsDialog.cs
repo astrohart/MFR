@@ -1,10 +1,7 @@
-using MFR.Objects;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Provides options to the user that allow the user to modify the
@@ -15,7 +12,7 @@ namespace MFR.GUI
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.GUI.OptionsDialog" />
+        ///     cref="T:MFR.GUI.Dialogs.OptionsDialog" />
         /// and returns a reference
         /// to it.
         /// </summary>

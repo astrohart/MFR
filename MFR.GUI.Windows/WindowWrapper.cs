@@ -1,7 +1,6 @@
 using System;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows
 {
     /// <summary>
     /// Creates IWin32Window around an IntPtr

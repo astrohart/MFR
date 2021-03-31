@@ -1,8 +1,6 @@
-using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows
 {
     /// <summary>
     /// Form for putting controls on as a test bed.
@@ -26,7 +24,7 @@ namespace MFR.GUI
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.GUI.TestBedForm" />.
+        /// <see cref="T:MFR.GUI.Windows.TestBedForm" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static TestBedForm Instance

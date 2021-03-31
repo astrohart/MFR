@@ -1,6 +1,4 @@
-using MFR.Objects;
-
-namespace MFR.GUI
+namespace MFR.GUI.Presenters.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of any object that

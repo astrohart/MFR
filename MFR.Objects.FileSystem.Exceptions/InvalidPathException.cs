@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects
+namespace MFR.Objects.FileSystem.Exceptions
 {
     /// <summary>
     /// Class that encapsulates a custom type of exception that allows us to
@@ -11,7 +11,7 @@ namespace MFR.Objects
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.InvalidPathException"/> and returns
+        /// cref="T:MFR.Objects.FileSystem.Exceptions.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -27,7 +27,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.InvalidPathException"/> and returns
+        /// cref="T:MFR.Objects.FileSystem.Exceptions.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -47,7 +47,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.InvalidPathException"/> and returns
+        /// cref="T:MFR.Objects.FileSystem.Exceptions.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -70,7 +70,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.InvalidPathException"/> and returns
+        /// cref="T:MFR.Objects.FileSystem.Exceptions.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="message">
@@ -98,7 +98,7 @@ namespace MFR.Objects
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.InvalidPathException"/> and returns
+        /// cref="T:MFR.Objects.FileSystem.Exceptions.InvalidPathException"/> and returns
         /// a reference to it.
         /// </summary>
         /// <remarks>

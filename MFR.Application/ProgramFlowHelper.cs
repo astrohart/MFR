@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace MFR.Objects
+namespace MFR.Application
 {
     /// <summary>
     /// Defines methods and properties to aid in controlling the flow of the program.

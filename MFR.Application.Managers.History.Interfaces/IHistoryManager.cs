@@ -1,4 +1,4 @@
-namespace MFR.Objects
+namespace MFR.Application.Managers.History.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a history manager

@@ -1,8 +1,6 @@
-
 using System.ComponentModel;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs
 {
    partial class ProgressDialog
    {

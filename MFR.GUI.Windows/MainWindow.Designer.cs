@@ -1,9 +1,6 @@
-
-using MFR.Objects;
 using System.ComponentModel;
-using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows
 {
    partial class MainWindow
    {

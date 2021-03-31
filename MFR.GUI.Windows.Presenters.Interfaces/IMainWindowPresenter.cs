@@ -1,8 +1,6 @@
-using MFR.Objects;
-using MFR.Objects.Operations.Events;
 using System;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows.Presenters.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of the presenter

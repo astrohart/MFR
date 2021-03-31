@@ -1,20 +1,8 @@
-using MFR.GUI.Initializers;
-using MFR.GUI.Properties;
-using MFR.Objects;
-using MFR.Objects.FileSystem.Helpers;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Factories;
-using MFR.Objects.Operations.Events;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
 
-namespace MFR.GUI
+namespace MFR.GUI.Windows.Presenters
 {
     /// <summary>
     /// Presenter for the main application window.
@@ -729,7 +717,7 @@ namespace MFR.GUI
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.AllHistoryCleared" />
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AllHistoryCleared" />
         /// event.
         /// </summary>
         /// <remarks>
@@ -816,7 +804,7 @@ namespace MFR.GUI
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.DataOperationFinished" />
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.DataOperationFinished" />
         /// event.
         /// </summary>
         /// <remarks>
@@ -900,7 +888,7 @@ namespace MFR.GUI
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.Finished" />
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.Finished" />
         /// event.
         /// </summary>
         /// <remarks>
@@ -1536,17 +1524,17 @@ namespace MFR.GUI
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the directory whose pathname is referenced by
         /// <see
-        ///     cref="P:MFR.GUI.MainWindowPresenter.StartingFolder" />
+        ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder" />
         /// is
         /// not found on the disk.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if either of the
         /// <see
-        ///     cref="P:MFR.GUI.MainWindowPresenter.FindWhat" />
+        ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat" />
         /// or
         /// <see
-        ///     cref="P:MFR.GUI.MainWindowPresenter.ReplaceWith" />
+        ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith" />
         /// properties are blank.
         /// </exception>
         /// <remarks>

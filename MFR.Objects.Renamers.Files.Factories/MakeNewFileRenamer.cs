@@ -1,6 +1,4 @@
-using xyLOGIX.Core.Debug;
-
-namespace MFR.Objects
+namespace MFR.Objects.Renamers.Files.Factories
 {
     /// <summary>
     /// Provides helper methods that create new instances of objects that

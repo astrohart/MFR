@@ -1,9 +1,6 @@
-using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
 
-namespace MFR.GUI
+namespace MFR.GUI.Controls.Helpers
 {
     [Log(AttributeExclude = true)]
     public static class EntryRespectingComboBoxExtensions

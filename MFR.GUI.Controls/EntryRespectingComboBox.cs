@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace MFR.GUI
+namespace MFR.GUI.Controls
 {
     /// <summary>
     /// Dropdown combo box that respects typed-in text entries.
@@ -17,7 +17,7 @@ namespace MFR.GUI
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.GUI.EntryRespectingComboBox" />
+        ///     cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -63,7 +63,7 @@ namespace MFR.GUI
         /// This method responds by saving off any text directly typed by the
         /// user into the
         /// <see
-        ///     cref="P:MFR.GUI.EntryRespectingComboBox.EnteredText" />
+        ///     cref="P:MFR.GUI.Controls.EntryRespectingComboBox.EnteredText" />
         /// property and adding that text to the list.
         /// </remarks>
         protected override void OnLeave(EventArgs e)

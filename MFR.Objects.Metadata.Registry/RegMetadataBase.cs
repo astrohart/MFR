@@ -1,9 +1,7 @@
 using Microsoft.Win32;
 using System;
-using System.Linq;
-using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects
+namespace MFR.Objects.Metadata.Registry
 {
     /// <summary>
     /// Base class for the common methods, properties, fields, and events

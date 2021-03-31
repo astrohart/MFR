@@ -1,9 +1,8 @@
 using Microsoft.Win32;
 using System;
 using System.Linq;
-using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects
+namespace MFR.Objects.Registry.Helpers
 {
     /// <summary>
     /// Helper methods for working with

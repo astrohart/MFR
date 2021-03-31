@@ -1,9 +1,7 @@
 using System;
 using System.Diagnostics;
-using System.Windows.Forms;
-using xyLOGIX.Core.Extensions;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a progress window..

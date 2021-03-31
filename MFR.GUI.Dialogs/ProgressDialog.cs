@@ -1,10 +1,7 @@
 using System;
 using System.Diagnostics;
-using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
 
-namespace MFR.GUI
+namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Window that displays progress of an operation.
@@ -13,7 +10,7 @@ namespace MFR.GUI
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.GUI.ProgressDialog"/> and returns a
+        /// cref="T:MFR.GUI.Dialogs.ProgressDialog"/> and returns a
         /// reference to it.
         /// </summary>
         public ProgressDialog()
@@ -129,7 +126,7 @@ namespace MFR.GUI
 
         /// <summary>
         /// Raises the <see
-        /// cref="E:MFR.GUI.ProgressDialog.CancelRequested"/> event.
+        /// cref="E:MFR.GUI.Dialogs.ProgressDialog.CancelRequested"/> event.
         /// </summary>
         protected virtual void OnCancelRequested()
             => CancelRequested?.Invoke(this, EventArgs.Empty);
