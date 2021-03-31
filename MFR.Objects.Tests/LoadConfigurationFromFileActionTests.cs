@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Messages.Constants;
 using NUnit.Framework;
 using System.IO;

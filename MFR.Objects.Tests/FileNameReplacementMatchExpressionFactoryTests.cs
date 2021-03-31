@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;

@@ -1,5 +1,7 @@
+using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Configuration.Constants;
 using MFR.Objects.Configuration.Helpers;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
 namespace MFR.Objects.Tests

@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="ConfigurationBuilder.cs" />
     <Compile Include="ConfigurationExtensionsTests.cs" />
     <Compile Include="DirectoryInfoExtensionsTests.cs" />
     <Compile Include="DirectoryValidatorTests.cs" />

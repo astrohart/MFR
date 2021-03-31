@@ -1,7 +1,6 @@
-using MFR.Objects.Configuration.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Tests.Common
 {
     /// <summary>
     /// Builds instances of fake
@@ -34,7 +33,7 @@ namespace MFR.Objects.Tests
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Tests.ConfigurationBuilder" />.
+        /// <see cref="T:MFR.Objects.Tests.Common.ConfigurationBuilder" />.
         /// </summary>
         public static ConfigurationBuilder Instance
         {
@@ -66,13 +65,13 @@ namespace MFR.Objects.Tests
         /// <summary>
         /// Sets the value of the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.ConfigurationBuilder._matchCase" />
+        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
         /// field to the value of the <paramref name="matchCase"/> parameter.
         /// </summary>
         /// <param name="matchCase">
         /// (Optional.) New value for the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.ConfigurationBuilder._matchCase" />
+        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
         /// field. Default is <c>true.</c>
         /// </param>
         /// <returns>
@@ -89,13 +88,13 @@ namespace MFR.Objects.Tests
         /// <summary>
         /// Sets the value of the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.ConfigurationBuilder._matchExactWord" />
+        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord" />
         /// field to the value of the <paramref name="matchExactWord" /> parameter.
         /// </summary>
         /// <param name="matchExactWord">
         /// (Optional.) New value for the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.ConfigurationBuilder._matchExactWord" />
+        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord" />
         /// field. Default is <see langword="true" />.
         /// </param>
         /// <returns>
