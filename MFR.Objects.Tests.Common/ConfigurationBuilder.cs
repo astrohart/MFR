@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Objects.Tests.Common
@@ -5,7 +6,7 @@ namespace MFR.Objects.Tests.Common
     /// <summary>
     /// Builds instances of fake
     /// <see
-    ///     cref="T:MFR.Objects.Configuration" />
+    ///     cref="T:MFR.Objects.Configuration.Configuration" />
     /// objects in a fluent
     /// manner, initialized for unit tests.
     /// </summary>
@@ -130,9 +131,9 @@ namespace MFR.Objects.Tests.Common
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
         /// interface whose
-        /// <see cref="P:MFR.Objects.IConfiguration.MatchCase" /> and
+        /// <see cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" /> and
         /// <see
-        ///     cref="P:MFR.Objects.IConfiguration.MatchExactWord" />
+        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// properties are set to the same values as were passed for the
         /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
         /// parameters.

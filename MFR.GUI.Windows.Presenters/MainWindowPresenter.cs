@@ -639,7 +639,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Objects.Configuration" /> object.
+        /// box into the <see cref="T:MFR.Objects.Configuration.Configuration" /> object.
         /// </summary>
         public void SaveOperationSelections()
         {

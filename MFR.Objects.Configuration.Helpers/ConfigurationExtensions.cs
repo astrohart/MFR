@@ -32,10 +32,10 @@ namespace MFR.Objects.Configuration.Helpers
         /// The <see cref="T:MFR.Objects.TextMatchingConfiguration" />
         /// value that corresponds to the values of the
         /// <see
-        ///     cref="P:MFR.Objects.IConfiguration.MatchCase" />
+        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
         /// and
         /// <see
-        ///     cref="P:MFR.Objects.IConfiguration.MatchExactWord" />
+        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// properties.
         /// </returns>
         public static TextMatchingConfiguration GetTextMatchingConfiguration(

@@ -1,3 +1,6 @@
+using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
+
 namespace MFR.Objects.Expressions.Matches.Factories
 {
     public class FolderNameReplacementMatchExpressionFactory : FileAndFolderMatchExpressionFactoryBase
