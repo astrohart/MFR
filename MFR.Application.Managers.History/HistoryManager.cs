@@ -1,5 +1,10 @@
+using MFR.Application.Managers.History.Interfaces;
+using MFR.Application.Managers.History.Properties;
+using MFR.Objects.Configuration;
 using System;
 using System.Collections;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace MFR.Application.Managers.History
 {

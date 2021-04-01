@@ -80,6 +80,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -101,7 +102,18 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Application.Managers.History.Interfaces\MFR.Application.Managers.History.Interfaces.csproj">
+      <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
+      <Name>MFR.Application.Managers.History.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
+      <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

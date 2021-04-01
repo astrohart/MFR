@@ -1,3 +1,6 @@
+using MFR.Application.Managers.History.Interfaces;
+using System.Windows.Forms;
+
 namespace MFR.Application.Managers.History.Factories
 {
     /// <summary>
