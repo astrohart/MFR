@@ -1,4 +1,8 @@
+using MFR.GUI.Dialogs;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Launchers.Dialogs
 {
@@ -26,14 +30,31 @@ namespace MFR.GUI.Launchers.Dialogs
         /// An <see cref="T:System.Exception" /> that contains the error information.
         /// </param>
         [Log(AttributeExclude = true)]
-        public static void Display(IWin32Window owner, Exception exception)
+        public static DialogResult Display(IWin32Window owner,
+            Exception exception)
         {
-            using (var dialog = new ErrorReportDialog())
-            {
-                dialog.Exception = exception;
+            var result = DialogResult.None;
 
-                dialog.ShowDialog(owner);   // right now, we do not care about the result
+            try
+            {
+                using (var dialog = new ErrorReportDialog())
+                {
+                    dialog.Exception = exception;
+
+                    dialog.ShowDialog(
+                        owner
+                    ); // right now, we do not care about the result
+                }
             }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = DialogResult.None;
+            }
+
+            return result;
         }
     }
 }
