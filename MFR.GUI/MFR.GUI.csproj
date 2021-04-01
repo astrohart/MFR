@@ -147,6 +147,14 @@
       <Project>{B1D2DCCC-5BB4-4C1C-A52D-E21AA4AE6634}</Project>
       <Name>MFR.GUI.Initializers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows\MFR.GUI.Windows.csproj">
+      <Project>{7D4538BB-9DDA-4DEE-8EDA-853BD4AFE22B}</Project>
+      <Name>MFR.GUI.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers\MFR.Objects.Configuration.Providers.csproj">
+      <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
+      <Name>MFR.Objects.Configuration.Providers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Helpers\MFR.Objects.FileSystem.Helpers.csproj">
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
       <Name>MFR.Objects.FileSystem.Helpers</Name>

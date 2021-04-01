@@ -152,7 +152,4 @@ Type a value for this text, and then try again.</value>
   <data name="AppIdle" xml:space="preserve">
     <value>Ready</value>
   </data>
-  <data name="FolderSelectDialogFIlters" xml:space="preserve">
-    <value>Folders|</value>
-  </data>
 </root>

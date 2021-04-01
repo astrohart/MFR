@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace MFR.Application
+namespace MFR.Objects
 {
     /// <summary>
     /// This class is from the Front-End for Dosbox and is used to present a

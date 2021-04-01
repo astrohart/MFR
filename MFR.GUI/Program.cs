@@ -1,4 +1,6 @@
+using MFR.GUI.Windows;
 using MFR.Objects;
+using MFR.Objects.Configuration.Providers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Threading;

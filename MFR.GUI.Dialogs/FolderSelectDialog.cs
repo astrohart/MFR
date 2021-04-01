@@ -1,4 +1,8 @@
+using MFR.GUI.Dialogs.Properties;
+using MFR.GUI.Windows;
+using MFR.Objects;
 using System;
+using System.Windows.Forms;
 
 namespace MFR.GUI.Dialogs
 {
@@ -30,11 +34,7 @@ namespace MFR.GUI.Dialogs
         /// Gets the selected folder
         /// </summary>
         public string FileName
-        {
-            get {
-                return _ofd.FileName;
-            }
-        }
+            => _ofd.FileName;
 
         /// <summary>
         /// Gets/Sets the initial folder to be selected. A null value selects
@@ -42,12 +42,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string InitialDirectory
         {
-            get {
-                return _ofd.InitialDirectory;
-            }
-            set {
-                _ofd.InitialDirectory = string.IsNullOrEmpty(value) ? Environment.CurrentDirectory : value;
-            }
+            get => _ofd.InitialDirectory;
+            set => _ofd.InitialDirectory = string.IsNullOrEmpty(value) ? Environment.CurrentDirectory : value;
         }
 
         /// <summary>
@@ -55,12 +51,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string Title
         {
-            get {
-                return _ofd.Title;
-            }
-            set {
-                _ofd.Title = value ?? "Select a folder";
-            }
+            get => _ofd.Title;
+            set => _ofd.Title = value ?? "Select a folder";
         }
 
         /// <summary>
@@ -86,9 +78,7 @@ namespace MFR.GUI.Dialogs
         /// True if the user presses OK else false
         /// </returns>
         public bool ShowDialog()
-        {
-            return ShowDialog(IntPtr.Zero);
-        }
+            => ShowDialog(IntPtr.Zero);
 
         /// <summary>
         /// Shows this <see cref="T:FolderSelectDialog"/> to the user to allow

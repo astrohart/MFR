@@ -1,5 +1,9 @@
+using MFR.GUI.Dialogs.Interfaces;
 using System;
 using System.Diagnostics;
+using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Dialogs
 {
