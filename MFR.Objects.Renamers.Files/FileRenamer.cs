@@ -1,7 +1,20 @@
+using MFR.GUI.Events;
+using MFR.Objects.Configuration;
+using MFR.Objects.Constants;
+using MFR.Objects.Events;
+using MFR.Objects.Events.Common;
+using MFR.Objects.Operations.Events;
+using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Objects.Renamers.Files.Properties;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages;
 using Process = System.Diagnostics.Process;
 using Thread = System.Threading.Thread;
 
@@ -387,7 +400,7 @@ namespace MFR.Objects.Renamers.Files
                 // been completed.
 
                 MessageBox.Show(
-                    Resources.Confirm_PerformRename, Application.ProductName,
+                    Resources.Confirm_PerformRename, MediaTypeNames.Application.ProductName,
                     MessageBoxButtons.OK, MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1
                 );
@@ -566,7 +579,7 @@ namespace MFR.Objects.Renamers.Files
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameFilesInFolder)
-                        .AndAttachConfiguration(Configuration)
+                        .AndAttachConfiguration(Objects.Configuration)
                         .UsingSearchPattern("*")
                         .WithSearchOption(SearchOption.AllDirectories)
                         .ToFindWhat(findWhat)
@@ -642,14 +655,14 @@ namespace MFR.Objects.Renamers.Files
                                      (string)GetTextReplacementEngine.For(
                                              OperationType.RenameFilesInFolder
                                          )
-                                         .AndAttachConfiguration(Configuration)
+                                         .AndAttachConfiguration(Objects.Configuration)
                                          .Replace(
                                              GetMatchExpressionFactory.For(
                                                      OperationType
                                                          .RenameFilesInFolder
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Configuration
+                                                     Objects.Configuration
                                                  )
                                                  .ForTextValue(
                                                      GetTextValueRetriever.For(
@@ -770,7 +783,7 @@ namespace MFR.Objects.Renamers.Files
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSubFolders)
-                        .AndAttachConfiguration(Configuration)
+                        .AndAttachConfiguration(Objects.Configuration)
                         .UsingSearchPattern("*")
                         .WithSearchOption(SearchOption.AllDirectories)
                         .ToFindWhat(findWhat)
@@ -844,7 +857,7 @@ namespace MFR.Objects.Renamers.Files
                              .RenameTo(
                                  (string)GetTextReplacementEngine
                                          .For(OperationType.RenameSubFolders)
-                                         .AndAttachConfiguration(Configuration)
+                                         .AndAttachConfiguration(Objects.Configuration)
                                          .Replace(
                                              (IMatchExpression)
                                              GetMatchExpressionFactory.For(
@@ -852,7 +865,7 @@ namespace MFR.Objects.Renamers.Files
                                                          .RenameSubFolders
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Configuration
+                                                     Objects.Configuration
                                                  )
                                                  .ForTextValue(
                                                      GetTextValueRetriever.For(
@@ -958,7 +971,7 @@ namespace MFR.Objects.Renamers.Files
             IEnumerable<IFileSystemEntry> entryCollection =
                 GetFileSystemEntryListRetriever
                     .For(OperationType.ReplaceTextInFiles)
-                    .AndAttachConfiguration(Configuration)
+                    .AndAttachConfiguration(Objects.Configuration)
                     .UsingSearchPattern("*")
                     .WithSearchOption(SearchOption.AllDirectories)
                     .ToFindWhat(findWhat)
@@ -1007,7 +1020,7 @@ namespace MFR.Objects.Renamers.Files
                                                          .ReplaceTextInFiles
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Configuration
+                                                     Objects.Configuration
                                                  )
                                                  .Replace(
                                                      (IMatchExpression)
@@ -1017,7 +1030,7 @@ namespace MFR.Objects.Renamers.Files
                                                                  .ReplaceTextInFiles
                                                          )
                                                          .AndAttachConfiguration(
-                                                             Configuration
+                                                             Objects.Configuration
                                                          )
                                                          .ForTextValue(
                                                              GetTextValueRetriever
@@ -1139,7 +1152,9 @@ namespace MFR.Objects.Renamers.Files
         {
             /*
                  * OKAY, check whether Find What and Replace With are the same,
-                 * apart from case.  If this is so, then we cannot have two files and/or
+                 * apart from case.  This means that the user wants to use the same
+                 * name for a component(s), but with different letters capitalized.
+                 * If this is so, then we cannot have two files and/or
                  * folders in the same parent folder with both names (per operating
                  * system rules).  So in that event, we will need to do findWhat = old
                  * name, replaceWith = guid, and then another process with findWhat = guid
@@ -1196,27 +1211,6 @@ namespace MFR.Objects.Renamers.Files
                     FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED
                 );
         }
-
-        /*
-                /// <summary>
-                /// Raises the <see
-                /// cref="E:MFR.Objects.FileSystemEntrySkippedEventHandler.FileSystemEntrySkipped"/> event.
-                /// </summary>
-                /// <param name="e">
-                /// A <see
-                /// cref="T:MFR.Objects.FileSystemEntrySkippedEventArgs"/>
-                /// that contains the event data.
-                /// </param>
-                [Log(AttributeExclude = true)]
-                private void OnFileSystemEntrySkipped(FileSystemEntrySkippedEventArgs e)
-                {
-                    FileSystemEntrySkipped?.Invoke(this, e);
-                    SendMessage<FileSystemEntrySkippedEventArgs>.Having.Args(this, e)
-                        .ForMessageId(
-                            FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED
-                        );
-                }
-        */
 
         /// <summary>
         /// Raises the <see

@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Renamers.Files.Tests
 {
     /// <summary>
     /// Provides unit tests.

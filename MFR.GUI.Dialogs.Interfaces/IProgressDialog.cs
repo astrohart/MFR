@@ -1,5 +1,7 @@
 using System;
 using System.Diagnostics;
+using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Dialogs.Interfaces
 {

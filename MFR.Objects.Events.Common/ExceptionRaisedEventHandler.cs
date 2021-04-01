@@ -1,4 +1,4 @@
-namespace MFR.Objects.Events
+namespace MFR.Objects.Events.Common
 {
     /// <summary>
     /// Defines the method signature for the handlers of a(n) ExceptionRaised event.

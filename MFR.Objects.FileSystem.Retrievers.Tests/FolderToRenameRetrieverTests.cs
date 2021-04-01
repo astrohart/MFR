@@ -1,10 +1,9 @@
-using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.FileSystem.Retrievers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

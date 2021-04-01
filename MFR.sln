@@ -215,7 +215,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Operations.Exceptions", "MFR.Objects.Operations.Exceptions\MFR.Objects.Operations.Exceptions.csproj", "{12CC9C12-26AD-4D61-B59E-0A1932214ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Application", "MFR.Application\MFR.Application.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects", "MFR.Application\MFR.Objects.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search", "MFR.Objects.Filters.Search\MFR.Objects.Filters.Search.csproj", "{66851DA3-B5BF-4992-B627-80D7EAC3084E}"
 EndProject
@@ -223,11 +223,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.FileSystem.Exceptions", "MFR.Objects.FileSystem.Exceptions\MFR.Objects.FileSystem.Exceptions.csproj", "{935EAA9E-4863-41DA-9CC8-D05B0F5B7BD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Application.Managers.History", "MFR.Application.Managers.History\MFR.Application.Managers.History.csproj", "{37DAE2DA-DEEB-4400-9596-9F93B70466C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History", "MFR.Application.Managers.History\MFR.Objects.Managers.History.csproj", "{37DAE2DA-DEEB-4400-9596-9F93B70466C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Application.Managers.History.Interfaces", "MFR.Application.Managers.History.Interfaces\MFR.Application.Managers.History.Interfaces.csproj", "{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History.Interfaces", "MFR.Application.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj", "{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Application.Managers.History.Factories", "MFR.Application.Managers.History.Factories\MFR.Application.Managers.History.Factories.csproj", "{5AC040AA-21BB-4258-A1F3-DF260FC27574}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History.Factories", "MFR.Application.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj", "{5AC040AA-21BB-4258-A1F3-DF260FC27574}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Renamers.Files", "MFR.Objects.Renamers.Files\MFR.Objects.Renamers.Files.csproj", "{197747FD-A37B-4518-9A5F-DD9E236A8291}"
 EndProject
@@ -298,6 +298,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Messages.Commands.Tests", "MFR.Objects.Messages.Commands.Tests\MFR.Objects.Messages.Commands.Tests.csproj", "{9324A812-35AF-4C1A-A68D-83BA1BCBCB4B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.VisualStudio.Tests", "MFR.Objects.VisualStudio.Tests\MFR.Objects.VisualStudio.Tests.csproj", "{288B6144-3857-4870-88D8-06B0DC081A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Events.Common", "MFR.Objects.Events.Common\MFR.Objects.Events.Common.csproj", "{84C1F71A-AAA4-4A08-9728-19E710965E4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1475,6 +1477,14 @@ Global
 		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x64.Build.0 = Release|x64
 		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x86.ActiveCfg = Release|x86
 		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x86.Build.0 = Release|x86
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x64.ActiveCfg = Debug|x64
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x64.Build.0 = Debug|x64
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x86.ActiveCfg = Debug|x86
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x86.Build.0 = Debug|x86
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x64.ActiveCfg = Release|x64
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x64.Build.0 = Release|x64
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x86.ActiveCfg = Release|x86
+		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

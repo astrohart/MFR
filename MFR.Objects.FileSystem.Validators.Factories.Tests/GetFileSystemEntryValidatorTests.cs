@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.FileSystem.Validators.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

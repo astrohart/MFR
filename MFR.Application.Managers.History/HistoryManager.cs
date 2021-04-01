@@ -1,12 +1,13 @@
-using MFR.Application.Managers.History.Interfaces;
-using MFR.Application.Managers.History.Properties;
 using MFR.Objects.Configuration;
+using MFR.Objects.Managers.History.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
 
-namespace MFR.Application.Managers.History
+namespace MFR.Objects.Managers.History
 {
     /// <summary>
     /// Manages the configuration history on behalf of the application.
@@ -119,8 +120,8 @@ namespace MFR.Application.Managers.History
                 return false;
 
             return DialogResult.Yes == MessageBox.Show(
-                _messageBoxParentWindow, Resources.Confirm_ClearAllHistory,
-                Application.ProductName, MessageBoxButtons.YesNo,
+                _messageBoxParentWindow, "Are you sure you want to erase all the items from your search history?\n\nThis action cannot be undone.",
+                System.Windows.Forms.Application.ProductName, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2
             );
         }

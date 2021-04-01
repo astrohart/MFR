@@ -1,7 +1,6 @@
-using MFR.Objects.Operations.Constants;
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Engines.Matching.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods of the

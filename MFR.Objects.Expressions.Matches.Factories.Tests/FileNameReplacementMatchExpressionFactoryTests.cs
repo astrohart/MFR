@@ -1,10 +1,7 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;
-using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Expressions.Matches.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

@@ -1,15 +1,15 @@
 using System;
 
-namespace MFR.GUI.Events
+namespace MFR.Objects.Events.Common
 {
     /// <summary>
-    /// Defines the data that is passed by all events of type <see cref="T:MFR.GUI.Events.StatusUpdateEventHandler"/>.
+    /// Defines the data that is passed by all events of type <see cref="T:MFR.Objects.Events.Common.StatusUpdateEventHandler"/>.
     /// </summary>
     public class StatusUpdateEventArgs : EventArgs
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.GUI.Events.StatusUpdateEventArgs"/> and returns
+        /// cref="T:MFR.Objects.Events.Common.StatusUpdateEventArgs"/> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="text">

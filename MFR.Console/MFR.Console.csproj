@@ -81,6 +81,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Events\MFR.GUI.Events.csproj">
+      <Project>{0FF67444-A844-4243-9487-5BD48EEF0032}</Project>
+      <Name>MFR.GUI.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
+      <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Events.Common\MFR.Objects.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Objects.Events.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Events\MFR.Objects.Events.csproj">
+      <Project>{FACD1C44-0214-4DF0-8969-4429C386A51A}</Project>
+      <Name>MFR.Objects.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
@@ -92,6 +108,10 @@
     <ProjectReference Include="..\MFR.Objects.Operations.Events\MFR.Objects.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
       <Name>MFR.Objects.Operations.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Renamers.Files\MFR.Objects.Renamers.Files.csproj">
+      <Project>{197747FD-A37B-4518-9A5F-DD9E236A8291}</Project>
+      <Name>MFR.Objects.Renamers.Files</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

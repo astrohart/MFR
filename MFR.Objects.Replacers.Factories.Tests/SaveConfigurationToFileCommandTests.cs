@@ -1,8 +1,7 @@
-using MFR.Objects.Configuration.Interfaces;
 using NUnit.Framework;
 using System.IO;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Replacers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the <see cref="T:MFR.Objects.SaveConfigurationToFileCommand"/> class.

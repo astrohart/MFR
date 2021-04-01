@@ -1,3 +1,8 @@
+using MFR.GUI.Events;
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Events;
+using MFR.Objects.Events.Common;
+using MFR.Objects.Operations.Events;
 using System;
 
 namespace MFR.Objects.Renamers.Files.Interfaces

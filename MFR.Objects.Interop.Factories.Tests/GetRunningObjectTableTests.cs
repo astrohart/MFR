@@ -1,8 +1,7 @@
-using MFR.Objects.Interop.Factories;
 using NUnit.Framework;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Interop.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

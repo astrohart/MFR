@@ -1,10 +1,9 @@
 using EnvDTE;
 using MFR.Objects.Tests.Common;
-using MFR.Objects.VisualStudio;
 using NUnit.Framework;
 using System.IO;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.VisualStudio.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

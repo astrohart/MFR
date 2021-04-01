@@ -1,7 +1,7 @@
 using Microsoft.Win32;
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Registry.Helpers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

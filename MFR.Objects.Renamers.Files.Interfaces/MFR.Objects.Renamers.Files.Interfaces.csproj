@@ -101,7 +101,30 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Events\MFR.GUI.Events.csproj">
+      <Project>{0FF67444-A844-4243-9487-5BD48EEF0032}</Project>
+      <Name>MFR.GUI.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Events.Common\MFR.Objects.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Objects.Events.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Events\MFR.Objects.Events.csproj">
+      <Project>{FACD1C44-0214-4DF0-8969-4429C386A51A}</Project>
+      <Name>MFR.Objects.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Events\MFR.Objects.Operations.Events.csproj">
+      <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
+      <Name>MFR.Objects.Operations.Events</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

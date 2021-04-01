@@ -1,5 +1,4 @@
-using MFR.Objects.Configuration.Interfaces;
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Tests.Common
 {
     public class RegistryDataExchangeTestsBase
     {

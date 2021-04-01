@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects.Events
+namespace MFR.Objects.Events.Common
 {
     /// <summary>
     /// Defines the data that is passed by all events of type
@@ -11,7 +11,7 @@ namespace MFR.Objects.Events
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Events.ExceptionRaisedEventArgs" />
+        ///     cref="T:MFR.Objects.Events.Common.ExceptionRaisedEventArgs" />
         /// and
         /// returns a reference to it.
         /// </summary>

@@ -1,4 +1,4 @@
-namespace MFR.GUI.Events
+namespace MFR.Objects.Events.Common
 {
     /// <summary>
     /// Defines the method signature for the handlers of the <see

@@ -1,4 +1,4 @@
-using MFR.Objects.Events;
+using MFR.Objects.Events.Common;
 using System;
 
 namespace MFR.Objects.Operations.Events
@@ -9,24 +9,22 @@ namespace MFR.Objects.Operations.Events
     public class DataOperationErrorEventArgs : ExceptionRaisedEventArgs
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.Objects.Operations.Events.DataOperationErrorEventArgs" />
-        /// and
-        /// returns a reference to it.
+        /// Constructs a new instance of <see
+        /// cref="T:MFR.Objects.Operations.Events.DataOperationErrorEventArgs"/>
+        /// and returns a reference to it.
         /// </summary>
         /// <param name="exception">
-        /// (Required.) Reference to an instance of
-        /// <see
-        ///     cref="T:System.Exception" />
-        /// , or a child of it, that provides error details.
+        /// (Required.) Reference to an instance of <see
+        /// cref="T:System.Exception"/> , or a child of it, that provides error details.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="exception" />, is
-        /// passed a <see langword="null" /> reference for a value.
+        /// Thrown if the required parameter, <paramref name="exception"/>, is
+        /// passed a <see langword="null"/> reference for a value.
         /// </exception>
         public DataOperationErrorEventArgs(Exception exception) : base(
             exception
-        ) { }
+        )
+        {
+        }
     }
 }

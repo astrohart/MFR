@@ -1,3 +1,5 @@
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Operations.Events;
 using System;
 
 namespace MFR.Objects.Events

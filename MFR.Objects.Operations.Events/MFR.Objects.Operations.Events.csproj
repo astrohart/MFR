@@ -115,9 +115,9 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Events\MFR.Objects.Events.csproj">
-      <Project>{FACD1C44-0214-4DF0-8969-4429C386A51A}</Project>
-      <Name>MFR.Objects.Events</Name>
+    <ProjectReference Include="..\MFR.Objects.Events.Common\MFR.Objects.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Objects.Events.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
@@ -129,6 +129,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

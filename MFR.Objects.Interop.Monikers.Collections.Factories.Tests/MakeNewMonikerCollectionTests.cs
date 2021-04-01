@@ -1,8 +1,6 @@
-using MFR.Objects.Interop.Monikers.Collections.Factories;
-using MFR.Objects.Interop.Monikers.Collections.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Interop.Monikers.Collections.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

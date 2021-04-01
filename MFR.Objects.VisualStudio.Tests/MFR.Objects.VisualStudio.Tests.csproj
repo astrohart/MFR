@@ -68,6 +68,10 @@
     <RootNamespace>MFR.Objects.VisualStudio.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\EnvDTE.16.9.31023.347\lib\net45\EnvDTE.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.13.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -79,6 +83,10 @@
     </Reference>
     <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.9.3\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\stdole.16.9.31023.347\lib\net45\stdole.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -103,7 +111,18 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+      <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
+      <Name>MFR.Objects.Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.VisualStudio\MFR.Objects.VisualStudio.csproj">
+      <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
+      <Name>MFR.Objects.VisualStudio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -113,6 +132,8 @@
     <Error Condition="!Exists('..\packages\NUnit.3.13.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.1\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.3\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
   </Target>
   <Import Project="..\packages\PostSharp.6.9.3\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.3\build\PostSharp.targets')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
 </Project>

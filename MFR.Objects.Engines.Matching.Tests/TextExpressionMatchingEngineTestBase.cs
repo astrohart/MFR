@@ -1,9 +1,7 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Engines.Matching.Tests
 {
     /// <summary>
     /// Provides default implementations for unit tests and abstract methods for

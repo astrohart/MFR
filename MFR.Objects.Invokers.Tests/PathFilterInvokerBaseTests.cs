@@ -1,8 +1,6 @@
-using MFR.Objects.Invokers.Factories;
-using MFR.Objects.Invokers.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Invokers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

@@ -1,6 +1,8 @@
-using MFR.Objects;
+using MFR.Objects.Events;
+using MFR.Objects.Events.Common;
 using MFR.Objects.Operations.Constants;
 using MFR.Objects.Operations.Events;
+using MFR.Objects.Renamers.Files;
 using System;
 
 namespace MFR.Console
@@ -18,18 +20,17 @@ namespace MFR.Console
             try
             {
                 const string rootDir =
-                   @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
 
                 var renamer = new FileRenamer(rootDir);
 
                 renamer.FilesToHaveTextReplacedCounted +=
-                   OnFilesToHaveTextReplacedCounted;
+                    OnFilesToHaveTextReplacedCounted;
                 renamer.ProcessingOperation += OnFileRenamerProcessingOperation;
                 renamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
                 renamer.ProcessAll(
-                   @"MassFileRenamer",
-                   @"PortfolioMonitor.Products"
+                    @"MassFileRenamer", @"PortfolioMonitor.Products"
                 );
                 System.Console.ReadKey();
             }
@@ -40,54 +41,54 @@ namespace MFR.Console
         }
 
         private static void OnFileRenamerProcessingOperation(object sender,
-           ProcessingOperationEventArgs e)
+            ProcessingOperationEventArgs e)
         {
             switch (e.OperationType)
             {
                 case OperationType.ReplaceTextInFiles:
                     System.Console.WriteLine(
-                       $"Replace Text in Files: Processing '{e.Entry}'..."
+                        $"Replace Text in Files: Processing '{e.Entry}'..."
                     );
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    System.Console.WriteLine($"Rename Files: Processing '{e.Entry}'...");
+                    System.Console.WriteLine(
+                        $"Rename Files: Processing '{e.Entry}'..."
+                    );
                     break;
 
                 case OperationType.RenameSubFolders:
                     System.Console.WriteLine(
-                       $"Rename Subfolders: Processing '{e.Entry}'..."
+                        $"Rename Subfolders: Processing '{e.Entry}'..."
                     );
                     break;
             }
         }
 
         private static void OnFileRenamerStatusUpdated(object sender,
-           StatusUpdateEventArgs e)
-        {
-            System.Console.WriteLine(e.Text);
-        }
+            StatusUpdateEventArgs e)
+            => System.Console.WriteLine(e.Text);
 
         private static void OnFilesToHaveTextReplacedCounted(object sender,
-           FilesOrFoldersCountedEventArgs e)
+            FilesOrFoldersCountedEventArgs e)
         {
             switch (e.OperationType)
             {
                 case OperationType.ReplaceTextInFiles:
                     System.Console.WriteLine(
-                       $"Replace Text in Files: {e.Count} files are to be processed."
+                        $"Replace Text in Files: {e.Count} files are to be processed."
                     );
                     break;
 
                 case OperationType.RenameFilesInFolder:
                     System.Console.WriteLine(
-                       $"Rename Files: {e.Count} files are to be processed."
+                        $"Rename Files: {e.Count} files are to be processed."
                     );
                     break;
 
                 case OperationType.RenameSubFolders:
                     System.Console.WriteLine(
-                       $"Rename Subfolders: {e.Count} folders are to be processed."
+                        $"Rename Subfolders: {e.Count} folders are to be processed."
                     );
                     break;
             }

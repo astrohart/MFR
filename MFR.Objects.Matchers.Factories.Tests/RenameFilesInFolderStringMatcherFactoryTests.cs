@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests
+namespace MFR.Objects.Matchers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

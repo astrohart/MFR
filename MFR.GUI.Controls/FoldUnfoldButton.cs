@@ -1,5 +1,7 @@
+using MFR.GUI.Events;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Controls
@@ -22,8 +24,8 @@ namespace MFR.GUI.Controls
         /// </summary>
         public FoldUnfoldButton()
         {
-            FormFoldedSize = Size.Empty;
-            FormUnfoldedSize = Size.Empty;
+            FormFoldedSize = System.Drawing.Size.Empty;
+            FormUnfoldedSize = System.Drawing.Size.Empty;
             IsFolded = true; // form starts out folded typically
 
             FoldedText = "&More >>";
