@@ -120,13 +120,13 @@
     <None Include="config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="impossible-triangle.png" />
+    <None Include="packages.config" />
     <None Include="Resources\SwitchUpDown_16x.png" />
     <Content Include="xylogix.ICO" />
   </ItemGroup>
