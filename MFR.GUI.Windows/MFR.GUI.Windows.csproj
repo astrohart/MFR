@@ -70,6 +70,7 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="PostSharp, Version=6.9.3.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.6.9.3\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -139,6 +140,14 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Application.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj">
+      <Project>{5AC040AA-21BB-4258-A1F3-DF260FC27574}</Project>
+      <Name>MFR.Objects.Managers.History.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Application.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj">
+      <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
+      <Name>MFR.Objects.Managers.History.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Constants\MFR.GUI.Constants.csproj">
       <Project>{BA67C73B-59F3-4FF2-81B3-C2EED243DC17}</Project>
       <Name>MFR.GUI.Constants</Name>
@@ -159,6 +168,14 @@
       <Project>{B4DAD65F-9F1B-4305-9DA2-763D6745924A}</Project>
       <Name>MFR.GUI.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Presenters.Associators\MFR.GUI.Presenters.Associators.csproj">
+      <Project>{85E988B0-691C-41B6-981A-9BC0AE1DDA8B}</Project>
+      <Name>MFR.GUI.Presenters.Associators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Presenters.Interfaces\MFR.GUI.Presenters.Interfaces.csproj">
+      <Project>{079EC9B7-0884-46B5-B567-FFFB1647392E}</Project>
+      <Name>MFR.GUI.Presenters.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Interfaces\MFR.GUI.Windows.Interfaces.csproj">
       <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
       <Name>MFR.GUI.Windows.Interfaces</Name>
@@ -174,6 +191,14 @@
     <ProjectReference Include="..\MFR.Objects.Configuration.Providers\MFR.Objects.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
       <Name>MFR.Objects.Configuration.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Renamers.Files.Factories\MFR.Objects.Renamers.Files.Factories.csproj">
+      <Project>{A93C6F56-DF58-45F1-8C4B-03C63F013E7F}</Project>
+      <Name>MFR.Objects.Renamers.Files.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Renamers.Files.Interfaces\MFR.Objects.Renamers.Files.Interfaces.csproj">
+      <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
+      <Name>MFR.Objects.Renamers.Files.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
