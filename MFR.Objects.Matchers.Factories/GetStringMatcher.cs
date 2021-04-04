@@ -1,3 +1,5 @@
+using MFR.Objects.Matchers.Factories.Interfaces;
+using MFR.Objects.Operations.Constants;
 using System;
 
 namespace MFR.Objects.Matchers.Factories

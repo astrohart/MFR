@@ -1,3 +1,4 @@
+using MFR.Objects.Operations.Constants;
 using NUnit.Framework;
 using System;
 

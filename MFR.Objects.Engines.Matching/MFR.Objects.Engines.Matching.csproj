@@ -110,6 +110,14 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Helpers\MFR.Objects.Configuration.Helpers.csproj">
+      <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
+      <Name>MFR.Objects.Configuration.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
@@ -125,6 +133,10 @@
     <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Interfaces\MFR.Objects.Expressions.Matches.Interfaces.csproj">
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
       <Name>MFR.Objects.Expressions.Matches.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Matchers.Factories\MFR.Objects.Matchers.Factories.csproj">
+      <Project>{BE9F2CAA-F80B-41C5-892E-8E57B8DB451F}</Project>
+      <Name>MFR.Objects.Matchers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>

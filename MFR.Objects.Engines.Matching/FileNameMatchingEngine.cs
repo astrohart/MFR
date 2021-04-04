@@ -1,5 +1,10 @@
+using MFR.Objects.Configuration.Helpers;
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Matchers.Factories;
+using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Engines.Matching
 {

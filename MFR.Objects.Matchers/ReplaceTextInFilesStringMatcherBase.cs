@@ -1,3 +1,7 @@
+using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Matchers.Interfaces;
+using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Objects.Matchers

@@ -1,3 +1,5 @@
+using MFR.Objects.Engines.Matching.Interfaces;
+using MFR.Objects.Operations.Constants;
 using System;
 
 namespace MFR.Objects.Engines.Matching.Factories

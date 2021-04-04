@@ -1,3 +1,5 @@
+using MFR.Objects.Matchers.Factories.Interfaces;
+using MFR.Objects.Operations.Constants;
 using NUnit.Framework;
 
 namespace MFR.Objects.Matchers.Factories.Tests
@@ -12,16 +14,14 @@ namespace MFR.Objects.Matchers.Factories.Tests
     public class GetStringMatcherTests
     {
         /// <summary>
-        /// Asserts that the
-        /// <see
-        ///     cref="M:MFR.Objects.GetStringMatcher.For" />
-        /// method
-        /// returns a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Objects.IStringMatcherFactory" />
+        /// Asserts that the <see cref="M:MFR.Objects.GetStringMatcher.For" />
+        /// method returns a reference to an instance of an object that
+        /// implements the <see cref="T:MFR.Objects.IStringMatcherFactory" />
         /// interface when the
         /// <see
         ///     cref="T:MFR.Objects.OperationType.RenameFilesInFolder" />
-        /// value is passed for its argument.
+        /// value is
+        /// passed for its argument.
         /// </summary>
         [Test]
         public void
@@ -32,16 +32,12 @@ namespace MFR.Objects.Matchers.Factories.Tests
             );
 
         /// <summary>
-        /// Asserts that the
-        /// <see
-        ///     cref="M:MFR.Objects.GetStringMatcher.For" />
-        /// method
-        /// returns a reference to an instance of
+        /// Asserts that the <see cref="M:MFR.Objects.GetStringMatcher.For" />
+        /// method returns a reference to an instance of
         /// <see
         ///     cref="T:MFR.Objects.RenameFilesInFolderStringMatcherFactory" />
-        /// when the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameFilesInFolder" />
+        /// when
+        /// the <see cref="T:MFR.Objects.OperationType.RenameFilesInFolder" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -52,16 +48,12 @@ namespace MFR.Objects.Matchers.Factories.Tests
             );
 
         /// <summary>
-        /// Asserts that the
-        /// <see
-        ///     cref="M:MFR.Objects.GetStringMatcher.For" />
-        /// method
-        /// returns a reference to an instance of
+        /// Asserts that the <see cref="M:MFR.Objects.GetStringMatcher.For" />
+        /// method returns a reference to an instance of
         /// <see
         ///     cref="T:MFR.Objects.RenameSubFoldersStringMatcherFactory" />
         /// when the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameSubFolders" />
+        /// <see cref="T:MFR.Objects.OperationType.RenameSubFolders" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -72,16 +64,12 @@ namespace MFR.Objects.Matchers.Factories.Tests
             );
 
         /// <summary>
-        /// Asserts that the
-        /// <see
-        ///     cref="M:MFR.Objects.GetStringMatcher.For" />
-        /// method
-        /// returns a reference to an instance of
+        /// Asserts that the <see cref="M:MFR.Objects.GetStringMatcher.For" />
+        /// method returns a reference to an instance of
         /// <see
         ///     cref="T:MFR.Objects.ReplaceTextInFilesStringMatcherFactory" />
-        /// when the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType.ReplaceTextInFiles" />
+        /// when
+        /// the <see cref="T:MFR.Objects.OperationType.ReplaceTextInFiles" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -90,6 +78,5 @@ namespace MFR.Objects.Matchers.Factories.Tests
             => Assert.IsInstanceOf<ReplaceTextInFilesStringMatcherFactory>(
                 GetStringMatcher.For(OperationType.ReplaceTextInFiles)
             );
-
     }
 }

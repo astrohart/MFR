@@ -1,3 +1,7 @@
+using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Matchers.Interfaces;
+using MFR.Objects.Operations.Interfaces;
+
 namespace MFR.Objects.Matchers.Factories.Interfaces
 {
     /// <summary>

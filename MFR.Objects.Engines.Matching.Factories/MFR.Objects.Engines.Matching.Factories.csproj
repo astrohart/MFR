@@ -110,6 +110,20 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching.Interfaces\MFR.Objects.Engines.Matching.Interfaces.csproj">
+      <Project>{80AE228C-041C-4C9C-BB7E-C07D502EC66D}</Project>
+      <Name>MFR.Objects.Engines.Matching.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching\MFR.Objects.Engines.Matching.csproj">
+      <Project>{E0206514-0EAC-421E-A1A9-251145377D77}</Project>
+      <Name>MFR.Objects.Engines.Matching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

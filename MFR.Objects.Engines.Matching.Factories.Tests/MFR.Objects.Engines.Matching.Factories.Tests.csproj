@@ -114,6 +114,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching.Factories\MFR.Objects.Engines.Matching.Factories.csproj">
+      <Project>{375AB82E-DB42-49A4-B3B4-63BE7C9D8CAB}</Project>
+      <Name>MFR.Objects.Engines.Matching.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
