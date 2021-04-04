@@ -110,6 +110,20 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
+      <Name>MFR.Objects.Configuration.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Replacers.Interfaces\MFR.Objects.Replacers.Interfaces.csproj">
+      <Project>{F0D84B06-8B9F-4FAD-AD0B-87713B4D0F5B}</Project>
+      <Name>MFR.Objects.Replacers.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

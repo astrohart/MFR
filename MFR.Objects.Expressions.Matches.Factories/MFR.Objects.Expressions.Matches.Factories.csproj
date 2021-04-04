@@ -120,6 +120,10 @@
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Objects.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Factories.Interfaces\MFR.Objects.Expressions.Matches.Factories.Interfaces.csproj">
+      <Project>{057FF1CA-0D46-4B40-A8E6-3C68FB9F79A0}</Project>
+      <Name>MFR.Objects.Expressions.Matches.Factories.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Interfaces\MFR.Objects.Expressions.Matches.Interfaces.csproj">
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
       <Name>MFR.Objects.Expressions.Matches.Interfaces</Name>

@@ -1,3 +1,5 @@
+using MFR.Objects.FileSystem.Retrievers.Interfaces;
+using MFR.Objects.Operations.Constants;
 using System;
 
 namespace MFR.Objects.FileSystem.Retrievers.Factories
@@ -10,6 +12,31 @@ namespace MFR.Objects.FileSystem.Retrievers.Factories
     /// </summary>
     public static class GetTextValueRetriever
     {
+        /// <summary>
+        /// Creates a new instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
+        /// interface and returns a reference to it.
+        /// </summary>
+        /// <param name="type">
+        /// One of the
+        /// <see
+        ///     cref="T:MFR.Objects.Operations.Constants.OperationType" />
+        /// values
+        /// that specifies which operation is currently being performed.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
+        /// interface.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// Thrown if the operation type specified by the
+        /// <paramref
+        ///     name="type" />
+        /// parameter is not one of the supported values.
+        /// </exception>
         public static ITextValueRetriever For(OperationType type)
         {
             ITextValueRetriever retriever = null;

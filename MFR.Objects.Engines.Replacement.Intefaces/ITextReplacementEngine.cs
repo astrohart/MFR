@@ -1,3 +1,7 @@
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Expressions.Matches.Interfaces;
+using MFR.Objects.Operations.Interfaces;
+
 namespace MFR.Objects.Engines.Replacement.Intefaces
 {
     /// <summary>

@@ -110,6 +110,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Validators.Interfaces\MFR.Objects.Expressions.Registry.Validators.Interfaces.csproj">
+      <Project>{DA01210A-F467-4EC3-967E-01523AFB6E23}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Validators\MFR.Objects.Expressions.Registry.Validators.csproj">
+      <Project>{60BEE821-A1F5-4DEE-88A3-1F45E7B643AA}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Validators</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

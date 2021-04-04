@@ -1,3 +1,6 @@
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Replacers.Factories.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 

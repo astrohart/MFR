@@ -1,3 +1,10 @@
+using MFR.Objects.Messages.Constants;
+using MFR.Objects.Messages.Factories;
+using MFR.Objects.Metadata.Registry.Factories;
+using MFR.Objects.Metadata.Registry.Interfaces;
+using MFR.Objects.Registry.Helpers;
+using MFR.Objects.System;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
 namespace MFR.Objects.Replacers.Factories.Tests

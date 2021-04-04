@@ -1,3 +1,8 @@
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Constants;
+using MFR.Objects.Messages.Factories;
 using NUnit.Framework;
 using System.IO;
 
@@ -20,7 +25,7 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// </summary>
         private static IConfiguration CONFIGURATION_DATA {
             get;
-        } = new Configuration();
+        } = new Configuration.Configuration();
 
         /// <summary>
         /// TODO: Add unit test documentation here

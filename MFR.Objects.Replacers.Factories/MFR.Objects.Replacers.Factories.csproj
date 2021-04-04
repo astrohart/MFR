@@ -113,6 +113,32 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
+      <Name>MFR.Objects.Configuration.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Replacers.Factories.Interfaces\MFR.Objects.Replacers.Factories.Interfaces.csproj">
+      <Project>{A42EA662-0DBA-4CCE-A4D0-B3D52FA7F9D7}</Project>
+      <Name>MFR.Objects.Replacers.Factories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Replacers.Interfaces\MFR.Objects.Replacers.Interfaces.csproj">
+      <Project>{F0D84B06-8B9F-4FAD-AD0B-87713B4D0F5B}</Project>
+      <Name>MFR.Objects.Replacers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Replacers\MFR.Objects.Replacers.csproj">
+      <Project>{11256D02-6133-49CD-9BBE-74FD9BD15312}</Project>
+      <Name>MFR.Objects.Replacers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,3 +1,5 @@
+using MFR.Objects.Configuration.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Objects.Replacers

@@ -1,3 +1,9 @@
+using MFR.Objects.Configuration;
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Engines.Replacement.Intefaces;
+using MFR.Objects.Expressions.Matches.Interfaces;
+using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Objects.Engines.Replacement

@@ -44,7 +44,7 @@ namespace MFR.Objects.Engines.Matching
         /// use the <c>public</c> constructor.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        internal FileNameMatchingEngine()
+        public FileNameMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }

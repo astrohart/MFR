@@ -111,6 +111,20 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Interfaces\MFR.Objects.FileSystem.Retrievers.Interfaces.csproj">
+      <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
+      <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers\MFR.Objects.FileSystem.Retrievers.csproj">
+      <Project>{CC2F7258-C88D-437B-A20E-422D90B7A3E2}</Project>
+      <Name>MFR.Objects.FileSystem.Retrievers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

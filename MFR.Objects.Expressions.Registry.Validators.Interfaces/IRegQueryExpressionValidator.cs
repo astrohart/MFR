@@ -1,3 +1,5 @@
+using MFR.Objects.Expressions.Registry.Interfaces;
+
 namespace MFR.Objects.Expressions.Registry.Validators.Interfaces
 {
     /// <summary>

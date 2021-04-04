@@ -87,7 +87,6 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
   </ItemGroup>
@@ -115,6 +114,36 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
+      <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching.Factories\MFR.Objects.Engines.Matching.Factories.csproj">
+      <Project>{375AB82E-DB42-49A4-B3B4-63BE7C9D8CAB}</Project>
+      <Name>MFR.Objects.Engines.Matching.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching.Interfaces\MFR.Objects.Engines.Matching.Interfaces.csproj">
+      <Project>{80AE228C-041C-4C9C-BB7E-C07D502EC66D}</Project>
+      <Name>MFR.Objects.Engines.Matching.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+      <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
+      <Name>MFR.Objects.Tests.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,3 +1,8 @@
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Engines.Matching.Factories;
+using MFR.Objects.Engines.Matching.Interfaces;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;
 
@@ -44,8 +49,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for all three of its parameters.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for all three of its parameters.
         /// </summary>
         [Test]
         public virtual void
@@ -56,8 +62,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for all three of its parameters.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for all three of its parameters.
         /// </summary>
         [Test]
         public virtual void
@@ -73,7 +80,8 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if strings
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if strings
         /// containing whitespace are passed for all three of its parameters.
         /// </summary>
         [Test]
@@ -87,7 +95,8 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if strings
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if strings
         /// containing whitespace are passed for all three of its parameters.
         /// </summary>
         [Test]
@@ -104,9 +113,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its first and second parameters, with a
-        /// non-blank string passed in the third.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its first and second parameters, with a non-blank
+        /// string passed in the third.
         /// </summary>
         [Test]
         public virtual void
@@ -122,9 +132,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its first and second parameters, with a
-        /// non-blank string passed in the third.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its first and second parameters, with a non-blank
+        /// string passed in the third.
         /// </summary>
         [Test]
         public virtual void
@@ -137,9 +148,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its first and second parameters, with a
-        /// non-blank string passed in the third.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its first and second parameters, with a non-blank
+        /// string passed in the third.
         /// </summary>
         [Test]
         public virtual void
@@ -155,9 +167,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its first and third parameters, with a
-        /// non-blank string passed in the second.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its first and third parameters, with a non-blank
+        /// string passed in the second.
         /// </summary>
         [Test]
         public virtual void
@@ -173,9 +186,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its first and third parameters, with a
-        /// non-blank string passed in the second.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its first and third parameters, with a non-blank
+        /// string passed in the second.
         /// </summary>
         [Test]
         public virtual void
@@ -188,9 +202,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its first and third parameters, with a
-        /// non-blank string passed in the second.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its first and third parameters, with a non-blank
+        /// string passed in the second.
         /// </summary>
         [Test]
         public virtual void
@@ -206,16 +221,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// first parameter is the empty string.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the first
+        /// parameter is the empty string.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the first parameter.
+        /// do not require
+        /// the first parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -230,16 +246,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// first parameter is <see langword="null" />.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the first
+        /// parameter is <see langword="null" />.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the first parameter.
+        /// do not require
+        /// the first parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -252,16 +269,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// first parameter is whitespace.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the first
+        /// parameter is whitespace.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the first parameter.
+        /// do not require
+        /// the first parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -274,16 +292,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// second parameter is the empty string.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the second
+        /// parameter is the empty string.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the second parameter.
+        /// do not require
+        /// the second parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -298,16 +317,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// second parameter is <see langword="null" />.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the second
+        /// parameter is <see langword="null" />.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the second parameter.
+        /// do not require
+        /// the second parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -320,16 +340,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// second parameter is whitespace.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the second
+        /// parameter is whitespace.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the second parameter.
+        /// do not require
+        /// the second parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -342,16 +363,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// third parameter is the empty string.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the third
+        /// parameter is the empty string.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the third parameter.
+        /// do not require
+        /// the third parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -366,16 +388,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// third parameter is <see langword="null" />.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the third
+        /// parameter is <see langword="null" />.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the third parameter.
+        /// do not require
+        /// the third parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -388,16 +411,17 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if only the
-        /// third parameter is whitespace.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if only the third
+        /// parameter is whitespace.
         /// </summary>
         /// <remarks>
         /// This test method is marked <c>virtual</c> so that it can be
         /// overriden for the case where implementations of
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// do not
-        /// require the third parameter.
+        /// do not require
+        /// the third parameter.
         /// </remarks>
         [Test]
         public virtual void
@@ -410,9 +434,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its second and third parameters, with a
-        /// non-blank string passed in the first.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its second and third parameters, with a non-blank
+        /// string passed in the first.
         /// </summary>
         [Test]
         public virtual void
@@ -428,9 +453,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its second and third parameters, with a
-        /// non-blank string passed in the first.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its second and third parameters, with a non-blank
+        /// string passed in the first.
         /// </summary>
         [Test]
         public virtual void
@@ -443,9 +469,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method throws <see cref="T:System.ArgumentException" /> if the empty
-        /// string is passed for its second and third parameters, with a
-        /// non-blank string passed in the first.
+        /// method
+        /// throws <see cref="T:System.ArgumentException" /> if the empty string
+        /// is passed for its second and third parameters, with a non-blank
+        /// string passed in the first.
         /// </summary>
         [Test]
         public virtual void
@@ -461,8 +488,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// true and MatchExactWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
@@ -471,9 +499,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = false
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "foo", "Bar"));
         }
@@ -482,8 +511,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = false
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// false and MatchExactWord
         /// = true in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case but the cases match in the second.
@@ -492,9 +522,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchExactWord = true
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = false, MatchExactWord = true
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
         }
@@ -503,7 +534,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
@@ -512,9 +545,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = false, MatchExactWord = false
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
         }
@@ -523,8 +557,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// true and MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and even if (c) the cases do not
         /// match in the first sub-case but the cases match in the second.
@@ -533,9 +568,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = false
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
         }
@@ -544,8 +580,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// true and MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
@@ -554,9 +591,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = false
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "bar", "baz"));
         }
@@ -565,8 +603,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = true
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// true and MatchExactWord
         /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases match in both the
         /// first sub-case and in the second.
@@ -575,9 +614,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesMatch()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = false
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
         }
@@ -586,8 +626,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = false
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="true" /> in the event that (a) MatchCase =
+        /// false and MatchExactWord
         /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string, and (c) the cases do not match in the first sub-case
         /// but the cases match in the second.
@@ -596,9 +637,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceExactlyMatchesPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchExactWord = true
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = false, MatchExactWord = true
+                };
             Assert.IsTrue(_matcher.IsMatch("foo", "Foo", "Bar"));
             Assert.IsTrue(_matcher.IsMatch("Foo", "Foo", "Bar"));
         }
@@ -607,7 +649,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// MatchExactWord
         /// = true in the configuration, (b) the source string does not exactly
         /// match the pattern string as a substring, and if (c) the cases do not
         /// match in the first sub-case.
@@ -617,7 +661,9 @@ namespace MFR.Objects.Engines.Matching.Tests
             Test_FalseReturnedIfCaseDoesNotMatch_AndFalseReturnedWhenCaseDoesMatch_IfSourceDoesNotExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchExactWord = true};
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = true
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
         }
@@ -626,7 +672,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchExactWord
+        /// method
+        /// returns <see langword="true" /> in the event that (a) MatchCase =
+        /// MatchExactWord
         /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string as a substring, except if (c) the cases do not match
         /// in the first sub-case.
@@ -636,7 +684,9 @@ namespace MFR.Objects.Engines.Matching.Tests
             Test_FalseReturnedIfCaseDoesNotMatch_AndTrueReturnedWhenCaseDoesMatch_IfSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchExactWord = true};
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = true
+                };
             Assert.IsFalse(
                 _matcher.IsMatch("foo.tests", "Foo.Tests", "Bar.Tests")
             );
@@ -649,7 +699,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchExactWord
+        /// method
+        /// returns <see langword="true" /> in the event that (a) MatchCase =
+        /// MatchExactWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
@@ -658,9 +710,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = false, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = false, MatchExactWord = false
+                };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
         }
@@ -669,8 +722,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = true
-        /// and MatchExactWord
+        /// method
+        /// returns <see langword="true" /> in the event that (a) MatchCase =
+        /// true and MatchExactWord
         /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and if (c) the cases match in the
         /// first sub-case and in the second.
@@ -679,9 +733,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
-            _matcher.Configuration = new Configuration {
-                MatchCase = true, MatchExactWord = false
-            };
+            _matcher.Configuration =
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = false
+                };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "foo", "Bar"));
             Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
         }
@@ -691,7 +746,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="true" /> in the event that (a) MatchCase = MatchExactWord
+        /// method
+        /// returns <see langword="true" /> in the event that (a) MatchCase =
+        /// MatchExactWord
         /// = true in the configuration, and (b) the source string exactly
         /// matches the pattern string as a substring (including case).
         /// </summary>
@@ -700,7 +757,9 @@ namespace MFR.Objects.Engines.Matching.Tests
             Test_TrueReturned_WhenSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchExactWord = true};
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = true
+                };
             Assert.IsTrue(
                 _matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests")
             );
@@ -710,7 +769,9 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Asserts the
         /// <see
         ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.IsMatch" />
-        /// method returns <see langword="false" /> in the event that (a) MatchCase = MatchExactWord
+        /// method
+        /// returns <see langword="false" /> in the event that (a) MatchCase =
+        /// MatchExactWord
         /// = true in the configuration, (b) the source string does contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
@@ -720,7 +781,9 @@ namespace MFR.Objects.Engines.Matching.Tests
             Test_WhenMatchCaseOn_AndMatchExactWordOn_FalseReturned_IfSourceContainsPattern()
         {
             _matcher.Configuration =
-                new Configuration {MatchCase = true, MatchExactWord = true};
+                new Configuration.Configuration {
+                    MatchCase = true, MatchExactWord = true
+                };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
             Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
         }
@@ -729,26 +792,25 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// Creates an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
-        /// interface
-        /// for the specified operation <paramref name="type" />.
+        /// interface for
+        /// the specified operation <paramref name="type" />.
         /// </summary>
-        /// <param name="type">
-        /// One of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// specifies which operation to create a data-matcher object for.
+        /// <param
+        ///     name="type">
+        /// One of the <see cref="T:MFR.Objects.OperationType" />
+        /// values that specifies which operation to create a data-matcher
+        /// object for.
         /// </param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException" />
+        /// <exception
+        ///     cref="T:System.ArgumentOutOfRangeException" />
         /// Thrown if the
         /// <paramref name="type" />
-        /// parameter is not set to a
-        /// value that the factory supports.
+        /// parameter is not set to a value that the
+        /// factory supports.
         /// </exception>
         protected void CreateMatchingEngineFor(OperationType type)
             => _matcher = GetTextExpressionMatchingEngine.For(type)
-                                                  .AndAttachConfiguration(
-                                                      _configuration
-                                                  ) as ITextExpressionMatchingEngine;
+                    .AndAttachConfiguration(_configuration) as
+                ITextExpressionMatchingEngine;
     }
 }

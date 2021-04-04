@@ -1,3 +1,7 @@
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.FileSystem.Retrievers.Factories;
+using MFR.Objects.Operations.Constants;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;

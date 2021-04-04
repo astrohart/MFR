@@ -1,3 +1,6 @@
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Validators.Factories;
+using MFR.Objects.Operations.Constants;
 using NUnit.Framework;
 using System.IO;
 
@@ -32,20 +35,20 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             );
 
             Assert.IsFalse(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .DoesExist(
-                                                      MakeNewFileSystemEntry.ForPath(
-                                                          SOURCE_FOLDER
-                                                      )
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .DoesExist(
+                                               MakeNewFileSystemEntry.ForPath(
+                                                   SOURCE_FOLDER
+                                               )
+                                           )
             );
             Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .DoesExist(
-                                                      MakeNewFileSystemEntry.ForPath(
-                                                          DEST_FOLDER
-                                                      )
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .DoesExist(
+                                               MakeNewFileSystemEntry.ForPath(
+                                                   DEST_FOLDER
+                                               )
+                                           )
             );
         }
     }

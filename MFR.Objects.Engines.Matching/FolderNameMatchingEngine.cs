@@ -1,6 +1,10 @@
+using MFR.Objects.Configuration.Helpers;
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Matchers.Factories;
 using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Engines.Matching
 {
@@ -16,13 +20,13 @@ namespace MFR.Objects.Engines.Matching
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public FolderNameMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
@@ -31,8 +35,8 @@ namespace MFR.Objects.Engines.Matching
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.Engines.Matching.FolderNameMatchingEngine" />
-        /// and returns a
-        /// reference to it.
+        /// and
+        /// returns a reference to it.
         /// </summary>
         /// <remarks>
         /// NOTE: This constructor is marked as <c>internal</c>. This is to
@@ -41,18 +45,17 @@ namespace MFR.Objects.Engines.Matching
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
-        internal FolderNameMatchingEngine()
+        [Log(AttributeExclude = true)]
+        public FolderNameMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }
 
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// that corresponds to the type of operation being performed.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public override OperationType OperationType
         {
             get;

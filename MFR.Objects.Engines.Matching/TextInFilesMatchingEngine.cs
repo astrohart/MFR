@@ -1,6 +1,9 @@
+using MFR.Objects.Configuration.Helpers;
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Matchers.Factories;
 using MFR.Objects.Operations.Constants;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Engines.Matching
 {
@@ -35,7 +38,7 @@ namespace MFR.Objects.Engines.Matching
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
-        internal TextInFilesMatchingEngine()
+        public TextInFilesMatchingEngine()
         {
             // TODO: Add default object initialization code here
         }

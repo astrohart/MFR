@@ -1,3 +1,6 @@
+using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Replacers.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Objects.Replacers.Factories.Tests

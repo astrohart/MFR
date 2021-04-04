@@ -1,3 +1,5 @@
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
 namespace MFR.Objects.Engines.Matching.Tests

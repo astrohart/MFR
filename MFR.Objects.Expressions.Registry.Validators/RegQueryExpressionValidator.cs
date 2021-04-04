@@ -1,4 +1,9 @@
+using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Objects.Expressions.Registry.Validators.Interfaces;
+using MFR.Objects.Registry.Helpers;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Expressions.Registry.Validators
 {

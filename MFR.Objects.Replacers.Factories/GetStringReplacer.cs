@@ -1,3 +1,5 @@
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Replacers.Factories.Interfaces;
 using System;
 
 namespace MFR.Objects.Replacers.Factories
