@@ -1,6 +1,33 @@
+using MFR.GUI.Dialogs.Factories;
+using MFR.GUI.Dialogs.Interfaces;
+using MFR.GUI.Initializers;
+using MFR.GUI.Windows.Interfaces;
+using MFR.GUI.Windows.Presenters.Constants;
+using MFR.GUI.Windows.Presenters.Interfaces;
+using MFR.GUI.Windows.Presenters.Properties;
+using MFR.Objects.Configuration;
+using MFR.Objects.Configuration.Events;
+using MFR.Objects.Configuration.Helpers;
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Configuration.Providers;
+using MFR.Objects.Constants;
+using MFR.Objects.Events;
+using MFR.Objects.Events.Common;
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Helpers;
+using MFR.Objects.Managers.History.Interfaces;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Operations.Descriptions.Factories;
+using MFR.Objects.Operations.Events;
+using MFR.Objects.Renamers.Files.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages;
 
 namespace MFR.GUI.Windows.Presenters
 {
@@ -11,19 +38,15 @@ namespace MFR.GUI.Windows.Presenters
         IMainWindowPresenter
     {
         /// <summary>
-        /// Reference to an instance of a
-        /// <see
-        ///     cref="T:System.Windows.Forms.SaveFileDialog" />
-        /// that allows the user
+        /// Reference to an instance of a <see
+        /// cref="T:System.Windows.Forms.SaveFileDialog"/> that allows the user
         /// to choose where they want to export the configuration data.
         /// </summary>
         private SaveFileDialog _exportConfigDialog;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.IFileRenamer" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.Objects.IFileRenamer"/> interface.
         /// </summary>
         /// <remarks>
         /// THis object provides the core services that this application offers.
@@ -31,10 +54,8 @@ namespace MFR.GUI.Windows.Presenters
         private IFileRenamer _fileRenamer;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.IHistoryManager" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.Objects.IHistoryManager"/> interface.
         /// </summary>
         /// <remarks>
         /// This object's sole purpose in life is to provide the service of
@@ -43,23 +64,19 @@ namespace MFR.GUI.Windows.Presenters
         private IHistoryManager _historyManager;
 
         /// <summary>
-        /// Reference to an instance of
-        /// <see
-        ///     cref="T:System.Windows.Forms.OpenFileDialog" />
-        /// that allows the user
+        /// Reference to an instance of <see
+        /// cref="T:System.Windows.Forms.OpenFileDialog"/> that allows the user
         /// to choose a filename on the disk.
         /// </summary>
         /// <remarks>
         /// The file chosen by this dialog is to be used for importing
         /// configuration data.
         /// </remarks>
-        private OpenFileDialog _importConfigDialog;
+        private System.Windows.Forms.OpenFileDialog _importConfigDialog;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.GUI.IMainWindow" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.GUI.IMainWindow"/> interface.
         /// </summary>
         /// <remarks>
         /// This object provides the functionality of the main window of the application.
@@ -67,25 +84,20 @@ namespace MFR.GUI.Windows.Presenters
         private IMainWindow _mainWindow;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.GUI.IProgressDialog" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.GUI.IProgressDialog"/> interface.
         /// </summary>
         private IProgressDialog _progressDialog;
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.GUI.MainWindowPresenter" />
-        /// and returns a
-        /// reference to it.
+        /// Constructs a new instance of <see
+        /// cref="T:MFR.GUI.MainWindowPresenter"/> and returns a reference to it.
         /// </summary>
         /// <param name="configurationPathname">
         /// (Required.) String containing the pathname of the configuration file.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
+        /// Thrown if the <paramref name="configurationPathname"/> parameter is blank.
         /// </exception>
         public MainWindowPresenter()
         {
@@ -98,68 +110,6 @@ namespace MFR.GUI.Windows.Presenters
             InitializeComponents();
 
             ReinitializeProgressDialog();
-        }
-
-        /// <summary>
-        /// Gets the text to be searched for during the operations.
-        /// </summary>
-        private string FindWhat
-        {
-            get {
-                var result = string.Empty;
-                if (_mainWindow.FindWhatComboBox.InvokeRequired)
-                    _mainWindow.FindWhatComboBox.Invoke(
-                        (Action)(() =>
-                        {
-                            result = _mainWindow.FindWhatComboBox.EnteredText;
-                        })
-                    );
-                else
-                    result = _mainWindow.FindWhatComboBox.EnteredText;
-
-                return result;
-            }
-        }
-
-        /// <summary>
-        /// Gets the replacement text to be used during the operations.
-        /// </summary>
-        private string ReplaceWith
-        {
-            get {
-                var result = string.Empty;
-                if (_mainWindow.ReplaceWithComboBox.InvokeRequired)
-                    _mainWindow.ReplaceWithComboBox.Invoke(
-                        (Action)(() =>
-                        {
-                            result = _mainWindow.ReplaceWithComboBox.EnteredText;
-                        })
-                    );
-                else
-                    result = _mainWindow.ReplaceWithComboBox.EnteredText;
-                return result;
-            }
-        }
-
-        /// <summary>
-        /// Gets the path to the starting folder of the search.
-        /// </summary>
-        private string StartingFolder
-        {
-            get {
-                var result = string.Empty;
-                if (_mainWindow.StartingFolderComboBox.InvokeRequired)
-                    _mainWindow.StartingFolderComboBox.Invoke(
-                        (Action)(() =>
-                        {
-                            result = _mainWindow.StartingFolderComboBox.EnteredText;
-                        })
-                    );
-                else
-                    result = _mainWindow.StartingFolderComboBox.EnteredText;
-
-                return result;
-            }
         }
 
         /// <summary>
@@ -210,17 +160,57 @@ namespace MFR.GUI.Windows.Presenters
         public event EventHandler Started;
 
         /// <summary>
+        /// Gets the text to be searched for during the operations.
+        /// </summary>
+        private string FindWhat
+        {
+            get {
+                var result = string.Empty;
+                _mainWindow.FindWhatComboBox.InvokeIfRequired(
+                    () => result = _mainWindow.FindWhatComboBox.EnteredText
+                );
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets the replacement text to be used during the operations.
+        /// </summary>
+        private string ReplaceWith
+        {
+            get {
+                var result = string.Empty;
+                _mainWindow.ReplaceWithComboBox.InvokeIfRequired(
+                    () => result = _mainWindow.ReplaceWithComboBox.EnteredText
+                );
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets the path to the starting folder of the search.
+        /// </summary>
+        private string StartingFolder
+        {
+            get {
+                var result = string.Empty;
+                _mainWindow.StartingFolderComboBox.InvokeIfRequired(
+                    () => result = _mainWindow.StartingFolderComboBox.EnteredText
+                );
+                return result;
+            }
+        }
+
+        /// <summary>
         /// Fluent-builder method for initializing the history manager
         /// dependency of this Presenter class. History Manager objects control
         /// the flow of values into and out of the list of previously-specified
         /// values in prior searches.
         /// </summary>
         /// <param name="historyManager">
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.IHistoryManager" />
-        /// on which this
-        /// Presenter should depend.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.Objects.IHistoryManager"/> on which this Presenter
+        /// should depend.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
@@ -292,7 +282,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <param name="mainWindow">
         /// (Required.) Reference to an instance of an object that is of the
-        /// <typeparamref name="TView" /> type and which represents the form that
+        /// <typeparamref name="TView"/> type and which represents the form that
         /// is to be associated with this presenter.
         /// </param>
         /// <returns>
@@ -300,8 +290,8 @@ namespace MFR.GUI.Windows.Presenters
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref name="mainWindow"/>, is
+        /// passed a <see langword="null"/> value.
         /// </exception>
         public IMainWindowPresenter HavingWindowReference(IMainWindow view)
         {
@@ -389,14 +379,14 @@ namespace MFR.GUI.Windows.Presenters
         /// are clicked on the Tools -&gt; Options dialog box.
         /// </summary>
         /// <param name="dialog">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:MFR.GUI.OptionsDialog" />.
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialog"/> interface.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref name="dialog"/>, is
+        /// passed a <see langword="null"/> value.
         /// </exception>
-        public void SaveConfigurationDataFrom(OptionsDialog dialog)
+        public void SaveConfigurationDataFrom(IOptionsDialog dialog)
         {
             if (dialog == null) throw new ArgumentNullException(nameof(dialog));
 
@@ -414,6 +404,38 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the <see cref="T:MFR.Objects.Configuration.Configuration"/> object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.SaveOperationSelections"
+            );
+
+            Configuration.RenameFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Files"
+                );
+            Configuration.RenameSubfolders =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Subfolders"
+                );
+            Configuration.ReplaceInFiles =
+                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                    "Replace in Files"
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.SaveOperationSelections: Done."
+            );
+        }
+
+        /// <summary>
         /// Shows the progress window.
         /// </summary>
         public void ShowProgressDialog()
@@ -424,20 +446,20 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface
-        /// which has the new settings.
+        /// the <see cref="T:MFR.Objects.IConfiguration"/> interface which has
+        /// the new settings.
         /// </param>
         /// <remarks>
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
-        /// <para />
+        /// <para/>
         /// NOTE:This member may be overriden by a child class. If this is the
         /// case, the overrider must call the base class method before doing any
         /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref name="configuration"/>,
+        /// is passed a <see langword="null"/> value.
         /// </exception>
         public override void UpdateConfiguration(IConfiguration configuration)
         {
@@ -450,15 +472,14 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Updates data. Moves data from the screen to the model (
-        /// <paramref
-        ///     name="bSavingAndValidating" />
-        /// equals <see langword="true" />) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <see langword="false" />).
+        /// Updates data. Moves data from the screen to the model ( <paramref
+        /// name="bSavingAndValidating"/> equals <see langword="true"/>) or from
+        /// the model to the screen ( <paramref name="bSavingAndValidating"/>
+        /// equals <see langword="false"/>).
         /// </summary>
         /// <param name="bSavingAndValidating">
-        /// Set to <see langword="true" /> to move data from the screen to the model;
-        /// <see langword="false" /> to move data from the model to the screen.
+        /// Set to <see langword="true"/> to move data from the screen to the
+        /// model; <see langword="false"/> to move data from the model to the screen.
         /// </param>
         /// <remarks>
         /// Note that whatever operations this method performs may potentially
@@ -583,19 +604,64 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// Fluent-builder method to set a reference to the main window of the application.
         /// </summary>
-        /// <param name="fileRenamer">
+        /// <param name="mainWindow">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IFileRenamer" /> interface.
+        /// the <see cref="T:MFR.GUI.IMainWindow"/> interface and which
+        /// represents the main window of the application.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref name="mainWindow"/>, is
+        /// passed a <see langword="null"/> value.
+        /// </exception>
+        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Attempting to associate the Main Window to its Presenter..."
+            );
+
+            _mainWindow = mainWindow ??
+                          throw new ArgumentNullException(nameof(mainWindow));
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** SUCCESS *** The Main Window has been attached to the Presenter."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.MainWindowReference: Done."
+            );
+
+            return this;
+        }
+
+        /// <summary>
+        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// </summary>
+        /// <param name="fileRenamer">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.Objects.IFileRenamer"/> interface.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="fileRenamer"/>, is
+        /// passed a <see langword="null"/> value.
         /// </exception>
         public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
         {
@@ -638,87 +704,8 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Objects.Configuration.Configuration" /> object.
-        /// </summary>
-        public void SaveOperationSelections()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.SaveOperationSelections"
-            );
-
-            Configuration.RenameFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Files"
-                );
-            Configuration.RenameSubfolders =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Subfolders"
-                );
-            Configuration.ReplaceInFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Replace in Files"
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.SaveOperationSelections: Done."
-            );
-        }
-
-        /// <summary>
-        /// Fluent-builder method to set a reference to the main window of the application.
-        /// </summary>
-        /// <param name="mainWindow">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.IMainWindow" /> interface and
-        /// which represents the main window of the application.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to associate the Main Window to its Presenter..."
-            );
-
-            _mainWindow = mainWindow ??
-                          throw new ArgumentNullException(nameof(mainWindow));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The Main Window has been attached to the Presenter."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.MainWindowReference: Done."
-            );
-
-            return this;
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AllHistoryCleared" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AllHistoryCleared"/> event.
         /// </summary>
         /// <remarks>
         /// The objective of calling this method is to inform interested parties
@@ -734,16 +721,12 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.ConfigurationExported" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.MainWindowPresenter.ConfigurationExported"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.ConfigurationExportedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.ConfigurationExportedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationExported(
             ConfigurationExportedEventArgs e)
@@ -756,16 +739,12 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.ConfigurationImported" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.MainWindowPresenter.ConfigurationImported"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.ConfigurationImportedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.ConfigurationImportedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationImported(
             ConfigurationImportedEventArgs e)
@@ -778,16 +757,11 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.DataOperationError" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.MainWindowPresenter.DataOperationError"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.DataOperationErrorEventArgs" />
-        /// that
+        /// A <see cref="T:MFR.Objects.DataOperationErrorEventArgs"/> that
         /// contains the event data.
         /// </param>
         protected virtual void OnDataOperationError(
@@ -802,10 +776,8 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.DataOperationFinished" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.DataOperationFinished"/> event.
         /// </summary>
         /// <remarks>
         /// Ideally, it should be the main application window that handles this
@@ -826,17 +798,12 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.DataOperationStarted" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.MainWindowPresenter.DataOperationStarted"/> event.
         /// </summary>
         /// <param name="e">
-        /// (Required.) A
-        /// <see
-        ///     cref="T:MFR.Objects.DataOperationEventArgs" />
-        /// that
-        /// contains the event data.
+        /// (Required.) A <see cref="T:MFR.Objects.DataOperationEventArgs"/>
+        /// that contains the event data.
         /// </param>
         /// <remarks>
         /// Ideally, it should be the main application window that handles this
@@ -857,25 +824,19 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.Started" />
-        /// event raised
-        /// by the File Renamer object. This event is raised when the rename
-        /// operations are all completed.
+        /// Handles the <see cref="E:MFR.Objects.IFileRenamer.Started"/> event
+        /// raised by the File Renamer object. This event is raised when the
+        /// rename operations are all completed.
         /// </summary>
         /// <param name="sender">
         /// Reference to the instance of the object that raised this event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// A <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
-        /// This method responds merely by raising the
-        /// <see
-        ///     cref="E:MFR.GUI.IMainWindowPresenter.Started" />
-        /// event,
-        /// in turn.
+        /// This method responds merely by raising the <see
+        /// cref="E:MFR.GUI.IMainWindowPresenter.Started"/> event, in turn.
         /// </remarks>
         [Log(AttributeExclude = true)]
         protected virtual void OnFileRenamerStarted(object sender, EventArgs e)
@@ -886,10 +847,8 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.Finished" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.Finished"/> event.
         /// </summary>
         /// <remarks>
         /// This event lets client objects know that the presenter is about to
@@ -907,14 +866,12 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.OperationError" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.GUI.MainWindowPresenter.OperationError"/> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ExceptionRaisedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.ExceptionRaisedEventArgs"/> that contains
+        /// the event data.
         /// </param>
         [Log(AttributeExclude = true)]
         protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
@@ -947,11 +904,11 @@ namespace MFR.GUI.Windows.Presenters
         /// </param>
         /// <remarks>
         /// Takes the message of resetting the progress dialog and reconfiguring
-        /// the progress bar such that the <paramref name="count" /> parameter
+        /// the progress bar such that the <paramref name="count"/> parameter
         /// specifies the new maximum value of the progress bar.
         /// </remarks>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <paramref name="count" /> parameter is zero or
+        /// Thrown if the <paramref name="count"/> parameter is zero or
         /// negative. This parameter describes a count of files; therefore, it
         /// is expected that it should be 1 or greater.
         /// </exception>
@@ -982,11 +939,9 @@ namespace MFR.GUI.Windows.Presenters
         /// currently being processed.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="statusLabelText" />
-        /// or <paramref name="currentFileLabelText" />,
-        /// are passed blank or <see langword="null" /> string for values.
+        /// Thrown if either of the required parameters, <paramref
+        /// name="statusLabelText"/> or <paramref name="currentFileLabelText"/>,
+        /// are passed blank or <see langword="null"/> string for values.
         /// </exception>
         private void IncrementProgressBar(string statusLabelText,
             string currentFileLabelText)
@@ -1020,7 +975,8 @@ namespace MFR.GUI.Windows.Presenters
 
         {
             // exportConfigDialog
-            _exportConfigDialog = new SaveFileDialog {
+            _exportConfigDialog = new SaveFileDialog
+            {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1030,7 +986,8 @@ namespace MFR.GUI.Windows.Presenters
             };
 
             // importConfigDialog
-            _importConfigDialog = new OpenFileDialog {
+            _importConfigDialog = new OpenFileDialog
+            {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1174,16 +1131,13 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.ExceptionRaised" />
-        /// event.
+        /// Handles the <see cref="E:MFR.Objects.IFileRenamer.ExceptionRaised"/> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to such an event by showing the user a message
@@ -1199,28 +1153,22 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.FilesToBeRenamedCounted" />
-        /// event raised by the file renamer object when it's finished
-        /// determining the set of file system entries upon which the current
-        /// operation should act.
+        /// Handles the <see
+        /// cref="E:MFR.Objects.IFileRenamer.FilesToBeRenamedCounted"/> event
+        /// raised by the file renamer object when it's finished determining the
+        /// set of file system entries upon which the current operation should act.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
+        /// back to zero, and then updating the value of its <see
+        /// cref="P:System.Windows.Forms.ProgressBar.Maximum"/> property to have
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
@@ -1229,26 +1177,21 @@ namespace MFR.GUI.Windows.Presenters
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.FilesToHaveTextReplacedCounted" />
+        /// Handles the <see
+        /// cref="E:MFR.Objects.IFileRenamer.FilesToHaveTextReplacedCounted"/>
         /// event raised by the File Renamer object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
+        /// back to zero, and then updating the value of its <see
+        /// cref="P:System.Windows.Forms.ProgressBar.Maximum"/> property to have
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
@@ -1257,36 +1200,29 @@ namespace MFR.GUI.Windows.Presenters
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.Finished" />
-        /// event
+        /// Handles the <see cref="E:MFR.Objects.IFileRenamer.Finished"/> event
         /// raised by the File Renamer object. This event is raised when the
         /// rename operations are all completed.
         /// </summary>
         /// <remarks>
-        /// This method responds merely by raising the
-        /// <see
-        ///     cref="E:MFR.GUI.IMainWindowPresenter.Finished" />
-        /// event
-        /// in turn.
+        /// This method responds merely by raising the <see
+        /// cref="E:MFR.GUI.IMainWindowPresenter.Finished"/> event in turn.
         /// </remarks>
         [Log(AttributeExclude = true)]
         private void OnFileRenamerFinished()
             => OnFinished();
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.OperationFinished" />
-        /// event raised by the file renamer object.
+        /// Handles the <see
+        /// cref="E:MFR.Objects.IFileRenamer.OperationFinished"/> event raised
+        /// by the file renamer object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.OperationFinishedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.OperationFinishedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the event by telling the progress dialog to
@@ -1298,17 +1234,16 @@ namespace MFR.GUI.Windows.Presenters
             => ResetProgressBar();
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.OperationStarted" />
-        /// event raised by the file-renamer object.
+        /// Handles the <see
+        /// cref="E:MFR.Objects.IFileRenamer.OperationStarted"/> event raised by
+        /// the file-renamer object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.OperationStartedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.OperationStartedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the event by telling the progress dialog to
@@ -1323,36 +1258,28 @@ namespace MFR.GUI.Windows.Presenters
 
             ShowCalculatingProgressBar(
                 GetOperationStartedDescription.For(e.OperationType)
-                                              .Text
             );
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.ProcessingOperation" />
-        /// event raised by the File Renamer object when it moves on to
-        /// processing the next file system entry in its list.
+        /// Handles the <see
+        /// cref="E:MFR.Objects.IFileRenamer.ProcessingOperation"/> event raised
+        /// by the File Renamer object when it moves on to processing the next
+        /// file system entry in its list.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.ProcessingOperationEventArgs" />
-        /// that
+        /// A <see cref="T:MFR.Objects.ProcessingOperationEventArgs"/> that
         /// contains the event data.
         /// </param>
         /// <remarks>
-        /// This method responds by first checking the values passed in the
-        /// <see
-        ///     cref="T:MFR.Objects.ProcessingOperationEventArgs" />
-        /// for
-        /// valid values.
-        /// <para />
+        /// This method responds by first checking the values passed in the <see
+        /// cref="T:MFR.Objects.ProcessingOperationEventArgs"/> for valid values.
+        /// <para/>
         /// If the checks fail, then this method does nothing.
-        /// <para />
+        /// <para/>
         /// Otherwise, the method responds by incrementing the progress dialog's
         /// progress bar to the next notch, and updating the text of the lower
         /// status label in the progress dialog to contain the path to the file
@@ -1381,9 +1308,8 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.SubfoldersToBeRenamedCounted" />
+        /// Handles the <see
+        /// cref="E:MFR.Objects.IFileRenamer.SubfoldersToBeRenamedCounted"/>
         /// event raised by the File Renamer object when it has finished
         /// calculating how many subfolders are to be renamed.
         /// </summary>
@@ -1391,17 +1317,13 @@ namespace MFR.GUI.Windows.Presenters
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
+        /// back to zero, and then updating the value of its <see
+        /// cref="P:System.Windows.Forms.ProgressBar.Maximum"/> property to have
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
@@ -1410,16 +1332,13 @@ namespace MFR.GUI.Windows.Presenters
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.GUI.IProgressDialog.CancelRequested" />
-        /// event.
+        /// Handles the <see cref="E:MFR.GUI.IProgressDialog.CancelRequested"/> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:System.EventArgs"/> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method handles the situation in which the user has clicked the
@@ -1445,7 +1364,7 @@ namespace MFR.GUI.Windows.Presenters
 
             _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
             _progressDialog.DoIfDisposed(
-                () => _progressDialog = new ProgressDialog()
+                () => _progressDialog = MakeNewProgressDialog.FromScratch()
             );
             _progressDialog.CancelRequested += OnProgressDialogRequestedCancel;
 
@@ -1477,8 +1396,8 @@ namespace MFR.GUI.Windows.Presenters
         /// (Required.) String containing the text to display in the progress dialog.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="text" />, is passed
-        /// a blank or <see langword="null" /> string for a value.
+        /// Thrown if the required parameter, <paramref name="text"/>, is passed
+        /// a blank or <see langword="null"/> string for a value.
         /// </exception>
         [Log(AttributeExclude = true)]
         private void ShowCalculatingProgressBar(string text)
@@ -1518,30 +1437,26 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are
-        /// valid. Throws a <see cref="T:System.Exception" /> if a validation
+        /// valid. Throws a <see cref="T:System.Exception"/> if a validation
         /// rule fails.
         /// </summary>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the directory whose pathname is referenced by
-        /// <see
-        ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder" />
-        /// is
-        /// not found on the disk.
+        /// Thrown if the directory whose pathname is referenced by <see
+        /// cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder"/>
+        /// is not found on the disk.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if either of the
-        /// <see
-        ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat" />
-        /// or
-        /// <see
-        ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith" />
+        /// Thrown if either of the <see
+        /// cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat"/>
+        /// or <see
+        /// cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith"/>
         /// properties are blank.
         /// </exception>
         /// <remarks>
         /// This method should be called in a try/catch handler. Upon catching
         /// an exception, instead of logging the error, the application should
         /// also respond by displaying a Stop message box to the user with the
-        /// value of the <see cref="P:System.Exception.Message" /> property of
+        /// value of the <see cref="P:System.Exception.Message"/> property of
         /// the caught exception as its text, and then set the focus to the
         /// offending field (if feasible).
         /// </remarks>

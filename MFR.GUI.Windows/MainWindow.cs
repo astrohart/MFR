@@ -1,3 +1,10 @@
+using MFR.GUI.Controls;
+using MFR.GUI.Controls.Helpers;
+using MFR.GUI.Controls.Interfaces;
+using MFR.GUI.Windows.Interfaces;
+using MFR.GUI.Windows.Presenters.Interfaces;
+using MFR.GUI.Windows.Properties;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -77,7 +84,7 @@ namespace MFR.GUI.Windows
         /// specify the text to be found.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public EntryRespectingComboBox FindWhatComboBox
+        public IEntryRespectingComboBox FindWhatComboBox
         {
             [DebuggerStepThrough] get => findWhatcomboBox;
         }
@@ -150,7 +157,7 @@ namespace MFR.GUI.Windows
         /// specify the text to replace found text with.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public EntryRespectingComboBox ReplaceWithComboBox
+        public IEntryRespectingComboBox ReplaceWithComboBox
         {
             [DebuggerStepThrough] get => replaceWithComboBox;
         }
@@ -181,7 +188,7 @@ namespace MFR.GUI.Windows
         /// path to the starting folder.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
-        public EntryRespectingComboBox StartingFolderComboBox
+        public IEntryRespectingComboBox StartingFolderComboBox
         {
             [DebuggerStepThrough] get => startingFolderComboBox;
         }

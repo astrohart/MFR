@@ -81,10 +81,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.GUI.Events\MFR.GUI.Events.csproj">
-      <Project>{0FF67444-A844-4243-9487-5BD48EEF0032}</Project>
-      <Name>MFR.GUI.Events</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Objects.Configuration</Name>

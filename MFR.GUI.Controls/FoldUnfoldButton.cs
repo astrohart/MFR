@@ -1,3 +1,4 @@
+using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Events;
 using System;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ namespace MFR.GUI.Controls
     /// Button that shows "More &gt;&gt;" or "Less &lt;&lt;" depending on
     /// whether a form is folded or unfolded.
     /// </summary>
-    public class FoldUnfoldButton : Button
+    public class FoldUnfoldButton : Button, IFoldUnfoldButton
     {
         /// <summary>
         /// Value indicating whether the containing form is to be in the folded state.
@@ -24,8 +25,8 @@ namespace MFR.GUI.Controls
         /// </summary>
         public FoldUnfoldButton()
         {
-            FormFoldedSize = System.Drawing.Size.Empty;
-            FormUnfoldedSize = System.Drawing.Size.Empty;
+            FormFoldedSize = Size.Empty;
+            FormUnfoldedSize = Size.Empty;
             IsFolded = true; // form starts out folded typically
 
             FoldedText = "&More >>";
@@ -56,7 +57,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:System.Drawing.Size"/> of the parent
+        /// Gets or sets the <see cref="T:Size"/> of the parent
         /// form when the form is folded.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -73,7 +74,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:System.Drawing.Size"/> of the parent
+        /// Gets or sets the <see cref="T:Size"/> of the parent
         /// form when the form is unfolded.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]

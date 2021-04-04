@@ -1,4 +1,7 @@
+using MFR.GUI.Controls;
+using MFR.GUI.Controls.Interfaces;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace MFR.GUI.Windows.Interfaces
 {
@@ -9,20 +12,19 @@ namespace MFR.GUI.Windows.Interfaces
     public interface IMainWindow : IWin32Window
     {
         /// <summary>
-        /// Gets a reference to the text box control that allows the user to
+        /// Gets a reference to the dropdown control that allows the user to
         /// specify the text to be found.
         /// </summary>
-        EntryRespectingComboBox FindWhatComboBox
+        IEntryRespectingComboBox FindWhatComboBox
         {
             [DebuggerStepThrough]
             get;
         }
 
         /// <summary>
-        /// Gets a reference to the <see
-        /// cref="T:MFR.Objects.FoldUnfoldButton"/> that controls
-        /// whether the form is the folded (smaller) size or unfolded (larger,
-        /// with more options visible) size.
+        /// Gets a reference to the <see cref="T:MFR.Objects.FoldUnfoldButton"/>
+        /// that controls whether the form is the folded (smaller) size or
+        /// unfolded (larger, with more options visible) size.
         /// </summary>
         FoldUnfoldButton FoldButton
         {
@@ -75,10 +77,10 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
-        /// Gets a reference to the text box control that allows the user to
-        /// specify the text to replace found text with.
+        /// Gets a reference to the dropdown that allows the user to specify the
+        /// text to replace found text with.
         /// </summary>
-        EntryRespectingComboBox ReplaceWithComboBox
+        IEntryRespectingComboBox ReplaceWithComboBox
         {
             [DebuggerStepThrough]
             get;
@@ -108,7 +110,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// Gets a reference to the control that allows the user to specify the
         /// path to the starting folder.
         /// </summary>
-        EntryRespectingComboBox StartingFolderComboBox
+        IEntryRespectingComboBox StartingFolderComboBox
         {
             [DebuggerStepThrough]
             get;
@@ -120,7 +122,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// <remarks>
         /// Thanks to <a href="
         /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
-        /// "> Kiran Suthar </a> 's answer on the Microsoft forums.
+        /// ">Kiran Suthar</a> 's answer on the Microsoft forums.
         /// </remarks>
         string Version
         {

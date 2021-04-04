@@ -1,3 +1,11 @@
+using MFR.GUI.Dialogs.Interfaces;
+using MFR.GUI.Presenters.Interfaces;
+using MFR.GUI.Windows.Interfaces;
+using MFR.Objects.Configuration.Events;
+using MFR.Objects.Events.Common;
+using MFR.Objects.Managers.History.Interfaces;
+using MFR.Objects.Operations.Events;
+using MFR.Objects.Renamers.Files.Interfaces;
 using System;
 
 namespace MFR.GUI.Windows.Presenters.Interfaces
@@ -6,7 +14,8 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
     /// Defines the public-exposed methods and properties of the presenter
     /// object for the main application window..
     /// </summary>
-    public interface IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
+    public interface
+        IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
         /// <summary>
         /// Occurs when all the history has been cleared.
@@ -62,21 +71,36 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// values in prior searches.
         /// </summary>
         /// <param name="historyManager">
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.Objects.IHistoryManager"/> on which this
-        /// Presenter should depend.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.IHistoryManager" />
+        /// on which this Presenter
+        /// should depend.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        IMainWindowPresenter AndHistoryManager(
-            IHistoryManager historyManager);
+        IMainWindowPresenter AndHistoryManager(IHistoryManager historyManager);
 
         /// <summary>
         /// Clears all the history lists in the configuration.
         /// </summary>
         void ClearAllHistory();
+
+        /// <summary>
+        /// Exports the current configuration data to a file on the user's hard drive.
+        /// </summary>
+        void ExportConfiguration();
+
+        /// <summary>
+        /// Imports the configuration data for this application.
+        /// </summary>
+        /// <remarks>
+        /// The data is presumed to be located inside of a JSON-formatted file
+        /// that exists on the user's hard drive and has the <c>.json</c> extension.
+        /// </remarks>
+        void ImportConfiguration();
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
@@ -90,48 +114,34 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void Process();
 
         /// <summary>
+        /// Runs code that should execute when either the OK or Apply buttons
+        /// are clicked on the Tools -&gt; Options dialog box.
+        /// </summary>
+        /// <param name="dialog">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialog" /> interface.
+        /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        void SaveConfigurationDataFrom(IOptionsDialog dialog);
+
+        /// <summary>
         /// Fluent-builder method for composing a file-renamer object with this presenter.
         /// </summary>
         /// <param name="fileRenamer">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IFileRenamer"/> interface.
+        /// the <see cref="T:MFR.Objects.IFileRenamer" /> interface.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer"/>, is
+        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
         IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
-
-        /// <summary>
-        /// Imports the configuration data for this application.
-        /// </summary>
-        /// <remarks>
-        /// The data is presumed to be located inside of a JSON-formatted file
-        /// that exists on the user's hard drive and has the <c>.json</c> extension.
-        /// </remarks>
-        void ImportConfiguration();
-
-        /// <summary>
-        /// Exports the current configuration data to a file on the user's hard drive.
-        /// </summary>
-        void ExportConfiguration();
-
-        /// <summary>
-        /// Runs code that should execute when either the OK or Apply buttons
-        /// are clicked on the Tools -&gt; Options dialog box.
-        /// </summary>
-        /// <param name="dialog">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:MFR.GUI.OptionsDialog" />.
-        /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        void SaveConfigurationDataFrom(OptionsDialog dialog);
     }
 }

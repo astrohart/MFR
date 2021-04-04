@@ -1,3 +1,4 @@
+using MFR.GUI.Controls.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
@@ -23,7 +24,7 @@ namespace MFR.GUI.Controls.Helpers
         /// This method removes all the items from the combo box and then blanks
         /// out the text.
         /// </remarks>
-        public static void Clear(this EntryRespectingComboBox box)
+        public static void Clear(this IEntryRespectingComboBox box)
         {
             if (box == null) throw new ArgumentNullException(nameof(box));
 
@@ -57,7 +58,7 @@ namespace MFR.GUI.Controls.Helpers
         /// Thrown if the required parameter, <paramref name="box" />, is passed
         /// a <see langword="null" /> value.
         /// </exception>
-        public static bool IsClear(this EntryRespectingComboBox box)
+        public static bool IsClear(this IEntryRespectingComboBox box)
         {
             if (box == null) throw new ArgumentNullException(nameof(box));
 

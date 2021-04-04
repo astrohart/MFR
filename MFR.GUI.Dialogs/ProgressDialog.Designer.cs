@@ -98,9 +98,9 @@ namespace MFR.GUI.Dialogs
 
         #endregion
 
-        private Label currentFileLabel;
+        private System.Windows.Forms.Label currentFileLabel;
         private ProgressBar progressBar;
-        private Label statusLabel;
-        private Button cancelButton;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

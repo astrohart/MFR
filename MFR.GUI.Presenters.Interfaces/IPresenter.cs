@@ -1,37 +1,20 @@
+using MFR.Objects.Configuration.Interfaces;
+
 namespace MFR.GUI.Presenters.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of any object that
     /// has functionality common to all presenters.
     /// </summary>
-    public interface IPresenter<TView, TChildPresenterInterface> : IConfigurationComposedObject where TView : class where TChildPresenterInterface : class
+    public interface
+        IPresenter<TView, TChildPresenterInterface> :
+            IConfigurationComposedObject where TView : class
+        where TChildPresenterInterface : class
     {
         /// <summary>
         /// Dismisses the progress dialog.
         /// </summary>
         void CloseProgressDialog();
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        void ShowProgressDialog();
-
-        /// <summary>
-        /// Updates data. Moves data from the screen to the model (
-        /// <paramref
-        ///     name="bSavingAndValidating" />
-        /// equals <see langword="true" />) or from the model
-        /// to the screen ( <paramref name="bSavingAndValidating" /> equals <see langword="false" />).
-        /// </summary>
-        /// <param name="bSavingAndValidating">
-        /// Set to <see langword="true" /> to move data from the screen to the model;
-        /// <see langword="false" /> to move data from the model to the screen.
-        /// </param>
-        /// <remarks>
-        /// Note that whatever operations this method performs may potentially
-        /// throw exceptions.
-        /// </remarks>
-        void UpdateData(bool bSavingAndValidating = true);
 
         /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.
@@ -50,5 +33,28 @@ namespace MFR.GUI.Presenters.Interfaces
         /// passed a <see langword="null" /> value.
         /// </exception>
         TChildPresenterInterface HavingWindowReference(TView view);
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        void ShowProgressDialog();
+
+        /// <summary>
+        /// Updates data. Moves data from the screen to the model (
+        /// <paramref
+        ///     name="bSavingAndValidating" />
+        /// equals <see langword="true" />) or from
+        /// the model to the screen ( <paramref name="bSavingAndValidating" />
+        /// equals <see langword="false" />).
+        /// </summary>
+        /// <param name="bSavingAndValidating">
+        /// Set to <see langword="true" /> to move data from the screen to the
+        /// model; <see langword="false" /> to move data from the model to the screen.
+        /// </param>
+        /// <remarks>
+        /// Note that whatever operations this method performs may potentially
+        /// throw exceptions.
+        /// </remarks>
+        void UpdateData(bool bSavingAndValidating = true);
     }
 }

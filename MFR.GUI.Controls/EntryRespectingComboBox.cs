@@ -1,3 +1,4 @@
+using MFR.GUI.Controls.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -6,7 +7,15 @@ namespace MFR.GUI.Controls
     /// <summary>
     /// Dropdown combo box that respects typed-in text entries.
     /// </summary>
-    public class EntryRespectingComboBox : ComboBox
+    /// <remarks>
+    /// By "respects typed-in text entries," what we mean to say is, "does not
+    /// make a typed in text entry go away, or get replaced by an auto-correct
+    /// entry from the auto-suggest list, when the input focus leaves the
+    /// control," which seems to be the default behavior. This is detrimental to
+    /// the software meeting certain requirements.  Therefore, this object was
+    /// engineered in the hopes of making that behavior go away.
+    /// </remarks>
+    public class EntryRespectingComboBox : ComboBox, IEntryRespectingComboBox
     {
         /// <summary>
         /// String containing the text most recently typed into the editing
@@ -18,8 +27,8 @@ namespace MFR.GUI.Controls
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a
+        /// reference to it.
         /// </summary>
         public EntryRespectingComboBox()
         {

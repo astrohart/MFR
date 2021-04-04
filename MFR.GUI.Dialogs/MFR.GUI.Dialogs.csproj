@@ -161,13 +161,13 @@
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Objects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
+      <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
+      <Name>MFR.GUI.Dialogs.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
       <Name>MFR.GUI.Dialogs.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Events\MFR.GUI.Events.csproj">
-      <Project>{0FF67444-A844-4243-9487-5BD48EEF0032}</Project>
-      <Name>MFR.GUI.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows\MFR.GUI.Windows.csproj">
       <Project>{7D4538BB-9DDA-4DEE-8EDA-853BD4AFE22B}</Project>

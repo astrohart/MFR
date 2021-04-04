@@ -79,6 +79,9 @@
     <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.9.3\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
     </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.9.3.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -108,6 +111,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Controls.Interfaces\MFR.GUI.Controls.Interfaces.csproj">
+      <Project>{3F9D1447-D681-4541-9E9B-049DF38040AC}</Project>
+      <Name>MFR.GUI.Controls.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

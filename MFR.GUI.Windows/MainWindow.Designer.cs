@@ -753,15 +753,15 @@ namespace MFR.GUI.Windows
 
       #endregion
 
-      private Label startingFolderLabel;
-      private Button startingFolderBrowseButton;
-      private Label findWhatLabel;
-      private Label replaceWithLabel;
-      private Button performOperationButton;
-      private FoldUnfoldButton foldButton;
-      private EntryRespectingComboBox startingFolderComboBox;
-      private EntryRespectingComboBox findWhatcomboBox;
-      private EntryRespectingComboBox replaceWithComboBox;
+      private System.Windows.Forms.Label startingFolderLabel;
+      private System.Windows.Forms.Button startingFolderBrowseButton;
+      private System.Windows.Forms.Label findWhatLabel;
+      private System.Windows.Forms.Label replaceWithLabel;
+      private System.Windows.Forms.Button performOperationButton;
+      private MFR.GUI.Controls.FoldUnfoldButton foldButton;
+      private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
+      private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
+      private MFR.GUI.Controls.EntryRespectingComboBox replaceWithComboBox;
         private StatusStrip statusBar;
         private MenuStrip menuBar;
         private ToolStripMenuItem fileMenu;
@@ -776,20 +776,20 @@ namespace MFR.GUI.Windows
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem operationsMenu;
         private ToolStripMenuItem operationsPerform;
-        private TabControl optionsTabControl;
-        private TabPage findReplaceOptionsTabPage;
-        private TabPage operationsTabPage;
-        private TabPage inclusionsTabPage;
-        private TabPage exclusionsTabPage;
+        private System.Windows.Forms.TabControl optionsTabControl;
+        private System.Windows.Forms.TabPage findReplaceOptionsTabPage;
+        private System.Windows.Forms.TabPage operationsTabPage;
+        private System.Windows.Forms.TabPage inclusionsTabPage;
+        private System.Windows.Forms.TabPage exclusionsTabPage;
         private CheckedListBox operationsCheckedListBox;
-        private CheckBox selectDeselectAllCheckBox;
-        private Label tabPageInstructionLabel;
-        private CheckBox matchExactWordCheckBox;
-        private CheckBox matchCaseCheckBox;
+        private System.Windows.Forms.CheckBox selectDeselectAllCheckBox;
+        private System.Windows.Forms.Label tabPageInstructionLabel;
+        private System.Windows.Forms.CheckBox matchExactWordCheckBox;
+        private System.Windows.Forms.CheckBox matchCaseCheckBox;
         private ToolStripMenuItem helpMenu;
         private ToolStripMenuItem helpAbout;
         private ToolStripProgressBar statusBarProgressBar;
-        private Label hiddenFocusLabel;
+        private System.Windows.Forms.Label hiddenFocusLabel;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem toolsConfigApplyProfile;
         private ToolStripMenuItem toolsConfigProfiles;
@@ -816,7 +816,7 @@ namespace MFR.GUI.Windows
         private ToolStripButton importConfigButton;
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripButton clearAllHistoryButton;
-        private Button switchButton;
+        private System.Windows.Forms.Button switchButton;
     }
 }
 

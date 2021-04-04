@@ -1,7 +1,7 @@
+using MFR.GUI.Controls.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Initializers
@@ -12,14 +12,16 @@ namespace MFR.GUI.Initializers
     public static class ComboBoxInitializer
     {
         /// <summary>
-        /// Initializes a <see cref="T:System.Windows.Forms.ComboBox"/> to have
-        /// the specified <paramref name="itemList"/> as the items in its
-        /// drop-down, and <paramref name="currentItem"/> as the
+        /// Initializes a <see cref="T:System.Windows.Forms.ComboBox" /> to have
+        /// the specified <paramref name="itemList" /> as the items in its
+        /// drop-down, and <paramref name="currentItem" /> as the
         /// currently-selected item.
         /// </summary>
         /// <param name="comboBox">
-        /// (Required.) Reference to the <see
-        /// cref="T:System.Windows.Forms.ComboBox"/> to be initialized.
+        /// (Required.) Reference to the
+        /// <see
+        ///     cref="T:System.Windows.Forms.ComboBox" />
+        /// to be initialized.
         /// </param>
         /// <param name="currentItem">
         /// (Optional.) String containing the value to set as the
@@ -30,14 +32,15 @@ namespace MFR.GUI.Initializers
         /// history list of items in the combo box's body.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameters, <paramref name="comboBox"/> and
-        /// <paramref name="itemList"/>, are passed <see langword="null" /> reference for values.
+        /// Thrown if the required parameters, <paramref name="comboBox" /> and
+        /// <paramref name="itemList" />, are passed <see langword="null" />
+        /// reference for values.
         /// </exception>
         /// <remarks>
         /// This method is intended to be utilized in order to fill combo box
         /// controls with data from a data source.
         /// </remarks>
-        public static void InitializeComboBox(ComboBox comboBox,
+        public static void InitializeComboBox(IEntryRespectingComboBox comboBox,
             IReadOnlyCollection<string> itemList, string currentItem = "")
         {
             if (comboBox == null)

@@ -1,6 +1,4 @@
 using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Interfaces;
-using System;
 
 namespace MFR.Objects.Operations.Descriptions.Factories
 {
@@ -16,80 +14,79 @@ namespace MFR.Objects.Operations.Descriptions.Factories
         /// Creates a new instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IOperationStartedDescription" />
-        /// interface, corresponding to the specified operation
-        /// <paramref
-        ///     name="type" />
-        /// , and returns a reference to it.
+        /// interface,
+        /// corresponding to the specified operation <paramref name="type" /> ,
+        /// and returns a reference to it.
         /// </summary>
         /// <param name="type">
-        /// (Required.) One of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// specifies the operation type you want the descriptive text for.
+        /// (Required.) One of the <see cref="T:MFR.Objects.OperationType" />
+        /// values that specifies the operation type you want the descriptive
+        /// text for.
         /// </param>
         /// <returns>
-        /// Reference to an instance of an object that implements the
+        /// String containing the text to describe the operation, or blank if a
+        /// handler corresponding to the specified
         /// <see
-        ///     cref="T:MFR.Objects.IOperationStartedDescription" />
-        /// interface that corresponds to the specified operation
-        /// <paramref
-        ///     name="type" />
-        /// , or <see langword="null" /> if no such object can be located.
+        ///     cref="T:MFR.Objects.Operations.Constants.OperationType" />
+        /// value can
+        /// be found.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <see cref="T:MFR.Objects.OperationType" />
-        /// value specified in the <paramref name="type" /> parameter does not
-        /// have a corresponding Operation Started Description object associated
-        /// with it.
+        /// Thrown if the <see cref="T:MFR.Objects.OperationType" /> value
+        /// specified in the <paramref name="type" /> parameter does not have a
+        /// corresponding Operation Started Description object associated with it.
         /// </exception>
-        public static IOperationTypeStartedDescription For(OperationType type)
+        public static string For(OperationType type)
         {
-            IOperationTypeStartedDescription description;
+            string description;
 
             switch (type)
             {
                 case OperationType.CloseActiveSolution:
-                    description = CloseActiveSolutionOperationTypeStartedDescription
-                        .Instance;
+                    description =
+                        CloseActiveSolutionOperationTypeStartedDescription
+                            .Instance.Text;
                     break;
 
                 case OperationType.FindVisualStudio:
-                    description = FindVisualStudioOperationTypeStartedDescription
-                        .Instance;
+                    description =
+                        FindVisualStudioOperationTypeStartedDescription.Instance
+                            .Text;
                     break;
 
                 case OperationType.GettingListOfFilesToBeRenamed:
                     description =
                         GettingListOfFilesToBeRenamedOperationTypeStartedDescription
-                            .Instance;
+                            .Instance.Text;
                     break;
 
                 case OperationType.OpenActiveSolution:
-                    description = OpenActiveSolutionOperationTypeStartedDescription
-                        .Instance;
+                    description =
+                        OpenActiveSolutionOperationTypeStartedDescription
+                            .Instance.Text;
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    description = RenameFilesInFolderOperationTypeStartedDescription
-                        .Instance;
+                    description =
+                        RenameFilesInFolderOperationTypeStartedDescription
+                            .Instance.Text;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    description = ReplaceTextInFilesOperationTypeStartedDescription
-                        .Instance;
+                    description =
+                        ReplaceTextInFilesOperationTypeStartedDescription
+                            .Instance.Text;
                     break;
 
                 case OperationType.RenameSubFolders:
-                    description = RenameSubFoldersOperationTypeStartedDescription
-                        .Instance;
+                    description =
+                        RenameSubFoldersOperationTypeStartedDescription.Instance
+                            .Text;
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(type), type,
-                        $"There is no Operation Started Description object available that corresponds to the operation type '{type}'."
-                    );
+                    description = string.Empty;
+                    break;
             }
 
             return description;
