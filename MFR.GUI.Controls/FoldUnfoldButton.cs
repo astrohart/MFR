@@ -1,5 +1,5 @@
+using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Interfaces;
-using MFR.GUI.Events;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -19,9 +19,11 @@ namespace MFR.GUI.Controls
         private bool _isFolded;
 
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MFR.GUI.Controls.FoldUnfoldButton"/> and returns a
-        /// reference to it.
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.GUI.Controls.FoldUnfoldButton" />
+        /// and returns a reference
+        /// to it.
         /// </summary>
         public FoldUnfoldButton()
         {
@@ -57,8 +59,8 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:Size"/> of the parent
-        /// form when the form is folded.
+        /// Gets or sets the <see cref="T:Size" /> of the parent form when the
+        /// form is folded.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(
@@ -74,8 +76,8 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:Size"/> of the parent
-        /// form when the form is unfolded.
+        /// Gets or sets the <see cref="T:Size" /> of the parent form when the
+        /// form is unfolded.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(
@@ -133,7 +135,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Sets the <see cref="P:System.Windows.Forms.ButtonBase.Text"/>
+        /// Sets the <see cref="P:System.Windows.Forms.ButtonBase.Text" />
         /// property of this button to correspond to whether the hosting form is
         /// in the Folded state or not.
         /// </summary>
@@ -141,10 +143,10 @@ namespace MFR.GUI.Controls
             => Text = IsFolded ? FoldedText : UnfoldedText;
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Control.Click"/> event.
+        /// Raises the <see cref="E:System.Windows.Forms.Control.Click" /> event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         protected override void OnClick(EventArgs e)
         {
@@ -154,8 +156,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FoldUnfoldButton.Folded"/> event.
+        /// Raises the <see cref="E:MFR.Objects.FoldUnfoldButton.Folded" /> event.
         /// </summary>
         protected virtual void OnFormFolded(FormFoldedEventArgs e)
         {
