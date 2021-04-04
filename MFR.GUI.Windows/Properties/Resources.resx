@@ -120,4 +120,15 @@
   <data name="AppIdle" xml:space="preserve">
     <value>Ready</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="SwitchUpDown_16x" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAOJJREFUOE/lkjEORFAQhl/HsRQaGlE4hkTtHkqcRCdxDp1CaHSK2f1/72Gxa5Mt
+        90vEzLzxReaNkh85Cdq2lSRJdHbPi2AYBlFK8YmiSFcXUMuyTGcbq2AcRzbZti2WZTEOw1CfLoI8z3W2
+        QUHXdWxwXVeqqmI8zzPfvu8vjc+4KArGe9Y/SNOU77Is2QyappG6rhnfCgxoMoI9/yrAADFIgBoGDMzA
+        wUeB53mMzZXiih3HYdz3PXtOAiyLEYAgCJhjucyCTdOkTy8EWNe9AGAjUTt+DE6Cd8RxzI098rXgGpEH
+        R9Ve2y6xhGsAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

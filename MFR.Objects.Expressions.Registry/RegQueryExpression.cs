@@ -1,3 +1,5 @@
+using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Objects.Metadata.Registry;
 using System;
 
 namespace MFR.Objects.Expressions.Registry

@@ -656,7 +656,7 @@ namespace MFR.GUI.Windows
             // switchButton
             // 
             this.switchButton.BackColor = System.Drawing.SystemColors.Control;
-            this.switchButton.Image = global::MFR.GUI.Properties.Resources.SwitchUpDown_16x;
+            this.switchButton.Image = global::MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x;
             this.switchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.switchButton.Location = new System.Drawing.Point(261, 164);
             this.switchButton.Name = "switchButton";

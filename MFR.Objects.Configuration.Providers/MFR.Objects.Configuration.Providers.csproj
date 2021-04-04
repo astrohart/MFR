@@ -112,6 +112,10 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Factories\MFR.Objects.Expressions.Registry.Factories.csproj">
+      <Project>{DC731265-74D9-4879-AF2E-79616BC6847B}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Interfaces\MFR.Objects.Expressions.Registry.Interfaces.csproj">
       <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
       <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
@@ -132,6 +136,10 @@
       <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
       <Name>MFR.Objects.Messages.Commands.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Objects.Messages.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Factories\MFR.Objects.Messages.Factories.csproj">
       <Project>{CE6BFC76-095E-48DC-8189-A87CAAAC655D}</Project>
       <Name>MFR.Objects.Messages.Factories</Name>
@@ -140,9 +148,17 @@
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
       <Name>MFR.Objects.Messages.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Requests.Intefaces\MFR.Objects.Messages.Requests.Intefaces.csproj">
+      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
+      <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Metadata.Registry.Interfaces\MFR.Objects.Metadata.Registry.Interfaces.csproj">
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
       <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
