@@ -1,3 +1,4 @@
+using MFR.GUI.Constants;
 using MFR.GUI.Controls;
 using MFR.GUI.Controls.Helpers;
 using MFR.GUI.Controls.Interfaces;
@@ -108,7 +109,7 @@ namespace MFR.GUI.Windows
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public string FullApplicationName
-            => $"{Program.MainWindowTitle} {Version}";
+            => $"{ProgramText.MainWindowTitle} {Version}";
 
         /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
