@@ -1,5 +1,5 @@
 using MFR.GUI.Dialogs.Properties;
-using MFR.GUI.Windows;
+using MFR.GUI.Windows.Wrappers.Factories;
 using MFR.Objects;
 using System;
 using System.Windows.Forms;
@@ -15,13 +15,13 @@ namespace MFR.GUI.Dialogs
         // Wrapped dialog
         private OpenFileDialog _ofd;
 
-        ///<summary>
-        /// Constructs an instance of <see cref="T:FolderSelectDialog"/> and returns a reference to the new instance.
-        ///</summary>
+        /// <summary>
+        /// Constructs an instance of <see cref="T:FolderSelectDialog" /> and returns a
+        /// reference to the new instance.
+        /// </summary>
         public FolderSelectDialog()
         {
-            _ofd = new OpenFileDialog
-            {
+            _ofd = new OpenFileDialog {
                 Filter = Resources.FolderSelectDialogFIlters,
                 AddExtension = false,
                 CheckFileExists = false,
@@ -43,7 +43,10 @@ namespace MFR.GUI.Dialogs
         public string InitialDirectory
         {
             get => _ofd.InitialDirectory;
-            set => _ofd.InitialDirectory = string.IsNullOrEmpty(value) ? Environment.CurrentDirectory : value;
+            set
+                => _ofd.InitialDirectory = string.IsNullOrEmpty(value)
+                    ? Environment.CurrentDirectory
+                    : value;
         }
 
         /// <summary>
@@ -81,7 +84,7 @@ namespace MFR.GUI.Dialogs
             => ShowDialog(IntPtr.Zero);
 
         /// <summary>
-        /// Shows this <see cref="T:FolderSelectDialog"/> to the user to allow
+        /// Shows this <see cref="T:FolderSelectDialog" /> to the user to allow
         /// the user to select a folder on their computer. Returns a value
         /// indicating whether the dialog ended with the OK or Cancel button
         /// being clicked.
@@ -105,17 +108,27 @@ namespace MFR.GUI.Dialogs
                 var dialog = Reflector.Call(_ofd, "CreateVistaDialog");
                 Reflector.Call(_ofd, "OnBeforeVistaDialog", dialog);
 
-                var options = (uint)Reflector.CallAs(typeof(FileDialog), _ofd, "GetOptions");
-                options |= (uint)r.GetEnum("FileDialogNative.FOS", "FOS_PICKFOLDERS");
-                Reflector.CallAs(typeIFileDialog, dialog, "SetOptions", options);
+                var options = (uint)Reflector.CallAs(
+                    typeof(FileDialog), _ofd, "GetOptions"
+                );
+                options |= (uint)r.GetEnum(
+                    "FileDialogNative.FOS", "FOS_PICKFOLDERS"
+                );
+                Reflector.CallAs(
+                    typeIFileDialog, dialog, "SetOptions", options
+                );
 
                 var pfde = r.New("FileDialog.VistaDialogEvents", _ofd);
-                var parameters = new[] { pfde, num };
-                Reflector.CallAs2(typeIFileDialog, dialog, "Advise", parameters);
+                var parameters = new[] {pfde, num};
+                Reflector.CallAs2(
+                    typeIFileDialog, dialog, "Advise", parameters
+                );
                 num = (uint)parameters[1];
                 try
                 {
-                    var num2 = (int)Reflector.CallAs(typeIFileDialog, dialog, "Show", hWndOwner);
+                    var num2 = (int)Reflector.CallAs(
+                        typeIFileDialog, dialog, "Show", hWndOwner
+                    );
                     flag = 0 == num2;
                 }
                 finally
@@ -126,16 +139,15 @@ namespace MFR.GUI.Dialogs
             }
             else
             {
-                var fbd = new FolderBrowserDialog
-                {
+                var fbd = new FolderBrowserDialog {
                     Description = Title,
                     SelectedPath = InitialDirectory,
                     ShowNewFolderButton = false
                 };
-                if (fbd.ShowDialog(new WindowWrapper(hWndOwner)) != DialogResult.OK)
-                {
-                    return false;
-                }
+                if (fbd.ShowDialog(
+                    MakeNewWindowWrapper.FromScratch()
+                                        .ForWindowHandle(hWndOwner)
+                ) != DialogResult.OK) return false;
                 _ofd.FileName = fbd.SelectedPath;
                 flag = true;
             }

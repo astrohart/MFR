@@ -156,7 +156,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Objects.FoldUnfoldButton.Folded" /> event.
+        /// Raises the <see cref="E:MFR.GUI.Controls.FoldUnfoldButton.Folded" /> event.
         /// </summary>
         protected virtual void OnFormFolded(FormFoldedEventArgs e)
         {

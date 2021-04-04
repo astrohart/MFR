@@ -1,17 +1,22 @@
 using MFR.GUI.Constants;
 using MFR.GUI.Controls;
+using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Helpers;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
+using MFR.Objects.Configuration.Providers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Windows
 {
@@ -93,7 +98,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Gets a reference to the
         /// <see
-        ///     cref="T:MFR.Objects.FoldUnfoldButton" />
+        ///     cref="T:MFR.GUI.Controls.FoldUnfoldButton" />
         /// that controls
         /// whether the form is the folded (smaller) size or unfolded (larger,
         /// with more options visible) size.
@@ -540,7 +545,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.FoldUnfoldButton.FormFolded" />
+        ///     cref="E:MFR.GUI.Controls.FoldUnfoldButton.FormFolded" />
         /// event.
         /// </summary>
         /// <param name="sender">

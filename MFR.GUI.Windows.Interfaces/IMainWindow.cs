@@ -22,7 +22,7 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
-        /// Gets a reference to the <see cref="T:MFR.Objects.FoldUnfoldButton"/>
+        /// Gets a reference to the <see cref="T:MFR.GUI.Controls.FoldUnfoldButton"/>
         /// that controls whether the form is the folded (smaller) size or
         /// unfolded (larger, with more options visible) size.
         /// </summary>

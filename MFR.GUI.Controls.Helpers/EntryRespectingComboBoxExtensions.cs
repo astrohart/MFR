@@ -16,7 +16,7 @@ namespace MFR.GUI.Controls.Helpers
         /// <param name="box">
         /// Reference to the
         /// <see
-        ///     cref="T:MFR.Objects.EntryRespectingComboBox" />
+        ///     cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />
         /// that is
         /// to be cleared.
         /// </param>
@@ -40,13 +40,13 @@ namespace MFR.GUI.Controls.Helpers
         /// <summary>
         /// Determines whether the specified
         /// <see
-        ///     cref="T:MFR.GUI.EntryRespectingComboBox" />
+        ///     cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />
         /// has any items.
         /// </summary>
         /// <param name="box">
         /// (Required.) Reference to the
         /// <see
-        ///     cref="T:MFR.GUI.EntryRespectingComboBox" />
+        ///     cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />
         /// instance to
         /// be checked.
         /// </param>
