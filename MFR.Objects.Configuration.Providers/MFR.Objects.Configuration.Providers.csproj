@@ -86,6 +86,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -110,6 +111,38 @@
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Interfaces\MFR.Objects.Expressions.Registry.Interfaces.csproj">
+      <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
+      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
+      <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Commands.Factories\MFR.Objects.Messages.Commands.Factories.csproj">
+      <Project>{C4EB227A-8D61-40C7-AA7B-AE21244CA54F}</Project>
+      <Name>MFR.Objects.Messages.Commands.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Commands.Interfaces\MFR.Objects.Messages.Commands.Interfaces.csproj">
+      <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
+      <Name>MFR.Objects.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Factories\MFR.Objects.Messages.Factories.csproj">
+      <Project>{CE6BFC76-095E-48DC-8189-A87CAAAC655D}</Project>
+      <Name>MFR.Objects.Messages.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Metadata.Registry.Interfaces\MFR.Objects.Metadata.Registry.Interfaces.csproj">
+      <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
+      <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

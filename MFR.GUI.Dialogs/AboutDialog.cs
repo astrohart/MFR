@@ -7,7 +7,7 @@ namespace MFR.GUI.Dialogs
     /// <summary>
     /// Dialog box that displays information about this application to the user.
     /// </summary>
-    internal partial class AboutDialog : Form
+    public partial class AboutDialog : Form
     {
         /// <summary>
         /// Constructs a new instance of <see

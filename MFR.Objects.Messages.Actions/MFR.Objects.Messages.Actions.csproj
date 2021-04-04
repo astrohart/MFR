@@ -114,9 +114,29 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Interfaces\MFR.Objects.Expressions.Registry.Interfaces.csproj">
+      <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Validators.Factories\MFR.Objects.Expressions.Registry.Validators.Factories.csproj">
+      <Project>{A918C4B3-40A4-4864-A04D-AC2ACFC025AC}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.Objects.FileSystem.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Objects.Messages.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
@@ -133,6 +153,10 @@
     <ProjectReference Include="..\MFR.Objects.Messages\MFR.Objects.Messages.csproj">
       <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>
       <Name>MFR.Objects.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.System\MFR.Objects.System.csproj">
+      <Project>{B44D03E4-64EE-4C69-AC4D-8ED8F8B52B6C}</Project>
+      <Name>MFR.Objects.System</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

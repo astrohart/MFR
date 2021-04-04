@@ -1,6 +1,9 @@
+using MFR.Objects.FileSystem.Exceptions;
+using MFR.Objects.Registry.Helpers;
 using Microsoft.Win32;
 using System;
 using System.IO;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.System
 {

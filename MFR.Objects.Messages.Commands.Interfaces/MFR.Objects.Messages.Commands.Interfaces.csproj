@@ -110,6 +110,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

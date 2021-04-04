@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace MFR.Objects
 {
@@ -41,19 +42,13 @@ namespace MFR.Objects
         }
 
         public static object Call(object obj, string func, params object[] parameters)
-        {
-            return Call2(obj, func, parameters);
-        }
+            => Call2(obj, func, parameters);
 
         public static object Call2(object obj, string func, object[] parameters)
-        {
-            return CallAs2(obj.GetType(), obj, func, parameters);
-        }
+            => CallAs2(obj.GetType(), obj, func, parameters);
 
         public static object CallAs(Type type, object obj, string func, params object[] parameters)
-        {
-            return CallAs2(type, obj, func, parameters);
-        }
+            => CallAs2(type, obj, func, parameters);
 
         public static object CallAs2(Type type, object obj, string func, object[] parameters)
         {
@@ -70,9 +65,7 @@ namespace MFR.Objects
         }
 
         public object Get(object obj, string prop)
-        {
-            return GetAs(obj.GetType(), obj, prop);
-        }
+            => GetAs(obj.GetType(), obj, prop);
 
         public object GetEnum(string typeName, string name)
         {
@@ -90,20 +83,12 @@ namespace MFR.Objects
             var names = typeName.Split('.');
 
             if (names.Length > 0)
-            {
                 if (m_asmb != null)
-                {
                     type = m_asmb.GetType(m_ns + "." + names[0]);
-                }
-            }
 
             for (var i = 1; i < names.Length; ++i)
-            {
                 if (type != null)
-                {
                     type = type.GetNestedType(names[i], BindingFlags.NonPublic);
-                }
-            }
 
             return type;
         }
@@ -115,7 +100,6 @@ namespace MFR.Objects
             var ctorInfos = type.GetConstructors();
 
             foreach (var ci in ctorInfos)
-            {
                 try
                 {
                     return ci.Invoke(parameters);
@@ -124,7 +108,6 @@ namespace MFR.Objects
                 {
                     // ignored
                 }
-            }
 
             return null;
         }

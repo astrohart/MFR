@@ -140,6 +140,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
+      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
+      <Name>xyLOGIX.Queues.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Application.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj">
       <Project>{5AC040AA-21BB-4258-A1F3-DF260FC27574}</Project>
       <Name>MFR.Objects.Managers.History.Factories</Name>
@@ -168,6 +172,22 @@
       <Project>{B4DAD65F-9F1B-4305-9DA2-763D6745924A}</Project>
       <Name>MFR.GUI.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
+      <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
+      <Name>MFR.GUI.Dialogs.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
+      <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
+      <Name>MFR.GUI.Dialogs.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs\MFR.GUI.Dialogs.csproj">
+      <Project>{39F88DD4-65A6-4625-A672-4B8638D500E0}</Project>
+      <Name>MFR.GUI.Dialogs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs\MFR.GUI.Launchers.Dialogs.csproj">
+      <Project>{44939EB3-7147-4684-9207-8F05D5E7B709}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Presenters.Associators\MFR.GUI.Presenters.Associators.csproj">
       <Project>{85E988B0-691C-41B6-981A-9BC0AE1DDA8B}</Project>
       <Name>MFR.GUI.Presenters.Associators</Name>
@@ -180,9 +200,17 @@
       <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
       <Name>MFR.GUI.Windows.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Constants\MFR.GUI.Windows.Presenters.Constants.csproj">
+      <Project>{EDCAF840-40F5-442D-97FE-23C4B1B23BF3}</Project>
+      <Name>MFR.GUI.Windows.Presenters.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Interfaces\MFR.GUI.Windows.Presenters.Interfaces.csproj">
       <Project>{0D06CEA2-CE32-4611-8FA6-763309506223}</Project>
       <Name>MFR.GUI.Windows.Presenters.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Events\MFR.Objects.Configuration.Events.csproj">
+      <Project>{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}</Project>
+      <Name>MFR.Objects.Configuration.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
@@ -191,6 +219,14 @@
     <ProjectReference Include="..\MFR.Objects.Configuration.Providers\MFR.Objects.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
       <Name>MFR.Objects.Configuration.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Events.Common\MFR.Objects.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Objects.Events.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Events\MFR.Objects.Operations.Events.csproj">
+      <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
+      <Name>MFR.Objects.Operations.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Renamers.Files.Factories\MFR.Objects.Renamers.Files.Factories.csproj">
       <Project>{A93C6F56-DF58-45F1-8C4B-03C63F013E7F}</Project>

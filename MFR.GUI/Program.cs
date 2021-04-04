@@ -1,3 +1,4 @@
+using MFR.GUI.Launchers.Dialogs;
 using MFR.GUI.Windows;
 using MFR.Objects;
 using MFR.Objects.Configuration.Providers;

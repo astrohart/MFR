@@ -1,3 +1,5 @@
+using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
 namespace MFR.Objects.Configuration.Helpers.Tests
@@ -32,11 +34,11 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         public void
             Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue()
             => Assert.IsTrue(
-                (bool) (TextMatchingConfiguration.MatchCaseAndExactWord ==
-                        ConfigurationBuilder.Instance.SetMatchCase()
-                                            .AndSetMatchExactWord()
-                                            .Build()
-                                            .GetTextMatchingConfiguration())
+                TextMatchingConfiguration.MatchCaseAndExactWord ==
+                ConfigurationBuilder.Instance.SetMatchCase()
+                                    .AndSetMatchExactWord()
+                                    .Build()
+                                    .GetTextMatchingConfiguration()
             );
 
         /// <summary>
@@ -61,11 +63,11 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         public void
             Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue()
             => Assert.IsTrue(
-                (bool) (TextMatchingConfiguration.MatchCaseOnly == ConfigurationBuilder
+                TextMatchingConfiguration.MatchCaseOnly == ConfigurationBuilder
                     .Instance.SetMatchCase()
                     .AndSetMatchExactWord(false)
                     .Build()
-                    .GetTextMatchingConfiguration())
+                    .GetTextMatchingConfiguration()
             );
 
         /// <summary>
@@ -89,11 +91,11 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         public void
             Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue()
             => Assert.IsTrue(
-                (bool) (TextMatchingConfiguration.MatchExactWordOnly ==
-                        ConfigurationBuilder.Instance.SetMatchCase(false)
-                                            .AndSetMatchExactWord()
-                                            .Build()
-                                            .GetTextMatchingConfiguration())
+                TextMatchingConfiguration.MatchExactWordOnly ==
+                ConfigurationBuilder.Instance.SetMatchCase(false)
+                                    .AndSetMatchExactWord()
+                                    .Build()
+                                    .GetTextMatchingConfiguration()
             );
 
         /// <summary>
@@ -117,11 +119,11 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         public void
             Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse()
             => Assert.IsTrue(
-                (bool) (TextMatchingConfiguration.NeitherMatchCaseNorExactWord ==
-                        ConfigurationBuilder.Instance.SetMatchCase(false)
-                                            .AndSetMatchExactWord(false)
-                                            .Build()
-                                            .GetTextMatchingConfiguration())
+                TextMatchingConfiguration.NeitherMatchCaseNorExactWord ==
+                ConfigurationBuilder.Instance.SetMatchCase(false)
+                                    .AndSetMatchExactWord(false)
+                                    .Build()
+                                    .GetTextMatchingConfiguration()
             );
     }
 }

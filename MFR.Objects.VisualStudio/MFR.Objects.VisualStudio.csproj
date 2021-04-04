@@ -131,6 +131,10 @@
       <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
       <Name>MFR.Objects.Processes.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.RunningObjects.Factories\MFR.Objects.RunningObjects.Factories.csproj">
+      <Project>{20A0420F-4A26-4A40-A43F-F27C40DB35BD}</Project>
+      <Name>MFR.Objects.RunningObjects.Factories</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -3,12 +3,19 @@ using MFR.GUI.Controls;
 using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Helpers;
 using MFR.GUI.Controls.Interfaces;
+using MFR.GUI.Dialogs;
+using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Launchers.Dialogs;
 using MFR.GUI.Presenters.Associators;
 using MFR.GUI.Windows.Interfaces;
+using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
+using MFR.Objects.Configuration.Events;
 using MFR.Objects.Configuration.Providers;
+using MFR.Objects.Events.Common;
 using MFR.Objects.Managers.History.Factories;
+using MFR.Objects.Operations.Events;
 using MFR.Objects.Renamers.Files.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -20,6 +27,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Queues.Messages;
 
 namespace MFR.GUI.Windows
 {

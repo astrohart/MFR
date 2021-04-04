@@ -1,3 +1,6 @@
+using MFR.Objects.Configuration.Constants;
+using PostSharp.Patterns.Diagnostics;
+
 namespace MFR.Objects.Configuration.Interfaces
 {
     /// <summary>

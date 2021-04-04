@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace MFR.GUI.Dialogs
 {
-    partial class AboutDialog
+    public partial class AboutDialog
     {
         /// <summary>
         /// Required designer variable.

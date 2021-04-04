@@ -1,6 +1,12 @@
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Objects.Messages.Commands.Factories;
+using MFR.Objects.Messages.Factories;
 using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace MFR.Objects.Configuration.Providers
 {
@@ -32,7 +38,7 @@ namespace MFR.Objects.Configuration.Providers
                                        .Path;
             set {
                 GetSaveConfigPathCommand
-                    .ForPath(value)
+                    .ForPath(ConfigurationKeyName, ConfigurationPathValueName, value)
                   .Execute();
 
                 /* Clear out the cache of previously-loaded path

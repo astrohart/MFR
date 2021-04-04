@@ -61,15 +61,6 @@ namespace MFR.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ready.
-        /// </summary>
-        public static string AppIdle {
-            get {
-                return ResourceManager.GetString("AppIdle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to config.json.
         /// </summary>
         public static string ConfigFilename {

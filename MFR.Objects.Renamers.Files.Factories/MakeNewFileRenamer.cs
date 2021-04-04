@@ -1,3 +1,6 @@
+using MFR.Objects.Renamers.Files.Interfaces;
+using xyLOGIX.Core.Debug;
+
 namespace MFR.Objects.Renamers.Files.Factories
 {
     /// <summary>

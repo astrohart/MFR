@@ -1,3 +1,5 @@
+using MFR.Objects.Messages.Interfaces;
+
 namespace MFR.Objects.Messages.Commands.Interfaces
 {
     /// <summary>

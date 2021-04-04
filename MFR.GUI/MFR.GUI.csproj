@@ -147,6 +147,10 @@
       <Project>{B1D2DCCC-5BB4-4C1C-A52D-E21AA4AE6634}</Project>
       <Name>MFR.GUI.Initializers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs\MFR.GUI.Launchers.Dialogs.csproj">
+      <Project>{44939EB3-7147-4684-9207-8F05D5E7B709}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows\MFR.GUI.Windows.csproj">
       <Project>{7D4538BB-9DDA-4DEE-8EDA-853BD4AFE22B}</Project>
       <Name>MFR.GUI.Windows</Name>
