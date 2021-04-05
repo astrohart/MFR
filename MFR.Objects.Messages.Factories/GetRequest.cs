@@ -1,5 +1,6 @@
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.Messages.Interfaces;
+using MFR.Objects.Messages.Requests.Intefaces;
 using System;
 
 namespace MFR.Objects.Messages.Factories
@@ -29,6 +30,7 @@ namespace MFR.Objects.Messages.Factories
 
             //IRequest<TResult> request = null;
 
+            // ReSharper disable once HeuristicUnreachableCode
             switch (type)
             {
                 // TODO: Add factory method implementation here

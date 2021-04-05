@@ -1,5 +1,5 @@
 using MFR.Objects.Messages.Constants;
-using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Objects.Metadata.Registry.Interfaces;
 using MFR.Objects.System;
 using PostSharp.Patterns.Diagnostics;
 using System;

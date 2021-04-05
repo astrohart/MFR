@@ -1,3 +1,5 @@
+using MFR.Objects.Metadata.Registry.Interfaces;
+
 namespace MFR.Objects.Metadata.Registry.Factories
 {
     /// <summary>

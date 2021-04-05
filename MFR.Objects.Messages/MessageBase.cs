@@ -1,3 +1,4 @@
+using MFR.Objects.Messages.Interfaces;
 using System.Threading.Tasks;
 
 namespace MFR.Objects.Messages

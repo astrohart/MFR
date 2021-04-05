@@ -1,5 +1,12 @@
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Configuration.Serializers;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Constants;
+using MFR.Objects.System;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Messages.Actions
 {

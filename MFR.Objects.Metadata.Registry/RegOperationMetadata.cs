@@ -1,3 +1,4 @@
+using MFR.Objects.Metadata.Registry.Interfaces;
 using System;
 
 namespace MFR.Objects.Metadata.Registry
