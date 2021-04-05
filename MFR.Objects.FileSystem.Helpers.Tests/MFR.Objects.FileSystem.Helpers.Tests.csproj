@@ -190,6 +190,14 @@
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.TextValues.Retrievers.Factories\MFR.Objects.TextValues.Retrievers.Factories.csproj">
+      <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
+      <Name>MFR.Objects.TextValues.Retrievers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.TextValues.Retrievers.Interfaces\MFR.Objects.TextValues.Retrievers.Interfaces.csproj">
+      <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
+      <Name>MFR.Objects.TextValues.Retrievers.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

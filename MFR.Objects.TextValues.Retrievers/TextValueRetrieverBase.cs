@@ -1,9 +1,9 @@
 using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Retrievers.Interfaces;
 using MFR.Objects.Operations.Constants;
+using MFR.Objects.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.FileSystem.Retrievers
+namespace MFR.Objects.TextValues.Retrievers
 {
     public abstract class TextValueRetrieverBase : ITextValueRetriever
     {

@@ -8,6 +8,7 @@ using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.FileSystem.Retrievers.Factories;
 using MFR.Objects.Operations.Constants;
 using MFR.Objects.Tests.Common;
+using MFR.Objects.TextValues.Retrievers.Factories;
 using NUnit.Framework;
 using System;
 using System.IO;
@@ -97,8 +98,8 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             Assert.IsFalse(string.IsNullOrWhiteSpace(parentFolder));
             result = Path.Combine(parentFolder, result);
             Assert.IsTrue(result.IsAbsolutePath());
-            FileSystemEntryExtensions.ToFileInfo(newFileSystemEntry)
-                                     .RenameTo(result);
+            newFileSystemEntry.ToFileInfo()
+                              .RenameTo(result);
             Assert.IsFalse(File.Exists(newFileSystemEntry.Path));
             Assert.IsTrue(File.Exists(result));
             MakeNewFileInfo.ForPath(result)

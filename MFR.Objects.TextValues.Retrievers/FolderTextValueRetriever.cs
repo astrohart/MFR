@@ -1,4 +1,7 @@
-namespace MFR.Objects.FileSystem.Retrievers
+using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
+
+namespace MFR.Objects.TextValues.Retrievers
 {
     public class FolderTextValueRetriever : FileAndFolderTextValueRetrieverBase
     {
@@ -19,7 +22,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.FileSystem.Retrievers.FolderTextValueRetriever"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static FolderTextValueRetriever Instance

@@ -4,7 +4,7 @@ using MFR.Objects.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.FileSystem.Retrievers
+namespace MFR.Objects.TextValues.Retrievers
 {
     public class TextInFileTextValueRetriever : TextValueRetrieverBase
     {
@@ -22,7 +22,7 @@ namespace MFR.Objects.FileSystem.Retrievers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.FileSystem.Retrievers.TextInFileTextValueRetriever" />.
+        /// <see cref="T:MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static TextInFileTextValueRetriever Instance

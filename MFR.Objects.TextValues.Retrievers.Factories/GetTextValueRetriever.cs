@@ -1,7 +1,8 @@
 using MFR.Objects.Operations.Constants;
+using MFR.Objects.TextValues.Retrievers.Interfaces;
 using System;
 
-namespace MFR.Objects.FileSystem.Retrievers.Factories
+namespace MFR.Objects.TextValues.Retrievers.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the

@@ -1,7 +1,7 @@
 using MFR.Objects.FileSystem.Interfaces;
 using System;
 
-namespace MFR.Objects.FileSystem.Retrievers
+namespace MFR.Objects.TextValues.Retrievers
 {
     /// <summary>
     /// Implements functionality common to retrievers of data for both files and folders.
