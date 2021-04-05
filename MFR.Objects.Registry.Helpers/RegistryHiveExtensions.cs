@@ -1,6 +1,7 @@
 using Microsoft.Win32;
 using System;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Registry.Helpers
 {

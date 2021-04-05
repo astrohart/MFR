@@ -114,6 +114,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Registry.Helpers\MFR.Objects.Registry.Helpers.csproj">
+      <Project>{affa1381-12a6-408c-99c2-bfa717d23cd8}</Project>
+      <Name>MFR.Objects.Registry.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
