@@ -118,6 +118,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
+      <Name>MFR.Objects.Configuration.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Matchers.Factories.Interfaces\MFR.Objects.Matchers.Factories.Interfaces.csproj">
       <Project>{ED8C8DAB-82BF-4F4C-A610-FD2940FD7DFD}</Project>
       <Name>MFR.Objects.Matchers.Factories.Interfaces</Name>
@@ -126,9 +134,21 @@
       <Project>{BE9F2CAA-F80B-41C5-892E-8E57B8DB451F}</Project>
       <Name>MFR.Objects.Matchers.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Matchers.Interfaces\MFR.Objects.Matchers.Interfaces.csproj">
+      <Project>{740261A5-424C-4429-9C08-FED791D0F051}</Project>
+      <Name>MFR.Objects.Matchers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Matchers\MFR.Objects.Matchers.csproj">
+      <Project>{43C8E3D9-A416-424C-A275-236776C9B81F}</Project>
+      <Name>MFR.Objects.Matchers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

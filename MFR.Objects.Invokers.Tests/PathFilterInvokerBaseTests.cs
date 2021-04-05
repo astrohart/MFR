@@ -1,3 +1,5 @@
+using MFR.Objects.Invokers.Factories;
+using MFR.Objects.Invokers.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Objects.Invokers.Tests
