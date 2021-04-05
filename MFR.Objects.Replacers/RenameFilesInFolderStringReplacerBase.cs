@@ -1,3 +1,8 @@
+using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Replacers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
+
 namespace MFR.Objects.Replacers
 {
     /// <summary>

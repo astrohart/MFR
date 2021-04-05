@@ -1,18 +1,29 @@
-using MFR.GUI.Events;
+using EnvDTE;
 using MFR.Objects.Configuration;
 using MFR.Objects.Constants;
+using MFR.Objects.Engines.Replacement.Factories;
 using MFR.Objects.Events;
 using MFR.Objects.Events.Common;
+using MFR.Objects.Expressions.Matches.Factories;
+using MFR.Objects.Expressions.Matches.Interfaces;
+using MFR.Objects.FileSystem.Helpers;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.FileSystem.Retrievers.Factories;
+using MFR.Objects.Operations.Constants;
 using MFR.Objects.Operations.Events;
+using MFR.Objects.Operations.Exceptions;
 using MFR.Objects.Renamers.Files.Interfaces;
 using MFR.Objects.Renamers.Files.Properties;
+using MFR.Objects.TextValues.Retrievers.Factories;
+using MFR.Objects.VisualStudio;
+using MFR.Objects.Win32;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Net.Mime;
+using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using Process = System.Diagnostics.Process;
@@ -25,17 +36,19 @@ namespace MFR.Objects.Renamers.Files
     /// </summary>
     /// <remarks>
     /// NOTE: Instances of this class must be composed with an instance of an
-    /// object that implements the <see
-    /// cref="T:MFR.Objects.IConfiguration"/> interface.
-    /// <para/>
+    /// object that implements the <see cref="T:MFR.Objects.IConfiguration" />
+    /// interface.
+    /// <para />
     /// Such an object is necessary because it provides settings specified by
     /// the user that change the behavior of this object.
     /// </remarks>
     public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
     {
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Renamers.Files.FileRenamer"/> and returns a
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Objects.Renamers.Files.FileRenamer" />
+        /// and returns a
         /// reference to it.
         /// </summary>
         public FileRenamer()
@@ -44,8 +57,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Renamers.Files.FileRenamer"/> and returns a
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Objects.Renamers.Files.FileRenamer" />
+        /// and returns a
         /// reference to it.
         /// </summary>
         /// <param name="rootDirectoryPath">
@@ -60,6 +75,51 @@ namespace MFR.Objects.Renamers.Files
                 );
 
             RootDirectoryPath = rootDirectoryPath;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MFR.Objects.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MFR.Objects.FileRenamer.ProcessAll" />
+        /// method is called, do
+        /// nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        private bool ShouldReOpenSolution
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -121,16 +181,6 @@ namespace MFR.Objects.Renamers.Files
             SubfoldersToBeRenamedCounted;
 
         /// <summary>
-        /// Gets a value that indicates whether an abort of the current
-        /// operation has been requested.
-        /// </summary>
-        public bool AbortRequested
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// Gets a string containing the full pathname of the folder where all
         /// operations start.
         /// </summary>
@@ -141,94 +191,32 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Gets a reference to a collection of of the <see
-        /// cref="T:MFR.Objects.OperationType"/> values.
-        /// </summary>
-        /// <remarks>
-        /// All the values in this collection identify operations that the user
-        /// wishes to perform.
-        /// <para/>
-        /// This list should be cleared after every run.
-        /// <para/>
-        /// If the list is empty when the <see
-        /// cref="M:MFR.Objects.FileRenamer.ProcessAll"/> method is
-        /// called, do nothing or throw an exception.
-        /// </remarks>
-        protected IList<OperationType> EnabledOperations
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        private bool ShouldReOpenSolution
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.ExceptionRaised"/> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ExceptionRaisedEventArgs"/>
-        /// that contains the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
-        }
-
-        /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
-        /// the pathname stored in the <see
-        /// cref="P:MFR.Objects.FileRenamer.RootDirectoryPath"/> property.
+        /// the pathname stored in the
+        /// <see
+        ///     cref="P:MFR.Objects.FileRenamer.RootDirectoryPath" />
+        /// property.
         /// </summary>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         public void ProcessAll(string findWhat, string replaceWith,
@@ -295,11 +283,11 @@ namespace MFR.Objects.Renamers.Files
                 )
             );
         }
-        
+
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
-        /// the pathname specified by the <paramref name="rootDirectoryPath"/> parameter.
+        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
         /// </summary>
         /// <param name="rootDirectoryPath">
         /// Path to the recursion root.
@@ -309,26 +297,30 @@ namespace MFR.Objects.Renamers.Files
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref
-        /// name="rootDirectoryPath"/>, is passed a blank or <see
-        /// langword="null"/> string for a value.
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="rootDirectoryPath" />
+        /// , is passed a blank or
+        /// <see
+        ///     langword="null" />
+        /// string for a value.
         /// </exception>
         public void ProcessAll(string rootDirectoryPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
@@ -339,7 +331,7 @@ namespace MFR.Objects.Renamers.Files
                     nameof(rootDirectoryPath)
                 );
 
-            MessageFilter.Register();
+            WindowsMessageFilter.Register();
 
             RootDirectoryPath = rootDirectoryPath;
 
@@ -400,7 +392,7 @@ namespace MFR.Objects.Renamers.Files
                 // been completed.
 
                 MessageBox.Show(
-                    Resources.Confirm_PerformRename, MediaTypeNames.Application.ProductName,
+                    Resources.Confirm_PerformRename, Application.ProductName,
                     MessageBoxButtons.OK, MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1
                 );
@@ -479,13 +471,15 @@ namespace MFR.Objects.Renamers.Files
                 OnFinished();
             }
 
-            MessageFilter.Revoke();
+            WindowsMessageFilter.Revoke();
         }
 
         /// <summary>
         /// Renames all the files in the all the subfolders etc., recursively,
-        /// of the folder whose pathname is specified by the <paramref
-        /// name="rootFolderPath"/> parameter.
+        /// of the folder whose pathname is specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// parameter.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of an existing
@@ -496,29 +490,33 @@ namespace MFR.Objects.Renamers.Files
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
-        /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -662,7 +660,7 @@ namespace MFR.Objects.Renamers.Files
                                                          .RenameFilesInFolder
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Objects.Configuration
+                                                     Configuration
                                                  )
                                                  .ForTextValue(
                                                      GetTextValueRetriever.For(
@@ -710,9 +708,9 @@ namespace MFR.Objects.Renamers.Files
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
-        /// pathname specified by <paramref name="rootFolderPath"/>, replacing
-        /// any occurrences of the text in the <paramref name="findWhat"/>
-        /// parameter with the values in the <paramref name="replaceWith"/> parameter.
+        /// pathname specified by <paramref name="rootFolderPath" />, replacing
+        /// any occurrences of the text in the <paramref name="findWhat" />
+        /// parameter with the values in the <paramref name="replaceWith" /> parameter.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of an existing
@@ -723,29 +721,33 @@ namespace MFR.Objects.Renamers.Files
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
-        /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -865,7 +867,7 @@ namespace MFR.Objects.Renamers.Files
                                                          .RenameSubFolders
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Objects.Configuration
+                                                     Configuration
                                                  )
                                                  .ForTextValue(
                                                      GetTextValueRetriever.For(
@@ -905,10 +907,14 @@ namespace MFR.Objects.Renamers.Files
 
         /// <summary>
         /// Iterates recursively through a directory tree, starting at the
-        /// folder with pathname <paramref name="rootFolderPath"/> and replacing
-        /// every occurrence of the text specified by the <paramref
-        /// name="findWhat"/> parameter with the text specified by the <paramref
-        /// name="replaceWith"/> parameter. A case-sensitive, not-in-exact-word
+        /// folder with pathname <paramref name="rootFolderPath" /> and replacing
+        /// every occurrence of the text specified by the
+        /// <paramref
+        ///     name="findWhat" />
+        /// parameter with the text specified by the
+        /// <paramref
+        ///     name="replaceWith" />
+        /// parameter. A case-sensitive, not-in-exact-word
         /// search is performed.
         /// </summary>
         /// <param name="rootFolderPath">
@@ -918,31 +924,35 @@ namespace MFR.Objects.Renamers.Files
         /// (Required.) Text to be found in each file contained in the directory tree.
         /// </param>
         /// <param name="replaceWith">
-        /// (Optional.) Text to replace all the instances of <paramref
-        /// name="findWhat"/> with. If this parameter is blank (the default),
+        /// (Optional.) Text to replace all the instances of
+        /// <paramref
+        ///     name="findWhat" />
+        /// with. If this parameter is blank (the default),
         /// then the text is deleted.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/> or the
-        /// <paramref name="findWhat"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -1020,7 +1030,7 @@ namespace MFR.Objects.Renamers.Files
                                                          .ReplaceTextInFiles
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Objects.Configuration
+                                                     Configuration
                                                  )
                                                  .Replace(
                                                      (IMatchExpression)
@@ -1030,7 +1040,7 @@ namespace MFR.Objects.Renamers.Files
                                                                  .ReplaceTextInFiles
                                                          )
                                                          .AndAttachConfiguration(
-                                                             Objects.Configuration
+                                                             Configuration
                                                          )
                                                          .ForTextValue(
                                                              GetTextValueRetriever
@@ -1101,14 +1111,15 @@ namespace MFR.Objects.Renamers.Files
         }
 
         public void RequestAbort()
-                    => AbortRequested = true;
+            => AbortRequested = true;
 
         /// <summary>
-        /// Initializes the value of the <see
-        /// cref="P:MFR.Objects.IFileRenamer.RootDirectoryPath"/>
-        /// property to the value specified in the <paramref
-        /// name="rootDirectoryPath"/> parameter.
-        /// <para/>
+        /// Initializes the value of the
+        /// <see
+        ///     cref="P:MFR.Objects.IFileRenamer.RootDirectoryPath" />
+        /// property to
+        /// the value specified in the <paramref name="rootDirectoryPath" /> parameter.
+        /// <para />
         /// The value is the starting location of the search operations.
         /// </summary>
         /// <returns>
@@ -1121,6 +1132,38 @@ namespace MFR.Objects.Renamers.Files
             RootDirectoryPath = rootDirectoryPath;
 
             return this;
+        }
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Objects.FileRenamer.ExceptionRaised" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Objects.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
         }
 
         /// <summary>
@@ -1174,13 +1217,14 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.FilesToBeRenamedCounted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Objects.FileRenamer.FilesToBeRenamedCounted" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/>
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
         private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
@@ -1193,13 +1237,14 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.FilesToHaveTextReplacedCounted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Objects.FileRenamer.FilesToHaveTextReplacedCounted" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/>
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
         private void OnFilesToHaveTextReplacedCounted(
@@ -1213,8 +1258,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.Renamers.Files.FileRenamer.Finished"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Objects.Renamers.Files.FileRenamer.Finished" />
+        /// event.
         /// </summary>
         [Log(AttributeExclude = true)]
         private void OnFinished()
@@ -1225,12 +1272,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.OperationFinished"/> event.
+        /// Raises the <see cref="E:MFR.Objects.FileRenamer.OperationFinished" /> event.
         /// </summary>
         /// <param name="e">
-        /// An <see
-        /// cref="T:MFR.Objects.OperationFinishedEventArgs"/> that
+        /// An <see cref="T:MFR.Objects.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1245,12 +1290,11 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.OperationStarted"/> event.
+        /// Raises the <see cref="E:MFR.Objects.FileRenamer.OperationStarted" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.OperationStartedEventArgs"/>
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.OperationStartedEventArgs" /> that
+        /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
         private void OnOperationStarted(OperationStartedEventArgs e)
@@ -1264,12 +1308,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.ProcessingOperation"/> event.
+        /// Raises the <see cref="E:MFR.Objects.ProcessingOperation" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MFR.Objects.ProcessingOperationEventArgs"/> that
+        /// A <see cref="T:MFR.Objects.ProcessingOperationEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1281,8 +1323,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.Renamers.Files.FileRenamer.Started"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Objects.Renamers.Files.FileRenamer.Started" />
+        /// event.
         /// </summary>
         [Log(AttributeExclude = true)]
         private void OnStarted()
@@ -1293,12 +1337,11 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.StatusUpdate"/> event.
+        /// Raises the <see cref="E:MFR.Objects.FileRenamer.StatusUpdate" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.StatusUpdateEventArgs"/> that
-        /// contains the event data.
+        /// A <see cref="T:MFR.Objects.StatusUpdateEventArgs" /> that contains
+        /// the event data.
         /// </param>
         [Log(AttributeExclude = true)]
         private void OnStatusUpdate(StatusUpdateEventArgs e)
@@ -1312,13 +1355,14 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.Objects.FileRenamer.SubfoldersToBeRenamedCounted"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Objects.FileRenamer.SubfoldersToBeRenamedCounted" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/>
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
         private void OnSubfoldersToBeRenamedCounted(

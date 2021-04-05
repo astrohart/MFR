@@ -1,6 +1,7 @@
 using MFR.Objects.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Replacers
 {

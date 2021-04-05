@@ -1,3 +1,6 @@
+using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Replacers.Factories;
 using NUnit.Framework;
 using System;
 
