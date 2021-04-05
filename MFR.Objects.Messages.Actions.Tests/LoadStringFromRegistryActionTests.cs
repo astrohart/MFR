@@ -1,3 +1,9 @@
+using MFR.Objects.Expressions.Registry.Factories;
+using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Constants;
+using MFR.Objects.Messages.Factories;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System.IO;
 

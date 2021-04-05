@@ -1,4 +1,7 @@
+using MFR.Objects.Messages.Actions.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Messages.Actions
 {
