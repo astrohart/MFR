@@ -1,3 +1,7 @@
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Validators.Factories;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;
 using System.IO;
@@ -20,13 +24,13 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         public void
             Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists()
             => Assert.IsFalse(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .DoesExist(
-                                                      MakeNewFileSystemEntry.ForPath(
-                                                          StringConstants
-                                                              .NONEXISTENT_FOLDER
-                                                      )
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .DoesExist(
+                                               MakeNewFileSystemEntry.ForPath(
+                                                   StringConstants
+                                                       .NONEXISTENT_FOLDER
+                                               )
+                                           )
             );
 
         /// <summary>
@@ -35,13 +39,13 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .DoesExist(
-                                                      MakeNewFileSystemEntry.ForPath(
-                                                          StringConstants
-                                                              .WINDOWS_SYSTEM_FOLDER
-                                                      )
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .DoesExist(
+                                               MakeNewFileSystemEntry.ForPath(
+                                                   StringConstants
+                                                       .WINDOWS_SYSTEM_FOLDER
+                                               )
+                                           )
             );
 
         /// <summary>
@@ -165,11 +169,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedDir()
             => Assert.IsFalse(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants
-                                                          .FOLDER_MATCHING_OPERATION_CRITIERIA
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants
+                                                   .FOLDER_MATCHING_OPERATION_CRITIERIA
+                                           )
             );
 
         /// <summary>
@@ -178,10 +182,10 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForBlankPath()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants.EMPTY_STRING
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants.EMPTY_STRING
+                                           )
             );
 
         /// <summary>
@@ -190,10 +194,10 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForDotfolder()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants.DOTFOLDER_PATH_KNOWN_TO_EXIST
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants.DOTFOLDER_PATH_KNOWN_TO_EXIST
+                                           )
             );
 
         /// <summary>
@@ -202,11 +206,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants
-                                                          .SUBFOLDER_OF_BIN_DIR
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants
+                                                   .SUBFOLDER_OF_BIN_DIR
+                                           )
             );
 
         /// <summary>
@@ -215,11 +219,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants
-                                                          .SUBFOLDER_OF_OBJ_FOLDER
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants
+                                                   .SUBFOLDER_OF_OBJ_FOLDER
+                                           )
             );
 
         /// <summary>
@@ -228,8 +232,8 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForNullInput()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(null)
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(null)
             );
 
         /// <summary>
@@ -238,10 +242,10 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForNullPath()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants.NULL_STRING
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants.NULL_STRING
+                                           )
             );
 
         /// <summary>
@@ -260,7 +264,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
 
             Assert.IsFalse(Directory.Exists(path));
 
-            Assert.IsTrue((bool) directoryValidator.ShouldSkip(path));
+            Assert.IsTrue(directoryValidator.ShouldSkip(path));
         }
 
         /// <summary>
@@ -269,11 +273,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants
-                                                          .SUBFOLDER_OF_GIT_FOLDER
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants
+                                                   .SUBFOLDER_OF_GIT_FOLDER
+                                           )
             );
 
         /// <summary>
@@ -282,11 +286,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants
-                                                          .SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants
+                                                   .SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
+                                           )
             );
 
         /// <summary>
@@ -295,11 +299,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants
-                                                          .SUBFOLDER_OF_VS_DOTFOLDER
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants
+                                                   .SUBFOLDER_OF_VS_DOTFOLDER
+                                           )
             );
 
         /// <summary>
@@ -308,10 +312,10 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForWhitespacePath()
             => Assert.IsTrue(
-                (bool) GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                                                  .ShouldSkip(
-                                                      StringConstants.WHITESPACE
-                                                  )
+                GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
+                                           .ShouldSkip(
+                                               StringConstants.WHITESPACE
+                                           )
             );
     }
 }

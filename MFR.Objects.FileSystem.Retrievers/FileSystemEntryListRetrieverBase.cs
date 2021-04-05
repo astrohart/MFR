@@ -1,6 +1,22 @@
+using MFR.Objects.Configuration;
+using MFR.Objects.Engines.Matching.Factories;
+using MFR.Objects.Engines.Matching.Interfaces;
+using MFR.Objects.Expressions.Matches;
+using MFR.Objects.Expressions.Matches.Factories;
+using MFR.Objects.Expressions.Matches.Interfaces;
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.FileSystem.Retrievers.Interfaces;
+using MFR.Objects.FileSystem.Validators;
+using MFR.Objects.FileSystem.Validators.Factories;
+using MFR.Objects.FileSystem.Validators.Interfaces;
+using MFR.Objects.Invokers.Factories;
+using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 
 namespace MFR.Objects.FileSystem.Retrievers
@@ -372,7 +388,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         protected static bool PassesPathFilter(Predicate<string> pathFilter,
             IFileSystemEntry entry)
             => MakeNewPathFilterInvoker.For(entry)
-                                    .Pass(pathFilter);
+                                    .Passes(pathFilter);
 
         /// <summary>
         /// Provides the implementation of the
@@ -471,8 +487,7 @@ namespace MFR.Objects.FileSystem.Retrievers
             return (MatchExpression)GetMatchExpressionFactory.For(OperationType)
                 .AndAttachConfiguration(Configuration)
                 .ForTextValue(
-                    GetTextValueRetriever.For(OperationType)
-                                         .GetTextValue(entry)
+                    OperationType == OperationType.ReplaceTextInFiles ? entry.UserState as string : entry.Path
                 )
                 .ToFindWhat(FindWhat)
                 .AndReplaceItWith(ReplaceWith);

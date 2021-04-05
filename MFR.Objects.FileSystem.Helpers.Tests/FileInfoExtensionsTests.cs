@@ -1,4 +1,9 @@
+using MFR.Objects.Engines.Replacement.Factories;
+using MFR.Objects.Engines.Replacement.Intefaces;
+using MFR.Objects.Expressions.Matches.Factories;
+using MFR.Objects.Expressions.Matches.Interfaces;
 using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Helpers;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.FileSystem.Retrievers.Factories;
 using MFR.Objects.Operations.Constants;
@@ -92,8 +97,8 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             Assert.IsFalse(string.IsNullOrWhiteSpace(parentFolder));
             result = Path.Combine(parentFolder, result);
             Assert.IsTrue(result.IsAbsolutePath());
-            newFileSystemEntry.ToFileInfo()
-                              .RenameTo(result);
+            FileSystemEntryExtensions.ToFileInfo(newFileSystemEntry)
+                                     .RenameTo(result);
             Assert.IsFalse(File.Exists(newFileSystemEntry.Path));
             Assert.IsTrue(File.Exists(result));
             MakeNewFileInfo.ForPath(result)

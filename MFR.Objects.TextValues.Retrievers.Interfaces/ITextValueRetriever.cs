@@ -1,4 +1,7 @@
-namespace MFR.Objects.FileSystem.Retrievers.Interfaces
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Operations.Interfaces;
+
+namespace MFR.Objects.TextValues.Retrievers.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a text-retriever object.

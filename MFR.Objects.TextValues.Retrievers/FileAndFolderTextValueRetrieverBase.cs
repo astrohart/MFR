@@ -1,3 +1,4 @@
+using MFR.Objects.FileSystem.Interfaces;
 using System;
 
 namespace MFR.Objects.FileSystem.Retrievers

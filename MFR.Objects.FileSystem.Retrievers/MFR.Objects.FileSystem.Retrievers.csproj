@@ -70,6 +70,7 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="PostSharp, Version=6.9.3.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.6.9.3\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -83,18 +84,14 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="FileAndFolderNameFileSystemEntryListRetrieverBase.cs" />
-    <Compile Include="FileAndFolderTextValueRetrieverBase.cs" />
-    <Compile Include="FilenameTextValueRetriever.cs" />
     <Compile Include="FilesToRenameRetriever.cs" />
     <Compile Include="FileSystemEntryListRetrieverBase.cs" />
-    <Compile Include="FolderTextValueRetriever.cs" />
     <Compile Include="FolderToRenameRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -103,8 +100,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="TextInFilesRetriever.cs" />
-    <Compile Include="TextInFileTextValueRetriever.cs" />
-    <Compile Include="TextValueRetrieverBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -116,13 +111,81 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
+      <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching.Factories\MFR.Objects.Engines.Matching.Factories.csproj">
+      <Project>{375AB82E-DB42-49A4-B3B4-63BE7C9D8CAB}</Project>
+      <Name>MFR.Objects.Engines.Matching.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Engines.Matching.Interfaces\MFR.Objects.Engines.Matching.Interfaces.csproj">
+      <Project>{80AE228C-041C-4C9C-BB7E-C07D502EC66D}</Project>
+      <Name>MFR.Objects.Engines.Matching.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Factories.Interfaces\MFR.Objects.Expressions.Matches.Factories.Interfaces.csproj">
+      <Project>{057FF1CA-0D46-4B40-A8E6-3C68FB9F79A0}</Project>
+      <Name>MFR.Objects.Expressions.Matches.Factories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Factories\MFR.Objects.Expressions.Matches.Factories.csproj">
+      <Project>{7C33BFA5-BB1A-4FD4-BAA5-70A2E76245CF}</Project>
+      <Name>MFR.Objects.Expressions.Matches.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Interfaces\MFR.Objects.Expressions.Matches.Interfaces.csproj">
+      <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
+      <Name>MFR.Objects.Expressions.Matches.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Matches\MFR.Objects.Expressions.Matches.csproj">
+      <Project>{C699FEDC-522A-4332-BF4F-A31B48B70241}</Project>
+      <Name>MFR.Objects.Expressions.Matches</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.Objects.FileSystem.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Interfaces\MFR.Objects.FileSystem.Retrievers.Interfaces.csproj">
       <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Factories\MFR.Objects.FileSystem.Validators.Factories.csproj">
+      <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
+      <Name>MFR.Objects.FileSystem.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Interfaces\MFR.Objects.FileSystem.Validators.Interfaces.csproj">
+      <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
+      <Name>MFR.Objects.FileSystem.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators\MFR.Objects.FileSystem.Validators.csproj">
+      <Project>{22D86888-ACAC-4E15-B860-10461CF0C079}</Project>
+      <Name>MFR.Objects.FileSystem.Validators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Invokers.Factories\MFR.Objects.Invokers.Factories.csproj">
+      <Project>{8D903CE7-2DBF-49ED-BD9E-A2BF31EB8ADB}</Project>
+      <Name>MFR.Objects.Invokers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Invokers.Interfaces\MFR.Objects.Invokers.Interfaces.csproj">
+      <Project>{05DD474A-352F-4BC2-BF0D-FB2D5823D2A3}</Project>
+      <Name>MFR.Objects.Invokers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,5 @@
+using MFR.Objects.Expressions.Matches.Factories.Interfaces;
+using MFR.Objects.Operations.Constants;
 using System;
 
 namespace MFR.Objects.Expressions.Matches.Factories

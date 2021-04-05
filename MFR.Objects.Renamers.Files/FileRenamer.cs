@@ -579,7 +579,7 @@ namespace MFR.Objects.Renamers.Files
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameFilesInFolder)
-                        .AndAttachConfiguration(Objects.Configuration)
+                        .AndAttachConfiguration(Configuration)
                         .UsingSearchPattern("*")
                         .WithSearchOption(SearchOption.AllDirectories)
                         .ToFindWhat(findWhat)
@@ -655,7 +655,7 @@ namespace MFR.Objects.Renamers.Files
                                      (string)GetTextReplacementEngine.For(
                                              OperationType.RenameFilesInFolder
                                          )
-                                         .AndAttachConfiguration(Objects.Configuration)
+                                         .AndAttachConfiguration(Configuration)
                                          .Replace(
                                              GetMatchExpressionFactory.For(
                                                      OperationType
@@ -783,7 +783,7 @@ namespace MFR.Objects.Renamers.Files
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSubFolders)
-                        .AndAttachConfiguration(Objects.Configuration)
+                        .AndAttachConfiguration(Configuration)
                         .UsingSearchPattern("*")
                         .WithSearchOption(SearchOption.AllDirectories)
                         .ToFindWhat(findWhat)
@@ -857,7 +857,7 @@ namespace MFR.Objects.Renamers.Files
                              .RenameTo(
                                  (string)GetTextReplacementEngine
                                          .For(OperationType.RenameSubFolders)
-                                         .AndAttachConfiguration(Objects.Configuration)
+                                         .AndAttachConfiguration(Configuration)
                                          .Replace(
                                              (IMatchExpression)
                                              GetMatchExpressionFactory.For(
@@ -971,7 +971,7 @@ namespace MFR.Objects.Renamers.Files
             IEnumerable<IFileSystemEntry> entryCollection =
                 GetFileSystemEntryListRetriever
                     .For(OperationType.ReplaceTextInFiles)
-                    .AndAttachConfiguration(Objects.Configuration)
+                    .AndAttachConfiguration(Configuration)
                     .UsingSearchPattern("*")
                     .WithSearchOption(SearchOption.AllDirectories)
                     .ToFindWhat(findWhat)

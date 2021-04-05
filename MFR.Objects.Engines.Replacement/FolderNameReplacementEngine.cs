@@ -1,5 +1,12 @@
+using MFR.Objects.Configuration.Helpers;
+using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Operations.Constants;
+using MFR.Objects.Replacers.Factories;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.Objects.Engines.Replacement
 {

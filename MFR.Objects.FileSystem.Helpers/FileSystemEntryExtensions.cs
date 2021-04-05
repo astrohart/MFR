@@ -2,7 +2,7 @@ using MFR.Objects.FileSystem.Interfaces;
 using System;
 using System.IO;
 
-namespace MFR.Objects.FileSystem
+namespace MFR.Objects.FileSystem.Helpers
 {
     /// <summary>
     /// Helper methods for objects that implement the

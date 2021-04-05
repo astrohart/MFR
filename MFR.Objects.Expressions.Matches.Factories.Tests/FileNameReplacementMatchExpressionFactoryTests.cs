@@ -1,4 +1,5 @@
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Expressions.Matches.Factories.Interfaces;
 using MFR.Objects.Operations.Constants;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
