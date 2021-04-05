@@ -3,9 +3,7 @@ using MFR.Objects.Engines.Replacement.Intefaces;
 using MFR.Objects.Expressions.Matches.Factories;
 using MFR.Objects.Expressions.Matches.Interfaces;
 using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Helpers;
 using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Retrievers.Factories;
 using MFR.Objects.Operations.Constants;
 using MFR.Objects.Tests.Common;
 using MFR.Objects.TextValues.Retrievers.Factories;
@@ -36,11 +34,13 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         public void Initialize()
         {
             DebugFileAndFolderHelper.ClearTempFileDir();
-            FileHelpers.FillWithJunk(StringConstants.EXISTING_TEMP_FILE);
+            FileHelpers.FillWithJunk(
+                StringConstants.EXISTING_TEMP_FILE
+            );
         }
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Serves as a test bed to run the entire algorithm of renaming projects without having to invoke the GUI.
         /// </summary>
         [Test]
         public void MainTestBed()
@@ -136,60 +136,60 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
                 )
             );
             Assert.IsTrue(
-                (bool) Path.Combine(
-                               Path.GetDirectoryName(
-                                   ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                                           @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
-                                       )
-                                       .AndOperationType(
-                                           OperationType.RenameFilesInFolder
-                                       )).Path
-                               ) ?? string.Empty,
-                               ((ITextReplacementEngine)GetTextReplacementEngine
-                                   .For(
-                                       OperationType
-                                           .RenameFilesInFolder
-                                   )
-                                   .AndAttachConfiguration(
-                                       ConfigurationBuilder
-                                           .BuildConfigurationForUseCase(
-                                               false, false
-                                           )
-                                   )).Replace(
-                                   (IMatchExpression)GetMatchExpressionFactory
-                                       .For(
-                                           OperationType
-                                               .RenameFilesInFolder
-                                       )
-                                       .AndAttachConfiguration(
-                                           ConfigurationBuilder
-                                               .BuildConfigurationForUseCase(
-                                                   false, false
-                                               )
-                                       )
-                                       .ForTextValue(
-                                           GetTextValueRetriever
-                                               .For(
-                                                   OperationType
-                                                       .RenameFilesInFolder
-                                               )
-                                               .GetTextValue(
-                                                   (IFileSystemEntry)
-                                                   MakeNewFileSystemEntry
-                                                       .ForPath(
-                                                           @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
-                                                       )
-                                                       .AndOperationType(
-                                                           OperationType
-                                                               .RenameFilesInFolder
-                                                       )
-                                               )
-                                       )
-                                       .ToFindWhat("Foo")
-                                       .AndReplaceItWith("Bar")
-                               )
-                           )
-                           .IsAbsolutePath()
+                Path.Combine(
+                        Path.GetDirectoryName(
+                            ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
+                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                )
+                                .AndOperationType(
+                                    OperationType.RenameFilesInFolder
+                                )).Path
+                        ) ?? string.Empty,
+                        ((ITextReplacementEngine)GetTextReplacementEngine
+                                                 .For(
+                                                     OperationType
+                                                         .RenameFilesInFolder
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     ConfigurationBuilder
+                                                         .BuildConfigurationForUseCase(
+                                                             false, false
+                                                         )
+                                                 )).Replace(
+                            (IMatchExpression)GetMatchExpressionFactory
+                                              .For(
+                                                  OperationType
+                                                      .RenameFilesInFolder
+                                              )
+                                              .AndAttachConfiguration(
+                                                  ConfigurationBuilder
+                                                      .BuildConfigurationForUseCase(
+                                                          false, false
+                                                      )
+                                              )
+                                              .ForTextValue(
+                                                  GetTextValueRetriever
+                                                      .For(
+                                                          OperationType
+                                                              .RenameFilesInFolder
+                                                      )
+                                                      .GetTextValue(
+                                                          (IFileSystemEntry)
+                                                          MakeNewFileSystemEntry
+                                                              .ForPath(
+                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                              )
+                                                              .AndOperationType(
+                                                                  OperationType
+                                                                      .RenameFilesInFolder
+                                                              )
+                                                      )
+                                              )
+                                              .ToFindWhat("Foo")
+                                              .AndReplaceItWith("Bar")
+                        )
+                    )
+                    .IsAbsolutePath()
             );
             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
                         @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
@@ -455,10 +455,10 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         public void
             Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName()
             => Assert.IsFalse(
-                (bool) MakeNewFileInfo.ForPath(StringConstants.EXISTING_TEMP_FILE)
-                                      .RenameTo(
-                                          StringConstants.NEW_TEMP_FILE_FILENAME_ONLY
-                                      )
+                MakeNewFileInfo.ForPath(StringConstants.EXISTING_TEMP_FILE)
+                               .RenameTo(
+                                   StringConstants.NEW_TEMP_FILE_FILENAME_ONLY
+                               )
             );
 
         /// <summary>
@@ -470,7 +470,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             // rename a .csproj file into a GUID and then back again
             Assert.IsTrue(File.Exists(StringConstants.EXISTING_TEMP_FILE));
             Assert.IsTrue(
-                (bool) new FileInfo(StringConstants.EXISTING_TEMP_FILE).RenameTo(
+                new FileInfo(StringConstants.EXISTING_TEMP_FILE).RenameTo(
                     StringConstants.NEW_TEMP_FILE
                 )
             );
