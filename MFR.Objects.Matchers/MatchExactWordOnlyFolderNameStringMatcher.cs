@@ -1,5 +1,9 @@
+using MFR.Objects.Configuration.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.Objects.Matchers
 {
