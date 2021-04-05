@@ -1,3 +1,5 @@
+using MFR.Objects.Filters.Search.Constants;
+using MFR.Objects.Filters.Search.Interfaces;
 using System;
 
 namespace MFR.Objects.Filters.Search
