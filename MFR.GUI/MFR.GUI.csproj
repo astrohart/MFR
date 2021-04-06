@@ -87,20 +87,10 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -135,18 +125,6 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
-      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
-      <Name>xyLOGIX.Core.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
-      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
-      <Name>xyLOGIX.Queues.Messages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Initializers\MFR.GUI.Initializers.csproj">
-      <Project>{B1D2DCCC-5BB4-4C1C-A52D-E21AA4AE6634}</Project>
-      <Name>MFR.GUI.Initializers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs\MFR.GUI.Launchers.Dialogs.csproj">
       <Project>{44939EB3-7147-4684-9207-8F05D5E7B709}</Project>
       <Name>MFR.GUI.Launchers.Dialogs</Name>
@@ -158,34 +136,6 @@
     <ProjectReference Include="..\MFR.Objects.Configuration.Providers\MFR.Objects.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
       <Name>MFR.Objects.Configuration.Providers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Helpers\MFR.Objects.FileSystem.Helpers.csproj">
-      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
-      <Name>MFR.Objects.FileSystem.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
-      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.Objects.FileSystem.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
-      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Objects.Operations.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Descriptions.Factories\MFR.Objects.Operations.Descriptions.Factories.csproj">
-      <Project>{0FF66CA2-92B5-4A11-AB1A-7B4A51A3981A}</Project>
-      <Name>MFR.Objects.Operations.Descriptions.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Descriptions.Interfaces\MFR.Objects.Operations.Descriptions.Interfaces.csproj">
-      <Project>{522A7534-3065-477B-B756-844F124FAE1A}</Project>
-      <Name>MFR.Objects.Operations.Descriptions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Events\MFR.Objects.Operations.Events.csproj">
-      <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
-      <Name>MFR.Objects.Operations.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
-      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -88,9 +88,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -161,14 +159,6 @@
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Factories\MFR.Objects.FileSystem.Retrievers.Factories.csproj">
-      <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
-      <Name>MFR.Objects.FileSystem.Retrievers.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Interfaces\MFR.Objects.FileSystem.Retrievers.Interfaces.csproj">
-      <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
-      <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Factories\MFR.Objects.FileSystem.Validators.Factories.csproj">
       <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>

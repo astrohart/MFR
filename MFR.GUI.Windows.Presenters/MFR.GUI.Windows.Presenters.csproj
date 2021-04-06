@@ -83,9 +83,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.3\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -131,10 +129,6 @@
     <ProjectReference Include="..\MFR.GUI.Controls.Interfaces\MFR.GUI.Controls.Interfaces.csproj">
       <Project>{3F9D1447-D681-4541-9E9B-049DF38040AC}</Project>
       <Name>MFR.GUI.Controls.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Controls\MFR.GUI.Controls.csproj">
-      <Project>{B4DAD65F-9F1B-4305-9DA2-763D6745924A}</Project>
-      <Name>MFR.GUI.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Factories\MFR.GUI.Dialogs.Factories.csproj">
       <Project>{58F401C9-2722-4D62-8962-EDE93E43F5F7}</Project>
