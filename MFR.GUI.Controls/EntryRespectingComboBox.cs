@@ -35,6 +35,15 @@ namespace MFR.GUI.Controls
             _enteredText = Text;
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.TextChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+
+            _enteredText = Text;
+        }
+
         /// <summary>
         /// Gets the text, verbatim, that was typed in the Combo Box's editing
         /// field, by the user.
@@ -110,6 +119,8 @@ namespace MFR.GUI.Controls
         protected override void OnSelectedIndexChanged(EventArgs e)
         {
             base.OnSelectedIndexChanged(e);
+
+            _enteredText = Text;
 
             ClearSelection();
         }
