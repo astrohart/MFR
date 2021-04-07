@@ -109,6 +109,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
+      <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Interfaces\MFR.Objects.FileSystem.Retrievers.Interfaces.csproj">
       <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>

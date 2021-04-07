@@ -117,6 +117,10 @@
       <Project>{FF2280A0-EF22-4FB0-9BE7-46D12DCFDEAB}</Project>
       <Name>MFR.Objects.Expressions.Registry</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Metadata.Registry\MFR.Objects.Metadata.Registry.csproj">
+      <Project>{DC24E4DB-E451-4B00-A96B-CFF306CA64F6}</Project>
+      <Name>MFR.Objects.Metadata.Registry</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

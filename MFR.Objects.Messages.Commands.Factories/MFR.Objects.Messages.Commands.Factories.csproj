@@ -121,6 +121,10 @@
       <Project>{CE6BFC76-095E-48DC-8189-A87CAAAC655D}</Project>
       <Name>MFR.Objects.Messages.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Metadata.Registry.Factories\MFR.Objects.Metadata.Registry.Factories.csproj">
       <Project>{AC4B0CEA-B2E5-4A02-B22A-C74342FC5310}</Project>
       <Name>MFR.Objects.Metadata.Registry.Factories</Name>

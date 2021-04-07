@@ -142,6 +142,10 @@
       <Project>{B1D2DCCC-5BB4-4C1C-A52D-E21AA4AE6634}</Project>
       <Name>MFR.GUI.Initializers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Presenters.Interfaces\MFR.GUI.Presenters.Interfaces.csproj">
+      <Project>{079EC9B7-0884-46B5-B567-FFFB1647392E}</Project>
+      <Name>MFR.GUI.Presenters.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Interfaces\MFR.GUI.Windows.Interfaces.csproj">
       <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
       <Name>MFR.GUI.Windows.Interfaces</Name>
