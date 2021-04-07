@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using xyLOGIX.Core.Debug;
@@ -142,6 +143,7 @@ namespace MFR.Objects.Messages.Actions
             /// cleanup code to properly release system resources consumed by
             /// elements of the cache, prior to the cache itself being emptied.
             /// </param>
+            [Log(AttributeExclude = true)]
             public static void Clear(
                 Action<TInput, TResult> elementAction = null)
             {
