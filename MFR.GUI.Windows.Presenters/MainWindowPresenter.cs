@@ -163,43 +163,19 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets the text to be searched for during the operations.
         /// </summary>
         private string FindWhat
-        {
-            get {
-                var result = string.Empty;
-                _mainWindow.FindWhatComboBox.InvokeIfRequired(
-                    () => result = _mainWindow.FindWhatComboBox.EnteredText
-                );
-                return result;
-            }
-        }
+            => _mainWindow.FindWhatComboBox.EnteredText;
 
         /// <summary>
         /// Gets the replacement text to be used during the operations.
         /// </summary>
         private string ReplaceWith
-        {
-            get {
-                var result = string.Empty;
-                _mainWindow.ReplaceWithComboBox.InvokeIfRequired(
-                    () => result = _mainWindow.ReplaceWithComboBox.EnteredText
-                );
-                return result;
-            }
-        }
+            => _mainWindow.ReplaceWithComboBox.EnteredText;
 
         /// <summary>
         /// Gets the path to the starting folder of the search.
         /// </summary>
         private string StartingFolder
-        {
-            get {
-                var result = string.Empty;
-                _mainWindow.StartingFolderComboBox.InvokeIfRequired(
-                    () => result = _mainWindow.StartingFolderComboBox.EnteredText
-                );
-                return result;
-            }
-        }
+            => _mainWindow.StartingFolderComboBox.EnteredText;
 
         /// <summary>
         /// Fluent-builder method for initializing the history manager
