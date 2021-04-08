@@ -6,6 +6,8 @@ namespace MFR.Objects.Generators.RegularExpressions.Interfaces
     /// Defines the publicly-exposed methods and properties of an object that generates regular expressions of a given type.
     /// </summary>
     public interface IRegularExpressionGenerator : IGenerator<string, string>,
-        IFixedRegularExpressionTypeObject {
+        IFixedRegularExpressionTypeObject 
+    {
+        // TODO: Add event, method, and property definitions here
     }
 }
