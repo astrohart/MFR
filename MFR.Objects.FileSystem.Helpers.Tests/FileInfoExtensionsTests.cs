@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Providers;
 using MFR.Objects.Engines.Replacement.Factories;
 using MFR.Objects.Engines.Replacement.Intefaces;
 using MFR.Objects.Expressions.Matches.Factories;
@@ -47,11 +48,17 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         {
             Assert.Pass();
 
+            /*
             var configuration =
                 ConfigurationBuilder.BuildConfigurationForUseCase(
-                    true, /* match case */
+                    true, /* match case
                     true
-                ); /* match whole word */
+                ); /* match whole word 
+            */
+
+            ConfigurationProvider.Load();
+
+            var configuration = ConfigurationProvider.Configuration;
 
             IFileSystemEntry newFileSystemEntry = MakeNewFileSystemEntry
                                                   .ForPath(

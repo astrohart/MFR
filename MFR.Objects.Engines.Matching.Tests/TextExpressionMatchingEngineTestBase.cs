@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Engines.Matching.Factories;
 using MFR.Objects.Engines.Matching.Interfaces;
@@ -683,10 +684,10 @@ namespace MFR.Objects.Engines.Matching.Tests
         public void
             Test_FalseReturnedIfCaseDoesNotMatch_AndTrueReturnedWhenCaseDoesMatch_IfSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
-            _matcher.Configuration =
-                new Configuration.Configuration {
-                    MatchCase = true, MatchExactWord = true
-                };
+            _matcher.Configuration = ConfigurationBuilder.Instance
+                .SetMatchCase()
+                .AndSetMatchExactWord()
+                .Build();
             Assert.IsFalse(
                 _matcher.IsMatch("foo.tests", "Foo.Tests", "Bar.Tests")
             );
