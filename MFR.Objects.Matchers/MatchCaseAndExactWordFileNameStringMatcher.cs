@@ -46,8 +46,8 @@ namespace MFR.Objects.Matchers
         /// Gets one of the
         /// <see
         ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
-        /// values
-        /// that corresponds to the type of operation being performed.
+        /// values that
+        /// corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
         {
@@ -109,17 +109,39 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.RegexMatchesWithCase($@"{Regex.Escape(findWhat)}(?=[a-z.]*[^A-Z.])");
+                result = value.RegexMatchesWithCase(GetPattern(findWhat));
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = false;         // no match in the event of an exception
+                result = false; // no match in the event of an exception
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Formulates the pattern to use for searching.
+        /// </summary>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to be searched.
+        /// </param>
+        /// <returns>
+        /// String containing the full regular expression to be used for
+        /// searching, or the input if the <paramref name="findWhat" /> is
+        /// <see
+        ///     langword="null" />
+        /// or whitespace.
+        /// </returns>
+        [Log(AttributeExclude = true)]
+        private static string GetPattern(string findWhat)
+        {
+            if (string.IsNullOrWhiteSpace(findWhat)) return findWhat;
+
+            //return $@"{Regex.Escape(findWhat)}(?=[a-z.]*[^A-Z.])";
+            return $@"(?<![\w]){Regex.Escape(findWhat)}(?![\w])";
         }
     }
 }

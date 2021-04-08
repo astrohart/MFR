@@ -30,7 +30,7 @@ namespace MFR.Objects.Tests.Common
         /// Renamer project.
         /// </summary>
         public const string MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.sln";
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.sln";
 
         public const string PORTFOLIO_MONITOR_X_UDL_FILE =
             @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\x.udl";
