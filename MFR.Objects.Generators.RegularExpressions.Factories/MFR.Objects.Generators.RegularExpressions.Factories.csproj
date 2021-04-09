@@ -88,6 +88,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetRegularExpressionGenerator.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -108,6 +109,28 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Generators.Interfaces\MFR.Objects.Generators.Interfaces.csproj">
+      <Project>{8CEAF2F1-3B2C-479E-84FC-046AC5CB3FDE}</Project>
+      <Name>MFR.Objects.Generators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
+      <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Interfaces\MFR.Objects.Generators.RegularExpressions.Interfaces.csproj">
+      <Project>{54580B90-4025-4233-B0F0-91264AB1045D}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions\MFR.Objects.Generators.RegularExpressions.csproj">
+      <Project>{43FBFA8B-262D-4424-8C89-41A7F6427BC8}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators\MFR.Objects.Generators.csproj">
+      <Project>{ADD0CDC1-7B5D-4749-B0A4-1BE9A06032A5}</Project>
+      <Name>MFR.Objects.Generators</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
