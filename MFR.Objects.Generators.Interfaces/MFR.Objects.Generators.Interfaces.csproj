@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{8CEAF2F1-3B2C-479E-84FC-046AC5CB3FDE}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -109,12 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Generators.Constants\MFR.Objects.Generators.Constants.csproj">
-      <Project>{AB4BEBA8-C615-481E-AD24-5F12BEDFAB4D}</Project>
-      <Name>MFR.Objects.Generators.Constants</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

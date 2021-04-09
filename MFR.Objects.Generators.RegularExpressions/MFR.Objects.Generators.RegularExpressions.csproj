@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{43FBFA8B-262D-4424-8C89-41A7F6427BC8}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -111,14 +112,6 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Generators.Constants\MFR.Objects.Generators.Constants.csproj">
-      <Project>{AB4BEBA8-C615-481E-AD24-5F12BEDFAB4D}</Project>
-      <Name>MFR.Objects.Generators.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Generators.Interfaces\MFR.Objects.Generators.Interfaces.csproj">
-      <Project>{8CEAF2F1-3B2C-479E-84FC-046AC5CB3FDE}</Project>
-      <Name>MFR.Objects.Generators.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
       <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
@@ -126,10 +119,6 @@
     <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Interfaces\MFR.Objects.Generators.RegularExpressions.Interfaces.csproj">
       <Project>{54580B90-4025-4233-B0F0-91264AB1045D}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Generators\MFR.Objects.Generators.csproj">
-      <Project>{ADD0CDC1-7B5D-4749-B0A4-1BE9A06032A5}</Project>
-      <Name>MFR.Objects.Generators</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

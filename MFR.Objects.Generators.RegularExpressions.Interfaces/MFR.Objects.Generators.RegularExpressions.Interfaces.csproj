@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{54580B90-4025-4233-B0F0-91264AB1045D}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -111,10 +112,6 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Generators.Interfaces\MFR.Objects.Generators.Interfaces.csproj">
-      <Project>{8CEAF2F1-3B2C-479E-84FC-046AC5CB3FDE}</Project>
-      <Name>MFR.Objects.Generators.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
       <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
