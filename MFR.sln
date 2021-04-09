@@ -337,6 +337,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Generators.Constant
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Generators.Interfaces", "..\xyLOGIX.Generators\xyLOGIX.Generators.Interfaces\xyLOGIX.Generators.Interfaces.csproj", "{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Generators.RegularExpressions.Factories.Tests", "MFR.Objects.Generators.RegularExpressions.Factories.Tests\MFR.Objects.Generators.RegularExpressions.Factories.Tests.csproj", "{5F160308-21A2-417C-8EDC-238CD789D7F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1665,6 +1667,14 @@ Global
 		{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}.Release|x64.Build.0 = Release|x64
 		{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}.Release|x86.ActiveCfg = Release|x86
 		{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}.Release|x86.Build.0 = Release|x86
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Debug|x64.ActiveCfg = Debug|x64
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Debug|x64.Build.0 = Debug|x64
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Debug|x86.ActiveCfg = Debug|x86
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Debug|x86.Build.0 = Debug|x86
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Release|x64.ActiveCfg = Release|x64
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Release|x64.Build.0 = Release|x64
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Release|x86.ActiveCfg = Release|x86
+		{5F160308-21A2-417C-8EDC-238CD789D7F1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
