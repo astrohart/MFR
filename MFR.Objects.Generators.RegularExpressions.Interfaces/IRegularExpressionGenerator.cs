@@ -1,4 +1,4 @@
-﻿using MFR.Objects.Generators.Interfaces;
+﻿using xyLOGIX.Generators.Interfaces;
 
 namespace MFR.Objects.Generators.RegularExpressions.Interfaces
 {

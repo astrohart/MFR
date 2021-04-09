@@ -112,6 +112,10 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Generators\xyLOGIX.Generators.Interfaces\xyLOGIX.Generators.Interfaces.csproj">
+      <Project>{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}</Project>
+      <Name>xyLOGIX.Generators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
       <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>

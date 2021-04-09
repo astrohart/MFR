@@ -1,6 +1,7 @@
-﻿using MFR.Objects.Generators.Constants;
-using MFR.Objects.Generators.RegularExpressions.Constants;
+﻿using MFR.Objects.Generators.RegularExpressions.Constants;
 using MFR.Objects.Generators.RegularExpressions.Interfaces;
+using xyLOGIX.Generators;
+using xyLOGIX.Generators.Constants;
 
 namespace MFR.Objects.Generators.RegularExpressions
 {
