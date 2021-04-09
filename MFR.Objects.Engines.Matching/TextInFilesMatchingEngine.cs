@@ -51,9 +51,7 @@ namespace MFR.Objects.Engines.Matching
         /// corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.ReplaceTextInFiles;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match

@@ -30,9 +30,7 @@ namespace MFR.Objects.Replacers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameSubFolders;
+            => OperationType.RenameSubFolders;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

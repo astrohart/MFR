@@ -1,7 +1,8 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -46,13 +47,11 @@ namespace MFR.Objects.Matchers
         /// Gets one of the
         /// <see
         ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
-        /// values
-        /// that corresponds to the type of operation being performed.
+        /// values that
+        /// corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchCaseAndExactWord;
+            => TextMatchingConfiguration.MatchCaseAndExactWord;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -95,14 +94,18 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.RegexMatchesWithCase($@"{Regex.Escape(findWhat)}(?=[a-z.]*[^A-Z.])");
+                var regex = GetRegularExpressionGenerator
+                            .For(RegularExpressionType.MatchExactWordOnly)
+                            .Generate(findWhat);
+
+                result = value.RegexMatchesWithCase(regex);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = false;         // no match found in the event of an exception
+                result = false; // no match found in the event of an exception
             }
 
             return result;

@@ -49,9 +49,7 @@ namespace MFR.Objects.Matchers.Factories
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-        {
-            get;
-        } = OperationType.ReplaceTextInFiles;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Creates a new instance of an object that implements the

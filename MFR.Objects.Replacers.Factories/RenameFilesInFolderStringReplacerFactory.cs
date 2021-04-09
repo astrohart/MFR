@@ -49,9 +49,7 @@ namespace MFR.Objects.Replacers.Factories
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameFilesInFolder;
+            => OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Creates a new instance of an object that implements the

@@ -40,8 +40,6 @@ namespace MFR.Objects.TextValues.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameFilesInFolder;
+            => OperationType.RenameFilesInFolder;
     }
 }

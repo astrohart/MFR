@@ -89,9 +89,7 @@ namespace MFR.Objects.Configuration.Providers
         /// Gets the default filename for the config file.
         /// </summary>
         public static string DefaultConfigFileName
-        {
-            get;
-        } = "config.json";
+            => "config.json";
 
         private static IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadConfigPathAction

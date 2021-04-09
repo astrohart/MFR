@@ -57,9 +57,7 @@ namespace MFR.Objects.Engines.Matching
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameSubFolders;
+            => OperationType.RenameSubFolders;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match

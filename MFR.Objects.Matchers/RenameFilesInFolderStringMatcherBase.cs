@@ -20,9 +20,7 @@ namespace MFR.Objects.Matchers
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameFilesInFolder;
+            => OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match

@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -50,9 +52,7 @@ namespace MFR.Objects.Matchers
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchExactWordOnly;
+            => TextMatchingConfiguration.MatchExactWordOnly;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -93,7 +93,11 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.RegexMatchesNoCase($@"{Regex.Escape(findWhat)}(?=[a-z.]*[^A-Z.])");
+                var regex = GetRegularExpressionGenerator
+                            .For(RegularExpressionType.MatchExactWordOnly)
+                            .Generate(findWhat);
+
+                result = value.RegexMatchesNoCase(regex);
             }
             catch (Exception ex)
             {

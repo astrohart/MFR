@@ -43,9 +43,7 @@ namespace MFR.Objects.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-        {
-            get;
-        } = OperationType.ReplaceTextInFiles;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the

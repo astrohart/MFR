@@ -63,9 +63,7 @@ namespace MFR.Objects.Engines.Replacement
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.ReplaceTextInFiles;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

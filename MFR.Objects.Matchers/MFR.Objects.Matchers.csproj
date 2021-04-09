@@ -139,6 +139,22 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.Interfaces\MFR.Objects.Generators.Interfaces.csproj">
+      <Project>{8CEAF2F1-3B2C-479E-84FC-046AC5CB3FDE}</Project>
+      <Name>MFR.Objects.Generators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
+      <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Factories\MFR.Objects.Generators.RegularExpressions.Factories.csproj">
+      <Project>{E0886AC9-96F3-4FDA-86AA-4BA23BAC7A83}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Interfaces\MFR.Objects.Generators.RegularExpressions.Interfaces.csproj">
+      <Project>{54580B90-4025-4233-B0F0-91264AB1045D}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Matchers.Interfaces\MFR.Objects.Matchers.Interfaces.csproj">
       <Project>{740261A5-424C-4429-9C08-FED791D0F051}</Project>
       <Name>MFR.Objects.Matchers.Interfaces</Name>

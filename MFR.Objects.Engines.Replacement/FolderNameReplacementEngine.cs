@@ -64,9 +64,7 @@ namespace MFR.Objects.Engines.Replacement
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameSubFolders;
+            => OperationType.RenameSubFolders;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

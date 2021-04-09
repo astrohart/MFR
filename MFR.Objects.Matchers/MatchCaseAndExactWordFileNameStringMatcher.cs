@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -50,9 +52,7 @@ namespace MFR.Objects.Matchers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchCaseAndExactWord;
+            => TextMatchingConfiguration.MatchCaseAndExactWord;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -100,16 +100,15 @@ namespace MFR.Objects.Matchers
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            /*
-             * OKAY, for renaming a file in a folder, and to match the exact word, we
-             * simply execute a "Equals" match.
-             */
-
             bool result;
 
             try
             {
-                result = value.RegexMatchesWithCase(GetPattern(findWhat));
+                var regex = GetRegularExpressionGenerator
+                            .For(RegularExpressionType.MatchExactWordOnly)
+                            .Generate(findWhat);
+
+                result = value.RegexMatchesWithCase(regex);
             }
             catch (Exception ex)
             {

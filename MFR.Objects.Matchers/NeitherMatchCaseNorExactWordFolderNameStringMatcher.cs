@@ -44,9 +44,7 @@ namespace MFR.Objects.Matchers
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.NeitherMatchCaseNorExactWord;
+            => TextMatchingConfiguration.NeitherMatchCaseNorExactWord;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match

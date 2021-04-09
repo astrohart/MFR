@@ -21,9 +21,7 @@ namespace MFR.Objects.Matchers
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-        {
-            get;
-        } = OperationType.ReplaceTextInFiles;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets one of the

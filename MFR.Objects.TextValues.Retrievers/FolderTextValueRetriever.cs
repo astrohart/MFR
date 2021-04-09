@@ -37,8 +37,6 @@ namespace MFR.Objects.TextValues.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.RenameSubFolders;
+            => OperationType.RenameSubFolders;
     }
 }

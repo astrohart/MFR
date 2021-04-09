@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -46,9 +48,7 @@ namespace MFR.Objects.Matchers
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchExactWordOnly;
+            => TextMatchingConfiguration.MatchExactWordOnly;
 
         /// <summary>
         /// Determines whether a <paramref name="value"/> string is a match
@@ -92,16 +92,15 @@ namespace MFR.Objects.Matchers
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            /*
-             * OKAY, for renaming a file in a folder, and to match the exact word, we
-             * simply execute a "Equals No Case" match.
-             */
-
             bool result;
 
             try
             {
-                result = value.EqualsNoCase(findWhat);
+                var regex = GetRegularExpressionGenerator
+                            .For(RegularExpressionType.MatchExactWordOnly)
+                            .Generate(findWhat);
+
+                result = value.RegexMatchesNoCase(regex);
             }
             catch (Exception ex)
             {

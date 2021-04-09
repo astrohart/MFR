@@ -47,9 +47,7 @@ namespace MFR.Objects.Replacers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchCaseOnly;
+            => TextMatchingConfiguration.MatchCaseOnly;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

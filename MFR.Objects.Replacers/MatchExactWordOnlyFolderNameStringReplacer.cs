@@ -51,9 +51,7 @@ namespace MFR.Objects.Replacers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchExactWordOnly;
+            => TextMatchingConfiguration.MatchExactWordOnly;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

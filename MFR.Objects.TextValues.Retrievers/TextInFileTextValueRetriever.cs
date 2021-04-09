@@ -39,9 +39,7 @@ namespace MFR.Objects.TextValues.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-        {
-            get;
-        } = OperationType.ReplaceTextInFiles;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string containing the text to be searched, from the

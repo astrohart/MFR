@@ -48,9 +48,7 @@ namespace MFR.Objects.Replacers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override TextMatchingConfiguration TextMatchingConfiguration
-        {
-            get;
-        } = TextMatchingConfiguration.MatchCaseAndExactWord;
+            => TextMatchingConfiguration.MatchCaseAndExactWord;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
