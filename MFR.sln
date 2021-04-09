@@ -211,7 +211,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Operations.Exceptions", "MFR.Objects.Operations.Exceptions\MFR.Objects.Operations.Exceptions.csproj", "{12CC9C12-26AD-4D61-B59E-0A1932214ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects", "MFR.Application\MFR.Objects.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects", "MFR.Objects\MFR.Objects.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search", "MFR.Objects.Filters.Search\MFR.Objects.Filters.Search.csproj", "{66851DA3-B5BF-4992-B627-80D7EAC3084E}"
 EndProject
@@ -219,11 +219,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.FileSystem.Exceptions", "MFR.Objects.FileSystem.Exceptions\MFR.Objects.FileSystem.Exceptions.csproj", "{935EAA9E-4863-41DA-9CC8-D05B0F5B7BD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History", "MFR.Application.Managers.History\MFR.Objects.Managers.History.csproj", "{37DAE2DA-DEEB-4400-9596-9F93B70466C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History", "MFR.Objects.Managers.History\MFR.Objects.Managers.History.csproj", "{37DAE2DA-DEEB-4400-9596-9F93B70466C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History.Interfaces", "MFR.Application.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj", "{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History.Interfaces", "MFR.Objects.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj", "{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History.Factories", "MFR.Application.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj", "{5AC040AA-21BB-4258-A1F3-DF260FC27574}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.History.Factories", "MFR.Objects.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj", "{5AC040AA-21BB-4258-A1F3-DF260FC27574}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Renamers.Files", "MFR.Objects.Renamers.Files\MFR.Objects.Renamers.Files.csproj", "{197747FD-A37B-4518-9A5F-DD9E236A8291}"
 EndProject

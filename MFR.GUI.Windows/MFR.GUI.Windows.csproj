@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{7D4538BB-9DDA-4DEE-8EDA-853BD4AFE22B}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -145,11 +146,11 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Application.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj">
+    <ProjectReference Include="..\MFR.Objects.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj">
       <Project>{5AC040AA-21BB-4258-A1F3-DF260FC27574}</Project>
       <Name>MFR.Objects.Managers.History.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Application.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Objects.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj">
       <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
       <Name>MFR.Objects.Managers.History.Interfaces</Name>
     </ProjectReference>

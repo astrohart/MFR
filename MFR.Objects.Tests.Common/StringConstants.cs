@@ -39,7 +39,7 @@ namespace MFR.Objects.Tests.Common
         /// String consisting of the path to a subfolder of a project's \bin folder.
         /// </summary>
         public const string SUBFOLDER_OF_BIN_DIR =
-            @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.Objects.Tests\bin\x86\Release";
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\bin\x86\Release";
 
         /// <summary>
         /// String consisting of the path to a subfolder of a solution's \.git
@@ -52,7 +52,7 @@ namespace MFR.Objects.Tests.Common
         /// String consisting of the path to a subfolder of a project's \obj folder.
         /// </summary>
         public const string SUBFOLDER_OF_OBJ_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.Objects.Tests\obj\x86\Release";
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\obj\x86\Release";
 
         /// <summary>
         /// String consisting of the path to a subfolder of the '\packages'
