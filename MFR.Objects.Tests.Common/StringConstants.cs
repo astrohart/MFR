@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MFR.Objects.Tests.Common
 {
@@ -12,6 +13,11 @@ namespace MFR.Objects.Tests.Common
         /// The executable filename of the DevEnv (Visual Studio) application.
         /// </summary>
         public const string DEVENV_FILENAME = "devenv.exe";
+
+        /// <summary>
+        /// String that contains a fake project name.
+        /// </summary>
+        public const string FAKE_PROJECT_NAME_WITH_DOTS = "Foo.Bar.Baz.Boid";
 
         /// <summary>
         /// String containing the path of a folder that the RenameSubFolder
@@ -101,6 +107,16 @@ namespace MFR.Objects.Tests.Common
             Path.GetTempFileName();
 
         /// <summary>
+        /// String containing a regex searching for the
+        /// <see
+        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS" />
+        /// constant's value as an exact-word match.
+        /// </summary>
+        public static readonly string
+            FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX =
+                $@"(?<![\w]){Regex.Escape(FAKE_PROJECT_NAME_WITH_DOTS)}(?(?=\S)(?=[a-z.]*[^A-Z.])|(?![\w]))";
+
+        /// <summary>
         /// String consisting of the path to a file that is guaranteed to exist
         /// on the local machine.
         /// </summary>
@@ -130,17 +146,6 @@ namespace MFR.Objects.Tests.Common
             FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION =
                 Path.GetFileNameWithoutExtension(FILE_GUARANTEED_TO_EXIST);
 
-        /// <summary>
-        /// String consisting of the path to a folder that we can guarantee will
-        /// not exist on the system.
-        /// </summary>
-        public static readonly string NONEXISTENT_FOLDER =
-            Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Windows),
-                Guid.NewGuid()
-                    .ToString("N")
-            );
-
         public static readonly string FOLDER_THAT_IS_GUARANTEED_TO_EXIST =
             Environment.GetFolderPath(Environment.SpecialFolder.Windows);
 
@@ -168,6 +173,16 @@ namespace MFR.Objects.Tests.Common
         /// </summary>
         public static readonly string NONEXISTENT_FILE =
             @"C:\jkldasklopwmas\alwfvowlf\alrfn.sklj";
+
+        /// <summary>
+        /// String consisting of the path to a folder that we can guarantee will
+        /// not exist on the system.
+        /// </summary>
+        public static readonly string NONEXISTENT_FOLDER = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.Windows), Guid
+                .NewGuid()
+                .ToString("N")
+        );
 
         /// <summary>
         /// Constant whose value is the null string.
