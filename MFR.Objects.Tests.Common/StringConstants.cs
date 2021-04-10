@@ -32,6 +32,14 @@ namespace MFR.Objects.Tests.Common
         public const string GIBBERISH = "kjfsadjlksdfajlksdfkjldf";
 
         /// <summary>
+        /// String containing the path to a .csproj file in the Junk Solution
+        /// that has factory objects.
+        /// </summary>
+        public const string
+            JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH =
+                @"C:\Users\Administrator\source\junk\MyJunkSolution\MyJunkSolution.Processors.Factories\MyJunkSolution.Processors.Factories.csproj";
+
+        /// <summary>
         /// String containing the path to the .sln file for the Mass File
         /// Renamer project.
         /// </summary>
@@ -105,6 +113,16 @@ namespace MFR.Objects.Tests.Common
         /// </summary>
         public static readonly string EXISTING_TEMP_FILE =
             Path.GetTempFileName();
+
+        /// <summary>
+        /// String consisting of the same value as the
+        /// <see
+        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.EXISTING_TEMP_FILE" />
+        /// constant, but only containing the filename and extension of the file
+        /// instead of the full path.
+        /// </summary>
+        public static readonly string EXISTING_TEMP_FILE_FILENAME_ONLY =
+            Path.GetFileName(EXISTING_TEMP_FILE);
 
         /// <summary>
         /// String containing a regex searching for the
@@ -196,15 +214,5 @@ namespace MFR.Objects.Tests.Common
             Environment.GetFolderPath(Environment.SpecialFolder.Windows),
             "System32"
         );
-
-        /// <summary>
-        /// String consisting of the same value as the
-        /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.EXISTING_TEMP_FILE" />
-        /// constant, but only containing the filename and extension of the file
-        /// instead of the full path.
-        /// </summary>
-        private static readonly string EXISTING_TEMP_FILE_FILENAME_ONLY =
-            Path.GetFileName(EXISTING_TEMP_FILE);
     }
 }
