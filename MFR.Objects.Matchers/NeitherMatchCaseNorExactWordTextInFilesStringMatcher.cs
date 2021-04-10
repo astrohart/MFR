@@ -92,7 +92,13 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.MatchesNoCase(findWhat, replaceWith);
+                //result = value.MatchesNoCase(findWhat, replaceWith);
+
+                /*
+                 * For locating text in files, just do a dumb 'contains' search.
+                 */
+
+                result = value.ContainsNoCase(findWhat);
             }
             catch (Exception ex)
             {

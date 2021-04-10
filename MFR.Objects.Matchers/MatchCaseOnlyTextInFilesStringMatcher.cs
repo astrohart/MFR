@@ -93,7 +93,17 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.MatchesWithCase(findWhat, replaceWith);
+                //result = value.MatchesWithCase(findWhat, replaceWith);
+
+                /*
+                 * OKAY, for doing a case-sensitive search to find a match to
+                 * the findWhat text in a file, we do not care whether the
+                 * match is according to being sensitive to whether the findWhat
+                 * value contains replaceWith or vice-versa.  Just do a dumb
+                 * "Contains" search on the file's text.
+                 */
+                
+                result = value.Contains(findWhat);
             }
             catch (Exception ex)
             {
