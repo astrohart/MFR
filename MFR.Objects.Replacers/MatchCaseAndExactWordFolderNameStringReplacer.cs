@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -109,8 +111,10 @@ namespace MFR.Objects.Replacers
 
             try
             {
-                var regex = $@"^{Regex.Escape(pattern)}$";   // here, 'match whole word' means 'exact match'
-                result = source.RegexReplaceWithCase(regex, dest);
+                // here, 'match whole word' means 'exact match'
+                // -- and when we say 'exact match' we mean like
+                // 'equals.' this is due to OS folder pathname rules.
+                result = source.RegexReplaceWithCase(GetRegularExpressionGenerator.For(RegularExpressionType.MatchWholeLine).Generate(pattern), dest);
             }
             catch (Exception ex)
             {

@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -46,8 +48,8 @@ namespace MFR.Objects.Replacers
         /// Gets one of the
         /// <see
         ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
-        /// values
-        /// that corresponds to the type of operation being performed.
+        /// values that
+        /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override TextMatchingConfiguration TextMatchingConfiguration
@@ -102,7 +104,11 @@ namespace MFR.Objects.Replacers
             try
             {
                 result = source.RegexReplaceNoCase(
-                    $@"{Regex.Escape(pattern)}(?=[a-z.]*[^A-Z.])", dest,
+                    GetRegularExpressionGenerator.For(
+                                                     RegularExpressionType
+                                                         .MatchExactWordOnly
+                                                 )
+                                                 .Generate(pattern), dest,
                     RegexOptions.Multiline
                 );
             }

@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{11256D02-6133-49CD-9BBE-74FD9BD15312}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -134,6 +135,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Generators\xyLOGIX.Generators.Interfaces\xyLOGIX.Generators.Interfaces.csproj">
+      <Project>{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}</Project>
+      <Name>xyLOGIX.Generators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Objects.Configuration.Constants</Name>
@@ -141,6 +146,18 @@
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
+      <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Factories\MFR.Objects.Generators.RegularExpressions.Factories.csproj">
+      <Project>{E0886AC9-96F3-4FDA-86AA-4BA23BAC7A83}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Interfaces\MFR.Objects.Generators.RegularExpressions.Interfaces.csproj">
+      <Project>{54580B90-4025-4233-B0F0-91264AB1045D}</Project>
+      <Name>MFR.Objects.Generators.RegularExpressions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>

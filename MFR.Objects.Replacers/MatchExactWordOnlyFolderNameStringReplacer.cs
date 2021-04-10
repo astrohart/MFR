@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -114,7 +116,8 @@ namespace MFR.Objects.Replacers
             {
                 // here, 'match whole word' means 'exact match'
                 result = source.RegexReplaceNoCase(
-                    $@"^{Regex.Escape(pattern)}$", dest
+                    GetRegularExpressionGenerator.For(
+                        RegularExpressionType.MatchWholeLine).Generate(pattern), dest
                 );
             }
             catch (Exception ex)

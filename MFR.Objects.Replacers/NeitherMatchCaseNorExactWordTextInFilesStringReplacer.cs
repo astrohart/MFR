@@ -94,8 +94,7 @@ namespace MFR.Objects.Replacers
                     nameof(pattern)
                 );
 
-            var result = source;    // no replacement in the event of an exception
-
+            string result;
             try
             {
                 result = source.ReplaceNoCase(pattern, dest);

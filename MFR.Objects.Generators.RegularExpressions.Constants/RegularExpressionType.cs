@@ -12,6 +12,11 @@
         MatchExactWordOnly,
 
         /// <summary>
+        /// Matches an entire line from beginning to end.
+        /// </summary>
+        MatchWholeLine,
+
+        /// <summary>
         /// Unknown regular expression type.
         /// </summary>
         Unknown = -1

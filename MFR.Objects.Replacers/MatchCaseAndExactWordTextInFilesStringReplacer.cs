@@ -1,4 +1,6 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -109,7 +111,11 @@ namespace MFR.Objects.Replacers
             try
             {
                 result = source.RegexReplaceWithCase(
-                    $@"{Regex.Escape(pattern)}(?=[a-z.]*[^A-Z.])", dest,
+                    GetRegularExpressionGenerator.For(
+                                                     RegularExpressionType
+                                                         .MatchExactWordOnly
+                                                 )
+                                                 .Generate(pattern), dest,
                     RegexOptions.Multiline
                 );
             }
