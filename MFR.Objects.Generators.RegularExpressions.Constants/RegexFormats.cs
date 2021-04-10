@@ -23,6 +23,6 @@
         /// that <c>using</c> statements bringing in Resources will still work.
         /// </remarks>
         public const string MatchExactWord =
-            @"(?<![\w]){0}(?>\.Properties)(?(?=\S)(?=[a-z.]*[^A-Z.])|(?(?![\w])))";
+            @"(?<![\w]){0}(?(?=\S)(?=(?>\.Properties)[a-z.]*[^A-Z.])|(?(?![\w])))"
     }
 }
