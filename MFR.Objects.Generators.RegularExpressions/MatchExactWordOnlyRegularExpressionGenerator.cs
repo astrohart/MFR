@@ -16,19 +16,21 @@ namespace MFR.Objects.Generators.RegularExpressions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MatchExactWordOnlyRegularExpressionGenerator() { }
+        static MatchExactWordOnlyRegularExpressionGenerator()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected MatchExactWordOnlyRegularExpressionGenerator() { }
+        protected MatchExactWordOnlyRegularExpressionGenerator()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator" />
-        /// .
+        /// Gets a reference to the one and only instance of <see
+        /// cref="T:MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
         public static MatchExactWordOnlyRegularExpressionGenerator Instance
@@ -37,9 +39,8 @@ namespace MFR.Objects.Generators.RegularExpressions
         } = new MatchExactWordOnlyRegularExpressionGenerator();
 
         /// <summary>
-        /// Gets the
-        /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType" />
+        /// Gets the <see
+        /// cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType"/>
         /// value that uniquely identifies which type of regular expressions
         /// that this object handles.
         /// </summary>
@@ -47,19 +48,18 @@ namespace MFR.Objects.Generators.RegularExpressions
             => RegularExpressionType.MatchExactWordOnly;
 
         /// <summary>
-        /// Transforms the input <paramref name="value" /> into the output value.
+        /// Transforms the input <paramref name="value"/> into the output value.
         /// </summary>
         /// <param name="value">
-        /// Reference to an instance of <typeparamref name="TInput" /> that is
+        /// Reference to an instance of <typeparamref name="TInput"/> that is
         /// the value to be transformed.
         /// </param>
         /// <returns>
-        /// A <see cref="T:System.String" /> whose value is the result of the
-        /// transformation.
+        /// A <see cref="T:System.String"/> whose value is the result of the transformation.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="value" />, is
-        /// passed a blank or <see langword="null" /> string for a value.
+        /// Thrown if the required parameter, <paramref name="value"/>, is
+        /// passed a blank or <see langword="null"/> string for a value.
         /// </exception>
         public override string Generate(string value)
         {
@@ -68,8 +68,9 @@ namespace MFR.Objects.Generators.RegularExpressions
                     "Value cannot be null or whitespace.", nameof(value)
                 );
 
-            return
-                $@"(?<![\w]){Regex.Escape(value)}(?(?=\S)(?=[a-z.]*[^A-Z.])|(?![\w]))";
+            return string.Format(
+                RegexFormats.MatchExactWord, Regex.Escape(value)
+            );
         }
     }
 }
