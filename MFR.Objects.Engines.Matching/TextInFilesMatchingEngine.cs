@@ -2,11 +2,15 @@ using MFR.Objects.Configuration.Helpers;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Matchers.Factories;
 using MFR.Objects.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Engines.Matching
 {
+    /// <summary>
+    /// Matches text in a file that is to be (eventually) replaced.
+    /// </summary>
     public class TextInFilesMatchingEngine : TextExpressionMatchingEngineBase
     {
         /// <summary>
@@ -20,6 +24,7 @@ namespace MFR.Objects.Engines.Matching
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public TextInFilesMatchingEngine(IConfiguration configuration) : base(
             configuration
         ) { }
@@ -38,6 +43,7 @@ namespace MFR.Objects.Engines.Matching
         /// Clients who want to new up an instance of this class directly must
         /// use the <c>public</c> constructor.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         public TextInFilesMatchingEngine()
         {
             // TODO: Add default object initialization code here
@@ -50,6 +56,7 @@ namespace MFR.Objects.Engines.Matching
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public override OperationType OperationType
             => OperationType.ReplaceTextInFiles;
 
