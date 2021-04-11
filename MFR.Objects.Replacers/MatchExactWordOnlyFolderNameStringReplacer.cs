@@ -114,10 +114,13 @@ namespace MFR.Objects.Replacers
 
             try
             {
-                // here, 'match whole word' means 'exact match'
+                /* NOTE: Here, the value of 'source' is always the name of the
+                   folder that is furthest down the directory tree.
+                */
                 result = source.RegexReplaceNoCase(
                     GetRegularExpressionGenerator.For(
-                        RegularExpressionType.MatchWholeLine).Generate(pattern), dest
+                        RegularExpressionType.MatchWholeLine)
+                                                 .Generate(pattern), dest
                 );
             }
             catch (Exception ex)

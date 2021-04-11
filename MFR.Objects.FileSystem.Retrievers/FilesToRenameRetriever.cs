@@ -87,6 +87,7 @@ namespace MFR.Objects.FileSystem.Retrievers
                                       SearchOption
                                   )
                                   .Where(ShouldNotSkipFileSystemEntry)
+                                  .ToList() // narrow down list of elements to process
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
                                       fse

@@ -1,6 +1,7 @@
 using MFR.Objects.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.IO;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -104,7 +105,7 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.MatchesWithCase(findWhat, replaceWith);
+                result = Path.GetFileName(value).MatchesWithCase(findWhat, replaceWith);
             }
             catch (Exception ex)
             {

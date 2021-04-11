@@ -1,18 +1,25 @@
 using MFR.Objects.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.IO;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.Objects.Matchers
 {
     /// <summary>
-    /// Matches strings only for the case where Match Case is set to <see
-    /// langword="false"/> and Match Exact Word is set to <see langword="false"/>,
-    /// for the case when a Rename Sub Folders operation is being performed.
+    /// Matches strings only for the case where Match Case is set to
+    /// <see
+    ///     langword="false" />
+    /// and Match Exact Word is set to
+    /// <see
+    ///     langword="false" />
+    /// , for the case when a Rename Sub Folders operation is
+    /// being performed.
     /// </summary>
     public class
-        NeitherMatchCaseNorExactWordFolderNameStringMatcher : RenameSubFoldersStringMatcherBase
+        NeitherMatchCaseNorExactWordFolderNameStringMatcher :
+            RenameSubFoldersStringMatcherBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -28,10 +35,13 @@ namespace MFR.Objects.Matchers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher" />.
+        /// <see
+        ///     cref="T:MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher" />
+        /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static NeitherMatchCaseNorExactWordFolderNameStringMatcher Instance
+        public static NeitherMatchCaseNorExactWordFolderNameStringMatcher
+            Instance
         {
             get;
         } = new NeitherMatchCaseNorExactWordFolderNameStringMatcher();
@@ -40,8 +50,8 @@ namespace MFR.Objects.Matchers
         /// Gets one of the
         /// <see
         ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
-        /// values
-        /// that corresponds to the type of operation being performed.
+        /// values that
+        /// corresponds to the type of operation being performed.
         /// </summary>
         public override TextMatchingConfiguration TextMatchingConfiguration
             => TextMatchingConfiguration.NeitherMatchCaseNorExactWord;
@@ -102,14 +112,15 @@ namespace MFR.Objects.Matchers
 
             try
             {
-                result = value.MatchesNoCase(findWhat, replaceWith);
+                result = Path.GetFileName(value)
+                             .MatchesNoCase(findWhat, replaceWith);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = false;         // no match found in the event of an exception
+                result = false; // no match found in the event of an exception
             }
 
             return result;

@@ -20,6 +20,7 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Cache of already-processed results.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public static IDictionary<TInput, TResult> ResultCache
         {
             get;
@@ -125,45 +126,49 @@ namespace MFR.Objects.Messages.Actions
         }
 
         /// <summary>
-            /// Clears all entries that are currently stored in the result cache.
-            /// <para/>
-            /// Optionally invokes a delegate for each element of the result
-            /// cache prior to performing the clear operation.
-            /// </summary>
-            /// <param name="elementAction">
-            /// (Optional.) Reference to an instance of an instance of a <see
-            /// cref="T:System.Action{TInput, TResult}"/> delegate that is run
-            /// for each element of the cache, just prior to the cache being cleared.
-            /// <para/>
-            /// If this parameter is not a <see langword="null" /> reference, then the code
-            /// referenced by this delegate is invoked for every element of the
-            /// result cache, prior to the cache being cleared.
-            /// <para/>
-            /// This parameter can be useful should callers, say, need to run
-            /// cleanup code to properly release system resources consumed by
-            /// elements of the cache, prior to the cache itself being emptied.
-            /// </param>
-            [Log(AttributeExclude = true)]
-            public static void Clear(
-                Action<TInput, TResult> elementAction = null)
-            {
-                if (IsNullOrEmpty()) return; // nothing to do
+        /// Clears all entries that are currently stored in the result cache.
+        /// <para />
+        /// Optionally invokes a delegate for each element of the result cache
+        /// prior to performing the clear operation.
+        /// </summary>
+        /// <param name="elementAction">
+        /// (Optional.) Reference to an instance of an instance of a
+        /// <see
+        ///     cref="T:System.Action{TInput, TResult}" />
+        /// delegate that is run for
+        /// each element of the cache, just prior to the cache being cleared.
+        /// <para />
+        /// If this parameter is not a <see langword="null" /> reference, then
+        /// the code referenced by this delegate is invoked for every element of
+        /// the result cache, prior to the cache being cleared.
+        /// <para />
+        /// This parameter can be useful should callers, say, need to run
+        /// cleanup code to properly release system resources consumed by
+        /// elements of the cache, prior to the cache itself being emptied.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public static void Clear(Action<TInput, TResult> elementAction = null)
+        {
+            if (IsNullOrEmpty()) return; // nothing to do
 
-                foreach (var element in ResultCache)
-                    elementAction?.Invoke(element.Key, element.Value);
+            foreach (var element in ResultCache)
+                elementAction?.Invoke(element.Key, element.Value);
 
-                ResultCache.Clear();
-            }
-
-            /// <summary>
-            /// Gets a value specifying whether the result cache is a
-            /// <see langword="null" /> reference or if it contains zero items.
-            /// </summary>
-            /// <returns>
-            /// <see langword="true" /> if the result cache is <see langword="null" /> or contains zero
-            /// items; <see langword="false" /> otherwise.
-            /// </returns>
-            public static bool IsNullOrEmpty()
-                => ResultCache == null || ResultCache.Count == 0;
+            ResultCache.Clear();
         }
+
+        /// <summary>
+        /// Gets a value specifying whether the result cache is a
+        /// <see
+        ///     langword="null" />
+        /// reference or if it contains zero items.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the result cache is <see langword="null" />
+        /// or contains zero items; <see langword="false" /> otherwise.
+        /// </returns>
+        [Log(AttributeExclude = true)]
+        public static bool IsNullOrEmpty()
+            => ResultCache == null || ResultCache.Count == 0;
     }
+}

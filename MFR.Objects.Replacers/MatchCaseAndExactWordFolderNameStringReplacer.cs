@@ -3,7 +3,6 @@ using MFR.Objects.Generators.RegularExpressions.Constants;
 using MFR.Objects.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -11,7 +10,8 @@ namespace MFR.Objects.Replacers
 {
     /// <summary>
     /// Replaces strings only for the case where both Match Case and Match Whole
-    /// Word are set to <see langword="true" />, for the Rename Sub Folders operation type.
+    /// Word are set to <see langword="true" />, for the Rename Sub Folders
+    /// operation type.
     /// </summary>
     public class
         MatchCaseAndExactWordFolderNameStringReplacer :
@@ -107,21 +107,25 @@ namespace MFR.Objects.Replacers
                     "Value cannot be null or whitespace.", nameof(dest)
                 );
 
-            var result = source;    // no replacement in the event of an exception
+            var result = source; // no replacement in the event of an exception
 
             try
             {
-                // here, 'match whole word' means 'exact match'
-                // -- and when we say 'exact match' we mean like
-                // 'equals.' this is due to OS folder pathname rules.
-                result = source.RegexReplaceWithCase(GetRegularExpressionGenerator.For(RegularExpressionType.MatchWholeLine).Generate(pattern), dest);
+                /* NOTE: Here, the value of 'source' is always the name of the
+                   folder that is furthest down the directory tree.
+                */
+                result = source.RegexReplaceWithCase(
+                    GetRegularExpressionGenerator
+                        .For(RegularExpressionType.MatchWholeLine)
+                        .Generate(pattern), dest
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = source;    // no replacement in the event of an exception
+                result = source; // no replacement in the event of an exception
             }
 
             return result;
