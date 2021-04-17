@@ -5,7 +5,7 @@ using MFR.Objects.Messages.Constants;
 using MFR.Objects.Messages.Factories;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 
 namespace MFR.Objects.Messages.Actions.Tests
 {

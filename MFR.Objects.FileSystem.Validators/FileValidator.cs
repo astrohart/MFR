@@ -6,6 +6,8 @@ using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using File = Alphaleonis.Win32.Filesystem.File;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Objects.FileSystem.Validators
 {

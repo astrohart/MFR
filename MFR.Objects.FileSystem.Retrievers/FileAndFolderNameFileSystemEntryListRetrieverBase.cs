@@ -1,7 +1,6 @@
 using MFR.Objects.FileSystem.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.IO;
 
 namespace MFR.Objects.FileSystem.Retrievers
 {
@@ -52,6 +51,6 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// </remarks>
         [Log(AttributeExclude = true)]
         public override void Reset()
-            => SearchOption = SearchOption.AllDirectories;
+            => SearchOption = System.IO.SearchOption.AllDirectories;
     }
 }

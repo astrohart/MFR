@@ -4,7 +4,7 @@ using MFR.Objects.Processes.Interfaces;
 using MFR.Objects.RunningObjects.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;

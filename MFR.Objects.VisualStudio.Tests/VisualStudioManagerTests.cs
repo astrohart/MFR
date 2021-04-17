@@ -1,7 +1,7 @@
 using EnvDTE;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 
 namespace MFR.Objects.VisualStudio.Tests
 {

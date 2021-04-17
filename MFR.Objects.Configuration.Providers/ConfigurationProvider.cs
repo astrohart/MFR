@@ -11,6 +11,8 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
+using File = Alphaleonis.Win32.Filesystem.File;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Objects.Configuration.Providers
 {

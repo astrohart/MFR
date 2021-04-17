@@ -6,7 +6,7 @@ using MFR.Objects.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 

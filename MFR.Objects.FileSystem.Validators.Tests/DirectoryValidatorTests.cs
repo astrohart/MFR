@@ -5,6 +5,7 @@ using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;
 using System.IO;
+using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.Objects.FileSystem.Validators.Tests
 {

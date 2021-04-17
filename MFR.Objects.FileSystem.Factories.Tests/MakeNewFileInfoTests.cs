@@ -2,6 +2,8 @@ using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System;
 using System.IO;
+using File = Alphaleonis.Win32.Filesystem.File;
+using FileInfo = Alphaleonis.Win32.Filesystem.FileInfo;
 
 namespace MFR.Objects.FileSystem.Factories.Tests
 {

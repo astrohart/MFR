@@ -3,6 +3,7 @@ using MFR.Objects.Configuration.Interfaces;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
+using File = Alphaleonis.Win32.Filesystem.File;
 
 namespace MFR.Objects.Configuration.Serializers
 {

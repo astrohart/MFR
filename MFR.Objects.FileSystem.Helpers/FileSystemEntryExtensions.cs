@@ -1,6 +1,6 @@
 using MFR.Objects.FileSystem.Interfaces;
 using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 
 namespace MFR.Objects.FileSystem.Helpers
 {

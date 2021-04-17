@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using Alphaleonis.Win32.Filesystem;
 using System.IO;
 
 namespace MFR.Objects.FileSystem.Retrievers

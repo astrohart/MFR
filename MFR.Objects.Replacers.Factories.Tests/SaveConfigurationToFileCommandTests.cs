@@ -4,7 +4,7 @@ using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.Messages.Factories;
 using NUnit.Framework;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 
 namespace MFR.Objects.Replacers.Factories.Tests
 {

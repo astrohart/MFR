@@ -10,7 +10,7 @@ using MFR.Objects.Tests.Common;
 using MFR.Objects.TextValues.Retrievers.Factories;
 using NUnit.Framework;
 using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 

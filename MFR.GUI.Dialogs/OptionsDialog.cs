@@ -3,7 +3,7 @@ using MFR.GUI.Dialogs.Interfaces;
 using MFR.Objects.Configuration.Providers;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Dialogs

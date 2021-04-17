@@ -3,6 +3,7 @@ using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Operations.Interfaces;
 using System;
 using System.Collections.Generic;
+using Alphaleonis.Win32.Filesystem;
 using System.IO;
 
 namespace MFR.Objects.FileSystem.Retrievers.Interfaces

@@ -1,7 +1,7 @@
 using MFR.Objects.Expressions.Matches.Factories.Interfaces;
 using MFR.Objects.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Expressions.Matches.Factories

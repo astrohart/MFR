@@ -5,6 +5,7 @@ using MFR.Objects.Operations.Constants;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using System.Collections.Generic;
+using Alphaleonis.Win32.Filesystem;
 using System.IO;
 using System.Linq;
 

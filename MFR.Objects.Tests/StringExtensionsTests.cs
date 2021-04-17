@@ -1,6 +1,6 @@
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.Objects.Tests
