@@ -5,6 +5,7 @@
 
 - [IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Objects.Win32.IOleMessageFilter')
   - [HandleInComingCall(dwCallType,hTaskCaller,dwTickCount,lpInterfaceInfo)](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall-System-Int32,System-IntPtr,System-Int32,System-IntPtr- 'MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall(System.Int32,System.IntPtr,System.Int32,System.IntPtr)')
+  - [MessagePending(hTaskCallee,dwTickCount,dwPendingType)](#M-MFR-Objects-Win32-IOleMessageFilter-MessagePending-System-IntPtr,System-Int32,System-Int32- 'MFR.Objects.Win32.IOleMessageFilter.MessagePending(System.IntPtr,System.Int32,System.Int32)')
   - [RetryRejectedCall(hTaskCallee,dwTickCount,dwRejectType)](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall-System-IntPtr,System-Int32,System-Int32- 'MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall(System.IntPtr,System.Int32,System.Int32)')
 - [NativeMethods](#T-MFR-Objects-Win32-NativeMethods 'MFR.Objects.Win32.NativeMethods')
   - [CreateBindCtx(reserved,ppbc)](#M-MFR-Objects-Win32-NativeMethods-CreateBindCtx-System-UInt32,System-Runtime-InteropServices-ComTypes-IBindCtx@- 'MFR.Objects.Win32.NativeMethods.CreateBindCtx(System.UInt32,System.Runtime.InteropServices.ComTypes.IBindCtx@)')
@@ -48,42 +49,112 @@ Provides a single entry point for incoming calls.
 
 ##### Returns
 
-This method can return the following values: SERVERCALL_ISHANDLED,
-SERVERCALL_REJECTED, or SERVERCALL_RETRYLATER.
+This method can return the following values:
+`SERVERCALL_ISHANDLED`, `SERVERCALL_REJECTED`, or
+`SERVERCALL_RETRYLATER`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | dwCallType | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The type of incoming call that has been received. Possible values
-are from the enumeration CALLTYPE. |
+are from the enumeration `CALLTYPE`. |
 | hTaskCaller | [System.IntPtr](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IntPtr 'System.IntPtr') | The thread id of the caller. |
 | dwTickCount | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The elapsed tick count since the outgoing call was made, if
-dwCallType is not CALLTYPE_TOPLEVEL. If dwCallType is
-CALLTYPE_TOPLEVEL, dwTickCount should be ignored. |
-| lpInterfaceInfo | [System.IntPtr](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IntPtr 'System.IntPtr') | A pointer to an INTERFACEINFO structure that identifies the object,
-interface, and method being called. In the case of DDE calls,
-lpInterfaceInfo can be NULL because the DDE layer does not return
-interface information. |
+dwCallType is not `CALLTYPE_TOPLEVEL`. If dwCallType is
+`CALLTYPE_TOPLEVEL`, dwTickCount should be ignored. |
+| lpInterfaceInfo | [System.IntPtr](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IntPtr 'System.IntPtr') | A pointer to an `INTERFACEINFO` structure that identifies the
+object, interface, and method being called. In the case of DDE
+calls, `lpInterfaceInfo` can be `NULL` because
+the DDE layer does not return interface information. |
 
 ##### Remarks
 
 This method is called prior to each method invocation originating
 outside the current process and provides the ability to filter or
 reject incoming calls (or callbacks) to an object or a process. If
-implemented, HandleInComingCall is called by COM when an incoming
-COM message is received. Depending on an application's current
-state, a call is either accepted and processed or rejected
-(permanently or temporarily). If SERVERCALL_ISHANDLED is returned,
-the application may be able to process the call, although success
-depends on the interface for which the call is destined. If the call
-cannot be processed, COM returns RPC_E_CALL_REJECTED.
-Input-synchronized and asynchronous calls are dispatched even if the
-application returns SERVERCALL_REJECTED or SERVERCALL_RETRYLATER.
+implemented,
+[HandleInComingCall](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall 'MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall')
+is
+called by COM when an incoming COM message is received. Depending on
+an application's current state, a call is either accepted and
+processed or rejected (permanently or temporarily). If
+`SERVERCALL_ISHANDLED` is returned, the application may be able
+to process the call, although success depends on the interface for
+which the call is destined. If the call cannot be processed, COM
+returns RPC_E_CALL_REJECTED. Input-synchronized and asynchronous
+calls are dispatched even if the application returns
+`SERVERCALL_REJECTED` or `SERVERCALL_RETRYLATER`.
 HandleInComingCall should not be used to hold off updates to objects
 during operations such as band printing. For that purpose, use
-IViewObject::Freeze. You can also use HandleInComingCall to set up
-the application's state so that the call can be processed in the future.
+`IViewObject::Freeze`. You can also use
+[HandleInComingCall](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall 'MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall')
+to
+set up the application's state so that the call can be processed in
+the future.
+
+<a name='M-MFR-Objects-Win32-IOleMessageFilter-MessagePending-System-IntPtr,System-Int32,System-Int32-'></a>
+### MessagePending(hTaskCallee,dwTickCount,dwPendingType) `method`
+
+##### Summary
+
+Provides applications with an opportunity to display a dialog box
+offering retry, cancel, or task-switching options.
+
+##### Returns
+
+This method can return the following values:
+
+-1: The call should be canceled. COM then returns
+`RPC_E_CALL_REJECTED` from the original method call.
+
+0 <= value < 100: The call is to be retried immediately.
+
+100 <= value: COM will wait for this many milliseconds and then
+retry the call.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hTaskCallee | [System.IntPtr](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IntPtr 'System.IntPtr') | The thread id of the called application. |
+| dwTickCount | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The number of elapsed ticks since the call was made. |
+| dwPendingType | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Specifies either SERVERCALL_REJECTED or SERVERCALL_RETRYLATER, as
+returned by the object application. |
+
+##### Remarks
+
+COM calls RetryRejectedCall on the caller's IMessageFilter interface
+immediately after receiving SERVERCALL_RETRYLATER or
+`SERVERCALL_REJECTED` from the
+`IMessageFilter::HandleInComingCall` method on the callee's
+`IMessageFilter` interface.
+
+If a called task rejects a call, the application is probably in a
+state where it cannot handle such calls, possibly only temporarily.
+When this occurs, COM returns to the caller and issues
+[RetryRejectedCall](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall 'MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall')
+to
+determine whether it should retry the rejected call.
+
+Applications should silently retry calls that have returned with
+`SERVERCALL_RETRYLATER`. If, after a reasonable amount of time
+has passed, say about 30 seconds, the application should display the
+busy dialog box; a standard implementation of this dialog box is
+available in the `OLEDLG` library. The callee may momentarily
+be in a state where calls can be handled. The option to wait and
+retry is provided for special kinds of calling applications, such as
+background tasks executing macros or scripts, so that they can retry
+the calls in a nonintrusive way.
+
+If, after a dialog box is displayed, the user chooses to cancel,
+RetryRejectedCall returns -1 and the call will appear to fail with
+`RPC_E_CALL_REJECTED`.
+
+If a client implements IMessageFilter and calls a server method on a
+remote machine,
+[RetryRejectedCall](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall 'MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall')
+will not be called.
 
 <a name='M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall-System-IntPtr,System-Int32,System-Int32-'></a>
 ### RetryRejectedCall(hTaskCallee,dwTickCount,dwRejectType) `method`
@@ -100,8 +171,9 @@ waiting, or to cancel the operation.
 
 ##### Returns
 
-This method can return the following values: PENDINGMSG_CANCELCALL,
-PENDINGMSG_WAITNOPROCESS, or PENDINGMSG_WAITDEFPROCESS.
+This method can return the following values:
+`PENDINGMSG_CANCELCALL`, `PENDINGMSG_WAITNOPROCESS`, or
+`PENDINGMSG_WAITDEFPROCESS`.
 
 ##### Parameters
 
@@ -111,10 +183,10 @@ PENDINGMSG_WAITNOPROCESS, or PENDINGMSG_WAITDEFPROCESS.
 | dwTickCount | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The number of ticks since the call was made. It is calculated from
 the GetTickCount function. |
 | dwRejectType | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The type of call made during which a message or event was received.
-Possible values are from the enumeration PENDINGTYPE, where
-PENDINGTYPE_TOPLEVEL means the outgoing call was not nested within a
-call from another application and PENDINTGYPE_NESTED means the
-outgoing call was nested within a call from another application. |
+Possible values are from the enumeration `PENDINGTYPE`, where
+`PENDINGTYPE_TOPLEVEL` means the outgoing call was not nested
+within a call from another application and `PENDINTGYPE_NESTED`
+means the outgoing call was nested within a call from another application. |
 
 ##### Remarks
 
