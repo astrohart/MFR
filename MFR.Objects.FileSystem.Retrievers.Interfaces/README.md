@@ -101,7 +101,7 @@ is done. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
-`path`
+`rootFolderPath`
 ' parameter cannot be located on the disk. |
 
 <a name='M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-ToFindWhat-System-String-'></a>
