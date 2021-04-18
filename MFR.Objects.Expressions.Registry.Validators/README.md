@@ -21,6 +21,18 @@
 
 MFR.Objects.Expressions.Registry.Validators
 
+##### Summary
+
+Validates the data in the properties of instances of objects that
+implement the [IRegQueryExpression](#T-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression') interface.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Name of the type of data that is being fetched from, or written to, the
+system Registry. |
+
 <a name='M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#ctor'></a>
 ### #ctor() `constructor`
 
@@ -37,18 +49,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets the instance of the object that implements the
-[IRegQueryExpression](#T-MFR-Objects-IRegQueryExpression 'MFR.Objects.IRegQueryExpression')
-interface
-that is being validated.
+Gets the instance of the object that implements the [IRegQueryExpression](#T-MFR-Objects-IRegQueryExpression 'MFR.Objects.IRegQueryExpression') interface that is being validated.
 
 <a name='P-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[RegQueryExpressionValidator](#T-MFR-Objects-RegQueryExpressionValidator 'MFR.Objects.RegQueryExpressionValidator').
+Gets a reference to the one and only instance of [RegQueryExpressionValidator](#T-MFR-Objects-RegQueryExpressionValidator 'MFR.Objects.RegQueryExpressionValidator').
 
 <a name='M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#cctor'></a>
 ### #cctor() `method`
@@ -66,8 +74,7 @@ This method has no parameters.
 
 ##### Summary
 
-Initializes the value of the
-[Expression](#P-MFR-Objects-IRegQueryExpressionValidator-Expression 'MFR.Objects.IRegQueryExpressionValidator.Expression')
+Initializes the value of the [Expression](#P-MFR-Objects-IRegQueryExpressionValidator-Expression 'MFR.Objects.IRegQueryExpressionValidator.Expression')
 property to refer to the data that is to be validated.
 
 ##### Returns
@@ -91,9 +98,7 @@ passed a `null` value. |
 
 ##### Summary
 
-Validates the data. An
-[InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException')
-is thrown if the data is
+Validates the data. An [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') is thrown if the data is
 invalid. No exception means valid.
 
 ##### Parameters
