@@ -17,6 +17,10 @@
 
 MFR.GUI.Controls.Helpers
 
+##### Summary
+
+Helper methods that augment the functionality of a [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox').
+
 <a name='M-MFR-GUI-Controls-Helpers-EntryRespectingComboBoxExtensions-Clear-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox-'></a>
 ### Clear(box) `method`
 
@@ -37,7 +41,7 @@ to be cleared. |
 ##### Remarks
 
 This method removes all the items from the combo box and then blanks
-out the text.
+out the text in the edit-control portion of the combo box.
 
 <a name='M-MFR-GUI-Controls-Helpers-EntryRespectingComboBoxExtensions-IsClear-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox-'></a>
 ### IsClear(box) `method`

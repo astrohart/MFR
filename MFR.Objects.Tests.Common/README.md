@@ -5,6 +5,8 @@
 
 - [ConfigurationBuilder](#T-MFR-Objects-Tests-Common-ConfigurationBuilder 'MFR.Objects.Tests.Common.ConfigurationBuilder')
   - [#ctor()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-#ctor 'MFR.Objects.Tests.Common.ConfigurationBuilder.#ctor')
+  - [_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase')
+  - [_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord')
   - [Instance](#P-MFR-Objects-Tests-Common-ConfigurationBuilder-Instance 'MFR.Objects.Tests.Common.ConfigurationBuilder.Instance')
   - [#cctor()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-#cctor 'MFR.Objects.Tests.Common.ConfigurationBuilder.#cctor')
   - [AndSetMatchExactWord(matchExactWord)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-AndSetMatchExactWord-System-Boolean- 'MFR.Objects.Tests.Common.ConfigurationBuilder.AndSetMatchExactWord(System.Boolean)')
@@ -12,6 +14,8 @@
   - [BuildConfigurationForUseCase(matchCase,matchExactWord)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-BuildConfigurationForUseCase-System-Boolean,System-Boolean- 'MFR.Objects.Tests.Common.ConfigurationBuilder.BuildConfigurationForUseCase(System.Boolean,System.Boolean)')
   - [SetMatchCase(matchCase)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-SetMatchCase-System-Boolean- 'MFR.Objects.Tests.Common.ConfigurationBuilder.SetMatchCase(System.Boolean)')
 - [RegistryDataExchangeTestsBase](#T-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase')
+  - [CONFIG_FILE_DIR](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_DIR')
+  - [CONFIG_FILE_NAME](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_NAME')
   - [CONFIG_FILE_PATH](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_PATH')
   - [KEY_PATH](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-KEY_PATH 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.KEY_PATH')
   - [VALUE_NAME](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-VALUE_NAME 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.VALUE_NAME')
@@ -27,6 +31,7 @@
   - [FAKE_PROJECT_NAME_WITH_DOTS](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS 'MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS')
   - [FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX 'MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX')
   - [FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
+  - [FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY')
   - [FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION')
   - [FOLDER_MATCHING_OPERATION_CRITIERIA](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATION_CRITIERIA 'MFR.Objects.Tests.Common.StringConstants.FOLDER_MATCHING_OPERATION_CRITIERIA')
   - [GIBBERISH](#F-MFR-Objects-Tests-Common-StringConstants-GIBBERISH 'MFR.Objects.Tests.Common.StringConstants.GIBBERISH')
@@ -69,6 +74,21 @@ Empty, protected constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase'></a>
+### _matchCase `constants`
+
+##### Summary
+
+Determines whether the case should be matched during a search for a string.
+
+<a name='F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord'></a>
+### _matchExactWord `constants`
+
+##### Summary
+
+Determines whether a whole word should be matched when searching for
+a string value.
 
 <a name='P-MFR-Objects-Tests-Common-ConfigurationBuilder-Instance'></a>
 ### Instance `property`
@@ -118,8 +138,8 @@ field. Default is `true`. |
 
 Creates a new instance of an object that implements the
 [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
-interface and
-returns a reference to it.
+interface and returns a
+reference to it.
 
 ##### Returns
 
@@ -144,15 +164,17 @@ provided to this class' other methods.
 Provides an instance of an object that implements the
 [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
 interface with its
-`matchCase` and `matchExactWord`
-settings configured as specified for the current use case.
+`matchCase`
+and `matchExactWord` settings
+configured as specified for the current use case.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
 [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
 interface whose
-[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase') and
+[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
+and
 [IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord')
 properties are set to the same values as were passed for the
 `matchCase` and `matchExactWord`
@@ -194,6 +216,24 @@ field. Default is `true.` |
 ##### Namespace
 
 MFR.Objects.Tests.Common
+
+##### Summary
+
+Defines the events, methods, properties, and behaviors for all unit test fixtures that test methods and objects that perform data exchange to and from the system Registry.
+
+<a name='F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR'></a>
+### CONFIG_FILE_DIR `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a folder that stores the configuration file.
+
+<a name='F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME'></a>
+### CONFIG_FILE_NAME `constants`
+
+##### Summary
+
+String containing the name of a configuration file.
 
 <a name='F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH'></a>
 ### CONFIG_FILE_PATH `constants`
@@ -339,6 +379,15 @@ on the local machine.
 ##### Remarks
 
 We started by making this constant equal to the path to NOTEPAD.EXE.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY'></a>
+### FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY `constants`
+
+##### Summary
+
+String consisting of the same text as the
+[FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
+constant, but with just a filename and extension.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION'></a>
 ### FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION `constants`
