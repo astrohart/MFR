@@ -5,6 +5,7 @@
 
 - [ConfigurationSerializer](#T-MFR-Objects-Configuration-Serializers-ConfigurationSerializer 'MFR.Objects.Configuration.Serializers.ConfigurationSerializer')
   - [Load(pathname)](#M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Load-System-String- 'MFR.Objects.Configuration.Serializers.ConfigurationSerializer.Load(System.String)')
+  - [Save(pathname,configuration)](#M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Objects.Configuration.Interfaces.IConfiguration)')
 - [Resources](#T-MFR-Objects-Configuration-Serializers-Properties-Resources 'MFR.Objects.Configuration.Serializers.Properties.Resources')
   - [Culture](#P-MFR-Objects-Configuration-Serializers-Properties-Resources-Culture 'MFR.Objects.Configuration.Serializers.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-Configuration-Serializers-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Serializers.Properties.Resources.ResourceManager')
@@ -33,8 +34,9 @@ specified `pathname`.
 
 Reference to an instance of an object that implements the
 [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
-interface that has
-been initialized with the data present in the file; or `null`
+interface that has been
+initialized with the data present in the file; or
+`null`
 if a problem occurred.
 
 ##### Parameters
@@ -53,6 +55,24 @@ passed a blank or `null` string for a value. |
 | [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
 `pathname`
 parameter, cannot be located on the disk. |
+
+<a name='M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Objects-Configuration-Interfaces-IConfiguration-'></a>
+### Save(pathname,configuration) `method`
+
+##### Summary
+
+Saves configuration data to a file.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of the file that the data
+is to be saved to. |
+| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration')
+interface. |
 
 <a name='T-MFR-Objects-Configuration-Serializers-Properties-Resources'></a>
 ## Resources `type`
