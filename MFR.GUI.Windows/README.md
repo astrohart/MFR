@@ -25,7 +25,7 @@
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
   - [Dispose(disposing)](#M-MFR-GUI-Windows-MainWindow-Dispose-System-Boolean- 'MFR.GUI.Windows.MainWindow.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Windows-MainWindow-InitializeComponent 'MFR.GUI.Windows.MainWindow.InitializeComponent')
-  - [InitializePresenter(configurationPathname)](#M-MFR-GUI-Windows-MainWindow-InitializePresenter 'MFR.GUI.Windows.MainWindow.InitializePresenter')
+  - [InitializePresenter()](#M-MFR-GUI-Windows-MainWindow-InitializePresenter 'MFR.GUI.Windows.MainWindow.InitializePresenter')
   - [OnCheckedChangedSelectDeselectAllCheckBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnCheckedChangedSelectDeselectAllCheckBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnCheckedChangedSelectDeselectAllCheckBox(System.Object,System.EventArgs)')
   - [OnClickBrowseForStartingFolder(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickBrowseForStartingFolder-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickBrowseForStartingFolder(System.Object,System.EventArgs)')
   - [OnClickPerformOperation(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickPerformOperation-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickPerformOperation(System.Object,System.EventArgs)')
@@ -41,6 +41,7 @@
   - [OnPresenterAllHistoryCleared(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterAllHistoryCleared-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterAllHistoryCleared(System.Object,System.EventArgs)')
   - [OnPresenterConfigurationExported(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationExported-System-Object,MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterConfigurationExported(System.Object,MFR.Objects.Configuration.Events.ConfigurationExportedEventArgs)')
   - [OnPresenterConfigurationImported(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationImported-System-Object,MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterConfigurationImported(System.Object,MFR.Objects.Configuration.Events.ConfigurationImportedEventArgs)')
+  - [OnPresenterDataOperationFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationFinished(System.Object,System.EventArgs)')
   - [OnPresenterDataOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Objects-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationStarted(System.Object,MFR.Objects.Operations.Events.DataOperationEventArgs)')
   - [OnPresenterFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterFinished(System.Object,System.EventArgs)')
   - [OnPresenterStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterStarted(System.Object,System.EventArgs)')
@@ -266,7 +267,7 @@ the contents of this method with the code editor.
 This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-MainWindow-InitializePresenter'></a>
-### InitializePresenter(configurationPathname) `method`
+### InitializePresenter() `method`
 
 ##### Summary
 
@@ -274,15 +275,7 @@ Sets up the presenter object and attaches handlers to events that it exposes.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| configurationPathname | [M:MFR.GUI.Windows.MainWindow.InitializePresenter](#T-M-MFR-GUI-Windows-MainWindow-InitializePresenter 'M:MFR.GUI.Windows.MainWindow.InitializePresenter') | (Required.) String containing the pathname of the configuration file. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the `configurationPathname` parameter is blank. |
+This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnCheckedChangedSelectDeselectAllCheckBox-System-Object,System-EventArgs-'></a>
 ### OnCheckedChangedSelectDeselectAllCheckBox(sender,e) `method`
@@ -590,6 +583,38 @@ screen from values stored in the configuration object in the
 [Configuration](#P-MFR-GUI-MainWindowPresenter-Configuration 'MFR.GUI.MainWindowPresenter.Configuration')
 property. This happens most often as a the result of the Import
 Configuration command on the Tools menu.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs-'></a>
+### OnPresenterDataOperationFinished(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-GUI-IMainWindowPresenter-DataOperationFinished 'MFR.GUI.IMainWindowPresenter.DataOperationFinished')
+event raised by the presenter object when a data operation is
+finished.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance
+of the object that raised the event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A
+[EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+
+##### Remarks
+
+This method responds to the event by removing the
+progress bar from the status bar and setting the text of its message
+label back to the idle text. We use the Invoke If Required
+methodology just in case it's not the GUI thread that raised the
+event.
+
+
+
+If the status bar is not presently visible, then
+this method does nothing.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Objects-Operations-Events-DataOperationEventArgs-'></a>
 ### OnPresenterDataOperationStarted(sender,e) `method`
