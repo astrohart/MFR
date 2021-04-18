@@ -11,11 +11,13 @@
   - [WithInput(input)](#M-MFR-Objects-Messages-Actions-ActionBase`2-WithInput-`0- 'MFR.Objects.Messages.Actions.ActionBase`2.WithInput(`0)')
 - [ActionCacheProvider\`2](#T-MFR-Objects-Messages-Actions-ActionCacheProvider`2 'MFR.Objects.Messages.Actions.ActionCacheProvider`2')
   - [ResultCache](#P-MFR-Objects-Messages-Actions-ActionCacheProvider`2-ResultCache 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.ResultCache')
+  - [Add(input,result)](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Add-`0,`1- 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.Add(`0,`1)')
   - [Clear(elementAction)](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Clear-System-Action{`0,`1}- 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.Clear(System.Action{`0,`1})')
   - [IsNullOrEmpty()](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-IsNullOrEmpty 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.IsNullOrEmpty')
 - [CachedResultActionBase\`2](#T-MFR-Objects-Messages-Actions-CachedResultActionBase`2 'MFR.Objects.Messages.Actions.CachedResultActionBase`2')
   - [AddResultToCache(resultToAdd)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-AddResultToCache-`1- 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.AddResultToCache(`1)')
   - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-AsCachedResultAction 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.AsCachedResultAction')
+  - [ClearResultCache(elementAction)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.ClearResultCache(System.Action{`0,`1})')
   - [CommonExecute()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-CommonExecute 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.CommonExecute')
   - [ExecuteOperationIfNotCached()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ExecuteOperationIfNotCached 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.ExecuteOperationIfNotCached')
   - [Finalize()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-Finalize 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.Finalize')
@@ -179,6 +181,24 @@ Helper methods and properties to deal with the result cache.
 
 Cache of already-processed results.
 
+<a name='M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Add-`0,`1-'></a>
+### Add(input,result) `method`
+
+##### Summary
+
+Adds an entry to the cache of previous results of this action.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| input | [\`0](#T-`0 '`0') | (Required.) Instance of an object of type `TInput`. |
+| result | [\`1](#T-`1 '`1') | (Required.) Instance of an object of type `TResult`. |
+
+##### Remarks
+
+If either of `input` or `result` are `null`, then this method does nothing.
+
 <a name='M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Clear-System-Action{`0,`1}-'></a>
 ### Clear(elementAction) `method`
 
@@ -313,6 +333,19 @@ interface. |
 ##### Remarks
 
 Overriders of this method must not call the base class.
+
+<a name='M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ClearResultCache-System-Action{`0,`1}-'></a>
+### ClearResultCache(elementAction) `method`
+
+##### Summary
+
+Clears the cache of results built up from the prior executions of this action.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| elementAction | [System.Action{\`0,\`1}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{`0,`1}') |  |
 
 <a name='M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-CommonExecute'></a>
 ### CommonExecute() `method`
@@ -595,8 +628,8 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType') that is
-being used to identify which message this is.
+Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType') that is being used
+to identify which message this is.
 
 <a name='M-MFR-Objects-Messages-Actions-LoadStringFromRegistryAction-#cctor'></a>
 ### #cctor() `method`
@@ -619,8 +652,9 @@ the result cache.
 
 ##### Returns
 
-Reference to an instance of `TResult` that
-corresponds to the current input or `null` if an issue occurred.
+Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+interface that corresponds to the result of executing the action.
 
 ##### Parameters
 
