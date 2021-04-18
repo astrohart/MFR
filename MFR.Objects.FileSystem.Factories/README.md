@@ -23,20 +23,20 @@ MFR.Objects.FileSystem.Factories
 
 ##### Summary
 
-Creates new instances of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo').
+Creates new instances of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo').
 
 <a name='M-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo-ForPath-System-String-'></a>
 ### ForPath(path) `method`
 
 ##### Summary
 
-Creates a new instance of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo')
+Creates a new instance of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo')
 that wraps the folder with the specified `path` and
 returns a reference to it.
 
 ##### Returns
 
-Reference to an instance of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo')
+Reference to an instance of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo')
 that represents the folder with the specified `path`.
 
 ##### Parameters
@@ -54,7 +54,7 @@ MFR.Objects.FileSystem.Factories
 
 ##### Summary
 
-Creates new instances of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') and returns
+Creates new instances of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') and returns
 references to them.
 
 <a name='M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-ForPath-System-String-'></a>
@@ -62,13 +62,13 @@ references to them.
 
 ##### Summary
 
-Creates a new instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo'),
+Creates a new instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo'),
 initializes it with the `path` specified, and
 returns it.
 
 ##### Returns
 
-A [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo'), initialized with the specified
+A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo'), initialized with the specified
 `path`.
 
 ##### Parameters
@@ -92,7 +92,7 @@ parameter, cannot be located on the disk. |
 
 ##### Summary
 
-Creates a new instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') for the
+Creates a new instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') for the
 file whose path is specified by the object that implements the
 [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
 interface, a reference to which is passed in the
@@ -101,7 +101,7 @@ parameter.
 
 ##### Returns
 
-Reference to an instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') that
+Reference to an instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') that
 is initialized with the path to the file referred to by the value of
 the `entry` parameter.
 
