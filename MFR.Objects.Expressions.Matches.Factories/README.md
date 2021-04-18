@@ -176,7 +176,7 @@ method.
 
 It is incumbent upon invokers of this method to first weed out any
 possible elements of the source value set that may make the
-`value` parameter get passed a blank string.
+`findWhat` parameter get passed a blank string.
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-FileNameReplacementMatchExpressionFactory'></a>
 ## FileNameReplacementMatchExpressionFactory `type`
@@ -185,13 +185,21 @@ possible elements of the source value set that may make the
 
 MFR.Objects.Expressions.Matches.Factories
 
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression')
+interface that correspond to the
+[RenameFilesInFolder](#T-MFR-Objects-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Objects.Operations.Constants.OperationType.RenameFilesInFolder')
+operation.
+
 <a name='P-MFR-Objects-Expressions-Matches-Factories-FileNameReplacementMatchExpressionFactory-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Expressions-Matches-Factories-FileNameReplacementMatchExpressionFactory-ForTextValue-System-String-'></a>
 ### ForTextValue(value) `method`
@@ -218,8 +226,9 @@ method, for fluent use.
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `value`, is
 passed a blank or `null` string for a value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `value`, is
-passed either the empty or `null` string for a value.
-Whitespace is allowed ONLY for the Replace Text in Files operation type. |
+passed either the empty or `null` string for a
+value. Whitespace is allowed ONLY for the Replace Text in Files
+operation type. |
 
 ##### Remarks
 
@@ -228,11 +237,14 @@ invoked first.
 
 
 
-However, prior to even invoking this method, the [AndAttachConfiguration](#M-MFR-Objects-IConfigurationComposedObject-AndAttachConfiguration 'MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration')
-method must be invoked; otherwise, a [ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException')
-will be thrown. It is incumbent upon invokers of this method to
-first weed out any possible elements of the source value set that
-may make the `value` parameter get passed a blank string.
+However, prior to even invoking this method, the
+[AndAttachConfiguration](#M-MFR-Objects-IConfigurationComposedObject-AndAttachConfiguration 'MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration')
+method must be invoked; otherwise, a
+[ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException')
+will be
+thrown. It is incumbent upon invokers of this method to first weed
+out any possible elements of the source value set that may make the
+`value` parameter get passed a blank string.
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-FolderNameReplacementMatchExpressionFactory'></a>
 ## FolderNameReplacementMatchExpressionFactory `type`
@@ -241,15 +253,21 @@ may make the `value` parameter get passed a blank string.
 
 MFR.Objects.Expressions.Matches.Factories
 
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression')
+interface that correspond to the
+[RenameSubFolders](#T-MFR-Objects-Operations-Constants-OperationType-RenameSubFolders 'MFR.Objects.Operations.Constants.OperationType.RenameSubFolders')
+operation type.
+
 <a name='P-MFR-Objects-Expressions-Matches-Factories-FolderNameReplacementMatchExpressionFactory-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-GetMatchExpressionFactory'></a>
 ## GetMatchExpressionFactory `type`
@@ -487,7 +505,7 @@ method.
 
 It is incumbent upon invokers of this method to first weed out any
 possible elements of the source value set that may make the
-`value` parameter get passed a blank string.
+`findWhat` parameter get passed a blank string.
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-ReplaceTextInFileMatchExpressionFactory'></a>
 ## ReplaceTextInFileMatchExpressionFactory `type`
@@ -500,9 +518,9 @@ MFR.Objects.Expressions.Matches.Factories
 
 Defines the method of building an instance of an object that implements
 the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression') interface
-interface for the
+interface that correspond to the
 [ReplaceTextInFiles](#T-MFR-Objects-OperationType-ReplaceTextInFiles 'MFR.Objects.OperationType.ReplaceTextInFiles')
-operation type value.
+operation type.
 
 <a name='P-MFR-Objects-Expressions-Matches-Factories-ReplaceTextInFileMatchExpressionFactory-OperationType'></a>
 ### OperationType `property`
@@ -645,7 +663,7 @@ method.
 
 It is incumbent upon invokers of this method to first weed out any
 possible elements of the source value set that may make the
-`value` parameter get passed a blank string.
+`findWhat` parameter get passed a blank string.
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-Properties-Resources'></a>
 ## Resources `type`
