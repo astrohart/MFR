@@ -34,6 +34,7 @@
   - [FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY')
   - [FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION')
   - [FOLDER_MATCHING_OPERATION_CRITIERIA](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATION_CRITIERIA 'MFR.Objects.Tests.Common.StringConstants.FOLDER_MATCHING_OPERATION_CRITIERIA')
+  - [FOLDER_THAT_IS_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_THAT_IS_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FOLDER_THAT_IS_GUARANTEED_TO_EXIST')
   - [GIBBERISH](#F-MFR-Objects-Tests-Common-StringConstants-GIBBERISH 'MFR.Objects.Tests.Common.StringConstants.GIBBERISH')
   - [JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH](#F-MFR-Objects-Tests-Common-StringConstants-JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH 'MFR.Objects.Tests.Common.StringConstants.JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH')
   - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH 'MFR.Objects.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH')
@@ -42,6 +43,7 @@
   - [NONEXISTENT_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FILE 'MFR.Objects.Tests.Common.StringConstants.NONEXISTENT_FILE')
   - [NONEXISTENT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FOLDER 'MFR.Objects.Tests.Common.StringConstants.NONEXISTENT_FOLDER')
   - [NULL_STRING](#F-MFR-Objects-Tests-Common-StringConstants-NULL_STRING 'MFR.Objects.Tests.Common.StringConstants.NULL_STRING')
+  - [PORTFOLIO_MONITOR_X_UDL_FILE](#F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE 'MFR.Objects.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE')
   - [SUBFOLDER_OF_BIN_DIR](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_BIN_DIR 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_BIN_DIR')
   - [SUBFOLDER_OF_GIT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_GIT_FOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_GIT_FOLDER')
   - [SUBFOLDER_OF_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_OBJ_FOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_OBJ_FOLDER')
@@ -406,6 +408,13 @@ constant.
 String containing the path of a folder that the RenameSubFolder
 operation would consider fair game for acting upon.
 
+<a name='F-MFR-Objects-Tests-Common-StringConstants-FOLDER_THAT_IS_GUARANTEED_TO_EXIST'></a>
+### FOLDER_THAT_IS_GUARANTEED_TO_EXIST `constants`
+
+##### Summary
+
+String containing the path to a folder that is guaranteed to exist.
+
 <a name='F-MFR-Objects-Tests-Common-StringConstants-GIBBERISH'></a>
 ### GIBBERISH `constants`
 
@@ -471,6 +480,14 @@ not exist on the system.
 ##### Summary
 
 Constant whose value is the null string.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE'></a>
+### PORTFOLIO_MONITOR_X_UDL_FILE `constants`
+
+##### Summary
+
+String containing the path to the file `x.udl` under the
+Portfolio Monitor solution folder.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_BIN_DIR'></a>
 ### SUBFOLDER_OF_BIN_DIR `constants`
