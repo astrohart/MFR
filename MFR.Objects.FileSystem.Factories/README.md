@@ -1,0 +1,203 @@
+<a name='assembly'></a>
+# MFR.Objects.FileSystem.Factories
+
+## Contents
+
+- [MakeNewDirectoryInfo](#T-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo 'MFR.Objects.FileSystem.Factories.MakeNewDirectoryInfo')
+  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo-ForPath-System-String- 'MFR.Objects.FileSystem.Factories.MakeNewDirectoryInfo.ForPath(System.String)')
+- [MakeNewFileInfo](#T-MFR-Objects-FileSystem-Factories-MakeNewFileInfo 'MFR.Objects.FileSystem.Factories.MakeNewFileInfo')
+  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-ForPath-System-String- 'MFR.Objects.FileSystem.Factories.MakeNewFileInfo.ForPath(System.String)')
+  - [FromFileSystemEntry(entry)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-FromFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Factories.MakeNewFileInfo.FromFileSystemEntry(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
+- [MakeNewFileSystemEntry](#T-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry 'MFR.Objects.FileSystem.Factories.MakeNewFileSystemEntry')
+  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry-ForPath-System-String- 'MFR.Objects.FileSystem.Factories.MakeNewFileSystemEntry.ForPath(System.String)')
+- [Resources](#T-MFR-Objects-FileSystem-Factories-Properties-Resources 'MFR.Objects.FileSystem.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Factories-Properties-Resources-Culture 'MFR.Objects.FileSystem.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Factories-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo'></a>
+## MakeNewDirectoryInfo `type`
+
+##### Namespace
+
+MFR.Objects.FileSystem.Factories
+
+##### Summary
+
+Creates new instances of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo').
+
+<a name='M-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo-ForPath-System-String-'></a>
+### ForPath(path) `method`
+
+##### Summary
+
+Creates a new instance of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo')
+that wraps the folder with the specified `path` and
+returns a reference to it.
+
+##### Returns
+
+Reference to an instance of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo')
+that represents the folder with the specified `path`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the path of the folder to be wrapped. |
+
+<a name='T-MFR-Objects-FileSystem-Factories-MakeNewFileInfo'></a>
+## MakeNewFileInfo `type`
+
+##### Namespace
+
+MFR.Objects.FileSystem.Factories
+
+##### Summary
+
+Creates new instances of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') and returns
+references to them.
+
+<a name='M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-ForPath-System-String-'></a>
+### ForPath(path) `method`
+
+##### Summary
+
+Creates a new instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo'),
+initializes it with the `path` specified, and
+returns it.
+
+##### Returns
+
+A [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo'), initialized with the specified
+`path`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of a file on the disk. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `path`, is passed
+a blank or `null` string for a value. |
+| [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
+`path`
+parameter, cannot be located on the disk. |
+
+<a name='M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-FromFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### FromFileSystemEntry(entry) `method`
+
+##### Summary
+
+Creates a new instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') for the
+file whose path is specified by the object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+interface, a reference to which is passed in the
+`entry`
+parameter.
+
+##### Returns
+
+Reference to an instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') that
+is initialized with the path to the file referred to by the value of
+the `entry` parameter.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+interface that contains the file's path. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required
+[Path](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.Path')
+property is passed a blank or `null` string for a value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+
+<a name='T-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry'></a>
+## MakeNewFileSystemEntry `type`
+
+##### Namespace
+
+MFR.Objects.FileSystem.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+interface.
+
+<a name='M-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry-ForPath-System-String-'></a>
+### ForPath(path) `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+interface, for
+the `path` specified, and returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+interface,
+initialized with the specified `path`, or `null` if either an exception is thrown during the create operation or if `path` is a blank value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of the
+file-system entry (file or folder). |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `path`, is passed
+a blank or `null` string for a value. |
+
+##### Remarks
+
+NOTE: The caller must also call the
+[AndOperationType](#M-MFR-Objects-IOperationSpecificObject-AndOperationType 'MFR.Objects.IOperationSpecificObject.AndOperationType')
+method,
+and, optionally, the
+[WithUserState](#M-MFR-Objects-IFileSystemEntry-WithUserState 'MFR.Objects.IFileSystemEntry.WithUserState')
+fluent-builder methods on the result.
+
+<a name='T-MFR-Objects-FileSystem-Factories-Properties-Resources'></a>
+## Resources `type`
+
+##### Namespace
+
+MFR.Objects.FileSystem.Factories.Properties
+
+##### Summary
+
+A strongly-typed resource class, for looking up localized strings, etc.
+
+<a name='P-MFR-Objects-FileSystem-Factories-Properties-Resources-Culture'></a>
+### Culture `property`
+
+##### Summary
+
+Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Objects-FileSystem-Factories-Properties-Resources-ResourceManager'></a>
+### ResourceManager `property`
+
+##### Summary
+
+Returns the cached ResourceManager instance used by this class.
