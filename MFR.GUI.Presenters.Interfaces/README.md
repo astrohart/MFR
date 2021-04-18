@@ -5,7 +5,7 @@
 
 - [IPresenter\`2](#T-MFR-GUI-Presenters-Interfaces-IPresenter`2 'MFR.GUI.Presenters.Interfaces.IPresenter`2')
   - [CloseProgressDialog()](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-CloseProgressDialog 'MFR.GUI.Presenters.Interfaces.IPresenter`2.CloseProgressDialog')
-  - [HavingWindowReference(mainWindow)](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-HavingWindowReference-`0- 'MFR.GUI.Presenters.Interfaces.IPresenter`2.HavingWindowReference(`0)')
+  - [HavingWindowReference(view)](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-HavingWindowReference-`0- 'MFR.GUI.Presenters.Interfaces.IPresenter`2.HavingWindowReference(`0)')
   - [ShowProgressDialog()](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-ShowProgressDialog 'MFR.GUI.Presenters.Interfaces.IPresenter`2.ShowProgressDialog')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-UpdateData-System-Boolean- 'MFR.GUI.Presenters.Interfaces.IPresenter`2.UpdateData(System.Boolean)')
 - [Resources](#T-MFR-GUI-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Presenters.Interfaces.Properties.Resources')
@@ -36,7 +36,7 @@ Dismisses the progress dialog.
 This method has no parameters.
 
 <a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-HavingWindowReference-`0-'></a>
-### HavingWindowReference(mainWindow) `method`
+### HavingWindowReference(view) `method`
 
 ##### Summary
 
@@ -51,15 +51,15 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| mainWindow | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of an object that is of the
-`TView` type and which represents the form that
+| view | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of an object that is of the type
+`TView`, and which represents the form that
 is to be associated with this presenter. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `mainWindow`, is
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `view`, is
 passed a `null` value. |
 
 <a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-ShowProgressDialog'></a>
