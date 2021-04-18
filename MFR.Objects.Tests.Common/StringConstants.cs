@@ -1,5 +1,5 @@
-using System;
 using Alphaleonis.Win32.Filesystem;
+using System;
 using System.Text.RegularExpressions;
 
 namespace MFR.Objects.Tests.Common
@@ -46,6 +46,10 @@ namespace MFR.Objects.Tests.Common
         public const string MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH =
             @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.sln";
 
+        /// <summary>
+        /// String containing the path to the file <c>x.udl</c> under the
+        /// Portfolio Monitor solution folder.
+        /// </summary>
         public const string PORTFOLIO_MONITOR_X_UDL_FILE =
             @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\x.udl";
 
@@ -146,7 +150,8 @@ namespace MFR.Objects.Tests.Common
             "NOTEPAD.EXE"
         );
 
-        /// <summary String consisting of the same text as the
+        /// <summary>
+        /// String consisting of the same text as the
         /// <see
         ///     cref="F:MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST" />
         /// constant, but with just a filename and extension.
@@ -164,6 +169,9 @@ namespace MFR.Objects.Tests.Common
             FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION =
                 Path.GetFileNameWithoutExtension(FILE_GUARANTEED_TO_EXIST);
 
+        /// <summary>
+        /// String containing the path to a folder that is guaranteed to exist.
+        /// </summary>
         public static readonly string FOLDER_THAT_IS_GUARANTEED_TO_EXIST =
             Environment.GetFolderPath(Environment.SpecialFolder.Windows);
 

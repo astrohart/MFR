@@ -1,10 +1,10 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.Objects.FileSystem.Factories;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 
@@ -19,11 +19,30 @@ namespace MFR.Objects.FileSystem.Retrievers
             FileAndFolderNameFileSystemEntryListRetrieverBase
     {
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        static FolderToRenameRetriever() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected FolderToRenameRetriever() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static FolderToRenameRetriever Instance
+        {
+            get;
+        } = new FolderToRenameRetriever();
+
+        /// <summary>
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
@@ -40,23 +59,23 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <param name="pathFilter">
         /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file should be
-        /// included in the operation or <see langword="false" /> otherwise.
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
         /// <para />
-        /// This parameter is <see langword="null" /> by default. This method should return
-        /// <see langword="true" /> to specify that a given file-system entry is to be
-        /// included in the output collection -- barring other
-        /// inclusion/exclusion criteria.
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
         /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path filtering
-        /// is done.
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
         /// </param>
         /// <returns>
         /// Collection of instances of objects that implement the
         /// <see
         ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
-        /// interface that
-        /// correspond to the file system entries that match the criteria specified.
+        /// interface that correspond to the file system entries that match the
+        /// criteria specified.
         /// </returns>
         /// <remarks>
         /// Implementers of this method have a guarantee that the
@@ -91,8 +110,7 @@ namespace MFR.Objects.FileSystem.Retrievers
                                   .ToList() // narrow down list of elements to process
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
-                                      fse
-                                          => SearchCriteriaMatch(fse) &&
+                                      fse => SearchCriteriaMatch(fse) &&
                                              PassesPathFilter(pathFilter, fse)
                                   );
             }

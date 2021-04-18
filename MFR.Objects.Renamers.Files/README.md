@@ -27,6 +27,7 @@
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
   - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RequestAbort()](#M-MFR-Objects-Renamers-Files-FileRenamer-RequestAbort 'MFR.Objects.Renamers.Files.FileRenamer.RequestAbort')
   - [StartingFrom()](#M-MFR-Objects-Renamers-Files-FileRenamer-StartingFrom-System-String- 'MFR.Objects.Renamers.Files.FileRenamer.StartingFrom(System.String)')
 - [Resources](#T-MFR-Objects-Renamers-Files-Properties-Resources 'MFR.Objects.Renamers.Files.Properties.Resources')
   - [Confirm_PerformRename](#P-MFR-Objects-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Objects.Renamers.Files.Properties.Resources.Confirm_PerformRename')
@@ -549,6 +550,17 @@ filtering is done. |
 `rootFolderPath`
 does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
+
+<a name='M-MFR-Objects-Renamers-Files-FileRenamer-RequestAbort'></a>
+### RequestAbort() `method`
+
+##### Summary
+
+Called to ask the `File Renamer` object to stop operations.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-StartingFrom-System-String-'></a>
 ### StartingFrom() `method`

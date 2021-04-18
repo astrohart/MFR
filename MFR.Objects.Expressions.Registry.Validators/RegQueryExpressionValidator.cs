@@ -7,6 +7,15 @@ using xyLOGIX.Core.Debug;
 
 namespace MFR.Objects.Expressions.Registry.Validators
 {
+    /// <summary>
+    /// Validates the data in the properties of instances of objects that
+    /// implement the <see
+    /// cref="T:MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression"/> interface.
+    /// </summary>
+    /// <typeparam name="T">
+    /// Name of the type of data that is being fetched from, or written to, the
+    /// system Registry.
+    /// </typeparam>
     public class
         RegQueryExpressionValidator<T> : IRegQueryExpressionValidator<T>
         where T : class
@@ -15,17 +24,20 @@ namespace MFR.Objects.Expressions.Registry.Validators
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RegQueryExpressionValidator() { }
+        static RegQueryExpressionValidator()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RegQueryExpressionValidator() { }
+        protected RegQueryExpressionValidator()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.RegQueryExpressionValidator" />.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.RegQueryExpressionValidator"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IRegQueryExpressionValidator<T> Instance
@@ -34,11 +46,8 @@ namespace MFR.Objects.Expressions.Registry.Validators
         } = new RegQueryExpressionValidator<T>();
 
         /// <summary>
-        /// Gets the instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.IRegQueryExpression" />
-        /// interface
-        /// that is being validated.
+        /// Gets the instance of the object that implements the <see
+        /// cref="T:MFR.Objects.IRegQueryExpression"/> interface that is being validated.
         /// </summary>
         [Log(AttributeExclude = true)]
         public IRegQueryExpression<T> Expression
@@ -48,9 +57,8 @@ namespace MFR.Objects.Expressions.Registry.Validators
         }
 
         /// <summary>
-        /// Initializes the value of the
-        /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpressionValidator.Expression" />
+        /// Initializes the value of the <see
+        /// cref="P:MFR.Objects.IRegQueryExpressionValidator.Expression"/>
         /// property to refer to the data that is to be validated.
         /// </summary>
         /// <returns>
@@ -58,8 +66,8 @@ namespace MFR.Objects.Expressions.Registry.Validators
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref name="expression"/>, is
+        /// passed a <see langword="null"/> value.
         /// </exception>
         public IRegQueryExpressionValidator<T> ForRegQueryExpression(
             IRegQueryExpression<T> expression)
@@ -71,10 +79,8 @@ namespace MFR.Objects.Expressions.Registry.Validators
         }
 
         /// <summary>
-        /// Validates the data. An
-        /// <see
-        ///     cref="T:System.InvalidOperationException" />
-        /// is thrown if the data is
+        /// Validates the data. An <see
+        /// cref="T:System.InvalidOperationException"/> is thrown if the data is
         /// invalid. No exception means valid.
         /// </summary>
         /// <exception cref="T:System.InvalidOperationException">

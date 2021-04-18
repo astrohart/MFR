@@ -11,7 +11,7 @@ namespace MFR.Objects.Operations.Events
         /// cref="T:MFR.Objects.Operations.Events.DataOperationEventArgs" /> and
         /// returns a reference to it. </summary> /// <param name="message">
         /// (Required.) String containing message text to be displayed to the
-        /// user while the operation is progressing. </param
+        /// user while the operation is progressing. </param>
         public DataOperationEventArgs(string message)
         {
             Message = message;

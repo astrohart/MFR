@@ -3,6 +3,9 @@ using System.ComponentModel;
 
 namespace MFR.Objects.Operations.Events
 {
+    /// <summary>
+    /// Contains data for an OperationCanceled event.
+    /// </summary>
     public class OperationCancelEventArgs : CancelEventArgs
     {
         /// <summary>

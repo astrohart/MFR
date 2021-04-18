@@ -9,7 +9,7 @@ namespace MFR.Objects.Messages.Factories
     /// <see
     ///     cref="T:MFR.Objects.IMessage" />
     /// interface.
-    /// </summary
+    /// </summary>
     public static class GetMessage
     {
         /// <summary>
@@ -19,12 +19,12 @@ namespace MFR.Objects.Messages.Factories
         /// interface and returns a
         /// reference to it.
         /// </summary>
+        /// <remarks>The current implementation of this method throws <see cref="T:System.NotImplementedException"/>.</remarks>
         public static IMessage For(MessageType type)
-        {
-            throw new NotImplementedException();
+            => throw new NotImplementedException();
 
-            //IMessage message = null;
-
+        //IMessage message = null;
+        /*
             switch (type)
             {
                 default:
@@ -33,9 +33,7 @@ namespace MFR.Objects.Messages.Factories
                         $"There is no message available that corresponds to the type '{type}'."
                     );
             }
-
-            //return message
-            ;
-        }
+            */
+        //return message
     }
 }

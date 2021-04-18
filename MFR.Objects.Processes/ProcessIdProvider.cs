@@ -128,7 +128,7 @@ namespace MFR.Objects.Processes
                     $"*** INFO: {procs.Length} processes found having .exe filename '{path}'."
                 );
 
-                /// return the empty collection if zero results found
+                // return the empty collection if zero results found
                 if (!procs.Any())
                 {
                     DebugUtils.WriteLine(

@@ -46,7 +46,7 @@ namespace MFR.Objects.Engines.Matching.Factories
         ///     cref="T:MFR.Objects.IConfiguration" />
         /// interface to the
         /// new object instance.
-        /// 
+        /// </remarks>
         public static ITextExpressionMatchingEngine For(OperationType type)
         {
             ITextExpressionMatchingEngine matcher;

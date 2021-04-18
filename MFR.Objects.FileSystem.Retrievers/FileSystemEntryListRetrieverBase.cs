@@ -16,8 +16,6 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
-using Alphaleonis.Win32.Filesystem;
 using System.IO;
 
 namespace MFR.Objects.FileSystem.Retrievers
@@ -198,7 +196,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder whose pathname is specified by the '
         /// <paramref
-        ///     name="path" />
+        ///     name="rootFolderPath" />
         /// ' parameter cannot be located on the disk.
         /// </exception>
         public IEnumerable<IFileSystemEntry> GetMatchingFileSystemPaths(
@@ -519,6 +517,13 @@ namespace MFR.Objects.FileSystem.Retrievers
             return TextExpressionMatchingEngineSays.IsMatch(ForFileSystemEntry(entry));
         }
 
+        /// <summary>
+        /// Gets a value determining whether the file system entry having the specified <paramref name="path"/> should be not be skipped.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of a folder or a file.
+        /// </param>
+        /// <returns><see langword="true" /> if the file or folder specified should not be skipped during the current operation; <see langword="false" /> otherwise.</returns>
         protected bool ShouldNotSkipFileSystemEntry(string path)
             => !FileSystemEntryValidatorSays.ShouldSkip(path);
     }

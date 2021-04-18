@@ -57,6 +57,10 @@ namespace MFR.Objects.Messages.Actions
             AsCachedResultAction()
             => this;
 
+        /// <summary>
+        /// Clears the cache of results built up from the prior executions of this action.
+        /// </summary>
+        /// <param name="elementAction"></param>
         [Log(AttributeExclude = true)]
         public virtual void ClearResultCache(
             Action<TInput, TResult> elementAction = null)

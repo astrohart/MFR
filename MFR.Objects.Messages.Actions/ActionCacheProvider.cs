@@ -26,6 +26,12 @@ namespace MFR.Objects.Messages.Actions
             get;
         } = new Dictionary<TInput, TResult>();
 
+        /// <summary>
+        /// Adds an entry to the cache of previous results of this action.
+        /// </summary>
+        /// <param name="input">(Required.) Instance of an object of type <typeparamref name="TInput"/>.</param>
+        /// <param name="result">(Required.) Instance of an object of type <typeparamref name="TResult"/>.</param>
+        /// <remarks>If either of <paramref name="input"/> or <paramref name="result"/> are <see langword="null" />, then this method does nothing.</remarks>
         public static void Add(TInput input, TResult result)
         {
             // write the name of the current class and method we are now

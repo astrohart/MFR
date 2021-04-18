@@ -158,7 +158,7 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// <para />
         /// It is incumbent upon invokers of this method to first weed out any
         /// possible elements of the source value set that may make the
-        /// <paramref name="value" /> parameter get passed a blank string.
+        /// <paramref name="findWhat" /> parameter get passed a blank string.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="findWhat" />, is

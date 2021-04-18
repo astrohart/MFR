@@ -6,6 +6,9 @@ using System;
 
 namespace MFR.Objects.TextValues.Retrievers
 {
+    /// <summary>
+    /// Retrieves the text content of a file.
+    /// </summary>
     public class TextInFileTextValueRetriever : TextValueRetrieverBase
     {
         /// <summary>

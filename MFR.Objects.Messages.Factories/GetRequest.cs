@@ -1,5 +1,4 @@
 using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Interfaces;
 using MFR.Objects.Messages.Requests.Intefaces;
 using System;
 
@@ -10,41 +9,59 @@ namespace MFR.Objects.Messages.Factories
     /// <see
     ///     cref="T:MFR.Objects.IRequest" />
     /// interface.
-    /// </summary
+    /// </summary>
     public static class GetRequest
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IRequest" />
-        /// interface and returns a reference to it.
-        /// </summary>
+        /// interface and returns a reference to
+        /// it.
         /// <typeparam name="TResult">
-        /// Name of the class or primitive data type that the result of the
-        /// request will consist of.
+        /// Name of the class or primitive data
+        /// type that the result of the request will consist of.
         /// </typeparam>
-        public static IRequest<TResult> For<TResult>(
-            MessageType type) where TResult : class
-        {
-            throw new NotImplementedException();
+        /// </summary>
+        /// <param name="type">
+        /// (Required.) A
+        /// <see
+        ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
+        /// value that
+        /// indicates what request to execute.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.Messages.Requests.Interfaces.IRequest" />
+        /// interface that corresponds to the specified
+        /// <see cref="T:MFR.Objects.Messages.Constants.MessageType" />.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// Thrown if no request object is available that corresponds to the
+        /// <see cref="T:MFR.Objects.Messages.Constants.MessageType" /> value
+        /// provided in the <paramref name="type" /> parameter.
+        /// </exception>
+        /// <remarks>
+        /// The current implementation of this method does nothing but throw
+        /// <see cref="T:System.NotImplementedException" />.
+        /// </remarks>
+        public static IRequest<TResult> For<TResult>(MessageType type)
+            where TResult : class
+            => throw new NotImplementedException();
 
-            //IRequest<TResult> request = null;
-
-            // ReSharper disable once HeuristicUnreachableCode
+        //IRequest<TResult> request = null;
+        /*
             switch (type)
             {
-                // TODO: Add factory method implementation here
+                // Add factory method implementation here
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(type), type,
                         $"There is no request object available for the message type '{type}'."
                     );
             }
-
-
-            //return configurationRequest;
-        }
+            */
+        //return configurationRequest;
     }
-
-
 }

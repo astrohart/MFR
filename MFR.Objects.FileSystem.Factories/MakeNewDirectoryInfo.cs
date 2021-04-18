@@ -5,12 +5,12 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Objects.FileSystem.Factories
 {
     /// <summary>
-    /// Creates new instances of <see cref="T:System.IO.DirectoryInfo"/>.
+    /// Creates new instances of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/>.
     /// </summary>
     public static class MakeNewDirectoryInfo
     {
         /// <summary>
-        /// Creates a new instance of <see cref="T:System.IO.DirectoryInfo"/>
+        /// Creates a new instance of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/>
         /// that wraps the folder with the specified <paramref name="path"/> and
         /// returns a reference to it.
         /// </summary>
@@ -18,7 +18,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// (Required.) String containing the path of the folder to be wrapped.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.DirectoryInfo"/>
+        /// Reference to an instance of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/>
         /// that represents the folder with the specified <paramref name="path"/>.
         /// </returns>
         public static DirectoryInfo ForPath(string path)

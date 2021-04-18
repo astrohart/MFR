@@ -1,4 +1,3 @@
-using MFR.Objects.Configuration;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Engines.Matching.Factories;
 using MFR.Objects.Engines.Matching.Interfaces;
@@ -803,7 +802,7 @@ namespace MFR.Objects.Engines.Matching.Tests
         /// object for.
         /// </param>
         /// <exception
-        ///     cref="T:System.ArgumentOutOfRangeException" />
+        ///     cref="T:System.ArgumentOutOfRangeException" >
         /// Thrown if the
         /// <paramref name="type" />
         /// parameter is not set to a value that the

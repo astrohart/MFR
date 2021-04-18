@@ -1,4 +1,3 @@
-using MFR.Objects.Interop;
 using MFR.Objects.Interop.Monikers.Wrappers.Interfaces;
 using System;
 using System.Runtime.InteropServices.ComTypes;
@@ -37,7 +36,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         ///     cref="T:System.Runtime.InteropServices.ComTypes.IRunningObjectTable" />
         /// interface.
         /// </param>
-        /// <param name="PARM">
+        /// <param name="currentMoniker">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:System.Runtime.InteropServices.ComTypes.IMoniker" />
         /// interface.

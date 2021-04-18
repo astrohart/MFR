@@ -1,3 +1,4 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.Objects.Configuration.Providers;
 using MFR.Objects.Engines.Replacement.Factories;
 using MFR.Objects.Engines.Replacement.Intefaces;
@@ -10,7 +11,6 @@ using MFR.Objects.Tests.Common;
 using MFR.Objects.TextValues.Retrievers.Factories;
 using NUnit.Framework;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -25,23 +25,36 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
     [TestFixture]
     public class FileInfoExtensionsTests
     {
+        /// <summary>
+        /// Called to both clean up after this test fixture's tests have run.
+        /// </summary>
+        /// <remarks>
+        /// The current implementation of this method simply removes all files
+        /// and folders (that it can) from the user's TEMP folder.
+        /// </remarks>
         [TearDown]
-        public void CleanupAndInitialize()
+        public void Cleanup()
 
             // before we run and before we exit, clean up any leftover temporary files
             => DebugFileAndFolderHelper.ClearTempFileDir();
 
+        /// <summary>
+        /// Prepares this test fixture for test execution.
+        /// </summary>
+        /// <remarks>
+        /// The current implementation of this method clears files and folders
+        /// from the user's TEMP folder, and then fills a file with random junk.
+        /// </remarks>
         [SetUp]
         public void Initialize()
         {
             DebugFileAndFolderHelper.ClearTempFileDir();
-            FileHelpers.FillWithJunk(
-                StringConstants.EXISTING_TEMP_FILE
-            );
+            FileHelpers.FillWithJunk(StringConstants.EXISTING_TEMP_FILE);
         }
 
         /// <summary>
-        /// Serves as a test bed to run the entire algorithm of renaming projects without having to invoke the GUI.
+        /// Serves as a test bed to run the entire algorithm of renaming
+        /// projects without having to invoke the GUI.
         /// </summary>
         [Test]
         public void MainTestBed()
@@ -53,7 +66,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
                 ConfigurationBuilder.BuildConfigurationForUseCase(
                     true, /* match case
                     true
-                ); /* match whole word 
+                ); /* match whole word
             */
 
             ConfigurationProvider.Load();
@@ -118,8 +131,18 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         }
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Serves as a test bed to run the entire algorithm of renaming
+        /// projects without having to invoke the GUI.
         /// </summary>
+        /// <remarks>
+        /// This method is different from the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed" />
+        /// method in that it uses the fluent composition of objects -- rather
+        /// than initializing individual variables with the results -- to test
+        /// how the algorithms work when methods are called as they are in the
+        /// production code, i.e., in a fluent manner.
+        /// </remarks>
         [Test]
         public void MainTestBed_WithAllMethodCallsComposed()
         {
@@ -456,8 +479,15 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         }
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
+        /// method will not work when provided only with a filename, not a
+        /// fully-qualified path.
         /// </summary>
+        /// <remarks>
+        /// By "does not work" we mean, "returns <see langword="false" /> and doesn't carry out the file-rename operation."
+        /// </remarks>
         [Test]
         public void
             Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName()
@@ -469,7 +499,12 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
+        /// method works (i.e., returns <see langword="true" /> and performs the
+        /// correct operations) when we give it the fully-qualified pathname of
+        /// a temporary file that actually exists.
         /// </summary>
         [Test]
         public void Test_RenameTo_Works_On_ExistingTempFile()

@@ -193,7 +193,7 @@ method.
 
 It is incumbent upon invokers of this method to first weed out any
 possible elements of the source value set that may make the
-`value` parameter get passed a blank string.
+`findWhat` parameter get passed a blank string.
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources'></a>
 ## Resources `type`

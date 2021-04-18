@@ -17,9 +17,9 @@ namespace MFR.Objects.FileSystem.Helpers
         /// <see
         ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface into
-        /// an instance of a <see cref="T:System.IO.DirectoryInfo" /> object.
+        /// an instance of a <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" /> object.
         /// <para />
-        /// The <see cref="T:System.IO.DirectoryInfo" /> object is initialized
+        /// The <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" /> object is initialized
         /// with the value of the
         /// <see
         ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
@@ -30,7 +30,7 @@ namespace MFR.Objects.FileSystem.Helpers
         /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.DirectoryInfo" />
+        /// Reference to an instance of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" />
         /// that has been initialized with the value of the
         /// <see
         ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
@@ -65,9 +65,9 @@ namespace MFR.Objects.FileSystem.Helpers
         /// <see
         ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface into
-        /// an instance of a <see cref="T:System.IO.FileInfo" /> object.
+        /// an instance of a <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> object.
         /// <para />
-        /// The <see cref="T:System.IO.FileInfo" /> object is initialized with
+        /// The <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> object is initialized with
         /// the value of the
         /// <see
         ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
@@ -78,7 +78,7 @@ namespace MFR.Objects.FileSystem.Helpers
         /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.FileInfo" /> that
+        /// Reference to an instance of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> that
         /// has been initialized with the value of the
         /// <see
         ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />

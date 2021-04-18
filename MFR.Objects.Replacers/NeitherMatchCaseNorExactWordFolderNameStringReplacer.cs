@@ -53,7 +53,7 @@ namespace MFR.Objects.Replacers
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression"/>. Returns a string
+        /// the provided <paramref name="value"/>. Returns a string
         /// </summary>
         /// <param name="value">
         /// (Required.) String containing the data upon which the replacement

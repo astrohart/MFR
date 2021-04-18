@@ -5,23 +5,27 @@
 
 - [FileNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine')
   - [#ctor()](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-OperationType 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.OperationType')
-  - [Replace(source,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.Replace(System.String,System.String,System.String)')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.Replace(System.String,System.String,System.String)')
 - [FolderNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine')
   - [#ctor()](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-OperationType 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.OperationType')
-  - [Replace(source,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.Replace(System.String,System.String,System.String)')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.Replace(System.String,System.String,System.String)')
 - [Resources](#T-MFR-Objects-Engines-Replacement-Properties-Resources 'MFR.Objects.Engines.Replacement.Properties.Resources')
   - [Culture](#P-MFR-Objects-Engines-Replacement-Properties-Resources-Culture 'MFR.Objects.Engines.Replacement.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Replacement.Properties.Resources.ResourceManager')
 - [TextInFileReplacementEngine](#T-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine')
   - [#ctor()](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-OperationType 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.OperationType')
-  - [Replace(source,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.Replace(System.String,System.String,System.String)')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.Replace(System.String,System.String,System.String)')
 - [TextReplacementEngineBase](#T-MFR-Objects-Engines-Replacement-TextReplacementEngineBase 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase')
   - [#ctor()](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-OperationType 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.OperationType')
-  - [Replace(source,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
   - [Replace(expression)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.Replace(MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression)')
 
 <a name='T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine'></a>
@@ -42,30 +46,52 @@ Replaces text in file names.
 
 Constructs a new instance of
 [FileNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine')
-and
-returns a reference to it.
+and returns a reference to it.
 
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+and returns a
+reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface that holds
+settings that are specified by the user. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+is passed a `null` value. |
 
 <a name='P-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String-'></a>
-### Replace(source,pattern,dest) `method`
+### Replace(value,pattern,dest) `method`
 
 ##### Summary
 
 Carries out the replacement operation using the values specified by
-the provided `expression`. Returns a string
+the provided `value`. Returns a string
 
 ##### Returns
 
@@ -75,7 +101,7 @@ String containing the new data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
 operation is to be carried out. |
 | pattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that allows us to match
 the data to be replaced. |
@@ -87,7 +113,7 @@ should be substituted for the replaced text. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
-`source`
+`value`
 , `pattern`, or
 `dest`
 , are passed blank or `null` string
@@ -118,6 +144,35 @@ returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
+instance of an object that implements the
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+interface that
+holds settings that are specified by the user. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `configuration`, is passed a
+`null`
+value. |
+
 <a name='P-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-OperationType'></a>
 ### OperationType `property`
 
@@ -129,12 +184,12 @@ values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-Replace-System-String,System-String,System-String-'></a>
-### Replace(source,pattern,dest) `method`
+### Replace(value,pattern,dest) `method`
 
 ##### Summary
 
 Carries out the replacement operation using the values specified by
-the provided `expression`. Returns a string
+the provided `value`. Returns a string
 
 ##### Returns
 
@@ -144,7 +199,7 @@ String containing the new data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
 operation is to be carried out. |
 | pattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that allows us to match
 the data to be replaced. |
@@ -156,12 +211,12 @@ should be substituted for the replaced text. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
-`source`
+`value`
 , `pattern`, or
 `dest`
 , are passed blank or `null` string
 for values. |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the `source` parameter does not contain
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the `value` parameter does not contain
 the fully-qualified, absolute pathname to a folder. |
 
 <a name='T-MFR-Objects-Engines-Replacement-Properties-Resources'></a>
@@ -216,6 +271,35 @@ returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
+instance of an object that implements the
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+interface that
+holds settings that are specified by the user. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `configuration`, is passed a
+`null`
+value. |
+
 <a name='P-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-OperationType'></a>
 ### OperationType `property`
 
@@ -227,22 +311,22 @@ values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-Replace-System-String,System-String,System-String-'></a>
-### Replace(source,pattern,dest) `method`
+### Replace(value,pattern,dest) `method`
 
 ##### Summary
 
 Carries out the replacement operation using the values specified by
-the provided `expression`. Returns a string
+the provided `value`. Returns a string
 
 ##### Returns
 
-String containing the new data. If the `source`
+String containing the new data. If the `value`
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
 operation is to be carried out. |
 | pattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that allows us to match
 the data to be replaced. |
@@ -265,17 +349,17 @@ blank, then we have nothing to search against!
 
 NOTE: This parameter MAY have whitespace characters since these can
 be matched inside the content of a text file, which is what we
-expect to be passed for the `source` parameter. |
+expect to be passed for the `value` parameter. |
 
 ##### Remarks
 
 Here, the `dest` parameter may be blank or null; if
-the `source` parameter is `null` or
+the `value` parameter is `null` or
 the empty string, then this method returns the empty string.
 
 
 
-NOTE: The `source` parameter MAY contain whitespace.
+NOTE: The `value` parameter MAY contain whitespace.
 this is the case, then the text found by the
 `pattern`
 just gets deleted, which is okay in this instance.
@@ -306,6 +390,35 @@ returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
+instance of an object that implements the
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+interface that
+holds settings that are specified by the user. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `configuration`, is passed a
+`null`
+value. |
+
 <a name='P-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-OperationType'></a>
 ### OperationType `property`
 
@@ -317,12 +430,12 @@ values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String-'></a>
-### Replace(source,pattern,dest) `method`
+### Replace(value,pattern,dest) `method`
 
 ##### Summary
 
 Carries out the replacement operation using the values specified by
-the provided `expression`. Returns a string
+the provided `value`. Returns a string
 
 ##### Returns
 
@@ -332,7 +445,7 @@ String containing the new data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
 operation is to be carried out. |
 | pattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that allows us to match
 the data to be replaced. |
@@ -344,7 +457,7 @@ should be substituted for the replaced text. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
-`source`
+`value`
 or `pattern`, are passed blank or
 `null` string for values. |
 

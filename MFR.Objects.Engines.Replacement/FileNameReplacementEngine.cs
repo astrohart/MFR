@@ -16,8 +16,7 @@ namespace MFR.Objects.Engines.Replacement
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.Engines.Replacement.FileNameReplacementEngine" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a reference to it.
         /// </summary>
         public FileNameReplacementEngine()
         {
@@ -28,34 +27,25 @@ namespace MFR.Objects.Engines.Replacement
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.TextReplacementEngineBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a
+        /// reference to it.
         /// </summary>
-        /// (Required.) Reference to an
-        /// instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface that
-        /// holds settings that are specified by the user.
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface that holds
+        /// settings that are specified by the user.
         /// </param>
-        /// <exception
-        ///     cref="T:System.ArgumentNullException">
-        /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
-        /// <see
-        ///     langword="null" />
-        /// value.
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <see langword="null" /> value.
         /// </exception>
         public FileNameReplacementEngine(IConfiguration configuration) : base(
             configuration
         ) { }
 
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// that corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
             => OperationType.RenameFilesInFolder;
@@ -115,7 +105,7 @@ namespace MFR.Objects.Engines.Replacement
                     "Value cannot be null or whitespace.", nameof(dest)
                 );
 
-            var result = value;    // by default, no replacement
+            var result = value; // by default, no replacement
 
             try
             {

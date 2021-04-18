@@ -35,6 +35,7 @@ namespace MFR.Objects.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
+        /// <param name="configuration">
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see

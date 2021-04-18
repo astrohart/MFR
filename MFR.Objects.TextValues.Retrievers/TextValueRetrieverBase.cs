@@ -5,12 +5,15 @@ using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Objects.TextValues.Retrievers
 {
+    /// <summary>
+    /// Defines the events, methods, properties, and behaviors for all <c>Text
+    /// Value Retriever</c> objects.
+    /// </summary>
     public abstract class TextValueRetrieverBase : ITextValueRetriever
     {
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MFR.Objects.OperationType"/> values that
-        /// corresponds to the type of operation being performed.
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType"/> values
+        /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
         public abstract OperationType OperationType
@@ -34,7 +37,7 @@ namespace MFR.Objects.TextValues.Retrievers
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry"/>, is
-        /// passed a <see langword="null" /> value.
+        /// passed a <see langword="null"/> value.
         /// </exception>
         public abstract string GetTextValue(IFileSystemEntry entry);
     }

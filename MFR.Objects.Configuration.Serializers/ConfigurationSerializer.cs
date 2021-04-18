@@ -25,8 +25,10 @@ namespace MFR.Objects.Configuration.Serializers
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface that has
-        /// been initialized with the data present in the file; or <see langword="null" />
+        /// interface that has been
+        /// initialized with the data present in the file; or
+        /// <see
+        ///     langword="null" />
         /// if a problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
@@ -75,6 +77,20 @@ namespace MFR.Objects.Configuration.Serializers
             return result;
         }
 
+        /// <summary>
+        /// Saves configuration data to a file.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) String containing the pathname of the file that the data
+        /// is to be saved to.
+        /// </param>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </param>
         public static void Save(string pathname, IConfiguration configuration)
         {
             if (string.IsNullOrWhiteSpace(pathname))
@@ -83,15 +99,23 @@ namespace MFR.Objects.Configuration.Serializers
             if (configuration == null)
                 return;
 
-            var content = ConvertConfiguration.ToJson(configuration);
+            try
+            {
+                var content = ConvertConfiguration.ToJson(configuration);
 
-            if (string.IsNullOrWhiteSpace(content))
-                return;
+                if (string.IsNullOrWhiteSpace(content))
+                    return;
 
-            if (File.Exists(pathname))
-                File.Delete(pathname);
+                if (File.Exists(pathname))
+                    File.Delete(pathname);
 
-            File.WriteAllText(pathname, content);
+                File.WriteAllText(pathname, content);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

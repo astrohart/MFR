@@ -54,8 +54,6 @@ the message.
 
 
 This object is composed with the message object at runtime. |
-| TResult | Name of the class or data type that will carry user state information
-about the results of the operation. |
 
 <a name='M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor'></a>
 ### #ctor() `constructor`

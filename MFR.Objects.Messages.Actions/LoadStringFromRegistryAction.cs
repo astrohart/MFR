@@ -40,8 +40,8 @@ namespace MFR.Objects.Messages.Actions
         } = new LoadStringFromRegistryAction();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.MessageType" /> that is
-        /// being used to identify which message this is.
+        /// Gets the <see cref="T:MFR.Objects.MessageType" /> that is being used
+        /// to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
@@ -52,8 +52,10 @@ namespace MFR.Objects.Messages.Actions
         /// the result cache.
         /// </summary>
         /// <returns>
-        /// Reference to an instance of <typeparamref name="TResult" /> that
-        /// corresponds to the current input or <see langword="null" /> if an issue occurred.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        /// interface that corresponds to the result of executing the action.
         /// </returns>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality

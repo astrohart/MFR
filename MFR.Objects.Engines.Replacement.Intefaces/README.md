@@ -4,7 +4,7 @@
 ## Contents
 
 - [ITextReplacementEngine](#T-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine')
-  - [Replace(source,pattern,dest)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(System.String,System.String,System.String)')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(System.String,System.String,System.String)')
   - [Replace(expression)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression)')
 - [Resources](#T-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources 'MFR.Objects.Engines.Replacement.Intefaces.Properties.Resources')
   - [Culture](#P-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources-Culture 'MFR.Objects.Engines.Replacement.Intefaces.Properties.Resources.Culture')
@@ -27,12 +27,12 @@ These objects specify rules as to how to replace text when matches have
 already been located.
 
 <a name='M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-System-String,System-String,System-String-'></a>
-### Replace(source,pattern,dest) `method`
+### Replace(value,pattern,dest) `method`
 
 ##### Summary
 
 Carries out the replacement operation using the values specified by
-the provided `expression`. Returns a string
+the provided `value`. Returns a string
 
 ##### Returns
 
@@ -42,7 +42,7 @@ String containing the new data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data upon which the replacement
 operation is to be carried out. |
 | pattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that allows us to match
 the data to be replaced. |
@@ -54,7 +54,7 @@ should be substituted for the replaced text. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
-`source`
+`value`
 or `pattern`, are passed blank or
 `null` string for values. |
 

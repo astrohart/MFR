@@ -7,13 +7,13 @@ using FileInfo = Alphaleonis.Win32.Filesystem.FileInfo;
 namespace MFR.Objects.FileSystem.Factories
 {
     /// <summary>
-    /// Creates new instances of <see cref="T:System.IO.FileInfo" /> and returns
+    /// Creates new instances of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> and returns
     /// references to them.
     /// </summary>
     public static class MakeNewFileInfo
     {
         /// <summary>
-        /// Creates a new instance of <see cref="T:System.IO.FileInfo" />,
+        /// Creates a new instance of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />,
         /// initializes it with the <paramref name="path" /> specified, and
         /// returns it.
         /// </summary>
@@ -21,7 +21,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// (Required.) String containing the pathname of a file on the disk.
         /// </param>
         /// <returns>
-        /// A <see cref="T:System.IO.FileInfo" />, initialized with the specified
+        /// A <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />, initialized with the specified
         /// <paramref name="path" />.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
@@ -49,7 +49,7 @@ namespace MFR.Objects.FileSystem.Factories
         }
 
         /// <summary>
-        /// Creates a new instance of <see cref="T:System.IO.FileInfo" /> for the
+        /// Creates a new instance of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> for the
         /// file whose path is specified by the object that implements the
         /// <see
         ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
@@ -65,7 +65,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// interface that contains the file's path.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.FileInfo" /> that
+        /// Reference to an instance of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> that
         /// is initialized with the path to the file referred to by the value of
         /// the <paramref name="entry" /> parameter.
         /// </returns>

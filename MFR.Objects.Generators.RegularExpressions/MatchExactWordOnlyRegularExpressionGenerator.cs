@@ -51,8 +51,7 @@ namespace MFR.Objects.Generators.RegularExpressions
         /// Transforms the input <paramref name="value"/> into the output value.
         /// </summary>
         /// <param name="value">
-        /// Reference to an instance of <typeparamref name="TInput"/> that is
-        /// the value to be transformed.
+        /// (Required.) The <see cref="T:System.String"/> that is to be transformed.
         /// </param>
         /// <returns>
         /// A <see cref="T:System.String"/> whose value is the result of the transformation.

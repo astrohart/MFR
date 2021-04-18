@@ -12,14 +12,15 @@ namespace MFR.Objects.Tests.Common
     /// </summary>
     public class ConfigurationBuilder
     {
-        /// <summmary>
-        /// Determines whether the case should be matched during a
-        /// search for a string. </summary>
+        /// <summary>
+        /// Determines whether the case should be matched during a search for a string.
+        /// </summary>
         private bool _matchCase;
 
-        /// <summmary>
-        /// Determines whether a whole word should be matched when
-        /// searching for a string value. </summary>
+        /// <summary>
+        /// Determines whether a whole word should be matched when searching for
+        /// a string value.
+        /// </summary>
         private bool _matchExactWord;
 
         /// <summary>
@@ -42,48 +43,47 @@ namespace MFR.Objects.Tests.Common
         } = new ConfigurationBuilder();
 
         /// <summary>
-        /// Creates a new instance of an object that implements the
+        /// Provides an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface and
-        /// returns a reference to it.
+        /// interface with its
+        /// <paramref
+        ///     name="matchCase" />
+        /// and <paramref name="matchExactWord" /> settings
+        /// configured as specified for the current use case.
         /// </summary>
+        /// <param name="matchCase">
+        /// (Required.) Specifies whether the case is matched when searching and replacing.
+        /// </param>
+        /// <param name="matchExactWord">
+        /// (Required.) Specifies whether search text must be a part of another
+        /// word or pattern or can only be matched if it consists of a whole word.
+        /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface.
-        /// </returns>
-        /// <remarks>
-        /// The new instance's properties are initialized with the values
-        /// provided to this class' other methods.
-        /// </remarks>
-        public IConfiguration Build()
-            => new Configuration.Configuration {
-                MatchCase = _matchCase, MatchExactWord = _matchExactWord
-            };
-
-        /// <summary>
-        /// Sets the value of the
+        /// interface whose
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
-        /// field to the value of the <paramref name="matchCase"/> parameter.
-        /// </summary>
-        /// <param name="matchCase">
-        /// (Optional.) New value for the
+        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
+        /// and
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
-        /// field. Default is <c>true.</c>
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
+        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        /// properties are set to the same values as were passed for the
+        /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
+        /// parameters.
         /// </returns>
-        public ConfigurationBuilder SetMatchCase(bool matchCase = true)
+        public static IConfiguration BuildConfigurationForUseCase(
+            bool matchCase, bool matchExactWord)
         {
-            _matchCase = matchCase;
+            var configuration = Instance.SetMatchCase(matchCase)
+                                        .AndSetMatchExactWord(matchExactWord)
+                                        .Build();
 
-            return this;
+            Assert.IsNotNull(configuration);
+            Assert.AreEqual(matchCase, configuration.MatchCase);
+            Assert.AreEqual(matchExactWord, configuration.MatchExactWord);
+            return configuration;
         }
 
         /// <summary>
@@ -112,43 +112,48 @@ namespace MFR.Objects.Tests.Common
         }
 
         /// <summary>
-        /// Provides an instance of an object that implements the
+        /// Creates a new instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface with its
-        /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
-        /// settings configured as specified for the current use case.
+        /// interface and returns a
+        /// reference to it.
         /// </summary>
-        /// <param name="matchCase">
-        /// (Required.) Specifies whether the case is matched when searching and replacing.
-        /// </param>
-        /// <param name="matchExactWord">
-        /// (Required.) Specifies whether search text must be a part of another
-        /// word or pattern or can only be matched if it consists of a whole word.
-        /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface whose
-        /// <see cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" /> and
-        /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
-        /// properties are set to the same values as were passed for the
-        /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
-        /// parameters.
+        /// interface.
         /// </returns>
-        public static IConfiguration BuildConfigurationForUseCase(
-            bool matchCase, bool matchExactWord)
-        {
-            var configuration = Instance.SetMatchCase(matchCase)
-                                .AndSetMatchExactWord(matchExactWord)
-                                .Build();
+        /// <remarks>
+        /// The new instance's properties are initialized with the values
+        /// provided to this class' other methods.
+        /// </remarks>
+        public IConfiguration Build()
+            => new Configuration.Configuration {
+                MatchCase = _matchCase, MatchExactWord = _matchExactWord
+            };
 
-            Assert.IsNotNull(configuration);
-            Assert.AreEqual(matchCase, configuration.MatchCase);
-            Assert.AreEqual(matchExactWord, configuration.MatchExactWord);
-            return configuration;
+        /// <summary>
+        /// Sets the value of the
+        /// <see
+        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
+        /// field to the value of the <paramref name="matchCase" /> parameter.
+        /// </summary>
+        /// <param name="matchCase">
+        /// (Optional.) New value for the
+        /// <see
+        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
+        /// field. Default is <c>true.</c>
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        public ConfigurationBuilder SetMatchCase(bool matchCase = true)
+        {
+            _matchCase = matchCase;
+
+            return this;
         }
     }
 }

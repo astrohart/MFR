@@ -1,5 +1,5 @@
-using System;
 using Alphaleonis.Win32.Filesystem;
+using System;
 using System.Threading;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -8,7 +8,7 @@ namespace MFR.Objects.FileSystem.Helpers
 {
     /// <summary>
     /// Helper methods for working with instances of
-    /// <see cref="T:System.IO.FileInfo" />.
+    /// <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />.
     /// </summary>
     public static class FileInfoExtensions
     {
@@ -16,8 +16,8 @@ namespace MFR.Objects.FileSystem.Helpers
         /// Determines whether a file is zero bytes in length or not.
         /// </summary>
         /// <param name="fileInfo">
-        /// (Required.) A <see cref="T:System.IO.FileInfo" /> that represents the
-        /// file whose length is to be checked.
+        /// (Required.) A <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />
+        /// that represents the file whose length is to be checked.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the <paramref name="fileInfo" /> references
@@ -53,10 +53,15 @@ namespace MFR.Objects.FileSystem.Helpers
         /// Renames a file.
         /// </summary>
         /// <param name="existingFile">
-        /// A <see cref="T:System.IO.FileInfo" /> describing the file to be renamed.
+        /// A <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> describing
+        /// the file to be renamed.
         /// </param>
         /// <param name="newFilePath">
         /// String containing the fully-qualified pathname of the renamed file.
+        /// </param>
+        /// <param name="maxRetries">
+        /// (Optional.) Integer specifying the maximum retries of the operation.
+        /// Must be greater than zero. The default value is <c>5</c>.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the rename operation is successful;
@@ -64,9 +69,18 @@ namespace MFR.Objects.FileSystem.Helpers
         ///     langword="false" />
         /// otherwise.
         /// </returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// Throw if the <paramref name="maxRetries" /> argument is zero or a
+        /// negative number.
+        /// <para />
+        /// Since this number is a count of retries, it must be 1 or greater.
+        /// </exception>
         public static bool RenameTo(this FileInfo existingFile,
             string newFilePath, int maxRetries = 5)
         {
+            if (maxRetries <= 0)
+                throw new ArgumentOutOfRangeException(nameof(maxRetries));
+
             // write the name of the current class and method we are now
             // entering, into the log
             DebugUtils.WriteLine(
@@ -96,35 +110,6 @@ namespace MFR.Objects.FileSystem.Helpers
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
                 $"FileInfoExtensions.RenameTo: maxRetries = {maxRetries}"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the value of the 'maxRetries parameter (whose value is supposed to be a count) is 1 or greater..."
-            );
-
-            if (maxRetries <= 0)
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR *** The 'maxRetries' parameter has a value that is zero or less.  This is not the range that a count of items or a length can have."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileInfoExtensions.RenameTo: Result = {result}"
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "FileInfoExtensions.RenameTo: Done."
-                );
-
-                return result;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The 'maxRetries' parameter has a value that is 1 or greater, which is valid."
             );
 
             // Check to see if the required parameter, existingFile, is null. If

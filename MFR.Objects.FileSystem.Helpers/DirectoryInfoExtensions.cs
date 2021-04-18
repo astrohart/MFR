@@ -6,7 +6,7 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Objects.FileSystem.Helpers
 {
     /// <summary>
-    /// Helper methods for working with instances of <see cref="T:System.IO.DirectoryInfo"/>.
+    /// Helper methods for working with instances of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/>.
     /// </summary>
     public static class DirectoryInfoExtensions
     {
@@ -14,7 +14,7 @@ namespace MFR.Objects.FileSystem.Helpers
         /// Renames a folder.
         /// </summary>
         /// <param name="folderToBeRenamed">
-        /// A <see cref="T:System.IO.DirectoryInfo"/> describing the folder to
+        /// A <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/> describing the folder to
         /// be renamed.
         /// </param>
         /// <param name="newSubFolderPath">
@@ -239,7 +239,7 @@ namespace MFR.Objects.FileSystem.Helpers
         /// </summary>
         /// <param name="folderToBeRenamed">
         /// (Required.) Reference to an instance of <see
-        /// cref="T:System.IO.DirectoryInfo"/> that represents the folder to be renamed.
+        /// cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/> that represents the folder to be renamed.
         /// </param>
         /// <param name="newSubFolderPath">
         /// (Required.) String containing the new path of the renamed folder.

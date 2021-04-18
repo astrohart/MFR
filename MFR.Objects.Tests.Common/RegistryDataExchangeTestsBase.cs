@@ -1,5 +1,8 @@
 namespace MFR.Objects.Tests.Common
 {
+    /// <summary>
+    /// Defines the events, methods, properties, and behaviors for all unit test fixtures that test methods and objects that perform data exchange to and from the system Registry.
+    /// </summary>
     public class RegistryDataExchangeTestsBase
     {
         /// <summary>
@@ -17,9 +20,15 @@ namespace MFR.Objects.Tests.Common
         public const string CONFIG_FILE_PATH =
             @"""C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config\config.json""";
 
+        /// <summary>
+        /// String containing the fully-qualified pathname of a folder that stores the configuration file.
+        /// </summary>
         protected const string CONFIG_FILE_DIR =
                     @"C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config";
 
+        /// <summary>
+        /// String containing the name of a configuration file.
+        /// </summary>
         protected const string CONFIG_FILE_NAME = "config.json";
 
         /// <summary>

@@ -11,7 +11,7 @@
   - [GetContent(path,pathFilter)](#M-MFR-Objects-FileSystem-Helpers-FileHelpers-GetContent-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Helpers.FileHelpers.GetContent(System.String,System.Predicate{System.String})')
 - [FileInfoExtensions](#T-MFR-Objects-FileSystem-Helpers-FileInfoExtensions 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions')
   - [IsZeroLengthFile(fileInfo)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile(Alphaleonis.Win32.Filesystem.FileInfo)')
-  - [RenameTo(existingFile,newFilePath)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String,System.Int32)')
+  - [RenameTo(existingFile,newFilePath,maxRetries)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String,System.Int32)')
 - [FileSystemEntryExtensions](#T-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions')
   - [ToDirectoryInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToDirectoryInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions.ToDirectoryInfo(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
   - [ToFileInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToFileInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions.ToFileInfo(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
@@ -28,7 +28,7 @@ MFR.Objects.FileSystem.Helpers
 
 ##### Summary
 
-Helper methods for working with instances of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo').
+Helper methods for working with instances of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo').
 
 <a name='M-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String,System-Int32-'></a>
 ### RenameTo(folderToBeRenamed,newSubFolderPath,maxRetries) `method`
@@ -45,7 +45,7 @@ Renames a folder.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| folderToBeRenamed | [Alphaleonis.Win32.Filesystem.DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') | A [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo') describing the folder to
+| folderToBeRenamed | [Alphaleonis.Win32.Filesystem.DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') | A [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') describing the folder to
 be renamed. |
 | newSubFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String containing the pathname of the renamed folder. |
 | maxRetries | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Optional.) Set to the maximum retries before giving up. Default is 5. |
@@ -72,7 +72,7 @@ Attempts to perform the folder rename operation.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| folderToBeRenamed | [Alphaleonis.Win32.Filesystem.DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') | (Required.) Reference to an instance of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo') that represents the folder to be renamed. |
+| folderToBeRenamed | [Alphaleonis.Win32.Filesystem.DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') | (Required.) Reference to an instance of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') that represents the folder to be renamed. |
 | newSubFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the new path of the renamed folder. |
 
 <a name='T-MFR-Objects-FileSystem-Helpers-FileHelpers'></a>
@@ -148,7 +148,7 @@ MFR.Objects.FileSystem.Helpers
 ##### Summary
 
 Helper methods for working with instances of
-[FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo').
+[FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo').
 
 <a name='M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo-'></a>
 ### IsZeroLengthFile(fileInfo) `method`
@@ -169,11 +169,11 @@ the file is greater than zero.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fileInfo | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | (Required.) A [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') that represents the
-file whose length is to be checked. |
+| fileInfo | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | (Required.) A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo')
+that represents the file whose length is to be checked. |
 
 <a name='M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32-'></a>
-### RenameTo(existingFile,newFilePath) `method`
+### RenameTo(existingFile,newFilePath,maxRetries) `method`
 
 ##### Summary
 
@@ -189,8 +189,22 @@ otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| existingFile | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | A [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') describing the file to be renamed. |
+| existingFile | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') describing
+the file to be renamed. |
 | newFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String containing the fully-qualified pathname of the renamed file. |
+| maxRetries | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Optional.) Integer specifying the maximum retries of the operation.
+Must be greater than zero. The default value is `5`. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Throw if the `maxRetries` argument is zero or a
+negative number.
+
+
+
+Since this number is a count of retries, it must be 1 or greater. |
 
 <a name='T-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions'></a>
 ## FileSystemEntryExtensions `type`
@@ -213,18 +227,18 @@ interface.
 Translates an instance of an object that implements the
 [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
 interface into
-an instance of a [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo') object.
+an instance of a [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') object.
 
 
 
-The [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo') object is initialized
+The [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') object is initialized
 with the value of the
 [Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
 property.
 
 ##### Returns
 
-Reference to an instance of [DirectoryInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryInfo 'System.IO.DirectoryInfo')
+Reference to an instance of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo')
 that has been initialized with the value of the
 [Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
 property.
@@ -255,18 +269,18 @@ a blank or `null` string for a value. |
 Translates an instance of an object that implements the
 [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
 interface into
-an instance of a [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') object.
+an instance of a [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') object.
 
 
 
-The [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') object is initialized with
+The [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') object is initialized with
 the value of the
 [Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
 property.
 
 ##### Returns
 
-Reference to an instance of [FileInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileInfo 'System.IO.FileInfo') that
+Reference to an instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') that
 has been initialized with the value of the
 [Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
 property.

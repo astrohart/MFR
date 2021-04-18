@@ -17,10 +17,6 @@ namespace MFR.Objects.Messages.Commands
     /// <para />
     /// This object is composed with the message object at runtime.
     /// </typeparam>
-    /// <typeparam name="TResult">
-    /// Name of the class or data type that will carry user state information
-    /// about the results of the operation.
-    /// </typeparam>
     public abstract class CommandBase<TInput> : FixedMessageTypeSpecificObjectBase,
         ICommand<TInput> where TInput : class
     {

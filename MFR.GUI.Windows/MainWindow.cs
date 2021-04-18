@@ -289,12 +289,6 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Sets up the presenter object and attaches handlers to events that it exposes.
         /// </summary>
-        /// <param name="configurationPathname">
-        /// (Required.) String containing the pathname of the configuration file.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="configurationPathname" /> parameter is blank.
-        /// </exception>
         private void InitializePresenter()
         {
             DebugUtils.WriteLine(
@@ -776,7 +770,7 @@ namespace MFR.GUI.Windows
         /// <para />
         /// If the status bar is not presently visible, then
         /// this method does nothing.
-        /// </remarks
+        /// </remarks>
         private void OnPresenterDataOperationFinished(object sender,
             EventArgs e)
             => statusBar.InvokeIfRequired(

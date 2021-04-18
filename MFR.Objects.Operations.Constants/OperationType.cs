@@ -5,13 +5,55 @@ namespace MFR.Objects.Operations.Constants
     /// </summary>
     public enum OperationType
     {
+        /// <summary>
+        /// Closes the active solution in Visual Studio.
+        /// </summary>
+        /// <remarks>
+        /// The "active" solution is defined as that which exists as a
+        /// <c>.sln</c> file in the starting (root) folder.
+        /// </remarks>
         CloseActiveSolution,
+
+        /// <summary>
+        /// Finds the instance of Visual Studio that has the solution open.
+        /// </summary>
+        /// <remarks>
+        /// The particular solution is that which exists in the starting (root) folder.
+        /// </remarks>
         FindVisualStudio,
+
+        /// <summary>
+        /// The list of file system entries to be renamed is being retrieved.
+        /// </summary>
         GettingListOfFilesToBeRenamed,
+
+        /// <summary>
+        /// Open the solution back up in Visual Studio.
+        /// </summary>
+        /// <remarks>
+        /// The "active" solution is defined as that which exists as a
+        /// <c>.sln</c> file in the starting (root) folder.
+        /// </remarks>
         OpenActiveSolution,
+
+        /// <summary>
+        /// We are replacing text values in the names of files.
+        /// </summary>
         RenameFilesInFolder,
+
+        /// <summary>
+        /// We are replacing text in the content of the files.
+        /// </summary>
         ReplaceTextInFiles,
+
+        /// <summary>
+        /// We are replacing text in the names of folders.
+        /// </summary>
         RenameSubFolders,
+
+        /// <summary>
+        /// Unknown operation type.
+        /// </summary>
         Unknown = -1
     }
 }

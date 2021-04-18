@@ -17,8 +17,7 @@ namespace MFR.Objects.Engines.Matching
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
@@ -50,11 +49,8 @@ namespace MFR.Objects.Engines.Matching
         }
 
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
@@ -70,6 +66,10 @@ namespace MFR.Objects.Engines.Matching
         /// </param>
         /// <param name="findWhat">
         /// (Required.) String containing the pattern that specifies the search criteria.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Optional.) String containing the data to replace all occurrences of
+        /// <paramref name="findWhat" /> with in the <paramref name="value" />.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,

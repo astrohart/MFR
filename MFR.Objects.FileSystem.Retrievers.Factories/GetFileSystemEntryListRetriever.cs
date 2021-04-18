@@ -16,22 +16,49 @@ namespace MFR.Objects.FileSystem.Retrievers.Factories
     /// </remarks>
     public class GetFileSystemEntryListRetriever
     {
+        /// <summary>
+        /// Creates a new instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface and returns a reference to it.
+        /// </summary>
+        /// <param name="type">
+        /// (Required.) A
+        /// <see
+        ///     cref="T:MFR.Objects.Operations.Constants.OperationType" />
+        /// value that
+        /// corresponds to the type of operation currently being performed.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface that corresponds to the specified <paramref name="type" />
+        /// of operation.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// Thrown if there is no object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface available that corresponds to the specified operation
+        /// <paramref name="type" />.
+        /// </exception>
         public static IFileSystemEntryListRetriever For(OperationType type)
         {
-            IFileSystemEntryListRetriever retriever = null;
+            IFileSystemEntryListRetriever retriever;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    retriever = new FilesToRenameRetriever();
+                    retriever = FilesToRenameRetriever.Instance;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    retriever = new TextInFilesRetriever();
+                    retriever = TextInFilesRetriever.Instance;
                     break;
 
                 case OperationType.RenameSubFolders:
-                    retriever = new FolderToRenameRetriever();
+                    retriever = FolderToRenameRetriever.Instance;
                     break;
 
                 default:
