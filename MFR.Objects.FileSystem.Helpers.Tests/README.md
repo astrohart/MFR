@@ -10,6 +10,8 @@
   - [Test_FilleWithJunk_Works()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileHelpersTests-Test_FilleWithJunk_Works 'MFR.Objects.FileSystem.Helpers.Tests.FileHelpersTests.Test_FilleWithJunk_Works')
   - [Test_GetContent_Works_OnTempFileFullOfJunk()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileHelpersTests-Test_GetContent_Works_OnTempFileFullOfJunk 'MFR.Objects.FileSystem.Helpers.Tests.FileHelpersTests.Test_GetContent_Works_OnTempFileFullOfJunk')
 - [FileInfoExtensionsTests](#T-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests')
+  - [Cleanup()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Cleanup 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Cleanup')
+  - [Initialize()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Initialize 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Initialize')
   - [MainTestBed()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed')
   - [MainTestBed_WithAllMethodCallsComposed()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed_WithAllMethodCallsComposed 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed_WithAllMethodCallsComposed')
   - [Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName')
@@ -103,12 +105,45 @@ Provides unit tests for the methods in the
 [FileInfoExtensions](#T-MFR-Objects-FileInfoExtensions 'MFR.Objects.FileInfoExtensions')
 class.
 
+<a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Cleanup'></a>
+### Cleanup() `method`
+
+##### Summary
+
+Called to both clean up after this test fixture's tests have run.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+The current implementation of this method simply removes all files
+and folders (that it can) from the user's TEMP folder.
+
+<a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Initialize'></a>
+### Initialize() `method`
+
+##### Summary
+
+Prepares this test fixture for test execution.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+The current implementation of this method clears files and folders
+from the user's TEMP folder, and then fills a file with random junk.
+
 <a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed'></a>
 ### MainTestBed() `method`
 
 ##### Summary
 
-Serves as a test bed to run the entire algorithm of renaming projects without having to invoke the GUI.
+Serves as a test bed to run the entire algorithm of renaming
+projects without having to invoke the GUI.
 
 ##### Parameters
 
@@ -119,29 +154,50 @@ This method has no parameters.
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Serves as a test bed to run the entire algorithm of renaming
+projects without having to invoke the GUI.
 
 ##### Parameters
 
 This method has no parameters.
+
+##### Remarks
+
+This method is different from the
+[MainTestBed](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed')
+method in that it uses the fluent composition of objects -- rather
+than initializing individual variables with the results -- to test
+how the algorithms work when methods are called as they are in the
+production code, i.e., in a fluent manner.
 
 <a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName'></a>
 ### Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName() `method`
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[RenameTo](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo')
+method will not work when provided only with a filename, not a
+fully-qualified path.
 
 ##### Parameters
 
 This method has no parameters.
+
+##### Remarks
+
+By "does not work" we mean, "returns `false` and doesn't carry out the file-rename operation."
 
 <a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_Works_On_ExistingTempFile'></a>
 ### Test_RenameTo_Works_On_ExistingTempFile() `method`
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[RenameTo](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo')
+method works (i.e., returns `true` and performs the
+correct operations) when we give it the fully-qualified pathname of
+a temporary file that actually exists.
 
 ##### Parameters
 
