@@ -12,6 +12,7 @@
 - [TextReplacementEngineTestBase](#T-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase')
   - [Configuration](#P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Configuration 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.Configuration')
   - [Replacer](#P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Replacer 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.Replacer')
+  - [CreateReplacementEngineFor(type)](#M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-CreateReplacementEngineFor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.CreateReplacementEngineFor(MFR.Objects.Operations.Constants.OperationType)')
   - [Initialize()](#M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Initialize 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.Initialize')
 
 <a name='T-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests'></a>
@@ -104,6 +105,30 @@ interface.
 Reference to an instance of an object that implements the
 [ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
 interface.
+
+<a name='M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-CreateReplacementEngineFor-MFR-Objects-Operations-Constants-OperationType-'></a>
+### CreateReplacementEngineFor(type) `method`
+
+##### Summary
+
+Creates an instance of an object that implements the
+[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
+interface for the
+specified operation `type`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+specifies which operation to create a data-matcher object for. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the `type` parameter is not set to a
+value that the factory supports. |
 
 <a name='M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Initialize'></a>
 ### Initialize() `method`
