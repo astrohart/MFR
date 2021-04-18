@@ -20,7 +20,7 @@
   - [AndRunningObjectTable()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-AndRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.AndRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
   - [FromMoniker()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-FromMoniker-System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.FromMoniker(System.Runtime.InteropServices.ComTypes.IMoniker)')
 - [MakeNewMonikerWrapper](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper 'MFR.Objects.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper')
-  - [From(bindContext,runningObjectTable,PARM)](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper-From-System-Runtime-InteropServices-ComTypes-IBindCtx,System-Runtime-InteropServices-ComTypes-IRunningObjectTable,System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper.From(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IRunningObjectTable,System.Runtime.InteropServices.ComTypes.IMoniker)')
+  - [From(bindContext,runningObjectTable,currentMoniker)](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper-From-System-Runtime-InteropServices-ComTypes-IBindCtx,System-Runtime-InteropServices-ComTypes-IRunningObjectTable,System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper.From(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IRunningObjectTable,System.Runtime.InteropServices.ComTypes.IMoniker)')
 - [Resources](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources 'MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties.Resources')
   - [Culture](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources-Culture 'MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties.Resources.ResourceManager')
@@ -269,7 +269,7 @@ interface and returns
 references to them.
 
 <a name='M-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper-From-System-Runtime-InteropServices-ComTypes-IBindCtx,System-Runtime-InteropServices-ComTypes-IRunningObjectTable,System-Runtime-InteropServices-ComTypes-IMoniker-'></a>
-### From(bindContext,runningObjectTable,PARM) `method`
+### From(bindContext,runningObjectTable,currentMoniker) `method`
 
 ##### Summary
 
@@ -299,7 +299,7 @@ interface. |
 the
 [IRunningObjectTable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.InteropServices.ComTypes.IRunningObjectTable 'System.Runtime.InteropServices.ComTypes.IRunningObjectTable')
 interface. |
-| PARM | [System.Runtime.InteropServices.ComTypes.IMoniker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.InteropServices.ComTypes.IMoniker 'System.Runtime.InteropServices.ComTypes.IMoniker') | (Required.) Reference to an instance of an object that implements
+| currentMoniker | [System.Runtime.InteropServices.ComTypes.IMoniker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.InteropServices.ComTypes.IMoniker 'System.Runtime.InteropServices.ComTypes.IMoniker') | (Required.) Reference to an instance of an object that implements
 the [IMoniker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.InteropServices.ComTypes.IMoniker 'System.Runtime.InteropServices.ComTypes.IMoniker')
 interface. |
 
