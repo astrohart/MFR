@@ -50,11 +50,8 @@ namespace MFR.Objects.Engines.Matching
         }
 
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
@@ -70,6 +67,10 @@ namespace MFR.Objects.Engines.Matching
         /// </param>
         /// <param name="findWhat">
         /// (Required.) String containing the pattern that specifies the search criteria.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the value that the found text is to be
+        /// replaced with. Cannot be blank for a filename.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,

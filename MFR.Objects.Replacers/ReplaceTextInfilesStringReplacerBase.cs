@@ -34,9 +34,9 @@ namespace MFR.Objects.Replacers
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression" />. Returns a string
+        /// the provided <paramref name="value" />. Returns a string
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the data upon which the replacement
         /// operation is to be carried out.
         /// </param>
@@ -54,14 +54,14 @@ namespace MFR.Objects.Replacers
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
+        ///     name="value" />
         /// , <paramref name="pattern" />, or
         /// <paramref
         ///     name="dest" />
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
-        public abstract string Replace(string source, string pattern,
+        public abstract string Replace(string value, string pattern,
             string dest = "");
     }
 }

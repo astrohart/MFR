@@ -34,6 +34,7 @@ namespace MFR.Objects.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
+        /// <param name="configuration">
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
@@ -67,9 +68,9 @@ namespace MFR.Objects.Engines.Replacement
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression" />. Returns a string
+        /// the provided <paramref name="value" />. Returns a string
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the data upon which the replacement
         /// operation is to be carried out.
         /// </param>
@@ -82,14 +83,14 @@ namespace MFR.Objects.Engines.Replacement
         /// should be substituted for the replaced text.
         /// </param>
         /// <returns>
-        /// String containing the new data. If the <paramref name="source" />
+        /// String containing the new data. If the <paramref name="value" />
         /// </returns>
         /// <remarks>
         /// Here, the <paramref name="dest" /> parameter may be blank or null; if
-        /// the <paramref name="source" /> parameter is <see langword="null" /> or
+        /// the <paramref name="value" /> parameter is <see langword="null" /> or
         /// the empty string, then this method returns the empty string.
         /// <para />
-        /// NOTE: The <paramref name="source" /> parameter MAY contain whitespace.
+        /// NOTE: The <paramref name="value" /> parameter MAY contain whitespace.
         /// this is the case, then the text found by the
         /// <paramref
         ///     name="pattern" />
@@ -104,13 +105,13 @@ namespace MFR.Objects.Engines.Replacement
         /// <para />
         /// NOTE: This parameter MAY have whitespace characters since these can
         /// be matched inside the content of a text file, which is what we
-        /// expect to be passed for the <paramref name="source" /> parameter.
+        /// expect to be passed for the <paramref name="value" /> parameter.
         /// </exception>
-        public override string Replace(string source, string pattern,
+        public override string Replace(string value, string pattern,
             string dest = "")
         {
             // return the empty string if no text to be replaced is provided.
-            if (string.IsNullOrEmpty(source))
+            if (string.IsNullOrEmpty(value))
                 return string.Empty;
 
             if (string.IsNullOrWhiteSpace(pattern))
@@ -118,7 +119,7 @@ namespace MFR.Objects.Engines.Replacement
                     "Value cannot be null or whitespace.", nameof(pattern)
                 );
 
-            var result = source; // no replacement if error
+            var result = value; // no replacement if error
 
             try
             {
@@ -127,14 +128,14 @@ namespace MFR.Objects.Engines.Replacement
                                               Configuration
                                                   .GetTextMatchingConfiguration()
                                           )
-                                          .Replace(source, pattern, dest);
+                                          .Replace(value, pattern, dest);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = source;
+                result = value;
             }
 
             return result;

@@ -62,9 +62,9 @@ namespace MFR.Objects.Engines.Replacement
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression" />. Returns a string
+        /// the provided <paramref name="value" />. Returns a string
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the data upon which the replacement
         /// operation is to be carried out.
         /// </param>
@@ -82,19 +82,19 @@ namespace MFR.Objects.Engines.Replacement
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
+        ///     name="value" />
         /// , <paramref name="pattern" />, or
         /// <paramref
         ///     name="dest" />
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
-        public override string Replace(string source, string pattern,
+        public override string Replace(string value, string pattern,
             string dest = "")
         {
-            if (string.IsNullOrWhiteSpace(source))
+            if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(source)
+                    "Value cannot be null or whitespace.", nameof(value)
                 );
             if (string.IsNullOrWhiteSpace(pattern))
                 throw new ArgumentException(
@@ -115,7 +115,7 @@ namespace MFR.Objects.Engines.Replacement
                     "Value cannot be null or whitespace.", nameof(dest)
                 );
 
-            var result = source;    // by default, no replacement
+            var result = value;    // by default, no replacement
 
             try
             {
@@ -124,14 +124,14 @@ namespace MFR.Objects.Engines.Replacement
                                               Configuration
                                                   .GetTextMatchingConfiguration()
                                           )
-                                          .Replace(source, pattern, dest);
+                                          .Replace(value, pattern, dest);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = source;
+                result = value;
             }
 
             return result;

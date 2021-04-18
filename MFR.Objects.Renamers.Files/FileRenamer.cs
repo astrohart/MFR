@@ -142,12 +142,6 @@ namespace MFR.Objects.Renamers.Files
             FilesToHaveTextReplacedCounted;
 
         /// <summary>
-        /// Occurs when a file system entry (e.g., a file or a folder) does not
-        /// meet the criteria for being included in an operation.
-        /// </summary>
-        public event FileSystemEntrySkippedEventHandler FileSystemEntrySkipped;
-
-        /// <summary>
         /// Occurs when the processing is completely finished.
         /// </summary>
         public event EventHandler Finished;
@@ -1113,6 +1107,9 @@ namespace MFR.Objects.Renamers.Files
             );
         }
 
+        /// <summary>
+        /// Called to ask the <c>File Renamer</c> object to stop operations.
+        /// </summary>
         public void RequestAbort()
             => AbortRequested = true;
 

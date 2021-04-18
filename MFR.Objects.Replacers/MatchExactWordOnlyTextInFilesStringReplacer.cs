@@ -57,9 +57,9 @@ namespace MFR.Objects.Replacers
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression" />. Returns a string
+        /// the provided <paramref name="value" />. Returns a string
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the data upon which the replacement
         /// operation is to be carried out.
         /// </param>
@@ -77,20 +77,20 @@ namespace MFR.Objects.Replacers
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
+        ///     name="value" />
         /// , <paramref name="pattern" />, or
         /// <paramref
         ///     name="dest" />
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
-        public override string Replace(string source, string pattern,
+        public override string Replace(string value, string pattern,
             string dest = "")
         {
-            if (string.IsNullOrEmpty(source))
+            if (string.IsNullOrEmpty(value))
                 throw new ArgumentException(
                     "Source cannot be null or the empty string.  It CAN be whitespace, however.",
-                    nameof(source)
+                    nameof(value)
                 );
 
             if (string.IsNullOrEmpty(pattern))
@@ -99,11 +99,11 @@ namespace MFR.Objects.Replacers
                     nameof(pattern)
                 );
 
-            var result = source; // no replacement in the event of an exception
+            var result = value; // no replacement in the event of an exception
 
             try
             {
-                result = source.RegexReplaceNoCase(
+                result = value.RegexReplaceNoCase(
                     GetRegularExpressionGenerator.For(
                                                      RegularExpressionType
                                                          .MatchExactWordOnly
@@ -117,7 +117,7 @@ namespace MFR.Objects.Replacers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = source; // no replacement in the event of an exception
+                result = value; // no replacement in the event of an exception
             }
 
             return result;

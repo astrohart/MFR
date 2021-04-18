@@ -6,6 +6,9 @@ using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Controls.Helpers
 {
+    /// <summary>
+    /// Helper methods that augment the functionality of a <see cref="T:MFR.GUI.Controls.EntryRespectingComboBox"/>.
+    /// </summary>
     [Log(AttributeExclude = true)]
     public static class EntryRespectingComboBoxExtensions
     {
@@ -22,7 +25,7 @@ namespace MFR.GUI.Controls.Helpers
         /// </param>
         /// <remarks>
         /// This method removes all the items from the combo box and then blanks
-        /// out the text.
+        /// out the text in the edit-control portion of the combo box.
         /// </remarks>
         public static void Clear(this IEntryRespectingComboBox box)
         {

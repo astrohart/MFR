@@ -68,9 +68,9 @@ namespace MFR.Objects.Engines.Replacement
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression" />. Returns a string
+        /// the provided <paramref name="value" />. Returns a string
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the data upon which the replacement
         /// operation is to be carried out.
         /// </param>
@@ -88,7 +88,7 @@ namespace MFR.Objects.Engines.Replacement
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
+        ///     name="value" />
         /// , <paramref name="pattern" />, or
         /// <paramref
         ///     name="dest" />
@@ -96,15 +96,15 @@ namespace MFR.Objects.Engines.Replacement
         /// for values.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the <paramref name="source" /> parameter does not contain
+        /// Thrown if the <paramref name="value" /> parameter does not contain
         /// the fully-qualified, absolute pathname to a folder.
         /// </exception>
-        public override string Replace(string source, string pattern,
+        public override string Replace(string value, string pattern,
             string dest = "")
         {
-            if (string.IsNullOrWhiteSpace(source))
+            if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(source)
+                    "Value cannot be null or whitespace.", nameof(value)
                 );
             if (string.IsNullOrWhiteSpace(pattern))
                 throw new ArgumentException(
@@ -129,7 +129,7 @@ namespace MFR.Objects.Engines.Replacement
              * If the source parameter does not contain an absolute path,
              * then we cannot operate.
              */
-            if (!source.IsAbsolutePath())
+            if (!value.IsAbsolutePath())
                 throw new InvalidOperationException(
                     "You must pass an absolute (fully-qualified) pathname to a folder in the 'source' parameter."
                 );
@@ -151,14 +151,14 @@ namespace MFR.Objects.Engines.Replacement
              */
 
             var result =
-                source; // no replacement is to occur if an exception is thrown
+                value; // no replacement is to occur if an exception is thrown
 
             try
             {
-                var parentFolder = Path.GetDirectoryName(source);
+                var parentFolder = Path.GetDirectoryName(value);
                 if (string.IsNullOrWhiteSpace(parentFolder)) return result;
 
-                var folderName = Path.GetFileName(source);
+                var folderName = Path.GetFileName(value);
                 if (string.IsNullOrWhiteSpace(folderName)) return result;
 
                 result = Path.Combine(
@@ -178,7 +178,7 @@ namespace MFR.Objects.Engines.Replacement
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = source;
+                result = value;
             }
 
             return result;

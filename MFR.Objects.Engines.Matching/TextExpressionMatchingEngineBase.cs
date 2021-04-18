@@ -10,16 +10,14 @@ namespace MFR.Objects.Engines.Matching
     /// <summary>
     /// Implements functionality common to all text-expression matcher objects.
     /// </summary>
-    public abstract class
-        TextExpressionMatchingEngineBase : ConfigurationComposedObjectBase,
-            ITextExpressionMatchingEngine
+    public abstract class TextExpressionMatchingEngineBase :
+        ConfigurationComposedObjectBase, ITextExpressionMatchingEngine
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns a reference to it.
         /// </summary>
         protected TextExpressionMatchingEngineBase()
         {
@@ -30,20 +28,29 @@ namespace MFR.Objects.Engines.Matching
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Objects.TextExpressionMatchingEngineBase" />
-        /// and
-        /// returns a reference to it.
+        /// and returns
+        /// a reference to it.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface
-        /// that holds settings that are specified by the user.
+        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface that holds
+        /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        protected TextExpressionMatchingEngineBase(IConfiguration configuration) :
-            base(configuration) { }
+        protected TextExpressionMatchingEngineBase(IConfiguration configuration)
+            : base(configuration) { }
+
+        /// <summary>
+        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// that corresponds to the type of operation being performed.
+        /// </summary>
+        public abstract OperationType OperationType
+        {
+            get;
+        }
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -56,6 +63,10 @@ namespace MFR.Objects.Engines.Matching
         /// <param name="findWhat">
         /// (Required.) String containing the pattern that specifies the search criteria.
         /// </param>
+        /// <param name="replaceWith">
+        /// (Optional.) String containing the value to be substituted for the
+        /// found text in <paramref name="value" />.
+        /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
@@ -64,9 +75,11 @@ namespace MFR.Objects.Engines.Matching
         /// <see langword="null" /> string for values.
         /// </exception>
         /// <returns>
-        /// Returns <see langword="true" /> if the <paramref name="value" /> is a match
-        /// against the provided <paramref name="findWhat" />; <see langword="false" /> if no
-        /// matches are found.
+        /// Returns <see langword="true" /> if the <paramref name="value" /> is a
+        /// match against the provided <paramref name="findWhat" />;
+        /// <see
+        ///     langword="false" />
+        /// if no matches are found.
         /// </returns>
         /// <remarks>
         /// NOTE: Implementers of this object must override this method and the
@@ -91,11 +104,14 @@ namespace MFR.Objects.Engines.Matching
         /// </summary>
         /// <param name="expression">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IMatchExpression" />
-        /// interface and whose properties contain the match and pattern data.
+        /// the <see cref="T:MFR.Objects.IMatchExpression" /> interface and whose
+        /// properties contain the match and pattern data.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if more than zero matches are found; <see langword="false" /> otherwise.
+        /// <see langword="true" /> if more than zero matches are found;
+        /// <see
+        ///     langword="false" />
+        /// otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="expression" />, is
@@ -110,18 +126,6 @@ namespace MFR.Objects.Engines.Matching
             return IsMatch(
                 expression.Value, expression.FindWhat, expression.ReplaceWith
             );
-        }
-
-        /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
-        /// </summary>
-        public abstract OperationType OperationType
-        {
-            get;
         }
     }
 }

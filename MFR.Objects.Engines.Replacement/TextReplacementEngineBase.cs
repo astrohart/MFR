@@ -36,6 +36,7 @@ namespace MFR.Objects.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
+        /// <param name="configuration">
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
@@ -70,9 +71,9 @@ namespace MFR.Objects.Engines.Replacement
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
-        /// the provided <paramref name="expression" />. Returns a string
+        /// the provided <paramref name="value" />. Returns a string
         /// </summary>
-        /// <param name="source">
+        /// <param name="value">
         /// (Required.) String containing the data upon which the replacement
         /// operation is to be carried out.
         /// </param>
@@ -90,11 +91,11 @@ namespace MFR.Objects.Engines.Replacement
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either of the required parameters,
         /// <paramref
-        ///     name="source" />
+        ///     name="value" />
         /// or <paramref name="pattern" />, are passed blank or
         /// <see langword="null" /> string for values.
         /// </exception>
-        public abstract string Replace(string source, string pattern,
+        public abstract string Replace(string value, string pattern,
             string dest = "");
 
         /// <summary>
