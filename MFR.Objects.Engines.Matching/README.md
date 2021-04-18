@@ -7,7 +7,7 @@
   - [#ctor()](#M-MFR-Objects-Engines-Matching-FileNameMatchingEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Matching.FileNameMatchingEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [#ctor()](#M-MFR-Objects-Engines-Matching-FileNameMatchingEngine-#ctor 'MFR.Objects.Engines.Matching.FileNameMatchingEngine.#ctor')
   - [OperationType](#P-MFR-Objects-Engines-Matching-FileNameMatchingEngine-OperationType 'MFR.Objects.Engines.Matching.FileNameMatchingEngine.OperationType')
-  - [IsMatch(value,findWhat)](#M-MFR-Objects-Engines-Matching-FileNameMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.FileNameMatchingEngine.IsMatch(System.String,System.String,System.String)')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Engines-Matching-FileNameMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.FileNameMatchingEngine.IsMatch(System.String,System.String,System.String)')
 - [FolderNameMatchingEngine](#T-MFR-Objects-Engines-Matching-FolderNameMatchingEngine 'MFR.Objects.Engines.Matching.FolderNameMatchingEngine')
   - [#ctor()](#M-MFR-Objects-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Matching.FolderNameMatchingEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [#ctor()](#M-MFR-Objects-Engines-Matching-FolderNameMatchingEngine-#ctor 'MFR.Objects.Engines.Matching.FolderNameMatchingEngine.#ctor')
@@ -20,13 +20,13 @@
   - [#ctor()](#M-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-#ctor 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase.#ctor')
   - [#ctor(configuration)](#M-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
-  - [IsMatch(value,findWhat)](#M-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
   - [IsMatch(expression)](#M-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression)')
 - [TextInFilesMatchingEngine](#T-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine 'MFR.Objects.Engines.Matching.TextInFilesMatchingEngine')
   - [#ctor()](#M-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Matching.TextInFilesMatchingEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
   - [#ctor()](#M-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine-#ctor 'MFR.Objects.Engines.Matching.TextInFilesMatchingEngine.#ctor')
   - [OperationType](#P-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine-OperationType 'MFR.Objects.Engines.Matching.TextInFilesMatchingEngine.OperationType')
-  - [IsMatch(value,findWhat)](#M-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.TextInFilesMatchingEngine.IsMatch(System.String,System.String,System.String)')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.TextInFilesMatchingEngine.IsMatch(System.String,System.String,System.String)')
 
 <a name='T-MFR-Objects-Engines-Matching-FileNameMatchingEngine'></a>
 ## FileNameMatchingEngine `type`
@@ -89,13 +89,11 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Matching-FileNameMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
-### IsMatch(value,findWhat) `method`
+### IsMatch(value,findWhat,replaceWith) `method`
 
 ##### Summary
 
@@ -116,6 +114,8 @@ if no matches are found.
 | ---- | ---- | ----------- |
 | value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value to check for matches. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that specifies the search criteria. |
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value that the found text is to be
+replaced with. Cannot be blank for a filename. |
 
 ##### Exceptions
 
@@ -273,8 +273,7 @@ Implements functionality common to all text-expression matcher objects.
 
 Constructs a new instance of
 [TextExpressionMatchingEngineBase](#T-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase')
-and
-returns a reference to it.
+and returns a reference to it.
 
 ##### Parameters
 
@@ -287,16 +286,16 @@ This constructor has no parameters.
 
 Constructs a new instance of
 [TextExpressionMatchingEngineBase](#T-MFR-Objects-TextExpressionMatchingEngineBase 'MFR.Objects.TextExpressionMatchingEngineBase')
-and
-returns a reference to it.
+and returns
+a reference to it.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface
-that holds settings that are specified by the user. |
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface that holds
+settings that are specified by the user. |
 
 ##### Exceptions
 
@@ -310,13 +309,11 @@ is passed a `null` value. |
 
 ##### Summary
 
-Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String-'></a>
-### IsMatch(value,findWhat) `method`
+### IsMatch(value,findWhat,replaceWith) `method`
 
 ##### Summary
 
@@ -326,9 +323,10 @@ application is configured.
 
 ##### Returns
 
-Returns `true` if the `value` is a match
-against the provided `findWhat`; `false` if no
-matches are found.
+Returns `true` if the `value` is a
+match against the provided `findWhat`;
+`false`
+if no matches are found.
 
 ##### Parameters
 
@@ -336,6 +334,8 @@ matches are found.
 | ---- | ---- | ----------- |
 | value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value to check for matches. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that specifies the search criteria. |
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) String containing the value to be substituted for the
+found text in `value`. |
 
 ##### Exceptions
 
@@ -365,15 +365,17 @@ property.
 
 ##### Returns
 
-`true` if more than zero matches are found; `false` otherwise.
+`true` if more than zero matches are found;
+`false`
+otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | expression | [MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
-the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
-interface and whose properties contain the match and pattern data. |
+the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression') interface and whose
+properties contain the match and pattern data. |
 
 ##### Exceptions
 
@@ -400,8 +402,7 @@ Matches text in a file that is to be (eventually) replaced.
 
 Constructs a new instance of
 [TextExpressionMatchingEngineBase](#T-MFR-Objects-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase')
-and
-returns a reference to it.
+and returns a reference to it.
 
 ##### Parameters
 
@@ -443,13 +444,11 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Matching-TextInFilesMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
-### IsMatch(value,findWhat) `method`
+### IsMatch(value,findWhat,replaceWith) `method`
 
 ##### Summary
 
@@ -470,6 +469,8 @@ if no matches are found.
 | ---- | ---- | ----------- |
 | value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value to check for matches. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that specifies the search criteria. |
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) String containing the data to replace all occurrences of
+`findWhat` with in the `value`. |
 
 ##### Exceptions
 
