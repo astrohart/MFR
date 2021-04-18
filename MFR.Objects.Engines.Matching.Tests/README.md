@@ -14,6 +14,7 @@
 - [TextExpressionMatchingEngineTestBase](#T-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase')
   - [_configuration](#F-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_configuration 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase._configuration')
   - [_matcher](#F-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_matcher 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase._matcher')
+  - [CreateMatchingEngineFor(type)](#M-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-CreateMatchingEngineFor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.CreateMatchingEngineFor(MFR.Objects.Operations.Constants.OperationType)')
   - [Initialize()](#M-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-Initialize 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.Initialize')
   - [Test_ArgumentException_NotThrown_If_AllThreeParams_Of_IsMatch_Method_AreNonBlank()](#M-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-Test_ArgumentException_NotThrown_If_AllThreeParams_Of_IsMatch_Method_AreNonBlank 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.Test_ArgumentException_NotThrown_If_AllThreeParams_Of_IsMatch_Method_AreNonBlank')
   - [Test_ArgumentException_Thrown_If_AllThreeParams_Of_IsMatch_Method_AreBlank()](#M-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-Test_ArgumentException_Thrown_If_AllThreeParams_Of_IsMatch_Method_AreBlank 'MFR.Objects.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.Test_ArgumentException_Thrown_If_AllThreeParams_Of_IsMatch_Method_AreBlank')
@@ -167,6 +168,33 @@ interface.
 Reference to an instance of an object that implements the
 [ITextExpressionMatchingEngine](#T-MFR-Objects-ITextExpressionMatchingEngine 'MFR.Objects.ITextExpressionMatchingEngine')
 interface.
+
+<a name='M-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-CreateMatchingEngineFor-MFR-Objects-Operations-Constants-OperationType-'></a>
+### CreateMatchingEngineFor(type) `method`
+
+##### Summary
+
+Creates an instance of an object that implements the
+[ITextExpressionMatchingEngine](#T-MFR-Objects-ITextExpressionMatchingEngine 'MFR.Objects.ITextExpressionMatchingEngine')
+interface for
+the specified operation `type`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+values that specifies which operation to create a data-matcher
+object for. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the
+`type`
+parameter is not set to a value that the
+factory supports. |
 
 <a name='M-MFR-Objects-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-Initialize'></a>
 ### Initialize() `method`
