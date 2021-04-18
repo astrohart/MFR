@@ -7,6 +7,7 @@
   - [#ctor(exception)](#M-MFR-Objects-Operations-Events-DataOperationErrorEventArgs-#ctor-System-Exception- 'MFR.Objects.Operations.Events.DataOperationErrorEventArgs.#ctor(System.Exception)')
 - [DataOperationErrorEventHandler](#T-MFR-Objects-Operations-Events-DataOperationErrorEventHandler 'MFR.Objects.Operations.Events.DataOperationErrorEventHandler')
 - [DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Objects.Operations.Events.DataOperationEventArgs')
+  - [#ctor(message)](#M-MFR-Objects-Operations-Events-DataOperationEventArgs-#ctor-System-String- 'MFR.Objects.Operations.Events.DataOperationEventArgs.#ctor(System.String)')
   - [Message](#P-MFR-Objects-Operations-Events-DataOperationEventArgs-Message 'MFR.Objects.Operations.Events.DataOperationEventArgs.Message')
 - [DataOperationEventHandler](#T-MFR-Objects-Operations-Events-DataOperationEventHandler 'MFR.Objects.Operations.Events.DataOperationEventHandler')
 - [OperationCancelEventArgs](#T-MFR-Objects-Operations-Events-OperationCancelEventArgs 'MFR.Objects.Operations.Events.OperationCancelEventArgs')
@@ -94,6 +95,21 @@ MFR.Objects.Operations.Events
 
 Provides information for DataOperation event handlers.
 
+<a name='M-MFR-Objects-Operations-Events-DataOperationEventArgs-#ctor-System-String-'></a>
+### #ctor(message) `constructor`
+
+##### Summary
+
+Constructs a new instance of [DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Objects.Operations.Events.DataOperationEventArgs') and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing message text to be displayed to the
+user while the operation is progressing. |
+
 <a name='P-MFR-Objects-Operations-Events-DataOperationEventArgs-Message'></a>
 ### Message `property`
 
@@ -130,6 +146,10 @@ the DataOperation event.
 ##### Namespace
 
 MFR.Objects.Operations.Events
+
+##### Summary
+
+Contains data for an OperationCanceled event.
 
 <a name='M-MFR-Objects-Operations-Events-OperationCancelEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType-'></a>
 ### #ctor(type) `constructor`
