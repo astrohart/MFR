@@ -121,6 +121,11 @@ This method has no parameters.
 
 MFR.Objects.TextValues.Retrievers
 
+##### Summary
+
+Retrieves the value to be used in which to search for text to be
+substituted in the names of file folders.
+
 <a name='M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#ctor'></a>
 ### #ctor() `constructor`
 
@@ -137,15 +142,16 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [FolderTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever').
+Gets a reference to the one and only instance of
+[FolderTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever').
 
 <a name='P-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#cctor'></a>
 ### #cctor() `method`
@@ -190,6 +196,10 @@ Returns the cached ResourceManager instance used by this class.
 ##### Namespace
 
 MFR.Objects.TextValues.Retrievers
+
+##### Summary
+
+Retrieves the text content of a file.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-#ctor'></a>
 ### #ctor() `constructor`
@@ -268,13 +278,18 @@ passed a `null` value. |
 
 MFR.Objects.TextValues.Retrievers
 
+##### Summary
+
+Defines the events, methods, properties, and behaviors for all `Text
+            Value Retriever` objects.
+
 <a name='P-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
-corresponds to the type of operation being performed.
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### GetTextValue(entry) `method`
