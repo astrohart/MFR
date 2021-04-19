@@ -1,6 +1,5 @@
 using MFR.GUI.Launchers.Dialogs;
 using MFR.GUI.Windows;
-using MFR.Objects;
 using MFR.Objects.Configuration.Providers;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -47,20 +46,27 @@ namespace MFR.GUI
         /// Handles the
         /// <see
         ///     cref="E:System.Windows.Forms.Application.ThreadException" />
-        /// event
-        /// raised by the application when an exception is thrown but goes
-        /// unhandled by a try/catch block that is not there in the code.
+        /// event.
         /// </summary>
         /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
+        /// The sender of this event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// A <see cref="T:System.Threading.ThreadExceptionEventArgs" /> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
+        /// The event that this handler responds to typically is raised by the
+        /// application when an exception is thrown but goes unhandled by a
+        /// try/catch block that is not there in the code
+        /// <para />
         /// This handler responds to the event by writing the exception
         /// information to the log file and then by displaying a user-friendly
         /// error dialog box.
+        /// <para />
+        /// From the dialog box thus displayed, the user can click a button to
+        /// open a Notepad window displaying the exception's type name, message,
+        /// and stack trace.
         /// </remarks>
         [Log(AttributeExclude = true)]
         private static void OnThreadException(object sender,
