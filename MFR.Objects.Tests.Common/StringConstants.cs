@@ -24,7 +24,7 @@ namespace MFR.Objects.Tests.Common
         /// operation would consider fair game for acting upon.
         /// </summary>
         public const string FOLDER_MATCHING_OPERATION_CRITIERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.Allocators.Interfaces";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\Foo";
 
         /// <summary>
         /// String consisting of complete gibberish.
