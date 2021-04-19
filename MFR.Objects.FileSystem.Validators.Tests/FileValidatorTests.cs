@@ -100,13 +100,18 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when the pathname of a file
+        /// that is inside the <c>obj\</c> subfolder of a project is passed to it.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInObjDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    StringConstants.PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER
+                    StringConstants
+                        .PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER
                 )
             );
 
