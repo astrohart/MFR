@@ -114,6 +114,13 @@ namespace MFR.Objects.Tests.Common
         public const string WHITESPACE = "   \t";
 
         /// <summary>
+        /// String containing the fully-qualified pathname of a file that is
+        /// inside the <c>obj\</c> folder of a project.
+        /// </summary>
+        public const string PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\xyLOGIX.Interop.LibGit2Sharp\obj\x64\Debug\xyLOGIX.Interop.LibGit2Sharp.csprojAssemblyReference.cache";
+
+        /// <summary>
         /// String containing the path to a 'dotfolder' -- i.e., a folder whose
         /// name starts with a dot.
         /// </summary>

@@ -85,7 +85,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// 
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the pathname of a
+        /// file that exists within the <c>.git</c> dotfolder of a Git repository.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInGitDir()
@@ -102,7 +106,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInObjDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.Objects.Tests\obj\x86\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs"
+                    StringConstants.PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER
                 )
             );
 
