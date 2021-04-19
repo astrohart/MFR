@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
 
@@ -7,6 +8,7 @@ namespace MFR.Objects.Tests.Common
     /// <summary>
     /// Common string constants for use in unit tests.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class StringConstants
     {
         /// <summary>
@@ -18,6 +20,13 @@ namespace MFR.Objects.Tests.Common
         /// String that contains a fake project name.
         /// </summary>
         public const string FAKE_PROJECT_NAME_WITH_DOTS = "Foo.Bar.Baz.Boid";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a file that
+        /// matches the criteria for operating upon.
+        /// </summary>
+        public const string FILE_MATCHING_OPERATIONAL_CRITERIA =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\Foo\Foo.csproj";
 
         /// <summary>
         /// String containing the path of a folder that the RenameSubFolder
@@ -47,6 +56,20 @@ namespace MFR.Objects.Tests.Common
             @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.sln";
 
         /// <summary>
+        /// String containing the fully-qualified pathname of a file that is in
+        /// a <c>bin\</c> folder of a particular project.
+        /// </summary>
+        public const string PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER =
+            @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.Objects.Tests\bin\x86\Release\Newtonsoft.Json.dll";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of one of the index
+        /// files that are commonly found in a Git repository's <c>.git</c> dotfolder.
+        /// </summary>
+        public const string PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git\ORIG_HEAD";
+
+        /// <summary>
         /// String containing the path to the file <c>x.udl</c> under the
         /// Portfolio Monitor solution folder.
         /// </summary>
@@ -64,7 +87,7 @@ namespace MFR.Objects.Tests.Common
         /// repository folder.
         /// </summary>
         public const string SUBFOLDER_OF_GIT_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.git\info";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git\info";
 
         /// <summary>
         /// String consisting of the path to a subfolder of a project's \obj folder.
@@ -77,13 +100,13 @@ namespace MFR.Objects.Tests.Common
         /// folder of a solution.
         /// </summary>
         public const string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\packages\EntityFramework.6.4.4";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages\EntityFramework.6.4.4";
 
         /// <summary>
         /// String consisting of the path to a subfolder of a solution's '\.vs' dotfolder.
         /// </summary>
         public const string SUBFOLDER_OF_VS_DOTFOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs\PortfolioMonitor";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.vs\xyLOGIX.Interop.LibGit2Sharp";
 
         /// <summary>
         /// Constant containing whitespace (three spaces and a tab character).

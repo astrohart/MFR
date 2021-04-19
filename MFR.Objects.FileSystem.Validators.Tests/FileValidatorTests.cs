@@ -1,6 +1,7 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
-using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Objects.FileSystem.Validators.Tests
 {
@@ -11,31 +12,53 @@ namespace MFR.Objects.FileSystem.Validators.Tests
     /// class.
     /// </summary>
     [TestFixture]
+    [Log(AttributeExclude = true)]
     public class FileValidatorTests
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.Objects.FileSystem.Validators.FileValidator" />.
+        /// </summary>
+        /// <remarks>
+        /// This property is meant for fluent use.
+        /// </remarks>
         private static FileValidator ThatTheFileValidatorSays
             => FileValidator.Instance;
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        /// method returns <see langword="false" /> in the event that it's passed
+        /// the pathname of a file that matches the operational criteria.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedFile()
             => Assert.IsFalse(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.PaymentMethods.Tests\CoinbasePaymentMethodsTests.cs"
+                    StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA
                 )
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> in the case that it's passed
+        /// the blank/empty string as an argument.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForBlankPath()
             => Assert.IsTrue(ThatTheFileValidatorSays.ShouldSkip(string.Empty));
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the fully
+        /// qualified pathname of a dotfile.
+        /// <para />
+        /// A dotfile is defined as a file whose name begins with a period (.).
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForDotfile()
@@ -46,24 +69,29 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the
+        /// fully-qualified pathname of a file that is found in the <c>bin\</c>
+        /// subfolder of a given project's directory.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInBinDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.Objects.Tests\bin\x86\Release\Newtonsoft.Json.dll"
+                    StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER
                 )
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// 
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInGitDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.git\index.old.2"
+                    StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER
                 )
             );
 
