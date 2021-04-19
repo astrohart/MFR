@@ -28,7 +28,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void
             Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists()
-            => Assert.IsFalse(
+        {
+            Assert.IsFalse(
+                Directory.Exists(StringConstants.NONEXISTENT_FOLDER)
+            );
+            Assert.IsFalse(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .DoesExist(
                                                MakeNewFileSystemEntry.ForPath(
@@ -37,6 +41,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
                                                )
                                            )
             );
+        }
 
         /// <summary>
         /// Asserts that the
@@ -47,7 +52,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// </summary>
         [Test]
         public void Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.WINDOWS_SYSTEM_FOLDER)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .DoesExist(
                                                MakeNewFileSystemEntry.ForPath(
@@ -56,9 +65,14 @@ namespace MFR.Objects.FileSystem.Validators.Tests
                                                )
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.DoesExist"/> method throws <see cref="T:System.ArgumentException"/> when passed a blank value for its parameter.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.DoesExist" />
+        /// method throws <see cref="T:System.ArgumentException" /> when passed a
+        /// blank value for its parameter.
         /// </summary>
         [Test]
         public void Test_DoesExist_ThrowsArgumentException_ForBlankPath()
@@ -73,7 +87,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.DoesExist"/> method throws <see cref="T:System.ArgumentException"/> when passed a <see langword="null" /> value for its parameter.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.DoesExist" />
+        /// method throws <see cref="T:System.ArgumentException" /> when passed a
+        /// <see langword="null" /> value for its parameter.
         /// </summary>
         [Test]
         public void Test_DoesExist_ThrowsArgumentException_ForNullPath()
@@ -88,7 +106,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.DoesExist"/> method throws <see cref="T:System.ArgumentException"/> when passed a whitespace value for its parameter.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.DoesExist" />
+        /// method throws <see cref="T:System.ArgumentException" /> when passed a
+        /// whitespace value for its parameter.
         /// </summary>
         [Test]
         public void Test_DoesExist_ThrowsArgumentException_ForWhitespacePath()
@@ -103,11 +125,19 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid"/> method does not throw any exceptions when passed the pathname of the C:\WINDOWS\System32 folder (which is guaranteed to always be valid).
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid" />
+        /// method does not throw any exceptions when passed the pathname of the
+        /// C:\WINDOWS\System32 folder (which is guaranteed to always be valid).
         /// </summary>
         [Test]
         public void Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder()
-            => Assert.DoesNotThrow(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.WINDOWS_SYSTEM_FOLDER)
+            );
+            Assert.DoesNotThrow(
                 () => GetFileSystemEntryValidator
                       .For(OperationType.RenameSubFolders)
                       .IsValid(
@@ -116,9 +146,14 @@ namespace MFR.Objects.FileSystem.Validators.Tests
                           )
                       )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid"/> method throws <see cref="T:System.ArgumentException"/> when passed a blank string for its parameter.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid" />
+        /// method throws <see cref="T:System.ArgumentException" /> when passed a
+        /// blank string for its parameter.
         /// </summary>
         [Test]
         public void Test_IsValid_ThrowsArgumentException_ForBlankPath()
@@ -133,7 +168,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid"/> method throws <see cref="T:System.ArgumentException"/> when passed a <see langword="null" /> string for its parameter.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid" />
+        /// method throws <see cref="T:System.ArgumentException" /> when passed a
+        /// <see langword="null" /> string for its parameter.
         /// </summary>
         [Test]
         public void Test_IsValid_ThrowsArgumentException_ForNullPath()
@@ -148,7 +187,11 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid"/> method throws <see cref="T:System.ArgumentException"/> when passed whitespace for its parameter.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid" />
+        /// method throws <see cref="T:System.ArgumentException" /> when passed
+        /// whitespace for its parameter.
         /// </summary>
         [Test]
         public void Test_IsValid_ThrowsArgumentException_ForWhitespacePath()
@@ -163,12 +206,21 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid"/> method throws <see cref="T:System.IO.DirectoryNotFoundException"/> when passed the path to a folder that is guaranteed not to actually exist on the machine's hard disk.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.IsValid" />
+        /// method throws <see cref="T:System.IO.DirectoryNotFoundException" />
+        /// when passed the path to a folder that is guaranteed not to actually
+        /// exist on the machine's hard disk.
         /// </summary>
         [Test]
         public void
             Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder()
-            => Assert.Throws<DirectoryNotFoundException>(
+        {
+            Assert.IsFalse(
+                Directory.Exists(StringConstants.NONEXISTENT_FOLDER)
+            );
+            Assert.Throws<DirectoryNotFoundException>(
                 () => GetFileSystemEntryValidator
                       .For(OperationType.RenameSubFolders)
                       .IsValid(
@@ -177,22 +229,38 @@ namespace MFR.Objects.FileSystem.Validators.Tests
                           )
                       )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="false" /> when passed the path to a folder that matches the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="false" /> when passed the path to a
+        /// folder that matches the operational criteria.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedDir()
-            => Assert.IsFalse(
+        {
+            Assert.IsTrue(
+                Directory.Exists(
+                    StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA
+                )
+            );
+            Assert.IsFalse(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
-                                                   .FOLDER_MATCHING_OPERATION_CRITIERIA
+                                                   .FOLDER_MATCHING_OPERATIONAL_CRITIERIA
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> when passed a blank string for its argument.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed a blank string for
+        /// its argument.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForBlankPath()
@@ -204,46 +272,82 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> when passed the pathname to a dotfolder (a folder whose name begins with a period), as such a folder does not meet the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the pathname to a
+        /// dotfolder (a folder whose name begins with a period), as such a
+        /// folder does not meet the operational criteria.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForDotfolder()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.DOTFOLDER_PATH_KNOWN_TO_EXIST)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
                                                    .DOTFOLDER_PATH_KNOWN_TO_EXIST
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> for a folder named <c>bin</c>, which does not meet the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> for a folder named <c>bin</c>,
+        /// which does not meet the operational criteria.
         /// </summary>
         [Test]
+        [Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.SUBFOLDER_OF_BIN_DIR)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
                                                    .SUBFOLDER_OF_BIN_DIR
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> for a folder named <c>obj</c>, which does not meet the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> for a folder named <c>obj</c>,
+        /// which does not meet the operational criteria.
         /// </summary>
         [Test]
+        [Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.SUBFOLDER_OF_OBJ_FOLDER)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
                                                    .SUBFOLDER_OF_OBJ_FOLDER
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> when passed the <see langword="null" /> string for its argument.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the
+        /// <see
+        ///     langword="null" />
+        /// string for its argument.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForNullInput()
@@ -253,7 +357,13 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> when passed the <see langword="null" /> string for its argument.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the
+        /// <see
+        ///     langword="null" />
+        /// string for its argument.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForNullPath()
@@ -265,13 +375,18 @@ namespace MFR.Objects.FileSystem.Validators.Tests
             );
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> when passed the pathname of a folder that is known not to exist.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed the pathname of a
+        /// folder that is known not to exist.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder()
         {
             var path = StringConstants.NONEXISTENT_FOLDER;
             Assert.IsNotNull(path);
+            Assert.IsFalse(Directory.Exists(path));
 
             var directoryValidator =
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders);
@@ -284,46 +399,78 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> for a folder named <c>.git</c>, or a subfolder thereof, which does not meet the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> for a folder named
+        /// <c>.git</c>, or a subfolder thereof, which does not meet the
+        /// operational criteria.
         /// </summary>
-        [Test]
+        [Test, Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.SUBFOLDER_OF_GIT_FOLDER)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
                                                    .SUBFOLDER_OF_GIT_FOLDER
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> for a folder named <c>packages</c>, or a subfolder thereof, which does not meet the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> for a folder named
+        /// <c>packages</c>, or a subfolder thereof, which does not meet the
+        /// operational criteria.
         /// </summary>
-        [Test]
+        [Test, Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
                                                    .SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> for a folder named <c>.vs</c>, or a subfolder thereof, which does not meet the operational criteria.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> for a folder named <c>.vs</c>,
+        /// or a subfolder thereof, which does not meet the operational criteria.
         /// </summary>
-        [Test]
+        [Test, Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir()
-            => Assert.IsTrue(
+        {
+            Assert.IsTrue(
+                Directory.Exists(StringConstants.SUBFOLDER_OF_VS_DOTFOLDER)
+            );
+            Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .ShouldSkip(
                                                StringConstants
                                                    .SUBFOLDER_OF_VS_DOTFOLDER
                                            )
             );
+        }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip"/> method returns <see langword="true" /> when passed whitespace for its argument.
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Validators.DirectoryValidator.ShouldSkip" />
+        /// method returns <see langword="true" /> when passed whitespace for its argument.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForWhitespacePath()

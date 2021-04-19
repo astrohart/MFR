@@ -1,7 +1,11 @@
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
+using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Objects.Tests.Common
 {
@@ -19,7 +23,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// String that contains a fake project name.
         /// </summary>
-        public const string FAKE_PROJECT_NAME_WITH_DOTS = "Foo.Bar.Baz.Boid";
+        public const string FAKE_PROJECT_NAME_WITH_DOTS = "Foo.Bar.Baz.Blarg";
 
         /// <summary>
         /// String containing the fully-qualified pathname of a file that
@@ -32,7 +36,7 @@ namespace MFR.Objects.Tests.Common
         /// String containing the path of a folder that the RenameSubFolder
         /// operation would consider fair game for acting upon.
         /// </summary>
-        public const string FOLDER_MATCHING_OPERATION_CRITIERIA =
+        public const string FOLDER_MATCHING_OPERATIONAL_CRITIERIA =
             @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\Foo";
 
         /// <summary>
@@ -56,20 +60,6 @@ namespace MFR.Objects.Tests.Common
             @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.sln";
 
         /// <summary>
-        /// String containing the fully-qualified pathname of a file that is in
-        /// a <c>bin\</c> folder of a particular project.
-        /// </summary>
-        public const string PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\MassFileRenamer\MFR.Objects.Tests\bin\x86\Release\Newtonsoft.Json.dll";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of one of the index
-        /// files that are commonly found in a Git repository's <c>.git</c> dotfolder.
-        /// </summary>
-        public const string PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git\ORIG_HEAD";
-
-        /// <summary>
         /// String containing the path to the file <c>x.udl</c> under the
         /// Portfolio Monitor solution folder.
         /// </summary>
@@ -77,48 +67,23 @@ namespace MFR.Objects.Tests.Common
             @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\x.udl";
 
         /// <summary>
-        /// String consisting of the path to a subfolder of a project's \bin folder.
-        /// </summary>
-        public const string SUBFOLDER_OF_BIN_DIR =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\bin\x86\Release";
-
-        /// <summary>
-        /// String consisting of the path to a subfolder of a solution's \.git
-        /// repository folder.
-        /// </summary>
-        public const string SUBFOLDER_OF_GIT_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git\info";
-
-        /// <summary>
-        /// String consisting of the path to a subfolder of a project's \obj folder.
-        /// </summary>
-        public const string SUBFOLDER_OF_OBJ_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\obj\x86\Release";
-
-        /// <summary>
-        /// String consisting of the path to a subfolder of the '\packages'
-        /// folder of a solution.
-        /// </summary>
-        public const string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages\EntityFramework.6.4.4";
-
-        /// <summary>
-        /// String consisting of the path to a subfolder of a solution's '\.vs' dotfolder.
-        /// </summary>
-        public const string SUBFOLDER_OF_VS_DOTFOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.vs\xyLOGIX.Interop.LibGit2Sharp";
-
-        /// <summary>
         /// Constant containing whitespace (three spaces and a tab character).
         /// </summary>
         public const string WHITESPACE = "   \t";
 
         /// <summary>
-        /// String containing the fully-qualified pathname of a file that is
-        /// inside the <c>obj\</c> folder of a project.
+        /// String containing the fully-qualified pathname of a <c>bin\</c>
+        /// folder in a project.
         /// </summary>
-        public const string PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\xyLOGIX.Interop.LibGit2Sharp\obj\x64\Debug\xyLOGIX.Interop.LibGit2Sharp.csprojAssemblyReference.cache";
+        private const string PATHNAME_OF_BIN_FOLDER =
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\bin";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a <c>obj\</c>
+        /// folder in a project.
+        /// </summary>
+        private const string PATHNAME_OF_OBJ_FOLDER =
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\obj";
 
         /// <summary>
         /// String containing the path to a 'dotfolder' -- i.e., a folder whose
@@ -224,11 +189,12 @@ namespace MFR.Objects.Tests.Common
 
         /// <summary>
         /// String consisting of the path to a file. The path contains only
-        /// gibberish, so the file referenced is, more or less, guaranteed not
-        /// to exist on the disk.
+        /// unique identifiers for folder and filename components -- which are
+        /// regenerated each time this constant is referred to --so the file
+        /// referenced is, more or less, guaranteed not to exist on the disk.
         /// </summary>
         public static readonly string NONEXISTENT_FILE =
-            @"C:\jkldasklopwmas\alwfvowlf\alrfn.sklj";
+            $@"C:\{Guid.NewGuid():N}\{Guid.NewGuid():N}\{Guid.NewGuid():N}.{Guid.NewGuid():N}";
 
         /// <summary>
         /// String consisting of the path to a folder that we can guarantee will
@@ -246,18 +212,167 @@ namespace MFR.Objects.Tests.Common
         public static readonly string NULL_STRING = null;
 
         /// <summary>
-        /// String consisting of the path to the Windows System32 folder.
+        /// String containing the fully-qualified pathname of a file in the
+        /// %USERPROFILE% folder whose name begins with a period (dot).
         /// </summary>
-        public static readonly string WINDOWS_SYSTEM_FOLDER = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.Windows),
-            "System32"
-        );
+        public static readonly string PATHNAME_OF_DOTFILE = Directory
+            .EnumerateFiles(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.UserProfile
+                ), "*", SearchOption.TopDirectoryOnly
+            )
+            .FirstOrDefault(
+                path => Path.GetFileName(path)
+                            .StartsWith(".")
+            );
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a file that is
+        /// inside the <c>obj\</c> folder of a project.
+        /// </summary>
+        public static readonly string
+            PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER = Directory
+                .EnumerateFiles(
+                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\xyLOGIX.Interop.LibGit2Sharp\obj",
+                    "*", SearchOption.AllDirectories
+                )
+                .FirstOrDefault();
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a file that has no extension.
+        /// </summary>
+        public static readonly string PATHNAME_OF_FILE_HAVING_NO_EXTENSION =
+            Directory.EnumerateFiles(
+                         @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor",
+                         "*", SearchOption.AllDirectories
+                     )
+                     .FirstOrDefault(
+                         filename => !Path.GetFileName(filename)
+                                          .Contains(".")
+                     );
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a file that is in
+        /// a <c>bin\</c> folder of a particular project.
+        /// </summary>
+        public static readonly string PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER =
+            Directory.EnumerateFiles(
+                         PATHNAME_OF_BIN_FOLDER, "*",
+                         SearchOption.AllDirectories
+                     )
+                     .FirstOrDefault();
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of one of the index
+        /// files that are commonly found in a Git repository's <c>.git\</c> dotfolder.
+        /// </summary>
+        public static readonly string
+            PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER = Directory
+                .EnumerateFiles(
+                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git",
+                    "*", SearchOption.AllDirectories
+                )
+                .FirstOrDefault();
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a file that is
+        /// located within the <c>.vs\</c> dotfolder of a solution.
+        /// </summary>
+        public static readonly string PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER =
+            Directory.EnumerateFiles(
+                         @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs",
+                         "*", SearchOption.AllDirectories
+                     )
+                     .FirstOrDefault();
 
         /// <summary>
         /// String containing the fully-qualified pathname of a file that is
         /// located within the <c>packages</c> subfolder of a solution.
         /// </summary>
-        public const string PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages\log4net.2.0.12\log4net.2.0.12.nupkg";
+        public static readonly string
+            PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER = Directory
+                .EnumerateFiles(
+                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages",
+                    "*", SearchOption.AllDirectories
+                )
+                .FirstOrDefault();
+
+        /// <summary>
+        /// String consisting of the path to a subfolder of a project's \bin folder.
+        /// </summary>
+        [Obsolete] public static readonly string SUBFOLDER_OF_BIN_DIR =
+            Directory.EnumerateDirectories(
+                         PATHNAME_OF_BIN_FOLDER, "*",
+                         DirectoryEnumerationOptions.Folders |
+                         DirectoryEnumerationOptions.AsLongPath |
+                         DirectoryEnumerationOptions.Recursive |
+                         DirectoryEnumerationOptions.SkipReparsePoints
+                     )
+                     .FirstOrDefault();
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a subfolder of the
+        /// <c>.git\</c> folder of a solution.
+        /// </summary>
+        [Obsolete] public static readonly string SUBFOLDER_OF_GIT_FOLDER =
+            Directory.EnumerateDirectories(
+                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git",
+                         "*",
+                         DirectoryEnumerationOptions.Folders |
+                         DirectoryEnumerationOptions.AsLongPath |
+                         DirectoryEnumerationOptions.Recursive |
+                         DirectoryEnumerationOptions.SkipReparsePoints
+                     )
+                     .FirstOrDefault();
+
+        /// <summary>
+        /// String consisting of the path to a subfolder of a project's
+        /// <c>obj\</c> subfolder.
+        /// </summary>
+        [Obsolete] public static readonly string SUBFOLDER_OF_OBJ_FOLDER =
+            Directory.EnumerateDirectories(
+                         PATHNAME_OF_OBJ_FOLDER, "*",
+                         DirectoryEnumerationOptions.Folders |
+                         DirectoryEnumerationOptions.AsLongPath |
+                         DirectoryEnumerationOptions.Recursive |
+                         DirectoryEnumerationOptions.SkipReparsePoints
+                     )
+                     .FirstOrDefault();
+
+        /// <summary>
+        /// String consisting of the path to a subfolder of the <c>packages\</c>
+        /// folder of a solution.
+        /// </summary>
+        [Obsolete]
+        public static readonly string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER =
+            Directory.EnumerateDirectories(
+                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages",
+                         "*",
+                         DirectoryEnumerationOptions.Folders |
+                         DirectoryEnumerationOptions.AsLongPath |
+                         DirectoryEnumerationOptions.Recursive |
+                         DirectoryEnumerationOptions.SkipReparsePoints
+                     )
+                     .FirstOrDefault();
+
+        /// <summary>
+        /// String consisting of the path to a subfolder of a solution's '\.vs' dotfolder.
+        /// </summary>
+        [Obsolete] public static readonly string SUBFOLDER_OF_VS_DOTFOLDER =
+            Directory.EnumerateDirectories(
+                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.vs",
+                         "*",
+                         DirectoryEnumerationOptions.Folders |
+                         DirectoryEnumerationOptions.AsLongPath |
+                         DirectoryEnumerationOptions.Recursive |
+                         DirectoryEnumerationOptions.SkipReparsePoints
+                     )
+                     .FirstOrDefault();
+
+        /// <summary>
+        /// String consisting of the path to the Windows System32 folder.
+        /// </summary>
+        public static readonly string WINDOWS_SYSTEM_FOLDER =
+            Environment.GetFolderPath(Environment.SpecialFolder.System);
     }
 }
