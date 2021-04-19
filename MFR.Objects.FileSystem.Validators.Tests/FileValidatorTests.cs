@@ -122,7 +122,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         public void Test_ShouldSkip_ReturnsTrue_ForFileInPackagesDir()
             => Assert.IsTrue(
                 ThatTheFileValidatorSays.ShouldSkip(
-                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\packages\EntityFramework.6.4.4\EntityFramework.6.4.4.nupkg"
+                    StringConstants.PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER
                 )
             );
 

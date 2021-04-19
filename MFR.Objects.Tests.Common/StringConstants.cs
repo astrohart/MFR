@@ -252,5 +252,12 @@ namespace MFR.Objects.Tests.Common
             Environment.GetFolderPath(Environment.SpecialFolder.Windows),
             "System32"
         );
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a file that is
+        /// located within the <c>packages</c> subfolder of a solution.
+        /// </summary>
+        public const string PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages\log4net.2.0.12\log4net.2.0.12.nupkg";
     }
 }
