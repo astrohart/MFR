@@ -481,22 +481,66 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile" />
+        /// method returns <see langword="false" /> when fed the path to the
+        /// Windows Notepad utility --- which we know not to be a zero-length
+        /// file, since it's a Windows Application.
+        /// </summary>
+        [Test]
+        public void Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp()
+        {
+            Assert.IsTrue(File.Exists(StringConstants.NOTEPAD_PATH));
+            Assert.IsFalse(
+                MakeNewFileInfo.ForPath(StringConstants.NOTEPAD_PATH)
+                               .IsZeroLengthFile()
+            );
+        }
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile" />
+        /// method returns <see langword="true" /> when fed the value of the
+        /// <see
+        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE" />
+        /// constant as a parameter (this constant having as its value, the path
+        /// to a zero-length file).
+        /// </summary>
+        [Test]
+        public void
+            Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor()
+            => Assert.IsTrue(
+                MakeNewFileInfo
+                    .ForPath(StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE)
+                    .IsZeroLengthFile()
+            );
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
         ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
         /// method will not work when provided only with a filename, not a
         /// fully-qualified path.
         /// </summary>
         /// <remarks>
-        /// By "does not work" we mean, "returns <see langword="false" /> and doesn't carry out the file-rename operation."
+        /// By "does not work" we mean, "returns <see langword="false" /> and
+        /// doesn't carry out the file-rename operation."
         /// </remarks>
         [Test]
         public void
             Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName()
-            => Assert.IsFalse(
+        {
+            Assert.IsFalse(
+                StringConstants.NEW_TEMP_FILE_FILENAME_ONLY.IsAbsolutePath()
+            );
+
+            Assert.IsFalse(
                 MakeNewFileInfo.ForPath(StringConstants.EXISTING_TEMP_FILE)
                                .RenameTo(
                                    StringConstants.NEW_TEMP_FILE_FILENAME_ONLY
                                )
             );
+        }
 
         /// <summary>
         /// Asserts that the
@@ -509,15 +553,66 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         [Test]
         public void Test_RenameTo_Works_On_ExistingTempFile()
         {
-            // rename a .csproj file into a GUID and then back again
-            Assert.IsTrue(File.Exists(StringConstants.EXISTING_TEMP_FILE));
-            Assert.IsTrue(
-                new FileInfo(StringConstants.EXISTING_TEMP_FILE).RenameTo(
-                    StringConstants.NEW_TEMP_FILE
-                )
+            var source = StringConstants.EXISTING_TEMP_FILE;
+            var dest = StringConstants.NEW_TEMP_FILE;
+
+            DoFileRename(source, dest);
+        }
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
+        /// method works (i.e., returns <see langword="true" /> and performs the
+        /// correct operations) when we give it the fully-qualified pathname of
+        /// two files that have vastly different locations.
+        /// </summary>
+        [Test]
+        public void Test_RenameTo_Works_On_VastlyDifferentFileNames()
+        {
+            var source = Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.UserProfile
+                ), $"{Guid.NewGuid():N}.txt"
             );
-            Assert.IsFalse(File.Exists(StringConstants.EXISTING_TEMP_FILE));
-            Assert.IsTrue(File.Exists(StringConstants.NEW_TEMP_FILE));
+            FileHelpers.FillWithJunk(source);
+
+            var dest = Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyDocuments
+                ) + $@"\{Guid.NewGuid():N}\Dest Folder\Sub Folder",
+                $"{Guid.NewGuid():N}.txt"
+            );
+
+            var destFolder = Path.GetDirectoryName(dest);
+            Assert.IsFalse(Directory.Exists(destFolder));
+
+            if (!Directory.Exists(destFolder))
+                Directory.CreateDirectory(destFolder);
+
+            DoFileRename(source, dest);
+
+            Assert.IsFalse(File.Exists(source));
+            Assert.IsTrue(File.Exists(dest));
+
+            if (File.Exists(dest))
+            {
+                var folderToDelete =
+                    new DirectoryInfo(destFolder).Parent.Parent;
+                folderToDelete.Delete(true, true, true);
+            }
+        }
+
+        private static void DoFileRename(string source, string dest)
+        {
+            Assert.IsTrue(File.Exists(source));
+
+            /* fill the temp file with trash data */
+            FileHelpers.FillWithJunk(source);
+
+            Assert.IsTrue(new FileInfo(source).RenameTo(dest));
+            Assert.IsFalse(File.Exists(source));
+            Assert.IsTrue(File.Exists(dest));
         }
     }
 }

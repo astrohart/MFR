@@ -207,6 +207,14 @@ namespace MFR.Objects.Tests.Common
         );
 
         /// <summary>
+        /// String containing the path to the Windows Notepad utility.
+        /// </summary>
+        public static readonly string NOTEPAD_PATH = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.System),
+            "notepad.exe"
+        );
+
+        /// <summary>
         /// Constant whose value is the null string.
         /// </summary>
         public static readonly string NULL_STRING = null;
