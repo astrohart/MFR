@@ -123,14 +123,18 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Summary
 
-Looks up a localized string similar to The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file..
+Looks up a localized string similar to The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file.
+
+Provide the pathname of a folder that contains a *.sln file in its topmost level, and then try to run this application again..
 
 <a name='P-MFR-Objects-CommandLine-Validators-Constants-Properties-Resources-RootDirectoryDoesntExist'></a>
 ### RootDirectoryDoesntExist `property`
 
 ##### Summary
 
-Looks up a localized string similar to The specified starting directory, '{0}', does not exist..
+Looks up a localized string similar to The specified starting directory, '{0}', does not exist.
+
+Check the value passed on the command line, and then try again..
 
 <a name='P-MFR-Objects-CommandLine-Validators-Constants-Properties-Resources-RootDirectoryValid'></a>
 ### RootDirectoryValid `property`
