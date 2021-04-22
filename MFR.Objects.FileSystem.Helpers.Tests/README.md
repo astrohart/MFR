@@ -14,8 +14,11 @@
   - [Initialize()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Initialize 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Initialize')
   - [MainTestBed()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed')
   - [MainTestBed_WithAllMethodCallsComposed()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed_WithAllMethodCallsComposed 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed_WithAllMethodCallsComposed')
+  - [Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp')
+  - [Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor')
   - [Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName')
   - [Test_RenameTo_Works_On_ExistingTempFile()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_Works_On_ExistingTempFile 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Test_RenameTo_Works_On_ExistingTempFile')
+  - [Test_RenameTo_Works_On_VastlyDifferentFileNames()](#M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_Works_On_VastlyDifferentFileNames 'MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Test_RenameTo_Works_On_VastlyDifferentFileNames')
 - [Resources](#T-MFR-Objects-FileSystem-Helpers-Tests-Properties-Resources 'MFR.Objects.FileSystem.Helpers.Tests.Properties.Resources')
   - [Culture](#P-MFR-Objects-FileSystem-Helpers-Tests-Properties-Resources-Culture 'MFR.Objects.FileSystem.Helpers.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-FileSystem-Helpers-Tests-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Helpers.Tests.Properties.Resources.ResourceManager')
@@ -170,6 +173,37 @@ than initializing individual variables with the results -- to test
 how the algorithms work when methods are called as they are in the
 production code, i.e., in a fluent manner.
 
+<a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp'></a>
+### Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp() `method`
+
+##### Summary
+
+Asserts that the
+[IsZeroLengthFile](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile')
+method returns `false` when fed the path to the
+Windows Notepad utility --- which we know not to be a zero-length
+file, since it's a Windows Application.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor'></a>
+### Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor() `method`
+
+##### Summary
+
+Asserts that the
+[IsZeroLengthFile](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile')
+method returns `true` when fed the value of the
+[PORTFOLIO_MONITOR_X_UDL_FILE](#F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE 'MFR.Objects.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE')
+constant as a parameter (this constant having as its value, the path
+to a zero-length file).
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName'></a>
 ### Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName() `method`
 
@@ -186,7 +220,8 @@ This method has no parameters.
 
 ##### Remarks
 
-By "does not work" we mean, "returns `false` and doesn't carry out the file-rename operation."
+By "does not work" we mean, "returns `false` and
+doesn't carry out the file-rename operation."
 
 <a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_Works_On_ExistingTempFile'></a>
 ### Test_RenameTo_Works_On_ExistingTempFile() `method`
@@ -198,6 +233,21 @@ Asserts that the
 method works (i.e., returns `true` and performs the
 correct operations) when we give it the fully-qualified pathname of
 a temporary file that actually exists.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Objects-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Test_RenameTo_Works_On_VastlyDifferentFileNames'></a>
+### Test_RenameTo_Works_On_VastlyDifferentFileNames() `method`
+
+##### Summary
+
+Asserts that the
+[RenameTo](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo')
+method works (i.e., returns `true` and performs the
+correct operations) when we give it the fully-qualified pathname of
+two files that have vastly different locations.
 
 ##### Parameters
 
