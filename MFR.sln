@@ -353,6 +353,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.CommandLine.Val
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.CommandLine.Validators.Constants", "MFR.Objects.CommandLine.Validators.Constants\MFR.Objects.CommandLine.Validators.Constants.csproj", "{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.CommandLine.Validators.Constants.Generators", "MFR.Objects.CommandLine.Validators.Constants.Generators\MFR.Objects.CommandLine.Validators.Constants.Generators.csproj", "{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1745,6 +1747,14 @@ Global
 		{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}.Release|x64.Build.0 = Release|x64
 		{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}.Release|x86.ActiveCfg = Release|x86
 		{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}.Release|x86.Build.0 = Release|x86
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Debug|x64.ActiveCfg = Debug|x64
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Debug|x64.Build.0 = Debug|x64
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Debug|x86.ActiveCfg = Debug|x86
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Debug|x86.Build.0 = Debug|x86
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Release|x64.ActiveCfg = Release|x64
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Release|x64.Build.0 = Release|x64
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Release|x86.ActiveCfg = Release|x86
+		{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

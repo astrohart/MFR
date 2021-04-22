@@ -61,6 +61,15 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The command-line arguments could not be parsed..
+        /// </summary>
+        internal static string CommandLineInfoIsNull {
+            get {
+                return ResourceManager.GetString("CommandLineInfoIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The specified starting directory, &apos;{0}&apos;, exists on disk but does not contain a Visual Studio Solution (*.sln) file..
         /// </summary>
         internal static string RootDirectoryDoesntContainSolution {
@@ -84,6 +93,24 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Properties {
         internal static string RootDirectoryValid {
             get {
                 return ResourceManager.GetString("RootDirectoryValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Due to an error we didn&apos;t expect, we could not perform validation on the command-line arguments supplied to this application..
+        /// </summary>
+        internal static string UnknownCommandLineValidationFailedError {
+            get {
+                return ResourceManager.GetString("UnknownCommandLineValidationFailedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Due to an error we didn&apos;t expect, we could not perform validation on the path &apos;{0}&apos; that was provided for the starting folder..
+        /// </summary>
+        internal static string UnknownRootDirectoryValidationFailedError {
+            get {
+                return ResourceManager.GetString("UnknownRootDirectoryValidationFailedError", resourceCulture);
             }
         }
     }

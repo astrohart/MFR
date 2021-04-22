@@ -9,17 +9,16 @@ namespace MFR.Objects.CommandLine.Validators.Constants
     /// </summary>
     public static class RootDirectoryValidationMessages
     {
-        /// <summary>
-        /// Looks up a localized string similar to The specified starting
-        /// directory, '{0}', exists on disk but does not contain a Visual
-        /// Studio Solution (*.sln) file..
-        /// </summary>
-
         public static string RootDirectoryDoesntContainSolution
         {
             get;
         } = Resources.RootDirectoryDoesntContainSolution;
 
+        /// <summary>
+        /// Looks up a localized string similar to The specified starting
+        /// directory, '{0}', exists on disk but does not contain a Visual
+        /// Studio Solution (*.sln) file..
+        /// </summary>
         /// <summary>
         /// Looks up a localized string similar to The specified starting
         /// directory, '{0}', does not exist..
@@ -37,5 +36,15 @@ namespace MFR.Objects.CommandLine.Validators.Constants
         {
             get;
         } = Resources.RootDirectoryValid;
+
+        /// <summary>
+        /// Looks up a localized string similar to Due to an error we didn't
+        /// expect, we could not perform validation on the path '{0}' that was
+        /// provided for the starting folder..
+        /// </summary>
+        public static string UnknownRootDirectoryValidationFailedError
+        {
+            get;
+        } = Resources.UnknownRootDirectoryValidationFailedError;
     }
 }

@@ -151,6 +151,18 @@
       <Project>{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}</Project>
       <Name>MFR.Objects.CommandLine.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.CommandLine.Validators.Events\MFR.Objects.CommandLine.Validators.Events.csproj">
+      <Project>{9614BE5B-0E77-460B-A7BC-0539C27A2511}</Project>
+      <Name>MFR.Objects.CommandLine.Validators.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.CommandLine.Validators.Factories\MFR.Objects.CommandLine.Validators.Factories.csproj">
+      <Project>{DE6E68D8-6601-47FD-BB7E-21A46B6F56A9}</Project>
+      <Name>MFR.Objects.CommandLine.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.CommandLine.Validators.Interfaces\MFR.Objects.CommandLine.Validators.Interfaces.csproj">
+      <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
+      <Name>MFR.Objects.CommandLine.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.CommandLine\MFR.Objects.CommandLine.csproj">
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.Objects.CommandLine</Name>

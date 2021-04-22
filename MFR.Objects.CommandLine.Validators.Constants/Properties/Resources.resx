@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CommandLineInfoIsNull" xml:space="preserve">
+    <value>The command-line arguments could not be parsed.</value>
+  </data>
   <data name="RootDirectoryDoesntContainSolution" xml:space="preserve">
     <value>The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file.</value>
   </data>
@@ -125,5 +128,11 @@
   </data>
   <data name="RootDirectoryValid" xml:space="preserve">
     <value>The specified directory exists on the disk and contains a Visual Studio Solution (*.sln) file.</value>
+  </data>
+  <data name="UnknownCommandLineValidationFailedError" xml:space="preserve">
+    <value>Due to an error we didn't expect, we could not perform validation on the command-line arguments supplied to this application.</value>
+  </data>
+  <data name="UnknownRootDirectoryValidationFailedError" xml:space="preserve">
+    <value>Due to an error we didn't expect, we could not perform validation on the path '{0}' that was provided for the starting folder.</value>
   </data>
 </root>

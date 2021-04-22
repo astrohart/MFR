@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MFR.Objects.CommandLine.Validators.Constants;
+using MFR.Objects.CommandLine.Validators.Constants.Generators;
+using System;
 
 namespace MFR.Objects.CommandLine.Validators.Events
 {
@@ -13,13 +15,86 @@ namespace MFR.Objects.CommandLine.Validators.Events
         ///     cref="T:MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs" />
         /// and returns a reference to it.
         /// </summary>
+        /// <param name="reason">
+        /// (Required.) A
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        /// value specifying why the validation failed.
+        /// </param>
         /// <param name="rootDirectory">
         /// (Required.) String containing the value of the root directory
         /// specified by the user on the command line.
         /// </param>
-        public RootDirectoryInvalidEventArgs(string rootDirectory)
+        public RootDirectoryInvalidEventArgs(RootDirectoryInvalidReason reason,
+            string rootDirectory)
         {
+            Exception = null;
+            Reason = reason;
             RootDirectory = rootDirectory;
+        }
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs" />
+        /// and returns a reference to it.
+        /// </summary>
+        /// <param name="reason">
+        /// (Required.) A
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        /// value specifying why the validation failed.
+        /// </param>
+        /// <param name="rootDirectory">
+        /// (Required.) String containing the value of the root directory
+        /// specified by the user on the command line.
+        /// </param>
+        public RootDirectoryInvalidEventArgs(RootDirectoryInvalidReason reason,
+            string rootDirectory, Exception exception)
+        {
+            Exception = exception;
+            Reason = reason;
+            RootDirectory = rootDirectory;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.Exception" /> that describes the error in
+        /// more detail.
+        /// </summary>
+        public Exception Exception
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a string containing an error message to be displayed to the user.
+        /// </summary>
+        public string Message
+        {
+            get {
+                var result = GetRootDirectoryValidationFailedMessage.For
+                    .ValidationFailedReason(Reason)
+                    .AndRootDirectoryValue(RootDirectory);
+
+                if (!string.IsNullOrWhiteSpace(result) &&
+                    RootDirectoryInvalidReason.Unknown == Reason &&
+                    Exception != null)
+                    result += Environment.NewLine + Environment.NewLine +
+                              Exception?.Message;
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets a
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        /// value that specifies why the validation failed.
+        /// </summary>
+        public RootDirectoryInvalidReason Reason
+        {
+            get;
         }
 
         /// <summary>
