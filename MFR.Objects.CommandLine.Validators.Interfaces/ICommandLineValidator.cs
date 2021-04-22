@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MFR.Objects.CommandLine.Validators.Interfaces
+﻿namespace MFR.Objects.CommandLine.Validators.Interfaces
 {
-    public interface ICommandLineValidator
-    {
-        
-    }
+    /// <summary>
+    /// Defines the publicly-exposed methods and properties of a
+    /// <c>
+    /// Command-Line
+    /// Validator
+    /// </c>
+    /// object.
+    /// </summary>
+    public interface ICommandLineValidator { }
 }
