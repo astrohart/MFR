@@ -23,15 +23,6 @@ namespace MFR.Objects.CommandLine
         } = Directories.MyDocuments;
 
         /// <summary>
-        /// Gets or sets a value that indicates whether files should be
-        /// backed up prior to being altered.
-        /// </summary>
-        /// <remarks>
-        /// The default value of this property is <see langword="false" />.
-        /// </remarks>
-        public bool NoBackup { get; set; } = false;
-
-        /// <summary>
         /// Parses the application's command-line arguments and sets the properties
         /// of a new instance of <see cref="T:UserQuery.CommandLineInfo" /> 
         /// accordingly.
@@ -53,11 +44,6 @@ namespace MFR.Objects.CommandLine
                  .As('r', "root")
                  .WithDescription($"Sets the directory that this application begins in.")
                  .SetDefault(Directories.MyDocuments);
-
-                p.Setup(arg => arg.NoBackup)
-                 .As("nobackup")
-                 .WithDescription($"If specified, does not back up files that are changed.")
-                 .SetDefault(false);
 
                 p.SetupHelp("?", "help")
                  .Callback(text => Console.WriteLine(text));

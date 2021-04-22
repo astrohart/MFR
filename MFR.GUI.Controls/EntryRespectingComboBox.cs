@@ -1,4 +1,5 @@
 using MFR.GUI.Controls.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace MFR.GUI.Controls
     /// the software meeting certain requirements.  Therefore, this object was
     /// engineered in the hopes of making that behavior go away.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class EntryRespectingComboBox : ComboBox, IEntryRespectingComboBox
     {
         /// <summary>

@@ -1,5 +1,6 @@
 using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace MFR.GUI.Controls
     /// Button that shows "More &gt;&gt;" or "Less &lt;&lt;" depending on
     /// whether a form is folded or unfolded.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class FoldUnfoldButton : Button, IFoldUnfoldButton
     {
         /// <summary>
