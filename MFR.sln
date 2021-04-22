@@ -343,6 +343,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.CommandLine", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.CommandLine.Constants", "MFR.Objects.CommandLine.Constants\MFR.Objects.CommandLine.Constants.csproj", "{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.CommandLine.Validators", "MFR.Objects.CommandLine.Validators\MFR.Objects.CommandLine.Validators.csproj", "{EA1DC6C8-5108-494A-8699-E05910A5E234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1695,6 +1697,14 @@ Global
 		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x64.Build.0 = Release|x64
 		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x86.ActiveCfg = Release|x86
 		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x86.Build.0 = Release|x86
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Debug|x64.ActiveCfg = Debug|x64
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Debug|x64.Build.0 = Debug|x64
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Debug|x86.ActiveCfg = Debug|x86
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Debug|x86.Build.0 = Debug|x86
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Release|x64.ActiveCfg = Release|x64
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Release|x64.Build.0 = Release|x64
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Release|x86.ActiveCfg = Release|x86
+		{EA1DC6C8-5108-494A-8699-E05910A5E234}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
