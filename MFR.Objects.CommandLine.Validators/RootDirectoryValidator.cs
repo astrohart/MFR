@@ -118,7 +118,8 @@ namespace MFR.Objects.CommandLine.Validators
                     ValidationFailures++;
                 }
 
-                if (!Directory.EnumerateFiles(
+                if (Directory.Exists(rootDirectory)
+                    && !Directory.EnumerateFiles(
                                   rootDirectory, "*.sln",
                                   SearchOption.TopDirectoryOnly
                               )
