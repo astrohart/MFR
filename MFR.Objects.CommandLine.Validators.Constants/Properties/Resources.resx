@@ -121,10 +121,14 @@
     <value>The command-line arguments could not be parsed.</value>
   </data>
   <data name="RootDirectoryDoesntContainSolution" xml:space="preserve">
-    <value>The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file.</value>
+    <value>The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file.
+
+Provide the pathname of a folder that contains a *.sln file in its topmost level, and then try to run this application again.</value>
   </data>
   <data name="RootDirectoryDoesntExist" xml:space="preserve">
-    <value>The specified starting directory, '{0}', does not exist.</value>
+    <value>The specified starting directory, '{0}', does not exist.
+
+Check the value passed on the command line, and then try again.</value>
   </data>
   <data name="RootDirectoryValid" xml:space="preserve">
     <value>The specified directory exists on the disk and contains a Visual Studio Solution (*.sln) file.</value>
