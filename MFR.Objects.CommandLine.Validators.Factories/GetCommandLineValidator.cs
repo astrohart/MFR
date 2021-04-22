@@ -3,7 +3,7 @@
 namespace MFR.Objects.CommandLine.Validators.Factories
 {
     /// <summary>
-    /// Creates instances of objects that implement the
+    /// Provides access to the sole instance of the object that implements the
     /// <see
     ///     cref="T:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator" />
     /// interface.
@@ -11,10 +11,11 @@ namespace MFR.Objects.CommandLine.Validators.Factories
     public static class GetCommandLineValidator
     {
         /// <summary>
-        /// Creates a new instance of an object that implements the
+        /// Provides access to the sole instance of the object that implements
+        /// the
         /// <see
         ///     cref="T:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator" />
-        /// interface and returns a reference to it.
+        /// interface.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the

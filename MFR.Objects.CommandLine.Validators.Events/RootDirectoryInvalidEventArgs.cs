@@ -49,6 +49,10 @@ namespace MFR.Objects.CommandLine.Validators.Events
         /// (Required.) String containing the value of the root directory
         /// specified by the user on the command line.
         /// </param>
+        /// <param name="exception">
+        /// (Required.) An <see cref="T:System.Exception" /> that provides
+        /// detailed error information.
+        /// </param>
         public RootDirectoryInvalidEventArgs(RootDirectoryInvalidReason reason,
             string rootDirectory, Exception exception)
         {

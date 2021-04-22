@@ -13,21 +13,19 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Generators
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static GetRootDirectoryValidationFailedMessage()
-        {
-        }
+        static GetRootDirectoryValidationFailedMessage() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected GetRootDirectoryValidationFailedMessage()
-        {
-        }
+        protected GetRootDirectoryValidationFailedMessage() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage"/> .
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage" />
+        /// .
         /// </summary>
         [Log(AttributeExclude = true)]
         public static GetRootDirectoryValidationFailedMessage For
@@ -48,7 +46,7 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Generators
         /// <summary>
         /// Formats the validation-failure message obtained with a call to the
         /// <see
-        /// cref="M:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.ValidationFailedReason"/>
+        ///     cref="M:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.ValidationFailedReason" />
         /// method with the value attempted to be passed by the user.
         /// </summary>
         /// <param name="value">
@@ -56,14 +54,18 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Generators
         /// message format.
         /// </param>
         /// <returns>
-        /// Message formatted with the string specified by <paramref
-        /// name="value"/> ; empty if the <see
-        /// cref="P:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat"/>
+        /// Message formatted with the string specified by
+        /// <paramref
+        ///     name="value" />
+        /// ; empty if the
+        /// <see
+        ///     cref="P:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat" />
         /// property has not yet been initialized.
         /// </returns>
         /// <remarks>
-        /// Before this method can be called, the <see
-        /// cref="M:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.ValidationFailedReason"/>
+        /// Before this method can be called, the
+        /// <see
+        ///     cref="M:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.ValidationFailedReason" />
         /// method must first be called and then chained with a call to this one.
         /// </remarks>
         public string AndRootDirectoryValue(string value)
@@ -71,22 +73,33 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Generators
                 ? MessageFormat
                 : string.Format(MessageFormat, value);
 
-        /// <summary> Initializes the <see
-        /// cref="P:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat"
-        /// /> property with the message format string, if any, that corresponds
-        /// to the <see
-        /// cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason"
-        /// /> value passed in the <paramref name="reason" /> parameter.
-        /// </summary> <param name="reason"> A <see
-        /// cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason"
-        /// /> value that indicates the reason why validation failed. </param>
-        /// <returns> Reference to the same instance of the object that called
-        /// this method, for fluent use. </returns> <remarks> After calling this
-        /// method, callers must chain it with a call to the <see
-        /// cref="M:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.AndRootDirectoryValue"
-        /// /> method before the return value can be assigned to a <see
-        /// cref="T:System.String" />
-        /// -valued message property./remarks>
+        /// <summary>s
+        /// Initializes the
+        /// <see cref="P:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat" />
+        /// property with the message format string, if any, that corresponds to
+        /// the
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        /// value passed in the <paramref name="reason" /> parameter.
+        /// </summary>
+        /// <param name="reason">
+        /// A
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        /// value that indicates the reason why validation failed.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <remarks>
+        /// After calling this method, callers must chain it with a call to the
+        /// <see
+        ///     cref="M:MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.AndRootDirectoryValue" />
+        /// method before the return value can be assigned to a
+        /// <see cref="T:System.String" />
+        /// -valued message property.
+        /// </remarks>
         public GetRootDirectoryValidationFailedMessage ValidationFailedReason(
             RootDirectoryInvalidReason reason)
         {

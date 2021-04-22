@@ -8,19 +8,15 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Objects.CommandLine.Validators
 {
     /// <summary>
-    /// Validates instances of
-    /// <see
-    ///     cref="T:MFR.Objects.CommandLine.CommandLineInfo" />
-    /// to ensure they
+    /// Validates instances of <see
+    /// cref="T:MFR.Objects.CommandLine.CommandLineInfo"/> to ensure they
     /// contain values that the application can work with.
     /// </summary>
     public class CommandLineValidator : ICommandLineValidator
     {
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
-        /// interface.
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator"/> interface.
         /// </summary>
         private IRootDirectoryValidator _rootDirectoryValidator;
 
@@ -28,17 +24,25 @@ namespace MFR.Objects.CommandLine.Validators
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static CommandLineValidator() { }
+        static CommandLineValidator()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected CommandLineValidator() { }
+        protected CommandLineValidator()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.CommandLine.Validators.CommandLineValidator" />.
+        /// Occurs once for each validation failure.
+        /// </summary>
+        public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.CommandLine.Validators.CommandLineValidator"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static CommandLineValidator Instance
@@ -47,14 +51,9 @@ namespace MFR.Objects.CommandLine.Validators
         } = new CommandLineValidator();
 
         /// <summary>
-        /// Occurs once for each validation failure.
-        /// </summary>
-        public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
-
-        /// <summary>
         /// Gets a count of validation failures that occurred the last time the
         /// <see
-        ///     cref="M:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid" />
+        /// cref="M:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid"/>
         /// method was called.
         /// </summary>
         public int ValidationFailures
@@ -64,27 +63,22 @@ namespace MFR.Objects.CommandLine.Validators
         }
 
         /// <summary>
-        /// Associates an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        /// Associates an instance of an object that implements the <see
+        /// cref="T:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator"/>
         /// interface with this validator object.
         /// </summary>
         /// <param name="rootDirectoryValidator">
         /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
-        /// interface.
+        /// the <see
+        /// cref="T:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator"/> interface.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter,
-        /// <paramref
-        ///     name="rootDirectoryValidator" />
-        /// , is passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref
+        /// name="rootDirectoryValidator"/> , is passed a <see langword="null"/> value.
         /// </exception>
         public ICommandLineValidator AssociateWithRootDirectoryValidator(
             IRootDirectoryValidator rootDirectoryValidator)
@@ -100,29 +94,20 @@ namespace MFR.Objects.CommandLine.Validators
         /// <summary>
         /// Gets a value indicating whether the specified
         /// <paramref
-        ///     name="path" />
-        /// refers to a valid starting folder for renaming projects.
+        ///     name="cmdInfo" />
+        /// refers to a valid set of command-line argument values.
         /// </summary>
-        /// <param name="path">
+        /// <param name="cmdInfo">
+        /// (Required.) Reference to an instance of
+        /// <see
+        ///     cref="T:MFR.Objects.CommandLine.CommandLineInfo" />
+        /// that is the
+        /// object to be validated.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the folder referenced by
-        /// <paramref
-        ///     name="path" />
-        /// is a valid root directory; <see langword="false" /> otherwise.
-        /// <para />
-        /// In the event that <see langword="false" /> is returned by this
-        /// method, the
-        /// <see
-        ///     cref="E:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator.RootDirectoryInvalid" />
-        /// event is raised to indicate the validation failure reason and
-        /// provide a descriptive error message that is to be displayed to the user.
+        /// <see langword="true" /> if the <paramref name="cmdInfo" /> object's
+        /// properties contain valid values.
         /// </returns>
-        /// <remarks>
-        /// In order to be valid, the <paramref name="path" /> parameter must
-        /// contain the path of a folder that (a) exists on the disk; and (b)
-        /// contains a Visual Studio Solution (*.sln) file.
-        /// </remarks>
         public bool IsValid(CommandLineInfo cmdInfo)
         {
             ValidationFailures = 0;
@@ -170,15 +155,12 @@ namespace MFR.Objects.CommandLine.Validators
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.Objects.CommandLine.Validators.CommandLineValidator.CommandLineInfoInvalid" />
-        /// event.
+        /// Raises the <see
+        /// cref="E:MFR.Objects.CommandLine.Validators.CommandLineValidator.CommandLineInfoInvalid"/> event.
         /// </summary>
         /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs" />
+        /// A <see
+        /// cref="T:MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs"/>
         /// that contains the event data.
         /// </param>
         protected virtual void OnCommandLineInfoInvalid(

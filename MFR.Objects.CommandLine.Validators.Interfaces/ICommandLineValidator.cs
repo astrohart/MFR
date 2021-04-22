@@ -2,17 +2,6 @@
 
 namespace MFR.Objects.CommandLine.Validators.Interfaces
 {
-    public interface IValidator
-    {
-        /// <summary>
-        /// Gets a count of validation failures that occurred the last time the
-        /// <see
-        ///     cref="M:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid" />
-        /// method was called.
-        /// </summary>
-        int ValidationFailures { get; }
-    }
-
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a
     /// <c>
@@ -68,11 +57,6 @@ namespace MFR.Objects.CommandLine.Validators.Interfaces
         /// <see langword="true" /> if the <paramref name="cmdInfo" /> object's
         /// properties contain valid values.
         /// </returns>
-        /// <remarks>
-        /// In order to be valid, the <paramref name="path" /> parameter must
-        /// contain the path of a folder that (a) exists on the disk; and (b)
-        /// contains a Visual Studio Solution (*.sln) file.
-        /// </remarks>
         bool IsValid(CommandLineInfo cmdInfo);
     }
 }
