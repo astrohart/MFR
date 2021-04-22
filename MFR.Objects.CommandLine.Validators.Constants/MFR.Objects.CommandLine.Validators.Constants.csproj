@@ -5,7 +5,7 @@
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</ProjectGuid>
+    <ProjectGuid>{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -58,38 +58,34 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.CommandLine.Validators.Interfaces</AssemblyName>
+    <AssemblyName>MFR.Objects.CommandLine.Validators.Constants</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.CommandLine.Validators.Interfaces</RootNamespace>
+    <RootNamespace>MFR.Objects.CommandLine.Validators.Constants</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommandLineValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RootDirectoryInvalidReason.cs" />
+    <Compile Include="RootDirectoryValidationMessages.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.CommandLine.Validators.Events\MFR.Objects.CommandLine.Validators.Events.csproj">
-      <Project>{9614BE5B-0E77-460B-A7BC-0539C27A2511}</Project>
-      <Name>MFR.Objects.CommandLine.Validators.Events</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
