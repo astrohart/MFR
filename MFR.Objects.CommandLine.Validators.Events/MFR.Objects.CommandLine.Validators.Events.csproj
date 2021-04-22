@@ -74,6 +74,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RootDirectoryInvalidEventArgs.cs" />
+    <Compile Include="RootDirectoryInvalidEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
