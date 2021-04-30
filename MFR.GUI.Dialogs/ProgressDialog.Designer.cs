@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Windows.Forms;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs
 {
@@ -14,6 +15,7 @@ namespace MFR.GUI.Dialogs
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        [Log(AttributeExclude = true)]
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
