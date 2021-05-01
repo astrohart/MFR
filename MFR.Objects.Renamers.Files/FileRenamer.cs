@@ -348,15 +348,14 @@ namespace MFR.Objects.Renamers.Files
             // that currently has the solution containing the items to be
             // renamed open, then close the solution automatically for the user.
 
-            // Assume that, by convention, if the root directory path is
-            // C:\temp, then the path to the solution is C:\temp\temp.sln. If
-            // this is not the case, then the solution will have to be reloaded
-            // manually by the user.
+            // Scan the folder in which we are starting for files ending with the
+            // .sln extension.  If any of them are open in Visual Studio, mark
+            // them all for reloading, and then reload them.
 
-            var solutionPathByConvention = Path.Combine(
+            var solutionPath = Path.Combine(
                 RootDirectoryPath, Path.GetFileName(RootDirectoryPath) + ".sln"
             );
-            if (File.Exists(solutionPathByConvention))
+            if (File.Exists(solutionPath))
             {
                 // determine if the solution whose path has been determined
                 // above is currently open in an instance of Visual Studio. If
@@ -365,7 +364,7 @@ namespace MFR.Objects.Renamers.Files
                 // Visual Studio, if any, that is (a) currently open and (b)
                 // currently has the solution open
                 dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
-                    solutionPathByConvention
+                    solutionPath
                 );
                 ShouldReOpenSolution = dte != null;
 
@@ -447,7 +446,7 @@ namespace MFR.Objects.Renamers.Files
                         )
                     );
 
-                    dte.Solution.Open(solutionPathByConvention);
+                    dte.Solution.Open(solutionPath);
 
                     /* Wait for the solution to be opened/loaded. */
                     while (!dte.Solution.IsOpen) Thread.Sleep(50);
