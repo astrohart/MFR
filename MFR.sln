@@ -365,6 +365,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Solutions.Excep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Solutions.Factories", "MFR.Objects.Solutions.Factories\MFR.Objects.Solutions.Factories.csproj", "{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.Solutions", "MFR.Objects.Managers.Solutions\MFR.Objects.Managers.Solutions.csproj", "{E1078BC5-24EB-44E8-81BD-09310D81FBD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1805,6 +1807,14 @@ Global
 		{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}.Release|x64.Build.0 = Release|x64
 		{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}.Release|x86.ActiveCfg = Release|x86
 		{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}.Release|x86.Build.0 = Release|x86
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Debug|x64.ActiveCfg = Debug|x64
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Debug|x64.Build.0 = Debug|x64
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Debug|x86.ActiveCfg = Debug|x86
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Debug|x86.Build.0 = Debug|x86
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Release|x64.ActiveCfg = Release|x64
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Release|x64.Build.0 = Release|x64
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Release|x86.ActiveCfg = Release|x86
+		{E1078BC5-24EB-44E8-81BD-09310D81FBD9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
