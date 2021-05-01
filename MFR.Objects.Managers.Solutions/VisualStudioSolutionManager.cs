@@ -2,6 +2,7 @@
 using MFR.Objects.Solutions.Factories;
 using MFR.Objects.Solutions.Interfaces;
 using MFR.Objects.VisualStudio;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
