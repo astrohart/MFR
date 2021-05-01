@@ -1,14 +1,15 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Configuration.Serializers;
 using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Actions;
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.System;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Messages.Actions
+namespace MFR.Objects.Configuration.Actions
 {
     /// <summary>
     /// Accesses a key and value in the system Registry to load the pathname of
@@ -33,7 +34,7 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Actions.LoadConfigurationFromFileAction" />
+        ///     cref="T:MFR.Objects.Configuration.Actions.LoadConfigurationFromFileAction" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -43,8 +44,8 @@ namespace MFR.Objects.Messages.Actions
         } = new LoadConfigurationFromFileAction();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.MessageType" /> that is
-        /// being used to identify which message this is.
+        /// Gets the <see cref="T:MFR.Objects.MessageType" /> that is being used
+        /// to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
@@ -54,15 +55,15 @@ namespace MFR.Objects.Messages.Actions
         /// Executes this message.
         /// </summary>
         /// <returns>
-        /// String containing the path to the master configuration file loaded
-        /// from the system Registry, or blank if an error occurred.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        /// interface that is initialized with the values read in from the
+        /// specified file.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the
-        /// <see
-        ///     cref="F:MFR.Objects.ActionBase._input" />
-        /// field is blank
-        /// or <see langword="null" />.
+        /// Thrown if the <see cref="F:MFR.Objects.ActionBase._input" /> field is
+        /// blank or <see langword="null" />.
         /// </exception>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality
@@ -101,7 +102,7 @@ namespace MFR.Objects.Messages.Actions
                 DebugLevel.Info,
                 "*** SUCCESS *** The _input field has a valid object reference for its value."
             );
-            
+
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 $"*** SUCCESS *** The file with path '{_input.Path}' was found on the disk.  Proceeding..."

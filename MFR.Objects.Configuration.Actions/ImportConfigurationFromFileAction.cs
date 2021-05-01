@@ -1,6 +1,6 @@
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Messages.Actions
+namespace MFR.Objects.Configuration.Actions
 {
     /// <summary>
     /// Imports configuration from a file that is not the master configuration file.
@@ -21,7 +21,7 @@ namespace MFR.Objects.Messages.Actions
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Messages.Actions.ImportConfigurationFromFileAction" />
+        /// <see cref="T:MFR.Objects.Configuration.Actions.ImportConfigurationFromFileAction" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]

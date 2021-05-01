@@ -2,11 +2,12 @@ using MFR.Objects.Expressions.Registry.Interfaces;
 using MFR.Objects.Expressions.Registry.Validators.Factories;
 using MFR.Objects.FileSystem.Factories;
 using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Actions;
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.System;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Messages.Actions
+namespace MFR.Objects.Configuration.Actions
 {
     /// <summary>
     /// Accesses a key and value in the system Registry to load the pathname of
@@ -30,7 +31,7 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Actions.LoadStringFromRegistryAction" />
+        ///     cref="T:MFR.Objects.Configuration.Actions.LoadStringFromRegistryAction" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]

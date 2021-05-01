@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{065848D5-CC1F-4153-988B-2C7EA2FA964C}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -106,9 +107,6 @@
     <Compile Include="ActionCacheProvider.cs" />
     <Compile Include="CachedResultActionBase.cs" />
     <Compile Include="ConfigurationActionType.cs" />
-    <Compile Include="ImportConfigurationFromFileAction.cs" />
-    <Compile Include="LoadConfigurationFromFileAction.cs" />
-    <Compile Include="LoadStringFromRegistryAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,34 +127,6 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
-      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Objects.Configuration.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Serializers\MFR.Objects.Configuration.Serializers.csproj">
-      <Project>{9031122F-D186-40AE-AAF1-F986AD1C5AB8}</Project>
-      <Name>MFR.Objects.Configuration.Serializers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Interfaces\MFR.Objects.Expressions.Registry.Interfaces.csproj">
-      <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
-      <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Validators.Factories\MFR.Objects.Expressions.Registry.Validators.Factories.csproj">
-      <Project>{A918C4B3-40A4-4864-A04D-AC2ACFC025AC}</Project>
-      <Name>MFR.Objects.Expressions.Registry.Validators.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Validators.Interfaces\MFR.Objects.Expressions.Registry.Validators.Interfaces.csproj">
-      <Project>{DA01210A-F467-4EC3-967E-01523AFB6E23}</Project>
-      <Name>MFR.Objects.Expressions.Registry.Validators.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
-      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
-      <Name>MFR.Objects.FileSystem.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
-      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
