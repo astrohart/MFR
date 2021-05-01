@@ -1,4 +1,5 @@
 ﻿using MFR.Objects.Solutions.Interfaces;
+using System.ComponentModel;
 
 namespace MFR.Objects.Solutions.Factories
 {
@@ -7,11 +8,6 @@ namespace MFR.Objects.Solutions.Factories
     /// </summary>
     public static class MakeNewVisualStudioSolution
     {
-        /// <summary>
-        /// Creates a new instance of an object that implements the <see cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" /> interface and returns a reference to it.
-        /// </summary>
-        /// <returns>Reference to an instance of an object that implements the <see cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" /> interface.</returns>
-        public static IVisualStudioSolution FromScratch()
-            => new VisualStudioSolution();
+        
     }
 }
