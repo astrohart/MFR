@@ -1,14 +1,13 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Actions.Factories;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.FileSystem.Factories;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Factories;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
-using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Configuration.Actions.Factories;
 
-namespace MFR.Objects.Messages.Actions.Tests
+namespace MFR.Objects.Configuration.Actions.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

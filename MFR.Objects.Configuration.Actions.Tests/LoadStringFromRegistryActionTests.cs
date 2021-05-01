@@ -1,13 +1,13 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Actions.Factories;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Factories;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
-using Alphaleonis.Win32.Filesystem;
 
-namespace MFR.Objects.Messages.Actions.Tests
+namespace MFR.Objects.Configuration.Actions.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
@@ -28,7 +28,7 @@ namespace MFR.Objects.Messages.Actions.Tests
         [Test]
         public void Test_CanSuccessfullyObtain_AppConfigFilePath()
         {
-            var result = GetAction
+            var result = GetConfigurationAction
                          .For<IRegQueryExpression<string>, IFileSystemEntry>(
                              MessageType.LoadStringFromRegistry
                          )
