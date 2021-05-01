@@ -32,7 +32,8 @@ namespace MFR.Objects.Messages.Constants
         UnloadAllLoadedSolutionsInFolder,
 
         /// <summary>
-        /// Loads all the Visual Studio Solutions (*.sln) in the specified folder, each in its own instance of code
+        /// Loads all the Visual Studio Solutions (*.sln) in the specified
+        /// folder, each in its own instance of <c>devenv.exe</c>.
         /// </summary>
         LoadAllSolutionsInFolder,
 
