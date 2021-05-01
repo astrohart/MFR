@@ -1,10 +1,10 @@
+using Alphaleonis.Win32.Filesystem;
 using EnvDTE;
 using MFR.Objects.Processes.Factories;
 using MFR.Objects.Processes.Interfaces;
 using MFR.Objects.RunningObjects.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -177,6 +177,11 @@ namespace MFR.Objects.VisualStudio
 
             try
             {
+                var pids = _processIdProvider.GetAllProcessIDsOf("devenv.exe")
+                                             .ToList();
+                if (!pids.Any())    // Visual Studio is not open at all
+                    return result;
+
                 result = _processIdProvider.GetAllProcessIDsOf("devenv.exe")
                                            .Select(ConnectToRunningVisualStudio)
                                            .FirstOrDefault(
@@ -204,6 +209,51 @@ namespace MFR.Objects.VisualStudio
                 DebugLevel.Debug,
                 "VisualStudioManager.GetVsProcessHavingSolutionOpened: Done."
             );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether the Visual Studio Solution with the specified
+        /// <paramref name="path" /> is loaded in an existing instance of Visual Studio.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of a
+        /// Visual Studio Solution (*.sln) file.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if a running instance of Visual Studio has
+        /// the specified solution open; <see langword="false" /> otherwise.
+        /// </returns>
+        public static bool IsSolutionOpen(string path)
+        {
+            var result = false;
+
+            if (string.IsNullOrWhiteSpace(path) ||
+                !".sln".Equals(Path.GetExtension(path)) ||
+                !path.IsAbsolutePath() || !File.Exists(path))
+                return result;
+
+            try
+            {
+                var pids = _processIdProvider.GetAllProcessIDsOf("devenv.exe")
+                                             .ToList();
+                if (!pids.Any())    // Visual Studio is not open at all
+                    return result;
+
+                result = pids.Select(ConnectToRunningVisualStudio)
+                             .Any(
+                                 dte => dte != null &&
+                                        dte.Solution.FullName.Equals(path)
+                             );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
 
             return result;
         }

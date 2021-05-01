@@ -1,10 +1,14 @@
 ﻿using EnvDTE;
 using MFR.Objects.Solutions.Exceptions;
 using MFR.Objects.Solutions.Interfaces;
+using MFR.Objects.VisualStudio;
+using MFR.Objects.Win32;
 using System;
 using System.IO;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using File = Alphaleonis.Win32.Filesystem.File;
+using Thread = System.Threading.Thread;
 
 namespace MFR.Objects.Solutions
 {
@@ -31,6 +35,8 @@ namespace MFR.Objects.Solutions
         public VisualStudioSolution()
         {
             _dte = null;
+
+            CommonConstruct();
         }
 
         /// <summary>
@@ -50,26 +56,35 @@ namespace MFR.Objects.Solutions
         public VisualStudioSolution(DTE dte)
         {
             _dte = dte ?? throw new ArgumentNullException(nameof(dte));
+
+            CommonConstruct();
         }
+
+        /// <summary>
+        /// Gets or sets a value that specifies whether the solution should be
+        /// closed and then reopened during an operation. <see langword="true" />
+        /// by default.
+        /// </summary>
+        public bool ShouldReopen
+        {
+            get;
+            set;
+        } = true;
 
         /// <summary>
         /// Gets a string containing the path to the folder that contains the solution.
         /// </summary>
         public string ContainingFolder
-        {
-            get;
-            protected set;
-        }
+            => string.IsNullOrWhiteSpace(Path) || !File.Exists(Path)
+                ? string.Empty
+                : Alphaleonis.Win32.Filesystem.Path.GetDirectoryName(Path);
 
         /// <summary>
         /// Gets a value that indicates whether this solution file is currently
         /// loaded in a running instance of Visual Studio.
         /// </summary>
         public bool IsLoaded
-        {
-            get;
-            protected set;
-        }
+            => VisualStudioManager.IsSolutionOpen(Path);
 
         /// <summary>
         /// Gets a string that contains the fully-qualified pathname of the
@@ -91,12 +106,29 @@ namespace MFR.Objects.Solutions
         ///     langword="false" />
         /// otherwise.
         /// </returns>
-        /// <exception cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException">
-        /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
-        /// field has a <see langword="null" /> value.
-        /// </exception>
         public bool Load()
-            => throw new NotImplementedException();
+        {
+            var result = false;
+
+            try
+            {
+                AssertDteInitialized();
+
+                _dte.Solution.Open(Path);
+
+                /* Wait for the solution to be opened/loaded. */
+                while (!_dte.Solution.IsOpen) Thread.Sleep(50);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Forces the particular, and currently-running, instance of Visual
@@ -108,12 +140,38 @@ namespace MFR.Objects.Solutions
         ///     langword="false" />
         /// otherwise.
         /// </returns>
-        /// <exception cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException">
-        /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
-        /// field has a <see langword="null" /> value.
-        /// </exception>
         public bool Unload()
-            => throw new NotImplementedException();
+        {
+            var result = false;
+
+            try
+            {
+                AssertDteInitialized();
+
+                _dte.Solution.Close();
+
+                /* Wait for the solution to be closed. */
+                while (_dte.Solution.IsOpen) Thread.Sleep(50);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Allows an object to try to free resources and perform other cleanup
+        /// operations before it is reclaimed by garbage collection.
+        /// </summary>
+        ~VisualStudioSolution()
+        {
+            WindowsMessageFilter.Revoke();
+        }
 
         /// <summary>
         /// Initializes this object with a reference to an instance of an object
@@ -175,10 +233,21 @@ namespace MFR.Objects.Solutions
         /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
         /// field has a <see langword="null" /> value.
         /// </exception>
-        /// <remarks>This method does nothing in the event that the <see cref="F:MFR.Objects.Solutions.Solution._dte"/> field has a value.</remarks>
+        /// <remarks>
+        /// This method does nothing in the event that the
+        /// <see
+        ///     cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// field has a value.
+        /// </remarks>
         private void AssertDteInitialized()
         {
             if (_dte == null) throw new DteNotInitializedException();
         }
+
+        /// <summary>
+        /// Processes actions that occur no matter which constructor overload is called.
+        /// </summary>
+        private void CommonConstruct()
+            => WindowsMessageFilter.Register();
     }
 }
