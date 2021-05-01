@@ -38,6 +38,13 @@
         }
 
         /// <summary>
+        /// Gets or sets a value that specifies whether the solution should be
+        /// closed and then reopened during an operation. <see langword="true" />
+        /// by default.
+        /// </summary>
+        bool ShouldReopen { get; set; }
+
+        /// <summary>
         /// Forces either a currently-running instance of Visual Studio to load
         /// the solution, or opens the solution in a new instance of <c>devenv.exe</c>.
         /// </summary>
