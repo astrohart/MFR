@@ -108,6 +108,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Solutions.Exceptions\MFR.Objects.Solutions.Exceptions.csproj">
+      <Project>{FE036EA6-BEB3-4C19-982D-34C5612A9F8F}</Project>
+      <Name>MFR.Objects.Solutions.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Solutions.Interfaces\MFR.Objects.Solutions.Interfaces.csproj">
       <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
       <Name>MFR.Objects.Solutions.Interfaces</Name>

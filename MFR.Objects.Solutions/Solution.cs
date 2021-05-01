@@ -1,4 +1,5 @@
 ﻿using EnvDTE;
+using MFR.Objects.Solutions.Exceptions;
 using MFR.Objects.Solutions.Interfaces;
 using System;
 using System.IO;
@@ -19,7 +20,7 @@ namespace MFR.Objects.Solutions
         ///     cref="T:EnvDTE.DTE" />
         /// interface.
         /// </summary>
-        private DTE _dte;
+        private readonly DTE _dte;
 
         /// <summary>
         /// Constructs a new instance of
@@ -57,6 +58,7 @@ namespace MFR.Objects.Solutions
         public string ContainingFolder
         {
             get;
+            protected set;
         }
 
         /// <summary>
@@ -66,6 +68,7 @@ namespace MFR.Objects.Solutions
         public bool IsLoaded
         {
             get;
+            protected set;
         }
 
         /// <summary>
@@ -88,6 +91,10 @@ namespace MFR.Objects.Solutions
         ///     langword="false" />
         /// otherwise.
         /// </returns>
+        /// <exception cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException">
+        /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// field has a <see langword="null" /> value.
+        /// </exception>
         public bool Load()
             => throw new NotImplementedException();
 
@@ -101,6 +108,10 @@ namespace MFR.Objects.Solutions
         ///     langword="false" />
         /// otherwise.
         /// </returns>
+        /// <exception cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException">
+        /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// field has a <see langword="null" /> value.
+        /// </exception>
         public bool Unload()
             => throw new NotImplementedException();
 
@@ -154,6 +165,20 @@ namespace MFR.Objects.Solutions
                 );
 
             return new Solution(dte) {Path = path};
+        }
+
+        /// <summary>
+        /// Asserts that the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// field has been set to a value other than <see langword="null" />.
+        /// </summary>
+        /// <exception cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException">
+        /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// field has a <see langword="null" /> value.
+        /// </exception>
+        /// <remarks>This method does nothing in the event that the <see cref="F:MFR.Objects.Solutions.Solution._dte"/> field has a value.</remarks>
+        private void AssertDteInitialized()
+        {
+            if (_dte == null) throw new DteNotInitializedException();
         }
     }
 }
