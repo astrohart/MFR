@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="ImportConfigurationFromFileAction.cs" />
     <Compile Include="LoadConfigurationFromFileAction.cs" />
     <Compile Include="LoadStringFromRegistryAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
