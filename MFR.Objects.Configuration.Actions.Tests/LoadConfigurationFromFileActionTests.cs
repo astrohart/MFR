@@ -6,6 +6,7 @@ using MFR.Objects.Messages.Factories;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Actions.Factories;
 
 namespace MFR.Objects.Messages.Actions.Tests
 {
@@ -39,7 +40,7 @@ namespace MFR.Objects.Messages.Actions.Tests
             IConfiguration result = null;
 
             Assert.DoesNotThrow(
-                () => result = GetAction
+                () => result = GetConfigurationAction
                                .For<IFileSystemEntry, IConfiguration>(
                                    MessageType.LoadConfigurationFromFile
                                )

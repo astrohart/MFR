@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Actions.Factories;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
@@ -95,7 +96,7 @@ namespace MFR.Objects.Configuration.Providers
 
         private static IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadConfigPathAction
-            => GetAction
+            => GetConfigurationAction
                .For<IRegQueryExpression<string>, IFileSystemEntry>(
                    MessageType.LoadStringFromRegistry
                )
@@ -234,7 +235,7 @@ namespace MFR.Objects.Configuration.Providers
 
             try
             {
-                Configuration = GetAction
+                Configuration = GetConfigurationAction
                                 .For<IFileSystemEntry, IConfiguration>(
                                     MessageType.LoadConfigurationFromFile
                                 )

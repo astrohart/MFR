@@ -1,10 +1,8 @@
-using MFR.Objects.Configuration.Actions;
-using MFR.Objects.Messages.Actions;
 using MFR.Objects.Messages.Actions.Interfaces;
 using MFR.Objects.Messages.Constants;
 using System;
 
-namespace MFR.Objects.Messages.Factories
+namespace MFR.Objects.Configuration.Actions.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
@@ -12,7 +10,7 @@ namespace MFR.Objects.Messages.Factories
     ///     cref="T:MFR.Objects.IAction" />
     /// interface.
     /// </summary>
-    public static class GetAction
+    public static class GetConfigurationAction
     {
         /// <summary>
         /// Creates a new instance of an object that implements the

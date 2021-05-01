@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Unit Tests Library for MFR.Objects.Messages.Actions.Tests")]
-[assembly: AssemblyDescription("Provides unit tests for ")]
+[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Objects.Configuration.Actions.Tests")]
+[assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MFR.Objects.Messages.Actions.Tests")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Objects.Configuration.Actions.Tests")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4886fbba-f8e0-44a2-b765-e27f6a9f4b34")]
+[assembly: Guid("cd99a79f-d450-44b7-b460-f1d3375caa59")]
 
 // Version information for an assembly consists of the following four values:
 //

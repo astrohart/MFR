@@ -125,6 +125,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Actions.Factories\MFR.Objects.Configuration.Actions.Factories.csproj">
+      <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
+      <Name>MFR.Objects.Configuration.Actions.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
