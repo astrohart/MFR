@@ -3,6 +3,10 @@ using System;
 
 namespace MFR.Objects.Solutions
 {
+    /// <summary>
+    /// Encapsulates the data and actions that are applicable to a Visual Studio
+    /// Solution (*.sln) file.
+    /// </summary>
     public class Solution
     {
         /// <summary>
