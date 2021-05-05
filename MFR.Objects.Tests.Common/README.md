@@ -33,16 +33,28 @@
   - [FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
   - [FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY')
   - [FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION')
-  - [FOLDER_MATCHING_OPERATION_CRITIERIA](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATION_CRITIERIA 'MFR.Objects.Tests.Common.StringConstants.FOLDER_MATCHING_OPERATION_CRITIERIA')
+  - [FILE_MATCHING_OPERATIONAL_CRITERIA](#F-MFR-Objects-Tests-Common-StringConstants-FILE_MATCHING_OPERATIONAL_CRITERIA 'MFR.Objects.Tests.Common.StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA')
+  - [FOLDER_MATCHING_OPERATIONAL_CRITIERIA](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATIONAL_CRITIERIA 'MFR.Objects.Tests.Common.StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA')
   - [FOLDER_THAT_IS_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_THAT_IS_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FOLDER_THAT_IS_GUARANTEED_TO_EXIST')
   - [GIBBERISH](#F-MFR-Objects-Tests-Common-StringConstants-GIBBERISH 'MFR.Objects.Tests.Common.StringConstants.GIBBERISH')
   - [JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH](#F-MFR-Objects-Tests-Common-StringConstants-JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH 'MFR.Objects.Tests.Common.StringConstants.JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH')
+  - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER 'MFR.Objects.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER')
   - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH 'MFR.Objects.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH')
   - [NEW_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE 'MFR.Objects.Tests.Common.StringConstants.NEW_TEMP_FILE')
   - [NEW_TEMP_FILE_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.NEW_TEMP_FILE_FILENAME_ONLY')
   - [NONEXISTENT_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FILE 'MFR.Objects.Tests.Common.StringConstants.NONEXISTENT_FILE')
   - [NONEXISTENT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FOLDER 'MFR.Objects.Tests.Common.StringConstants.NONEXISTENT_FOLDER')
+  - [NOTEPAD_PATH](#F-MFR-Objects-Tests-Common-StringConstants-NOTEPAD_PATH 'MFR.Objects.Tests.Common.StringConstants.NOTEPAD_PATH')
   - [NULL_STRING](#F-MFR-Objects-Tests-Common-StringConstants-NULL_STRING 'MFR.Objects.Tests.Common.StringConstants.NULL_STRING')
+  - [PATHNAME_OF_BIN_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_BIN_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_BIN_FOLDER')
+  - [PATHNAME_OF_DOTFILE](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_DOTFILE 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_DOTFILE')
+  - [PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER')
+  - [PATHNAME_OF_FILE_HAVING_NO_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_HAVING_NO_EXTENSION 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_HAVING_NO_EXTENSION')
+  - [PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER')
+  - [PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER')
+  - [PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER')
+  - [PATHNAME_OF_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_OBJ_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_OBJ_FOLDER')
+  - [PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER')
   - [PORTFOLIO_MONITOR_X_UDL_FILE](#F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE 'MFR.Objects.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE')
   - [SUBFOLDER_OF_BIN_DIR](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_BIN_DIR 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_BIN_DIR')
   - [SUBFOLDER_OF_GIT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_GIT_FOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_GIT_FOLDER')
@@ -400,8 +412,16 @@ String consisting of the filename and extension only of the
 [FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
 constant.
 
-<a name='F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATION_CRITIERIA'></a>
-### FOLDER_MATCHING_OPERATION_CRITIERIA `constants`
+<a name='F-MFR-Objects-Tests-Common-StringConstants-FILE_MATCHING_OPERATIONAL_CRITERIA'></a>
+### FILE_MATCHING_OPERATIONAL_CRITERIA `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file that
+matches the criteria for operating upon.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATIONAL_CRITIERIA'></a>
+### FOLDER_MATCHING_OPERATIONAL_CRITIERIA `constants`
 
 ##### Summary
 
@@ -429,6 +449,14 @@ String consisting of complete gibberish.
 
 String containing the path to a .csproj file in the Junk Solution
 that has factory objects.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER'></a>
+### MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER `constants`
+
+##### Summary
+
+String containing the path of the folder in which the MFR project
+solution file lives.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH'></a>
 ### MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH `constants`
@@ -463,8 +491,9 @@ instead of the full path.
 ##### Summary
 
 String consisting of the path to a file. The path contains only
-gibberish, so the file referenced is, more or less, guaranteed not
-to exist on the disk.
+unique identifiers for folder and filename components -- which are
+regenerated each time this constant is referred to --so the file
+referenced is, more or less, guaranteed not to exist on the disk.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FOLDER'></a>
 ### NONEXISTENT_FOLDER `constants`
@@ -474,12 +503,90 @@ to exist on the disk.
 String consisting of the path to a folder that we can guarantee will
 not exist on the system.
 
+<a name='F-MFR-Objects-Tests-Common-StringConstants-NOTEPAD_PATH'></a>
+### NOTEPAD_PATH `constants`
+
+##### Summary
+
+String containing the path to the Windows Notepad utility.
+
 <a name='F-MFR-Objects-Tests-Common-StringConstants-NULL_STRING'></a>
 ### NULL_STRING `constants`
 
 ##### Summary
 
 Constant whose value is the null string.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_BIN_FOLDER'></a>
+### PATHNAME_OF_BIN_FOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a `bin\`
+folder in a project.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_DOTFILE'></a>
+### PATHNAME_OF_DOTFILE `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file in the
+%USERPROFILE% folder whose name begins with a period (dot).
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER'></a>
+### PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file that is
+inside the `obj\` folder of a project.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_HAVING_NO_EXTENSION'></a>
+### PATHNAME_OF_FILE_HAVING_NO_EXTENSION `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file that has no extension.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER'></a>
+### PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file that is in
+a `bin\` folder of a particular project.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER'></a>
+### PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of one of the index
+files that are commonly found in a Git repository's `.git\` dotfolder.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER'></a>
+### PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file that is
+located within the `.vs\` dotfolder of a solution.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_OBJ_FOLDER'></a>
+### PATHNAME_OF_OBJ_FOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a `obj\`
+folder in a project.
+
+<a name='F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER'></a>
+### PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a file that is
+located within the `packages` subfolder of a solution.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE'></a>
 ### PORTFOLIO_MONITOR_X_UDL_FILE `constants`
@@ -501,22 +608,23 @@ String consisting of the path to a subfolder of a project's \bin folder.
 
 ##### Summary
 
-String consisting of the path to a subfolder of a solution's \.git
-repository folder.
+String containing the fully-qualified pathname of a subfolder of the
+`.git\` folder of a solution.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_OBJ_FOLDER'></a>
 ### SUBFOLDER_OF_OBJ_FOLDER `constants`
 
 ##### Summary
 
-String consisting of the path to a subfolder of a project's \obj folder.
+String consisting of the path to a subfolder of a project's
+`obj\` subfolder.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER'></a>
 ### SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER `constants`
 
 ##### Summary
 
-String consisting of the path to a subfolder of the '\packages'
+String consisting of the path to a subfolder of the `packages\`
 folder of a solution.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_VS_DOTFOLDER'></a>
