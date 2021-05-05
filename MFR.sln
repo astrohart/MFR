@@ -373,6 +373,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Configuration.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.Solutions.Factories", "MFR.Objects.Managers.Solutions.Factories\MFR.Objects.Managers.Solutions.Factories.csproj", "{DE593641-0BE4-447B-B779-CF7D1CD9DD60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Managers.Solutions.Tests", "MFR.Objects.Managers.Solutions.Tests\MFR.Objects.Managers.Solutions.Tests.csproj", "{88C655C3-FBB9-49E3-AAD2-A245622DDC29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1845,6 +1847,14 @@ Global
 		{DE593641-0BE4-447B-B779-CF7D1CD9DD60}.Release|x64.Build.0 = Release|x64
 		{DE593641-0BE4-447B-B779-CF7D1CD9DD60}.Release|x86.ActiveCfg = Release|x86
 		{DE593641-0BE4-447B-B779-CF7D1CD9DD60}.Release|x86.Build.0 = Release|x86
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Debug|x64.ActiveCfg = Debug|x64
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Debug|x64.Build.0 = Debug|x64
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Debug|x86.ActiveCfg = Debug|x86
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Debug|x86.Build.0 = Debug|x86
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x64.ActiveCfg = Release|x64
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x64.Build.0 = Release|x64
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x86.ActiveCfg = Release|x86
+		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
