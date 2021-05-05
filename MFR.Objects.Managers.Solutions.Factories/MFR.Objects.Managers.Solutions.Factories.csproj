@@ -103,6 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetVisualStudioSolutionService.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Interfaces\MFR.Objects.Managers.Solutions.Interfaces.csproj">
+      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
+      <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Managers.Solutions\MFR.Objects.Managers.Solutions.csproj">
+      <Project>{E1078BC5-24EB-44E8-81BD-09310D81FBD9}</Project>
+      <Name>MFR.Objects.Managers.Solutions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
