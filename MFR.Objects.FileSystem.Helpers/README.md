@@ -11,6 +11,8 @@
   - [GetContent(path,pathFilter)](#M-MFR-Objects-FileSystem-Helpers-FileHelpers-GetContent-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Helpers.FileHelpers.GetContent(System.String,System.Predicate{System.String})')
 - [FileInfoExtensions](#T-MFR-Objects-FileSystem-Helpers-FileInfoExtensions 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions')
   - [IsZeroLengthFile(file)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile(Alphaleonis.Win32.Filesystem.FileInfo)')
+  - [RenameTo(source,dest)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String)')
+  - [TryRenameTo(source,dest,maxRetries)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-TryRenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.TryRenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String,System.Int32)')
 - [FileSystemEntryExtensions](#T-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions')
   - [ToDirectoryInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToDirectoryInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions.ToDirectoryInfo(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
   - [ToFileInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToFileInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions.ToFileInfo(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
@@ -146,7 +148,8 @@ MFR.Objects.FileSystem.Helpers
 
 ##### Summary
 
-Provides helper methods for working with instances of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo').
+Provides helper methods for working with instances of
+[FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo').
 
 <a name='M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo-'></a>
 ### IsZeroLengthFile(file) `method`
@@ -157,13 +160,73 @@ Determines whether the specified `file` has a zero length.
 
 ##### Returns
 
-`true` if the `file` parameter is not `null`, if the file it refers to exists on the disk, and if the file's length is zero.  Otherwise, or if an operating system error occurred, `false` is returned.
+`true` if the `file` parameter is
+not `null`, if the file it refers to exists on the
+disk, and if the file's length is zero. Otherwise, or if an
+operating system error occurred, `false` is returned.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| file | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | (Required.) Reference to an instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') that describes the file to be checked. |
+| file | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | (Required.) Reference to an instance of
+[FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo')
+that describes the
+file to be checked. |
+
+<a name='M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String-'></a>
+### RenameTo(source,dest) `method`
+
+##### Summary
+
+Renames a file.
+
+##### Returns
+
+`true` if the operation was successful;
+`false`
+otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| source | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | (Required.) A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo')
+instance that refers to the existing file. |
+| dest | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of hte
+file's new name. |
+
+##### Remarks
+
+If `source` is `null` or
+`dest`
+is blank, or some other issue occurs, then this method
+returns `false`.
+
+<a name='M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-TryRenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32-'></a>
+### TryRenameTo(source,dest,maxRetries) `method`
+
+##### Summary
+
+Makes multiple attempts to perform the file-rename operation.
+
+
+
+Called by the [RenameTo](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo') method.
+
+##### Returns
+
+`true` if the operation was successfully carried out; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| source | [Alphaleonis.Win32.Filesystem.FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') | (Required.) A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo')
+instance that refers to the existing file. |
+| dest | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of hte
+file's new name. |
+| maxRetries | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) Count of retries to perform before giving up, in case the operation experiences an operating system error. |
 
 <a name='T-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions'></a>
 ## FileSystemEntryExtensions `type`
