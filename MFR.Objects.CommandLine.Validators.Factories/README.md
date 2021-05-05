@@ -20,7 +20,7 @@ MFR.Objects.CommandLine.Validators.Factories
 
 ##### Summary
 
-Creates instances of objects that implement the
+Provides access to the sole instance of the object that implements the
 [ICommandLineValidator](#T-MFR-Objects-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator')
 interface.
 
@@ -29,9 +29,10 @@ interface.
 
 ##### Summary
 
-Creates a new instance of an object that implements the
+Provides access to the sole instance of the object that implements
+the
 [ICommandLineValidator](#T-MFR-Objects-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator')
-interface and returns a reference to it.
+interface.
 
 ##### Returns
 
@@ -58,7 +59,7 @@ MFR.Objects.CommandLine.Validators.Factories
 
 ##### Summary
 
-Creates instances of objects that implement the
+Provides access to the sole instance of the object that implements the
 [IRootDirectoryValidator](#T-MFR-Objects-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
 interface.
 
@@ -67,9 +68,10 @@ interface.
 
 ##### Summary
 
-Creates a new instance of an object that implements the
+Provides access to the sole instance of the object that implements
+the
 [IRootDirectoryValidator](#T-MFR-Objects-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
-interface and returns a reference to it.
+interface.
 
 ##### Returns
 
