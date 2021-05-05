@@ -16,28 +16,28 @@ namespace MFR.Objects.Managers.Solutions
     /// Manages running instances of Visual Studio that have solutions in
     /// specified folder(s) loaded.
     /// </summary>
-    public class VisualStudioSolutionManager : IVisualStudioSolutionManager
+    public class VisualStudioSolutionService : IVisualStudioSolutionService
     {
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Managers.Solutions.VisualStudioSolutionManager"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Managers.Solutions.VisualStudioSolutionService"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static VisualStudioSolutionManager Instance
+        public static VisualStudioSolutionService Instance
         {
             get;
-        } = new VisualStudioSolutionManager();
+        } = new VisualStudioSolutionService();
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static VisualStudioSolutionManager() { }
+        static VisualStudioSolutionService() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected VisualStudioSolutionManager() { }
+        protected VisualStudioSolutionService() { }
 
         /// <summary>
         /// Determines whether the folder having path passed in the
