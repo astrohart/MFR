@@ -8,8 +8,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{88C655C3-FBB9-49E3-AAD2-A245622DDC29}</ProjectGuid>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -127,6 +126,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Factories\MFR.Objects.Managers.Solutions.Factories.csproj">
+      <Project>{DE593641-0BE4-447B-B779-CF7D1CD9DD60}</Project>
+      <Name>MFR.Objects.Managers.Solutions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Interfaces\MFR.Objects.Managers.Solutions.Interfaces.csproj">
+      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
+      <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+      <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
+      <Name>MFR.Objects.Tests.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

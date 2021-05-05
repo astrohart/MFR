@@ -30,14 +30,14 @@ namespace MFR.Objects.Tests.Common
         /// matches the criteria for operating upon.
         /// </summary>
         public const string FILE_MATCHING_OPERATIONAL_CRITERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\Foo\Foo.csproj";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\Foo\Foo.csproj";
 
         /// <summary>
         /// String containing the path of a folder that the RenameSubFolder
         /// operation would consider fair game for acting upon.
         /// </summary>
         public const string FOLDER_MATCHING_OPERATIONAL_CRITIERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\Foo";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\Foo";
 
         /// <summary>
         /// String consisting of complete gibberish.
@@ -171,6 +171,16 @@ namespace MFR.Objects.Tests.Common
             Environment.GetFolderPath(Environment.SpecialFolder.Windows);
 
         /// <summary>
+        /// String containing the path of the folder in which the MFR project
+        /// solution file lives.
+        /// </summary>
+        public static readonly string
+            MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER =
+                Path.GetDirectoryName(
+                    MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH
+                );
+
+        /// <summary>
         /// String consisting of the fully-qualified pathname of a
         /// randomly-created, zero-length temporary file that is to be used in a
         /// file-rename operation test.
@@ -241,7 +251,7 @@ namespace MFR.Objects.Tests.Common
         public static readonly string
             PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER = Directory
                 .EnumerateFiles(
-                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\xyLOGIX.Interop.LibGit2Sharp\obj",
+                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\obj",
                     "*", SearchOption.AllDirectories
                 )
                 .FirstOrDefault();
@@ -277,7 +287,7 @@ namespace MFR.Objects.Tests.Common
         public static readonly string
             PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER = Directory
                 .EnumerateFiles(
-                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git",
+                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git",
                     "*", SearchOption.AllDirectories
                 )
                 .FirstOrDefault();
@@ -300,7 +310,7 @@ namespace MFR.Objects.Tests.Common
         public static readonly string
             PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER = Directory
                 .EnumerateFiles(
-                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages",
+                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages",
                     "*", SearchOption.AllDirectories
                 )
                 .FirstOrDefault();
@@ -324,7 +334,7 @@ namespace MFR.Objects.Tests.Common
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_GIT_FOLDER =
             Directory.EnumerateDirectories(
-                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.git",
+                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git",
                          "*",
                          DirectoryEnumerationOptions.Folders |
                          DirectoryEnumerationOptions.AsLongPath |
@@ -354,7 +364,7 @@ namespace MFR.Objects.Tests.Common
         [Obsolete]
         public static readonly string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER =
             Directory.EnumerateDirectories(
-                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\packages",
+                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages",
                          "*",
                          DirectoryEnumerationOptions.Folders |
                          DirectoryEnumerationOptions.AsLongPath |
@@ -368,7 +378,7 @@ namespace MFR.Objects.Tests.Common
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_VS_DOTFOLDER =
             Directory.EnumerateDirectories(
-                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.LibGit2Sharp\.vs",
+                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.vs",
                          "*",
                          DirectoryEnumerationOptions.Folders |
                          DirectoryEnumerationOptions.AsLongPath |
