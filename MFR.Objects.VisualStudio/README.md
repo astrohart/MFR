@@ -11,6 +11,7 @@
   - [#cctor()](#M-MFR-Objects-VisualStudio-VisualStudioManager-#cctor 'MFR.Objects.VisualStudio.VisualStudioManager.#cctor')
   - [ConnectToRunningVisualStudio(pid)](#M-MFR-Objects-VisualStudio-VisualStudioManager-ConnectToRunningVisualStudio-System-Int32- 'MFR.Objects.VisualStudio.VisualStudioManager.ConnectToRunningVisualStudio(System.Int32)')
   - [GetVsProcessHavingSolutionOpened(path)](#M-MFR-Objects-VisualStudio-VisualStudioManager-GetVsProcessHavingSolutionOpened-System-String- 'MFR.Objects.VisualStudio.VisualStudioManager.GetVsProcessHavingSolutionOpened(System.String)')
+  - [IsSolutionOpen(path)](#M-MFR-Objects-VisualStudio-VisualStudioManager-IsSolutionOpen-System-String- 'MFR.Objects.VisualStudio.VisualStudioManager.IsSolutionOpen(System.String)')
 
 <a name='T-MFR-Objects-VisualStudio-Properties-Resources'></a>
 ## Resources `type`
@@ -125,3 +126,23 @@ such an instance cannot be located.
 | ---- | ---- | ----------- |
 | path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a
 Visual Studio solution file. |
+
+<a name='M-MFR-Objects-VisualStudio-VisualStudioManager-IsSolutionOpen-System-String-'></a>
+### IsSolutionOpen(path) `method`
+
+##### Summary
+
+Determines whether the Visual Studio Solution with the specified
+`path` is loaded in an existing instance of Visual Studio.
+
+##### Returns
+
+`true` if a running instance of Visual Studio has
+the specified solution open; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a
+Visual Studio Solution (*.sln) file. |
