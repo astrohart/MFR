@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{14B27F26-7AF6-4661-BB96-2F45378CE7F7}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -158,6 +159,10 @@
     <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
       <Name>MFR.Objects.Messages.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Requests\MFR.Objects.Messages.Requests.csproj">
       <Project>{E9DB6CE2-0665-4BE9-92D7-70CFA7F185B2}</Project>
