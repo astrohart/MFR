@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="UnloadAllSolutionsInFolderCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +126,40 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Factories\MFR.Objects.Managers.Solutions.Factories.csproj">
+      <Project>{DE593641-0BE4-447B-B779-CF7D1CD9DD60}</Project>
+      <Name>MFR.Objects.Managers.Solutions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Interfaces\MFR.Objects.Managers.Solutions.Interfaces.csproj">
+      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
+      <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Commands.Interfaces\MFR.Objects.Messages.Commands.Interfaces.csproj">
+      <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
+      <Name>MFR.Objects.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Commands\MFR.Objects.Messages.Commands.csproj">
+      <Project>{1683F1C0-B348-4263-A839-7E3BA29A1E95}</Project>
+      <Name>MFR.Objects.Messages.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Objects.Messages.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages\MFR.Objects.Messages.csproj">
+      <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>
+      <Name>MFR.Objects.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Solutions.Interfaces\MFR.Objects.Solutions.Interfaces.csproj">
+      <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
+      <Name>MFR.Objects.Solutions.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

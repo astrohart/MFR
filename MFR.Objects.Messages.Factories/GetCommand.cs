@@ -1,6 +1,7 @@
 using MFR.Objects.Messages.Commands;
 using MFR.Objects.Messages.Commands.Interfaces;
 using MFR.Objects.Messages.Constants;
+using MFR.Objects.Solutions.Commands;
 using System;
 
 namespace MFR.Objects.Messages.Factories
@@ -26,10 +27,16 @@ namespace MFR.Objects.Messages.Factories
         public static ICommand<TInput> For<TInput>(MessageType type)
             where TInput : class
         {
-            ICommand<TInput> command = null;
+            ICommand<TInput> command;
 
             switch (type)
             {
+                case MessageType.UnloadAllSolutionsInFolder:
+                    command =
+                        (ICommand<TInput>)UnloadAllSolutionsInFolderCommand
+                            .Instance;
+                    break;
+
                 case MessageType.SaveStringToRegistry:
                     command =
                         (ICommand<TInput>)SaveStringToRegistryCommand.Instance;

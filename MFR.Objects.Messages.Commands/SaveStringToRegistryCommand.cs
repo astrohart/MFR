@@ -64,7 +64,7 @@ namespace MFR.Objects.Messages.Commands
 
             // Check to see if the required field, _input, is null. If it is,
             // send an error to the log file and quit.
-            if (_input == null)
+            if (Input == null)
             {
                 // the field _input is required.
                 DebugUtils.WriteLine(
@@ -88,7 +88,7 @@ namespace MFR.Objects.Messages.Commands
 
             // Check to see if the required property, _input.Value, is null. If
             // it is, send an error to the log file and quit.
-            if (string.IsNullOrWhiteSpace(_input.Value))
+            if (string.IsNullOrWhiteSpace(Input.Value))
             {
                 // the property _input.Value is required.
                 DebugUtils.WriteLine(
@@ -108,25 +108,25 @@ namespace MFR.Objects.Messages.Commands
             // Dump the variable _input.KeyPath to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SavePathToRegistryCommand.Execute: _input.KeyPath = '{_input.KeyPath}'"
+                $"SavePathToRegistryCommand.Execute: _input.KeyPath = '{Input.KeyPath}'"
             );
 
             // Dump the variable _input.ValueName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SavePathToRegistryCommand.Execute: _input.ValueName = '{_input.ValueName}'"
+                $"SavePathToRegistryCommand.Execute: _input.ValueName = '{Input.ValueName}'"
             );
 
             // Dump the variable _input.Value to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"SavePathToRegistryCommand.Execute: _input.Value = '{_input.Value}'"
+                $"SavePathToRegistryCommand.Execute: _input.Value = '{Input.Value}'"
             );
 
             try
             {
                 SystemPreparer.SetRegistryString(
-                    _input.KeyPath, _input.ValueName, _input.Value
+                    Input.KeyPath, Input.ValueName, Input.Value
                 );
             }
             catch (Exception ex)

@@ -101,7 +101,7 @@ namespace MFR.Objects.Messages.Commands
 
             // Check to see if the required field, _input, is null. If it is, send an 
             // error to the log file and quit.
-            if (_input == null)
+            if (Input == null)
             {
                 // the field _input is required.
                 DebugUtils.WriteLine(
@@ -125,7 +125,7 @@ namespace MFR.Objects.Messages.Commands
                 "*** INFO: Checking whether the value of the '_input.Path' property is blank..."
             );
 
-            if (string.IsNullOrWhiteSpace(_input.Path))
+            if (string.IsNullOrWhiteSpace(Input.Path))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
@@ -149,7 +149,7 @@ namespace MFR.Objects.Messages.Commands
 
             // Check to see if the required property, _input.UserState, is null. If it is, send an 
             // error to the log file and quit.
-            if (_input.UserState == null)
+            if (Input.UserState == null)
             {
                 // the property _input.UserState is required.
                 DebugUtils.WriteLine(
@@ -171,7 +171,7 @@ namespace MFR.Objects.Messages.Commands
             try
             {
                 ConfigurationSerializer.Save(
-                    _input.Path, _input.UserState as IConfiguration
+                    Input.Path, Input.UserState as IConfiguration
                 );
             }
             catch (Exception ex)

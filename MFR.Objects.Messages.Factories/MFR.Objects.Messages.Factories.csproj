@@ -177,6 +177,10 @@
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
       <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Solutions.Commands\MFR.Objects.Solutions.Commands.csproj">
+      <Project>{B8AC85BD-E071-4564-9AA9-FE8778A2ECE0}</Project>
+      <Name>MFR.Objects.Solutions.Commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -24,7 +24,11 @@ namespace MFR.Objects.Messages.Commands
         /// Reference to an instance of <typeparamref name="TInput" /> that
         /// contains the input data.
         /// </summary>
-        protected TInput _input;
+        protected TInput Input
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -35,7 +39,7 @@ namespace MFR.Objects.Messages.Commands
         /// </summary>
         protected CommandBase()
         {
-            _input = null;
+            Input = null;
         }
 
         /// <summary>
@@ -47,7 +51,7 @@ namespace MFR.Objects.Messages.Commands
         /// </summary>
         protected CommandBase(TInput input)
         {
-            _input = input;
+            Input = input;
         }
 
         /// <summary>
@@ -77,7 +81,7 @@ namespace MFR.Objects.Messages.Commands
         /// </returns>
         public ICommand<TInput> WithInput(TInput input)
         {
-            _input = input ?? throw new ArgumentNullException(nameof(input));
+            Input = input ?? throw new ArgumentNullException(nameof(input));
 
             return this;
         }

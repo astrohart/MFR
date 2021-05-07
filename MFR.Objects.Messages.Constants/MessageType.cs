@@ -6,6 +6,12 @@ namespace MFR.Objects.Messages.Constants
     public enum MessageType
     {
         /// <summary>
+        /// Unloads all *.sln files in the specified folder, that are themselves
+        /// also loaded in open instances of Visual Studio.
+        /// </summary>
+        UnloadAllSolutionsInFolder,
+
+        /// <summary>
         /// Loads a string value from the system Registry.
         /// </summary>
         LoadStringFromRegistry,
@@ -24,12 +30,6 @@ namespace MFR.Objects.Messages.Constants
         /// Saves the configuration to a file.
         /// </summary>
         SaveConfigurationToFile,
-
-        /// <summary>
-        /// Unloads all Visual Studio Solutions (*.sln) that are currently open
-        /// in instances of Visual Studio, that are found in the specified folder.
-        /// </summary>
-        UnloadAllLoadedSolutionsInFolder,
 
         /// <summary>
         /// Loads all the Visual Studio Solutions (*.sln) in the specified
