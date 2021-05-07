@@ -165,6 +165,10 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
+      <Project>{b8b5b68f-154e-4eda-81dd-5393bc88ff8a}</Project>
+      <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Actions\MFR.Objects.Messages.Actions.csproj">
       <Project>{065848D5-CC1F-4153-988B-2C7EA2FA964C}</Project>
       <Name>MFR.Objects.Messages.Actions</Name>
