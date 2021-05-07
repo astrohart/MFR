@@ -123,10 +123,6 @@
       <Project>{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}</Project>
       <Name>MFR.Objects.Configuration.Actions.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Actions\MFR.Objects.Configuration.Actions.csproj">
-      <Project>{14B27F26-7AF6-4661-BB96-2F45378CE7F7}</Project>
-      <Name>MFR.Objects.Configuration.Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
