@@ -31,7 +31,7 @@ namespace MFR.GUI.Dialogs
         public string AssemblyCompany
         {
             get {
-                var attributes = Assembly.GetExecutingAssembly()
+                var attributes = Assembly.GetEntryAssembly()
                     .GetCustomAttributes(
                         typeof(AssemblyCompanyAttribute), false
                     );
@@ -46,7 +46,7 @@ namespace MFR.GUI.Dialogs
         public string AssemblyCopyright
         {
             get {
-                var attributes = Assembly.GetExecutingAssembly()
+                var attributes = Assembly.GetEntryAssembly()
                     .GetCustomAttributes(
                         typeof(AssemblyCopyrightAttribute), false
                     );
@@ -61,7 +61,7 @@ namespace MFR.GUI.Dialogs
         public string AssemblyDescription
         {
             get {
-                var attributes = Assembly.GetExecutingAssembly()
+                var attributes = Assembly.GetEntryAssembly()
                     .GetCustomAttributes(
                         typeof(AssemblyDescriptionAttribute), false
                     );
@@ -77,7 +77,7 @@ namespace MFR.GUI.Dialogs
         public string AssemblyProduct
         {
             get {
-                var attributes = Assembly.GetExecutingAssembly()
+                var attributes = Assembly.GetEntryAssembly()
                     .GetCustomAttributes(
                         typeof(AssemblyProductAttribute), false
                     );
@@ -93,17 +93,17 @@ namespace MFR.GUI.Dialogs
         public string AssemblyTitle
         {
             get {
-                var attributes = Assembly.GetExecutingAssembly()
+                var attributes = Assembly.GetEntryAssembly()
                     .GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
                 if (attributes.Length <= 0)
                     return Path.GetFileNameWithoutExtension(
-                        Assembly.GetExecutingAssembly().CodeBase
+                        Assembly.GetEntryAssembly().CodeBase
                     );
                 var titleAttribute = (AssemblyTitleAttribute)attributes[0];
                 if (titleAttribute.Title != "") return titleAttribute.Title;
 
                 return Path.GetFileNameWithoutExtension(
-                    Assembly.GetExecutingAssembly().CodeBase
+                    Assembly.GetEntryAssembly().CodeBase
                 );
             }
         }
@@ -112,7 +112,7 @@ namespace MFR.GUI.Dialogs
         /// Gets the full version of the application.
         /// </summary>
         public string AssemblyVersion
-            => Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            => Assembly.GetEntryAssembly().GetName().Version.ToString();
 
         /// <summary>
         /// Displays this dialog box and does not return until the user has
