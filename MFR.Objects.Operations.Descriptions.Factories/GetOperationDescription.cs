@@ -21,24 +21,22 @@ namespace MFR.Objects.Operations.Descriptions.Factories
         /// and returns a reference to it.
         /// </summary>
         /// <param name="type">
-        /// (Required.) One of the
-        /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
-        /// values that
-        /// specifies the operation type you want the descriptive text for.
+        /// (Required.) One of the <see cref="T:MFR.Objects.OperationType" />
+        /// values that specifies the operation type you want the descriptive
+        /// text for.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IOperationDescription" />
-        /// interface
-        /// that corresponds to the specified operation <paramref name="type" />,
-        /// or <see langword="null" /> if no such object can be located.
+        /// interface that
+        /// corresponds to the specified operation <paramref name="type" />, or
+        /// <see langword="null" /> if no such object can be located.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <see cref="T:MFR.Objects.OperationType" />
-        /// value specified in the <paramref name="type" /> parameter does not
-        /// have a corresponding Operation Description object associated with it.
+        /// Thrown if the <see cref="T:MFR.Objects.OperationType" /> value
+        /// specified in the <paramref name="type" /> parameter does not have a
+        /// corresponding Operation Description object associated with it.
         /// </exception>
         public static IOperationTypeDescription For(OperationType type)
         {
@@ -47,13 +45,14 @@ namespace MFR.Objects.Operations.Descriptions.Factories
             switch (type)
             {
                 case OperationType.LoadAllSolutionsInFolder:
-                    typeDescription = LoadAllSolutionsInFolderOperationTypeDescription
-                        .Instance;
+                    typeDescription =
+                        LoadAllSolutionsInFolderOperationTypeDescription
+                            .Instance;
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    typeDescription = RenameFilesInFolderOperationTypeDescription
-                        .Instance;
+                    typeDescription =
+                        RenameFilesInFolderOperationTypeDescription.Instance;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
@@ -62,7 +61,14 @@ namespace MFR.Objects.Operations.Descriptions.Factories
                     break;
 
                 case OperationType.RenameSubFolders:
-                    typeDescription = RenameSubFoldersOperationTypeDescription.Instance;
+                    typeDescription = RenameSubFoldersOperationTypeDescription
+                        .Instance;
+                    break;
+
+                case OperationType.UnloadAllSolutionsInFolder:
+                    typeDescription =
+                        UnloadAllSolutionsInFolderOperationTypeDescription
+                            .Instance;
                     break;
 
                 default:
