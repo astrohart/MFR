@@ -57,7 +57,7 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Generators
         /// String containing the user-friendly message that corresponds to the
         /// <paramref name="reason" /> that was given, or blank if nothing can be found.
         /// </returns>
-        public string ValidationFailedReason(CommandLineInvalidReason reason)
+        public string ForReason(CommandLineInvalidReason reason)
         {
             MessageFormat = string.Empty; // just to make extra sure
 

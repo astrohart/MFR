@@ -100,7 +100,7 @@ namespace MFR.Objects.CommandLine.Validators.Events
         {
             get {
                 var result = GetCommandLineValidationFailedMessage.For
-                    .ValidationFailedReason(Reason);
+                    .ForReason(Reason);
 
                 if (!string.IsNullOrWhiteSpace(result) &&
                     CommandLineInvalidReason.Unknown == Reason &&

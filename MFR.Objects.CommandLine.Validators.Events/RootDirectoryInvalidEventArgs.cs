@@ -77,7 +77,7 @@ namespace MFR.Objects.CommandLine.Validators.Events
         {
             get {
                 var result = GetRootDirectoryValidationFailedMessage.For
-                    .ValidationFailedReason(Reason)
+                    .ForReason(Reason)
                     .AndRootDirectoryValue(RootDirectory);
 
                 if (!string.IsNullOrWhiteSpace(result) &&

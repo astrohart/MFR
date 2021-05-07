@@ -100,7 +100,7 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Generators
         /// <see cref="T:System.String" />
         /// -valued message property.
         /// </remarks>
-        public GetRootDirectoryValidationFailedMessage ValidationFailedReason(
+        public GetRootDirectoryValidationFailedMessage ForReason(
             RootDirectoryInvalidReason reason)
         {
             MessageFormat = string.Empty; // just to make extra sure
