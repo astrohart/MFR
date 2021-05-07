@@ -31,12 +31,6 @@ namespace MFR.Objects.Messages.Factories
 
             switch (type)
             {
-                case MessageType.UnloadAllSolutionsInFolder:
-                    command =
-                        (ICommand<TInput>)UnloadAllSolutionsInFolderCommand
-                            .Instance;
-                    break;
-
                 case MessageType.SaveStringToRegistry:
                     command =
                         (ICommand<TInput>)SaveStringToRegistryCommand.Instance;
