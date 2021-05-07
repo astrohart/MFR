@@ -229,7 +229,7 @@ namespace MFR.GUI.Windows
         public string Version
         {
             get;
-        } = Assembly.GetExecutingAssembly()
+        } = Assembly.GetEntryAssembly()
                     .GetName()
                     .Version.ToString();
 
