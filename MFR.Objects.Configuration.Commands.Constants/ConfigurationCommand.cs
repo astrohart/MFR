@@ -1,4 +1,5 @@
 using MFR.Objects.Messages.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Objects.Configuration.Commands.Constants
@@ -6,6 +7,7 @@ namespace MFR.Objects.Configuration.Commands.Constants
     /// <summary>
     /// Available commands for use when working with configuration.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class ConfigurationCommand : CommandType
     {
         /// <summary>

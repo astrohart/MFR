@@ -1,4 +1,5 @@
 ﻿using MFR.Objects.Messages.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Objects.Configuration.Actions.Constants
@@ -6,6 +7,7 @@ namespace MFR.Objects.Configuration.Actions.Constants
     /// <summary>
     /// Available actions for use when working with configuration.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class ConfigurationAction : ActionType
     {
         /// <summary>
