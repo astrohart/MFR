@@ -24,6 +24,7 @@
   - [Unknown](#F-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason-Unknown 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason.Unknown')
   - [Valid](#F-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason-Valid 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason.Valid')
 - [RootDirectoryValidationMessages](#T-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryValidationMessages')
+  - [RootDirectoryDoesntContainSolution](#P-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages-RootDirectoryDoesntContainSolution 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryValidationMessages.RootDirectoryDoesntContainSolution')
   - [RootDirectoryDoesntExist](#P-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages-RootDirectoryDoesntExist 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryValidationMessages.RootDirectoryDoesntExist')
   - [RootDirectoryValid](#P-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages-RootDirectoryValid 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryValidationMessages.RootDirectoryValid')
   - [UnknownRootDirectoryValidationFailedError](#P-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages-UnknownRootDirectoryValidationFailedError 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryValidationMessages.UnknownRootDirectoryValidationFailedError')
@@ -210,6 +211,15 @@ MFR.Objects.CommandLine.Validators.Constants
 Provides access to format strings that can be used to display
 user-friendly error messages when validation of a root directory
 pathname fails.
+
+<a name='P-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages-RootDirectoryDoesntContainSolution'></a>
+### RootDirectoryDoesntContainSolution `property`
+
+##### Summary
+
+Looks up a localized string similar to The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file.
+
+Provide the pathname of a folder that contains a *.sln file in its topmost level, and then try to run this application again..
 
 <a name='P-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryValidationMessages-RootDirectoryDoesntExist'></a>
 ### RootDirectoryDoesntExist `property`
