@@ -399,11 +399,15 @@ MFR.Objects.Replacers.Factories.Tests
 
 ##### Summary
 
-Provides unit tests for the methods, properties, and events of the [SaveConfigurationToFileCommand](#T-MFR-Objects-SaveConfigurationToFileCommand 'MFR.Objects.SaveConfigurationToFileCommand') class.
+Provides unit tests for the methods, properties, and events of the
+[SaveConfigurationToFileCommand](#T-MFR-Objects-SaveConfigurationToFileCommand 'MFR.Objects.SaveConfigurationToFileCommand')
+class.
 
 ##### Remarks
 
-This class enables callers to provide a filename and a configuration object reference, bundled together inside a File System Entry POCO, and it is serialized to disk.
+This class enables callers to provide a filename and a configuration
+object reference, bundled together inside a File System Entry POCO, and
+it is serialized to disk.
 
 <a name='F-MFR-Objects-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH'></a>
 ### FILE_PATH `constants`
