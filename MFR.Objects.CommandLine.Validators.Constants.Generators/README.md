@@ -15,6 +15,7 @@
   - [MessageFormat](#P-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage-MessageFormat 'MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage.MessageFormat')
   - [#cctor()](#M-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage-#cctor 'MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage.#cctor')
   - [AndRootDirectoryValue(value)](#M-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage-AndRootDirectoryValue-System-String- 'MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage.AndRootDirectoryValue(System.String)')
+  - [ValidationFailedReason(reason)](#M-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage-ValidationFailedReason-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason- 'MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage.ValidationFailedReason(MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason)')
 - [Resources](#T-MFR-Objects-CommandLine-Validators-Constants-Generators-Properties-Resources 'MFR.Objects.CommandLine.Validators.Constants.Generators.Properties.Resources')
   - [Culture](#P-MFR-Objects-CommandLine-Validators-Constants-Generators-Properties-Resources-Culture 'MFR.Objects.CommandLine.Validators.Constants.Generators.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-CommandLine-Validators-Constants-Generators-Properties-Resources-ResourceManager 'MFR.Objects.CommandLine.Validators.Constants.Generators.Properties.Resources.ResourceManager')
@@ -120,7 +121,9 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [GetRootDirectoryValidationFailedMessage](#T-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage 'MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage') .
+Gets a reference to the one and only instance of
+[GetRootDirectoryValidationFailedMessage](#T-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage 'MFR.Objects.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage')
+.
 
 <a name='P-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage-MessageFormat'></a>
 ### MessageFormat `property`
@@ -151,7 +154,10 @@ method with the value attempted to be passed by the user.
 
 ##### Returns
 
-Message formatted with the string specified by `value` ; empty if the [MessageFormat](#P-MFR-Objects-CommandLine-Validators-Constants-Generators-Factories-GetRootDirectoryValidationFailedMessage-MessageFormat 'MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat')
+Message formatted with the string specified by
+`value`
+; empty if the
+[MessageFormat](#P-MFR-Objects-CommandLine-Validators-Constants-Generators-Factories-GetRootDirectoryValidationFailedMessage-MessageFormat 'MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat')
 property has not yet been initialized.
 
 ##### Parameters
@@ -163,8 +169,43 @@ message format. |
 
 ##### Remarks
 
-Before this method can be called, the [ValidationFailedReason](#M-MFR-Objects-CommandLine-Validators-Constants-Generators-Factories-GetRootDirectoryValidationFailedMessage-ValidationFailedReason 'MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.ValidationFailedReason')
+Before this method can be called, the
+[ValidationFailedReason](#M-MFR-Objects-CommandLine-Validators-Constants-Generators-Factories-GetRootDirectoryValidationFailedMessage-ValidationFailedReason 'MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.ValidationFailedReason')
 method must first be called and then chained with a call to this one.
+
+<a name='M-MFR-Objects-CommandLine-Validators-Constants-Generators-GetRootDirectoryValidationFailedMessage-ValidationFailedReason-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason-'></a>
+### ValidationFailedReason(reason) `method`
+
+##### Summary
+
+s
+Initializes the
+[MessageFormat](#P-MFR-Objects-CommandLine-Validators-Constants-Generators-Factories-GetRootDirectoryValidationFailedMessage-MessageFormat 'MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat')
+property with the message format string, if any, that corresponds to
+the
+[RootDirectoryInvalidReason](#T-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason')
+value passed in the `reason` parameter.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | [MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason](#T-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason') | A
+[RootDirectoryInvalidReason](#T-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason 'MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason')
+value that indicates the reason why validation failed. |
+
+##### Remarks
+
+After calling this method, callers must chain it with a call to the
+[AndRootDirectoryValue](#M-MFR-Objects-CommandLine-Validators-Constants-Generators-Factories-GetRootDirectoryValidationFailedMessage-AndRootDirectoryValue 'MFR.Objects.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.AndRootDirectoryValue')
+method before the return value can be assigned to a
+[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
+-valued message property.
 
 <a name='T-MFR-Objects-CommandLine-Validators-Constants-Generators-Properties-Resources'></a>
 ## Resources `type`
