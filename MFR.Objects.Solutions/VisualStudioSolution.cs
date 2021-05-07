@@ -3,6 +3,7 @@ using MFR.Objects.Solutions.Exceptions;
 using MFR.Objects.Solutions.Interfaces;
 using MFR.Objects.VisualStudio;
 using MFR.Objects.Win32;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
@@ -168,6 +169,7 @@ namespace MFR.Objects.Solutions
         /// Allows an object to try to free resources and perform other cleanup
         /// operations before it is reclaimed by garbage collection.
         /// </summary>
+        [Log(AttributeExclude = true)]
         ~VisualStudioSolution()
         {
             WindowsMessageFilter.Revoke();

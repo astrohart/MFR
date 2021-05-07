@@ -1,4 +1,5 @@
-﻿using MFR.Objects.Managers.Solutions.Factories;
+﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Managers.Solutions.Factories;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
@@ -19,12 +20,25 @@ namespace MFR.Objects.Managers.Solutions.Tests
         [Test]
         public void Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue()
 
+        {
+            Assert.That(
+                Directory.Exists(
+                    StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER
+                    )
+                );
+
             // If we are running this test, in all likelihood it's being done in the 
             // Visual Studio instance that has the MFR project solution already loaded.
             // So we scan the .sln files in the MFR project folder to test that the method
             // works.
-            => Assert.IsTrue(
-                GetVisualStudioSolutionService.SoleInstance().ContainsLoadedSolutions(StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER)
+
+            Assert.That(
+                GetVisualStudioSolutionService.SoleInstance()
+                                              .ContainsLoadedSolutions(
+                                                  StringConstants
+                                                      .MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER
+                                              )
             );
+        }
     }
 }

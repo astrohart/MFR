@@ -131,6 +131,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Factories\MFR.Objects.FileSystem.Retrievers.Factories.csproj">
+      <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
+      <Name>MFR.Objects.FileSystem.Retrievers.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Interfaces\MFR.Objects.Managers.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>

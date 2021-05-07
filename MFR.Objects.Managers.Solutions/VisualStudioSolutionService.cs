@@ -1,4 +1,6 @@
-﻿using MFR.Objects.Managers.Solutions.Interfaces;
+﻿using MFR.Objects.FileSystem.Retrievers.Factories;
+using MFR.Objects.Managers.Solutions.Interfaces;
+using MFR.Objects.Operations.Constants;
 using MFR.Objects.Solutions.Factories;
 using MFR.Objects.Solutions.Interfaces;
 using MFR.Objects.VisualStudio;
@@ -118,10 +120,10 @@ namespace MFR.Objects.Managers.Solutions
             try
             {
                 var files = Directory.EnumerateFiles(
-                                         folder, ".sln",
+                                         folder, "*.sln",
                                          SearchOption.AllDirectories
                                      )
-                                     .Where(path => !ShouldSkipFile(path))
+                                     .Where(f=>!ShouldSkipFile(f))
                                      .ToList();
 
                 if (!files.Any())
