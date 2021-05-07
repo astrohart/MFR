@@ -1,6 +1,5 @@
 using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Messages.Actions.Interfaces;
-using MFR.Objects.Messages.Constants;
 using System;
 
 namespace MFR.Objects.Configuration.Actions.Factories
