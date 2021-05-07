@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Configuration.Serializers;
 using MFR.Objects.FileSystem.Interfaces;
@@ -49,7 +50,7 @@ namespace MFR.Objects.Configuration.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => MessageType.LoadConfigurationFromFile;
+            => ConfigurationAction.LoadConfigurationFromFile;
 
         /// <summary>
         /// Executes this message.

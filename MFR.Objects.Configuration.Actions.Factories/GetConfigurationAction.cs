@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Messages.Actions.Interfaces;
 using MFR.Objects.Messages.Constants;
 using System;
@@ -18,7 +19,7 @@ namespace MFR.Objects.Configuration.Actions.Factories
         ///     cref="T:MFR.Objects.IAction" />
         /// interface and returns a reference to it.
         /// </summary>
-        /// <param name="type">
+        /// <param name="actionType">
         /// (Required.) A
         /// <see
         ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
@@ -38,23 +39,23 @@ namespace MFR.Objects.Configuration.Actions.Factories
         /// <see
         ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
         /// value provided
-        /// in the <paramref name="type" /> parameter.
+        /// in the <paramref name="actionType" /> parameter.
         /// </exception>
         public static IAction<TInput, TResult>
-            For<TInput, TResult>(MessageType type) where TInput : class
+            For<TInput, TResult>(ConfigurationAction actionType) where TInput : class
             where TResult : class
         {
-            IAction<TInput, TResult> action = null;
+            IAction<TInput, TResult> action;
 
-            switch (type)
+            switch (actionType)
             {
-                case MessageType.LoadStringFromRegistry:
+                case var _ when actionType == ConfigurationAction.LoadStringFromRegistry:
                     action =
                         (IAction<TInput, TResult>)LoadStringFromRegistryAction
                             .Instance;
                     break;
 
-                case MessageType.LoadConfigurationFromFile:
+                case var _ when actionType == ConfigurationAction.LoadConfigurationFromFile:
                     action =
                         (IAction<TInput, TResult>)
                         LoadConfigurationFromFileAction.Instance;
@@ -62,8 +63,8 @@ namespace MFR.Objects.Configuration.Actions.Factories
 
                 default:
                     throw new ArgumentOutOfRangeException(
-                        nameof(type), type,
-                        $"There is no message available that corresponds to the type '{type}'."
+                        nameof(actionType), actionType,
+                        $"There is no message available that corresponds to the type '{actionType}'."
                     );
             }
 

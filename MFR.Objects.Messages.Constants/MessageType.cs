@@ -1,45 +1,35 @@
+﻿using System;
+
 namespace MFR.Objects.Messages.Constants
 {
     /// <summary>
-    /// Values specifying what message to execute.
+    /// Base class for all message-type "enumeration" classes.
     /// </summary>
-    public enum MessageType
+    /// <remarks>
+    /// This object provides services that are common to all message-type objects.
+    /// </remarks>
+    public abstract class MessageType
     {
         /// <summary>
-        /// Unloads all *.sln files in the specified folder, that are themselves
-        /// also loaded in open instances of Visual Studio.
+        /// Reference to a <see cref="T:System.Guid" /> that is the unique ID of
+        /// the command referenced by this type.
         /// </summary>
-        UnloadAllSolutionsInFolder,
+        protected Guid _messageId;
 
         /// <summary>
-        /// Loads a string value from the system Registry.
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
+        /// and returns a
+        /// reference to it.
         /// </summary>
-        LoadStringFromRegistry,
-
-        /// <summary>
-        /// Saves a string value to the system Registry.
-        /// </summary>
-        SaveStringToRegistry,
-
-        /// <summary>
-        /// Loads the configuration from a file.
-        /// </summary>
-        LoadConfigurationFromFile,
-
-        /// <summary>
-        /// Saves the configuration to a file.
-        /// </summary>
-        SaveConfigurationToFile,
-
-        /// <summary>
-        /// Loads all the Visual Studio Solutions (*.sln) in the specified
-        /// folder, each in its own instance of <c>devenv.exe</c>.
-        /// </summary>
-        LoadAllSolutionsInFolder,
-
-        /// <summary>
-        /// Generic, unknown message.
-        /// </summary>
-        Unknown
+        /// <param name="messageId">
+        /// (Required.) Reference to an instance of <see cref="T:System.Guid" />
+        /// that provides a unique identifier to be associated with this instance.
+        /// </param>
+        protected MessageType(Guid messageId)
+        {
+            _messageId = messageId;
+        }
     }
 }

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Objects.Messages.Commands.Factories")]
+[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Objects.Configuration.Commands.Constants")]
 [assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Objects.Messages.Commands.Factories")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Objects.Configuration.Commands.Constants")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("33773755-b284-44c0-bfa3-e6d2e26a3132")]
+[assembly: Guid("9a813ac7-2f18-47f5-a0a9-3ea1b55d92ff")]
 
 // Version information for an assembly consists of the following four values:
 //

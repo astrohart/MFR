@@ -133,6 +133,14 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Commands.Constants\MFR.Objects.Configuration.Commands.Constants.csproj">
+      <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
+      <Name>MFR.Objects.Configuration.Commands.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Commands.Factories\MFR.Objects.Configuration.Commands.Factories.csproj">
+      <Project>{618A31B4-8C16-4054-9B2A-7614CC1AC830}</Project>
+      <Name>MFR.Objects.Configuration.Commands.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Objects.Configuration.Constants</Name>

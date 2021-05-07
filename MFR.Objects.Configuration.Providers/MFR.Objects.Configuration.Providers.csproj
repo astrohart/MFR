@@ -124,9 +124,21 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Actions.Constants\MFR.Objects.Configuration.Actions.Constants.csproj">
+      <Project>{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}</Project>
+      <Name>MFR.Objects.Configuration.Actions.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Actions.Factories\MFR.Objects.Configuration.Actions.Factories.csproj">
       <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
       <Name>MFR.Objects.Configuration.Actions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Commands.Constants\MFR.Objects.Configuration.Commands.Constants.csproj">
+      <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
+      <Name>MFR.Objects.Configuration.Commands.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Commands.Factories\MFR.Objects.Configuration.Commands.Factories.csproj">
+      <Project>{618A31B4-8C16-4054-9B2A-7614CC1AC830}</Project>
+      <Name>MFR.Objects.Configuration.Commands.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
@@ -151,10 +163,6 @@
     <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Messages.Commands.Factories\MFR.Objects.Messages.Commands.Factories.csproj">
-      <Project>{C4EB227A-8D61-40C7-AA7B-AE21244CA54F}</Project>
-      <Name>MFR.Objects.Messages.Commands.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Commands.Interfaces\MFR.Objects.Messages.Commands.Interfaces.csproj">
       <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>

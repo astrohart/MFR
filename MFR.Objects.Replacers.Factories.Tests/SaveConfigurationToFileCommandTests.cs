@@ -1,17 +1,25 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Commands.Constants;
+using MFR.Objects.Configuration.Commands.Factories;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.FileSystem.Factories;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Factories;
 using NUnit.Framework;
-using Alphaleonis.Win32.Filesystem;
 
 namespace MFR.Objects.Replacers.Factories.Tests
 {
     /// <summary>
-    /// Provides unit tests for the methods, properties, and events of the <see cref="T:MFR.Objects.SaveConfigurationToFileCommand"/> class.
+    /// Provides unit tests for the methods, properties, and events of the
+    /// <see
+    ///     cref="T:MFR.Objects.SaveConfigurationToFileCommand" />
+    /// class.
     /// </summary>
-    /// <remarks>This class enables callers to provide a filename and a configuration object reference, bundled together inside a File System Entry POCO, and it is serialized to disk.</remarks>
+    /// <remarks>
+    /// This class enables callers to provide a filename and a configuration
+    /// object reference, bundled together inside a File System Entry POCO, and
+    /// it is serialized to disk.
+    /// </remarks>
     [TestFixture]
     public class SaveConfigurationToFileCommandTests
     {
@@ -23,7 +31,8 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Empty configuration object for testing.
         /// </summary>
-        private static IConfiguration CONFIGURATION_DATA {
+        private static IConfiguration CONFIGURATION_DATA
+        {
             get;
         } = new Configuration.Configuration();
 
@@ -37,9 +46,9 @@ namespace MFR.Objects.Replacers.Factories.Tests
                 File.Delete(FILE_PATH);
 
             Assert.DoesNotThrow(
-                () => GetCommand
+                () => GetConfigurationCommand
                       .For<IFileSystemEntry>(
-                          MessageType.SaveConfigurationToFile
+                          ConfigurationCommand.SaveConfigurationToFile
                       )
                       .WithInput(
                           MakeNewFileSystemEntry.ForPath(FILE_PATH)

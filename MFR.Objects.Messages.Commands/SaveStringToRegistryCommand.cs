@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.Metadata.Registry.Interfaces;
 using MFR.Objects.System;
@@ -43,7 +44,7 @@ namespace MFR.Objects.Messages.Commands
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => MessageType.SaveStringToRegistry;
+            => ConfigurationCommand.SaveStringToRegistry;
 
         /// <summary>
         /// Executes this command and does not return anything.

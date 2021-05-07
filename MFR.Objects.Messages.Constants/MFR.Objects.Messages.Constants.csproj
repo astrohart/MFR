@@ -100,6 +100,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionType.cs" />
+    <Compile Include="CommandType.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

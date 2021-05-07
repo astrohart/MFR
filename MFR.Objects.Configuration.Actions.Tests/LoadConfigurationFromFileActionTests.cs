@@ -1,9 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Configuration.Actions.Factories;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.FileSystem.Factories;
 using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Constants;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
@@ -23,9 +23,9 @@ namespace MFR.Objects.Configuration.Actions.Tests
         /// Asserts that a valid instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface will be
-        /// loaded from the configuration file for the application, provided
-        /// that a valid path has been supplied as input to the loading action.
+        /// interface will be loaded from
+        /// the configuration file for the application, provided that a valid
+        /// path has been supplied as input to the loading action.
         /// </summary>
         [Test]
         public void Test_ConfigurationFileLoadedSuccessfully_GivenValidPath()
@@ -41,7 +41,7 @@ namespace MFR.Objects.Configuration.Actions.Tests
             Assert.DoesNotThrow(
                 () => result = GetConfigurationAction
                                .For<IFileSystemEntry, IConfiguration>(
-                                   MessageType.LoadConfigurationFromFile
+                                   ConfigurationAction.LoadConfigurationFromFile
                                )
                                .WithInput(
                                    MakeNewFileSystemEntry.ForPath(

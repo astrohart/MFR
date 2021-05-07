@@ -1,13 +1,13 @@
+using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Configuration.Actions.Factories;
+using MFR.Objects.Configuration.Commands.Constants;
+using MFR.Objects.Configuration.Commands.Factories;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
 using MFR.Objects.FileSystem.Factories;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Actions.Interfaces;
-using MFR.Objects.Messages.Commands.Factories;
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Factories;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -98,7 +98,7 @@ namespace MFR.Objects.Configuration.Providers
             LoadConfigPathAction
             => GetConfigurationAction
                .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                   MessageType.LoadStringFromRegistry
+                   ConfigurationAction.LoadStringFromRegistry
                )
                .WithInput(
                    MakeNewRegQueryExpression.FromScatch<string>()
@@ -237,7 +237,7 @@ namespace MFR.Objects.Configuration.Providers
             {
                 Configuration = GetConfigurationAction
                                 .For<IFileSystemEntry, IConfiguration>(
-                                    MessageType.LoadConfigurationFromFile
+                                    ConfigurationAction.LoadConfigurationFromFile
                                 )
                                 .WithInput(
                                     MakeNewFileSystemEntry.ForPath(
@@ -356,8 +356,8 @@ namespace MFR.Objects.Configuration.Providers
 
             try
             {
-                GetCommand
-                    .For<IFileSystemEntry>(MessageType.SaveConfigurationToFile)
+                GetConfigurationCommand
+                    .For<IFileSystemEntry>(ConfigurationCommand.SaveConfigurationToFile)
                     .WithInput(
                         MakeNewFileSystemEntry.ForPath(ConfigurationFilePath)
                                               .AndHavingUserState(Configuration)

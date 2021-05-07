@@ -1,9 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Configuration.Actions.Factories;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
 using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Constants;
 using MFR.Objects.Tests.Common;
 using NUnit.Framework;
 
@@ -23,14 +23,15 @@ namespace MFR.Objects.Configuration.Actions.Tests
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Objects.LoadStringFromRegistryAction.Execute" />
-        /// method correctly loads a path from the system Registry.
+        /// method
+        /// correctly loads a path from the system Registry.
         /// </summary>
         [Test]
         public void Test_CanSuccessfullyObtain_AppConfigFilePath()
         {
             var result = GetConfigurationAction
                          .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                             MessageType.LoadStringFromRegistry
+                             ConfigurationAction.LoadStringFromRegistry
                          )
                          .WithInput(
                              MakeNewRegQueryExpression.FromScatch<string>()

@@ -1,11 +1,11 @@
+using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.Messages.Commands.Interfaces;
 using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Factories;
 using MFR.Objects.Metadata.Registry.Factories;
 using MFR.Objects.Metadata.Registry.Interfaces;
 using System;
 
-namespace MFR.Objects.Messages.Commands.Factories
+namespace MFR.Objects.Configuration.Commands.Factories
 {
     /// <summary>
     /// Gets a reference to an instance of an object that implements the
@@ -57,9 +57,9 @@ namespace MFR.Objects.Messages.Commands.Factories
                     "Value cannot be null or whitespace.", nameof(value)
                 );
 
-            return GetCommand
+            return GetConfigurationCommand
                    .For<IRegOperationMetadata<string>>(
-                       MessageType.SaveStringToRegistry
+                       ConfigurationCommand.SaveStringToRegistry
                    )
                    .WithInput(
                        MakeNewRegOperationMetadata.FromScatch<string>()

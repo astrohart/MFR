@@ -1,3 +1,4 @@
+using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Configuration.Serializers;
 using MFR.Objects.FileSystem.Interfaces;
@@ -65,7 +66,7 @@ namespace MFR.Objects.Messages.Commands
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => MessageType.SaveConfigurationToFile;
+            => ConfigurationCommand.SaveConfigurationToFile;
 
         /// <summary>
         /// Executes this command and does not return anything.

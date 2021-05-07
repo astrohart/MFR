@@ -104,7 +104,6 @@
     <Compile Include="ActionBase.cs" />
     <Compile Include="ActionCacheProvider.cs" />
     <Compile Include="CachedResultActionBase.cs" />
-    <Compile Include="ConfigurationActionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

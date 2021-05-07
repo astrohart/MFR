@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="GetCommand.cs" />
     <Compile Include="GetMessage.cs" />
     <Compile Include="GetRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

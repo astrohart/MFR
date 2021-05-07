@@ -1,3 +1,5 @@
+using MFR.Objects.Configuration.Commands.Constants;
+using MFR.Objects.Configuration.Commands.Factories;
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.Messages.Factories;
 using MFR.Objects.Metadata.Registry.Factories;
@@ -29,9 +31,9 @@ namespace MFR.Objects.Replacers.Factories.Tests
         public void Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()
         {
             Assert.DoesNotThrow(
-                () => GetCommand
+                () => GetConfigurationCommand
                       .For<IRegOperationMetadata<string>>(
-                          MessageType.SaveStringToRegistry
+                          ConfigurationCommand.SaveStringToRegistry
                       )
                       .WithInput(
                           MakeNewRegOperationMetadata.FromScatch<string>()
