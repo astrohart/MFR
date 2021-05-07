@@ -61,6 +61,15 @@ namespace MFR.Objects.Operations.Descriptions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading all Visual Studio Solutions in the starting folder....
+        /// </summary>
+        internal static string OperationDescription_LoadAllSolutionsInFolder {
+            get {
+                return ResourceManager.GetString("OperationDescription_LoadAllSolutionsInFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Renaming files...
         /// </summary>
         internal static string OperationDescription_RenameFilesInFolder {
@@ -84,6 +93,15 @@ namespace MFR.Objects.Operations.Descriptions.Properties {
         internal static string OperationDescription_ReplaceTextInFiles {
             get {
                 return ResourceManager.GetString("OperationDescription_ReplaceTextInFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unloading all currenty-open Visual Studio Solutions in the starting folder....
+        /// </summary>
+        internal static string OperationDescription_UnloadAllSolutionsInFolder {
+            get {
+                return ResourceManager.GetString("OperationDescription_UnloadAllSolutionsInFolder", resourceCulture);
             }
         }
         

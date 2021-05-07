@@ -46,6 +46,11 @@ namespace MFR.Objects.Operations.Descriptions.Factories
 
             switch (type)
             {
+                case OperationType.LoadAllSolutionsInFolder:
+                    typeDescription = LoadAllSolutionsInFolderOperationTypeDescription
+                        .Instance;
+                    break;
+
                 case OperationType.RenameFilesInFolder:
                     typeDescription = RenameFilesInFolderOperationTypeDescription
                         .Instance;

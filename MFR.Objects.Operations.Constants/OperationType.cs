@@ -6,6 +6,18 @@ namespace MFR.Objects.Operations.Constants
     public enum OperationType
     {
         /// <summary>
+        /// Loads all the *.sln files in a given folder, each in its own Visual
+        /// Studio instance.
+        /// </summary>
+        LoadAllSolutionsInFolder,
+
+        /// <summary>
+        /// Unloads all *.sln files in a given folder, that are currently loaded
+        /// in running instances of Visual Studio.
+        /// </summary>
+        UnloadAllSolutionsInFolder,
+
+        /// <summary>
         /// Closes the active solution in Visual Studio.
         /// </summary>
         /// <remarks>

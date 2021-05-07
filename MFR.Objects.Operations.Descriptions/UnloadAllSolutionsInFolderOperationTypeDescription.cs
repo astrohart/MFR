@@ -6,42 +6,42 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Objects.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user during a Rename
-    /// Files in Folder operation.
+    /// Gets the descriptive text to be displayed to the user during a Unload
+    /// All Solutions in Folder operation.
     /// </summary>
     public class
-        RenameFilesInFolderOperationTypeDescription : IOperationTypeDescription
+        UnloadAllSolutionsInFolderOperationTypeDescription :
+            IOperationTypeDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameFilesInFolderOperationTypeDescription() { }
+        static UnloadAllSolutionsInFolderOperationTypeDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameFilesInFolderOperationTypeDescription() { }
+        protected UnloadAllSolutionsInFolderOperationTypeDescription() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription" />
-        /// .
+        /// <see cref="T:MFR.Objects.Operations.Descriptions.UnloadAllSolutionsInFolderOperationTypeDescription" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderOperationTypeDescription Instance
+        public static UnloadAllSolutionsInFolderOperationTypeDescription
+            Instance
         {
             get;
-        } = new RenameFilesInFolderOperationTypeDescription();
+        } = new UnloadAllSolutionsInFolderOperationTypeDescription();
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            => OperationType.UnloadAllSolutionsInFolder;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -53,6 +53,6 @@ namespace MFR.Objects.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationDescription_RenameFilesInFolder;
+        } = Resources.OperationDescription_UnloadAllSolutionsInFolder;
     }
 }
