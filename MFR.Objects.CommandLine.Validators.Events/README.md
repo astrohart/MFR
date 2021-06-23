@@ -16,7 +16,7 @@
   - [ResourceManager](#P-MFR-Objects-CommandLine-Validators-Events-Properties-Resources-ResourceManager 'MFR.Objects.CommandLine.Validators.Events.Properties.Resources.ResourceManager')
 - [RootDirectoryInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs')
   - [#ctor(reason,rootDirectory)](#M-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-#ctor-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason,System-String- 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs.#ctor(MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason,System.String)')
-  - [#ctor(reason,rootDirectory)](#M-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-#ctor-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason,System-String,System-Exception- 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs.#ctor(MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason,System.String,System.Exception)')
+  - [#ctor(reason,rootDirectory,exception)](#M-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-#ctor-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason,System-String,System-Exception- 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs.#ctor(MFR.Objects.CommandLine.Validators.Constants.RootDirectoryInvalidReason,System.String,System.Exception)')
   - [Exception](#P-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-Exception 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs.Exception')
   - [Message](#P-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-Message 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs.Message')
   - [Reason](#P-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-Reason 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs.Reason')
@@ -196,7 +196,7 @@ value specifying why the validation failed. |
 specified by the user on the command line. |
 
 <a name='M-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-#ctor-MFR-Objects-CommandLine-Validators-Constants-RootDirectoryInvalidReason,System-String,System-Exception-'></a>
-### #ctor(reason,rootDirectory) `constructor`
+### #ctor(reason,rootDirectory,exception) `constructor`
 
 ##### Summary
 
@@ -213,6 +213,8 @@ and returns a reference to it.
 value specifying why the validation failed. |
 | rootDirectory | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value of the root directory
 specified by the user on the command line. |
+| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | (Required.) An [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that provides
+detailed error information. |
 
 <a name='P-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-Exception'></a>
 ### Exception `property`
