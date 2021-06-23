@@ -82,12 +82,6 @@ properties contain valid values.
 that is the
 object to be validated. |
 
-##### Remarks
-
-In order to be valid, the `path` parameter must
-contain the path of a folder that (a) exists on the disk; and (b)
-contains a Visual Studio Solution (*.sln) file.
-
 <a name='T-MFR-Objects-CommandLine-Validators-Interfaces-IRootDirectoryValidator'></a>
 ## IRootDirectoryValidator `type`
 
@@ -146,6 +140,10 @@ event.
 ##### Namespace
 
 MFR.Objects.CommandLine.Validators.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of all Validator objects.
 
 <a name='P-MFR-Objects-CommandLine-Validators-Interfaces-IValidator-ValidationFailures'></a>
 ### ValidationFailures `property`
