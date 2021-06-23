@@ -22,7 +22,6 @@
   - [ExecuteOperationIfNotCached()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ExecuteOperationIfNotCached 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.ExecuteOperationIfNotCached')
   - [Finalize()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-Finalize 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.Finalize')
   - [TryGetCachedResult(result)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-TryGetCachedResult-`1@- 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.TryGetCachedResult(`1@)')
-- [ConfigurationActionType](#T-MFR-Objects-Messages-Actions-ConfigurationActionType 'MFR.Objects.Messages.Actions.ConfigurationActionType')
 - [Resources](#T-MFR-Objects-Messages-Actions-Properties-Resources 'MFR.Objects.Messages.Actions.Properties.Resources')
   - [Culture](#P-MFR-Objects-Messages-Actions-Properties-Resources-Culture 'MFR.Objects.Messages.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-Messages-Actions-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Actions.Properties.Resources.ResourceManager')
@@ -440,17 +439,6 @@ method.
 Child classes may override this method in order to
 provide additional processing; however, it is mandatory to begin the
 override's code with a call to the base class.
-
-<a name='T-MFR-Objects-Messages-Actions-ConfigurationActionType'></a>
-## ConfigurationActionType `type`
-
-##### Namespace
-
-MFR.Objects.Messages.Actions
-
-##### Summary
-
-
 
 <a name='T-MFR-Objects-Messages-Actions-Properties-Resources'></a>
 ## Resources `type`
