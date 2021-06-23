@@ -6,7 +6,7 @@
 - [CommandBase\`1](#T-MFR-Objects-Messages-Commands-CommandBase`1 'MFR.Objects.Messages.Commands.CommandBase`1')
   - [#ctor()](#M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor 'MFR.Objects.Messages.Commands.CommandBase`1.#ctor')
   - [#ctor()](#M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor-`0- 'MFR.Objects.Messages.Commands.CommandBase`1.#ctor(`0)')
-  - [_input](#F-MFR-Objects-Messages-Commands-CommandBase`1-_input 'MFR.Objects.Messages.Commands.CommandBase`1._input')
+  - [Input](#P-MFR-Objects-Messages-Commands-CommandBase`1-Input 'MFR.Objects.Messages.Commands.CommandBase`1.Input')
   - [CommonExecute()](#M-MFR-Objects-Messages-Commands-CommandBase`1-CommonExecute 'MFR.Objects.Messages.Commands.CommandBase`1.CommonExecute')
   - [Execute()](#M-MFR-Objects-Messages-Commands-CommandBase`1-Execute 'MFR.Objects.Messages.Commands.CommandBase`1.Execute')
   - [ExecuteAsync()](#M-MFR-Objects-Messages-Commands-CommandBase`1-ExecuteAsync 'MFR.Objects.Messages.Commands.CommandBase`1.ExecuteAsync')
@@ -83,8 +83,8 @@ reference to it.
 
 This constructor has no parameters.
 
-<a name='F-MFR-Objects-Messages-Commands-CommandBase`1-_input'></a>
-### _input `constants`
+<a name='P-MFR-Objects-Messages-Commands-CommandBase`1-Input'></a>
+### Input `property`
 
 ##### Summary
 
