@@ -45,6 +45,16 @@ Launches the Visual Studio Debugger.
 
 This method has no parameters.
 
+##### Remarks
+
+This method should be called only as necessary to automatically
+launch the Visual Studio Debugger, attached to the currently-running
+process instance.
+
+
+
+Such calls should be commented out or deleted when no longer needed.
+
 <a name='T-MFR-Objects-Reflector'></a>
 ## Reflector `type`
 
