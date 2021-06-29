@@ -43,7 +43,7 @@ in the **Arguments** field of its entry in the **External Tools** dialog box, as
 
 ![Fig02](fig02.png)
 
-This will cause the **What folder do you want the operation to start in?** drop-down to be focused on the folder that the currently-open solution that is open in Visual Studio is located in.
+This will cause the **What folder should the operation start in?** drop-down to be focused on the folder that the currently-open solution that is open in Visual Studio is located in.
 
 ![Fig03](fig03.png)
 
