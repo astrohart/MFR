@@ -39,26 +39,25 @@ and returns a reference to it.
 
 Reference to an instance of an object that implements the
 [IOperationDescription](#T-MFR-Objects-IOperationDescription 'MFR.Objects.IOperationDescription')
-interface
-that corresponds to the specified operation `type`,
-or `null` if no such object can be located.
+interface that
+corresponds to the specified operation `type`, or
+`null` if no such object can be located.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-values that
-specifies the operation type you want the descriptive text for. |
+| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+values that specifies the operation type you want the descriptive
+text for. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
-value specified in the `type` parameter does not
-have a corresponding Operation Description object associated with it. |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') value
+specified in the `type` parameter does not have a
+corresponding Operation Description object associated with it. |
 
 <a name='T-MFR-Objects-Operations-Descriptions-Factories-GetOperationStartedDescription'></a>
 ## GetOperationStartedDescription `type`
