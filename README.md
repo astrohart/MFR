@@ -47,3 +47,8 @@ This will cause the **What folder do you want the operation to start in?** drop-
 
 ![Fig03](fig03.png)
 
+During its operation, before the app begins any of the requested operations, if it determines that one or more `.sln` files found in the folder tree beginning at the specified root are open in running instances of Visual Studio, it will:
+
+1. Close the solution(s) in their respective instance(s) of Visual Studio;
+2. Perform the requested operations; and
+3. Re-open all previously closed solution(s), each in the instance of Visual Studio that it was originally open in.
