@@ -3,17 +3,72 @@
 
 ## Contents
 
+- [ActionType](#T-MFR-Objects-Messages-Constants-ActionType 'MFR.Objects.Messages.Constants.ActionType')
+  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-ActionType-#ctor-System-Guid- 'MFR.Objects.Messages.Constants.ActionType.#ctor(System.Guid)')
+- [CommandType](#T-MFR-Objects-Messages-Constants-CommandType 'MFR.Objects.Messages.Constants.CommandType')
+  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-CommandType-#ctor-System-Guid- 'MFR.Objects.Messages.Constants.CommandType.#ctor(System.Guid)')
 - [MessageType](#T-MFR-Objects-Messages-Constants-MessageType 'MFR.Objects.Messages.Constants.MessageType')
-  - [LoadAllSolutionsInFolder](#F-MFR-Objects-Messages-Constants-MessageType-LoadAllSolutionsInFolder 'MFR.Objects.Messages.Constants.MessageType.LoadAllSolutionsInFolder')
-  - [LoadConfigurationFromFile](#F-MFR-Objects-Messages-Constants-MessageType-LoadConfigurationFromFile 'MFR.Objects.Messages.Constants.MessageType.LoadConfigurationFromFile')
-  - [LoadStringFromRegistry](#F-MFR-Objects-Messages-Constants-MessageType-LoadStringFromRegistry 'MFR.Objects.Messages.Constants.MessageType.LoadStringFromRegistry')
-  - [SaveConfigurationToFile](#F-MFR-Objects-Messages-Constants-MessageType-SaveConfigurationToFile 'MFR.Objects.Messages.Constants.MessageType.SaveConfigurationToFile')
-  - [SaveStringToRegistry](#F-MFR-Objects-Messages-Constants-MessageType-SaveStringToRegistry 'MFR.Objects.Messages.Constants.MessageType.SaveStringToRegistry')
-  - [Unknown](#F-MFR-Objects-Messages-Constants-MessageType-Unknown 'MFR.Objects.Messages.Constants.MessageType.Unknown')
-  - [UnloadAllLoadedSolutionsInFolder](#F-MFR-Objects-Messages-Constants-MessageType-UnloadAllLoadedSolutionsInFolder 'MFR.Objects.Messages.Constants.MessageType.UnloadAllLoadedSolutionsInFolder')
+  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-MessageType-#ctor-System-Guid- 'MFR.Objects.Messages.Constants.MessageType.#ctor(System.Guid)')
+  - [_messageId](#F-MFR-Objects-Messages-Constants-MessageType-_messageId 'MFR.Objects.Messages.Constants.MessageType._messageId')
 - [Resources](#T-MFR-Objects-Messages-Constants-Properties-Resources 'MFR.Objects.Messages.Constants.Properties.Resources')
   - [Culture](#P-MFR-Objects-Messages-Constants-Properties-Resources-Culture 'MFR.Objects.Messages.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-Messages-Constants-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Constants.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Objects-Messages-Constants-ActionType'></a>
+## ActionType `type`
+
+##### Namespace
+
+MFR.Objects.Messages.Constants
+
+##### Summary
+
+Base class for pseudo-enumerations of action types.
+
+<a name='M-MFR-Objects-Messages-Constants-ActionType-#ctor-System-Guid-'></a>
+### #ctor(messageId) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ActionType](#T-MFR-Objects-Messages-Constants-ActionType 'MFR.Objects.Messages.Constants.ActionType')
+and returns a
+reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+that provides a unique identifier to be associated with this instance. |
+
+<a name='T-MFR-Objects-Messages-Constants-CommandType'></a>
+## CommandType `type`
+
+##### Namespace
+
+MFR.Objects.Messages.Constants
+
+##### Summary
+
+Base class for pseudo-enumerations of command types.
+
+<a name='M-MFR-Objects-Messages-Constants-CommandType-#ctor-System-Guid-'></a>
+### #ctor(messageId) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[CommandType](#T-MFR-Objects-Messages-Constants-CommandType 'MFR.Objects.Messages.Constants.CommandType')
+and returns a
+reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+that provides a unique identifier to be associated with this instance. |
 
 <a name='T-MFR-Objects-Messages-Constants-MessageType'></a>
 ## MessageType `type`
@@ -24,58 +79,36 @@ MFR.Objects.Messages.Constants
 
 ##### Summary
 
-Values specifying what message to execute.
+Base class for all message-type "enumeration" classes.
 
-<a name='F-MFR-Objects-Messages-Constants-MessageType-LoadAllSolutionsInFolder'></a>
-### LoadAllSolutionsInFolder `constants`
+##### Remarks
 
-##### Summary
+This object provides services that are common to all message-type objects.
 
-Loads all the Visual Studio Solutions (*.sln) in the specified
-folder, each in its own instance of `devenv.exe`.
-
-<a name='F-MFR-Objects-Messages-Constants-MessageType-LoadConfigurationFromFile'></a>
-### LoadConfigurationFromFile `constants`
+<a name='M-MFR-Objects-Messages-Constants-MessageType-#ctor-System-Guid-'></a>
+### #ctor(messageId) `constructor`
 
 ##### Summary
 
-Loads the configuration from a file.
+Constructs a new instance of
+[MessageType](#T-MFR-Objects-Messages-Constants-MessageType 'MFR.Objects.Messages.Constants.MessageType')
+and returns a
+reference to it.
 
-<a name='F-MFR-Objects-Messages-Constants-MessageType-LoadStringFromRegistry'></a>
-### LoadStringFromRegistry `constants`
+##### Parameters
 
-##### Summary
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+that provides a unique identifier to be associated with this instance. |
 
-Loads a string value from the system Registry.
-
-<a name='F-MFR-Objects-Messages-Constants-MessageType-SaveConfigurationToFile'></a>
-### SaveConfigurationToFile `constants`
-
-##### Summary
-
-Saves the configuration to a file.
-
-<a name='F-MFR-Objects-Messages-Constants-MessageType-SaveStringToRegistry'></a>
-### SaveStringToRegistry `constants`
+<a name='F-MFR-Objects-Messages-Constants-MessageType-_messageId'></a>
+### _messageId `constants`
 
 ##### Summary
 
-Saves a string value to the system Registry.
-
-<a name='F-MFR-Objects-Messages-Constants-MessageType-Unknown'></a>
-### Unknown `constants`
-
-##### Summary
-
-Generic, unknown message.
-
-<a name='F-MFR-Objects-Messages-Constants-MessageType-UnloadAllLoadedSolutionsInFolder'></a>
-### UnloadAllLoadedSolutionsInFolder `constants`
-
-##### Summary
-
-Unloads all Visual Studio Solutions (*.sln) that are currently open
-in instances of Visual Studio, that are found in the specified folder.
+Reference to a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that is the unique ID of
+the command referenced by this type.
 
 <a name='T-MFR-Objects-Messages-Constants-Properties-Resources'></a>
 ## Resources `type`
