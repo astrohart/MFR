@@ -392,6 +392,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Collections", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Collections.Interfaces", "MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj", "{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers", "MFR.Profiles.Providers\MFR.Profiles.Providers.csproj", "{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1936,6 +1938,14 @@ Global
 		{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}.Release|x64.Build.0 = Release|x64
 		{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}.Release|x86.ActiveCfg = Release|x86
 		{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}.Release|x86.Build.0 = Release|x86
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Debug|x64.ActiveCfg = Debug|x64
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Debug|x64.Build.0 = Debug|x64
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Debug|x86.ActiveCfg = Debug|x86
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Debug|x86.Build.0 = Debug|x86
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Release|x64.ActiveCfg = Release|x64
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Release|x64.Build.0 = Release|x64
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Release|x86.ActiveCfg = Release|x86
+		{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
