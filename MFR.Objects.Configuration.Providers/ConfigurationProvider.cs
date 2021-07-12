@@ -25,8 +25,8 @@ namespace MFR.Objects.Configuration.Providers
     {
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Objects.IConfiguration" /> interface and
-        /// which exposes settings changed by the user in order to modify the
+        /// <see cref="T:MFR.Objects.IConfiguration" /> interface and which
+        /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
         public static IConfiguration Configuration
@@ -44,15 +44,16 @@ namespace MFR.Objects.Configuration.Providers
                 => LoadConfigPathAction.Execute()
                                        .Path;
             set {
-                GetSaveConfigPathCommand
-                    .ForPath(ConfigurationKeyName, ConfigurationPathValueName, value)
-                  .Execute();
+                GetSaveConfigPathCommand.ForPath(
+                                            ConfigurationPathKeyName,
+                                            ConfigurationPathValueName, value
+                                        )
+                                        .Execute();
 
-                /* Clear out the cache of previously-loaded path
+                /* Clear out the cache of previously-loaded paths
                  for this same operation. */
-                LoadConfigPathAction
-                    .AsCachedResultAction()
-                    .ClearResultCache();
+                LoadConfigPathAction.AsCachedResultAction()
+                                    .ClearResultCache();
             }
         }
 
@@ -60,7 +61,7 @@ namespace MFR.Objects.Configuration.Providers
         /// Gets the path to the Registry subkey that stores information about
         /// the paths of files.
         /// </summary>
-        public static string ConfigurationKeyName
+        public static string ConfigurationPathKeyName
             => $@"HKEY_CURRENT_USER\SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Paths";
 
         /// <summary>
@@ -74,16 +75,15 @@ namespace MFR.Objects.Configuration.Providers
         /// Gets the default folder for the configuration file.
         /// </summary>
         /// <remarks>
-        /// We store the config file, by default, in a folder under C:\ProgramData.
+        /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
         /// </remarks>
-        /// efs
         public static string DefaultConfigDir
         {
             get;
         } = Path.Combine(
             Path.Combine(
                 Environment.GetFolderPath(
-                    Environment.SpecialFolder.CommonApplicationData
+                    Environment.SpecialFolder.LocalApplicationData
                 ), Application.CompanyName
             ), @"MassFileRenamer\Config"
         );
@@ -102,7 +102,7 @@ namespace MFR.Objects.Configuration.Providers
                )
                .WithInput(
                    MakeNewRegQueryExpression.FromScatch<string>()
-                                            .ForKeyPath(ConfigurationKeyName)
+                                            .ForKeyPath(ConfigurationPathKeyName)
                                             .AndValueName(
                                                 ConfigurationPathValueName
                                             )
@@ -128,8 +128,8 @@ namespace MFR.Objects.Configuration.Providers
         /// the first place is to simply call the
         /// <see
         ///     cref="M:MFR.Objects.ConfigurationProvider.Save" />
-        /// method
-        /// with a value for its pathname parameter.
+        /// method with a
+        /// value for its pathname parameter.
         /// <para />
         /// However, doing this will not save the user's settings to the master
         /// file, which is important enough that we write a special method to
@@ -217,6 +217,12 @@ namespace MFR.Objects.Configuration.Providers
         ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
+        /// <exception cref="T:System.IO.FileNotFoundException">
+        /// Thrown if the file whose pathname is passed in the
+        /// <paramref
+        ///     name="pathname" />
+        /// parameter cannot be located on the disk.
+        /// </exception>
         public static void Load(string pathname = "")
         {
             // write the name of the current class and method we are now
@@ -225,25 +231,22 @@ namespace MFR.Objects.Configuration.Providers
                 DebugLevel.Debug, "In ConfigurationProvider.Load"
             );
 
-            var path = ConfigurationFilePath;
-
-            if (!File.Exists(path)) // oops!
+            if (!File.Exists(pathname)) // oops!
                 throw new FileNotFoundException(
-                    $"The system could not locate the configuration file having the path '{path}'.",
-                    path
+                    $"The system could not locate the configuration file having the path '{pathname}'.",
+                    pathname
                 );
 
             try
             {
                 Configuration = GetConfigurationAction
                                 .For<IFileSystemEntry, IConfiguration>(
-                                    ConfigurationAction.LoadConfigurationFromFile
+                                    ConfigurationAction
+                                        .LoadConfigurationFromFile
                                 )
                                 .WithInput(
                                     MakeNewFileSystemEntry.ForPath(
-                                        string.IsNullOrWhiteSpace(pathname)
-                                            ? ConfigurationFilePath
-                                            : pathname
+                                        pathname
                                     )
                                 )
                                 .Execute();
@@ -257,9 +260,14 @@ namespace MFR.Objects.Configuration.Providers
             }
 
             if (Configuration != null)
+            {
                 DebugUtils.WriteLine(
                     DebugLevel.Info, "*** SUCCESS *** Configuration loaded."
                 );
+
+                // store the pathname in the pathname parameter into the ConfigurationFilePath property
+                ConfigurationFilePath = pathname;
+            }
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug, "ConfigurationProvider.Load: Done."
@@ -294,19 +302,22 @@ namespace MFR.Objects.Configuration.Providers
                 DebugLevel.Debug, "In ConfigurationProvider.Save"
             );
 
+            if (string.IsNullOrWhiteSpace(pathname))
+                pathname = ConfigurationFilePath;
+
             // do not proceed if either the ConfigurationFilePath property is
             // blank, or if the Configuration property has a null reference.
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                "ConfigurationProvider.Save: Checking whether the value of the 'ConfigurationFilePath' property is blank..."
+                "ConfigurationProvider.Save: Checking whether the value of the 'pathname' parameter is blank..."
             );
 
-            if (string.IsNullOrWhiteSpace(ConfigurationFilePath))
+            if (string.IsNullOrWhiteSpace(pathname))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    "ConfigurationProvider.Save: Blank value passed for the 'ConfigurationFilePath' property. This property is required."
+                    "ConfigurationProvider.Save: Blank value passed for the 'pathname' parameter. This parameter is required."
                 );
 
                 DebugUtils.WriteLine(
@@ -318,7 +329,7 @@ namespace MFR.Objects.Configuration.Providers
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                "ConfigurationProvider.Save: *** SUCCESS *** The property 'ConfigurationFilePath' is not blank.  Continuing..."
+                "ConfigurationProvider.Save: *** SUCCESS *** The parameter 'pathname' is not blank.  Continuing..."
             );
 
             DebugUtils.WriteLine(
@@ -356,13 +367,18 @@ namespace MFR.Objects.Configuration.Providers
 
             try
             {
-                GetConfigurationCommand
-                    .For<IFileSystemEntry>(ConfigurationCommand.SaveConfigurationToFile)
-                    .WithInput(
-                        MakeNewFileSystemEntry.ForPath(ConfigurationFilePath)
-                                              .AndHavingUserState(Configuration)
-                    )
-                    .Execute();
+                GetConfigurationCommand.For<IFileSystemEntry>(
+                                           ConfigurationCommand
+                                               .SaveConfigurationToFile
+                                       )
+                                       .WithInput(
+                                           MakeNewFileSystemEntry
+                                               .ForPath(pathname)
+                                               .AndHavingUserState(
+                                                   Configuration
+                                               )
+                                       )
+                                       .Execute();
             }
             catch (Exception ex)
             {
