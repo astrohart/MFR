@@ -3,17 +3,26 @@
 namespace MFR.Profiles.Providers.Factories
 {
     /// <summary>
-    /// Creates instances of objects that implement the <see cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" /> interface.
+    /// Creates instances of objects that implement the
+    /// <see
+    ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
+    /// interface.
     /// </summary>
     public static class GetProfileProvider
     {
         /// <summary>
-        /// Creates a new instance of an object that implements the <see cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" /> interface and returns a reference to it.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
         /// </summary>
         /// <returns>
-        /// Reference to an instance of an object that implements the <see cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" /> interface.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
         /// </returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException" >
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if the object type requested is not supported.
         /// </exception>
         public static IProfileProvider SoleInstance()
