@@ -104,6 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetProfileProviderTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +127,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Profiles.Providers.Factories\MFR.Profiles.Providers.Factories.csproj">
+      <Project>{61494e63-ae7d-4d4a-967b-d3b50e68858a}</Project>
+      <Name>MFR.Profiles.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj">
+      <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
+      <Name>MFR.Profiles.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Providers\MFR.Profiles.Providers.csproj">
+      <Project>{a20e0b5a-6bc6-4244-a8ac-6bb1726f8911}</Project>
+      <Name>MFR.Profiles.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

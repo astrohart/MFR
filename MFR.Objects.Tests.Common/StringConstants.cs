@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -29,15 +30,23 @@ namespace MFR.Objects.Tests.Common
         /// String containing the fully-qualified pathname of a file that
         /// matches the criteria for operating upon.
         /// </summary>
+        /// <remarks>
+        /// This constant must always be set to the path of a project (*.csproj)
+        /// file that actually exists.
+        /// </remarks>
         public const string FILE_MATCHING_OPERATIONAL_CRITERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\Foo\Foo.csproj";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos.csproj";
 
         /// <summary>
         /// String containing the path of a folder that the RenameSubFolder
         /// operation would consider fair game for acting upon.
         /// </summary>
+        /// <remarks>
+        /// This constant must always be set to the path of a project folder
+        /// that exists.
+        /// </remarks>
         public const string FOLDER_MATCHING_OPERATIONAL_CRITIERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\Foo";
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos";
 
         /// <summary>
         /// String consisting of complete gibberish.
@@ -130,8 +139,10 @@ namespace MFR.Objects.Tests.Common
         /// constant's value as an exact-word match.
         /// </summary>
         public static readonly string
-            FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX =
-                $@"(?<![\w]){Regex.Escape(FAKE_PROJECT_NAME_WITH_DOTS)}(?(?=\S)(?=[a-z.]*[^A-Z.])|(?![\w]))";
+            FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX = string.Format(
+                RegexFormats.MatchExactWord,
+                Regex.Escape(FAKE_PROJECT_NAME_WITH_DOTS)
+            );
 
         /// <summary>
         /// String consisting of the path to a file that is guaranteed to exist

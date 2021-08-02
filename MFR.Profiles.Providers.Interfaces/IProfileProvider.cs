@@ -3,8 +3,12 @@
 namespace MFR.Profiles.Providers.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a <c> Profile
-    /// Provider </c> object.
+    /// Defines the publicly-exposed methods and properties of a
+    /// <c>
+    /// Profile
+    /// Provider
+    /// </c>
+    /// object.
     /// </summary>
     /// <remarks>
     /// A <c>Profile Provider</c> object maintains a collection of the profiles
@@ -53,11 +57,15 @@ namespace MFR.Profiles.Providers.Interfaces
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        /// cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection"/> interface.
+        ///     cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// interface.
         /// </summary>
         /// <remarks>
         /// The object to which a reference is returned by this properties
         /// allows access to the set of profiles defined by the user.
+        /// <para />
+        /// If this property is read prior to any profiles being loaded, it
+        /// should return a reference the empty collection.
         /// </remarks>
         IProfileCollection Profiles
         {
@@ -76,25 +84,31 @@ namespace MFR.Profiles.Providers.Interfaces
         /// configuration file, but a separate file.
         /// </remarks>
         /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if the file whose pathname is passed in the <paramref
-        /// name="pathname"/> parameter cannot be found on the disk.
+        /// Thrown if the file whose pathname is passed in the
+        /// <paramref
+        ///     name="pathname" />
+        /// parameter cannot be found on the disk.
         /// </exception>
         void Load(string pathname = "");
 
         /// <summary>
-        /// Saves profile list data to a file on the disk having path <paramref name="pathname"/>.
+        /// Saves profile list data to a file on the disk having path
+        /// <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         /// (Optional.) String containing the path to where the data should be
         /// saved in JSON format.
-        /// <para/>
+        /// <para />
         /// If this parameter is blank, then the data is saved to the path that
-        /// is stored in the <see
-        /// cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath"/> property.
+        /// is stored in the
+        /// <see
+        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath" />
+        /// property.
         /// </param>
         /// <remarks>
-        /// If the <see
-        /// cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath"/>
+        /// If the
+        /// <see
+        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");

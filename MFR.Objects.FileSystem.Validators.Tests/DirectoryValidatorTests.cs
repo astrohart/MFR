@@ -241,6 +241,16 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedDir()
         {
+            if (!Directory.Exists(
+                StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA
+            ))
+            {
+                Console.WriteLine(
+                    $"Test folder, '{StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA}', does not exist."
+                );
+                return;
+            }
+
             Assert.IsTrue(
                 Directory.Exists(
                     StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA
@@ -406,7 +416,8 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <c>.git</c>, or a subfolder thereof, which does not meet the
         /// operational criteria.
         /// </summary>
-        [Test, Obsolete]
+        [Test]
+        [Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir()
         {
             Assert.IsTrue(
@@ -429,11 +440,14 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <c>packages</c>, or a subfolder thereof, which does not meet the
         /// operational criteria.
         /// </summary>
-        [Test, Obsolete]
+        [Test]
+        [Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir()
         {
             Assert.IsTrue(
-                Directory.Exists(StringConstants.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER)
+                Directory.Exists(
+                    StringConstants.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER
+                )
             );
             Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
@@ -451,7 +465,8 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// method returns <see langword="true" /> for a folder named <c>.vs</c>,
         /// or a subfolder thereof, which does not meet the operational criteria.
         /// </summary>
-        [Test, Obsolete]
+        [Test]
+        [Obsolete]
         public void Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir()
         {
             Assert.IsTrue(

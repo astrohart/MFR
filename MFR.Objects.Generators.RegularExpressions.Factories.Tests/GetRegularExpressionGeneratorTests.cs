@@ -33,7 +33,7 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         public void
             Test_GetRegularExpression_For_RegularExpressionGeneratorType_ReturnValue_GeneratesCorrectRegExp()
         {
-            var generator = CreateNewRegularExpressionGenerator();
+            var generator = CreateNewRegularExpressionGeneratorFor(RegularExpressionType.MatchExactWordOnly);
             Assert.That(
                 generator, Is.InstanceOf<IRegularExpressionGenerator>()
             );
@@ -69,7 +69,7 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         public void
             Test_GetRegularExpression_For_RegularExpressionGeneratorType_ReturnValue_Implements_IRegularExpressionGenerator()
         {
-            var generator = CreateNewRegularExpressionGenerator();
+            var generator = CreateNewRegularExpressionGeneratorFor(RegularExpressionType.MatchExactWordOnly);
             Assert.That(
                 generator, Is.InstanceOf<IRegularExpressionGenerator>()
             );
@@ -94,7 +94,7 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         public void
             Test_GetRegularExpression_For_RegularExpressionGeneratorType_ReturnValue_IsCorrectConcreteType()
         {
-            var generator = CreateNewRegularExpressionGenerator();
+            var generator = CreateNewRegularExpressionGeneratorFor(RegularExpressionType.MatchExactWordOnly);
             Assert.That(
                 generator, Is.InstanceOf<IRegularExpressionGenerator>()
             );
@@ -117,13 +117,13 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         /// interface.
         /// </returns>
         private static IRegularExpressionGenerator
-            CreateNewRegularExpressionGenerator()
+            CreateNewRegularExpressionGeneratorFor(RegularExpressionType type)
         {
             IRegularExpressionGenerator generator = null;
 
             Assert.DoesNotThrow(
                 () => generator = GetRegularExpressionGenerator.For(
-                    RegularExpressionType.MatchExactWordOnly
+                    type
                 )
             );
             Assert.IsNotNull(generator);

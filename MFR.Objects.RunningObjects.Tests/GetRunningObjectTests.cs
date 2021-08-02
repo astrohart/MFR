@@ -16,21 +16,30 @@ namespace MFR.Objects.RunningObjects.Factories.Tests
     public class GetRunningObjectTests
     {
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Objects.RunningObjects.Factories.GetRunningObject.ByDisplayName" />
+        /// method always returns a reference to an instance of an object that
+        /// implements the <see cref="T:EnvDTE.DTE" /> interface.
         /// </summary>
         [Test]
         public void Test_ByDisplayName_Method_Works()
         {
-            var pid =
-                MakeNewProcessIdProvider.FromScratch()
-                                        .GetProcessIDOf("devenv.exe");  
-            Assert.IsFalse(-1 == pid);
+            var pids = MakeNewProcessIdProvider.FromScratch()
+                                               .GetAllProcessIDsOf("devenv.exe")
+                                               .ToList();
+            Assert.That(pids.All(x => x > 0));
 
-            var runningObjectDisplayName = $"VisualStudio.DTE.16.0:{pid}";
+            var runningObjects = pids.Select(
+                                         pid => GetRunningObject.ByDisplayName(
+                                             $"VisualStudio.DTE.16.0:{pid}"
+                                         )
+                                     )
+                                     .ToList();
 
-            Assert.IsInstanceOf<DTE>(
-                GetRunningObject.ByDisplayName(runningObjectDisplayName)
-            );
+            Assert.That(runningObjects.Any(x => x != null));
+
+            Assert.IsInstanceOf<DTE>(runningObjects.First(x => x != null));
         }
 
         /// <summary>
@@ -42,7 +51,6 @@ namespace MFR.Objects.RunningObjects.Factories.Tests
             var list = GetRunningObject.DisplayNames();
             Assert.IsNotNull(list);
             Assert.IsTrue(list.Any());
-
             foreach (var entry in list) Console.WriteLine(entry);
         }
     }

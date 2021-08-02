@@ -3,11 +3,20 @@ using NUnit.Framework;
 namespace MFR.Objects.Renamers.Files.Tests
 {
     /// <summary>
-    /// Provides unit tests.
+    /// Provides unit tests for the
+    /// <see
+    ///     cref="T:MFR.Objects.Renamers.Files.FileRenamer" />
+    /// class.
     /// </summary>
     [TestFixture]
     public class FileRenamerTests
     {
-        // TODO: Add test fixture implementation here
+        /// <summary>
+        /// Until we come up with unit tests for the class, instead just write
+        /// the unit test that always passes.
+        /// </summary>
+        [Test]
+        public void Test_That_Always_Passes()
+            => Assert.That(1 == 1, Is.True);
     }
 }
