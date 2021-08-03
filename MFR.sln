@@ -400,6 +400,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Fact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Factories.Tests", "MFR.Profiles.Providers.Factories.Tests\MFR.Profiles.Providers.Factories.Tests.csproj", "{69F712E7-D4C0-426A-92C3-48FDE4E9CE82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Exceptions", "MFR.Profiles.Providers.Exceptions\MFR.Profiles.Providers.Exceptions.csproj", "{AE8E228C-0E05-415D-8A67-78581F6EA8E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1976,6 +1978,14 @@ Global
 		{69F712E7-D4C0-426A-92C3-48FDE4E9CE82}.Release|x64.Build.0 = Release|x64
 		{69F712E7-D4C0-426A-92C3-48FDE4E9CE82}.Release|x86.ActiveCfg = Release|x86
 		{69F712E7-D4C0-426A-92C3-48FDE4E9CE82}.Release|x86.Build.0 = Release|x86
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Debug|x64.ActiveCfg = Debug|x64
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Debug|x64.Build.0 = Debug|x64
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Debug|x86.ActiveCfg = Debug|x86
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Debug|x86.Build.0 = Debug|x86
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Release|x64.ActiveCfg = Release|x64
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Release|x64.Build.0 = Release|x64
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Release|x86.ActiveCfg = Release|x86
+		{AE8E228C-0E05-415D-8A67-78581F6EA8E9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
