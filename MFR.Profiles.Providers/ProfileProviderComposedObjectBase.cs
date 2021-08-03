@@ -1,9 +1,7 @@
-using MFR.Objects.Configuration.Exceptions;
-using MFR.Objects.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.Configuration
+namespace MFR.Profiles.Providers
 {
     /// <summary>
     /// Provides common functionality for all those objects that get composed
