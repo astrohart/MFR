@@ -245,6 +245,10 @@
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
       <Name>MFR.Objects.Renamers.Files.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Providers\MFR.Profiles.Providers.csproj">
+      <Project>{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}</Project>
+      <Name>MFR.Profiles.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

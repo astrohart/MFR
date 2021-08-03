@@ -20,6 +20,7 @@ using MFR.Objects.Operations.Constants;
 using MFR.Objects.Operations.Descriptions.Factories;
 using MFR.Objects.Operations.Events;
 using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Profiles.Providers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;

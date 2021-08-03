@@ -9,7 +9,7 @@ namespace MFR.GUI.Presenters.Interfaces
     /// </summary>
     public interface
         IPresenter<TView, TChildPresenterInterface> :
-            IConfigurationComposedObject, IProfileProviderComposedObject where TView : class
+            IConfigurationComposedObject where TView : class
         where TChildPresenterInterface : class
     {
         /// <summary>
