@@ -20,7 +20,8 @@ using MFR.Objects.Operations.Constants;
 using MFR.Objects.Operations.Descriptions.Factories;
 using MFR.Objects.Operations.Events;
 using MFR.Objects.Renamers.Files.Interfaces;
-using MFR.Profiles.Providers;
+using MFR.Profiles.Collections.Interfaces;
+using MFR.Profiles.Providers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -264,6 +265,20 @@ namespace MFR.GUI.Windows.Presenters
                 new ConfigurationExportedEventArgs(_exportConfigDialog.FileName)
             );
         }
+
+        /// <summary>
+        /// Loads the list of profiles that the user has created, for example,
+        /// to load into a combobox.
+        /// </summary>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// interface.
+        /// </returns>
+        public IProfileCollection GetProfiles()
+            => GetProfileProvider.SoleInstance()
+                                 .Profiles;
 
         /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.

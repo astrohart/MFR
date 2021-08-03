@@ -111,9 +111,9 @@ namespace MFR.GUI.Windows
         /// Gets a reference to the
         /// <see
         ///     cref="T:MFR.GUI.Controls.FoldUnfoldButton" />
-        /// that controls
-        /// whether the form is the folded (smaller) size or unfolded (larger,
-        /// with more options visible) size.
+        /// that controls whether
+        /// the form is the folded (smaller) size or unfolded (larger, with more
+        /// options visible) size.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public FoldUnfoldButton FoldButton
@@ -271,7 +271,9 @@ namespace MFR.GUI.Windows
 
             FoldButton.SetFoldedStateText();
 
-            MakeButtonTransparent(switchButton);
+            MakeButtonBitmapTransparent(switchButton);
+
+            FillProfileDropDownList();
         }
 
         private static bool DoesDirectoryContainSolutionFile(string path)
@@ -284,6 +286,18 @@ namespace MFR.GUI.Windows
                                 path, "*.sln", SearchOption.TopDirectoryOnly
                             )
                             .Any();
+        }
+
+        private void FillProfileDropDownList()
+        {
+            if (_presenter.GetProfiles()
+                          .Count == 0)
+                return;
+
+            profileListComboBox.Items.AddRange(
+                _presenter.GetProfiles()
+                          .ToArray()
+            );
         }
 
         /// <summary>
@@ -371,7 +385,7 @@ namespace MFR.GUI.Windows
         }
 
         // Give the button a transparent background.
-        private void MakeButtonTransparent(Button btn)
+        private void MakeButtonBitmapTransparent(Button btn)
         {
             var bm = (Bitmap)btn.Image;
             bm.MakeTransparent(bm.GetPixel(0, 0));
@@ -558,8 +572,8 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FormFoldedEventArgs" /> that
-        /// contains the event data.
+        /// A <see cref="T:MFR.Objects.FormFoldedEventArgs" /> that contains the
+        /// event data.
         /// </param>
         /// <remarks>
         /// </remarks>
@@ -632,10 +646,7 @@ namespace MFR.GUI.Windows
             => performOperationButton.PerformClick();
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.GUI.OptionsDialog.Modified" />
-        /// event.
+        /// Handles the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -663,7 +674,8 @@ namespace MFR.GUI.Windows
         /// Handles the
         /// <see
         ///     cref="E:MFR.GUI.IMainWindowPresenter.AllHistoryCleared" />
-        /// event raised by the presenter object.
+        /// event
+        /// raised by the presenter object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -694,10 +706,8 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An
-        /// <see
-        ///     cref="T:MFR.Objects.ConfigurationExportedEventArgs" />
-        /// that contains the event data.
+        /// An <see cref="T:MFR.Objects.ConfigurationExportedEventArgs" /> that
+        /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when an export of the configuration has been
@@ -730,8 +740,9 @@ namespace MFR.GUI.Windows
         /// screen from values stored in the configuration object in the
         /// <see
         ///     cref="P:MFR.GUI.MainWindowPresenter.Configuration" />
-        /// property. This happens most often as a the result of the Import
-        /// Configuration command on the Tools menu.
+        /// property. This
+        /// happens most often as a the result of the Import Configuration
+        /// command on the Tools menu.
         /// </remarks>
         private void OnPresenterConfigurationImported(object sender,
             ConfigurationImportedEventArgs e)
@@ -750,26 +761,22 @@ namespace MFR.GUI.Windows
         /// Handles the
         /// <see
         ///     cref="E:MFR.GUI.IMainWindowPresenter.DataOperationFinished" />
-        /// event raised by the presenter object when a data operation is
-        /// finished.
+        /// event
+        /// raised by the presenter object when a data operation is finished.
         /// </summary>
         /// <param name="sender">
-        /// Reference to an instance
-        /// of the object that raised the event.
+        /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A
-        /// <see cref="T:System.EventArgs" /> that contains the event data.
+        /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
-        /// This method responds to the event by removing the
-        /// progress bar from the status bar and setting the text of its message
-        /// label back to the idle text. We use the Invoke If Required
-        /// methodology just in case it's not the GUI thread that raised the
-        /// event.
+        /// This method responds to the event by removing the progress bar from
+        /// the status bar and setting the text of its message label back to the
+        /// idle text. We use the Invoke If Required methodology just in case
+        /// it's not the GUI thread that raised the event.
         /// <para />
-        /// If the status bar is not presently visible, then
-        /// this method does nothing.
+        /// If the status bar is not presently visible, then this method does nothing.
         /// </remarks>
         private void OnPresenterDataOperationFinished(object sender,
             EventArgs e)
@@ -787,8 +794,9 @@ namespace MFR.GUI.Windows
         /// Handles the
         /// <see
         ///     cref="E:MFR.GUI.IMainWindowPresenter.DataOperationStarted" />
-        /// event raised by the presenter object when it's about to start an
-        /// operation that involves interaction with a data source.
+        /// event
+        /// raised by the presenter object when it's about to start an operation
+        /// that involves interaction with a data source.
         /// <para />
         /// Depending on the data source, this operation can be fast or it can
         /// be slow, so the presenter object informs us in case we want to
@@ -798,8 +806,8 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.DataOperationEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:MFR.Objects.DataOperationEventArgs" /> that contains
+        /// the event data.
         /// </param>
         /// <remarks>
         /// This method responds to the event by displaying the marquee progress
@@ -824,10 +832,7 @@ namespace MFR.GUI.Windows
             );
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.GUI.IMainWindowPresenter.Finished" />
-        /// event.
+        /// Handles the <see cref="E:MFR.GUI.IMainWindowPresenter.Finished" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -860,10 +865,7 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.GUI.IMainWindowPresenter.Started" />
-        /// event.
+        /// Handles the <see cref="E:MFR.GUI.IMainWindowPresenter.Started" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -875,8 +877,8 @@ namespace MFR.GUI.Windows
         /// This handler is called when the
         /// <see
         ///     cref="M:MFR.Objects.FileRenamer.ProcessAll" />
-        /// begins its
-        /// execution. This method responds by showing the progress dialog.
+        /// begins its execution.
+        /// This method responds by showing the progress dialog.
         /// </remarks>
         private void OnPresenterStarted(object sender, EventArgs e)
             => startingFolderBrowseButton.InvokeIfRequired(

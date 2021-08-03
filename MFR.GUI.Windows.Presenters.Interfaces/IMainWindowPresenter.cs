@@ -6,6 +6,7 @@ using MFR.Objects.Events.Common;
 using MFR.Objects.Managers.History.Interfaces;
 using MFR.Objects.Operations.Events;
 using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Profiles.Collections.Interfaces;
 using System;
 
 namespace MFR.GUI.Windows.Presenters.Interfaces
@@ -92,6 +93,18 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// Exports the current configuration data to a file on the user's hard drive.
         /// </summary>
         void ExportConfiguration();
+
+        /// <summary>
+        /// Loads the list of profiles that the user has created, for example,
+        /// to load into a combobox.
+        /// </summary>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// interface.
+        /// </returns>
+        IProfileCollection GetProfiles();
 
         /// <summary>
         /// Imports the configuration data for this application.

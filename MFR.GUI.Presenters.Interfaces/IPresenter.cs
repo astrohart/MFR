@@ -1,5 +1,4 @@
 using MFR.Objects.Configuration.Interfaces;
-using MFR.Profiles.Providers.Interfaces;
 
 namespace MFR.GUI.Presenters.Interfaces
 {
@@ -21,17 +20,17 @@ namespace MFR.GUI.Presenters.Interfaces
         /// Fluent-builder method to set a reference to the main window of the application.
         /// </summary>
         /// <param name="view">
-        /// (Required.) Reference to an instance of an object that is of the type
-        /// <typeparamref name="TView" />, and which represents the form that
-        /// is to be associated with this presenter.
+        /// (Required.) Reference to an instance of an object that is of the
+        /// type <typeparamref name="TView" />, and which represents the form
+        /// that is to be associated with this presenter.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="view" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required parameter, <paramref name="view" />, is passed
+        /// a <see langword="null" /> value.
         /// </exception>
         TChildPresenterInterface HavingWindowReference(TView view);
 

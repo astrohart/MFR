@@ -253,6 +253,14 @@
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
       <Name>MFR.Objects.Renamers.Files.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
+      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
+      <Name>MFR.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Interfaces\MFR.Profiles.Interfaces.csproj">
+      <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
+      <Name>MFR.Profiles.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
