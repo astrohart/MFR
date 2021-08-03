@@ -132,6 +132,10 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj">
+      <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
+      <Name>MFR.Profiles.Providers.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

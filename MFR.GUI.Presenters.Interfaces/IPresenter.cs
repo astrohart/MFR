@@ -1,4 +1,5 @@
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Profiles.Providers.Interfaces;
 
 namespace MFR.GUI.Presenters.Interfaces
 {
@@ -8,7 +9,7 @@ namespace MFR.GUI.Presenters.Interfaces
     /// </summary>
     public interface
         IPresenter<TView, TChildPresenterInterface> :
-            IConfigurationComposedObject where TView : class
+            IConfigurationComposedObject, IProfileProviderComposedObject where TView : class
         where TChildPresenterInterface : class
     {
         /// <summary>
