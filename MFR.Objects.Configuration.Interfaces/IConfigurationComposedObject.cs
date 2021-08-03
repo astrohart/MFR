@@ -34,8 +34,7 @@ namespace MFR.Objects.Configuration.Interfaces
         /// <remarks>
         /// The <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
         /// -implementing configuration object controls the behavior of this
-        /// text-expression matcher object by dint of the settings chosen by the
-        /// user at runtime.
+        /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,

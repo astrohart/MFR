@@ -54,7 +54,7 @@
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Objects.ProfileProvider.Interfaces.IProfileProvider" />
+        ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
         /// interface which has the new settings.
         /// </param>
         /// <remarks>
@@ -73,11 +73,11 @@
         /// <remarks>
         /// If no profile provider object is attached to this object, then a
         /// <see
-        ///     cref="T:MFR.Objects.ProfileProviderNotAttachedException" />
+        ///     cref="T:MFR.Profiles.Providers.Exceptions.ProfileProviderNotAttachedException" />
         /// exception
         /// is thrown.
         /// </remarks>
-        /// <exception cref="T:MFR.Objects.ProfileProviderNotAttachedException">
+        /// <exception cref="T:MFR.Profiles.Providers.Exceptions.ProfileProviderNotAttachedException">
         /// Thrown if no provider data is attached to this object.
         /// </exception>
         void VerifyProfileProviderAttached();

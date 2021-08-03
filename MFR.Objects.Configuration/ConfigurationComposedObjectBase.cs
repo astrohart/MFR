@@ -22,16 +22,6 @@ namespace MFR.Objects.Configuration
         ///     cref="T:MFR.Objects.ConfigurationComposedObjectBase" />
         /// and returns a reference to it.
         /// </summary>
-        /// <remarks>
-        /// This constructor calls the
-        /// <see
-        ///     cref="M:MFR.Objects.ConfigurationComposedObjectBase.EnforceClientRequirementToCallAttachConfiguration" />
-        /// method in order to enforce a fluent method call to the
-        /// <see
-        ///     cref="M:MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration" />
-        /// method by whosoever invokes this constructor in order to finish
-        /// building this object.
-        /// </remarks>
         protected ConfigurationComposedObjectBase() { }
 
         /// <summary>
@@ -84,7 +74,7 @@ namespace MFR.Objects.Configuration
         /// Associates user settings, in the form of an instance of an object
         /// that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
         /// interface, with
         /// this matcher.
         /// </summary>
@@ -93,9 +83,9 @@ namespace MFR.Objects.Configuration
         /// method, for fluent use.
         /// </returns>
         /// <remarks>
-        /// The <see cref="T:MFR.Objects.IConfiguration" />
-        /// -implementing object controls the behavior of this text-expression
-        /// matcher object by dint of the settings chosen by the user at runtime.
+        /// The <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        /// -implementing configuration object controls the behavior of this
+        /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,

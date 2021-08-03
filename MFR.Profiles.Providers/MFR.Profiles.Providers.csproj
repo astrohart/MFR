@@ -133,6 +133,10 @@
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
       <Name>MFR.Profiles.Collections.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Providers.Exceptions\MFR.Profiles.Providers.Exceptions.csproj">
+      <Project>{AE8E228C-0E05-415D-8A67-78581F6EA8E9}</Project>
+      <Name>MFR.Profiles.Providers.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
       <Name>MFR.Profiles.Providers.Interfaces</Name>

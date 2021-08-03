@@ -1,3 +1,5 @@
+using MFR.Profiles.Providers.Exceptions;
+using MFR.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
@@ -12,146 +14,97 @@ namespace MFR.Profiles.Providers
     /// </summary>
     [Log(AttributeExclude = true)]
     public abstract class
-        ProfileProviderComposedObjectBase : IConfigurationComposedObject
+        ProfileProviderComposedObjectBase : IProfileProviderComposedObject
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.Objects.ConfigurationComposedObjectBase" />
-        /// and returns a reference to it.
-        /// </summary>
-        /// <remarks>
-        /// This constructor calls the
-        /// <see
-        ///     cref="M:MFR.Objects.ConfigurationComposedObjectBase.EnforceClientRequirementToCallAttachConfiguration" />
-        /// method in order to enforce a fluent method call to the
-        /// <see
-        ///     cref="M:MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration" />
-        /// method by whosoever invokes this constructor in order to finish
-        /// building this object.
-        /// </remarks>
-        protected ProfileProviderComposedObjectBase() { }
-
-        /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.Objects.TextExpressionMatchingEngineBase" />
-        /// and
-        /// returns a reference to it.
-        /// </summary>
-        /// <param name="configuration">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface
-        /// that holds settings that are specified by the user.
-        /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <see langword="null" /> value.
-        /// </exception>
-        protected ProfileProviderComposedObjectBase(IConfiguration configuration)
-        {
-            Configuration = configuration ??
-                            throw new ArgumentNullException(
-                                nameof(configuration)
-                            );
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this object has been
-        /// properly composed with an instance of an object that implements the
-        /// <see cref="T:MFR.Objects.IConfiguration" /> interface.
-        /// </summary>
-        protected bool IsConfigurationAttached
-            => Configuration != null;
-
-        /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface.
+        /// the
+        /// <see
+        ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
         /// </summary>
-        /// <remarks>
-        /// This object's properties give us access to the settings configured
-        /// by the user of the application.
-        /// </remarks>
-        public IConfiguration Configuration
+        public IProfileProvider ProfileProvider
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Associates user settings, in the form of an instance of an object
-        /// that implements the
+        /// Associates an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface, with
-        /// this matcher.
+        ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface with this object.
+        /// <para />
+        /// This provides access to the
         /// </summary>
+        /// <param name="profileProvider">
+        /// (Required.) Reference to an instance of an object that implements the <see cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" /> interface.
+        /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
-        /// <remarks>
-        /// The <see cref="T:MFR.Objects.IConfiguration" />
-        /// -implementing object controls the behavior of this text-expression
-        /// matcher object by dint of the settings chosen by the user at runtime.
-        /// </remarks>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
-        /// is passed a <see langword="null" /> value.
-        /// </exception>
-        public dynamic AndAttachConfiguration(IConfiguration configuration)
+        public dynamic AndAttachProfileProvider(
+            IProfileProvider profileProvider)
         {
-            Configuration = configuration ??
-                            throw new ArgumentNullException(
-                                nameof(configuration)
-                            );
+            ProfileProvider = profileProvider ??
+                              throw new ArgumentNullException(
+                                  nameof(profileProvider)
+                              );
 
             return this;
         }
 
         /// <summary>
-        /// Updates the configuration currently being used with a new value.
+        /// Updates the profile provider object currently being used with a new value.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="profileProvider">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface
-        /// which has the new settings.
+        /// the
+        /// <see
+        ///     cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface which has the new settings.
         /// </param>
         /// <remarks>
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
-        /// <para />
-        /// NOTE:This member may be overriden by a child class. If this is the
-        /// case, the overrider must call the base class method before doing any
-        /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="profileProvider" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public virtual void UpdateConfiguration(IConfiguration configuration)
-            => Configuration = configuration ??
-                               throw new ArgumentNullException(
-                                   nameof(configuration)
-                               );
+        public void UpdateProfileProvider(IProfileProvider profileProvider)
+            => ProfileProvider = profileProvider ??
+                                 throw new ArgumentNullException(
+                                     nameof(profileProvider)
+                                 );
 
         /// <summary>
-        /// Verifies that configuration has been attached to this object.
+        /// Gets or sets a value indicating whether this object has been
+        /// properly composed with an instance of an object that implements the
+        /// <see cref="T:MFR.Profiles.Providers.Interfaces.IProfileProvider" /> interface.
+        /// </summary>
+        protected bool IsProfileProviderAttached
+            => ProfileProvider != null;
+
+        /// <summary>
+        /// Verifies that a profile provider object has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// If no configuration is attached to this object, then a new
+        /// If no profile provider object is attached to this object, then a
         /// <see
-        ///     cref="T:MFR.Objects.ConfigurationNotAttachedException" />
-        /// exception is thrown.
+        ///     cref="T:MFR.Profiles.Providers.Exceptions.ProfileProviderNotAttachedException" />
+        /// exception
+        /// is thrown.
         /// </remarks>
-        /// <exception cref="T:MFR.Objects.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// <exception cref="T:MFR.Profiles.Providers.Exceptions.ProfileProviderNotAttachedException">
+        /// Thrown if no provider data is attached to this object.
         /// </exception>
-        public void VerifyConfigurationAttached()
+        public void VerifyProfileProviderAttached()
         {
-            if (IsConfigurationAttached)
+            if (IsProfileProviderAttached)
                 return;
-            throw new ConfigurationNotAttachedException();
+            throw new ProfileProviderNotAttachedException();
         }
     }
 }
