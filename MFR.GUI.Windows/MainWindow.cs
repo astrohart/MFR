@@ -290,13 +290,16 @@ namespace MFR.GUI.Windows
 
         private void FillProfileDropDownList()
         {
-            if (_presenter.GetProfiles()
-                          .Count == 0)
+            var profileCollection = _presenter.GetProfiles();
+            if (profileCollection == null)
+                return;
+
+            if (profileCollection.Count == 0)
                 return;
 
             profileListComboBox.Items.AddRange(
-                _presenter.GetProfiles()
-                          .ToArray()
+                profileCollection
+                          .ToArray<object>()
             );
         }
 

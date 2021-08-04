@@ -2,6 +2,7 @@ using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Configuration.Actions.Factories;
 using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.Configuration.Commands.Factories;
+using MFR.Objects.Configuration.Constants;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
@@ -62,14 +63,14 @@ namespace MFR.Objects.Configuration.Providers
         /// the paths of files.
         /// </summary>
         public static string ConfigurationPathKeyName
-            => $@"HKEY_CURRENT_USER\SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Paths";
+            => ConfigurationPathRegistry.KeyName;
 
         /// <summary>
         /// Gets the name of the Registry value that holds the path to the
         /// configuration file.
         /// </summary>
         public static string ConfigurationPathValueName
-            => "ConfigFile";
+            => ConfigurationPathRegistry.ValueName;
 
         /// <summary>
         /// Gets the default folder for the configuration file.

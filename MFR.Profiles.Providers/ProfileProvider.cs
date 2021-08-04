@@ -1,4 +1,5 @@
-﻿using MFR.Profiles.Collections.Interfaces;
+﻿using MFR.Profiles.Collections;
+using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Providers.Interfaces;
 using System;
 
@@ -17,7 +18,10 @@ namespace MFR.Profiles.Providers
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected ProfileProvider() { }
+        protected ProfileProvider()
+        {
+            Profiles = new ProfileCollection();
+        }
 
         /// <summary>
         /// Gets a reference to the one and only instance of

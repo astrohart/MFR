@@ -144,6 +144,10 @@
       <Project>{618A31B4-8C16-4054-9B2A-7614CC1AC830}</Project>
       <Name>MFR.Objects.Configuration.Commands.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
+      <Name>MFR.Objects.Configuration.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
