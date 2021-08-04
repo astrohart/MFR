@@ -46,8 +46,8 @@ namespace MFR.Objects.Configuration.Providers
                                        .Path;
             set {
                 GetSaveConfigPathCommand.ForPath(
-                                            ConfigurationPathKeyName,
-                                            ConfigurationPathValueName, value
+                                            ConfigurationPathRegistry.KeyName,
+                                            ConfigurationPathRegistry.ValueName, value
                                         )
                                         .Execute();
 
@@ -57,20 +57,6 @@ namespace MFR.Objects.Configuration.Providers
                                     .ClearResultCache();
             }
         }
-
-        /// <summary>
-        /// Gets the path to the Registry subkey that stores information about
-        /// the paths of files.
-        /// </summary>
-        public static string ConfigurationPathKeyName
-            => ConfigurationPathRegistry.KeyName;
-
-        /// <summary>
-        /// Gets the name of the Registry value that holds the path to the
-        /// configuration file.
-        /// </summary>
-        public static string ConfigurationPathValueName
-            => ConfigurationPathRegistry.ValueName;
 
         /// <summary>
         /// Gets the default folder for the configuration file.
@@ -103,9 +89,9 @@ namespace MFR.Objects.Configuration.Providers
                )
                .WithInput(
                    MakeNewRegQueryExpression.FromScatch<string>()
-                                            .ForKeyPath(ConfigurationPathKeyName)
+                                            .ForKeyPath(ConfigurationPathRegistry.KeyName)
                                             .AndValueName(
-                                                ConfigurationPathValueName
+                                                ConfigurationPathRegistry.ValueName
                                             )
                                             .WithDefaultValue(
                                                 Path.Combine(
