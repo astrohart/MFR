@@ -205,6 +205,10 @@
       <Project>{B44D03E4-64EE-4C69-AC4D-8ED8F8B52B6C}</Project>
       <Name>MFR.Objects.System</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
+      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
+      <Name>MFR.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

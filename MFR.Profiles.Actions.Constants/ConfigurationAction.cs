@@ -13,7 +13,7 @@ namespace MFR.Profiles.Actions.Constants
         /// <summary>
         /// Loads the configuration from a file.
         /// </summary>
-        public static readonly ProfileListAction LoadConfigurationFromFile =
+        public static readonly ProfileListAction LoadProfileListFromFile =
             new ProfileListAction(Guid.NewGuid());
 
         /// <summary>

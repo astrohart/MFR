@@ -410,6 +410,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Actions.Consta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Actions.Factories", "MFR.Profiles.Actions.Factories\MFR.Profiles.Actions.Factories.csproj", "{CDB376A4-19AF-4B02-B7E1-5898088C5398}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Serializers", "MFR.Profiles.Serializers\MFR.Profiles.Serializers.csproj", "{BC28D456-9B28-4029-8C96-45C166C625C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2026,6 +2028,14 @@ Global
 		{CDB376A4-19AF-4B02-B7E1-5898088C5398}.Release|x64.Build.0 = Release|x64
 		{CDB376A4-19AF-4B02-B7E1-5898088C5398}.Release|x86.ActiveCfg = Release|x86
 		{CDB376A4-19AF-4B02-B7E1-5898088C5398}.Release|x86.Build.0 = Release|x86
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Debug|x64.ActiveCfg = Debug|x64
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Debug|x64.Build.0 = Debug|x64
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Debug|x86.ActiveCfg = Debug|x86
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Debug|x86.Build.0 = Debug|x86
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Release|x64.ActiveCfg = Release|x64
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Release|x64.Build.0 = Release|x64
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Release|x86.ActiveCfg = Release|x86
+		{BC28D456-9B28-4029-8C96-45C166C625C8}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

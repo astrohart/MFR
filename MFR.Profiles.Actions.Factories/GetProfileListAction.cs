@@ -55,7 +55,7 @@ namespace MFR.Profiles.Actions.Factories
                             .Instance;
                     break;
 
-                case var _ when actionType == ProfileListAction.LoadConfigurationFromFile:
+                case var _ when actionType == ProfileListAction.LoadProfileListFromFile:
                     action =
                         (IAction<TInput, TResult>)
                             LoadConfigurationFromFileAction.Instance;
