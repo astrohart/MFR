@@ -1,4 +1,5 @@
-using MFR.Objects.Configuration.Interfaces;
+using MFR.Profiles.Collections;
+using MFR.Profiles.Collections.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -8,10 +9,10 @@ namespace MFR.Objects.Configuration.Converters
 {
     /// <summary>
     /// Converts JSON-formatted text to and from instances of C# objects that
-    /// implement the <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+    /// implement the <see cref="T:MFR.Objects.Configuration.Interfaces.IProfileCollection" />
     /// interface.
     /// </summary>
-    public static class ConvertConfiguration
+    public static class ConvertProfileList
     {
         /// <summary>
         /// Obtains a reference to an instance of
@@ -36,7 +37,7 @@ namespace MFR.Objects.Configuration.Converters
         /// Converts a string containing JSON-formatted text into an instance of
         /// an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Objects.Configuration.Interfaces.IProfileCollection" />
         /// interface and
         /// returns a reference to it.
         /// </summary>
@@ -46,7 +47,7 @@ namespace MFR.Objects.Configuration.Converters
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Objects.Configuration.Interfaces.IProfileCollection" />
         /// interface whose
         /// properties are initialized to the data values read in from the JSON
         /// text, or <see langword="null" /> if a problem occurred.
@@ -55,25 +56,25 @@ namespace MFR.Objects.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="json" />, is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public static IConfiguration FromJson(string json)
+        public static IProfileCollection FromJson(string json)
         {
             if (string.IsNullOrWhiteSpace(json))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(json)
                 );
-            return JsonConvert.DeserializeObject<Configuration>(json, Settings);
+            return JsonConvert.DeserializeObject<ProfileCollection>(json, Settings);
         }
 
         /// <summary>
         /// Converts an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Objects.Configuration.Interfaces.IProfileCollection" />
         /// interface into a
         /// JSON-formatted string and returns the resultant string.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" /> interface
+        /// the <see cref="T:MFR.Objects.Configuration.Interfaces.IProfileCollection" /> interface
         /// that is to be converted into JSON-formatted text.
         /// </param>
         /// <returns>
@@ -86,12 +87,12 @@ namespace MFR.Objects.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public static string ToJson(IConfiguration configuration)
+        public static string ToJson(IProfileCollection configuration)
         {
             if (configuration == null)
                 throw new ArgumentNullException(nameof(configuration));
             return JsonConvert.SerializeObject(
-                configuration as Configuration, Settings
+                configuration as ProfileCollection, Settings
             );
         }
     }

@@ -1,5 +1,7 @@
 ﻿using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace MFR.Profiles.Collections
@@ -13,6 +15,14 @@ namespace MFR.Profiles.Collections
     /// </remarks>
     public class ProfileCollection : Collection<IProfile>, IProfileCollection
     {
-        // TODO: Add custom method and property definitions here
+        /// <summary>
+        /// A <see cref="T:System.Guid" /> that delineates which profile is
+        /// currently "active" i.e., is in use.
+        /// </summary>
+        public Guid ActiveProfile
+        {
+            get;
+            set;
+        }
     }
 }

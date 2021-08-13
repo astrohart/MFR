@@ -107,6 +107,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvertProfileList.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="ConvertConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +134,14 @@
     <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Objects.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
+      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
+      <Name>MFR.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Collections\MFR.Profiles.Collections.csproj">
+      <Project>{C19C0DED-C7E0-432B-AC57-194E65048B02}</Project>
+      <Name>MFR.Profiles.Collections</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

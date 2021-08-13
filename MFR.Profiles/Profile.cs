@@ -1,5 +1,6 @@
 ﻿using MFR.Objects.Configuration;
 using MFR.Profiles.Interfaces;
+using Newtonsoft.Json;
 using System;
 
 namespace MFR.Profiles
@@ -51,6 +52,7 @@ namespace MFR.Profiles
         /// <summary>
         /// Gets or sets a string value that is the name of this profile.
         /// </summary>
+        [JsonProperty("name")]
         public string Name
         {
             get;
@@ -65,6 +67,7 @@ namespace MFR.Profiles
         /// This property is automatically initialized with a newly-generated
         /// <c>GUID</c> upon construction.
         /// </remarks>
+        [JsonProperty("id")]
         public Guid ProfileId
         {
             get;

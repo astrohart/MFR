@@ -1,4 +1,5 @@
 ﻿using MFR.Profiles.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace MFR.Profiles.Collections.Interfaces
