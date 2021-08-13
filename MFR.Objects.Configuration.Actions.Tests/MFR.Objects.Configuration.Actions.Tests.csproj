@@ -110,7 +110,7 @@
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="LoadConfigurationFromFileActionTests.cs" />
-    <Compile Include="LoadStringFromRegistryActionTests.cs" />
+    <Compile Include="LoadConfigurationFilePathFromRegistryActionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

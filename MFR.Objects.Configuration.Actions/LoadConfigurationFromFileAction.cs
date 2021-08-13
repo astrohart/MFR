@@ -92,7 +92,7 @@ namespace MFR.Objects.Configuration.Actions
                 // log the result
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    "LoadStringFromRegistryAction.Execute: Result = {0}", result
+                    "LoadConfigurationFilePathFromRegistryAction.Execute: Result = {0}", result
                 );
 
                 // stop.

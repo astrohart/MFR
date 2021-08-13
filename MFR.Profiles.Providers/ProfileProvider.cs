@@ -1,7 +1,10 @@
-﻿using MFR.Profiles.Collections;
+﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.Configuration.Constants;
+using MFR.Profiles.Collections;
 using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Providers.Interfaces;
 using System;
+using System.Windows.Forms;
 
 namespace MFR.Profiles.Providers
 {
@@ -20,7 +23,6 @@ namespace MFR.Profiles.Providers
         /// </summary>
         protected ProfileProvider()
         {
-            Profiles = new ProfileCollection();
         }
 
         /// <summary>
@@ -33,21 +35,27 @@ namespace MFR.Profiles.Providers
         } = new ProfileProvider();
 
         /// <summary>
-        /// Gets the default folder for the configuration file.
+        /// Gets the default folder for the profile list file.
         /// </summary>
         /// <remarks>
-        /// We store the profile configuration file, by default, in a folder
+        /// We store the profile list file, by default, in a folder
         /// under the current user's AppData folder.
         /// </remarks>
         public string DefaultProfileDir
         {
             get;
-        }
+        } = Path.Combine(
+        Path.Combine(
+        Environment.GetFolderPath(
+            Environment.SpecialFolder.LocalApplicationData
+            ), Application.CompanyName
+        ), $@"{Application.ProductName}\Config"
+        );
 
         /// <summary>
         /// Gets a string whose value is the pathname of the profile list file.
         /// </summary>
-        public string ProfileListPath
+        public string ProfileListFilePath
         {
             get;
         }
@@ -57,18 +65,14 @@ namespace MFR.Profiles.Providers
         /// in which Profile settings are stored.
         /// </summary>
         public string ProfileListPathKeyName
-        {
-            get;
-        }
+            => ProfilePathRegistry.KeyName;
 
         /// <summary>
         /// Gets a string whose value is the Registry value under which we store
         /// the path to the profile list file.
         /// </summary>
         public string ProfileListPathValueName
-        {
-            get;
-        }
+            => ProfilePathRegistry.ValueName;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -83,7 +87,7 @@ namespace MFR.Profiles.Providers
         public IProfileCollection Profiles
         {
             get;
-        }
+        }  = new ProfileCollection();
 
         /// <summary>
         /// Loads the profiles from the profile list file.
@@ -116,13 +120,13 @@ namespace MFR.Profiles.Providers
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath" />
+        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath" />
+        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         public void Save(string pathname = "")

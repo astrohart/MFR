@@ -72,7 +72,7 @@ namespace MFR.Objects.Configuration.Providers
                 Environment.GetFolderPath(
                     Environment.SpecialFolder.LocalApplicationData
                 ), Application.CompanyName
-            ), @"MassFileRenamer\Config"
+            ), $@"{Application.ProductName}\Config"
         );
 
         /// <summary>

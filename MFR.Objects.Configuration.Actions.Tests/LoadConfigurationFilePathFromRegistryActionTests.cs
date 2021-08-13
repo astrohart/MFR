@@ -17,7 +17,7 @@ namespace MFR.Objects.Configuration.Actions.Tests
     /// </summary>
     [TestFixture]
     public class
-        LoadStringFromRegistryActionTests : RegistryDataExchangeTestsBase
+        LoadConfigurationFilePathFromRegistryActionTests : RegistryDataExchangeTestsBase
     {
         /// <summary>
         /// Asserts that the

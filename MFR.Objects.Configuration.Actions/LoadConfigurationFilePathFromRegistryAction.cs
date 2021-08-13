@@ -14,14 +14,14 @@ namespace MFR.Objects.Configuration.Actions
     /// Accesses a key and value in the system Registry to load the pathname of
     /// the master configuration file.
     /// </summary>
-    public class LoadStringFromRegistryAction : CachedResultActionBase<
+    public class LoadConfigurationFilePathFromRegistryAction : CachedResultActionBase<
         IRegQueryExpression<string>, IFileSystemEntry>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static LoadStringFromRegistryAction()
+        static LoadConfigurationFilePathFromRegistryAction()
         {
         }
 
@@ -29,19 +29,19 @@ namespace MFR.Objects.Configuration.Actions
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LoadStringFromRegistryAction()
+        protected LoadConfigurationFilePathFromRegistryAction()
         {
         }
 
         /// <summary>
         /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Objects.Configuration.Actions.LoadStringFromRegistryAction"/> .
+        /// cref="T:MFR.Objects.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadStringFromRegistryAction Instance
+        public static LoadConfigurationFilePathFromRegistryAction Instance
         {
             get;
-        } = new LoadStringFromRegistryAction();
+        } = new LoadConfigurationFilePathFromRegistryAction();
 
         /// <summary>
         /// Gets the <see cref="T:MFR.Objects.MessageType"/> that is being used

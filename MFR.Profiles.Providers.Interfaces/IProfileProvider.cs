@@ -31,7 +31,7 @@ namespace MFR.Profiles.Providers.Interfaces
         /// <summary>
         /// Gets a string whose value is the pathname of the profile list file.
         /// </summary>
-        string ProfileListPath
+        string ProfileListFilePath
         {
             get;
         }
@@ -102,13 +102,13 @@ namespace MFR.Profiles.Providers.Interfaces
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath" />
+        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath" />
+        ///     cref="P:MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");

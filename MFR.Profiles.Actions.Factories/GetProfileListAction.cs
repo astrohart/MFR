@@ -1,8 +1,9 @@
-using MFR.Objects.Configuration.Actions.Constants;
+using MFR.Objects.Configuration.Actions;
 using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Profiles.Actions.Constants;
 using System;
 
-namespace MFR.Objects.Configuration.Actions.Factories
+namespace MFR.Profiles.Actions.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
@@ -10,7 +11,7 @@ namespace MFR.Objects.Configuration.Actions.Factories
     ///     cref="T:MFR.Objects.IAction" />
     /// interface.
     /// </summary>
-    public static class GetConfigurationAction
+    public static class GetProfileListAction
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -41,23 +42,23 @@ namespace MFR.Objects.Configuration.Actions.Factories
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>
         public static IAction<TInput, TResult>
-            For<TInput, TResult>(ConfigurationAction actionType) where TInput : class
+            For<TInput, TResult>(ProfileListAction actionType) where TInput : class
             where TResult : class
         {
             IAction<TInput, TResult> action;
 
             switch (actionType)
             {
-                case var _ when actionType == ConfigurationAction.LoadStringFromRegistry:
+                case var _ when actionType == ProfileListAction.LoadStringFromRegistry:
                     action =
-                        (IAction<TInput, TResult>)LoadConfigurationFilePathFromRegistryAction
+                        (IAction<TInput, TResult>)LoadProfileListFilePathFromRegistryAction
                             .Instance;
                     break;
 
-                case var _ when actionType == ConfigurationAction.LoadConfigurationFromFile:
+                case var _ when actionType == ProfileListAction.LoadConfigurationFromFile:
                     action =
                         (IAction<TInput, TResult>)
-                        LoadConfigurationFromFileAction.Instance;
+                            LoadConfigurationFromFileAction.Instance;
                     break;
 
                 default:
