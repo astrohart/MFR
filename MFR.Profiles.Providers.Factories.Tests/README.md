@@ -18,14 +18,19 @@ MFR.Profiles.Providers.Factories.Tests
 
 ##### Summary
 
-Provides unit tests for the methods, properties, and events of the [GetProfileProvider](#T-MFR-Profiles-Providers-Factories-GetProfileProvider 'MFR.Profiles.Providers.Factories.GetProfileProvider') class.
+Provides unit tests for the methods, properties, and events of the
+[GetProfileProvider](#T-MFR-Profiles-Providers-Factories-GetProfileProvider 'MFR.Profiles.Providers.Factories.GetProfileProvider')
+class.
 
 <a name='M-MFR-Profiles-Providers-Factories-Tests-GetProfileProviderTests-Test_SoleInstance_Method_Works'></a>
 ### Test_SoleInstance_Method_Works() `method`
 
 ##### Summary
 
-Asserts that the [SoleInstance](#M-MFR-Profiles-Providers-Factories-GetProfileProvider-SoleInstance 'MFR.Profiles.Providers.Factories.GetProfileProvider.SoleInstance') method returns a reference to the correct object, and that the reference is not null.
+Asserts that the
+[SoleInstance](#M-MFR-Profiles-Providers-Factories-GetProfileProvider-SoleInstance 'MFR.Profiles.Providers.Factories.GetProfileProvider.SoleInstance')
+method returns a reference to the correct object, and that the
+reference is not null.
 
 ##### Parameters
 
