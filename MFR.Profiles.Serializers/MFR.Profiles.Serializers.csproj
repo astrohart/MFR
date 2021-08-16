@@ -128,9 +128,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Converters\MFR.Objects.Configuration.Converters.csproj">
+      <Project>{EB94927D-3E4C-4167-BFF4-440DEDE945A6}</Project>
+      <Name>MFR.Objects.Configuration.Converters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
       <Name>MFR.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Collections\MFR.Profiles.Collections.csproj">
+      <Project>{C19C0DED-C7E0-432B-AC57-194E65048B02}</Project>
+      <Name>MFR.Profiles.Collections</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
