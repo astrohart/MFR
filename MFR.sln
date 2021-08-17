@@ -414,6 +414,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Serializers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Windows.Presenters.Events", "MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj", "{AF8498C6-2BF6-4505-BA90-39CBB40AE766}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Configuration.Providers.Interfaces", "MFR.Objects.Configuration.Providers.Interfaces\MFR.Objects.Configuration.Providers.Interfaces.csproj", "{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2046,6 +2048,14 @@ Global
 		{AF8498C6-2BF6-4505-BA90-39CBB40AE766}.Release|x64.Build.0 = Release|x64
 		{AF8498C6-2BF6-4505-BA90-39CBB40AE766}.Release|x86.ActiveCfg = Release|x86
 		{AF8498C6-2BF6-4505-BA90-39CBB40AE766}.Release|x86.Build.0 = Release|x86
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Debug|x64.ActiveCfg = Debug|x64
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Debug|x64.Build.0 = Debug|x64
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Debug|x86.ActiveCfg = Debug|x86
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Debug|x86.Build.0 = Debug|x86
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x64.ActiveCfg = Release|x64
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x64.Build.0 = Release|x64
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x86.ActiveCfg = Release|x86
+		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
