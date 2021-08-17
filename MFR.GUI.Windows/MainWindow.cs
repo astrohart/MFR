@@ -12,7 +12,8 @@ using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
 using MFR.Objects.Configuration.Events;
-using MFR.Objects.Configuration.Providers;
+using MFR.Objects.Configuration.Providers.Factories;
+using MFR.Objects.Configuration.Providers.Interfaces;
 using MFR.Objects.Events.Common;
 using MFR.Objects.Managers.History.Factories;
 using MFR.Objects.Operations.Events;
@@ -96,6 +97,19 @@ namespace MFR.GUI.Windows
         private bool OnlyReplaceInFilesOperationIsEnabled
             => OperationsCheckedListBox.CheckedItems.Count == 1 &&
                OperationsCheckedListBox.GetItemChecked(2);
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -298,8 +312,7 @@ namespace MFR.GUI.Windows
                 return;
 
             profileListComboBox.Items.AddRange(
-                profileCollection
-                          .ToArray<object>()
+                profileCollection.ToArray<object>()
             );
         }
 
@@ -318,20 +331,28 @@ namespace MFR.GUI.Windows
                 .WithFileRenamer(
                     MakeNewFileRenamer.FromScratch()
                                       .StartingFrom(
-                                          ConfigurationProvider.Configuration
-                                              .StartingFolder
+                                          GetConfigurationProvider
+                                              .SoleInstance()
+                                              .Configuration.StartingFolder
                                       )
                                       .AndAttachConfiguration(
-                                          ConfigurationProvider.Configuration
+                                          GetConfigurationProvider
+                                              .SoleInstance()
+                                              .Configuration
                                       )
                 )
                 .AndHistoryManager(
                     MakeHistoryManager.ForForm(this)
                                       .AndAttachConfiguration(
-                                          ConfigurationProvider.Configuration
+                                          GetConfigurationProvider
+                                              .SoleInstance()
+                                              .Configuration
                                       )
                 )
-                .AndAttachConfiguration(ConfigurationProvider.Configuration);
+                .AndAttachConfiguration(
+                    GetConfigurationProvider.SoleInstance()
+                                            .Configuration
+                );
 
             _presenter.UpdateData(false);
 
@@ -495,7 +516,8 @@ namespace MFR.GUI.Windows
             UseWaitCursor = true;
             Enabled = false;
 
-            ConfigurationProvider.Save(); // save the configuration to disk
+            GetConfigurationProvider.SoleInstance()
+                                    .Save(); // save the configuration to disk
 
             try
             {
@@ -560,7 +582,8 @@ namespace MFR.GUI.Windows
         private void OnFileExit(object sender, EventArgs e)
         {
             // Save the configuration one last time
-            ConfigurationProvider.Save();
+            GetConfigurationProvider.SoleInstance()
+                                    .Save();
 
             Close();
         }
@@ -586,7 +609,8 @@ namespace MFR.GUI.Windows
 
             FoldButton.SetFoldedStateText();
 
-            ConfigurationProvider.Configuration.IsFolded = e.Folded;
+            GetConfigurationProvider.SoleInstance()
+                                    .Configuration.IsFolded = e.Folded;
         }
 
         /// <summary>
@@ -996,8 +1020,8 @@ namespace MFR.GUI.Windows
         {
             using (var dialog = new OptionsDialog())
             {
-                dialog.ConfigPathname =
-                    ConfigurationProvider.ConfigurationFilePath;
+                dialog.ConfigPathname = GetConfigurationProvider.SoleInstance()
+                    .ConfigurationFilePath;
                 dialog.Modified += OnOptionsModified;
 
                 if (dialog.ShowDialog(this) != DialogResult.OK)

@@ -170,6 +170,14 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Factories\MFR.Objects.Configuration.Providers.Factories.csproj">
+      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Name>MFR.Objects.Configuration.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Interfaces\MFR.Objects.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Objects.Configuration.Providers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects\MFR.Objects.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Objects</Name>

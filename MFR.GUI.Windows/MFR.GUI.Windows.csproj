@@ -157,6 +157,14 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Factories\MFR.Objects.Configuration.Providers.Factories.csproj">
+      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Name>MFR.Objects.Configuration.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Interfaces\MFR.Objects.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Objects.Configuration.Providers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Managers.History.Factories\MFR.Objects.Managers.History.Factories.csproj">
       <Project>{5AC040AA-21BB-4258-A1F3-DF260FC27574}</Project>
       <Name>MFR.Objects.Managers.History.Factories</Name>

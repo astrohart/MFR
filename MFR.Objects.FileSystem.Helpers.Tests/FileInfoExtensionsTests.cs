@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Configuration.Providers;
+using MFR.Objects.Configuration.Providers.Factories;
+using MFR.Objects.Configuration.Providers.Interfaces;
 using MFR.Objects.Engines.Replacement.Factories;
 using MFR.Objects.Engines.Replacement.Intefaces;
 using MFR.Objects.Expressions.Matches.Factories;
@@ -71,8 +72,6 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
 
             ConfigurationProvider.Load();
 
-            var configuration = ConfigurationProvider.Configuration;
-
             IFileSystemEntry newFileSystemEntry = MakeNewFileSystemEntry
                                                   .ForPath(
                                                       @"C:\Users\Administrator\source\junk\MyJunkSolution\FizzBuzz\FizzBuzz.csproj"
@@ -87,7 +86,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             var textValue = textValueRetriever.GetTextValue(newFileSystemEntry);
             var matchExpressionFactory = GetMatchExpressionFactory
                                          .For(OperationType.RenameFilesInFolder)
-                                         .AndAttachConfiguration(configuration)
+                                         .AndAttachConfiguration(ConfigurationProvider.Configuration)
                                          .ForTextValue(textValue)
                                          .ToFindWhat("FizzBuzz");
             IMatchExpression expression = matchExpressionFactory
@@ -98,7 +97,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
                                                     .RenameFilesInFolder
                                             )
                                             .AndAttachConfiguration(
-                                                configuration
+                                                ConfigurationProvider.Configuration
                                             );
             Console.WriteLine(expression);
             Console.WriteLine(engine);
@@ -129,6 +128,19 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
             Assert.IsTrue(File.Exists(newFileSystemEntry.Path));
             Assert.IsFalse(File.Exists(result));
         }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Serves as a test bed to run the entire algorithm of renaming

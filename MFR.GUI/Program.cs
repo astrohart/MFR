@@ -4,7 +4,8 @@ using MFR.Objects.CommandLine;
 using MFR.Objects.CommandLine.Constants;
 using MFR.Objects.CommandLine.Validators.Events;
 using MFR.Objects.CommandLine.Validators.Factories;
-using MFR.Objects.Configuration.Providers;
+using MFR.Objects.Configuration.Providers.Factories;
+using MFR.Objects.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -33,6 +34,19 @@ namespace MFR.GUI
             get;
             private set;
         }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// The main entry point for the application.
@@ -184,7 +198,8 @@ namespace MFR.GUI
             if (!Directories.MyDocuments.Equals(
                 CommandLineInfo.RootDirectory
             )) // we do not need any more checks here due to the command-line validation that occurs
-                ConfigurationProvider.Configuration.StartingFolder =
+                GetConfigurationProvider.SoleInstance()
+                                        .Configuration.StartingFolder =
                     CommandLineInfo.RootDirectory;
 
             Application.Run(MainWindow.Instance);

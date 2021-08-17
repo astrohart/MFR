@@ -10,7 +10,8 @@ using MFR.Objects.Configuration;
 using MFR.Objects.Configuration.Events;
 using MFR.Objects.Configuration.Helpers;
 using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Configuration.Providers;
+using MFR.Objects.Configuration.Providers.Factories;
+using MFR.Objects.Configuration.Providers.Interfaces;
 using MFR.Objects.Constants;
 using MFR.Objects.Events;
 using MFR.Objects.Events.Common;
@@ -143,44 +144,51 @@ namespace MFR.GUI.Windows.Presenters
             => _mainWindow.StartingFolderComboBox.EnteredText;
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfileFailed"/> event.
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
         /// </summary>
-        /// <param name="e">(Required.) Reference to an instance of <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs"/> that contains the event data.</param>
-        protected virtual void OnAddProfileFailed(AddProfileFailedEventArgs e)
-            => AddProfileFailed?.Invoke(this, e);
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
-        ///     Failed to add the requested profile. Parameter is a string containing the
-        ///     error message to display.
+        /// Failed to add the requested profile. Parameter is a string containing the
+        /// error message to display.
         /// </summary>
         public event AddProfileFailedEventHandler AddProfileFailed;
 
         /// <summary>
-        ///     Creates a 'profile' (really a way of saving a group of configuration
-        ///     settings) and then adds it to the collection of profiles that the user has.
+        /// Creates a 'profile' (really a way of saving a group of configuration
+        /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
-        ///     (Required.) A descriptive name for the profile.
-        ///     <para />
-        ///     The name of the profile can't be reused.
+        /// (Required.) A descriptive name for the profile.
+        /// <para />
+        /// The name of the profile can't be reused.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        ///     Thrown if the <paramref name="name" /> parameter has a
-        ///     <see langref="null" /> reference, or is the blank or whitespace string.
-        ///     <para />
-        ///     The <paramref name="name" /> parameter is required.
+        /// Thrown if the <paramref name="name" /> parameter has a
+        /// <see langref="null" /> reference, or is the blank or whitespace string.
+        /// <para />
+        /// The <paramref name="name" /> parameter is required.
         /// </exception>
         public void AddProfile(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name));
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name)
+                );
 
             // Check whether there is an existing profile with the name we are wanting to use.
             // If so, then the user must be shown an error message to inform the user that the
             // name cannot be reused.
-            if (GetProfileProvider.SoleInstance().ProfileCollection
-                .HasProfileNamed(name))
+            if (GetProfileProvider.SoleInstance()
+                                  .ProfileCollection.HasProfileNamed(name))
             {
                 OnAddProfileFailed(
                     new AddProfileFailedEventArgs(
@@ -313,7 +321,8 @@ namespace MFR.GUI.Windows.Presenters
             if (_exportConfigDialog.ShowDialog(_mainWindow) != DialogResult.OK)
                 return;
 
-            ConfigurationProvider.Export(_exportConfigDialog.FileName);
+            GetConfigurationProvider.SoleInstance()
+                                    .Export(_exportConfigDialog.FileName);
 
             OnConfigurationExported(
                 new ConfigurationExportedEventArgs(_exportConfigDialog.FileName)
@@ -377,9 +386,13 @@ namespace MFR.GUI.Windows.Presenters
             if (_importConfigDialog.ShowDialog(_mainWindow) != DialogResult.OK)
                 return;
 
-            ConfigurationProvider.Import(_importConfigDialog.FileName);
+            GetConfigurationProvider.SoleInstance()
+                                    .Import(_importConfigDialog.FileName);
 
-            UpdateConfiguration(ConfigurationProvider.Configuration);
+            UpdateConfiguration(
+                GetConfigurationProvider.SoleInstance()
+                                        .Configuration
+            );
 
             OnConfigurationImported(
                 new ConfigurationImportedEventArgs(_importConfigDialog.FileName)
@@ -448,17 +461,25 @@ namespace MFR.GUI.Windows.Presenters
         {
             if (dialog == null) throw new ArgumentNullException(nameof(dialog));
 
-            if (ConfigurationProvider.ConfigurationFilePath !=
+            if (GetConfigurationProvider.SoleInstance()
+                                        .ConfigurationFilePath !=
                 dialog.ConfigPathname)
                 MakeNewFileInfo.ForPath(
-                                   ConfigurationProvider.ConfigurationFilePath
+                                   GetConfigurationProvider.SoleInstance()
+                                       .ConfigurationFilePath
                                )
                                .RenameTo(dialog.ConfigPathname);
 
-            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
-            ConfigurationProvider.Configuration.ReOpenSolution =
+            GetConfigurationProvider.SoleInstance()
+                                    .ConfigurationFilePath =
+                dialog.ConfigPathname;
+            GetConfigurationProvider.SoleInstance()
+                                    .Configuration.ReOpenSolution =
                 dialog.ShouldReOpenVisualStudioSolution;
-            UpdateConfiguration(ConfigurationProvider.Configuration);
+            UpdateConfiguration(
+                GetConfigurationProvider.SoleInstance()
+                                        .Configuration
+            );
         }
 
         /// <summary>
@@ -685,6 +706,19 @@ namespace MFR.GUI.Windows.Presenters
 
             return this;
         }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfileFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) Reference to an instance of
+        /// <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnAddProfileFailed(AddProfileFailedEventArgs e)
+            => AddProfileFailed?.Invoke(this, e);
 
         /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
@@ -1055,8 +1089,7 @@ namespace MFR.GUI.Windows.Presenters
 
         {
             // exportConfigDialog
-            _exportConfigDialog = new SaveFileDialog
-            {
+            _exportConfigDialog = new SaveFileDialog {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1066,8 +1099,7 @@ namespace MFR.GUI.Windows.Presenters
             };
 
             // importConfigDialog
-            _importConfigDialog = new OpenFileDialog
-            {
+            _importConfigDialog = new OpenFileDialog {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
