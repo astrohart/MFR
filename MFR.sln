@@ -416,6 +416,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Windows.Presenters.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Configuration.Providers.Interfaces", "MFR.Objects.Configuration.Providers.Interfaces\MFR.Objects.Configuration.Providers.Interfaces.csproj", "{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Configuration.Providers.Factories", "MFR.Objects.Configuration.Providers.Factories\MFR.Objects.Configuration.Providers.Factories.csproj", "{AEA22530-C864-4063-A77A-8E6DC56F60CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2056,6 +2058,14 @@ Global
 		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x64.Build.0 = Release|x64
 		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x86.ActiveCfg = Release|x86
 		{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}.Release|x86.Build.0 = Release|x86
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Debug|x64.ActiveCfg = Debug|x64
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Debug|x64.Build.0 = Debug|x64
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Debug|x86.ActiveCfg = Debug|x86
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Debug|x86.Build.0 = Debug|x86
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Release|x64.ActiveCfg = Release|x64
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Release|x64.Build.0 = Release|x64
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Release|x86.ActiveCfg = Release|x86
+		{AEA22530-C864-4063-A77A-8E6DC56F60CA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
