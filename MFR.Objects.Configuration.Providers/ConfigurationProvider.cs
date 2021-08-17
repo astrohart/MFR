@@ -4,6 +4,7 @@ using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.Configuration.Commands.Factories;
 using MFR.Objects.Configuration.Constants;
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Configuration.Providers.Interfaces;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
 using MFR.Objects.FileSystem.Factories;
@@ -22,15 +23,33 @@ namespace MFR.Objects.Configuration.Providers
     /// Provides shared functionality for obtaining and storing the path to the
     /// user's configuration file.
     /// </summary>
-    public static class ConfigurationProvider
+    public class ConfigurationProvider : IConfigurationProvider
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Configuration.Providers.ConfigurationProvider"/>.
+        /// </summary>
+        public static ConfigurationProvider Instance
+        {
+            get;
+        } = new ConfigurationProvider();
+
+        /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        static ConfigurationProvider() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        protected ConfigurationProvider() { }
+
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
         /// <see cref="T:MFR.Objects.IConfiguration" /> interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        public static IConfiguration Configuration
+        public IConfiguration Configuration
         {
             get;
             set;
@@ -39,7 +58,7 @@ namespace MFR.Objects.Configuration.Providers
         /// <summary>
         /// Gets or sets the pathname of the configuration file.
         /// </summary>
-        public static string ConfigurationFilePath
+        public string ConfigurationFilePath
         {
             get
                 => LoadConfigPathAction.Execute()
@@ -64,7 +83,7 @@ namespace MFR.Objects.Configuration.Providers
         /// <remarks>
         /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
         /// </remarks>
-        public static string DefaultConfigDir
+        public string DefaultConfigDir
         {
             get;
         } = Path.Combine(
@@ -78,10 +97,10 @@ namespace MFR.Objects.Configuration.Providers
         /// <summary>
         /// Gets the default filename for the config file.
         /// </summary>
-        public static string DefaultConfigFileName
+        public string DefaultConfigFileName
             => "config.json";
 
-        private static IAction<IRegQueryExpression<string>, IFileSystemEntry>
+        private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadConfigPathAction
             => GetConfigurationAction
                .For<IRegQueryExpression<string>, IFileSystemEntry>(
@@ -126,7 +145,7 @@ namespace MFR.Objects.Configuration.Providers
         /// Thrown if the required parameter, <paramref name="exportFileName" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public static void Export(string exportFileName)
+        public void Export(string exportFileName)
         {
             if (string.IsNullOrWhiteSpace(exportFileName))
                 throw new ArgumentException(
@@ -164,7 +183,7 @@ namespace MFR.Objects.Configuration.Providers
         /// <para />
         /// Then, the method saves the new data out to the master configuration file.
         /// </remarks>
-        public static void Import(string sourceFilePath)
+        public void Import(string sourceFilePath)
         {
             if (string.IsNullOrWhiteSpace(sourceFilePath))
                 throw new ArgumentException(
@@ -210,7 +229,7 @@ namespace MFR.Objects.Configuration.Providers
         ///     name="pathname" />
         /// parameter cannot be located on the disk.
         /// </exception>
-        public static void Load(string pathname = "")
+        public void Load(string pathname = "")
         {
             // write the name of the current class and method we are now
             // entering, into the log
@@ -281,7 +300,7 @@ namespace MFR.Objects.Configuration.Providers
         ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
-        public static void Save(string pathname = "")
+        public void Save(string pathname = "")
         {
             // write the name of the current class and method we are now
             // entering, into the log

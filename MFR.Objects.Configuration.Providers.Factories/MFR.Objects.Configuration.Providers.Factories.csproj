@@ -103,6 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetConfigurationProvider.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Interfaces\MFR.Objects.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Objects.Configuration.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Providers\MFR.Objects.Configuration.Providers.csproj">
+      <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
+      <Name>MFR.Objects.Configuration.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
