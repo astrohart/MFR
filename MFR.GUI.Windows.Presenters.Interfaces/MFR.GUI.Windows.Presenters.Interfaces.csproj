@@ -124,6 +124,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
+      <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
+      <Name>MFR.GUI.Windows.Presenters.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj">
       <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
       <Name>MFR.Objects.Managers.History.Interfaces</Name>

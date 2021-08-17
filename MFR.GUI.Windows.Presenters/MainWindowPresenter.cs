@@ -3,6 +3,7 @@ using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Initializers;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
+using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Objects.Configuration;
@@ -20,9 +21,7 @@ using MFR.Objects.Operations.Constants;
 using MFR.Objects.Operations.Descriptions.Factories;
 using MFR.Objects.Operations.Events;
 using MFR.Objects.Renamers.Files.Interfaces;
-using MFR.Profiles;
 using MFR.Profiles.Collections.Interfaces;
-using MFR.Profiles.Interfaces;
 using MFR.Profiles.Providers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -146,15 +145,15 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Raises the <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfileFailed"/> event.
         /// </summary>
-        /// <param name="errorMessage">(Required.) String containing the error message to be displayed to the user.</param>
-        protected virtual void OnAddProfileFailed(string errorMessage) =>
-            AddProfileFailed?.Invoke(this, errorMessage);
+        /// <param name="e">(Required.) Reference to an instance of <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs"/> that contains the event data.</param>
+        protected virtual void OnAddProfileFailed(AddProfileFailedEventArgs e)
+            => AddProfileFailed?.Invoke(this, e);
 
         /// <summary>
         ///     Failed to add the requested profile. Parameter is a string containing the
         ///     error message to display.
         /// </summary>
-        public event EventHandler<string> AddProfileFailed;
+        public event AddProfileFailedEventHandler AddProfileFailed;
 
         /// <summary>
         ///     Creates a 'profile' (really a way of saving a group of configuration
@@ -184,7 +183,12 @@ namespace MFR.GUI.Windows.Presenters
                 .HasProfileNamed(name))
             {
                 OnAddProfileFailed(
-                    string.Format(Resources.Error_ProfileWithNameAlreadyExists, name));
+                    new AddProfileFailedEventArgs(
+                        string.Format(
+                            Resources.Error_ProfileWithNameAlreadyExists, name
+                        )
+                    )
+                );
                 return;
             }
 

@@ -103,6 +103,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProfileFailedEvent.cs" />
+    <Compile Include="AddProfileFailedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Presenters.Interfaces;
 using MFR.GUI.Windows.Interfaces;
+using MFR.GUI.Windows.Presenters.Events;
 using MFR.Objects.Configuration.Events;
 using MFR.Objects.Events.Common;
 using MFR.Objects.Managers.History.Interfaces;
@@ -19,10 +20,9 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
         /// <summary>
-        ///     Failed to add the requested profile. Parameter is a string containing the
-        ///     error message to display.
+        /// Occurs when an Add Profile operation has failed.
         /// </summary>
-        event EventHandler<string> AddProfileFailed;
+        event AddProfileFailedEventHandler AddProfileFailed;
 
         /// <summary>
         ///     Creates a 'profile' (really a way of saving a group of configuration
