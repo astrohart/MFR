@@ -84,7 +84,7 @@ namespace MFR.Profiles.Providers
         /// The object to which a reference is returned by this properties
         /// allows access to the set of profiles defined by the user.
         /// </remarks>
-        public IProfileCollection Profiles
+        public IProfileCollection ProfileCollection
         {
             get;
         }  = new ProfileCollection();
