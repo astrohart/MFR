@@ -142,6 +142,23 @@ namespace MFR.GUI.Windows.Presenters
             => _mainWindow.StartingFolderComboBox.EnteredText;
 
         /// <summary>
+        ///     Creates a 'profile' (really a way of saving a group of configuration
+        ///     settings) and then adds it to the collection of profiles that the user has.
+        /// </summary>
+        /// <param name="name">
+        ///     (Required.) A descriptive name for the profile.
+        ///     <para />
+        ///     The name of the profile can't be reused.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        ///     Thrown if the <paramref name="name" /> parameter has a
+        ///     <see langref="null" /> reference, or is the blank or whitespace string.
+        ///     <para />
+        ///     The <paramref name="name" /> parameter is required.
+        /// </exception>
+        public void AddProfile(string name) => throw new NotImplementedException();
+
+        /// <summary>
         /// Occurs when all the history has been cleared.
         /// </summary>
         public event EventHandler AllHistoryCleared;
@@ -1001,7 +1018,8 @@ namespace MFR.GUI.Windows.Presenters
 
         {
             // exportConfigDialog
-            _exportConfigDialog = new SaveFileDialog {
+            _exportConfigDialog = new SaveFileDialog
+            {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1011,7 +1029,8 @@ namespace MFR.GUI.Windows.Presenters
             };
 
             // importConfigDialog
-            _importConfigDialog = new OpenFileDialog {
+            _importConfigDialog = new OpenFileDialog
+            {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
