@@ -132,4 +132,12 @@ Type a value for this text, and then try again.</value>
 
 Please specify a folder path of click the '...' button to browse for one.</value>
   </data>
+  <data name="Error_ValueCannotBeNullOrWhiteSpace" xml:space="preserve">
+      <value>Value cannot be null or whitespace.</value>
+  </data>
+  <data name="Error_ProfileWithNameAlreadyExists" xml:space="preserve">
+      <value>A profile with the name '{0}' already exists.
+
+You can't use the same name, even with different upper- and lower-case letters, as an existing profile.</value>
+  </data>
 </root>

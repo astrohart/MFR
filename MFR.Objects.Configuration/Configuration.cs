@@ -1,5 +1,6 @@
 using MFR.Objects.Configuration.Interfaces;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace MFR.Objects.Configuration
@@ -22,6 +23,35 @@ namespace MFR.Objects.Configuration
         public Configuration()
         {
             Reset();
+        }
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Objects.Configuration.Configuration" />
+        /// and returns a reference to it.
+        /// </summary>
+        /// <param name="source">
+        /// Instance of <see cref="T:MFR.Objects.Configuration.Configuration"/> containing existing settings.
+        /// </param>
+        public Configuration(Configuration source)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+
+            FindWhat = source.FindWhat;
+            FindWhatHistory = source.FindWhatHistory;
+            IsFolded = source.IsFolded;
+            MatchCase = source.MatchCase;
+            MatchExactWord = source.MatchExactWord;
+            ReOpenSolution = source.ReOpenSolution;
+            RenameFiles = source.RenameFiles;
+            RenameSubfolders = source.RenameSubfolders;
+            ReplaceInFiles = source.ReplaceInFiles;
+            ReplaceWith = source.ReplaceWith;
+            ReplaceWithHistory = source.ReplaceWithHistory;
+            SelectedOptionTab = source.SelectedOptionTab;
+            StartingFolder = source.StartingFolder;
+            StartingFolderHistory = source.StartingFolderHistory;
         }
 
         /// <summary>

@@ -19,6 +19,12 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
         /// <summary>
+        ///     Failed to add the requested profile. Parameter is a string containing the
+        ///     error message to display.
+        /// </summary>
+        event EventHandler<string> AddProfileFailed;
+
+        /// <summary>
         ///     Creates a 'profile' (really a way of saving a group of configuration
         ///     settings) and then adds it to the collection of profiles that the user has.
         /// </summary>

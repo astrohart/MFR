@@ -1,5 +1,6 @@
 ﻿using MFR.Objects.Configuration;
 using MFR.Profiles.Interfaces;
+using MFR.Profiles.Properties;
 using Newtonsoft.Json;
 using System;
 
@@ -44,9 +45,22 @@ namespace MFR.Profiles
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException(
-                    "Value cannot be blank or null.", nameof(name)
+                    Resources.Error_ValueCannotBeBlankOrNull, nameof(name)
                 );
             Name = name;
+            ProfileId = Guid.NewGuid();
+        }
+
+        public Profile(Configuration source, string name) : base(source)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeBlankOrNull, nameof(name)
+                );
+
+            Name = name;
+            ProfileId = Guid.NewGuid();
+
         }
 
         /// <summary>

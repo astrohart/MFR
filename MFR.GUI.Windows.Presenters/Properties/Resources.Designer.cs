@@ -72,6 +72,17 @@ namespace MFR.GUI.Windows.Presenters.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A profile with the name &apos;{0}&apos; already exists.
+        ///
+        ///You can&apos;t use the same name, even with different upper- and lower-case letters, as an existing profile..
+        /// </summary>
+        public static string Error_ProfileWithNameAlreadyExists {
+            get {
+                return ResourceManager.GetString("Error_ProfileWithNameAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The text to use as replacement text cannot be blank.
         ///
         ///Type a value for this text, and then try again..
@@ -90,6 +101,15 @@ namespace MFR.GUI.Windows.Presenters.Properties {
         public static string Error_RootDirectoryNotFound {
             get {
                 return ResourceManager.GetString("Error_RootDirectoryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value cannot be null or whitespace..
+        /// </summary>
+        public static string Error_ValueCannotBeNullOrWhiteSpace {
+            get {
+                return ResourceManager.GetString("Error_ValueCannotBeNullOrWhiteSpace", resourceCulture);
             }
         }
     }

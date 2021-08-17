@@ -20,7 +20,9 @@ using MFR.Objects.Operations.Constants;
 using MFR.Objects.Operations.Descriptions.Factories;
 using MFR.Objects.Operations.Events;
 using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Profiles;
 using MFR.Profiles.Collections.Interfaces;
+using MFR.Profiles.Interfaces;
 using MFR.Profiles.Providers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -142,6 +144,19 @@ namespace MFR.GUI.Windows.Presenters
             => _mainWindow.StartingFolderComboBox.EnteredText;
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfileFailed"/> event.
+        /// </summary>
+        /// <param name="errorMessage">(Required.) String containing the error message to be displayed to the user.</param>
+        protected virtual void OnAddProfileFailed(string errorMessage) =>
+            AddProfileFailed?.Invoke(this, errorMessage);
+
+        /// <summary>
+        ///     Failed to add the requested profile. Parameter is a string containing the
+        ///     error message to display.
+        /// </summary>
+        public event EventHandler<string> AddProfileFailed;
+
+        /// <summary>
         ///     Creates a 'profile' (really a way of saving a group of configuration
         ///     settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
@@ -156,7 +171,25 @@ namespace MFR.GUI.Windows.Presenters
         ///     <para />
         ///     The <paramref name="name" /> parameter is required.
         /// </exception>
-        public void AddProfile(string name) => throw new NotImplementedException();
+        public void AddProfile(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name));
+
+            // Check whether there is an existing profile with the name we are wanting to use.
+            // If so, then the user must be shown an error message to inform the user that the
+            // name cannot be reused.
+            if (GetProfileProvider.SoleInstance().ProfileCollection
+                .HasProfileNamed(name))
+            {
+                OnAddProfileFailed(
+                    string.Format(Resources.Error_ProfileWithNameAlreadyExists, name));
+                return;
+            }
+
+            // TODO: Add code here to generate a new Profile object from the existing configuration and add it to the profile collection.
+        }
 
         /// <summary>
         /// Occurs when all the history has been cleared.
@@ -295,7 +328,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </returns>
         public IProfileCollection GetProfiles()
             => GetProfileProvider.SoleInstance()
-                                 .Profiles;
+                                 .ProfileCollection;
 
         /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.
@@ -991,12 +1024,12 @@ namespace MFR.GUI.Windows.Presenters
         {
             if (string.IsNullOrWhiteSpace(statusLabelText))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
                     nameof(statusLabelText)
                 );
             if (string.IsNullOrWhiteSpace(currentFileLabelText))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
                     nameof(currentFileLabelText)
                 );
             _progressDialog.DoIfNotDisposed(
@@ -1479,7 +1512,7 @@ namespace MFR.GUI.Windows.Presenters
 
             if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(text)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(text)
                 );
             ResetProgressBar();
 
