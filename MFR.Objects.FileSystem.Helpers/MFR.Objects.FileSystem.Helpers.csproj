@@ -130,6 +130,10 @@
       <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Exceptions\MFR.Objects.FileSystem.Exceptions.csproj">
+      <Project>{935EAA9E-4863-41DA-9CC8-D05B0F5B7BD5}</Project>
+      <Name>MFR.Objects.FileSystem.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
       <Name>MFR.Objects.FileSystem.Factories</Name>

@@ -129,9 +129,61 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Objects.Configuration.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Factories\MFR.Objects.Expressions.Registry.Factories.csproj">
+      <Project>{DC731265-74D9-4879-AF2E-79616BC6847B}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Interfaces\MFR.Objects.Expressions.Registry.Interfaces.csproj">
+      <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
+      <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.Objects.FileSystem.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
+      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
+      <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Commands.Interfaces\MFR.Objects.Messages.Commands.Interfaces.csproj">
+      <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
+      <Name>MFR.Objects.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Requests.Intefaces\MFR.Objects.Messages.Requests.Intefaces.csproj">
+      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
+      <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Metadata.Registry.Interfaces\MFR.Objects.Metadata.Registry.Interfaces.csproj">
+      <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
+      <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Objects.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Actions.Constants\MFR.Profiles.Actions.Constants.csproj">
+      <Project>{15C7805D-1879-4093-B671-6C168277C448}</Project>
+      <Name>MFR.Profiles.Actions.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Actions.Factories\MFR.Profiles.Actions.Factories.csproj">
+      <Project>{CDB376A4-19AF-4B02-B7E1-5898088C5398}</Project>
+      <Name>MFR.Profiles.Actions.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
@@ -140,6 +192,10 @@
     <ProjectReference Include="..\MFR.Profiles.Collections\MFR.Profiles.Collections.csproj">
       <Project>{C19C0DED-C7E0-432B-AC57-194E65048B02}</Project>
       <Name>MFR.Profiles.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Commands.Factories\MFR.Profiles.Commands.Factories.csproj">
+      <Project>{0B228234-D21A-4205-9490-1154943FB8BD}</Project>
+      <Name>MFR.Profiles.Commands.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Providers.Exceptions\MFR.Profiles.Providers.Exceptions.csproj">
       <Project>{AE8E228C-0E05-415D-8A67-78581F6EA8E9}</Project>

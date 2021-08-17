@@ -180,6 +180,10 @@
       <Project>{9CF41E8E-A2C4-4195-A79D-6F3E71285D2A}</Project>
       <Name>MFR.Profiles.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
+      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
+      <Name>MFR.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

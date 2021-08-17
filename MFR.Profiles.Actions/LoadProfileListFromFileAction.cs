@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Objects.FileSystem.Helpers;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Actions;
 using MFR.Objects.Messages.Constants;
@@ -116,7 +117,7 @@ namespace MFR.Profiles.Actions
 
             try
             {
-                _input.Path = SystemPreparer.CreateOrOpenConfigFile(
+                _input.Path = FileHelpers.CreateOrOpenTextFile(
                     Path.GetDirectoryName(_input.Path),
                     Path.GetFileName(_input.Path)
                 );
@@ -138,6 +139,11 @@ namespace MFR.Profiles.Actions
                 DebugLevel.Debug,
                 "LoadConfigurationFromFileAction.CommonExecute: Done."
             );
+
+            /*
+             * Provide the fully-qualified pathname of the new file
+             * (or blank if a file system exception was thrown) to the caller.
+             */
 
             return result;
         }

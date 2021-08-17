@@ -19,7 +19,7 @@ namespace MFR.Objects.Configuration.Commands.Constants
         /// <summary>
         /// Saves a string value to the system Registry.
         /// </summary>
-        public static readonly ConfigurationCommand SaveStringToRegistry =
+        public static readonly ConfigurationCommand SaveConfigurationFilePathToRegistry =
             new ConfigurationCommand(Guid.NewGuid());
 
         /// <summary>

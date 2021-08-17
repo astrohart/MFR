@@ -136,6 +136,10 @@
       <Project>{EB94927D-3E4C-4167-BFF4-440DEDE945A6}</Project>
       <Name>MFR.Objects.Configuration.Converters</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Helpers\MFR.Objects.FileSystem.Helpers.csproj">
+      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
+      <Name>MFR.Objects.FileSystem.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
       <Name>MFR.Profiles.Collections.Interfaces</Name>

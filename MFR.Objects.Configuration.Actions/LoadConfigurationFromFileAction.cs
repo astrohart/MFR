@@ -2,6 +2,7 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.Objects.Configuration.Actions.Constants;
 using MFR.Objects.Configuration.Interfaces;
 using MFR.Objects.Configuration.Serializers;
+using MFR.Objects.FileSystem.Helpers;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Actions;
 using MFR.Objects.Messages.Constants;
@@ -111,7 +112,7 @@ namespace MFR.Objects.Configuration.Actions
 
             try
             {
-                _input.Path = SystemPreparer.CreateOrOpenConfigFile(
+                _input.Path = FileHelpers.CreateOrOpenTextFile(
                     Path.GetDirectoryName(_input.Path),
                     Path.GetFileName(_input.Path)
                 );

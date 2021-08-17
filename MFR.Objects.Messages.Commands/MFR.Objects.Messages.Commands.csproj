@@ -109,7 +109,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SaveConfigurationToFileCommand.cs" />
     <Compile Include="SaveStringToRegistryCommand.cs" />
   </ItemGroup>
   <ItemGroup>

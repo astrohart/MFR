@@ -133,6 +133,10 @@
       <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
       <Name>MFR.Objects.Configuration.Commands.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Configuration.Commands\MFR.Objects.Configuration.Commands.csproj">
+      <Project>{CAF7CA91-4FCB-42F7-A13F-3D6D3C0C86F9}</Project>
+      <Name>MFR.Objects.Configuration.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>

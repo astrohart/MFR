@@ -1,10 +1,20 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Expressions.Registry.Factories;
+using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Objects.FileSystem.Factories;
+using MFR.Objects.FileSystem.Interfaces;
+using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Profiles.Actions.Constants;
+using MFR.Profiles.Actions.Factories;
 using MFR.Profiles.Collections;
 using MFR.Profiles.Collections.Interfaces;
+using MFR.Profiles.Commands.Factories;
 using MFR.Profiles.Providers.Interfaces;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Profiles.Providers
 {
@@ -41,7 +51,7 @@ namespace MFR.Profiles.Providers
         /// We store the profile list file, by default, in a folder
         /// under the current user's AppData folder.
         /// </remarks>
-        public string DefaultProfileDir
+        public string DefaultProfileListDir
         {
             get;
         } = Path.Combine(
@@ -57,8 +67,48 @@ namespace MFR.Profiles.Providers
         /// </summary>
         public string ProfileListFilePath
         {
-            get;
+            get
+                => LoadProfileListPathAction.Execute()
+                                            .Path;
+            set {
+                GetSaveProfileListPathCommand.ForPath(
+                                            ProfileListPathKeyName,
+                                            ProfileListPathValueName, value
+                                        )
+                                        .Execute();
+
+                /* Clear out the cache of previously-loaded paths
+                 for this same operation. */
+                LoadProfileListPathAction.AsCachedResultAction()
+                                         .ClearResultCache();
+            }
         }
+
+        /// <summary>
+        /// Gets the default filename for the profile list file.
+        /// </summary>
+        public string DefaultProfileListPath
+            => "profiles.json";
+
+        private IAction<IRegQueryExpression<string>, IFileSystemEntry>
+            LoadProfileListPathAction
+            => GetProfileListAction
+               .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                   ProfileListAction.LoadStringFromRegistry
+               )
+               .WithInput(
+                   MakeNewRegQueryExpression.FromScatch<string>()
+                                            .ForKeyPath(ProfileListPathKeyName)
+                                            .AndValueName(
+                                                ProfileListPathValueName
+                                            )
+                                            .WithDefaultValue(
+                                                Path.Combine(
+                                                    DefaultProfileListDir,
+                                                    DefaultProfileListPath
+                                                )
+                                            )
+               );
 
         /// <summary>
         /// Gets a string whose value is the pathname of the system Registry key
@@ -87,7 +137,8 @@ namespace MFR.Profiles.Providers
         public IProfileCollection ProfileCollection
         {
             get;
-        }  = new ProfileCollection();
+            protected set;  // to enable to be set by members of this class only
+        } = new ProfileCollection();
 
         /// <summary>
         /// Loads the profiles from the profile list file.
@@ -107,7 +158,51 @@ namespace MFR.Profiles.Providers
         /// parameter cannot be found on the disk.
         /// </exception>
         public void Load(string pathname = "")
-            => throw new NotImplementedException();
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In ProfileProvider.Load"
+            );
+
+            if (!File.Exists(pathname)) // oops! just use the default value of the ProfileCollection property
+                return;
+
+            try
+            {
+                ProfileCollection = GetProfileListAction
+                                .For<IFileSystemEntry, IProfileCollection>(
+                                    ProfileListAction.LoadProfileListFromFile)
+                                .WithInput(
+                                    MakeNewFileSystemEntry.ForPath(
+                                        pathname
+                                    )
+                                )
+                                .Execute();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                // just make a new, blank profile collection in case an error occurs.
+                ProfileCollection = new ProfileCollection();
+            }
+
+            if (ProfileCollection != null)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** SUCCESS *** Profile list loaded."
+                );
+
+                // store the pathname in the pathname parameter into the ProfileListFilePath property
+                ProfileListFilePath = pathname;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "ProfileProvider.Load: Done."
+            );
+        }
 
         /// <summary>
         /// Saves profile list data to a file on the disk having path

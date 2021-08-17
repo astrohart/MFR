@@ -5,9 +5,7 @@ using MFR.Objects.FileSystem.Helpers;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
-using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
-using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Objects.Configuration.Serializers
 {
@@ -59,6 +57,18 @@ namespace MFR.Objects.Configuration.Serializers
                 );
 
             IConfiguration result;
+
+            if (string.IsNullOrWhiteSpace(pathname))
+            {
+                /*
+                 * Create a new data object in this event. We are here, most likely, because
+                 * the pathname that was desired to be utilized for the configuration file
+                 * referenced a spot on the disk where the user does not have sufficient access
+                 * privileges to create new files or read them.
+                 */
+
+                return new Configuration();
+            }
 
             try
             {

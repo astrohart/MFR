@@ -59,7 +59,7 @@ namespace MFR.Objects.Configuration.Commands.Factories
 
             return GetConfigurationCommand
                    .For<IRegOperationMetadata<string>>(
-                       ConfigurationCommand.SaveStringToRegistry
+                       ConfigurationCommand.SaveConfigurationFilePathToRegistry
                    )
                    .WithInput(
                        MakeNewRegOperationMetadata.FromScatch<string>()

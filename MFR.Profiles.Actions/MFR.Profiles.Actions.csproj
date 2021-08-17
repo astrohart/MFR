@@ -149,6 +149,10 @@
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
       <Name>MFR.Objects.FileSystem.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.FileSystem.Helpers\MFR.Objects.FileSystem.Helpers.csproj">
+      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
+      <Name>MFR.Objects.FileSystem.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>

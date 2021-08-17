@@ -33,7 +33,7 @@ namespace MFR.Objects.Replacers.Factories.Tests
             Assert.DoesNotThrow(
                 () => GetConfigurationCommand
                       .For<IRegOperationMetadata<string>>(
-                          ConfigurationCommand.SaveStringToRegistry
+                          ConfigurationCommand.SaveConfigurationFilePathToRegistry
                       )
                       .WithInput(
                           MakeNewRegOperationMetadata.FromScatch<string>()

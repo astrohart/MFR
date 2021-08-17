@@ -1,4 +1,4 @@
-﻿using MFR.Profiles.Collections.Interfaces;
+﻿ using MFR.Profiles.Collections.Interfaces;
 
 namespace MFR.Profiles.Providers.Interfaces
 {
@@ -23,7 +23,7 @@ namespace MFR.Profiles.Providers.Interfaces
         /// We store the profile configuration file, by default, in a folder
         /// under the current user's AppData folder.
         /// </remarks>
-        string DefaultProfileDir
+        string DefaultProfileListDir
         {
             get;
         }
@@ -34,6 +34,7 @@ namespace MFR.Profiles.Providers.Interfaces
         string ProfileListFilePath
         {
             get;
+            set;
         }
 
         /// <summary>

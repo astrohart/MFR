@@ -1,7 +1,5 @@
 using Microsoft.Win32;
 
-#pragma warning disable 693
-
 namespace MFR.Objects.Expressions.Registry.Interfaces
 {
     /// <summary>
@@ -10,17 +8,7 @@ namespace MFR.Objects.Expressions.Registry.Interfaces
     /// </summary>
     public interface IRegQueryExpression<T> where T : class
     {
-        /// <summary>
-        /// Gets or sets <typeparamref name="T" /> that is used as the default
-        /// value in case data cannot otherwise be accessed from the Registry.
-        /// </summary>
-        T DefaultValue
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
+                /// <summary>
         /// Gets the <see cref="T:Microsoft.Win32.RegistryHive" /> value that
         /// corresponds to the hive specified by the user, either by default or explicitly.
         /// </summary>
@@ -60,7 +48,7 @@ namespace MFR.Objects.Expressions.Registry.Interfaces
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="valueName">
@@ -91,9 +79,19 @@ namespace MFR.Objects.Expressions.Registry.Interfaces
         IRegQueryExpression<T> ForKeyPath(string keyPath);
 
         /// <summary>
+        /// Gets or sets <typeparamref name="T" /> that is used as the default
+        /// value in case data cannot otherwise be accessed from the Registry.
+        /// </summary>
+        T DefaultValue
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="defaultValue">
@@ -110,5 +108,3 @@ namespace MFR.Objects.Expressions.Registry.Interfaces
         IRegQueryExpression<T> WithDefaultValue(T defaultValue);
     }
 }
-
-#pragma warning restore 693

@@ -1,4 +1,5 @@
 using MFR.Objects.Configuration.Converters;
+using MFR.Objects.FileSystem.Helpers;
 using MFR.Profiles.Collections;
 using MFR.Profiles.Collections.Interfaces;
 using System;
@@ -36,18 +37,21 @@ namespace MFR.Profiles.Serializers
         /// </exception>
         public static IProfileCollection Load(string pathname)
         {
-            if (string.IsNullOrWhiteSpace(pathname))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pathname)
-                );
-            if (!File.Exists(pathname))
-                throw new FileNotFoundException(
-                    $"The system could not find the profile list file having the pathname '{pathname}'",
-                    pathname
-                );
-
             IProfileCollection result;
 
+            if (string.IsNullOrWhiteSpace(pathname)
+                || !File.Exists(pathname))
+            {
+                /*
+                 * Create a new data object in this event. We are here, most likely, because
+                 * the pathname that was desired to be utilized for the configuration file
+                 * referenced a spot on the disk where the user does not have sufficient access
+                 * privileges to create new files or read them.
+                 */
+
+                return new ProfileCollection();
+            }
+            
             try
             {
                 var content = File.ReadAllText(pathname);
@@ -68,6 +72,49 @@ namespace MFR.Profiles.Serializers
             }
 
             return result;
+        }
+
+        /// <summary>
+        ///     Saves profile-list data to a file.
+        /// </summary>
+        /// <param name="pathname">
+        ///     (Required.) String containing the pathname of the file that the data
+        ///     is to be saved to.
+        /// </param>
+        /// <param name="profileList">
+        ///     (Required.) Reference to an instance of an object that implements
+        ///     the
+        ///     <see
+        ///         cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection" />
+        ///     interface, containing the data to be written to the disk.
+        /// </param>
+        public static void Save(string pathname, IProfileCollection profileList)
+        {
+            if (string.IsNullOrWhiteSpace(pathname))
+                return;
+
+            if (profileList == null)
+                return;
+
+            try
+            {
+                var content = ConvertProfileList.ToJson(profileList);
+
+                if (string.IsNullOrWhiteSpace(content))
+                    return;
+
+                if (File.Exists(pathname))
+                    File.Delete(pathname);
+
+                FileHelpers.MakeSureContainingFolderExists(pathname);
+
+                File.WriteAllText(pathname, content);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

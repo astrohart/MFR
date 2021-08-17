@@ -65,8 +65,8 @@ namespace MFR.Objects.Configuration.Providers
                                        .Path;
             set {
                 GetSaveConfigPathCommand.ForPath(
-                                            ConfigurationPathRegistry.KeyName,
-                                            ConfigurationPathRegistry.ValueName, value
+                                            ConfigurationFilePathKeyName,
+                                            ConfigurationFilePathValueName, value
                                         )
                                         .Execute();
 
@@ -100,6 +100,9 @@ namespace MFR.Objects.Configuration.Providers
         public string DefaultConfigFileName
             => "config.json";
 
+        /// <summary>
+        /// Default action to be utilized for loading the path to the configuration file from the system Registry.
+        /// </summary>
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadConfigPathAction
             => GetConfigurationAction
@@ -108,9 +111,9 @@ namespace MFR.Objects.Configuration.Providers
                )
                .WithInput(
                    MakeNewRegQueryExpression.FromScatch<string>()
-                                            .ForKeyPath(ConfigurationPathRegistry.KeyName)
+                                            .ForKeyPath(ConfigurationFilePathKeyName)
                                             .AndValueName(
-                                                ConfigurationPathRegistry.ValueName
+                                                ConfigurationFilePathValueName
                                             )
                                             .WithDefaultValue(
                                                 Path.Combine(
@@ -158,6 +161,18 @@ namespace MFR.Objects.Configuration.Providers
                 exportFileName
             ); /* save the latest settings out to the export file */
         }
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the system Registry key in which configuration settings are stored.
+        /// </summary>
+        public string ConfigurationFilePathKeyName
+            => ConfigurationPathRegistry.KeyName;
+
+        /// <summary>
+        /// Gets a string whose value is the Registry value under which we store the path to the configuration file.
+        /// </summary>
+        public string ConfigurationFilePathValueName
+            => ConfigurationPathRegistry.ValueName;
 
         /// <summary>
         /// Imports configuration data from a file whose path is

@@ -9,8 +9,11 @@ namespace MFR.Profiles.Actions.Factories
     /// Creates instances of objects that implement the
     /// <see
     ///     cref="T:MFR.Objects.IAction" />
-    /// interface.
+    /// interface, in order to perform actions on the list of profiles.
     /// </summary>
+    /// <remarks>
+    /// In our parlance, an Action is a process that has both an input and an output.
+    /// </remarks>
     public static class GetProfileListAction
     {
         /// <summary>
@@ -57,8 +60,8 @@ namespace MFR.Profiles.Actions.Factories
 
                 case var _ when actionType == ProfileListAction.LoadProfileListFromFile:
                     action =
-                        (IAction<TInput, TResult>)
-                            LoadConfigurationFromFileAction.Instance;
+                        (IAction<TInput, TResult>)LoadProfileListFromFileAction
+                            .Instance;
                     break;
 
                 default:

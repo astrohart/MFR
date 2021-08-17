@@ -8,7 +8,7 @@ namespace MFR.Objects.Configuration.Commands.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the <see
-    /// cref="T:MFR.Objects.ICommand"/> interface.
+    /// cref="T:MFR.Objects.ICommand"/> interface, that define operations on the configuration file and its data.
     /// </summary>
     /// <remarks>
     /// In our vernacular, a <c>command</c> object is an object that performs an
@@ -27,7 +27,7 @@ namespace MFR.Objects.Configuration.Commands.Factories
 
             switch (type)
             {
-                case var _ when type == ConfigurationCommand.SaveStringToRegistry:
+                case var _ when type == ConfigurationCommand.SaveConfigurationFilePathToRegistry:
                     command =
                         (ICommand<TInput>)SaveStringToRegistryCommand.Instance;
                     break;
