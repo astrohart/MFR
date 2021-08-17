@@ -6,7 +6,6 @@ using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Actions;
 using MFR.Objects.Messages.Constants;
 using MFR.Objects.System;
-using MFR.Profiles.Collections.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -31,7 +30,7 @@ namespace MFR.Objects.Configuration.Actions
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LoadConfigurationFromFileAction() { }
+        private LoadConfigurationFromFileAction() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of

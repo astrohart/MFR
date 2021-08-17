@@ -219,10 +219,10 @@ namespace MFR.Objects.Configuration.Providers
             );
 
             if (!File.Exists(pathname)) // oops!
-                throw new FileNotFoundException(
-                    $"The system could not locate the configuration file having the path '{pathname}'.",
-                    pathname
-                );
+            {
+                Configuration = new Configuration();    // make a default config if file not found
+                return;
+            }
 
             try
             {
@@ -243,7 +243,7 @@ namespace MFR.Objects.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                Configuration = null;
+                Configuration = new Configuration();    // make a default config if can't be loaded
             }
 
             if (Configuration != null)

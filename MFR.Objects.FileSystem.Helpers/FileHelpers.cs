@@ -81,7 +81,36 @@ namespace MFR.Objects.FileSystem.Helpers
                 junk += Guid.NewGuid()
                             .ToString("N");
 
+            MakeSureContainingFolderExists(path);
+
             File.WriteAllText(path, junk);
+        }
+
+        /// <summary>
+        ///     If the <paramref name="pathname" /> provided contains a fully-qualified
+        ///     path to a file, then this method makes sure that the folder named in the
+        ///     path exists.
+        ///     <para />
+        ///     If it does not, then a new folder with the specified path is created in
+        ///     order to hold the file.
+        /// </summary>
+        /// <param name="pathname">(Required.) Fully-qualified pathname of a file.</param>
+        /// <exception cref="T:System.InvalidOperationException">
+        ///     Thrown if the string
+        ///     specified in the <paramref name="pathname" /> parameter does not refer to a
+        ///     folder.
+        /// </exception>
+        public static void MakeSureContainingFolderExists(string pathname)
+        {
+            /* Write the config data to the file.  If the folder that the
+                   file should be placed in, does not exist, then create the folder. */
+            var containingFolderName = Path.GetDirectoryName(pathname);
+            if (string.IsNullOrWhiteSpace(containingFolderName))
+                throw new InvalidOperationException(
+                    "The configuration file pathname has no folder.");
+
+            if (!Directory.Exists(containingFolderName))
+                Directory.CreateDirectory(containingFolderName);
         }
     }
 }

@@ -1,51 +1,56 @@
 using MFR.Objects.Configuration.Converters;
 using MFR.Objects.Configuration.Interfaces;
+using MFR.Objects.Configuration.Serializers.Properties;
+using MFR.Objects.FileSystem.Helpers;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
+using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Objects.Configuration.Serializers
 {
     /// <summary>
-    /// Provides helper methods for storing the configuration data to, and
-    /// loading it from, a file on the disk.
+    ///     Provides helper methods for storing the configuration data to, and
+    ///     loading it from, a file on the disk.
     /// </summary>
     public static class ConfigurationSerializer
     {
         /// <summary>
-        /// Loads the configuration data from the file on the disk that has the
-        /// specified <paramref name="pathname" />.
+        ///     Loads the configuration data from the file on the disk that has the
+        ///     specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
-        /// (Required.) String containing the fully-qualified pathname of a
-        /// JSON-formatted data file on the disk that contains the configuration data.
+        ///     (Required.) String containing the fully-qualified pathname of a
+        ///     JSON-formatted data file on the disk that contains the configuration data.
         /// </param>
         /// <returns>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
-        /// interface that has been
-        /// initialized with the data present in the file; or
-        /// <see
-        ///     langword="null" />
-        /// if a problem occurred.
+        ///     Reference to an instance of an object that implements the
+        ///     <see
+        ///         cref="T:MFR.Objects.IConfiguration" />
+        ///     interface that has been
+        ///     initialized with the data present in the file; or
+        ///     <see
+        ///         langword="null" />
+        ///     if a problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="pathname" />, is
-        /// passed a blank or <see langword="null" /> string for a value.
+        ///     Thrown if the required parameter, <paramref name="pathname" />, is
+        ///     passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if the file, the path to which is specified by the
-        /// <paramref
-        ///     name="pathname" />
-        /// parameter, cannot be located on the disk.
+        ///     Thrown if the file, the path to which is specified by the
+        ///     <paramref
+        ///         name="pathname" />
+        ///     parameter, cannot be located on the disk.
         /// </exception>
         public static IConfiguration Load(string pathname)
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pathname)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
+                    nameof(pathname)
                 );
             if (!File.Exists(pathname))
                 throw new FileNotFoundException(
@@ -62,7 +67,7 @@ namespace MFR.Objects.Configuration.Serializers
                 // If the file at the path pathname has zero bytes of data, or
                 // only whitespace, then return a blank Configuration instance
                 // with its properties all set to default values.
-                return string.IsNullOrWhiteSpace(content)
+                result = string.IsNullOrWhiteSpace(content)
                     ? new Configuration()
                     : ConvertConfiguration.FromJson(content);
             }
@@ -78,18 +83,18 @@ namespace MFR.Objects.Configuration.Serializers
         }
 
         /// <summary>
-        /// Saves configuration data to a file.
+        ///     Saves configuration data to a file.
         /// </summary>
         /// <param name="pathname">
-        /// (Required.) String containing the pathname of the file that the data
-        /// is to be saved to.
+        ///     (Required.) String containing the pathname of the file that the data
+        ///     is to be saved to.
         /// </param>
         /// <param name="configuration">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
-        /// interface.
+        ///     (Required.) Reference to an instance of an object that implements
+        ///     the
+        ///     <see
+        ///         cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        ///     interface.
         /// </param>
         public static void Save(string pathname, IConfiguration configuration)
         {
@@ -108,6 +113,8 @@ namespace MFR.Objects.Configuration.Serializers
 
                 if (File.Exists(pathname))
                     File.Delete(pathname);
+
+                FileHelpers.MakeSureContainingFolderExists(pathname);
 
                 File.WriteAllText(pathname, content);
             }
