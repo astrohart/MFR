@@ -25,18 +25,6 @@ namespace MFR.GUI.Controls
         /// </summary>
         private string _enteredText;
 
-        /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />
-        /// and returns a
-        /// reference to it.
-        /// </summary>
-        public EntryRespectingComboBox()
-        {
-            _enteredText = Text;
-        }
-
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.TextChanged" /> event.</summary>
         /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected override void OnTextChanged(EventArgs e)

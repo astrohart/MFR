@@ -1,4 +1,5 @@
 ﻿using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Objects.Generators.RegularExpressions.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -64,7 +65,7 @@ namespace MFR.Objects.Generators.RegularExpressions
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(value)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(value)
                 );
 
             return string.Format(

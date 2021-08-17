@@ -1,6 +1,7 @@
 using MFR.Objects.Configuration.Constants;
 using MFR.Objects.Generators.RegularExpressions.Constants;
 using MFR.Objects.Generators.RegularExpressions.Factories;
+using MFR.Objects.Replacers.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -89,13 +90,13 @@ namespace MFR.Objects.Replacers
         {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentException(
-                    "Source cannot be null or the empty string.  It CAN be whitespace, however.",
+                    Resources.Error_SourceCantBeNullOrEmpty,
                     nameof(value)
                 );
 
             if (string.IsNullOrEmpty(pattern))
                 throw new ArgumentException(
-                    "The pattern cannot be null or the empty string.  It CAN be whitespace, however.",
+                    Resources.Error_PatternCantBeNulLOrEmpty,
                     nameof(pattern)
                 );
 

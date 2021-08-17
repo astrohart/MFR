@@ -59,5 +59,14 @@ namespace MFR.Objects.Generators.RegularExpressions.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value cannot be null or whitespace..
+        /// </summary>
+        internal static string Error_ValueCannotBeNullOrWhiteSpace {
+            get {
+                return ResourceManager.GetString("Error_ValueCannotBeNullOrWhiteSpace", resourceCulture);
+            }
+        }
     }
 }

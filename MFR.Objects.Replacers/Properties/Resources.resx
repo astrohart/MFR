@@ -98,4 +98,13 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+    <data name="Error_ValueCannotBeNullOrWhiteSpace" xml:space="preserve">
+        <value>Value cannot be null or whitespace.</value>
+    </data>
+    <data name="Error_PatternCantBeNulLOrEmpty" xml:space="preserve">
+        <value>The pattern cannot be null or the empty string.  It CAN be whitespace, however.</value>
+    </data>
+    <data name="Error_SourceCantBeNullOrEmpty" xml:space="preserve">
+        <value>Source cannot be null or the empty string.  It CAN be whitespace, however.</value>
+    </data>
 </root>

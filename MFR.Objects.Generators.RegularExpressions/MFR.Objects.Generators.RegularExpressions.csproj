@@ -126,15 +126,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\xyLOGIX.Generators\xyLOGIX.Generators.Constants\xyLOGIX.Generators.Constants.csproj">
-      <Project>{06C971AC-0ADD-47B8-80FB-11B4E1E7FF00}</Project>
+      <Project>{06c971ac-0add-47b8-80fb-11b4e1e7ff00}</Project>
       <Name>xyLOGIX.Generators.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Generators\xyLOGIX.Generators.Interfaces\xyLOGIX.Generators.Interfaces.csproj">
-      <Project>{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}</Project>
+      <Project>{a91cde9f-5cf0-488d-8347-db1b8c4a0e17}</Project>
       <Name>xyLOGIX.Generators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Generators\xyLOGIX.Generators\xyLOGIX.Generators.csproj">
-      <Project>{C3A290BE-43B4-4D1C-B5F2-35C71ED615F1}</Project>
+      <Project>{c3a290be-43b4-4d1c-b5f2-35c71ed615f1}</Project>
       <Name>xyLOGIX.Generators</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">

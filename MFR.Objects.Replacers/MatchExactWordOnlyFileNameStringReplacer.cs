@@ -1,4 +1,5 @@
 using MFR.Objects.Configuration.Constants;
+using MFR.Objects.Replacers.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
@@ -84,11 +85,11 @@ namespace MFR.Objects.Replacers
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(value)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(value)
                 );
             if (string.IsNullOrWhiteSpace(pattern))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pattern)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(pattern)
                 );
 
             /*
@@ -102,7 +103,7 @@ namespace MFR.Objects.Replacers
 
             if (string.IsNullOrWhiteSpace(dest))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(dest)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(dest)
                 );
 
             var result = value;    // no replacement in the event of an exception
