@@ -5,7 +5,7 @@
 
 - [IProfileProvider](#T-MFR-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Profiles.Providers.Interfaces.IProfileProvider')
   - [DefaultProfileDir](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileDir 'MFR.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileDir')
-  - [ProfileListPath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath')
+  - [ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
   - [ProfileListPathKeyName](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathKeyName')
   - [ProfileListPathValueName](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathValueName')
   - [Profiles](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-Profiles 'MFR.Profiles.Providers.Interfaces.IProfileProvider.Profiles')
@@ -24,8 +24,12 @@ MFR.Profiles.Providers.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a ` Profile
-            Provider ` object.
+Defines the publicly-exposed methods and properties of a
+`
+            Profile
+            Provider
+            `
+object.
 
 ##### Remarks
 
@@ -44,8 +48,8 @@ Gets the default folder for the configuration file.
 We store the profile configuration file, by default, in a folder
 under the current user's AppData folder.
 
-<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPath'></a>
-### ProfileListPath `property`
+<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath'></a>
+### ProfileListFilePath `property`
 
 ##### Summary
 
@@ -73,12 +77,18 @@ the path to the profile list file.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection') interface.
+[IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection')
+interface.
 
 ##### Remarks
 
 The object to which a reference is returned by this properties
 allows access to the set of profiles defined by the user.
+
+
+
+If this property is read prior to any profiles being loaded, it
+should return a reference the empty collection.
 
 <a name='M-MFR-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
@@ -98,7 +108,9 @@ load the profiles. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file whose pathname is passed in the `pathname` parameter cannot be found on the disk. |
+| [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file whose pathname is passed in the
+`pathname`
+parameter cannot be found on the disk. |
 
 ##### Remarks
 
@@ -110,7 +122,8 @@ configuration file, but a separate file.
 
 ##### Summary
 
-Saves profile list data to a file on the disk having path `pathname`.
+Saves profile list data to a file on the disk having path
+`pathname`.
 
 ##### Parameters
 
@@ -122,11 +135,14 @@ saved in JSON format.
 
 
 If this parameter is blank, then the data is saved to the path that
-is stored in the [ProfileListPath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath') property. |
+is stored in the
+[ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+property. |
 
 ##### Remarks
 
-If the [ProfileListPath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath')
+If the
+[ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Profiles-Providers-Interfaces-Properties-Resources'></a>
