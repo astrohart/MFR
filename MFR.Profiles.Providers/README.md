@@ -7,7 +7,7 @@
   - [#ctor()](#M-MFR-Profiles-Providers-ProfileProvider-#ctor 'MFR.Profiles.Providers.ProfileProvider.#ctor')
   - [DefaultProfileDir](#P-MFR-Profiles-Providers-ProfileProvider-DefaultProfileDir 'MFR.Profiles.Providers.ProfileProvider.DefaultProfileDir')
   - [Instance](#P-MFR-Profiles-Providers-ProfileProvider-Instance 'MFR.Profiles.Providers.ProfileProvider.Instance')
-  - [ProfileListPath](#P-MFR-Profiles-Providers-ProfileProvider-ProfileListPath 'MFR.Profiles.Providers.ProfileProvider.ProfileListPath')
+  - [ProfileListFilePath](#P-MFR-Profiles-Providers-ProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.ProfileProvider.ProfileListFilePath')
   - [ProfileListPathKeyName](#P-MFR-Profiles-Providers-ProfileProvider-ProfileListPathKeyName 'MFR.Profiles.Providers.ProfileProvider.ProfileListPathKeyName')
   - [ProfileListPathValueName](#P-MFR-Profiles-Providers-ProfileProvider-ProfileListPathValueName 'MFR.Profiles.Providers.ProfileProvider.ProfileListPathValueName')
   - [Profiles](#P-MFR-Profiles-Providers-ProfileProvider-Profiles 'MFR.Profiles.Providers.ProfileProvider.Profiles')
@@ -45,11 +45,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets the default folder for the configuration file.
+Gets the default folder for the profile list file.
 
 ##### Remarks
 
-We store the profile configuration file, by default, in a folder
+We store the profile list file, by default, in a folder
 under the current user's AppData folder.
 
 <a name='P-MFR-Profiles-Providers-ProfileProvider-Instance'></a>
@@ -60,8 +60,8 @@ under the current user's AppData folder.
 Gets a reference to the one and only instance of
 [ProfileProvider](#T-MFR-Profiles-Providers-ProfileProvider 'MFR.Profiles.Providers.ProfileProvider').
 
-<a name='P-MFR-Profiles-Providers-ProfileProvider-ProfileListPath'></a>
-### ProfileListPath `property`
+<a name='P-MFR-Profiles-Providers-ProfileProvider-ProfileListFilePath'></a>
+### ProfileListFilePath `property`
 
 ##### Summary
 
@@ -154,13 +154,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ProfileListPath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath')
+[ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ProfileListPath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPath')
+[ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Profiles-Providers-Properties-Resources'></a>
