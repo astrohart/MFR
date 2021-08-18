@@ -81,6 +81,7 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -133,6 +134,10 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Commands.Interfaces\MFR.Objects.Messages.Commands.Interfaces.csproj">
+      <Project>{b3bde739-5fbb-46b4-8411-a66b7e9383dd}</Project>
+      <Name>MFR.Objects.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Commands\MFR.Objects.Messages.Commands.csproj">
       <Project>{1683F1C0-B348-4263-A839-7E3BA29A1E95}</Project>
       <Name>MFR.Objects.Messages.Commands</Name>
@@ -140,6 +145,22 @@
     <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
       <Name>MFR.Objects.Messages.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Factories\MFR.Objects.Messages.Factories.csproj">
+      <Project>{ce6bfc76-095e-48dc-8189-a87caaac655d}</Project>
+      <Name>MFR.Objects.Messages.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Requests.Intefaces\MFR.Objects.Messages.Requests.Intefaces.csproj">
+      <Project>{e7407a37-0a5a-4eec-a5a7-b8153b386027}</Project>
+      <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Requests\MFR.Objects.Messages.Requests.csproj">
+      <Project>{e9db6ce2-0665-4be9-92d7-70cfa7f185b2}</Project>
+      <Name>MFR.Objects.Messages.Requests</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages\MFR.Objects.Messages.csproj">
       <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>

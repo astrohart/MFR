@@ -157,6 +157,10 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Actions.Interfaces\MFR.Objects.Messages.Actions.Interfaces.csproj">
+      <Project>{b8b5b68f-154e-4eda-81dd-5393bc88ff8a}</Project>
+      <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Actions\MFR.Objects.Messages.Actions.csproj">
       <Project>{065848D5-CC1F-4153-988B-2C7EA2FA964C}</Project>
       <Name>MFR.Objects.Messages.Actions</Name>
@@ -164,6 +168,14 @@
     <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
       <Name>MFR.Objects.Messages.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+      <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
+      <Name>MFR.Objects.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Objects.Messages.Requests.Intefaces\MFR.Objects.Messages.Requests.Intefaces.csproj">
+      <Project>{e7407a37-0a5a-4eec-a5a7-b8153b386027}</Project>
+      <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Messages.Requests\MFR.Objects.Messages.Requests.csproj">
       <Project>{E9DB6CE2-0665-4BE9-92D7-70CFA7F185B2}</Project>
