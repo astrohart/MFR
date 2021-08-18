@@ -11,7 +11,7 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Profiles.Commands
 {
     /// <summary>
-    /// Saves a configuration object, i.e., one that implements the
+    /// Saves a profile list object, i.e., one that implements the
     /// <see
     ///     cref="T:MFR.Objects.IConfiguration" />
     /// interface, to a JSON file.
@@ -25,14 +25,14 @@ namespace MFR.Profiles.Commands
     /// <see
     ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
     /// property be
-    /// initialized to the pathname where the configuration data should be
+    /// initialized to the pathname where the profile list data should be
     /// saved; preferably, the file should have the .json extension.
     /// <para />
     /// This command also requires that the
     /// <see
     ///     cref="P:MFR.Objects.IFileSystemEntry.UserState" />
     /// property
-    /// be initialized to a reference to the configuration object containing the
+    /// be initialized to a reference to the profile list object containing the
     /// data that is to be saved.
     /// </remarks>
     public class SaveProfileListToFileCommand : CommandBase<IFileSystemEntry>
@@ -91,9 +91,9 @@ namespace MFR.Profiles.Commands
             /*
              * OKAY, so here, the _input field is of type IFileSystemEntry.  We assume
              * that it is referencing a valid object (not null) and that its Path property
-             * points to the pathname of the file to which the configuration data should
+             * points to the pathname of the file to which the profile list data should
              * be saved.  Furthermore, we assume its UserState property has been initialized
-             * with a reference to the configuration data that is to be saved.
+             * with a reference to the profile list data that is to be saved.
              */
 
             DebugUtils.WriteLine(
