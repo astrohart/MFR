@@ -1,6 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System.Reflection;
+using System.Windows.Forms;
 
-namespace MFR.Objects.Configuration.Constants
+namespace MFR.Profiles.Constants
 {
     /// <summary>
     /// Values used to read the profile list file path from the system Registry.

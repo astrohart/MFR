@@ -133,10 +133,6 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
-      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Objects.Configuration.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Factories\MFR.Objects.Expressions.Registry.Factories.csproj">
       <Project>{DC731265-74D9-4879-AF2E-79616BC6847B}</Project>
       <Name>MFR.Objects.Expressions.Registry.Factories</Name>
@@ -196,6 +192,10 @@
     <ProjectReference Include="..\MFR.Profiles.Commands.Factories\MFR.Profiles.Commands.Factories.csproj">
       <Project>{0B228234-D21A-4205-9490-1154943FB8BD}</Project>
       <Name>MFR.Profiles.Commands.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Constants\MFR.Profiles.Constants.csproj">
+      <Project>{26976BA2-FCF1-4B05-BE27-CD6D77B916B5}</Project>
+      <Name>MFR.Profiles.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Providers.Exceptions\MFR.Profiles.Providers.Exceptions.csproj">
       <Project>{AE8E228C-0E05-415D-8A67-78581F6EA8E9}</Project>

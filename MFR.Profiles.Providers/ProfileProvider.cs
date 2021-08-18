@@ -1,5 +1,4 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Configuration.Constants;
 using MFR.Objects.Expressions.Registry.Factories;
 using MFR.Objects.Expressions.Registry.Interfaces;
 using MFR.Objects.FileSystem.Factories;
@@ -10,9 +9,9 @@ using MFR.Profiles.Actions.Factories;
 using MFR.Profiles.Collections;
 using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Commands.Factories;
+using MFR.Profiles.Constants;
 using MFR.Profiles.Providers.Interfaces;
 using System;
-using System.Configuration;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
