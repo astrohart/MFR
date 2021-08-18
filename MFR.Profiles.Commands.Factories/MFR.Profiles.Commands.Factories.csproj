@@ -129,14 +129,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Commands.Constants\MFR.Objects.Configuration.Commands.Constants.csproj">
-      <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
-      <Name>MFR.Objects.Configuration.Commands.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Commands\MFR.Objects.Configuration.Commands.csproj">
-      <Project>{CAF7CA91-4FCB-42F7-A13F-3D6D3C0C86F9}</Project>
-      <Name>MFR.Objects.Configuration.Commands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
@@ -168,6 +160,10 @@
     <ProjectReference Include="..\MFR.Objects.Metadata.Registry.Interfaces\MFR.Objects.Metadata.Registry.Interfaces.csproj">
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
       <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Commands.Constants\MFR.Profiles.Commands.Constants.csproj">
+      <Project>{BE4E6A55-45E6-4EC8-824B-91CCAB578C55}</Project>
+      <Name>MFR.Profiles.Commands.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Commands\MFR.Profiles.Commands.csproj">
       <Project>{6390961D-E116-41F6-BF52-B466F8179EB3}</Project>

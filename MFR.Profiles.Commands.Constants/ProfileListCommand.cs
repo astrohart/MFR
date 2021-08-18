@@ -2,7 +2,7 @@ using MFR.Objects.Messages.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.Configuration.Commands.Constants
+namespace MFR.Profiles.Commands.Constants
 {
     /// <summary>
     /// Available commands for use when working with profile list.
@@ -31,7 +31,7 @@ namespace MFR.Objects.Configuration.Commands.Constants
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Commands.Constants.ProfileListCommand" />
+        ///     cref="T:MFR.Profiles.Commands.Constants.ProfileListCommand" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="messageId">

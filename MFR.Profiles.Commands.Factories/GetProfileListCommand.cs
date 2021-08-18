@@ -1,8 +1,7 @@
-using MFR.Objects.Configuration.Commands;
-using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.Messages.Commands;
 using MFR.Objects.Messages.Commands.Interfaces;
 using MFR.Objects.Messages.Constants;
+using MFR.Profiles.Commands.Constants;
 using System;
 
 namespace MFR.Profiles.Commands.Factories

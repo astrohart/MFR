@@ -1,8 +1,8 @@
-using MFR.Objects.Configuration.Commands.Constants;
 using MFR.Objects.FileSystem.Interfaces;
 using MFR.Objects.Messages.Commands;
 using MFR.Objects.Messages.Constants;
 using MFR.Profiles.Collections.Interfaces;
+using MFR.Profiles.Commands.Constants;
 using MFR.Profiles.Serializers;
 using PostSharp.Patterns.Diagnostics;
 using System;

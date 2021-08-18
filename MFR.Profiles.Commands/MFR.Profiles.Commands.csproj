@@ -97,10 +97,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.9.7\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -132,10 +129,6 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Commands.Constants\MFR.Objects.Configuration.Commands.Constants.csproj">
-      <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
-      <Name>MFR.Objects.Configuration.Commands.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
@@ -159,6 +152,10 @@
     <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
       <Name>MFR.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Profiles.Commands.Constants\MFR.Profiles.Commands.Constants.csproj">
+      <Project>{BE4E6A55-45E6-4EC8-824B-91CCAB578C55}</Project>
+      <Name>MFR.Profiles.Commands.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Serializers\MFR.Profiles.Serializers.csproj">
       <Project>{BC28D456-9B28-4029-8C96-45C166C625C8}</Project>
