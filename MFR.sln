@@ -210,7 +210,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Operations.Exceptions", "MFR.Objects.Operations.Exceptions\MFR.Objects.Operations.Exceptions.csproj", "{12CC9C12-26AD-4D61-B59E-0A1932214ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects", "MFR.Objects\MFR.Objects.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Common", "MFR.Common\MFR.Common.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Objects.Filters.Search", "MFR.Objects.Filters.Search\MFR.Objects.Filters.Search.csproj", "{66851DA3-B5BF-4992-B627-80D7EAC3084E}"
 EndProject

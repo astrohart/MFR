@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects
+namespace MFR.Common
 {
     /// <summary>
     /// This class is from the Front-End for Dosbox and is used to present a

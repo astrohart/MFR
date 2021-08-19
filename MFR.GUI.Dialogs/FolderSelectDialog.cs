@@ -1,6 +1,6 @@
 using MFR.GUI.Dialogs.Properties;
 using MFR.GUI.Windows.Wrappers.Factories;
-using MFR.Objects;
+using MFR.Common;
 using System;
 using System.Windows.Forms;
 

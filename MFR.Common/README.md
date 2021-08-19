@@ -1,5 +1,5 @@
 <a name='assembly'></a>
-# MFR.Objects
+# MFR.Common
 
 ## Contents
 
@@ -19,16 +19,16 @@
   - [GetEnum(typeName,name)](#M-MFR-Objects-Reflector-GetEnum-System-String,System-String- 'MFR.Objects.Reflector.GetEnum(System.String,System.String)')
   - [GetType(typeName)](#M-MFR-Objects-Reflector-GetType-System-String- 'MFR.Objects.Reflector.GetType(System.String)')
   - [New(typeName,parameters)](#M-MFR-Objects-Reflector-New-System-String,System-Object[]- 'MFR.Objects.Reflector.New(System.String,System.Object[])')
-- [Resources](#T-MFR-Objects-Properties-Resources 'MFR.Objects.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Properties-Resources-Culture 'MFR.Objects.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Properties-Resources-ResourceManager 'MFR.Objects.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Objects-Properties-Resources 'MFR.Common.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-ProgramFlowHelper'></a>
 ## ProgramFlowHelper `type`
 
 ##### Namespace
 
-MFR.Objects
+MFR.Common
 
 ##### Summary
 
@@ -60,7 +60,7 @@ Such calls should be commented out or deleted when no longer needed.
 
 ##### Namespace
 
-MFR.Objects
+MFR.Common
 
 ##### Summary
 
@@ -418,7 +418,7 @@ passed a blank or `null` string for a value. |
 
 ##### Namespace
 
-MFR.Objects.Properties
+MFR.Common.Properties
 
 ##### Summary
 
