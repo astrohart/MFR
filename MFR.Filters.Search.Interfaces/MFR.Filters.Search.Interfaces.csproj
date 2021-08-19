@@ -124,7 +124,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Filters.Search.Constants\MFR.Objects.Filters.Search.Constants.csproj">
+    <ProjectReference Include="..\MFR.Filters.Search.Constants\MFR.Filters.Search.Constants.csproj">
       <Project>{41559DD1-AC6A-4DF7-99FC-12D6245BFE63}</Project>
       <Name>MFR.Objects.Filters.Search.Constants</Name>
     </ProjectReference>

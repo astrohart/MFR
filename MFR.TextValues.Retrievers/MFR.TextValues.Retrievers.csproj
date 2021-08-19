@@ -129,27 +129,27 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Factories\MFR.Objects.FileSystem.Validators.Factories.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
       <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
       <Name>MFR.Objects.FileSystem.Validators.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Interfaces\MFR.Objects.FileSystem.Validators.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
       <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
       <Name>MFR.Objects.FileSystem.Validators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.TextValues.Retrievers.Interfaces\MFR.Objects.TextValues.Retrievers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
       <Name>MFR.Objects.TextValues.Retrievers.Interfaces</Name>
     </ProjectReference>

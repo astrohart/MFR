@@ -118,7 +118,7 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>

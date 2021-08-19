@@ -119,11 +119,11 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Processes\MFR.Objects.Processes.csproj">
+    <ProjectReference Include="..\MFR.Processes\MFR.Processes.csproj">
       <Project>{74549559-E893-4D6E-8CFF-06A54B9FB2DC}</Project>
       <Name>MFR.Objects.Processes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Processes.Interfaces\MFR.Objects.Processes.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Processes.Interfaces\MFR.Processes.Interfaces.csproj">
       <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
       <Name>MFR.Objects.Processes.Interfaces</Name>
     </ProjectReference>

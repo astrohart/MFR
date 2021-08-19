@@ -126,7 +126,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Objects.Configuration.Constants</Name>
     </ProjectReference>

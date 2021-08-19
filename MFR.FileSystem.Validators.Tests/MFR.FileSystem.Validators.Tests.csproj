@@ -129,31 +129,31 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
       <Name>MFR.Objects.FileSystem.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Factories\MFR.Objects.FileSystem.Validators.Factories.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
       <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
       <Name>MFR.Objects.FileSystem.Validators.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators.Interfaces\MFR.Objects.FileSystem.Validators.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
       <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
       <Name>MFR.Objects.FileSystem.Validators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Validators\MFR.Objects.FileSystem.Validators.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Validators\MFR.FileSystem.Validators.csproj">
       <Project>{22D86888-ACAC-4E15-B860-10461CF0C079}</Project>
       <Name>MFR.Objects.FileSystem.Validators</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>

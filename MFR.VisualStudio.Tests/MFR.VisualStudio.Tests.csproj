@@ -136,11 +136,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.VisualStudio\MFR.Objects.VisualStudio.csproj">
+    <ProjectReference Include="..\MFR.VisualStudio\MFR.VisualStudio.csproj">
       <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
       <Name>MFR.Objects.VisualStudio</Name>
     </ProjectReference>

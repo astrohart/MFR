@@ -120,11 +120,11 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
       <Name>MFR.Objects.Messages.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Messages.Requests.Intefaces\MFR.Objects.Messages.Requests.Intefaces.csproj">
+    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
       <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
       <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
     </ProjectReference>

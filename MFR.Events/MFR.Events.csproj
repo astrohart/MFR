@@ -128,11 +128,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Events\MFR.Objects.Operations.Events.csproj">
+    <ProjectReference Include="..\MFR.Operations.Events\MFR.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
       <Name>MFR.Objects.Operations.Events</Name>
     </ProjectReference>

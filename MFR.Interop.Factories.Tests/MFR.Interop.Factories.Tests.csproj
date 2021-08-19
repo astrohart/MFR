@@ -129,7 +129,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Interop.Factories\MFR.Objects.Interop.Factories.csproj">
+    <ProjectReference Include="..\MFR.Interop.Factories\MFR.Interop.Factories.csproj">
       <Project>{25E22A8B-A4F9-47D6-BBB8-7D537C39638D}</Project>
       <Name>MFR.Objects.Interop.Factories</Name>
     </ProjectReference>

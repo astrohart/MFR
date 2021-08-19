@@ -134,27 +134,27 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Factories.Interfaces\MFR.Objects.Expressions.Matches.Factories.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Expressions.Matches.Factories.Interfaces\MFR.Expressions.Matches.Factories.Interfaces.csproj">
       <Project>{057FF1CA-0D46-4B40-A8E6-3C68FB9F79A0}</Project>
       <Name>MFR.Objects.Expressions.Matches.Factories.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Factories\MFR.Objects.Expressions.Matches.Factories.csproj">
+    <ProjectReference Include="..\MFR.Expressions.Matches.Factories\MFR.Expressions.Matches.Factories.csproj">
       <Project>{7C33BFA5-BB1A-4FD4-BAA5-70A2E76245CF}</Project>
       <Name>MFR.Objects.Expressions.Matches.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>

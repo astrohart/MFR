@@ -134,11 +134,11 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Solutions.Interfaces\MFR.Objects.Solutions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Solutions.Interfaces\MFR.Solutions.Interfaces.csproj">
       <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
       <Name>MFR.Objects.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Solutions\MFR.Objects.Solutions.csproj">
+    <ProjectReference Include="..\MFR.Solutions\MFR.Solutions.csproj">
       <Project>{E4D3B201-8D47-4299-9B4A-209BA3220823}</Project>
       <Name>MFR.Objects.Solutions</Name>
     </ProjectReference>

@@ -124,15 +124,15 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Objects.Configuration.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Matchers.Interfaces\MFR.Objects.Matchers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Matchers.Interfaces\MFR.Matchers.Interfaces.csproj">
       <Project>{740261A5-424C-4429-9C08-FED791D0F051}</Project>
       <Name>MFR.Objects.Matchers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>

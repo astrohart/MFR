@@ -139,19 +139,19 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Solutions.Exceptions\MFR.Objects.Solutions.Exceptions.csproj">
+    <ProjectReference Include="..\MFR.Solutions.Exceptions\MFR.Solutions.Exceptions.csproj">
       <Project>{FE036EA6-BEB3-4C19-982D-34C5612A9F8F}</Project>
       <Name>MFR.Objects.Solutions.Exceptions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Solutions.Interfaces\MFR.Objects.Solutions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Solutions.Interfaces\MFR.Solutions.Interfaces.csproj">
       <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
       <Name>MFR.Objects.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.VisualStudio\MFR.Objects.VisualStudio.csproj">
+    <ProjectReference Include="..\MFR.VisualStudio\MFR.VisualStudio.csproj">
       <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
       <Name>MFR.Objects.VisualStudio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Win32\MFR.Objects.Win32.csproj">
+    <ProjectReference Include="..\MFR.Win32\MFR.Win32.csproj">
       <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
       <Name>MFR.Objects.Win32</Name>
     </ProjectReference>

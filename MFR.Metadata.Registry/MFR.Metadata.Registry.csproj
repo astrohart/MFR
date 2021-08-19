@@ -129,11 +129,11 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Metadata.Registry.Interfaces\MFR.Objects.Metadata.Registry.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
       <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Registry.Helpers\MFR.Objects.Registry.Helpers.csproj">
+    <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
       <Project>{AFFA1381-12A6-408C-99C2-BFA717D23CD8}</Project>
       <Name>MFR.Objects.Registry.Helpers</Name>
     </ProjectReference>

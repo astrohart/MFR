@@ -119,7 +119,7 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Matches.Interfaces\MFR.Objects.Expressions.Matches.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj">
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
       <Name>MFR.Objects.Expressions.Matches.Interfaces</Name>
     </ProjectReference>

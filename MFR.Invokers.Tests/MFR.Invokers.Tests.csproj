@@ -128,11 +128,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Invokers.Factories\MFR.Objects.Invokers.Factories.csproj">
+    <ProjectReference Include="..\MFR.Invokers.Factories\MFR.Invokers.Factories.csproj">
       <Project>{8D903CE7-2DBF-49ED-BD9E-A2BF31EB8ADB}</Project>
       <Name>MFR.Objects.Invokers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Invokers.Interfaces\MFR.Objects.Invokers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Invokers.Interfaces\MFR.Invokers.Interfaces.csproj">
       <Project>{05DD474A-352F-4BC2-BF0D-FB2D5823D2A3}</Project>
       <Name>MFR.Objects.Invokers.Interfaces</Name>
     </ProjectReference>

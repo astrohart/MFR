@@ -129,15 +129,15 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Managers.History.Interfaces\MFR.Managers.History.Interfaces.csproj">
       <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
       <Name>MFR.Objects.Managers.History.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+    <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Objects.Configuration</Name>
     </ProjectReference>

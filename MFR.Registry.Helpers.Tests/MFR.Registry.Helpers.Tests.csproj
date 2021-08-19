@@ -128,7 +128,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Registry.Helpers\MFR.Objects.Registry.Helpers.csproj">
+    <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
       <Project>{affa1381-12a6-408c-99c2-bfa717d23cd8}</Project>
       <Name>MFR.Objects.Registry.Helpers</Name>
     </ProjectReference>

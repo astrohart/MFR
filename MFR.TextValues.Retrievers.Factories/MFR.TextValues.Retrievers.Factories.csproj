@@ -124,19 +124,19 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.TextValues.Retrievers.Interfaces\MFR.Objects.TextValues.Retrievers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
       <Name>MFR.Objects.TextValues.Retrievers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.TextValues.Retrievers\MFR.Objects.TextValues.Retrievers.csproj">
+    <ProjectReference Include="..\MFR.TextValues.Retrievers\MFR.TextValues.Retrievers.csproj">
       <Project>{B0B1952A-6D75-47B2-997B-E1FBD4E8BB5E}</Project>
       <Name>MFR.Objects.TextValues.Retrievers</Name>
     </ProjectReference>

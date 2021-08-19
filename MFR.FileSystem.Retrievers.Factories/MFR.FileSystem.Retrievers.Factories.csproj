@@ -124,27 +124,27 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration\MFR.Objects.Configuration.csproj">
+    <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Objects.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Interfaces\MFR.Objects.FileSystem.Retrievers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Retrievers.Interfaces\MFR.FileSystem.Retrievers.Interfaces.csproj">
       <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers\MFR.Objects.FileSystem.Retrievers.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Retrievers\MFR.FileSystem.Retrievers.csproj">
       <Project>{CC2F7258-C88D-437B-A20E-422D90B7A3E2}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>

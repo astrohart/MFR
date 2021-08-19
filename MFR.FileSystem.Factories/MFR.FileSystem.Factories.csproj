@@ -125,19 +125,19 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem\MFR.Objects.FileSystem.csproj">
+    <ProjectReference Include="..\MFR.FileSystem\MFR.FileSystem.csproj">
       <Project>{D8856B7F-68A7-483A-AB52-0B678B5395F1}</Project>
       <Name>MFR.Objects.FileSystem</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations\MFR.Objects.Operations.csproj">
+    <ProjectReference Include="..\MFR.Operations\MFR.Operations.csproj">
       <Project>{86A14CB3-F619-46B9-ABF5-FA06559EBBF0}</Project>
       <Name>MFR.Objects.Operations</Name>
     </ProjectReference>

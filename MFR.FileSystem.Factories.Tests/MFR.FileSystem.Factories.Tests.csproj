@@ -128,11 +128,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Factories\MFR.Objects.FileSystem.Factories.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
       <Name>MFR.Objects.FileSystem.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>

@@ -119,19 +119,19 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Interfaces\MFR.Objects.FileSystem.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.Objects.FileSystem.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Invokers.Interfaces\MFR.Objects.Invokers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Invokers.Interfaces\MFR.Invokers.Interfaces.csproj">
       <Project>{05DD474A-352F-4BC2-BF0D-FB2D5823D2A3}</Project>
       <Name>MFR.Objects.Invokers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Invokers\MFR.Objects.Invokers.csproj">
+    <ProjectReference Include="..\MFR.Invokers\MFR.Invokers.csproj">
       <Project>{13D8124B-CC27-4745-BA03-BFF4D878C24E}</Project>
       <Name>MFR.Objects.Invokers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>

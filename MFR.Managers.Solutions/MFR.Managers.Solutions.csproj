@@ -131,27 +131,27 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Factories\MFR.Objects.FileSystem.Retrievers.Factories.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Interfaces\MFR.Objects.Managers.Solutions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Solutions.Factories\MFR.Objects.Solutions.Factories.csproj">
+    <ProjectReference Include="..\MFR.Solutions.Factories\MFR.Solutions.Factories.csproj">
       <Project>{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}</Project>
       <Name>MFR.Objects.Solutions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Solutions.Interfaces\MFR.Objects.Solutions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Solutions.Interfaces\MFR.Solutions.Interfaces.csproj">
       <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
       <Name>MFR.Objects.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.VisualStudio\MFR.Objects.VisualStudio.csproj">
+    <ProjectReference Include="..\MFR.VisualStudio\MFR.VisualStudio.csproj">
       <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
       <Name>MFR.Objects.VisualStudio</Name>
     </ProjectReference>

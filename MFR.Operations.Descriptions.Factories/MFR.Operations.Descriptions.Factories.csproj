@@ -120,19 +120,19 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Descriptions.Interfaces\MFR.Objects.Operations.Descriptions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Descriptions.Interfaces\MFR.Operations.Descriptions.Interfaces.csproj">
       <Project>{522A7534-3065-477B-B756-844F124FAE1A}</Project>
       <Name>MFR.Objects.Operations.Descriptions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Descriptions\MFR.Objects.Operations.Descriptions.csproj">
+    <ProjectReference Include="..\MFR.Operations.Descriptions\MFR.Operations.Descriptions.csproj">
       <Project>{97DF2C75-037A-499C-A71F-1FADC622880D}</Project>
       <Name>MFR.Objects.Operations.Descriptions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Interfaces\MFR.Objects.Operations.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Objects.Operations.Interfaces</Name>
     </ProjectReference>

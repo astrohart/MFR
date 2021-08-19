@@ -128,19 +128,19 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Factories\MFR.Objects.FileSystem.Retrievers.Factories.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers.Interfaces\MFR.Objects.FileSystem.Retrievers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Retrievers.Interfaces\MFR.FileSystem.Retrievers.Interfaces.csproj">
       <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.FileSystem.Retrievers\MFR.Objects.FileSystem.Retrievers.csproj">
+    <ProjectReference Include="..\MFR.FileSystem.Retrievers\MFR.FileSystem.Retrievers.csproj">
       <Project>{CC2F7258-C88D-437B-A20E-422D90B7A3E2}</Project>
       <Name>MFR.Objects.FileSystem.Retrievers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Constants\MFR.Objects.Operations.Constants.csproj">
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Objects.Operations.Constants</Name>
     </ProjectReference>

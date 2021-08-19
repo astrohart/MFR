@@ -128,11 +128,11 @@
       <Project>{3F9D1447-D681-4541-9E9B-049DF38040AC}</Project>
       <Name>MFR.GUI.Controls.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Constants\MFR.Objects.Configuration.Constants.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Objects.Configuration.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Objects.Configuration.Interfaces</Name>
     </ProjectReference>

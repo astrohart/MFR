@@ -128,11 +128,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Collections.Factories\MFR.Objects.Interop.Monikers.Collections.Factories.csproj">
+    <ProjectReference Include="..\MFR.Interop.Monikers.Collections.Factories\MFR.Interop.Monikers.Collections.Factories.csproj">
       <Project>{4CD6D764-8815-40E6-9578-7AD2728A6B26}</Project>
       <Name>MFR.Objects.Interop.Monikers.Collections.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Collections.Interfaces\MFR.Objects.Interop.Monikers.Collections.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Interop.Monikers.Collections.Interfaces\MFR.Interop.Monikers.Collections.Interfaces.csproj">
       <Project>{B298C890-3D41-4ED3-8BFD-DD4DC5058CA2}</Project>
       <Name>MFR.Objects.Interop.Monikers.Collections.Interfaces</Name>
     </ProjectReference>

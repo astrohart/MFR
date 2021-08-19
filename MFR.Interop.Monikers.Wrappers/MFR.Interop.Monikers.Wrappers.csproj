@@ -119,7 +119,7 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Interop.Monikers.Wrappers.Interfaces\MFR.Objects.Interop.Monikers.Wrappers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Interop.Monikers.Wrappers.Interfaces\MFR.Interop.Monikers.Wrappers.Interfaces.csproj">
       <Project>{39066E84-E15E-49B5-802B-3202D786B800}</Project>
       <Name>MFR.Objects.Interop.Monikers.Wrappers.Interfaces</Name>
     </ProjectReference>

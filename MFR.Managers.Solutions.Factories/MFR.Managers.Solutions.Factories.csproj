@@ -128,11 +128,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Managers.Solutions.Interfaces\MFR.Objects.Managers.Solutions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Managers.Solutions\MFR.Objects.Managers.Solutions.csproj">
+    <ProjectReference Include="..\MFR.Managers.Solutions\MFR.Managers.Solutions.csproj">
       <Project>{E1078BC5-24EB-44E8-81BD-09310D81FBD9}</Project>
       <Name>MFR.Objects.Managers.Solutions</Name>
     </ProjectReference>

@@ -128,7 +128,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Messages.Constants\MFR.Objects.Messages.Constants.csproj">
+    <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
       <Name>MFR.Objects.Messages.Constants</Name>
     </ProjectReference>

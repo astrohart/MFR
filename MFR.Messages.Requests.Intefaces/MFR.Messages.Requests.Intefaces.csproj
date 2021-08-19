@@ -119,7 +119,7 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Messages.Interfaces\MFR.Objects.Messages.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
       <Name>MFR.Objects.Messages.Interfaces</Name>
     </ProjectReference>

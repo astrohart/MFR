@@ -128,15 +128,15 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Interfaces\MFR.Objects.Expressions.Registry.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Expressions.Registry.Interfaces\MFR.Expressions.Registry.Interfaces.csproj">
       <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
       <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Expressions.Registry.Validators.Interfaces\MFR.Objects.Expressions.Registry.Validators.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Interfaces\MFR.Expressions.Registry.Validators.Interfaces.csproj">
       <Project>{DA01210A-F467-4EC3-967E-01523AFB6E23}</Project>
       <Name>MFR.Objects.Expressions.Registry.Validators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Registry.Helpers\MFR.Objects.Registry.Helpers.csproj">
+    <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
       <Project>{AFFA1381-12A6-408C-99C2-BFA717D23CD8}</Project>
       <Name>MFR.Objects.Registry.Helpers</Name>
     </ProjectReference>

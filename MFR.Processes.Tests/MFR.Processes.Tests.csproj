@@ -128,15 +128,15 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Objects.Processes.Factories\MFR.Objects.Processes.Factories.csproj">
+    <ProjectReference Include="..\MFR.Processes.Factories\MFR.Processes.Factories.csproj">
       <Project>{4479E3F8-455F-47FD-BA84-9582F6DAC41F}</Project>
       <Name>MFR.Objects.Processes.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Processes.Interfaces\MFR.Objects.Processes.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Processes.Interfaces\MFR.Processes.Interfaces.csproj">
       <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
       <Name>MFR.Objects.Processes.Interfaces</Name>
     </ProjectReference>

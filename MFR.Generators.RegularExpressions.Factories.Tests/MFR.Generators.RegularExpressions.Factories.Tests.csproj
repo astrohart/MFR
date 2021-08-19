@@ -140,23 +140,23 @@
       <Project>{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}</Project>
       <Name>xyLOGIX.Generators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Constants\MFR.Objects.Generators.RegularExpressions.Constants.csproj">
+    <ProjectReference Include="..\MFR.Generators.RegularExpressions.Constants\MFR.Generators.RegularExpressions.Constants.csproj">
       <Project>{b3774d63-4894-4488-b302-72dd03be0415}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Factories\MFR.Objects.Generators.RegularExpressions.Factories.csproj">
+    <ProjectReference Include="..\MFR.Generators.RegularExpressions.Factories\MFR.Generators.RegularExpressions.Factories.csproj">
       <Project>{e0886ac9-96f3-4fda-86aa-4ba23bac7a83}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions.Interfaces\MFR.Objects.Generators.RegularExpressions.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Generators.RegularExpressions.Interfaces\MFR.Generators.RegularExpressions.Interfaces.csproj">
       <Project>{54580b90-4025-4233-b0f0-91264ab1045d}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Generators.RegularExpressions\MFR.Objects.Generators.RegularExpressions.csproj">
+    <ProjectReference Include="..\MFR.Generators.RegularExpressions\MFR.Generators.RegularExpressions.csproj">
       <Project>{43FBFA8B-262D-4424-8C89-41A7F6427BC8}</Project>
       <Name>MFR.Objects.Generators.RegularExpressions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Tests.Common\MFR.Objects.Tests.Common.csproj">
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473c0-311b-40e4-a35a-cf72ad85542e}</Project>
       <Name>MFR.Objects.Tests.Common</Name>
     </ProjectReference>
