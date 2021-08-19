@@ -3,7 +3,7 @@ using System;
 using System.Runtime.InteropServices.ComTypes;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
+namespace MFR.Interop.Monikers.Wrappers.Factories
 {
     /// <summary>
     /// Obtains the display names of objects from the operating-system-provided
@@ -41,7 +41,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.GetDisplayName" />.
+        /// <see cref="T:MFR.GetDisplayName" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static GetOperatingSystemObjectDisplayName Instance
@@ -79,7 +79,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         ///     cref="T:System.Runtime.InteropServices.ComTypes.IBindCtx" />
         /// interface with this factory and, using it and the
         /// <see
-        ///     cref="F:MFR.Objects.GetDisplayName._moniker" />
+        ///     cref="F:MFR.GetDisplayName._moniker" />
         /// field's
         /// value, attempts to obtain the moniker's display name from the
         /// operating system.
@@ -96,7 +96,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         /// <remarks>
         /// Clients of this class must call the
         /// <see
-        ///     cref="M:MFR.Objects.GetOperatingSystemObjectDisplayName.FromMoniker" />
+        ///     cref="M:MFR.GetOperatingSystemObjectDisplayName.FromMoniker" />
         /// method prior to calling this method. If that has not been done, then
         /// this method will throw
         /// <see
@@ -117,7 +117,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if this method has been called without calling the
         /// <see
-        ///     cref="M:MFR.Objects.GetOperatingSystemObjectDisplayName.FromMoniker" />
+        ///     cref="M:MFR.GetOperatingSystemObjectDisplayName.FromMoniker" />
         /// method first.
         /// </exception>
         public string UsingBindContext(IBindCtx bindContext)

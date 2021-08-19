@@ -2,7 +2,7 @@ using System;
 using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.FileSystem.Factories
+namespace MFR.FileSystem.Factories
 {
     /// <summary>
     /// Creates new instances of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/>.

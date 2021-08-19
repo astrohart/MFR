@@ -1,10 +1,10 @@
-using MFR.Objects.FileSystem.Interfaces;
+using MFR.FileSystem.Interfaces;
 using System;
 using System.IO;
 using File = Alphaleonis.Win32.Filesystem.File;
 using FileInfo = Alphaleonis.Win32.Filesystem.FileInfo;
 
-namespace MFR.Objects.FileSystem.Factories
+namespace MFR.FileSystem.Factories
 {
     /// <summary>
     /// Creates new instances of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> and returns
@@ -52,7 +52,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// Creates a new instance of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> for the
         /// file whose path is specified by the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface, a reference to which is passed in the
         /// <paramref
         ///     name="entry" />
@@ -61,7 +61,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// <param name="entry">
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that contains the file's path.
         /// </param>
         /// <returns>
@@ -72,7 +72,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required
         /// <see
-        ///     cref="P:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.FileSystem.Interfaces.IFileSystemEntry.Path" />
         /// property is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:System.ArgumentNullException">

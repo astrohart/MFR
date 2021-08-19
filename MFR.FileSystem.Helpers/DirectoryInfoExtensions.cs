@@ -3,7 +3,7 @@ using Alphaleonis.Win32.Filesystem;
 using System.Threading;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.FileSystem.Helpers
+namespace MFR.FileSystem.Helpers
 {
     /// <summary>
     /// Helper methods for working with instances of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo"/>.

@@ -1,10 +1,10 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations;
-using MFR.Objects.Operations.Constants;
+using MFR.FileSystem.Interfaces;
+using MFR.Operations;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.FileSystem
+namespace MFR.FileSystem
 {
     /// <summary>
     /// POCO to encapsulate the details of a file-system entry, such as a file
@@ -15,7 +15,7 @@ namespace MFR.Objects.FileSystem
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.FileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.FileSystemEntry" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -60,7 +60,7 @@ namespace MFR.Objects.FileSystem
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

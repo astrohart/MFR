@@ -1,20 +1,20 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Retrievers.Factories;
-using MFR.Objects.FileSystem.Retrievers.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Tests.Common;
+using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Retrievers.Factories;
+using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using System.Collections.Generic;
 using Alphaleonis.Win32.Filesystem;
 using System.IO;
 using System.Linq;
 
-namespace MFR.Objects.FileSystem.Retrievers.Tests
+namespace MFR.FileSystem.Retrievers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.FolderToRenameRetriever" />
+    ///     cref="T:MFR.FolderToRenameRetriever" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -39,7 +39,7 @@ namespace MFR.Objects.FileSystem.Retrievers.Tests
         /// <summary>
         /// Gets a reference to an instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
         /// interface for renaming folders.
         /// </summary>
         private IFileSystemEntryListRetriever Retriever

@@ -1,5 +1,5 @@
-using MFR.Objects.Configuration.Converters;
-using MFR.Objects.FileSystem.Helpers;
+using MFR.Configuration.Converters;
+using MFR.FileSystem.Helpers;
 using MFR.Profiles.Collections;
 using MFR.Profiles.Collections.Interfaces;
 using System;

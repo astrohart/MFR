@@ -1,20 +1,20 @@
-using MFR.Objects.Configuration.Commands.Constants;
-using MFR.Objects.Configuration.Commands.Factories;
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Factories;
-using MFR.Objects.Metadata.Registry.Factories;
-using MFR.Objects.Metadata.Registry.Interfaces;
-using MFR.Objects.Registry.Helpers;
-using MFR.Objects.System;
-using MFR.Objects.Tests.Common;
+using MFR.Configuration.Commands.Constants;
+using MFR.Configuration.Commands.Factories;
+using MFR.Messages.Constants;
+using MFR.Messages.Factories;
+using MFR.Metadata.Registry.Factories;
+using MFR.Metadata.Registry.Interfaces;
+using MFR.Registry.Helpers;
+using MFR.System;
+using MFR.Tests.Common;
 using NUnit.Framework;
 
-namespace MFR.Objects.Replacers.Factories.Tests
+namespace MFR.Replacers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.SaveStringToRegistryCommand" />
+    ///     cref="T:MFR.SaveStringToRegistryCommand" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -24,7 +24,7 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.LoadStringFromRegistryAction.Execute" />
+        ///     cref="M:MFR.LoadStringFromRegistryAction.Execute" />
         /// method correctly loads a path from the system Registry.
         /// </summary>
         [Test]

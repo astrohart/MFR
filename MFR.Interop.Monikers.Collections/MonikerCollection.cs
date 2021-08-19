@@ -1,11 +1,11 @@
-using MFR.Objects.Interop.Monikers.Collections.Interfaces;
-using MFR.Objects.Interop.Monikers.Wrappers.Interfaces;
+using MFR.Interop.Monikers.Collections.Interfaces;
+using MFR.Interop.Monikers.Wrappers.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Interop.Monikers.Collections
+namespace MFR.Interop.Monikers.Collections
 {
     /// <summary>
     /// Collection that represents an operating-system defined table of COM
@@ -46,7 +46,7 @@ namespace MFR.Objects.Interop.Monikers.Collections
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IMonikerEnumerator" />
+        /// the <see cref="T:MFR.IMonikerEnumerator" />
         /// interface and which provides COM object moniker enumeration services.
         /// </summary>
         private IMonikerEnumerator Enumerator

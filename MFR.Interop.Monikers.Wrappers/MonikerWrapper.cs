@@ -1,7 +1,7 @@
-using MFR.Objects.Interop.Monikers.Wrappers.Interfaces;
+using MFR.Interop.Monikers.Wrappers.Interfaces;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Interop.Monikers.Wrappers
+namespace MFR.Interop.Monikers.Wrappers
 {
     /// <summary>
     /// POCO that encapsulates the information from the moniker table provided
@@ -12,7 +12,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Interop.Monikers.Wrappers.MonikerWrapper" />
+        ///     cref="T:MFR.Interop.Monikers.Wrappers.MonikerWrapper" />
         /// and returns a
         /// reference to it.
         /// </summary>

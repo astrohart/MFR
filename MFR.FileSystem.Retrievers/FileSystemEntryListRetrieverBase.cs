@@ -1,24 +1,24 @@
-using MFR.Objects.Configuration;
-using MFR.Objects.Engines.Matching.Factories;
-using MFR.Objects.Engines.Matching.Interfaces;
-using MFR.Objects.Expressions.Matches;
-using MFR.Objects.Expressions.Matches.Factories;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Retrievers.Interfaces;
-using MFR.Objects.FileSystem.Validators;
-using MFR.Objects.FileSystem.Validators.Factories;
-using MFR.Objects.FileSystem.Validators.Interfaces;
-using MFR.Objects.Invokers.Factories;
-using MFR.Objects.Operations.Constants;
+using MFR.Configuration;
+using MFR.Engines.Matching.Factories;
+using MFR.Engines.Matching.Interfaces;
+using MFR.Expressions.Matches;
+using MFR.Expressions.Matches.Factories;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.FileSystem.Validators;
+using MFR.FileSystem.Validators.Factories;
+using MFR.FileSystem.Validators.Interfaces;
+using MFR.Invokers.Factories;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 
-namespace MFR.Objects.FileSystem.Retrievers
+namespace MFR.FileSystem.Retrievers
 {
     /// <summary>
     /// Contains functionality that is shared by all file-system-entry-list
@@ -30,7 +30,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase" />
+        ///     cref="T:MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase" />
         /// and returns a reference to it.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -47,7 +47,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// The value of this property can be set by clients of this object
         /// using the
         /// <see
-        ///     cref="M:MFR.Objects.IFileSystemEntryListRetriever.ToFindWhat" />
+        ///     cref="M:MFR.IFileSystemEntryListRetriever.ToFindWhat" />
         /// method.
         /// </remarks>
         protected string FindWhat
@@ -64,7 +64,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// The value of this property can be set by clients of this object
         /// using the
         /// <see
-        ///     cref="M:MFR.Objects.IFileSystemEntryListRetriever.AndReplaceItWith" />
+        ///     cref="M:MFR.IFileSystemEntryListRetriever.AndReplaceItWith" />
         /// method.
         /// </remarks>
         protected string ReplaceWith
@@ -101,7 +101,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// Fluent bridge property that accesses the appropriate file-system
         /// entry validator object, that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
         /// interface, for the current operation type.
         /// </summary>
         /// <remarks>
@@ -116,7 +116,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// Fluent bridge property that accesses the appropriate text-expression
         /// matcher object, that implements the
         /// <see
-        ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
+        ///     cref="T:MFR.ITextExpressionMatchingEngine" />
         /// interface,
         /// for the current operation type and configuration.
         /// </summary>
@@ -132,7 +132,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
@@ -182,7 +182,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <returns>
         /// Collection of instances of objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that
         /// correspond to the file system entries that match the criteria specified.
         /// </returns>
@@ -190,7 +190,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Objects.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
@@ -319,7 +319,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// Calling this method is optional. If this method is not called, the
         /// type that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
         /// interface will decide what is the default value to be utilized.
         /// </remarks>
         /// <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">
@@ -373,7 +373,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// </param>
         /// <param name="entry">
         /// (Optional.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that has the data to run decision-making upon. If this
         /// parameter is <see langword="null" />, then this method returns
         /// <see langword="false" />.
@@ -392,7 +392,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <summary>
         /// Provides the implementation of the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths" />
+        ///     cref="M:MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths" />
         /// method.
         /// </summary>
         /// <param name="rootFolderPath">
@@ -416,7 +416,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <returns>
         /// Collection of instances of objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that
         /// correspond to the file system entries that match the criteria specified.
         /// </returns>
@@ -431,10 +431,10 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.Objects.ConfigurationComposedObjectBase.Configuration" />
+        ///     cref="P:MFR.ConfigurationComposedObjectBase.Configuration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
-        /// <exception cref="T:MFR.Objects.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
@@ -443,7 +443,7 @@ namespace MFR.Objects.FileSystem.Retrievers
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Objects.IMatchExpression" /> interface.
+        /// <see cref="T:MFR.IMatchExpression" /> interface.
         /// <para />
         /// This object specifies textual search criteria.
         /// <para />
@@ -452,12 +452,12 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMatchExpression" />
+        ///     cref="T:MFR.IMatchExpression" />
         /// interface.
         /// <para />
         /// The properties of the object provide text-search and replacement criteria.
@@ -466,13 +466,13 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        /// <exception cref="T:MFR.Objects.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown in the event that the
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// property of
         /// the object referenced by the <paramref name="entry" /> parameter is a
         /// blank or <see langword="null" /> string.
@@ -499,7 +499,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that has the data for the matching process.
         /// </param>
         /// <returns>

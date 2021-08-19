@@ -1,14 +1,14 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations.Interfaces;
+using MFR.FileSystem.Interfaces;
+using MFR.Operations.Interfaces;
 
-namespace MFR.Objects.TextValues.Retrievers.Interfaces
+namespace MFR.TextValues.Retrievers.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a text-retriever object.
     /// </summary>
     /// <remarks>
     /// Such objects examine the properties of another object that implements
-    /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+    /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
     /// <para />
     /// The properties are used to extract a text value that contains the data
     /// upon which a find/replace operation is based.
@@ -21,12 +21,12 @@ namespace MFR.Objects.TextValues.Retrievers.Interfaces
         /// <summary>
         /// Gets a string containing the text to be searched, from the
         /// file-system <paramref name="entry" /> provided, given the current
-        /// <see cref="T:MFR.Objects.OperationType"/> now being processed.
+        /// <see cref="T:MFR.OperationType"/> now being processed.
         /// </summary>
         /// <param name="entry">
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface.
         /// </param>
         /// <returns>

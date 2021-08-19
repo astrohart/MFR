@@ -1,5 +1,5 @@
-using MFR.Objects.Configuration.Actions;
-using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Configuration.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Profiles.Actions.Constants;
 using System;
 
@@ -8,7 +8,7 @@ namespace MFR.Profiles.Actions.Factories
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IAction" />
+    ///     cref="T:MFR.IAction" />
     /// interface, in order to perform actions on the list of profiles.
     /// </summary>
     /// <remarks>
@@ -19,28 +19,28 @@ namespace MFR.Profiles.Actions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IAction" />
+        ///     cref="T:MFR.IAction" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <param name="actionType">
         /// (Required.) A
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
+        ///     cref="T:MFR.Messages.Constants.MessageType" />
         /// value that
         /// indicates what action to execute.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Actions.Interfaces.IAction" />
+        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
         /// interface
         /// that corresponds to the specified
-        /// <see cref="T:MFR.Objects.Messages.Constants.MessageType" />.
+        /// <see cref="T:MFR.Messages.Constants.MessageType" />.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if no action is available that corresponds to the
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
+        ///     cref="T:MFR.Messages.Constants.MessageType" />
         /// value provided
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>

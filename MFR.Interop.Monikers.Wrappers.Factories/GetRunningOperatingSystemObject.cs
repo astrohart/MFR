@@ -3,7 +3,7 @@ using System;
 using System.Runtime.InteropServices.ComTypes;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
+namespace MFR.Interop.Monikers.Wrappers.Factories
 {
     /// <summary>
     /// Looks up running objects from the operating-system-provided Running
@@ -40,7 +40,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static GetRunningOperatingSystemObject Instance

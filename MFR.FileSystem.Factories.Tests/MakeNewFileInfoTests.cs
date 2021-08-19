@@ -1,16 +1,16 @@
-using MFR.Objects.Tests.Common;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
 using System.IO;
 using File = Alphaleonis.Win32.Filesystem.File;
 using FileInfo = Alphaleonis.Win32.Filesystem.FileInfo;
 
-namespace MFR.Objects.FileSystem.Factories.Tests
+namespace MFR.FileSystem.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.MakeNewFileInfo" />
+    ///     cref="T:MFR.MakeNewFileInfo" />
     /// class.
     /// </summary>
     [TestFixture]

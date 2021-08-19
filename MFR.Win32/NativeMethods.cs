@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Win32
+namespace MFR.Win32
 {
     /// <summary>
     /// P/Invoke signatures of Win32 API functions and constants.

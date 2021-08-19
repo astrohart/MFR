@@ -1,18 +1,18 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Expressions.Matches.Factories.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Expressions.Matches.Factories.Interfaces;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Expressions.Matches.Factories
+namespace MFR.Expressions.Matches.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression" />
+    ///     cref="T:MFR.Expressions.Matches.Interfaces.IMatchExpression" />
     /// interface that correspond to the
     /// <see
-    ///     cref="T:MFR.Objects.Operations.Constants.OperationType.RenameFilesInFolder" />
+    ///     cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
     /// operation.
     /// </summary>
     public class
@@ -20,7 +20,7 @@ namespace MFR.Objects.Expressions.Matches.Factories
             FileAndFolderMatchExpressionFactoryBase
     {
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -47,10 +47,10 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// <para />
         /// However, prior to even invoking this method, the
         /// <see
-        ///     cref="M:MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration" />
+        ///     cref="M:MFR.IConfigurationComposedObject.AndAttachConfiguration" />
         /// method must be invoked; otherwise, a
         /// <see
-        ///     cref="T:MFR.Objects.ConfigurationNotAttachedException" />
+        ///     cref="T:MFR.ConfigurationNotAttachedException" />
         /// will be
         /// thrown. It is incumbent upon invokers of this method to first weed
         /// out any possible elements of the source value set that may make the

@@ -1,6 +1,6 @@
-using MFR.Objects.Filters.Search.Constants;
+using MFR.Filters.Search.Constants;
 
-namespace MFR.Objects.Filters.Search.Interfaces
+namespace MFR.Filters.Search.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a search filter

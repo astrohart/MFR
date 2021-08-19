@@ -1,20 +1,20 @@
-using MFR.Objects.Invokers.Factories;
-using MFR.Objects.Invokers.Interfaces;
+using MFR.Invokers.Factories;
+using MFR.Invokers.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Invokers.Tests
+namespace MFR.Invokers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.PathFilterInvokerBase" />
+    ///     cref="T:MFR.PathFilterInvokerBase" />
     /// class.
     /// </summary>
     [TestFixture]
     public class PathFilterInvokerBaseTests
     {
         /// <summary>
-        /// Reference to an instance of an object that implements the <see cref="T:MFR.Objects.Invokers.Interfaces.IPathFilterInvoker" /> interface.
+        /// Reference to an instance of an object that implements the <see cref="T:MFR.Invokers.Interfaces.IPathFilterInvoker" /> interface.
         /// </summary>
         private static IPathFilterInvoker Invoker
             => MakeNewPathFilterInvoker.FromScratch();
@@ -22,7 +22,7 @@ namespace MFR.Objects.Invokers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.Invokers.Interfaces.IPathFilterInvoker.Passes" />
+        ///     cref="M:MFR.Invokers.Interfaces.IPathFilterInvoker.Passes" />
         /// method returns <see langword="true" /> when passed
         /// <see
         ///     langword="null" />

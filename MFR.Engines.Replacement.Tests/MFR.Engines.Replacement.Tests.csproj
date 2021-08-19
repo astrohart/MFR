@@ -22,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Engines.Replacement.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Engines.Replacement.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Engines.Replacement.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Engines.Replacement.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Engines.Replacement.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Engines.Replacement.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,7 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Engines.Replacement.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Engines.Replacement.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -70,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Engines.Replacement.Tests</AssemblyName>
+    <AssemblyName>MFR.Engines.Replacement.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Engines.Replacement.Tests</RootNamespace>
+    <RootNamespace>MFR.Engines.Replacement.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -131,27 +131,27 @@
   <ItemGroup>
     <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Objects.Configuration.Interfaces</Name>
+      <Name>MFR.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Replacement.Factories\MFR.Engines.Replacement.Factories.csproj">
       <Project>{0ECB53B9-B0A3-451F-9862-F9E13EB9C9F0}</Project>
-      <Name>MFR.Objects.Engines.Replacement.Factories</Name>
+      <Name>MFR.Engines.Replacement.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Replacement.Intefaces\MFR.Engines.Replacement.Intefaces.csproj">
       <Project>{343E6F3B-042F-4001-B485-4E7C949DF18E}</Project>
-      <Name>MFR.Objects.Engines.Replacement.Intefaces</Name>
+      <Name>MFR.Engines.Replacement.Intefaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Objects.Operations.Constants</Name>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Objects.Operations.Interfaces</Name>
+      <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
-      <Name>MFR.Objects.Tests.Common</Name>
+      <Name>MFR.Tests.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

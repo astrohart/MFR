@@ -1,12 +1,12 @@
-using MFR.Objects.Configuration.Helpers;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Matchers.Factories;
-using MFR.Objects.Operations.Constants;
+using MFR.Configuration.Helpers;
+using MFR.Configuration.Interfaces;
+using MFR.Matchers.Factories;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Engines.Matching
+namespace MFR.Engines.Matching
 {
     /// <summary>
     /// Searches for matches to textual-search criteria patterns and regexes in
@@ -19,7 +19,7 @@ namespace MFR.Objects.Engines.Matching
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase" />
+        ///     cref="T:MFR.Engines.Matching.TextExpressionMatchingEngineBase" />
         /// and returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
@@ -34,7 +34,7 @@ namespace MFR.Objects.Engines.Matching
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Engines.Matching.FolderNameMatchingEngine" />
+        ///     cref="T:MFR.Engines.Matching.FolderNameMatchingEngine" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -52,7 +52,7 @@ namespace MFR.Objects.Engines.Matching
         }
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

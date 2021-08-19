@@ -1,12 +1,12 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Generators.RegularExpressions.Constants;
-using MFR.Objects.Generators.RegularExpressions.Factories;
+using MFR.Configuration.Constants;
+using MFR.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Matchers
+namespace MFR.Matchers
 {
     /// <summary>
     /// Matches strings only for the case where Match Case is set to
@@ -34,7 +34,7 @@ namespace MFR.Objects.Matchers
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher" />
+        ///     cref="T:MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -46,7 +46,7 @@ namespace MFR.Objects.Matchers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

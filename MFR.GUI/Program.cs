@@ -1,11 +1,11 @@
 using MFR.GUI.Launchers.Dialogs;
 using MFR.GUI.Windows;
-using MFR.Objects.CommandLine;
-using MFR.Objects.CommandLine.Constants;
-using MFR.Objects.CommandLine.Validators.Events;
-using MFR.Objects.CommandLine.Validators.Factories;
-using MFR.Objects.Configuration.Providers.Factories;
-using MFR.Objects.Configuration.Providers.Interfaces;
+using MFR.CommandLine;
+using MFR.CommandLine.Constants;
+using MFR.CommandLine.Validators.Events;
+using MFR.CommandLine.Validators.Factories;
+using MFR.Configuration.Providers.Factories;
+using MFR.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace MFR.GUI
         /// <summary>
         /// Gets a reference to an instance of a
         /// <see
-        ///     cref="T:MFR.Objects.CommandLine.CommandLineInfo" />
+        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
         /// object that is
         /// initialized with the values specified (if any) by the user on this
         /// application's command line.
@@ -38,7 +38,7 @@ namespace MFR.GUI
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -81,7 +81,7 @@ namespace MFR.GUI
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator.CommandLineInfoInvalid" />
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.CommandLineInfoInvalid" />
         /// event raised by the command-line validator object.
         /// </summary>
         /// <param name="sender">
@@ -90,7 +90,7 @@ namespace MFR.GUI
         /// <param name="e">
         /// A
         /// <see
-        ///     cref="T:MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs" />
+        ///     cref="T:MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <remarks>
@@ -103,7 +103,7 @@ namespace MFR.GUI
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
         /// event raised by the root-directory validator object.
         /// </summary>
         /// <param name="sender">
@@ -112,7 +112,7 @@ namespace MFR.GUI
         /// <param name="e">
         /// A
         /// <see
-        ///     cref="T:MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs" />
+        ///     cref="T:MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <remarks>
@@ -161,7 +161,7 @@ namespace MFR.GUI
         /// <summary>
         /// Initializes a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.CommandLine.CommandLineInfo" />
+        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
         /// from the
         /// arguments passed by the user on the command line, and initializes
         /// the <see cref="P:MFR.GUI.Program.CommandLineInfo" /> property with a

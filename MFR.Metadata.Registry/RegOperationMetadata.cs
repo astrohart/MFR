@@ -1,7 +1,7 @@
-using MFR.Objects.Metadata.Registry.Interfaces;
+using MFR.Metadata.Registry.Interfaces;
 using System;
 
-namespace MFR.Objects.Metadata.Registry
+namespace MFR.Metadata.Registry
 {
     /// <summary>
     /// Provides metadata for querying the data stored in a value contained
@@ -40,7 +40,7 @@ namespace MFR.Objects.Metadata.Registry
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegOperationMetadata.ValueName" />
+        ///     cref="P:MFR.IRegOperationMetadata.ValueName" />
         /// property.
         /// </summary>
         /// <param name="valueName">
@@ -89,7 +89,7 @@ namespace MFR.Objects.Metadata.Registry
         /// <summary>
         /// Assigns data to be written to the system Registry to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegOperationMetadata.Value" />
+        ///     cref="P:MFR.IRegOperationMetadata.Value" />
         /// property.
         /// </summary>
         /// <param name="value">

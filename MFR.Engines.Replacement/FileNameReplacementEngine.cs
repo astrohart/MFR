@@ -1,11 +1,11 @@
-using MFR.Objects.Configuration.Helpers;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Factories;
+using MFR.Configuration.Helpers;
+using MFR.Configuration.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Replacers.Factories;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Engines.Replacement
+namespace MFR.Engines.Replacement
 {
     /// <summary>
     /// Replaces text in file names.
@@ -15,7 +15,7 @@ namespace MFR.Objects.Engines.Replacement
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Engines.Replacement.FileNameReplacementEngine" />
+        ///     cref="T:MFR.Engines.Replacement.FileNameReplacementEngine" />
         /// and returns a reference to it.
         /// </summary>
         public FileNameReplacementEngine()
@@ -26,13 +26,13 @@ namespace MFR.Objects.Engines.Replacement
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.TextReplacementEngineBase" />
+        ///     cref="T:MFR.TextReplacementEngineBase" />
         /// and returns a
         /// reference to it.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface that holds
+        /// the <see cref="T:MFR.IConfiguration" /> interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
@@ -44,7 +44,7 @@ namespace MFR.Objects.Engines.Replacement
         ) { }
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType

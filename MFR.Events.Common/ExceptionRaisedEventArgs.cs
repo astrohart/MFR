@@ -1,17 +1,17 @@
 using System;
 
-namespace MFR.Objects.Events.Common
+namespace MFR.Events.Common
 {
     /// <summary>
     /// Defines the data that is passed by all events of type
-    /// <see cref="T:MFR.Objects.Events.ExceptionRaisedEventHandler" />.
+    /// <see cref="T:MFR.Events.ExceptionRaisedEventHandler" />.
     /// </summary>
     public class ExceptionRaisedEventArgs : EventArgs
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Events.Common.ExceptionRaisedEventArgs" />
+        ///     cref="T:MFR.Events.Common.ExceptionRaisedEventArgs" />
         /// and
         /// returns a reference to it.
         /// </summary>

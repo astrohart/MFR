@@ -1,6 +1,6 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 
-namespace MFR.Objects.Operations.Interfaces
+namespace MFR.Operations.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object whose
@@ -11,17 +11,17 @@ namespace MFR.Objects.Operations.Interfaces
         /// <summary>
         /// Initializes the
         /// <see
-        ///     cref="P:MFR.Objects.IOperationSpecificObject.OperationType" />
+        ///     cref="P:MFR.IOperationSpecificObject.OperationType" />
         /// property with the specific
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// value that
         /// corresponds to the type of operation being performed.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// specifies the type of operation being performed.
         /// </param>

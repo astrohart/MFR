@@ -1,12 +1,12 @@
-using MFR.Objects.Configuration.Helpers;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Factories;
+using MFR.Configuration.Helpers;
+using MFR.Configuration.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Replacers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Engines.Replacement
+namespace MFR.Engines.Replacement
 {
     /// <summary>
     /// Replaces text in a file. Here, we represent the file's contents as
@@ -17,7 +17,7 @@ namespace MFR.Objects.Engines.Replacement
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Engines.Replacement.TextInFileReplacementEngine" />
+        ///     cref="T:MFR.Engines.Replacement.TextInFileReplacementEngine" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -30,7 +30,7 @@ namespace MFR.Objects.Engines.Replacement
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.TextReplacementEngineBase" />
+        ///     cref="T:MFR.TextReplacementEngineBase" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -38,7 +38,7 @@ namespace MFR.Objects.Engines.Replacement
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface that
         /// holds settings that are specified by the user.
         /// </param>
@@ -58,7 +58,7 @@ namespace MFR.Objects.Engines.Replacement
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

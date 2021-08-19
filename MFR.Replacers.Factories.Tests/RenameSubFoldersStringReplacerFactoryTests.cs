@@ -1,14 +1,14 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Interfaces;
+using MFR.Configuration.Constants;
+using MFR.Operations.Constants;
+using MFR.Replacers.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Replacers.Factories.Tests
+namespace MFR.Replacers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.RenameSubFoldersStringReplacerFactory" />
+    ///     cref="T:MFR.RenameSubFoldersStringReplacerFactory" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -17,11 +17,11 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
+        ///     cref="M:MFR.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method returns an instance of the correct concrete type that
         /// corresponds to the particular
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// value that
         /// is passed as its argument.
         /// </summary>
@@ -64,13 +64,13 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that each object reference returned by the
         /// <see
-        ///     cref="M:MFR.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
+        ///     cref="M:MFR.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method for the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameSubFolders" />
+        ///     cref="T:MFR.OperationType.RenameSubFolders" />
         /// value implements the
         /// <see
-        ///     cref="T:MFR.Objects.IStringReplacer" />
+        ///     cref="T:MFR.IStringReplacer" />
         /// interface.
         /// </summary>
         [Test]
@@ -107,10 +107,10 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="P:MFR.Objects.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration" />
+        ///     cref="P:MFR.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration" />
         /// property of each of the concrete types returned by the
         /// <see
-        ///     cref="M:MFR.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
+        ///     cref="M:MFR.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method has the same value as was supplied to the method.
         /// </summary>
         [Test]
@@ -155,17 +155,17 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="P:MFR.Objects.IFixedOperationTypeSpecificObject.OperationType" />
+        ///     cref="P:MFR.IFixedOperationTypeSpecificObject.OperationType" />
         /// property of each of the objects returned by the
         /// <see
-        ///     cref="M:MFR.Objects.IStringReplacerFactory.AndTextMatchingConfiguration" />
+        ///     cref="M:MFR.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method for each
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// value, and
         /// for the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameSubFolders" />
+        ///     cref="T:MFR.OperationType.RenameSubFolders" />
         /// value, is set to that value.
         /// </summary>
         [Test]

@@ -1,16 +1,16 @@
 ﻿using EnvDTE;
-using MFR.Objects.Solutions.Interfaces;
+using MFR.Solutions.Interfaces;
 using System;
 using System.IO;
 using xyLOGIX.Core.Extensions;
 using File = Alphaleonis.Win32.Filesystem.File;
 
-namespace MFR.Objects.Solutions.Factories
+namespace MFR.Solutions.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+    ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
     /// interface, and returns references to them.
     /// </summary>
     public static class GetNewVisualStudioSolutionObject
@@ -18,14 +18,14 @@ namespace MFR.Objects.Solutions.Factories
         /// <summary>
         /// Builder method that initializes the
         /// <see
-        ///     cref="P:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution.Path" />
+        ///     cref="P:MFR.Solutions.Interfaces.IVisualStudioSolution.Path" />
         /// property with the value provided in the <paramref name="path" /> parameter.
         /// </summary>
         /// <param name="solution">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface.
         /// </param>
         /// <param name="path">
@@ -82,7 +82,7 @@ namespace MFR.Objects.Solutions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface and returns a reference to it, initialized with the
         /// reference to an instance of an object that implements the
         /// <see
@@ -99,7 +99,7 @@ namespace MFR.Objects.Solutions.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">

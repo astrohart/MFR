@@ -1,12 +1,12 @@
 using Microsoft.Win32;
 using NUnit.Framework;
 
-namespace MFR.Objects.Registry.Helpers.Tests
+namespace MFR.Registry.Helpers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.RegistryHiveExtensions" />
+    ///     cref="T:MFR.RegistryHiveExtensions" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -59,7 +59,7 @@ namespace MFR.Objects.Registry.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.RegistryHiveExtensions.RemoveHiveName" />
+        ///     cref="M:MFR.RegistryHiveExtensions.RemoveHiveName" />
         /// method correctly strips the hive name from a fake path to a Registry
         /// key under HKEY_CURRENT_USER.
         /// </summary>
@@ -73,7 +73,7 @@ namespace MFR.Objects.Registry.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.RegistryHiveExtensions.ToRegistryHive" />
+        ///     cref="M:MFR.RegistryHiveExtensions.ToRegistryHive" />
         /// string extension method returns the correct
         /// <see
         ///     cref="T:Microsoft.Win32.RegistryHive" />

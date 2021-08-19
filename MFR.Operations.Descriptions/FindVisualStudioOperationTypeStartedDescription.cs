@@ -1,9 +1,9 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Interfaces;
-using MFR.Objects.Operations.Descriptions.Properties;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Interfaces;
+using MFR.Operations.Descriptions.Properties;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Operations.Descriptions
+namespace MFR.Operations.Descriptions
 {
     /// <summary>
     /// Gets the descriptive text to be displayed to the user at the start of a
@@ -28,7 +28,7 @@ namespace MFR.Objects.Operations.Descriptions
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.FindVisualStudioOperationStartedDescription" />
+        ///     cref="T:MFR.FindVisualStudioOperationStartedDescription" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -40,7 +40,7 @@ namespace MFR.Objects.Operations.Descriptions
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

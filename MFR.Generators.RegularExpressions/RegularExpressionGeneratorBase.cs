@@ -1,9 +1,9 @@
-﻿using MFR.Objects.Generators.RegularExpressions.Constants;
-using MFR.Objects.Generators.RegularExpressions.Interfaces;
+﻿using MFR.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Interfaces;
 using xyLOGIX.Generators;
 using xyLOGIX.Generators.Constants;
 
-namespace MFR.Objects.Generators.RegularExpressions
+namespace MFR.Generators.RegularExpressions
 {
     /// <summary>
     /// Defines the services that are available to all of the concrete
@@ -14,7 +14,7 @@ namespace MFR.Objects.Generators.RegularExpressions
             IRegularExpressionGenerator
     {
         /// <summary>
-        /// A <see cref="T:MFR.Objects.Generators.Constants.GeneratorType" />
+        /// A <see cref="T:MFR.Generators.Constants.GeneratorType" />
         /// value that specifies which type of generator this object is.
         /// </summary>
         public override GeneratorType GeneratorType
@@ -23,7 +23,7 @@ namespace MFR.Objects.Generators.RegularExpressions
         /// <summary>
         /// Gets the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType" />
         /// value that uniquely identifies which type of regular expressions
         /// that this object handles.
         /// </summary>

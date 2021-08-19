@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Operations.Interfaces
+namespace MFR.Operations.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that is
     /// tagged with one of the
     /// <see
-    ///     cref="T:MFR.Objects.OperationType" />
+    ///     cref="T:MFR.OperationType" />
     /// values.
     /// </summary>
     /// <remarks>
@@ -18,7 +18,7 @@ namespace MFR.Objects.Operations.Interfaces
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

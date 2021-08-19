@@ -1,13 +1,13 @@
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Requests.Intefaces;
+using MFR.Messages.Constants;
+using MFR.Messages.Requests.Intefaces;
 using System;
 
-namespace MFR.Objects.Messages.Factories
+namespace MFR.Messages.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IRequest" />
+    ///     cref="T:MFR.IRequest" />
     /// interface.
     /// </summary>
     public static class GetRequest
@@ -15,7 +15,7 @@ namespace MFR.Objects.Messages.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IRequest" />
+        ///     cref="T:MFR.IRequest" />
         /// interface and returns a reference to
         /// it.
         /// <typeparam name="TResult">
@@ -26,20 +26,20 @@ namespace MFR.Objects.Messages.Factories
         /// <param name="type">
         /// (Required.) A
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
+        ///     cref="T:MFR.Messages.Constants.MessageType" />
         /// value that
         /// indicates what request to execute.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Requests.Interfaces.IRequest" />
+        ///     cref="T:MFR.Messages.Requests.Interfaces.IRequest" />
         /// interface that corresponds to the specified
-        /// <see cref="T:MFR.Objects.Messages.Constants.MessageType" />.
+        /// <see cref="T:MFR.Messages.Constants.MessageType" />.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if no request object is available that corresponds to the
-        /// <see cref="T:MFR.Objects.Messages.Constants.MessageType" /> value
+        /// <see cref="T:MFR.Messages.Constants.MessageType" /> value
         /// provided in the <paramref name="type" /> parameter.
         /// </exception>
         /// <remarks>

@@ -1,16 +1,16 @@
-using MFR.Objects.Processes.Factories;
-using MFR.Objects.Tests.Common;
-using MFR.Objects.Processes.Interfaces;
+using MFR.Processes.Factories;
+using MFR.Tests.Common;
+using MFR.Processes.Interfaces;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MFR.Objects.Processes.Tests
+namespace MFR.Processes.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.ProcessIdProvider" />
+    ///     cref="T:MFR.ProcessIdProvider" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -29,7 +29,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IProcessIdProvider" />
+        ///     cref="T:MFR.IProcessIdProvider" />
         /// interface.
         /// </summary>
         private IProcessIdProvider _processIdProvider;
@@ -43,7 +43,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetAllProcessIDsOf" />
         /// method returns the empty collection when it is passed the empty
         /// string as input.
         /// </summary>
@@ -57,7 +57,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetAllProcessIDsOf" />
         /// method returns nonzero items when passed the filename of
         /// <c>devenv.exe</c> as input.
         /// </summary>
@@ -77,7 +77,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetAllProcessIDsOf" />
         /// method returns the empty collection when it is passed gibberish as input.
         /// </summary>
         [Test]
@@ -91,7 +91,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetAllProcessIDsOf" />
         /// method returns the empty collection when it is passed the
         /// <see langword="null" /> string as input.
         /// </summary>
@@ -105,7 +105,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetAllProcessIDsOf" />
         /// method returns the empty collection when it is passed whitespace as input.
         /// </summary>
         [Test]
@@ -119,7 +119,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetProcessIDOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetProcessIDOf" />
         /// method returns <c>-1</c> for the process ID when passed the empty
         /// string as input.
         /// </summary>
@@ -132,7 +132,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetProcessIDOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetProcessIDOf" />
         /// method returns <c>-1</c> for the process ID when passed gibberish
         /// for input.
         /// </summary>
@@ -144,7 +144,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetProcessIDOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetProcessIDOf" />
         /// method returns <c>-1</c> for the process ID when passed the
         /// <see langword="null" /> string as input.
         /// </summary>
@@ -155,7 +155,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetProcessIDOf" />
+        ///     cref="M:MFR.IProcessIdProvider.GetProcessIDOf" />
         /// method returns <c>-1</c> for the process ID when passed the empty
         /// string as input.
         /// </summary>
@@ -168,7 +168,7 @@ namespace MFR.Objects.Processes.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MFR.Objects.IProcessIdProvider.GetProcessIDOf" /> method
+        ///     cref="M:MFR.IProcessIdProvider.GetProcessIDOf" /> method
         /// always returns a positive integer for the process ID when searching
         /// on <c>devenv.exe</c>.
         /// </summary>

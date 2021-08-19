@@ -1,9 +1,9 @@
-using MFR.Objects.Tests.Common;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Tests
+namespace MFR.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

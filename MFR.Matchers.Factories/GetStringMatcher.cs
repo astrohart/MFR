@@ -1,13 +1,13 @@
-using MFR.Objects.Matchers.Factories.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Matchers.Factories.Interfaces;
+using MFR.Operations.Constants;
 using System;
 
-namespace MFR.Objects.Matchers.Factories
+namespace MFR.Matchers.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IStringMatcher" />
+    ///     cref="T:MFR.IStringMatcher" />
     /// interface.
     /// </summary>
     public static class GetStringMatcher
@@ -15,24 +15,24 @@ namespace MFR.Objects.Matchers.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IStringMatcher" />
+        ///     cref="T:MFR.IStringMatcher" />
         /// interface and
         /// returns a reference to it, for the given
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// value.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IStringMatcher" />
+        ///     cref="T:MFR.IStringMatcher" />
         /// interface that corresponds to the specified type of operation.
         /// </returns>
         public static IStringMatcherFactory For(OperationType type)

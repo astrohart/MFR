@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Interop.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Interop.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Interop.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Interop.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Interop.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Interop.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Interop.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Interop.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Interop.Factories</AssemblyName>
+    <AssemblyName>MFR.Interop.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Interop.Factories</RootNamespace>
+    <RootNamespace>MFR.Interop.Factories</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -127,7 +127,7 @@
     </ProjectReference>
     <ProjectReference Include="..\MFR.Win32\MFR.Win32.csproj">
       <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
-      <Name>MFR.Objects.Win32</Name>
+      <Name>MFR.Win32</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

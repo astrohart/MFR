@@ -1,7 +1,7 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.TextValues.Retrievers
+namespace MFR.TextValues.Retrievers
 {
     /// <summary>
     /// Retrieves the value to be used in which to search for text to be
@@ -23,7 +23,7 @@ namespace MFR.Objects.TextValues.Retrievers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever" />.
+        /// <see cref="T:MFR.TextValues.Retrievers.FolderTextValueRetriever" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static FolderTextValueRetriever Instance
@@ -32,7 +32,7 @@ namespace MFR.Objects.TextValues.Retrievers
         } = new FolderTextValueRetriever();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

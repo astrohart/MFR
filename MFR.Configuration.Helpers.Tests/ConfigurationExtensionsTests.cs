@@ -1,13 +1,13 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Tests.Common;
+using MFR.Configuration.Constants;
+using MFR.Tests.Common;
 using NUnit.Framework;
 
-namespace MFR.Objects.Configuration.Helpers.Tests
+namespace MFR.Configuration.Helpers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.ConfigurationExtensions" />
+    ///     cref="T:MFR.ConfigurationExtensions" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -16,17 +16,17 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration.MatchCaseAndExactWord" />
+        ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
         /// enum value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="true" /> and whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="true" />.
         /// </summary>
@@ -44,18 +44,18 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration.MatchCaseOnly" />
+        ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseOnly" />
         /// enum
         /// value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="true" /> and whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="false" />.
         /// </summary>
@@ -73,17 +73,17 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration.MatchExactWordOnly" />
+        ///     cref="T:MFR.TextMatchingConfiguration.MatchExactWordOnly" />
         /// enum value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="false" /> and whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="true" />.
         /// </summary>
@@ -101,17 +101,17 @@ namespace MFR.Objects.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
+        ///     cref="T:MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
         /// enum value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="false" /> and whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="false" />.
         /// </summary>

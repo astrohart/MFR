@@ -1,11 +1,11 @@
-using MFR.Objects.Metadata.Registry.Interfaces;
+using MFR.Metadata.Registry.Interfaces;
 
-namespace MFR.Objects.Metadata.Registry.Factories
+namespace MFR.Metadata.Registry.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IRegOperationMetadata{T}" />
+    ///     cref="T:MFR.IRegOperationMetadata{T}" />
     /// interface.
     /// </summary>
     public static class MakeNewRegOperationMetadata
@@ -13,7 +13,7 @@ namespace MFR.Objects.Metadata.Registry.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IRegOperationMetadata{T}" />
+        ///     cref="T:MFR.IRegOperationMetadata{T}" />
         /// interface
         /// and returns a reference to it.
         /// </summary>
@@ -24,13 +24,13 @@ namespace MFR.Objects.Metadata.Registry.Factories
         /// <remarks>
         /// Callers of this method must then invoke the fluent-builder methods
         /// <see
-        ///     cref="M:MFR.Objects.IRegOperationMetadata.ForKeyPath" />
+        ///     cref="M:MFR.IRegOperationMetadata.ForKeyPath" />
         /// ,
         /// <see
-        ///     cref="M:MFR.Objects.IRegOperationMetadata.AndValueName" />
+        ///     cref="M:MFR.IRegOperationMetadata.AndValueName" />
         /// , and, optionally, the
         /// <see
-        ///     cref="M:MFR.Objects.IRegOperationMetadata.WithDefaultValue" />
+        ///     cref="M:MFR.IRegOperationMetadata.WithDefaultValue" />
         /// (if needed), to set the properties of the resultant object.
         /// <para />
         /// NOTE: The object's properties are also publicly-exposed, meaning an

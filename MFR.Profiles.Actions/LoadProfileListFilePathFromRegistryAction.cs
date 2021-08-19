@@ -1,10 +1,10 @@
-using MFR.Objects.Expressions.Registry.Interfaces;
-using MFR.Objects.Expressions.Registry.Validators.Factories;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Actions;
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.System;
+using MFR.Expressions.Registry.Interfaces;
+using MFR.Expressions.Registry.Validators.Factories;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.Messages.Actions;
+using MFR.Messages.Constants;
+using MFR.System;
 using MFR.Profiles.Actions.Constants;
 using PostSharp.Patterns.Diagnostics;
 
@@ -44,7 +44,7 @@ namespace MFR.Profiles.Actions
         } = new LoadProfileListFilePathFromRegistryAction();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.MessageType"/> that is being used
+        /// Gets the <see cref="T:MFR.MessageType"/> that is being used
         /// to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -57,7 +57,7 @@ namespace MFR.Profiles.Actions
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry"/>
+        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/>
         /// interface that corresponds to the result of executing the action.
         /// </returns>
         /// <remarks>
@@ -66,7 +66,7 @@ namespace MFR.Profiles.Actions
         /// <para/>
         /// This is a template method, the call to which is wrapped in a robust
         /// and fault-tolerant override of the <see
-        /// cref="M:MFR.Objects.ActionBase.CommonExecute"/> method.
+        /// cref="M:MFR.ActionBase.CommonExecute"/> method.
         /// <para/>
         /// The parent method override (a) validates that the _input field is
         /// not null, (b) checks for thrown exceptions, and(c) checks the result

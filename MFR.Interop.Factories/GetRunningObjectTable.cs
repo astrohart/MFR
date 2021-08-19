@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Interop.Factories
+namespace MFR.Interop.Factories
 {
     /// <summary>
     /// Contains methods that instruct the operating system to provide us with

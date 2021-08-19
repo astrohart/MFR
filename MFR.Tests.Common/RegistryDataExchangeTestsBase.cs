@@ -1,4 +1,4 @@
-namespace MFR.Objects.Tests.Common
+namespace MFR.Tests.Common
 {
     /// <summary>
     /// Defines the events, methods, properties, and behaviors for all unit test fixtures that test methods and objects that perform data exchange to and from the system Registry.
@@ -12,7 +12,7 @@ namespace MFR.Objects.Tests.Common
         /// <remarks>
         /// The master configuration file is defined to be that file, containing
         /// a JSON representation of an object that implements the <see
-        /// cref="T:MFR.Objects.IConfiguration"/> interface, exists
+        /// cref="T:MFR.IConfiguration"/> interface, exists
         /// in the centralized location that is used by the application.
         /// <para/>
         /// (Other such files may exist, but these are exports/imports.)

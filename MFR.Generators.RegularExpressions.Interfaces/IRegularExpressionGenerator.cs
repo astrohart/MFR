@@ -1,6 +1,6 @@
 ﻿using xyLOGIX.Generators.Interfaces;
 
-namespace MFR.Objects.Generators.RegularExpressions.Interfaces
+namespace MFR.Generators.RegularExpressions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that generates regular expressions of a given type.

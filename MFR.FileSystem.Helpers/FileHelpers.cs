@@ -1,10 +1,10 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.FileSystem.Exceptions;
-using MFR.Objects.FileSystem.Helpers.Properties;
+using MFR.FileSystem.Exceptions;
+using MFR.FileSystem.Helpers.Properties;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.FileSystem.Helpers
+namespace MFR.FileSystem.Helpers
 {
     /// <summary>
     /// Static methods to assist in processing files.

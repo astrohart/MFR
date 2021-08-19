@@ -1,11 +1,11 @@
-using MFR.Objects.Configuration.Constants;
+using MFR.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Replacers
+namespace MFR.Replacers
 {
     /// <summary>
     /// Replaces strings only for the case where both Match Case and Match Whole
@@ -30,7 +30,7 @@ namespace MFR.Objects.Replacers
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.Replacers.MatchCaseAndExactWordFileNameStringReplacer" />
+        ///     cref="T:MFR.Replacers.MatchCaseAndExactWordFileNameStringReplacer" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -42,7 +42,7 @@ namespace MFR.Objects.Replacers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

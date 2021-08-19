@@ -1,13 +1,13 @@
-using MFR.Objects.Interop.Monikers.Wrappers.Interfaces;
+using MFR.Interop.Monikers.Wrappers.Interfaces;
 using System;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
+namespace MFR.Interop.Monikers.Wrappers.Factories
 {
     /// <summary>
     /// Creates and initializes instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IMonikerWrapper" />
+    ///     cref="T:MFR.IMonikerWrapper" />
     /// interface and returns
     /// references to them.
     /// </summary>
@@ -16,7 +16,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMonikerWrapper" />
+        ///     cref="T:MFR.IMonikerWrapper" />
         /// interface, given
         /// the provided <paramref name="bindContext" />,
         /// <paramref
@@ -44,7 +44,7 @@ namespace MFR.Objects.Interop.Monikers.Wrappers.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMonikerWrapper" />
+        ///     cref="T:MFR.IMonikerWrapper" />
         /// interface, with
         /// its properties initialized.
         /// </returns>

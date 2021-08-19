@@ -1,6 +1,6 @@
-using MFR.Objects.Operations.Interfaces;
+using MFR.Operations.Interfaces;
 
-namespace MFR.Objects.Operations.Descriptions.Interfaces
+namespace MFR.Operations.Descriptions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an operation

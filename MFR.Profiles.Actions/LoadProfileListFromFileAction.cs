@@ -1,9 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.FileSystem.Helpers;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Actions;
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.System;
+using MFR.FileSystem.Helpers;
+using MFR.FileSystem.Interfaces;
+using MFR.Messages.Actions;
+using MFR.Messages.Constants;
+using MFR.System;
 using MFR.Profiles.Actions.Constants;
 using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Serializers;
@@ -48,7 +48,7 @@ namespace MFR.Profiles.Actions
         } = new LoadProfileListFromFileAction();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.MessageType"/> that is being used
+        /// Gets the <see cref="T:MFR.MessageType"/> that is being used
         /// to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -65,7 +65,7 @@ namespace MFR.Profiles.Actions
         /// specified file.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <see cref="F:MFR.Objects.ActionBase._input"/> field is
+        /// Thrown if the <see cref="F:MFR.ActionBase._input"/> field is
         /// blank or <see langword="null"/>.
         /// </exception>
         /// <remarks>

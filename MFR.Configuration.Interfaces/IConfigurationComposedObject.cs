@@ -1,17 +1,17 @@
-namespace MFR.Objects.Configuration.Interfaces
+namespace MFR.Configuration.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that is
     /// composed with an instance of another object that implements the
     /// <see
-    ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+    ///     cref="T:MFR.Configuration.Interfaces.IConfiguration" />
     /// interface.
     /// </summary>
     public interface IConfigurationComposedObject
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" /> interface.
+        /// the <see cref="T:MFR.Configuration.Interfaces.IConfiguration" /> interface.
         /// </summary>
         IConfiguration Configuration
         {
@@ -23,7 +23,7 @@ namespace MFR.Objects.Configuration.Interfaces
         /// Associates user settings, in the form of an instance of an object
         /// that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Configuration.Interfaces.IConfiguration" />
         /// interface, with
         /// this matcher.
         /// </summary>
@@ -32,7 +32,7 @@ namespace MFR.Objects.Configuration.Interfaces
         /// method, for fluent use.
         /// </returns>
         /// <remarks>
-        /// The <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        /// The <see cref="T:MFR.Configuration.Interfaces.IConfiguration" />
         /// -implementing configuration object controls the behavior of this
         /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
@@ -48,7 +48,7 @@ namespace MFR.Objects.Configuration.Interfaces
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" /> interface
+        /// the <see cref="T:MFR.Configuration.Interfaces.IConfiguration" /> interface
         /// which has the new settings.
         /// </param>
         /// <remarks>
@@ -67,11 +67,11 @@ namespace MFR.Objects.Configuration.Interfaces
         /// <remarks>
         /// If no configuration is attached to this object, then a new
         /// <see
-        ///     cref="T:MFR.Objects.ConfigurationNotAttachedException" />
+        ///     cref="T:MFR.ConfigurationNotAttachedException" />
         /// exception is thrown.
         /// </remarks>
         /// <exception
-        ///     cref="T:MFR.Objects.ConfigurationNotAttachedException">
+        ///     cref="T:MFR.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         void VerifyConfigurationAttached();

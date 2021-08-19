@@ -1,6 +1,6 @@
-﻿using MFR.Objects.Messages.Commands.Interfaces;
-using MFR.Objects.Metadata.Registry.Factories;
-using MFR.Objects.Metadata.Registry.Interfaces;
+﻿using MFR.Messages.Commands.Interfaces;
+using MFR.Metadata.Registry.Factories;
+using MFR.Metadata.Registry.Interfaces;
 using MFR.Profiles.Commands.Constants;
 using System;
 
@@ -9,14 +9,14 @@ namespace MFR.Profiles.Commands.Factories
     /// <summary>
     /// Gets a reference to an instance of an object that implements the
     /// <see
-    ///     cref="T:MFR.Objects.ICommand" />
+    ///     cref="T:MFR.ICommand" />
     /// interface and provides access to the
     /// operation of saving the path of a profile list file to the system Registry.
     /// </summary>
     public static class GetSaveProfileListPathCommand
     {
         /// <summary>
-        /// Provides access to the <see cref="T:MFR.Objects.ICommand" />
+        /// Provides access to the <see cref="T:MFR.ICommand" />
         /// -derived object that allows saving the pathname of a ProfileList
         /// file to the system Registry.
         /// </summary>
@@ -37,7 +37,7 @@ namespace MFR.Profiles.Commands.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Commands.Interfaces.ICommand" />
+        ///     cref="T:MFR.Messages.Commands.Interfaces.ICommand" />
         /// interface.
         /// </returns>
         public static ICommand<IRegOperationMetadata<string>> ForPath(

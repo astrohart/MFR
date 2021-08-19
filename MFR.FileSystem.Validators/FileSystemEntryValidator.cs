@@ -1,11 +1,11 @@
-using MFR.Objects.FileSystem.Interfaces;
+using MFR.FileSystem.Interfaces;
 using System;
 
-namespace MFR.Objects.FileSystem.Validators
+namespace MFR.FileSystem.Validators
 {
     /// <summary>
     /// Validates the values of the properties of instances of objects that
-    /// implement the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+    /// implement the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
     public static class FileSystemEntryValidator
@@ -15,7 +15,7 @@ namespace MFR.Objects.FileSystem.Validators
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
@@ -24,7 +24,7 @@ namespace MFR.Objects.FileSystem.Validators
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown in the event that the
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// property of
         /// the object referenced by the <paramref name="entry" /> parameter is a
         /// blank or <see langword="null" /> string.

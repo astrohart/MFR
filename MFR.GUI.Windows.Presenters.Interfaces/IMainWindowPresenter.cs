@@ -2,11 +2,11 @@ using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Presenters.Interfaces;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Events;
-using MFR.Objects.Configuration.Events;
-using MFR.Objects.Events.Common;
-using MFR.Objects.Managers.History.Interfaces;
-using MFR.Objects.Operations.Events;
-using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Configuration.Events;
+using MFR.Events.Common;
+using MFR.Managers.History.Interfaces;
+using MFR.Operations.Events;
+using MFR.Renamers.Files.Interfaces;
 using MFR.Profiles.Collections.Interfaces;
 using System;
 
@@ -97,7 +97,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// <param name="historyManager">
         ///     Reference to an instance of an object that implements the
         ///     <see
-        ///         cref="T:MFR.Objects.IHistoryManager" />
+        ///         cref="T:MFR.IHistoryManager" />
         ///     on which this Presenter
         ///     should depend.
         /// </param>
@@ -169,7 +169,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// </summary>
         /// <param name="fileRenamer">
         ///     (Required.) Reference to an instance of an object that implements
-        ///     the <see cref="T:MFR.Objects.IFileRenamer" /> interface.
+        ///     the <see cref="T:MFR.IFileRenamer" /> interface.
         /// </param>
         /// <returns>
         ///     Reference to the same instance of the object that called this

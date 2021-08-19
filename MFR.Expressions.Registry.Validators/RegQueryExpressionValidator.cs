@@ -1,16 +1,16 @@
-using MFR.Objects.Expressions.Registry.Interfaces;
-using MFR.Objects.Expressions.Registry.Validators.Interfaces;
-using MFR.Objects.Registry.Helpers;
+using MFR.Expressions.Registry.Interfaces;
+using MFR.Expressions.Registry.Validators.Interfaces;
+using MFR.Registry.Helpers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Expressions.Registry.Validators
+namespace MFR.Expressions.Registry.Validators
 {
     /// <summary>
     /// Validates the data in the properties of instances of objects that
     /// implement the <see
-    /// cref="T:MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression"/> interface.
+    /// cref="T:MFR.Expressions.Registry.Interfaces.IRegQueryExpression"/> interface.
     /// </summary>
     /// <typeparam name="T">
     /// Name of the type of data that is being fetched from, or written to, the
@@ -37,7 +37,7 @@ namespace MFR.Objects.Expressions.Registry.Validators
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.RegQueryExpressionValidator"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.RegQueryExpressionValidator"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IRegQueryExpressionValidator<T> Instance
@@ -47,7 +47,7 @@ namespace MFR.Objects.Expressions.Registry.Validators
 
         /// <summary>
         /// Gets the instance of the object that implements the <see
-        /// cref="T:MFR.Objects.IRegQueryExpression"/> interface that is being validated.
+        /// cref="T:MFR.IRegQueryExpression"/> interface that is being validated.
         /// </summary>
         [Log(AttributeExclude = true)]
         public IRegQueryExpression<T> Expression
@@ -58,7 +58,7 @@ namespace MFR.Objects.Expressions.Registry.Validators
 
         /// <summary>
         /// Initializes the value of the <see
-        /// cref="P:MFR.Objects.IRegQueryExpressionValidator.Expression"/>
+        /// cref="P:MFR.IRegQueryExpressionValidator.Expression"/>
         /// property to refer to the data that is to be validated.
         /// </summary>
         /// <returns>

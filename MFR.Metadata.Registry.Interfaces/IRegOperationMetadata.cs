@@ -1,6 +1,6 @@
 using Microsoft.Win32;
 
-namespace MFR.Objects.Metadata.Registry.Interfaces
+namespace MFR.Metadata.Registry.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that
@@ -59,7 +59,7 @@ namespace MFR.Objects.Metadata.Registry.Interfaces
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="valueName">
@@ -92,7 +92,7 @@ namespace MFR.Objects.Metadata.Registry.Interfaces
         /// <summary>
         /// Assigns data to be written to the system Registry to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegOperationMetadata.Value" />
+        ///     cref="P:MFR.IRegOperationMetadata.Value" />
         /// property.
         /// </summary>
         /// <param name="value">

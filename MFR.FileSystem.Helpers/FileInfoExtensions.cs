@@ -4,7 +4,7 @@ using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.FileSystem.Helpers
+namespace MFR.FileSystem.Helpers
 {
     /// <summary>
     /// Provides helper methods for working with instances of
@@ -105,7 +105,7 @@ namespace MFR.Objects.FileSystem.Helpers
         }
 
         /// <summary>
-        /// Makes multiple attempts to perform the file-rename operation.<para/>Called by the <see cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo"/> method.
+        /// Makes multiple attempts to perform the file-rename operation.<para/>Called by the <see cref="M:MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo"/> method.
         /// </summary>
         /// <param name="source">
         /// (Required.) A <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />

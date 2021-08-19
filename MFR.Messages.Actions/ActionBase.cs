@@ -1,8 +1,8 @@
-using MFR.Objects.Messages.Actions.Interfaces;
-using MFR.Objects.Messages.Requests;
+using MFR.Messages.Actions.Interfaces;
+using MFR.Messages.Requests;
 using System;
 
-namespace MFR.Objects.Messages.Actions
+namespace MFR.Messages.Actions
 {
     /// <summary>
     /// Defines the methods, properties, events, and other functionality that is
@@ -30,7 +30,7 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.ActionBase" />
+        ///     cref="T:MFR.ActionBase" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -42,7 +42,7 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.ActionBase" />
+        ///     cref="T:MFR.ActionBase" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -54,20 +54,20 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Returns a reference to this same object, but cast to the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </summary>
         /// <returns>
         /// Reference to the same object instance as that which invoked this
         /// method, cast to the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.InvalidCastException">
         /// Thrown if the implementing object does not also implement the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </exception>
         /// <remarks>

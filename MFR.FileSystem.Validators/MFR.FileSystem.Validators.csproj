@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.FileSystem.Validators.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.FileSystem.Validators.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.FileSystem.Validators.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.FileSystem.Validators.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.FileSystem.Validators.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.FileSystem.Validators.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.FileSystem.Validators.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.FileSystem.Validators.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.FileSystem.Validators</AssemblyName>
+    <AssemblyName>MFR.FileSystem.Validators</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.FileSystem.Validators</RootNamespace>
+    <RootNamespace>MFR.FileSystem.Validators</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -132,23 +132,23 @@
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
-      <Name>MFR.Objects.FileSystem.Factories</Name>
+      <Name>MFR.FileSystem.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
-      <Name>MFR.Objects.FileSystem.Helpers</Name>
+      <Name>MFR.FileSystem.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+      <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
       <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
-      <Name>MFR.Objects.FileSystem.Validators.Interfaces</Name>
+      <Name>MFR.FileSystem.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Objects.Operations.Interfaces</Name>
+      <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

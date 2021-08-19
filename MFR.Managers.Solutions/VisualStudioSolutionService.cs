@@ -1,9 +1,9 @@
-﻿using MFR.Objects.FileSystem.Retrievers.Factories;
-using MFR.Objects.Managers.Solutions.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Solutions.Factories;
-using MFR.Objects.Solutions.Interfaces;
-using MFR.Objects.VisualStudio;
+﻿using MFR.FileSystem.Retrievers.Factories;
+using MFR.Managers.Solutions.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Solutions.Factories;
+using MFR.Solutions.Interfaces;
+using MFR.VisualStudio;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Linq;
 using xyLOGIX.Core.Debug;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
-namespace MFR.Objects.Managers.Solutions
+namespace MFR.Managers.Solutions
 {
     /// <summary>
     /// Manages running instances of Visual Studio that have solutions in
@@ -21,7 +21,7 @@ namespace MFR.Objects.Managers.Solutions
     public class VisualStudioSolutionService : IVisualStudioSolutionService
     {
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Managers.Solutions.VisualStudioSolutionService"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Managers.Solutions.VisualStudioSolutionService"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static VisualStudioSolutionService Instance
@@ -97,7 +97,7 @@ namespace MFR.Objects.Managers.Solutions
         /// Read-only list of references to instances of objects that implement
         /// the
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface for each instance of Visual Studio that has that solution loaded.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
@@ -179,7 +179,7 @@ namespace MFR.Objects.Managers.Solutions
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface that represent the solution(s) to be loaded.
         /// </param>
         public void LoadAll(IReadOnlyList<IVisualStudioSolution> solutions)
@@ -208,7 +208,7 @@ namespace MFR.Objects.Managers.Solutions
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface which represent the solution(s) to be unloaded.
         /// </param>
         public void UnloadAll(IReadOnlyList<IVisualStudioSolution> solutions)

@@ -1,6 +1,6 @@
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Helpers;
-using MFR.Objects.FileSystem.Interfaces;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Helpers;
+using MFR.FileSystem.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -9,7 +9,7 @@ using xyLOGIX.Core.Extensions;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
-namespace MFR.Objects.FileSystem.Validators
+namespace MFR.FileSystem.Validators
 {
     /// <summary>
     /// Defines an object that validates the paths of files.
@@ -30,7 +30,7 @@ namespace MFR.Objects.FileSystem.Validators
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.FileSystem.Validators.FileValidator" />.
+        /// <see cref="T:MFR.FileSystem.Validators.FileValidator" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static FileValidator Instance
@@ -46,7 +46,7 @@ namespace MFR.Objects.FileSystem.Validators
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the file-system <paramref name="entry" />
@@ -87,7 +87,7 @@ namespace MFR.Objects.FileSystem.Validators
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface containing information about the entry to be checked.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">

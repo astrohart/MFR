@@ -1,9 +1,9 @@
-using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Messages.Actions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Messages.Actions
+namespace MFR.Messages.Actions
 {
     /// <summary>
     /// Caches the results of repeated operations using the same inputs in order
@@ -33,20 +33,20 @@ namespace MFR.Objects.Messages.Actions
         /// <summary>
         /// Returns a reference to this same object, but cast to the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </summary>
         /// <returns>
         /// Reference to the same object instance as that which invoked this
         /// method, cast to the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.InvalidCastException">
         /// Thrown if the implementing object does not also implement the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </exception>
         /// <remarks>
@@ -81,7 +81,7 @@ namespace MFR.Objects.Messages.Actions
         /// Associates a reference to the <paramref name="resultToAdd" /> to the
         /// current value of the
         /// <see
-        ///     cref="F:MFR.Objects.ActionBase._input" />
+        ///     cref="F:MFR.ActionBase._input" />
         /// field. using
         /// the internal result cache dictionary.
         /// </summary>
@@ -210,7 +210,7 @@ namespace MFR.Objects.Messages.Actions
         /// This is a template method, the call to which is wrapped in a robust
         /// and fault-tolerant override of the
         /// <see
-        ///     cref="M:MFR.Objects.ActionBase.CommonExecute" />
+        ///     cref="M:MFR.ActionBase.CommonExecute" />
         /// method.
         /// <para />
         /// The parent method override (a) validates that the _input field is
@@ -223,7 +223,7 @@ namespace MFR.Objects.Messages.Actions
         /// Attempts to access the result cache dictionary using the current
         /// value of the
         /// <see
-        ///     cref="F:MFR.Objects.ActionBase._input" />
+        ///     cref="F:MFR.ActionBase._input" />
         /// field, and asks
         /// whether it is present in the cache.
         /// </summary>
@@ -235,7 +235,7 @@ namespace MFR.Objects.Messages.Actions
         /// <returns>
         /// If the current value of the
         /// <see
-        ///     cref="F:MFR.Objects.ActionBase._input" />
+        ///     cref="F:MFR.ActionBase._input" />
         /// field is
         /// present in the result cache dictionary and associated with a
         /// corresponding result, then the <paramref name="result" /> parameter

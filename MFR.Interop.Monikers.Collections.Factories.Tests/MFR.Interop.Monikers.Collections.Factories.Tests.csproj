@@ -22,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,7 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Interop.Monikers.Collections.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -70,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Interop.Monikers.Collections.Factories.Tests</AssemblyName>
+    <AssemblyName>MFR.Interop.Monikers.Collections.Factories.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Interop.Monikers.Collections.Factories.Tests</RootNamespace>
+    <RootNamespace>MFR.Interop.Monikers.Collections.Factories.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -130,11 +130,11 @@
   <ItemGroup>
     <ProjectReference Include="..\MFR.Interop.Monikers.Collections.Factories\MFR.Interop.Monikers.Collections.Factories.csproj">
       <Project>{4CD6D764-8815-40E6-9578-7AD2728A6B26}</Project>
-      <Name>MFR.Objects.Interop.Monikers.Collections.Factories</Name>
+      <Name>MFR.Interop.Monikers.Collections.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Interop.Monikers.Collections.Interfaces\MFR.Interop.Monikers.Collections.Interfaces.csproj">
       <Project>{B298C890-3D41-4ED3-8BFD-DD4DC5058CA2}</Project>
-      <Name>MFR.Objects.Interop.Monikers.Collections.Interfaces</Name>
+      <Name>MFR.Interop.Monikers.Collections.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

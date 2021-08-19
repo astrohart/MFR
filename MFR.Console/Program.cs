@@ -1,8 +1,8 @@
-using MFR.Objects.Events;
-using MFR.Objects.Events.Common;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Events;
-using MFR.Objects.Renamers.Files;
+using MFR.Events;
+using MFR.Events.Common;
+using MFR.Operations.Constants;
+using MFR.Operations.Events;
+using MFR.Renamers.Files;
 using System;
 
 namespace MFR.Console

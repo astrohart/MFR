@@ -1,12 +1,12 @@
-using MFR.Objects.Configuration.Interfaces;
+using MFR.Configuration.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Tests.Common
+namespace MFR.Tests.Common
 {
     /// <summary>
     /// Builds instances of fake
     /// <see
-    ///     cref="T:MFR.Objects.Configuration.Configuration" />
+    ///     cref="T:MFR.Configuration.Configuration" />
     /// objects in a fluent
     /// manner, initialized for unit tests.
     /// </summary>
@@ -35,7 +35,7 @@ namespace MFR.Objects.Tests.Common
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Tests.Common.ConfigurationBuilder" />.
+        /// <see cref="T:MFR.Tests.Common.ConfigurationBuilder" />.
         /// </summary>
         public static ConfigurationBuilder Instance
         {
@@ -45,7 +45,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// Provides an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface with its
         /// <paramref
         ///     name="matchCase" />
@@ -62,13 +62,13 @@ namespace MFR.Objects.Tests.Common
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface whose
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchCase" />
         /// and
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// properties are set to the same values as were passed for the
         /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
         /// parameters.
@@ -89,13 +89,13 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// Sets the value of the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord" />
+        ///     cref="F:MFR.Tests.Common.ConfigurationBuilder._matchExactWord" />
         /// field to the value of the <paramref name="matchExactWord" /> parameter.
         /// </summary>
         /// <param name="matchExactWord">
         /// (Optional.) New value for the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord" />
+        ///     cref="F:MFR.Tests.Common.ConfigurationBuilder._matchExactWord" />
         /// field. Default is <see langword="true" />.
         /// </param>
         /// <returns>
@@ -114,14 +114,14 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface and returns a
         /// reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface.
         /// </returns>
         /// <remarks>
@@ -136,13 +136,13 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// Sets the value of the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
+        ///     cref="F:MFR.Tests.Common.ConfigurationBuilder._matchCase" />
         /// field to the value of the <paramref name="matchCase" /> parameter.
         /// </summary>
         /// <param name="matchCase">
         /// (Optional.) New value for the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase" />
+        ///     cref="F:MFR.Tests.Common.ConfigurationBuilder._matchCase" />
         /// field. Default is <c>true.</c>
         /// </param>
         /// <returns>

@@ -1,12 +1,12 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using NUnit.Framework;
 
-namespace MFR.Objects.Engines.Matching.Tests
+namespace MFR.Engines.Matching.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods of the
     /// <see
-    ///     cref="T:MFR.Objects.FileNameMatchingEngine" />
+    ///     cref="T:MFR.FileNameMatchingEngine" />
     /// class.
     /// </summary>
     [TestFixture]

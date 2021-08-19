@@ -1,5 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
-namespace MFR.Objects.Tests.Common
+namespace MFR.Tests.Common
 {
     /// <summary>
     /// Common string constants for use in unit tests.
@@ -85,14 +85,14 @@ namespace MFR.Objects.Tests.Common
         /// folder in a project.
         /// </summary>
         private const string PATHNAME_OF_BIN_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\bin";
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Tests\bin";
 
         /// <summary>
         /// String containing the fully-qualified pathname of a <c>obj\</c>
         /// folder in a project.
         /// </summary>
         private const string PATHNAME_OF_OBJ_FOLDER =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Objects.Tests\obj";
+            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Tests\obj";
 
         /// <summary>
         /// String containing the path to a 'dotfolder' -- i.e., a folder whose
@@ -125,7 +125,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// String consisting of the same value as the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.EXISTING_TEMP_FILE" />
+        ///     cref="F:MFR.Tests.Common.StringConstants.EXISTING_TEMP_FILE" />
         /// constant, but only containing the filename and extension of the file
         /// instead of the full path.
         /// </summary>
@@ -135,7 +135,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// String containing a regex searching for the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS" />
+        ///     cref="F:MFR.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS" />
         /// constant's value as an exact-word match.
         /// </summary>
         public static readonly string
@@ -159,7 +159,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// String consisting of the same text as the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST" />
+        ///     cref="F:MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST" />
         /// constant, but with just a filename and extension.
         /// </summary>
         public static readonly string FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY =
@@ -168,7 +168,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// String consisting of the filename and extension only of the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST" />
+        ///     cref="F:MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST" />
         /// constant.
         /// </summary>
         public static readonly string
@@ -201,7 +201,7 @@ namespace MFR.Objects.Tests.Common
         /// <summary>
         /// String consisting of the same value as the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.NEW_TEMP_FILE" />
+        ///     cref="F:MFR.Tests.Common.StringConstants.NEW_TEMP_FILE" />
         /// constant, but only containing the filename and extension of the file
         /// instead of the full path.
         /// </summary>

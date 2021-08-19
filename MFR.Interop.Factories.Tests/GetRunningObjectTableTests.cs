@@ -1,12 +1,12 @@
 using NUnit.Framework;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Interop.Factories.Tests
+namespace MFR.Interop.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.GetRunningObjectTable" />
+    ///     cref="T:MFR.GetRunningObjectTable" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -15,7 +15,7 @@ namespace MFR.Objects.Interop.Factories.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MFR.Objects.MakeNewBindContext.FromScratch" />
+        ///     cref="M:MFR.MakeNewBindContext.FromScratch" />
         /// method returns
         /// a valid object reference.
         /// </summary>

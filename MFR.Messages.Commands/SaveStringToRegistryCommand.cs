@@ -1,12 +1,12 @@
-using MFR.Objects.Configuration.Commands.Constants;
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.Metadata.Registry.Interfaces;
-using MFR.Objects.System;
+using MFR.Configuration.Commands.Constants;
+using MFR.Messages.Constants;
+using MFR.Metadata.Registry.Interfaces;
+using MFR.System;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Messages.Commands
+namespace MFR.Messages.Commands
 {
     /// <summary>
     /// Saves a string to a key in the system Registry.
@@ -29,7 +29,7 @@ namespace MFR.Objects.Messages.Commands
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.SavePathToRegistryAction" />
+        ///     cref="T:MFR.SavePathToRegistryAction" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -39,7 +39,7 @@ namespace MFR.Objects.Messages.Commands
         } = new SaveStringToRegistryCommand();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.MessageType" /> that is
+        /// Gets the <see cref="T:MFR.MessageType" /> that is
         /// being used to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]

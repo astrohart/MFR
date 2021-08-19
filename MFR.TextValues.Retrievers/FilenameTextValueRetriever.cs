@@ -1,7 +1,7 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.TextValues.Retrievers
+namespace MFR.TextValues.Retrievers
 {
     /// <summary>
     /// Retrieves the search source data for filename replacement operations.
@@ -25,7 +25,7 @@ namespace MFR.Objects.TextValues.Retrievers
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.TextValues.Retrievers.FilenameTextValueRetriever"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static FilenameTextValueRetriever Instance
@@ -35,7 +35,7 @@ namespace MFR.Objects.TextValues.Retrievers
 
         /// <summary>
         /// Gets one of the <see
-        /// cref="T:MFR.Objects.OperationType"/> values that
+        /// cref="T:MFR.OperationType"/> values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

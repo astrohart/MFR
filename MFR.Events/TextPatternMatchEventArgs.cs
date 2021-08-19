@@ -1,8 +1,8 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Events;
+using MFR.Operations.Constants;
+using MFR.Operations.Events;
 using System;
 
-namespace MFR.Objects.Events
+namespace MFR.Events
 {
     /// <summary>
     /// Base class that provides common methods and properties for all
@@ -13,7 +13,7 @@ namespace MFR.Objects.Events
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.TextPatternMatchEventArgs" />
+        ///     cref="T:MFR.TextPatternMatchEventArgs" />
         /// and
         /// returns a reference to it.
         /// </summary>
@@ -24,7 +24,7 @@ namespace MFR.Objects.Events
         /// This is typically the fully-qualified pathname of a file or folder;
         /// however, if we are doing the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
         /// operation, then this is the text of the current file before
         /// find-and-replace has been done.
         /// </param>
@@ -38,13 +38,13 @@ namespace MFR.Objects.Events
         /// <para />
         /// NOTE: This parameter may be blank for the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
         /// operation type.
         /// </param>
         /// <param name="operationType">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// describes what operation is being performed.
         /// </param>
@@ -88,14 +88,14 @@ namespace MFR.Objects.Events
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.OperationEventArgs" />
+        ///     cref="T:MFR.OperationEventArgs" />
         /// and returns a
         /// reference to it.
         /// </summary>
         /// <param name="operationType">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// specifies the operation being performed.
         /// </param>
@@ -115,7 +115,7 @@ namespace MFR.Objects.Events
         /// <summary>
         /// Gets the text that any found occurrences of the data in the
         /// <see
-        ///     cref="P:MFR.Objects.Events.TextPatternMatchEventArgs.FindWhat" />
+        ///     cref="P:MFR.Events.TextPatternMatchEventArgs.FindWhat" />
         /// should be replaced with.
         /// </summary>
         public string ReplaceWith

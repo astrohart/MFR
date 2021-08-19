@@ -1,6 +1,6 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Commands;
-using MFR.Objects.Messages.Constants;
+using MFR.FileSystem.Interfaces;
+using MFR.Messages.Commands;
+using MFR.Messages.Constants;
 using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Commands.Constants;
 using MFR.Profiles.Serializers;
@@ -13,24 +13,24 @@ namespace MFR.Profiles.Commands
     /// <summary>
     /// Saves a profile list object, i.e., one that implements the
     /// <see
-    ///     cref="T:MFR.Objects.IConfiguration" />
+    ///     cref="T:MFR.IConfiguration" />
     /// interface, to a JSON file.
     /// </summary>
     /// <remarks>
     /// This command takes a reference to an instance of an object that
-    /// implements the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+    /// implements the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface as input, and does not return any output.
     /// <para />
     /// This command requires that the
     /// <see
-    ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+    ///     cref="P:MFR.IFileSystemEntry.Path" />
     /// property be
     /// initialized to the pathname where the profile list data should be
     /// saved; preferably, the file should have the .json extension.
     /// <para />
     /// This command also requires that the
     /// <see
-    ///     cref="P:MFR.Objects.IFileSystemEntry.UserState" />
+    ///     cref="P:MFR.IFileSystemEntry.UserState" />
     /// property
     /// be initialized to a reference to the profile list object containing the
     /// data that is to be saved.
@@ -52,7 +52,7 @@ namespace MFR.Profiles.Commands
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.SavePathToRegistryAction" />
+        ///     cref="T:MFR.SavePathToRegistryAction" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -62,7 +62,7 @@ namespace MFR.Profiles.Commands
         } = new SaveProfileListToFileCommand();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.MessageType" /> that is
+        /// Gets the <see cref="T:MFR.MessageType" /> that is
         /// being used to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]

@@ -1,4 +1,4 @@
-﻿namespace MFR.Objects.Solutions.Interfaces
+﻿namespace MFR.Solutions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Visual Studio

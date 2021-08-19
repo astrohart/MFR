@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MFR.Objects.Configuration.Interfaces
+namespace MFR.Configuration.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a configuration object.

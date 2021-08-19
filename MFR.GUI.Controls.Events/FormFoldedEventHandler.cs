@@ -7,7 +7,7 @@ namespace MFR.GUI.Controls.Events
     /// The sender of the event.
     /// </param>
     /// <param name="e">
-    /// A <see cref="T:MFR.Objects.FoldedEventArgs"/> that contains
+    /// A <see cref="T:MFR.FoldedEventArgs"/> that contains
     /// the event data.
     /// </param>
     public delegate void FormFoldedEventHandler(object sender, FormFoldedEventArgs e);

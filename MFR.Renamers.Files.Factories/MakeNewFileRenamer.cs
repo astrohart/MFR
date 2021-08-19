@@ -1,25 +1,25 @@
-using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Renamers.Files.Interfaces;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Renamers.Files.Factories
+namespace MFR.Renamers.Files.Factories
 {
     /// <summary>
     /// Provides helper methods that create new instances of objects that
-    /// implement the <see cref="T:MFR.Objects.IFileRenamer" /> interface.
+    /// implement the <see cref="T:MFR.IFileRenamer" /> interface.
     /// </summary>
     public static class MakeNewFileRenamer
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IFileRenamer" />
+        ///     cref="T:MFR.IFileRenamer" />
         /// interface using the
         /// default constructor.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IFileRenamer" />
+        ///     cref="T:MFR.IFileRenamer" />
         /// interface.
         /// </returns>
         public static IFileRenamer FromScratch()

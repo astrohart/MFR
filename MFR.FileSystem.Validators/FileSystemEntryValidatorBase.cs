@@ -1,7 +1,7 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Validators.Interfaces;
+using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Validators.Interfaces;
 
-namespace MFR.Objects.FileSystem.Validators
+namespace MFR.FileSystem.Validators
 {
     /// <summary>
     /// Defines the common methods, properties, events, and other functionality
@@ -18,7 +18,7 @@ namespace MFR.Objects.FileSystem.Validators
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the file-system <paramref name="entry" />
@@ -36,7 +36,7 @@ namespace MFR.Objects.FileSystem.Validators
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface containing information about the entry to be checked.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">

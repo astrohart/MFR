@@ -1,15 +1,15 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Factories;
+using MFR.Configuration.Constants;
+using MFR.Operations.Constants;
+using MFR.Replacers.Factories;
 using NUnit.Framework;
 using System;
 
-namespace MFR.Objects.Replacers.Tests
+namespace MFR.Replacers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.MatchCaseAndExactWordFolderNameStringReplacer" />
+    ///     cref="T:MFR.MatchCaseAndExactWordFolderNameStringReplacer" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -18,11 +18,11 @@ namespace MFR.Objects.Replacers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.IStringReplacer.Replace" />
+        ///     cref="M:MFR.IStringReplacer.Replace" />
         /// method,
         /// when the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration.MatchCaseAndExactWord" />
+        ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
         /// matching configuration is used, properly does replacement in folder
         /// names using an exact-word match.
         /// </summary>

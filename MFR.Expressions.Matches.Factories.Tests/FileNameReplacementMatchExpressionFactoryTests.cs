@@ -1,17 +1,17 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Expressions.Matches.Factories.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Tests.Common;
+using MFR.Configuration.Interfaces;
+using MFR.Expressions.Matches.Factories.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Expressions.Matches.Factories.Tests
+namespace MFR.Expressions.Matches.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.FileNameReplacementMatchExpressionFactory" />
+    ///     cref="T:MFR.FileNameReplacementMatchExpressionFactory" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -279,7 +279,7 @@ namespace MFR.Objects.Expressions.Matches.Factories.Tests
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Objects.IMatchExpressionFactory" />
+        /// <see cref="T:MFR.IMatchExpressionFactory" />
         /// interface and that is configured according to the
         /// <paramref
         ///     name="configuration" />
@@ -287,12 +287,12 @@ namespace MFR.Objects.Expressions.Matches.Factories.Tests
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface.
+        /// the <see cref="T:MFR.IConfiguration" /> interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMatchExpressionFactory" />
+        ///     cref="T:MFR.IMatchExpressionFactory" />
         /// interface
         /// that has the specified <paramref name="configuration" /> attached.
         /// </returns>
@@ -300,7 +300,7 @@ namespace MFR.Objects.Expressions.Matches.Factories.Tests
         /// The specific match-expression factory in use is that which is keyed
         /// to the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
         /// operation type.
         /// </remarks>
         private static IMatchExpressionFactory

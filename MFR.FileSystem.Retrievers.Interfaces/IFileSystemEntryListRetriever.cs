@@ -1,11 +1,11 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations.Interfaces;
+using MFR.Configuration.Interfaces;
+using MFR.FileSystem.Interfaces;
+using MFR.Operations.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace MFR.Objects.FileSystem.Retrievers.Interfaces
+namespace MFR.FileSystem.Retrievers.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that
@@ -59,7 +59,7 @@ namespace MFR.Objects.FileSystem.Retrievers.Interfaces
         /// <returns>
         /// Collection of instances of objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that
         /// correspond to the file system entries that match the criteria specified.
         /// </returns>
@@ -130,7 +130,7 @@ namespace MFR.Objects.FileSystem.Retrievers.Interfaces
         /// Calling this method is optional. If this method is not called, the
         /// type that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
         /// interface will decide what is the default value to be utilized.
         /// </remarks>
         IFileSystemEntryListRetriever WithSearchOption(SearchOption option);

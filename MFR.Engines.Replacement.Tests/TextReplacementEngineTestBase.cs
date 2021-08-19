@@ -1,11 +1,11 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Engines.Replacement.Factories;
-using MFR.Objects.Engines.Replacement.Intefaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Tests.Common;
+using MFR.Configuration.Interfaces;
+using MFR.Engines.Replacement.Factories;
+using MFR.Engines.Replacement.Intefaces;
+using MFR.Operations.Constants;
+using MFR.Tests.Common;
 using NUnit.Framework;
 
-namespace MFR.Objects.Engines.Replacement.Tests
+namespace MFR.Engines.Replacement.Tests
 {
     /// <summary>
     /// Provides default implementations for unit tests and abstract methods for
@@ -17,7 +17,7 @@ namespace MFR.Objects.Engines.Replacement.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface.
         /// </summary>
         protected IConfiguration Configuration
@@ -29,7 +29,7 @@ namespace MFR.Objects.Engines.Replacement.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.ITextReplacementEngine" />
+        ///     cref="T:MFR.ITextReplacementEngine" />
         /// interface.
         /// </summary>
         protected ITextReplacementEngine Replacer
@@ -55,12 +55,12 @@ namespace MFR.Objects.Engines.Replacement.Tests
         /// <summary>
         /// Creates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.ITextReplacementEngine" />
+        ///     cref="T:MFR.ITextReplacementEngine" />
         /// interface for the
         /// specified operation <paramref name="type" />.
         /// </summary>
         /// <param name="type">
-        /// One of the <see cref="T:MFR.Objects.OperationType" /> values that
+        /// One of the <see cref="T:MFR.OperationType" /> values that
         /// specifies which operation to create a data-matcher object for.
         /// </param>
         /// <exception cref="T:System.ArgumentOutOfRangeException">

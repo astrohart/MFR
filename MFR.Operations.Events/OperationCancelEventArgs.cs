@@ -1,7 +1,7 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using System.ComponentModel;
 
-namespace MFR.Objects.Operations.Events
+namespace MFR.Operations.Events
 {
     /// <summary>
     /// Contains data for an OperationCanceled event.
@@ -10,12 +10,12 @@ namespace MFR.Objects.Operations.Events
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.OperationEventArgs"/> and returns a
+        /// cref="T:MFR.OperationEventArgs"/> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the <see
-        /// cref="T:MFR.Objects.OperationType"/> values that
+        /// cref="T:MFR.OperationType"/> values that
         /// specifies the operation being performed.
         /// </param>
         public OperationCancelEventArgs(OperationType type)

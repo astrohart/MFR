@@ -1,9 +1,9 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Expressions.Registry.Factories;
-using MFR.Objects.Expressions.Registry.Interfaces;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Expressions.Registry.Factories;
+using MFR.Expressions.Registry.Interfaces;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Profiles.Actions.Constants;
 using MFR.Profiles.Actions.Factories;
 using MFR.Profiles.Collections;

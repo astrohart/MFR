@@ -1,4 +1,4 @@
-﻿namespace MFR.Objects.Generators.RegularExpressions.Constants
+﻿namespace MFR.Generators.RegularExpressions.Constants
 {
     /// <summary>
     /// Types of regular expressions (e.g., for matching email addresses, phone

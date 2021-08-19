@@ -1,15 +1,15 @@
 using EnvDTE;
-using MFR.Objects.Processes.Factories;
+using MFR.Processes.Factories;
 using NUnit.Framework;
 using System;
 using System.Linq;
 
-namespace MFR.Objects.RunningObjects.Factories.Tests
+namespace MFR.RunningObjects.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.GetRunningObject" />
+    ///     cref="T:MFR.GetRunningObject" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -18,7 +18,7 @@ namespace MFR.Objects.RunningObjects.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.RunningObjects.Factories.GetRunningObject.ByDisplayName" />
+        ///     cref="M:MFR.RunningObjects.Factories.GetRunningObject.ByDisplayName" />
         /// method always returns a reference to an instance of an object that
         /// implements the <see cref="T:EnvDTE.DTE" /> interface.
         /// </summary>

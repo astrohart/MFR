@@ -1,10 +1,10 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Validators.Factories;
-using MFR.Objects.Operations.Constants;
+using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Validators.Factories;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.TextValues.Retrievers
+namespace MFR.TextValues.Retrievers
 {
     /// <summary>
     /// Retrieves the text content of a file.
@@ -25,7 +25,7 @@ namespace MFR.Objects.TextValues.Retrievers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever" />.
+        /// <see cref="T:MFR.TextValues.Retrievers.TextInFileTextValueRetriever" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static TextInFileTextValueRetriever Instance
@@ -36,7 +36,7 @@ namespace MFR.Objects.TextValues.Retrievers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
@@ -48,13 +48,13 @@ namespace MFR.Objects.TextValues.Retrievers
         /// Gets a string containing the text to be searched, from the
         /// file-system <paramref name="entry" /> provided, given the current
         /// <see
-        ///     cref="P:MFR.Objects.FileAndFolderTextValueRetriever.OperationType" />
+        ///     cref="P:MFR.FileAndFolderTextValueRetriever.OperationType" />
         /// .
         /// </summary>
         /// <param name="entry">
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface.
         /// </param>
         /// <returns>

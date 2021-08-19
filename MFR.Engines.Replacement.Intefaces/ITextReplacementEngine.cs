@@ -1,8 +1,8 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.Operations.Interfaces;
+using MFR.Configuration.Interfaces;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.Operations.Interfaces;
 
-namespace MFR.Objects.Engines.Replacement.Intefaces
+namespace MFR.Engines.Replacement.Intefaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a text-replacement object.
@@ -48,7 +48,7 @@ namespace MFR.Objects.Engines.Replacement.Intefaces
         /// </summary>
         /// <param name="expression">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IMatchExpression" />
+        /// the <see cref="T:MFR.IMatchExpression" />
         /// interface that contains the replacement data.
         /// </param>
         /// <returns>

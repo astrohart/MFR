@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.TextValues.Retrievers.Interfaces;
+using MFR.Operations.Constants;
+using MFR.TextValues.Retrievers.Interfaces;
 using System;
 
-namespace MFR.Objects.TextValues.Retrievers.Factories
+namespace MFR.TextValues.Retrievers.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.FileSystem.Retrievers.ITextValueRetriever" />
+    ///     cref="T:MFR.FileSystem.Retrievers.ITextValueRetriever" />
     /// interface.
     /// </summary>
     public static class GetTextValueRetriever
@@ -15,20 +15,20 @@ namespace MFR.Objects.TextValues.Retrievers.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <param name="type">
         /// One of the
         /// <see
-        ///     cref="T:MFR.Objects.Operations.Constants.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values
         /// that specifies which operation is currently being performed.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">

@@ -1,18 +1,18 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Engines.Matching.Factories;
-using MFR.Objects.Engines.Matching.Interfaces;
-using MFR.Objects.FileSystem.Helpers;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Tests.Common;
+using MFR.Engines.Matching.Factories;
+using MFR.Engines.Matching.Interfaces;
+using MFR.FileSystem.Helpers;
+using MFR.Operations.Constants;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Engines.Matching.Tests
+namespace MFR.Engines.Matching.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.Engines.Matching.TextInFilesMatchingEngine" />
+    ///     cref="T:MFR.Engines.Matching.TextInFilesMatchingEngine" />
     /// class.
     /// </summary>
     [TestFixture]

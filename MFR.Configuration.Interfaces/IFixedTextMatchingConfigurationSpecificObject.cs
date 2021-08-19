@@ -1,13 +1,13 @@
-using MFR.Objects.Configuration.Constants;
+using MFR.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Configuration.Interfaces
+namespace MFR.Configuration.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that is
     /// tagged with one of the
     /// <see
-    ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+    ///     cref="T:MFR.TextMatchingConfiguration" />
     /// values.
     /// </summary>
     /// <remarks>
@@ -18,7 +18,7 @@ namespace MFR.Objects.Configuration.Interfaces
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

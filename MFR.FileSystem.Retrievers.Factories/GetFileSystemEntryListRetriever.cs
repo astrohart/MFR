@@ -1,13 +1,13 @@
-using MFR.Objects.FileSystem.Retrievers.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.Operations.Constants;
 using System;
 
-namespace MFR.Objects.FileSystem.Retrievers.Factories
+namespace MFR.FileSystem.Retrievers.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
+    ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever" />
     /// interface.
     /// </summary>
     /// <remarks>
@@ -19,27 +19,27 @@ namespace MFR.Objects.FileSystem.Retrievers.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <param name="type">
         /// (Required.) A
         /// <see
-        ///     cref="T:MFR.Objects.Operations.Constants.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// value that
         /// corresponds to the type of operation currently being performed.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
         /// interface that corresponds to the specified <paramref name="type" />
         /// of operation.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if there is no object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
         /// interface available that corresponds to the specified operation
         /// <paramref name="type" />.
         /// </exception>

@@ -22,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,7 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Generators.RegularExpressions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -70,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Generators.RegularExpressions.Factories.Tests</AssemblyName>
+    <AssemblyName>MFR.Generators.RegularExpressions.Factories.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Generators.RegularExpressions.Factories.Tests</RootNamespace>
+    <RootNamespace>MFR.Generators.RegularExpressions.Factories.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -142,23 +142,23 @@
     </ProjectReference>
     <ProjectReference Include="..\MFR.Generators.RegularExpressions.Constants\MFR.Generators.RegularExpressions.Constants.csproj">
       <Project>{b3774d63-4894-4488-b302-72dd03be0415}</Project>
-      <Name>MFR.Objects.Generators.RegularExpressions.Constants</Name>
+      <Name>MFR.Generators.RegularExpressions.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Generators.RegularExpressions.Factories\MFR.Generators.RegularExpressions.Factories.csproj">
       <Project>{e0886ac9-96f3-4fda-86aa-4ba23bac7a83}</Project>
-      <Name>MFR.Objects.Generators.RegularExpressions.Factories</Name>
+      <Name>MFR.Generators.RegularExpressions.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Generators.RegularExpressions.Interfaces\MFR.Generators.RegularExpressions.Interfaces.csproj">
       <Project>{54580b90-4025-4233-b0f0-91264ab1045d}</Project>
-      <Name>MFR.Objects.Generators.RegularExpressions.Interfaces</Name>
+      <Name>MFR.Generators.RegularExpressions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Generators.RegularExpressions\MFR.Generators.RegularExpressions.csproj">
       <Project>{43FBFA8B-262D-4424-8C89-41A7F6427BC8}</Project>
-      <Name>MFR.Objects.Generators.RegularExpressions</Name>
+      <Name>MFR.Generators.RegularExpressions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473c0-311b-40e4-a35a-cf72ad85542e}</Project>
-      <Name>MFR.Objects.Tests.Common</Name>
+      <Name>MFR.Tests.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

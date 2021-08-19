@@ -1,16 +1,16 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Events;
+using MFR.Operations.Constants;
+using MFR.Operations.Events;
 
-namespace MFR.Objects.Events
+namespace MFR.Events
 {
     /// <summary>
-    /// Defines the data that is passed by all events of type <see cref="T:MFR.Objects.Events.FilesOrFoldersCountedEventHandler"/>.
+    /// Defines the data that is passed by all events of type <see cref="T:MFR.Events.FilesOrFoldersCountedEventHandler"/>.
     /// </summary>
     public class FilesOrFoldersCountedEventArgs : OperationEventArgs
     {
         /// <summary>
         /// Creates a new instance of <see
-        /// cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs"/>
+        /// cref="T:MFR.FilesOrFoldersCountedEventArgs"/>
         /// and returns a reference to it.
         /// </summary>
         /// <param name="count">
@@ -19,7 +19,7 @@ namespace MFR.Objects.Events
         /// </param>
         /// <param name="operationType">
         /// (Required.) One of the <see
-        /// cref="T:MFR.Objects.OperationType"/> values that
+        /// cref="T:MFR.OperationType"/> values that
         /// specifies the operation being performed.
         /// </param>
         public FilesOrFoldersCountedEventArgs(int count, OperationType operationType) : base(operationType)

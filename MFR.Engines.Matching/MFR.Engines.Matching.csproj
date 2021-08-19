@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Engines.Matching.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Engines.Matching.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Engines.Matching.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Engines.Matching.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Engines.Matching.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Engines.Matching.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Engines.Matching.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Engines.Matching.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Engines.Matching</AssemblyName>
+    <AssemblyName>MFR.Engines.Matching</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Engines.Matching</RootNamespace>
+    <RootNamespace>MFR.Engines.Matching</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -128,47 +128,47 @@
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Objects.Configuration.Constants</Name>
+      <Name>MFR.Configuration.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Helpers\MFR.Configuration.Helpers.csproj">
       <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
-      <Name>MFR.Objects.Configuration.Helpers</Name>
+      <Name>MFR.Configuration.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Objects.Configuration.Interfaces</Name>
+      <Name>MFR.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
-      <Name>MFR.Objects.Configuration</Name>
+      <Name>MFR.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Matching.Interfaces\MFR.Engines.Matching.Interfaces.csproj">
       <Project>{80AE228C-041C-4C9C-BB7E-C07D502EC66D}</Project>
-      <Name>MFR.Objects.Engines.Matching.Interfaces</Name>
+      <Name>MFR.Engines.Matching.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj">
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
-      <Name>MFR.Objects.Expressions.Matches.Interfaces</Name>
+      <Name>MFR.Expressions.Matches.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Matchers.Factories.Interfaces\MFR.Matchers.Factories.Interfaces.csproj">
       <Project>{ED8C8DAB-82BF-4F4C-A610-FD2940FD7DFD}</Project>
-      <Name>MFR.Objects.Matchers.Factories.Interfaces</Name>
+      <Name>MFR.Matchers.Factories.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Matchers.Factories\MFR.Matchers.Factories.csproj">
       <Project>{BE9F2CAA-F80B-41C5-892E-8E57B8DB451F}</Project>
-      <Name>MFR.Objects.Matchers.Factories</Name>
+      <Name>MFR.Matchers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Matchers.Interfaces\MFR.Matchers.Interfaces.csproj">
       <Project>{740261A5-424C-4429-9C08-FED791D0F051}</Project>
-      <Name>MFR.Objects.Matchers.Interfaces</Name>
+      <Name>MFR.Matchers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Objects.Operations.Constants</Name>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Objects.Operations.Interfaces</Name>
+      <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

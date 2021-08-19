@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MFR.Objects.CommandLine.Validators.Constants.Properties {
+namespace MFR.CommandLine.Validators.Constants.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MFR.Objects.CommandLine.Validators.Constants.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Objects.CommandLine.Validators.Constants.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.CommandLine.Validators.Constants.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

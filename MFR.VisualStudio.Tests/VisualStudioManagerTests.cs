@@ -1,14 +1,14 @@
 using EnvDTE;
-using MFR.Objects.Tests.Common;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using Alphaleonis.Win32.Filesystem;
 
-namespace MFR.Objects.VisualStudio.Tests
+namespace MFR.VisualStudio.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.VisualStudioManager" />
+    ///     cref="T:MFR.VisualStudioManager" />
     /// class.
     /// </summary>
     [TestFixture]

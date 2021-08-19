@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Tests.Common;
+using MFR.Operations.Constants;
+using MFR.Tests.Common;
 using NUnit.Framework;
 
-namespace MFR.Objects.Engines.Replacement.Tests
+namespace MFR.Engines.Replacement.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.FolderNameReplacementEngine" />
+    ///     cref="T:MFR.FolderNameReplacementEngine" />
     /// class.
     /// </summary>
     [TestFixture]

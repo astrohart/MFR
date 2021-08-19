@@ -1,7 +1,7 @@
-using MFR.Objects.Messages.Requests.Intefaces;
+using MFR.Messages.Requests.Intefaces;
 using System.Threading.Tasks;
 
-namespace MFR.Objects.Messages.Requests
+namespace MFR.Messages.Requests
 {
     /// <summary>
     /// Defines the methods, properties, events, and functionality that all

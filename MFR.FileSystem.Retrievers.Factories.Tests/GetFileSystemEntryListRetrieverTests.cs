@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using NUnit.Framework;
 using System;
 
-namespace MFR.Objects.FileSystem.Retrievers.Factories.Tests
+namespace MFR.FileSystem.Retrievers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.GetFileSystemEntryListRetriever" />
+    ///     cref="T:MFR.GetFileSystemEntryListRetriever" />
     /// class.
     /// </summary>
     [TestFixture]

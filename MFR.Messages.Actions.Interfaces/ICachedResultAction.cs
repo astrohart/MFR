@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects.Messages.Actions.Interfaces
+namespace MFR.Messages.Actions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an <c>action</c>

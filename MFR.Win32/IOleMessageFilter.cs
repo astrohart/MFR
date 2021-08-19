@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace MFR.Objects.Win32
+namespace MFR.Win32
 {
     /// <summary>
     /// Provides COM servers and applications with the ability to selectively
@@ -51,7 +51,7 @@ namespace MFR.Objects.Win32
         /// reject incoming calls (or callbacks) to an object or a process. If
         /// implemented,
         /// <see
-        ///     cref="M:MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall" />
+        ///     cref="M:MFR.Win32.IOleMessageFilter.HandleInComingCall" />
         /// is
         /// called by COM when an incoming COM message is received. Depending on
         /// an application's current state, a call is either accepted and
@@ -66,7 +66,7 @@ namespace MFR.Objects.Win32
         /// during operations such as band printing. For that purpose, use
         /// <c>IViewObject::Freeze</c>. You can also use
         /// <see
-        ///     cref="M:MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall" />
+        ///     cref="M:MFR.Win32.IOleMessageFilter.HandleInComingCall" />
         /// to
         /// set up the application's state so that the call can be processed in
         /// the future.
@@ -195,7 +195,7 @@ namespace MFR.Objects.Win32
         /// state where it cannot handle such calls, possibly only temporarily.
         /// When this occurs, COM returns to the caller and issues
         /// <see
-        ///     cref="M:MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall" />
+        ///     cref="M:MFR.Win32.IOleMessageFilter.RetryRejectedCall" />
         /// to
         /// determine whether it should retry the rejected call.
         /// </para>
@@ -219,7 +219,7 @@ namespace MFR.Objects.Win32
         /// If a client implements IMessageFilter and calls a server method on a
         /// remote machine,
         /// <see
-        ///     cref="M:MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall" />
+        ///     cref="M:MFR.Win32.IOleMessageFilter.RetryRejectedCall" />
         /// will not be called.
         /// </para>
         /// </remarks>

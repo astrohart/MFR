@@ -1,14 +1,14 @@
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.Tests.Common;
+using MFR.FileSystem.Factories;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.FileSystem.Helpers.Tests
+namespace MFR.FileSystem.Helpers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.FileHelpers" />
+    ///     cref="T:MFR.FileHelpers" />
     /// class.
     /// </summary>
     [TestFixture]

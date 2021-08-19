@@ -10,7 +10,7 @@
 
 using System;
 
-namespace MFR.Objects.Operations.Descriptions.Interfaces.Properties
+namespace MFR.Operations.Descriptions.Interfaces.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -44,7 +44,7 @@ namespace MFR.Objects.Operations.Descriptions.Interfaces.Properties
             {
                 if (object.ReferenceEquals(resourceMan, null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Objects.Operations.Descriptions.Interfaces.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Operations.Descriptions.Interfaces.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

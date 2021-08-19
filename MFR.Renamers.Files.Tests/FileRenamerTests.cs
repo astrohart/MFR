@@ -1,11 +1,11 @@
 using NUnit.Framework;
 
-namespace MFR.Objects.Renamers.Files.Tests
+namespace MFR.Renamers.Files.Tests
 {
     /// <summary>
     /// Provides unit tests for the
     /// <see
-    ///     cref="T:MFR.Objects.Renamers.Files.FileRenamer" />
+    ///     cref="T:MFR.Renamers.Files.FileRenamer" />
     /// class.
     /// </summary>
     [TestFixture]

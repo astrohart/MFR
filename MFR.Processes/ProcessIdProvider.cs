@@ -1,4 +1,4 @@
-using MFR.Objects.Processes.Interfaces;
+using MFR.Processes.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Processes
+namespace MFR.Processes
 {
     /// <summary>
     /// Provides the Process IDs (PIDs) of programs that are running on the

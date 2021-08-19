@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects.Invokers.Interfaces
+namespace MFR.Invokers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of all path filter invoker objects.
@@ -20,7 +20,7 @@ namespace MFR.Objects.Invokers.Interfaces
         /// <summary>
         /// Gets the result of invoking the path-filtering predicate on the path
         /// specified by calling the <see
-        /// cref="M:MFR.Objects.IPathFilterInvoker.AndPath"/> method.
+        /// cref="M:MFR.IPathFilterInvoker.AndPath"/> method.
         /// </summary>
         /// <param name="pathFilter">
         /// A <see cref="T:System.Predicate"/>, taking a string as argument,

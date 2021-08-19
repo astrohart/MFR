@@ -10,7 +10,7 @@ namespace MFR.GUI.Controls.Events
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.FoldedEventArgs"/> and returns a
+        /// cref="T:MFR.FoldedEventArgs"/> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="folded">

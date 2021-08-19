@@ -1,8 +1,8 @@
-using MFR.Objects.Messages.Commands.Interfaces;
+using MFR.Messages.Commands.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace MFR.Objects.Messages.Commands
+namespace MFR.Messages.Commands
 {
     /// <summary>
     /// Defines the methods, properties, events, and other functionality that is
@@ -33,7 +33,7 @@ namespace MFR.Objects.Messages.Commands
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.ActionBase" />
+        ///     cref="T:MFR.ActionBase" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -45,7 +45,7 @@ namespace MFR.Objects.Messages.Commands
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.ActionBase" />
+        ///     cref="T:MFR.ActionBase" />
         /// and returns a
         /// reference to it.
         /// </summary>

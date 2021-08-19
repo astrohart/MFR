@@ -1,13 +1,13 @@
-using MFR.Objects.FileSystem.Interfaces;
+using MFR.FileSystem.Interfaces;
 using System;
 using Alphaleonis.Win32.Filesystem;
 
-namespace MFR.Objects.FileSystem.Helpers
+namespace MFR.FileSystem.Helpers
 {
     /// <summary>
     /// Helper methods for objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+    ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
     public static class FileSystemEntryExtensions
@@ -15,25 +15,25 @@ namespace MFR.Objects.FileSystem.Helpers
         /// <summary>
         /// Translates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface into
         /// an instance of a <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" /> object.
         /// <para />
         /// The <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" /> object is initialized
         /// with the value of the
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// property.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" />
         /// that has been initialized with the value of the
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// property.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
@@ -43,7 +43,7 @@ namespace MFR.Objects.FileSystem.Helpers
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required property,
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// , is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
@@ -63,25 +63,25 @@ namespace MFR.Objects.FileSystem.Helpers
         /// <summary>
         /// Translates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface into
         /// an instance of a <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> object.
         /// <para />
         /// The <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> object is initialized with
         /// the value of the
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// property.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> that
         /// has been initialized with the value of the
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// property.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
@@ -91,7 +91,7 @@ namespace MFR.Objects.FileSystem.Helpers
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required property,
         /// <see
-        ///     cref="P:MFR.Objects.IFileSystemEntry.Path" />
+        ///     cref="P:MFR.IFileSystemEntry.Path" />
         /// , is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>

@@ -1,9 +1,9 @@
-using MFR.Objects.Configuration.Constants;
+using MFR.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Replacers
+namespace MFR.Replacers
 {
     /// <summary>
     /// Replaces text in strings when Match Case is set to <see
@@ -31,7 +31,7 @@ namespace MFR.Objects.Replacers
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Replacers.MatchCaseOnlyFolderNameStringReplacer"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Replacers.MatchCaseOnlyFolderNameStringReplacer"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static MatchCaseOnlyFolderNameStringReplacer Instance
@@ -41,7 +41,7 @@ namespace MFR.Objects.Replacers
 
         /// <summary>
         /// Gets one of the <see
-        /// cref="T:MFR.Objects.TextMatchingConfiguration"/> values that
+        /// cref="T:MFR.TextMatchingConfiguration"/> values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

@@ -1,14 +1,14 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.FileSystem.Retrievers
+namespace MFR.FileSystem.Retrievers
 {
     /// <summary>
     /// Retrieves lists of file-system entries that should be processed by an
@@ -32,7 +32,7 @@ namespace MFR.Objects.FileSystem.Retrievers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever" />.
+        /// <see cref="T:MFR.FileSystem.Retrievers.FilesToRenameRetriever" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static FilesToRenameRetriever Instance
@@ -41,7 +41,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         } = new FilesToRenameRetriever();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -73,7 +73,7 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// <returns>
         /// Collection of instances of objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that correspond to the file system entries that match the
         /// criteria specified.
         /// </returns>
@@ -84,14 +84,14 @@ namespace MFR.Objects.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.Objects.ConfigurationComposedObjectBase.Configuration" />
+        ///     cref="P:MFR.ConfigurationComposedObjectBase.Configuration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Objects.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>

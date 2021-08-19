@@ -22,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,7 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.FileSystem.Retrievers.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -70,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.FileSystem.Retrievers.Factories.Tests</AssemblyName>
+    <AssemblyName>MFR.FileSystem.Retrievers.Factories.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.FileSystem.Retrievers.Factories.Tests</RootNamespace>
+    <RootNamespace>MFR.FileSystem.Retrievers.Factories.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -130,19 +130,19 @@
   <ItemGroup>
     <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
-      <Name>MFR.Objects.FileSystem.Retrievers.Factories</Name>
+      <Name>MFR.FileSystem.Retrievers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Retrievers.Interfaces\MFR.FileSystem.Retrievers.Interfaces.csproj">
       <Project>{70C22CCB-F14E-45E2-82DB-99DE3E0E3D12}</Project>
-      <Name>MFR.Objects.FileSystem.Retrievers.Interfaces</Name>
+      <Name>MFR.FileSystem.Retrievers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Retrievers\MFR.FileSystem.Retrievers.csproj">
       <Project>{CC2F7258-C88D-437B-A20E-422D90B7A3E2}</Project>
-      <Name>MFR.Objects.FileSystem.Retrievers</Name>
+      <Name>MFR.FileSystem.Retrievers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Objects.Operations.Constants</Name>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
 using Alphaleonis.Win32.Filesystem;
 using EnvDTE;
-using MFR.Objects.Processes.Factories;
-using MFR.Objects.Processes.Interfaces;
-using MFR.Objects.RunningObjects.Factories;
+using MFR.Processes.Factories;
+using MFR.Processes.Interfaces;
+using MFR.RunningObjects.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -10,7 +10,7 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using Thread = System.Threading.Thread;
 
-namespace MFR.Objects.VisualStudio
+namespace MFR.VisualStudio
 {
     /// <summary>
     /// Provides helper methods for interacting with Visual Studio.
@@ -20,7 +20,7 @@ namespace MFR.Objects.VisualStudio
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IProcessIdProvider" />
+        ///     cref="T:MFR.IProcessIdProvider" />
         /// interface and that
         /// provides the ability to obtain the Process IDs (PIDs) of running
         /// processes from the operating system.
@@ -31,7 +31,7 @@ namespace MFR.Objects.VisualStudio
         /// Initializes static data or performs messages that need to be
         /// performed once only for the
         /// <see
-        ///     cref="T:MFR.Objects.VisualStudio.VisualStudioManager" />
+        ///     cref="T:MFR.VisualStudio.VisualStudioManager" />
         /// class.
         /// </summary>
         /// <remarks>

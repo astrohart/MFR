@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 // ReSharper disable NotAccessedVariable
 
-namespace MFR.Objects.Win32
+namespace MFR.Win32
 {
     /// <summary>
     /// Filter for COM and Windows messages sent by the operating system on the
@@ -12,7 +12,7 @@ namespace MFR.Objects.Win32
     /// <remarks>
     /// This class implements the
     /// <see
-    ///     cref="T:MFR.Objects.Win32.IOleMessageFilter" />
+    ///     cref="T:MFR.Win32.IOleMessageFilter" />
     /// interface.
     /// </remarks>
     public class WindowsMessageFilter : IOleMessageFilter

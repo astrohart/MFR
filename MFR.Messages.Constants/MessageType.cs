@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MFR.Objects.Messages.Constants
+namespace MFR.Messages.Constants
 {
     /// <summary>
     /// Base class for all message-type "enumeration" classes.
@@ -19,7 +19,7 @@ namespace MFR.Objects.Messages.Constants
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Messages.Constants.MessageType" />
+        ///     cref="T:MFR.Messages.Constants.MessageType" />
         /// and returns a
         /// reference to it.
         /// </summary>

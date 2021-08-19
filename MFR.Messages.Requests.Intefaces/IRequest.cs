@@ -1,7 +1,7 @@
-using MFR.Objects.Messages.Interfaces;
+using MFR.Messages.Interfaces;
 using System.Threading.Tasks;
 
-namespace MFR.Objects.Messages.Requests.Intefaces
+namespace MFR.Messages.Requests.Intefaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that

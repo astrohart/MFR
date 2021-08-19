@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MFR.Objects.Expressions.Registry.Interfaces.Properties {
+namespace MFR.Expressions.Registry.Interfaces.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MFR.Objects.Expressions.Registry.Interfaces.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Objects.Expressions.Registry.Interfaces.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Expressions.Registry.Interfaces.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

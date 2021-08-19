@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects.Operations.Events
+namespace MFR.Operations.Events
 {
     /// <summary>
     /// Provides information for DataOperation event handlers.
@@ -8,7 +8,7 @@ namespace MFR.Objects.Operations.Events
     public class DataOperationEventArgs : EventArgs
     {
         /// <summary> Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Operations.Events.DataOperationEventArgs" /> and
+        /// cref="T:MFR.Operations.Events.DataOperationEventArgs" /> and
         /// returns a reference to it. </summary> /// <param name="message">
         /// (Required.) String containing message text to be displayed to the
         /// user while the operation is progressing. </param>

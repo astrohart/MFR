@@ -1,14 +1,14 @@
-using MFR.Objects.Configuration;
-using MFR.Objects.Expressions.Matches.Factories.Interfaces;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Configuration;
+using MFR.Expressions.Matches.Factories.Interfaces;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.Operations.Constants;
 
-namespace MFR.Objects.Expressions.Matches.Factories
+namespace MFR.Expressions.Matches.Factories
 {
     /// <summary>
     /// Defines methods and properties that all implementations of the
     /// <see
-    ///     cref="T:MFR.Objects.IMatchExpressionFactory" />
+    ///     cref="T:MFR.IMatchExpressionFactory" />
     /// interface
     /// have in common.
     /// </summary>
@@ -30,10 +30,10 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// Gets or sets a string containing the text that all occurrences of
         /// the pattern in the
         /// <see
-        ///     cref="P:MFR.Objects.Expressions.Matches.Factories.MatchExpressionFactoryBase.FindWhat" />
+        ///     cref="P:MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.FindWhat" />
         /// property get replaced with in the
         /// <see
-        ///     cref="P:MFR.Objects.Expressions.Matches.Factories.MatchExpressionFactoryBase.Value" />
+        ///     cref="P:MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.Value" />
         /// property.
         /// </summary>
         public string ReplaceWith
@@ -54,7 +54,7 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
@@ -67,7 +67,7 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// Initializes the value that text matching the pattern specified by
         /// the
         /// <see
-        ///     cref="M:MFR.Objects.IMatchExpressionFactory.ToFindWhat" />
+        ///     cref="M:MFR.IMatchExpressionFactory.ToFindWhat" />
         /// method will be replaced with.
         /// <para />
         /// Whitespace or the empty string is only allowed for the Replace in
@@ -80,14 +80,14 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMatchExpression" />
+        ///     cref="T:MFR.IMatchExpression" />
         /// interface.
         /// </returns>
         /// <remarks>
         /// This method is the final method in the fluent-build chain,
         /// outputting an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMatchExpression" />
+        ///     cref="T:MFR.IMatchExpression" />
         /// interface as a result.
         /// <para />
         /// It is required to provide a non-blank, non-whitespace value for
@@ -120,10 +120,10 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// <para />
         /// However, prior to even invoking this method, the
         /// <see
-        ///     cref="M:MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration" />
+        ///     cref="M:MFR.IConfigurationComposedObject.AndAttachConfiguration" />
         /// method must be invoked; otherwise, a
         /// <see
-        ///     cref="T:MFR.Objects.ConfigurationNotAttachedException" />
+        ///     cref="T:MFR.ConfigurationNotAttachedException" />
         /// will be thrown. It is incumbent upon invokers of this method to
         /// first weed out any possible elements of the source value set that
         /// may make the <paramref name="value" /> parameter get passed a blank string.
@@ -153,7 +153,7 @@ namespace MFR.Objects.Expressions.Matches.Factories
         /// <remarks>
         /// It is recommended to call this method after calling the
         /// <see
-        ///     cref="M:MFR.Objects.IMatchExpressionFactory.ForTextValue" />
+        ///     cref="M:MFR.IMatchExpressionFactory.ForTextValue" />
         /// method.
         /// <para />
         /// It is incumbent upon invokers of this method to first weed out any

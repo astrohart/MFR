@@ -1,6 +1,6 @@
 using Microsoft.Win32;
 
-namespace MFR.Objects.Expressions.Registry.Interfaces
+namespace MFR.Expressions.Registry.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that
@@ -48,7 +48,7 @@ namespace MFR.Objects.Expressions.Registry.Interfaces
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.Expressions.Registry.Interfaces.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="valueName">
@@ -91,7 +91,7 @@ namespace MFR.Objects.Expressions.Registry.Interfaces
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.Expressions.Registry.Interfaces.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="defaultValue">

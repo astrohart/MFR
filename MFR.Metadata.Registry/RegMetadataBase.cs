@@ -1,18 +1,18 @@
-using MFR.Objects.Registry.Helpers;
+using MFR.Registry.Helpers;
 using Microsoft.Win32;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Metadata.Registry
+namespace MFR.Metadata.Registry
 {
     /// <summary>
     /// Base class for the common methods, properties, fields, and events
     /// between implementers of the
     /// <see
-    ///     cref="T:MFR.Objects.IRegQueryExpression" />
+    ///     cref="T:MFR.IRegQueryExpression" />
     /// interface and the
-    /// <see cref="T:MFR.Objects.IRegOperationMetadata" /> interface.
+    /// <see cref="T:MFR.IRegOperationMetadata" /> interface.
     /// </summary>
     public class RegMetadataBase
     {
@@ -37,7 +37,7 @@ namespace MFR.Objects.Metadata.Registry
         /// </summary>
         /// <remarks>
         /// Whenever the value of this property is updated, the value of the
-        /// <see cref="P:MFR.Objects.IRegOperationMetadata.Hive" />
+        /// <see cref="P:MFR.IRegOperationMetadata.Hive" />
         /// property is updated to match.
         /// </remarks>
         public string KeyPath
@@ -58,7 +58,7 @@ namespace MFR.Objects.Metadata.Registry
         /// <para />
         /// Sets the value of the
         /// <see
-        ///     cref="P:MFR.Objects.RegQueryExpression.Hive" />
+        ///     cref="P:MFR.RegQueryExpression.Hive" />
         /// property
         /// to the result.
         /// </summary>
@@ -70,7 +70,7 @@ namespace MFR.Objects.Metadata.Registry
         /// If the hive name cannot be parsed from <paramref name="keyPath" />,
         /// then the
         /// <see
-        ///     cref="P:MFR.Objects.RegQueryExpression.Hive" />
+        ///     cref="P:MFR.RegQueryExpression.Hive" />
         /// property
         /// is set to <see cref="T:Microsoft.Win32.RegistryHive.CurrentUser" />,
         /// except in the case where <paramref name="keyPath" /> is blank; if

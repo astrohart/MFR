@@ -1,8 +1,8 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
-using MFR.Objects.Configuration.Providers.Factories;
-using MFR.Objects.Configuration.Providers.Interfaces;
+using MFR.Configuration.Providers.Factories;
+using MFR.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
@@ -31,7 +31,7 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -79,11 +79,11 @@ namespace MFR.GUI.Dialogs
         /// Raises the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ModifiedEventArgs" /> that contains the
+        /// A <see cref="T:MFR.ModifiedEventArgs" /> that contains the
         /// event data.
         /// </param>
         /// <remarks>
-        /// If the <see cref="P:MFR.Objects.ModifiedEventArgs.Handled" />
+        /// If the <see cref="P:MFR.ModifiedEventArgs.Handled" />
         /// property is set <see langword="true" /> by the event's handler, then
         /// the <see cref="P:MFR.GUI.OptionsDialog.IsModified" /> will be set to
         /// <see langword="false" />.

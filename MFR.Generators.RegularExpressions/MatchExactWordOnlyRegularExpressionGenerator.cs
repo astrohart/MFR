@@ -1,10 +1,10 @@
-﻿using MFR.Objects.Generators.RegularExpressions.Constants;
-using MFR.Objects.Generators.RegularExpressions.Properties;
+﻿using MFR.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
 
-namespace MFR.Objects.Generators.RegularExpressions
+namespace MFR.Generators.RegularExpressions
 {
     /// <summary>
     /// Generator of regular expressions for exact-word matches.
@@ -31,7 +31,7 @@ namespace MFR.Objects.Generators.RegularExpressions
 
         /// <summary>
         /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator"/> .
+        /// cref="T:MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
         public static MatchExactWordOnlyRegularExpressionGenerator Instance
@@ -41,7 +41,7 @@ namespace MFR.Objects.Generators.RegularExpressions
 
         /// <summary>
         /// Gets the <see
-        /// cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType"/>
+        /// cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType"/>
         /// value that uniquely identifies which type of regular expressions
         /// that this object handles.
         /// </summary>

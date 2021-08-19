@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Invokers.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Invokers.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Invokers.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Invokers.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Invokers.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Invokers.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Invokers.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Invokers.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Invokers.Factories</AssemblyName>
+    <AssemblyName>MFR.Invokers.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Invokers.Factories</RootNamespace>
+    <RootNamespace>MFR.Invokers.Factories</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -121,19 +121,19 @@
   <ItemGroup>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+      <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Invokers.Interfaces\MFR.Invokers.Interfaces.csproj">
       <Project>{05DD474A-352F-4BC2-BF0D-FB2D5823D2A3}</Project>
-      <Name>MFR.Objects.Invokers.Interfaces</Name>
+      <Name>MFR.Invokers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Invokers\MFR.Invokers.csproj">
       <Project>{13D8124B-CC27-4745-BA03-BFF4D878C24E}</Project>
-      <Name>MFR.Objects.Invokers</Name>
+      <Name>MFR.Invokers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Objects.Operations.Interfaces</Name>
+      <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

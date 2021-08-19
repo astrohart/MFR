@@ -1,7 +1,7 @@
-﻿using MFR.Objects.Solutions.Interfaces;
+﻿using MFR.Solutions.Interfaces;
 using System.Collections.Generic;
 
-namespace MFR.Objects.Managers.Solutions.Interfaces
+namespace MFR.Managers.Solutions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a <c> Solution
@@ -46,7 +46,7 @@ namespace MFR.Objects.Managers.Solutions.Interfaces
         /// <returns>
         /// Read-only list of references to instances of objects that implement
         /// the <see
-        /// cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution"/>
+        /// cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution"/>
         /// interface for each instance of Visual Studio that has that solution loaded.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
@@ -68,7 +68,7 @@ namespace MFR.Objects.Managers.Solutions.Interfaces
         /// <param name="solutions">
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the <see
-        /// cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution"/>
+        /// cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution"/>
         /// interface that represent the solution(s) to be loaded.
         /// </param>
         void LoadAll(IReadOnlyList<IVisualStudioSolution> solutions);
@@ -81,7 +81,7 @@ namespace MFR.Objects.Managers.Solutions.Interfaces
         /// <param name="solutions">
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the <see
-        /// cref="T:MFR.Objects.Solutions.Interfaces.IVisualStudioSolution"/>
+        /// cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution"/>
         /// interface which represent the solution(s) to be unloaded.
         /// </param>
         void UnloadAll(IReadOnlyList<IVisualStudioSolution> solutions);

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MFR.Objects.Processes.Interfaces
+namespace MFR.Processes.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that

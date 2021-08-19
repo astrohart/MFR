@@ -1,6 +1,6 @@
-﻿using MFR.Objects.Generators.RegularExpressions.Constants;
+﻿using MFR.Generators.RegularExpressions.Constants;
 
-namespace MFR.Objects.Generators.RegularExpressions.Interfaces
+namespace MFR.Generators.RegularExpressions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that processes only a certain type of regular expression.
@@ -10,7 +10,7 @@ namespace MFR.Objects.Generators.RegularExpressions.Interfaces
         /// <summary>
         /// Gets the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType" />
         /// value that uniquely identifies which type of regular expressions
         /// that this object handles.
         /// </summary>

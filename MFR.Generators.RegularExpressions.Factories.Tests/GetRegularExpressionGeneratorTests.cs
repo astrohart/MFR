@@ -1,14 +1,14 @@
-﻿using MFR.Objects.Generators.RegularExpressions.Constants;
-using MFR.Objects.Generators.RegularExpressions.Interfaces;
-using MFR.Objects.Tests.Common;
+﻿using MFR.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Interfaces;
+using MFR.Tests.Common;
 using NUnit.Framework;
 
-namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
+namespace MFR.Generators.RegularExpressions.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator" />
+    ///     cref="T:MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -17,16 +17,16 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         /// <summary>
         /// Asserts that the return value of the
         /// <see
-        ///     cref="M:MFR.Objects.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For" />
+        ///     cref="M:MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For" />
         /// method implements the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
         /// interface and is an instance of the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator" />
         /// class, when the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly" />
         /// value is passed for its parameter.
         /// </summary>
         [Test]
@@ -56,13 +56,13 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         /// <summary>
         /// Asserts that the return value of the
         /// <see
-        ///     cref="M:MFR.Objects.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For" />
+        ///     cref="M:MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For" />
         /// method implements the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
         /// interface when the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly" />
         /// value is passed for its parameter.
         /// </summary>
         [Test]
@@ -78,16 +78,16 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         /// <summary>
         /// Asserts that the return value of the
         /// <see
-        ///     cref="M:MFR.Objects.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For" />
+        ///     cref="M:MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For" />
         /// method implements the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
         /// interface and is an instance of the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator" />
         /// class, when the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly" />
         /// value is passed for its parameter.
         /// </summary>
         [Test]
@@ -107,13 +107,13 @@ namespace MFR.Objects.Generators.RegularExpressions.Factories.Tests
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
+        ///     cref="T:MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator" />
         /// interface.
         /// </returns>
         private static IRegularExpressionGenerator

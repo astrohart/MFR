@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Messages.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Messages.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Messages.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Messages.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Messages.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Messages.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Messages.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Messages.Factories.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Messages.Factories</AssemblyName>
+    <AssemblyName>MFR.Messages.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Messages.Factories</RootNamespace>
+    <RootNamespace>MFR.Messages.Factories</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -122,55 +122,55 @@
   <ItemGroup>
     <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Objects.Configuration.Interfaces</Name>
+      <Name>MFR.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Registry.Interfaces\MFR.Expressions.Registry.Interfaces.csproj">
       <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
-      <Name>MFR.Objects.Expressions.Registry.Interfaces</Name>
+      <Name>MFR.Expressions.Registry.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+      <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
-      <Name>MFR.Objects.Messages.Actions.Interfaces</Name>
+      <Name>MFR.Messages.Actions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Actions\MFR.Messages.Actions.csproj">
       <Project>{065848D5-CC1F-4153-988B-2C7EA2FA964C}</Project>
-      <Name>MFR.Objects.Messages.Actions</Name>
+      <Name>MFR.Messages.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
       <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
-      <Name>MFR.Objects.Messages.Commands.Interfaces</Name>
+      <Name>MFR.Messages.Commands.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Commands\MFR.Messages.Commands.csproj">
       <Project>{1683F1C0-B348-4263-A839-7E3BA29A1E95}</Project>
-      <Name>MFR.Objects.Messages.Commands</Name>
+      <Name>MFR.Messages.Commands</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
-      <Name>MFR.Objects.Messages.Constants</Name>
+      <Name>MFR.Messages.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
-      <Name>MFR.Objects.Messages.Interfaces</Name>
+      <Name>MFR.Messages.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
       <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
-      <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Requests\MFR.Messages.Requests.csproj">
       <Project>{E9DB6CE2-0665-4BE9-92D7-70CFA7F185B2}</Project>
-      <Name>MFR.Objects.Messages.Requests</Name>
+      <Name>MFR.Messages.Requests</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages\MFR.Messages.csproj">
       <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>
-      <Name>MFR.Objects.Messages</Name>
+      <Name>MFR.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
-      <Name>MFR.Objects.Metadata.Registry.Interfaces</Name>
+      <Name>MFR.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

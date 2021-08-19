@@ -1,12 +1,12 @@
-using MFR.Objects.Interop.Monikers.Collections.Interfaces;
-using MFR.Objects.Interop.Monikers.Wrappers.Factories;
-using MFR.Objects.Interop.Monikers.Wrappers.Interfaces;
+using MFR.Interop.Monikers.Collections.Interfaces;
+using MFR.Interop.Monikers.Wrappers.Factories;
+using MFR.Interop.Monikers.Wrappers.Interfaces;
 using System;
 using System.Collections;
 using System.Runtime.InteropServices.ComTypes;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Interop.Monikers.Collections
+namespace MFR.Interop.Monikers.Collections
 {
     /// <summary>
     /// Enumerates through COM object moniker tables provided by the operating system.
@@ -43,14 +43,14 @@ namespace MFR.Objects.Interop.Monikers.Collections
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.MonikerEnumerator" />
+        ///     cref="T:MFR.MonikerEnumerator" />
         /// and returns a
         /// reference to it.
         /// </summary>
         /// <remarks>
         /// Callers of this constructor should then immediately call the
         /// <see
-        ///     cref="M:MFR.Objects.MonikerEnumerator.AttachOperatingSystemEnumerator" />
+        ///     cref="M:MFR.MonikerEnumerator.AttachOperatingSystemEnumerator" />
         /// method to associate this object with an enumerator object provided
         /// by the operating system.
         /// </remarks>
@@ -62,7 +62,7 @@ namespace MFR.Objects.Interop.Monikers.Collections
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Interop.Monikers.Collections.MonikerEnumerator" />
+        ///     cref="T:MFR.Interop.Monikers.Collections.MonikerEnumerator" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -212,7 +212,7 @@ namespace MFR.Objects.Interop.Monikers.Collections
         /// to the next element; <see langword="false" /> if the enumerator has
         /// passed the end of the collection, or if the
         /// <see
-        ///     cref="M:MFR.Objects.MonikerEnumerator.AttachOperatingSystemEnumerator" />
+        ///     cref="M:MFR.MonikerEnumerator.AttachOperatingSystemEnumerator" />
         /// method has not been called with a valid object reference to an
         /// instance of an object implementing the
         /// <see

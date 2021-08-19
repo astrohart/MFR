@@ -11,13 +11,13 @@ using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
-using MFR.Objects.Configuration.Events;
-using MFR.Objects.Configuration.Providers.Factories;
-using MFR.Objects.Configuration.Providers.Interfaces;
-using MFR.Objects.Events.Common;
-using MFR.Objects.Managers.History.Factories;
-using MFR.Objects.Operations.Events;
-using MFR.Objects.Renamers.Files.Factories;
+using MFR.Configuration.Events;
+using MFR.Configuration.Providers.Factories;
+using MFR.Configuration.Providers.Interfaces;
+using MFR.Events.Common;
+using MFR.Managers.History.Factories;
+using MFR.Operations.Events;
+using MFR.Renamers.Files.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
@@ -101,7 +101,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -598,7 +598,7 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FormFoldedEventArgs" /> that contains the
+        /// A <see cref="T:MFR.FormFoldedEventArgs" /> that contains the
         /// event data.
         /// </param>
         /// <remarks>
@@ -733,7 +733,7 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:MFR.Objects.ConfigurationExportedEventArgs" /> that
+        /// An <see cref="T:MFR.ConfigurationExportedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -833,7 +833,7 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.DataOperationEventArgs" /> that contains
+        /// A <see cref="T:MFR.DataOperationEventArgs" /> that contains
         /// the event data.
         /// </param>
         /// <remarks>
@@ -841,7 +841,7 @@ namespace MFR.GUI.Windows
         /// control in the status bar and updating the status bar's Message
         /// indicator to display the text that is passed in the
         /// <see
-        ///     cref="P:MFR.Objects.DataOperationEventArgs.Message" />
+        ///     cref="P:MFR.DataOperationEventArgs.Message" />
         /// property.
         /// <para />
         /// If the status bar is not presently visible, then this method does nothing.
@@ -903,7 +903,7 @@ namespace MFR.GUI.Windows
         /// <remarks>
         /// This handler is called when the
         /// <see
-        ///     cref="M:MFR.Objects.FileRenamer.ProcessAll" />
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
         /// begins its execution.
         /// This method responds by showing the progress dialog.
         /// </remarks>

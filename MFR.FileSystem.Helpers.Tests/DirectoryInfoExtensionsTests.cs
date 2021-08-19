@@ -1,15 +1,15 @@
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Validators.Factories;
-using MFR.Objects.Operations.Constants;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Validators.Factories;
+using MFR.Operations.Constants;
 using NUnit.Framework;
 using Alphaleonis.Win32.Filesystem;
 
-namespace MFR.Objects.FileSystem.Helpers.Tests
+namespace MFR.FileSystem.Helpers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.DirectoryInfoExtensions" />
+    ///     cref="T:MFR.DirectoryInfoExtensions" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -24,7 +24,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts the
         /// <see
-        ///     cref="M:MFR.Objects.DirectoryInfoExtensions.RenameTo" />
+        ///     cref="M:MFR.DirectoryInfoExtensions.RenameTo" />
         /// method renames a directory successfully when passed proper pathnames.
         /// </summary>
         [Test]

@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Interop.Monikers.Wrappers.Interfaces
+namespace MFR.Interop.Monikers.Wrappers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object wraps

@@ -1,13 +1,13 @@
-using MFR.Objects.Engines.Replacement.Intefaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Engines.Replacement.Intefaces;
+using MFR.Operations.Constants;
 using System;
 
-namespace MFR.Objects.Engines.Replacement.Factories
+namespace MFR.Engines.Replacement.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.ITextReplacementEngine" />
+    ///     cref="T:MFR.ITextReplacementEngine" />
     /// interface.
     /// </summary>
     public static class GetTextReplacementEngine
@@ -15,24 +15,24 @@ namespace MFR.Objects.Engines.Replacement.Factories
         /// <summary>
         /// Gets an instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.ITextReplacementEngine" />
+        ///     cref="T:MFR.ITextReplacementEngine" />
         /// interface
         /// corresponding to the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// specified.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// specifies which operation is being performed.
         /// </param>
         /// <returns>
         /// Reference to the instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.ITextReplacementEngine" />
+        ///     cref="T:MFR.ITextReplacementEngine" />
         /// interface
         /// corresponding to the operation of the <paramref name="type" />
         /// specified, or <see langword="null" /> if no object supports the specified

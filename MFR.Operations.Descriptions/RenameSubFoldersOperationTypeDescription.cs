@@ -1,9 +1,9 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Interfaces;
-using MFR.Objects.Operations.Descriptions.Properties;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Interfaces;
+using MFR.Operations.Descriptions.Properties;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Operations.Descriptions
+namespace MFR.Operations.Descriptions
 {
     /// <summary>
     /// Gets the descriptive text to be displayed to the user during a Rename Sub Folders Of operation.
@@ -12,7 +12,7 @@ namespace MFR.Objects.Operations.Descriptions
         RenameSubFoldersOperationTypeDescription : IOperationTypeDescription
     {
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.RenameSubFoldersOperationDescription"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.RenameSubFoldersOperationDescription"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static RenameSubFoldersOperationTypeDescription Instance
@@ -35,7 +35,7 @@ namespace MFR.Objects.Operations.Descriptions
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

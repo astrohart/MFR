@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects.Constants
+namespace MFR.Constants
 {
     /// <summary>
     /// Contains the identifiers to be utilized in order to tag those messages

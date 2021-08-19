@@ -1,11 +1,11 @@
-﻿using MFR.Objects.Managers.Solutions.Interfaces;
+﻿using MFR.Managers.Solutions.Interfaces;
 
-namespace MFR.Objects.Managers.Solutions.Factories
+namespace MFR.Managers.Solutions.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
+    ///     cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
     /// interface.
     /// </summary>
     public static class GetVisualStudioSolutionService
@@ -13,13 +13,13 @@ namespace MFR.Objects.Managers.Solutions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
+        ///     cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
+        ///     cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">

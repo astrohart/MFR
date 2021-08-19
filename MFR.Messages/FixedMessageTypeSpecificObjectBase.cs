@@ -1,13 +1,13 @@
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Interfaces;
+using MFR.Messages.Constants;
+using MFR.Messages.Interfaces;
 
-namespace MFR.Objects.Messages
+namespace MFR.Messages
 {
     /// <summary>
     /// Defines the methods, properties, and other functionality that are common
     /// to all objects that are tagged with a
     /// <see
-    ///     cref="T:MFR.Objects.MessageType" />
+    ///     cref="T:MFR.MessageType" />
     /// enumeration value.
     /// </summary>
     public abstract class
@@ -16,7 +16,7 @@ namespace MFR.Objects.Messages
         /// <summary>
         /// Gets the
         /// <see
-        ///     cref="T:MFR.Objects.MessageType" />
+        ///     cref="T:MFR.MessageType" />
         /// that is
         /// being used to identify which message this is.
         /// </summary>

@@ -1,17 +1,17 @@
-using MFR.Objects.Expressions.Matches.Interfaces;
+using MFR.Expressions.Matches.Interfaces;
 
-namespace MFR.Objects.Expressions.Matches
+namespace MFR.Expressions.Matches
 {
     /// <summary>
     /// POCO that models a match expression.
     /// </summary>
     /// <remarks>
     /// Match expressions consist of two strings: a <see
-    /// cref="P:MFR.Objects.MatchExpression.Source"/> and a <see
-    /// cref="P:MFR.Objects.MatchExpression.Pattern"/> . The <see
-    /// cref="P:MFR.Objects.MatchExpression.Source"/> is the string
+    /// cref="P:MFR.MatchExpression.Source"/> and a <see
+    /// cref="P:MFR.MatchExpression.Pattern"/> . The <see
+    /// cref="P:MFR.MatchExpression.Source"/> is the string
     /// containing data to be searched for the pattern contained in the <see
-    /// cref="P:MFR.Objects.MatchExpression.Pattern"/> property.
+    /// cref="P:MFR.MatchExpression.Pattern"/> property.
     /// </remarks>
     public class MatchExpression : IMatchExpression
     {
@@ -35,8 +35,8 @@ namespace MFR.Objects.Expressions.Matches
 
         /// <summary>
         /// Gets or sets the data that each of the occurrences of <see
-        /// cref="P:MFR.Objects.Expressions.Matches.MatchExpression.FindWhat"/> in the
-        /// <see cref="P:MFR.Objects.Expressions.Matches.MatchExpression.Value"/> are
+        /// cref="P:MFR.Expressions.Matches.MatchExpression.FindWhat"/> in the
+        /// <see cref="P:MFR.Expressions.Matches.MatchExpression.Value"/> are
         /// to be replaced with.
         /// </summary>
         public string ReplaceWith

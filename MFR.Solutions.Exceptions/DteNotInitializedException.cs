@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MFR.Objects.Solutions.Exceptions
+namespace MFR.Solutions.Exceptions
 {
     /// <summary>
     /// Thrown when a variable designed to hold a reference to an instance of an
@@ -12,7 +12,7 @@ namespace MFR.Objects.Solutions.Exceptions
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException" />
+        ///     cref="T:MFR.Solutions.Exceptions.DteNotInitializedException" />
         /// and returns a reference to it.
         /// </summary>
         public DteNotInitializedException() : base(

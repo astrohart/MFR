@@ -22,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,7 +61,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -70,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.FileSystem.Helpers.Tests</AssemblyName>
+    <AssemblyName>MFR.FileSystem.Helpers.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.FileSystem.Helpers.Tests</RootNamespace>
+    <RootNamespace>MFR.FileSystem.Helpers.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -141,79 +141,79 @@
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Objects.Configuration.Interfaces</Name>
+      <Name>MFR.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Providers.Factories\MFR.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
-      <Name>MFR.Objects.Configuration.Providers.Factories</Name>
+      <Name>MFR.Configuration.Providers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Providers.Interfaces\MFR.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
-      <Name>MFR.Objects.Configuration.Providers.Interfaces</Name>
+      <Name>MFR.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Configuration.Providers\MFR.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-      <Name>MFR.Objects.Configuration.Providers</Name>
+      <Name>MFR.Configuration.Providers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Replacement.Factories\MFR.Engines.Replacement.Factories.csproj">
       <Project>{0ECB53B9-B0A3-451F-9862-F9E13EB9C9F0}</Project>
-      <Name>MFR.Objects.Engines.Replacement.Factories</Name>
+      <Name>MFR.Engines.Replacement.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Replacement.Intefaces\MFR.Engines.Replacement.Intefaces.csproj">
       <Project>{343E6F3B-042F-4001-B485-4E7C949DF18E}</Project>
-      <Name>MFR.Objects.Engines.Replacement.Intefaces</Name>
+      <Name>MFR.Engines.Replacement.Intefaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Matches.Factories.Interfaces\MFR.Expressions.Matches.Factories.Interfaces.csproj">
       <Project>{057FF1CA-0D46-4B40-A8E6-3C68FB9F79A0}</Project>
-      <Name>MFR.Objects.Expressions.Matches.Factories.Interfaces</Name>
+      <Name>MFR.Expressions.Matches.Factories.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Matches.Factories\MFR.Expressions.Matches.Factories.csproj">
       <Project>{7C33BFA5-BB1A-4FD4-BAA5-70A2E76245CF}</Project>
-      <Name>MFR.Objects.Expressions.Matches.Factories</Name>
+      <Name>MFR.Expressions.Matches.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj">
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
-      <Name>MFR.Objects.Expressions.Matches.Interfaces</Name>
+      <Name>MFR.Expressions.Matches.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
-      <Name>MFR.Objects.FileSystem.Factories</Name>
+      <Name>MFR.FileSystem.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
-      <Name>MFR.Objects.FileSystem.Helpers</Name>
+      <Name>MFR.FileSystem.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.Objects.FileSystem.Interfaces</Name>
+      <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
       <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
-      <Name>MFR.Objects.FileSystem.Validators.Factories</Name>
+      <Name>MFR.FileSystem.Validators.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
       <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
-      <Name>MFR.Objects.FileSystem.Validators.Interfaces</Name>
+      <Name>MFR.FileSystem.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Objects.Operations.Constants</Name>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Objects.Operations.Interfaces</Name>
+      <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
-      <Name>MFR.Objects.Tests.Common</Name>
+      <Name>MFR.Tests.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
       <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
-      <Name>MFR.Objects.TextValues.Retrievers.Factories</Name>
+      <Name>MFR.TextValues.Retrievers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
-      <Name>MFR.Objects.TextValues.Retrievers.Interfaces</Name>
+      <Name>MFR.TextValues.Retrievers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

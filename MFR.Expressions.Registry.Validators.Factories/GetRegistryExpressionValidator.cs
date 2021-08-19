@@ -1,11 +1,11 @@
-using MFR.Objects.Expressions.Registry.Validators.Interfaces;
+using MFR.Expressions.Registry.Validators.Interfaces;
 
-namespace MFR.Objects.Expressions.Registry.Validators.Factories
+namespace MFR.Expressions.Registry.Validators.Factories
 {
     /// <summary>
     /// Accesses the sole instance of an object that implements the
     /// <see
-    ///     cref="T:MFR.Objects.IRegQueryExpressionValidator" />
+    ///     cref="T:MFR.IRegQueryExpressionValidator" />
     /// interface.
     /// </summary>
     /// <typeparam name="T">
@@ -17,13 +17,13 @@ namespace MFR.Objects.Expressions.Registry.Validators.Factories
         /// Fluently retrieves the single instance of the object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Objects.IRegQueryExpressionValidator" />
+        ///     cref="T:MFR.IRegQueryExpressionValidator" />
         /// interface.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IRegQueryExpressionValidator" />
+        ///     cref="T:MFR.IRegQueryExpressionValidator" />
         /// interface.
         /// </returns>
         public static IRegQueryExpressionValidator<T> Instance()

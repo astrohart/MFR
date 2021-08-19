@@ -1,6 +1,6 @@
-using MFR.Objects.Configuration.Interfaces;
+using MFR.Configuration.Interfaces;
 
-namespace MFR.Objects.Configuration.Providers.Interfaces
+namespace MFR.Configuration.Providers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Configuration Provider object.
@@ -9,7 +9,7 @@ namespace MFR.Objects.Configuration.Providers.Interfaces
     {
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Objects.IConfiguration" /> interface and which
+        /// <see cref="T:MFR.IConfiguration" /> interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
@@ -46,7 +46,7 @@ namespace MFR.Objects.Configuration.Providers.Interfaces
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
         /// <see
-        ///     cref="M:MFR.Objects.ConfigurationProvider.Save" />
+        ///     cref="M:MFR.ConfigurationProvider.Save" />
         /// method with a
         /// value for its pathname parameter.
         /// <para />
@@ -107,7 +107,7 @@ namespace MFR.Objects.Configuration.Providers.Interfaces
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.Configuration" />
         /// property is then initialized to point to the data that has been loaded.
         /// </summary>
         /// <param name="pathname">
@@ -116,13 +116,13 @@ namespace MFR.Objects.Configuration.Providers.Interfaces
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.Configuration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         /// <exception cref="T:System.IO.FileNotFoundException">
@@ -144,13 +144,13 @@ namespace MFR.Objects.Configuration.Providers.Interfaces
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");

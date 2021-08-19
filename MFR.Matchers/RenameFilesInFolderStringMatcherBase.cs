@@ -1,9 +1,9 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Matchers.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Configuration.Constants;
+using MFR.Matchers.Interfaces;
+using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Matchers
+namespace MFR.Matchers
 {
     /// <summary>
     /// Defines the methods, properties, and events that all String Matcher
@@ -14,7 +14,7 @@ namespace MFR.Objects.Matchers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
@@ -57,7 +57,7 @@ namespace MFR.Objects.Matchers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values
         /// that corresponds to the type of operation being performed.
         /// </summary>

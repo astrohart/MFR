@@ -1,6 +1,6 @@
-using MFR.Objects.Messages.Requests.Intefaces;
+using MFR.Messages.Requests.Intefaces;
 
-namespace MFR.Objects.Messages.Actions.Interfaces
+namespace MFR.Messages.Actions.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a command object
@@ -67,20 +67,20 @@ namespace MFR.Objects.Messages.Actions.Interfaces
         /// <summary>
         /// Returns a reference to this same object, but cast to the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </summary>
         /// <returns>
         /// Reference to the same object instance as that which invoked this
         /// method, cast to the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.InvalidCastException">
         /// Thrown if the implementing object does not also implement the
         /// <see
-        ///     cref="T:MFR.Objects.ICachedResultAction" />
+        ///     cref="T:MFR.ICachedResultAction" />
         /// interface.
         /// </exception>
         ICachedResultAction<TInput, TResult> AsCachedResultAction();

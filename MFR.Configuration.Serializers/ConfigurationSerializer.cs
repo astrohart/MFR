@@ -1,13 +1,13 @@
-using MFR.Objects.Configuration.Converters;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Configuration.Serializers.Properties;
-using MFR.Objects.FileSystem.Helpers;
+using MFR.Configuration.Converters;
+using MFR.Configuration.Interfaces;
+using MFR.Configuration.Serializers.Properties;
+using MFR.FileSystem.Helpers;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using File = Alphaleonis.Win32.Filesystem.File;
 
-namespace MFR.Objects.Configuration.Serializers
+namespace MFR.Configuration.Serializers
 {
     /// <summary>
     ///     Provides helper methods for storing the configuration data to, and
@@ -26,7 +26,7 @@ namespace MFR.Objects.Configuration.Serializers
         /// <returns>
         ///     Reference to an instance of an object that implements the
         ///     <see
-        ///         cref="T:MFR.Objects.IConfiguration" />
+        ///         cref="T:MFR.IConfiguration" />
         ///     interface that has been
         ///     initialized with the data present in the file; or
         ///     <see
@@ -103,7 +103,7 @@ namespace MFR.Objects.Configuration.Serializers
         ///     (Required.) Reference to an instance of an object that implements
         ///     the
         ///     <see
-        ///         cref="T:MFR.Objects.Configuration.Interfaces.IConfiguration" />
+        ///         cref="T:MFR.Configuration.Interfaces.IConfiguration" />
         ///     interface.
         /// </param>
         public static void Save(string pathname, IConfiguration configuration)

@@ -1,12 +1,12 @@
 ﻿using EnvDTE;
-using MFR.Objects.Solutions.Interfaces;
+using MFR.Solutions.Interfaces;
 
-namespace MFR.Objects.Solutions.Factories
+namespace MFR.Solutions.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.VisualStudioSolutions" />
+    ///     cref="T:MFR.VisualStudioSolutions" />
     /// interface, and returns
     /// references to them.
     /// </summary>
@@ -15,7 +15,7 @@ namespace MFR.Objects.Solutions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.VisualStudioSolutions" />
+        ///     cref="T:MFR.VisualStudioSolutions" />
         /// interface and returns a
         /// reference to it.
         /// </summary>
@@ -26,7 +26,7 @@ namespace MFR.Objects.Solutions.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.VisualStudioSolutions" />
+        ///     cref="T:MFR.VisualStudioSolutions" />
         /// interface.
         /// </returns>
         public static IVisualStudioSolution AndAttachDTE(DTE dte)

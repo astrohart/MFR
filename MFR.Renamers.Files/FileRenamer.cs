@@ -1,22 +1,22 @@
 using EnvDTE;
-using MFR.Objects.Configuration;
-using MFR.Objects.Constants;
-using MFR.Objects.Engines.Replacement.Factories;
-using MFR.Objects.Events;
-using MFR.Objects.Events.Common;
-using MFR.Objects.Expressions.Matches.Factories;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.FileSystem.Helpers;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.FileSystem.Retrievers.Factories;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Events;
-using MFR.Objects.Operations.Exceptions;
-using MFR.Objects.Renamers.Files.Interfaces;
-using MFR.Objects.Renamers.Files.Properties;
-using MFR.Objects.TextValues.Retrievers.Factories;
-using MFR.Objects.VisualStudio;
-using MFR.Objects.Win32;
+using MFR.Configuration;
+using MFR.Constants;
+using MFR.Engines.Replacement.Factories;
+using MFR.Events;
+using MFR.Events.Common;
+using MFR.Expressions.Matches.Factories;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.FileSystem.Helpers;
+using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Retrievers.Factories;
+using MFR.Operations.Constants;
+using MFR.Operations.Events;
+using MFR.Operations.Exceptions;
+using MFR.Renamers.Files.Interfaces;
+using MFR.Renamers.Files.Properties;
+using MFR.TextValues.Retrievers.Factories;
+using MFR.VisualStudio;
+using MFR.Win32;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -32,14 +32,14 @@ using Path = Alphaleonis.Win32.Filesystem.Path;
 using Process = System.Diagnostics.Process;
 using Thread = System.Threading.Thread;
 
-namespace MFR.Objects.Renamers.Files
+namespace MFR.Renamers.Files
 {
     /// <summary>
     /// Provides file- and folder-rename services.
     /// </summary>
     /// <remarks>
     /// NOTE: Instances of this class must be composed with an instance of an
-    /// object that implements the <see cref="T:MFR.Objects.IConfiguration" />
+    /// object that implements the <see cref="T:MFR.IConfiguration" />
     /// interface.
     /// <para />
     /// Such an object is necessary because it provides settings specified by
@@ -50,7 +50,7 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Renamers.Files.FileRenamer" />
+        ///     cref="T:MFR.Renamers.Files.FileRenamer" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -62,7 +62,7 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Renamers.Files.FileRenamer" />
+        ///     cref="T:MFR.Renamers.Files.FileRenamer" />
         /// and returns a
         /// reference to it.
         /// </summary>
@@ -93,7 +93,7 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Gets a reference to a collection of of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values.
         /// </summary>
         /// <remarks>
@@ -104,7 +104,7 @@ namespace MFR.Objects.Renamers.Files
         /// <para />
         /// If the list is empty when the
         /// <see
-        ///     cref="M:MFR.Objects.FileRenamer.ProcessAll" />
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
         /// method is called, do
         /// nothing or throw an exception.
         /// </remarks>
@@ -192,7 +192,7 @@ namespace MFR.Objects.Renamers.Files
         /// Files operation on all the folders and files in the root folder with
         /// the pathname stored in the
         /// <see
-        ///     cref="P:MFR.Objects.FileRenamer.RootDirectoryPath" />
+        ///     cref="P:MFR.FileRenamer.RootDirectoryPath" />
         /// property.
         /// </summary>
         /// <param name="findWhat">
@@ -1115,7 +1115,7 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Initializes the value of the
         /// <see
-        ///     cref="P:MFR.Objects.IFileRenamer.RootDirectoryPath" />
+        ///     cref="P:MFR.IFileRenamer.RootDirectoryPath" />
         /// property to
         /// the value specified in the <paramref name="rootDirectoryPath" /> parameter.
         /// <para />
@@ -1148,10 +1148,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Objects.FileRenamer.ExceptionRaised" /> event.
+        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ExceptionRaisedEventArgs" /> that contains
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
         /// the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1218,11 +1218,11 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Objects.FileRenamer.FilesToBeRenamedCounted" />
+        ///     cref="E:MFR.FileRenamer.FilesToBeRenamedCounted" />
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1238,11 +1238,11 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Objects.FileRenamer.FilesToHaveTextReplacedCounted" />
+        ///     cref="E:MFR.FileRenamer.FilesToHaveTextReplacedCounted" />
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1259,7 +1259,7 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Objects.Renamers.Files.FileRenamer.Finished" />
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.Finished" />
         /// event.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -1271,10 +1271,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Objects.FileRenamer.OperationFinished" /> event.
+        /// Raises the <see cref="E:MFR.FileRenamer.OperationFinished" /> event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.Objects.OperationFinishedEventArgs" /> that
+        /// An <see cref="T:MFR.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1289,10 +1289,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Objects.FileRenamer.OperationStarted" /> event.
+        /// Raises the <see cref="E:MFR.FileRenamer.OperationStarted" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.OperationStartedEventArgs" /> that
+        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1307,10 +1307,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Objects.ProcessingOperation" /> event.
+        /// Raises the <see cref="E:MFR.ProcessingOperation" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ProcessingOperationEventArgs" /> that
+        /// A <see cref="T:MFR.ProcessingOperationEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1324,7 +1324,7 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Objects.Renamers.Files.FileRenamer.Started" />
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.Started" />
         /// event.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -1336,10 +1336,10 @@ namespace MFR.Objects.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Objects.FileRenamer.StatusUpdate" /> event.
+        /// Raises the <see cref="E:MFR.FileRenamer.StatusUpdate" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.StatusUpdateEventArgs" /> that contains
+        /// A <see cref="T:MFR.StatusUpdateEventArgs" /> that contains
         /// the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1356,11 +1356,11 @@ namespace MFR.Objects.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Objects.FileRenamer.SubfoldersToBeRenamedCounted" />
+        ///     cref="E:MFR.FileRenamer.SubfoldersToBeRenamedCounted" />
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         [Log(AttributeExclude = true)]

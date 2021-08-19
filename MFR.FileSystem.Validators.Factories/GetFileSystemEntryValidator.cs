@@ -1,13 +1,13 @@
-using MFR.Objects.FileSystem.Validators.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.FileSystem.Validators.Interfaces;
+using MFR.Operations.Constants;
 using System;
 
-namespace MFR.Objects.FileSystem.Validators.Factories
+namespace MFR.FileSystem.Validators.Factories
 {
     /// <summary>
     /// Gets instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator" />
+    ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
     /// interface
     /// that correspond to the type of file-system operation that is being performed.
     /// </summary>
@@ -16,22 +16,22 @@ namespace MFR.Objects.FileSystem.Validators.Factories
         /// <summary>
         /// Gets a reference to an instance of an object implementing the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
         /// interface corresponding to the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// value that is
         /// provided in the <paramref name="type" /> parameter.
         /// </summary>
         /// <param name="type">
-        /// One of the <see cref="T:MFR.Objects.OperationType" />
+        /// One of the <see cref="T:MFR.OperationType" />
         /// values that specifies the type of file-system operation that is
         /// being performed.
         /// </param>
         /// <returns>
         /// Reference to the instance of the object implementing the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
         /// interface that corresponds to the type of file-system operation
         /// specified by the <paramref name="type" /> parameter.
         /// </returns>

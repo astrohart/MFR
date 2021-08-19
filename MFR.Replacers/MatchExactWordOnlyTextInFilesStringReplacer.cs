@@ -1,14 +1,14 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Generators.RegularExpressions.Constants;
-using MFR.Objects.Generators.RegularExpressions.Factories;
-using MFR.Objects.Replacers.Properties;
+using MFR.Configuration.Constants;
+using MFR.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Factories;
+using MFR.Replacers.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Replacers
+namespace MFR.Replacers
 {
     /// <summary>
     /// Replaces strings only for the case where Match Exact Word is set to
@@ -36,7 +36,7 @@ namespace MFR.Objects.Replacers
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.Objects.Replacers.MatchExactWordOnlyTextInFilesStringReplacer" />
+        ///     cref="T:MFR.Replacers.MatchExactWordOnlyTextInFilesStringReplacer" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -48,7 +48,7 @@ namespace MFR.Objects.Replacers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

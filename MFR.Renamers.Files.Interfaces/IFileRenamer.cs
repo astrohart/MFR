@@ -1,10 +1,10 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Events;
-using MFR.Objects.Events.Common;
-using MFR.Objects.Operations.Events;
+using MFR.Configuration.Interfaces;
+using MFR.Events;
+using MFR.Events.Common;
+using MFR.Operations.Events;
 using System;
 
-namespace MFR.Objects.Renamers.Files.Interfaces
+namespace MFR.Renamers.Files.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a <c>File
@@ -76,7 +76,7 @@ namespace MFR.Objects.Renamers.Files.Interfaces
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
         /// the pathname stored in the <see
-        /// cref="P:MFR.Objects.FileRenamer.RootDirectoryPath"/> property.
+        /// cref="P:MFR.FileRenamer.RootDirectoryPath"/> property.
         /// </summary>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
@@ -277,7 +277,7 @@ namespace MFR.Objects.Renamers.Files.Interfaces
 
         /// <summary>
         /// Initializes the value of the <see
-        /// cref="P:MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath"/>
+        /// cref="P:MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath"/>
         /// property to the value specified in the <paramref
         /// name="rootDirectoryPath"/> parameter.
         /// <para/>

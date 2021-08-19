@@ -1,4 +1,4 @@
-﻿namespace MFR.Objects.Generators.RegularExpressions.Constants
+﻿namespace MFR.Generators.RegularExpressions.Constants
 {
     /// <summary>
     /// Substitution formats for regular expressions.

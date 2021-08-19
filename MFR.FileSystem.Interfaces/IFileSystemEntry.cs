@@ -1,6 +1,6 @@
-using MFR.Objects.Operations.Interfaces;
+using MFR.Operations.Interfaces;
 
-namespace MFR.Objects.FileSystem.Interfaces
+namespace MFR.FileSystem.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a POCO that

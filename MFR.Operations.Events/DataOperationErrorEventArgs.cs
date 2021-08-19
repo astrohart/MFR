@@ -1,7 +1,7 @@
-using MFR.Objects.Events.Common;
+using MFR.Events.Common;
 using System;
 
-namespace MFR.Objects.Operations.Events
+namespace MFR.Operations.Events
 {
     /// <summary>
     /// Provides information for DataOperationError event handlers.
@@ -10,7 +10,7 @@ namespace MFR.Objects.Operations.Events
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Operations.Events.DataOperationErrorEventArgs"/>
+        /// cref="T:MFR.Operations.Events.DataOperationErrorEventArgs"/>
         /// and returns a reference to it.
         /// </summary>
         /// <param name="exception">

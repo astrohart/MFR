@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Messages.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Messages.Requests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Messages.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Messages.Requests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Messages.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Messages.Requests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Messages.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Messages.Requests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Messages.Requests</AssemblyName>
+    <AssemblyName>MFR.Messages.Requests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Messages.Requests</RootNamespace>
+    <RootNamespace>MFR.Messages.Requests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -121,15 +121,15 @@
   <ItemGroup>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
-      <Name>MFR.Objects.Messages.Interfaces</Name>
+      <Name>MFR.Messages.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
       <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
-      <Name>MFR.Objects.Messages.Requests.Intefaces</Name>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages\MFR.Messages.csproj">
       <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>
-      <Name>MFR.Objects.Messages</Name>
+      <Name>MFR.Messages</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

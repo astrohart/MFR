@@ -170,13 +170,13 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Factories\MFR.Objects.Configuration.Providers.Factories.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Providers.Factories\MFR.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
-      <Name>MFR.Objects.Configuration.Providers.Factories</Name>
+      <Name>MFR.Configuration.Providers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Providers.Interfaces\MFR.Objects.Configuration.Providers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Providers.Interfaces\MFR.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
-      <Name>MFR.Objects.Configuration.Providers.Interfaces</Name>
+      <Name>MFR.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
@@ -198,9 +198,9 @@
       <Project>{09FC149F-D919-4B90-97D3-DA8842D03E26}</Project>
       <Name>MFR.GUI.Windows.Wrappers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Providers\MFR.Objects.Configuration.Providers.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Providers\MFR.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-      <Name>MFR.Objects.Configuration.Providers</Name>
+      <Name>MFR.Configuration.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

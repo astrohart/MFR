@@ -1,8 +1,8 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.Operations.Interfaces;
+using MFR.Configuration.Interfaces;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.Operations.Interfaces;
 
-namespace MFR.Objects.Engines.Matching.Interfaces
+namespace MFR.Engines.Matching.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a filename-matcher object.
@@ -48,12 +48,12 @@ namespace MFR.Objects.Engines.Matching.Interfaces
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MFR.Objects.ITextExpressionMatchingEngine.Configuration" />
+        ///     cref="P:MFR.ITextExpressionMatchingEngine.Configuration" />
         /// property.
         /// </summary>
         /// <param name="expression">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IMatchExpression" />
+        /// the <see cref="T:MFR.IMatchExpression" />
         /// interface and whose properties contain the match and pattern data.
         /// </param>
         /// <returns>

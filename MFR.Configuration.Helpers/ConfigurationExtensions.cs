@@ -1,10 +1,10 @@
 using MFR.GUI.Controls.Interfaces;
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Configuration.Interfaces;
+using MFR.Configuration.Constants;
+using MFR.Configuration.Interfaces;
 using System;
 using System.Linq;
 
-namespace MFR.Objects.Configuration.Helpers
+namespace MFR.Configuration.Helpers
 {
     /// <summary>
     /// Extension methods for objects implementing the <see
@@ -13,20 +13,20 @@ namespace MFR.Objects.Configuration.Helpers
     public static class ConfigurationExtensions
     {
         /// <summary>
-        /// Gets the <see cref="T:MFR.Objects.TextMatchingConfiguration"/> value
+        /// Gets the <see cref="T:MFR.TextMatchingConfiguration"/> value
         /// that corresponds to the values set in the configuration object, a
         /// reference to which is passed by the <paramref name="config"/> parameter.
         /// </summary>
         /// <param name="config">
         /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.Objects.IConfiguration"/> interface.
+        /// cref="T:MFR.IConfiguration"/> interface.
         /// </param>
         /// <returns>
-        /// The <see cref="T:MFR.Objects.TextMatchingConfiguration"/> value that
+        /// The <see cref="T:MFR.TextMatchingConfiguration"/> value that
         /// corresponds to the values of the <see
-        /// cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase"/>
+        /// cref="P:MFR.Configuration.Interfaces.IConfigurationMatchCase"/>
         /// and <see
-        /// cref="P:MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord"/> properties.
+        /// cref="P:MFR.Configuration.Interfaces.IConfigurationMatchExactWord"/> properties.
         /// </returns>
         public static TextMatchingConfiguration GetTextMatchingConfiguration(
             this IConfiguration config)
@@ -61,7 +61,7 @@ namespace MFR.Objects.Configuration.Helpers
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration"/> interface and which
+        /// the <see cref="T:MFR.IConfiguration"/> interface and which
         /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
@@ -94,7 +94,7 @@ namespace MFR.Objects.Configuration.Helpers
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration"/> interface and which
+        /// the <see cref="T:MFR.IConfiguration"/> interface and which
         /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
@@ -129,7 +129,7 @@ namespace MFR.Objects.Configuration.Helpers
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration"/> interface and which
+        /// the <see cref="T:MFR.IConfiguration"/> interface and which
         /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">

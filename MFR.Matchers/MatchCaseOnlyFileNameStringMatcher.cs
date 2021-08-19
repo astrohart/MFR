@@ -1,10 +1,10 @@
-using MFR.Objects.Configuration.Constants;
+using MFR.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Matchers
+namespace MFR.Matchers
 {
     /// <summary>
     /// Matches strings only for the case where Match Case is set to
@@ -31,7 +31,7 @@ namespace MFR.Objects.Matchers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher" />.
+        /// <see cref="T:MFR.Matchers.MatchCaseOnlyFileNameStringMatcher" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static MatchCaseOnlyFileNameStringMatcher Instance
@@ -42,7 +42,7 @@ namespace MFR.Objects.Matchers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values
         /// that corresponds to the type of operation being performed.
         /// </summary>

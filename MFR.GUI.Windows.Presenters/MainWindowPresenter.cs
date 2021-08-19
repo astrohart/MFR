@@ -6,22 +6,22 @@ using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
-using MFR.Objects.Configuration;
-using MFR.Objects.Configuration.Events;
-using MFR.Objects.Configuration.Helpers;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Configuration.Providers.Factories;
-using MFR.Objects.Configuration.Providers.Interfaces;
-using MFR.Objects.Constants;
-using MFR.Objects.Events;
-using MFR.Objects.Events.Common;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Helpers;
-using MFR.Objects.Managers.History.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Factories;
-using MFR.Objects.Operations.Events;
-using MFR.Objects.Renamers.Files.Interfaces;
+using MFR.Configuration;
+using MFR.Configuration.Events;
+using MFR.Configuration.Helpers;
+using MFR.Configuration.Interfaces;
+using MFR.Configuration.Providers.Factories;
+using MFR.Configuration.Providers.Interfaces;
+using MFR.Constants;
+using MFR.Events;
+using MFR.Events.Common;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Helpers;
+using MFR.Managers.History.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Factories;
+using MFR.Operations.Events;
+using MFR.Renamers.Files.Interfaces;
 using MFR.Profiles.Collections.Interfaces;
 using MFR.Profiles.Providers.Factories;
 using PostSharp.Patterns.Diagnostics;
@@ -54,7 +54,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IFileRenamer" />
+        ///     cref="T:MFR.IFileRenamer" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -65,7 +65,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IHistoryManager" />
+        ///     cref="T:MFR.IHistoryManager" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -146,7 +146,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -259,7 +259,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <param name="historyManager">
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IHistoryManager" />
+        ///     cref="T:MFR.IHistoryManager" />
         /// on which this Presenter
         /// should depend.
         /// </param>
@@ -493,7 +493,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface which has
+        /// the <see cref="T:MFR.IConfiguration" /> interface which has
         /// the new settings.
         /// </param>
         /// <remarks>
@@ -657,7 +657,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <param name="fileRenamer">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IFileRenamer" /> interface.
+        /// the <see cref="T:MFR.IFileRenamer" /> interface.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
@@ -722,7 +722,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Objects.Configuration.Configuration" /> object.
+        /// box into the <see cref="T:MFR.Configuration.Configuration" /> object.
         /// </summary>
         public void SaveOperationSelections()
         {
@@ -823,7 +823,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ConfigurationExportedEventArgs" /> that
+        /// A <see cref="T:MFR.ConfigurationExportedEventArgs" /> that
         /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationExported(
@@ -843,7 +843,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ConfigurationImportedEventArgs" /> that
+        /// A <see cref="T:MFR.ConfigurationImportedEventArgs" /> that
         /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationImported(
@@ -863,7 +863,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.DataOperationErrorEventArgs" /> that
+        /// A <see cref="T:MFR.DataOperationErrorEventArgs" /> that
         /// contains the event data.
         /// </param>
         protected virtual void OnDataOperationError(
@@ -908,7 +908,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// (Required.) A <see cref="T:MFR.Objects.DataOperationEventArgs" />
+        /// (Required.) A <see cref="T:MFR.DataOperationEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <remarks>
@@ -930,7 +930,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.Objects.IFileRenamer.Started" /> event
+        /// Handles the <see cref="E:MFR.IFileRenamer.Started" /> event
         /// raised by the File Renamer object. This event is raised when the
         /// rename operations are all completed.
         /// </summary>
@@ -982,7 +982,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ExceptionRaisedEventArgs" /> that contains
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
         /// the event data.
         /// </param>
         [Log(AttributeExclude = true)]
@@ -1242,7 +1242,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.Objects.IFileRenamer.ExceptionRaised" /> event.
+        /// Handles the <see cref="E:MFR.IFileRenamer.ExceptionRaised" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -1266,7 +1266,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.FilesToBeRenamedCounted" />
+        ///     cref="E:MFR.IFileRenamer.FilesToBeRenamedCounted" />
         /// event
         /// raised by the file renamer object when it's finished determining the
         /// set of file system entries upon which the current operation should act.
@@ -1275,7 +1275,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -1294,14 +1294,14 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.FilesToHaveTextReplacedCounted" />
+        ///     cref="E:MFR.IFileRenamer.FilesToHaveTextReplacedCounted" />
         /// event raised by the File Renamer object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -1318,7 +1318,7 @@ namespace MFR.GUI.Windows.Presenters
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.Objects.IFileRenamer.Finished" /> event
+        /// Handles the <see cref="E:MFR.IFileRenamer.Finished" /> event
         /// raised by the File Renamer object. This event is raised when the
         /// rename operations are all completed.
         /// </summary>
@@ -1335,7 +1335,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.OperationFinished" />
+        ///     cref="E:MFR.IFileRenamer.OperationFinished" />
         /// event raised
         /// by the file renamer object.
         /// </summary>
@@ -1343,7 +1343,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.OperationFinishedEventArgs" /> that
+        /// A <see cref="T:MFR.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -1358,7 +1358,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.OperationStarted" />
+        ///     cref="E:MFR.IFileRenamer.OperationStarted" />
         /// event raised by
         /// the file-renamer object.
         /// </summary>
@@ -1366,7 +1366,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.OperationStartedEventArgs" /> that
+        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -1388,7 +1388,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.ProcessingOperation" />
+        ///     cref="E:MFR.IFileRenamer.ProcessingOperation" />
         /// event raised
         /// by the File Renamer object when it moves on to processing the next
         /// file system entry in its list.
@@ -1397,13 +1397,13 @@ namespace MFR.GUI.Windows.Presenters
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.ProcessingOperationEventArgs" /> that
+        /// A <see cref="T:MFR.ProcessingOperationEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds by first checking the values passed in the
         /// <see
-        ///     cref="T:MFR.Objects.ProcessingOperationEventArgs" />
+        ///     cref="T:MFR.ProcessingOperationEventArgs" />
         /// for valid values.
         /// <para />
         /// If the checks fail, then this method does nothing.
@@ -1438,7 +1438,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Objects.IFileRenamer.SubfoldersToBeRenamedCounted" />
+        ///     cref="E:MFR.IFileRenamer.SubfoldersToBeRenamedCounted" />
         /// event raised by the File Renamer object when it has finished
         /// calculating how many subfolders are to be renamed.
         /// </summary>
@@ -1446,7 +1446,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.Objects.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>

@@ -1,7 +1,7 @@
-using MFR.Objects.Managers.History.Interfaces;
+using MFR.Managers.History.Interfaces;
 using System.Windows.Forms;
 
-namespace MFR.Objects.Managers.History.Factories
+namespace MFR.Managers.History.Factories
 {
     /// <summary>
     /// Creates new instances of History Manager objects.
@@ -22,7 +22,7 @@ namespace MFR.Objects.Managers.History.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IHistoryManager" />
+        ///     cref="T:MFR.IHistoryManager" />
         /// interface and
         /// which is associated with the specified <paramref name="form" />.
         /// </returns>

@@ -1,11 +1,11 @@
-using MFR.Objects.FileSystem.Exceptions;
-using MFR.Objects.Registry.Helpers;
+using MFR.FileSystem.Exceptions;
+using MFR.Registry.Helpers;
 using Microsoft.Win32;
 using System;
 using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.System
+namespace MFR.System
 {
     /// <summary>
     /// Provides methods that prepare the computer for the use of this application.

@@ -1,4 +1,4 @@
-namespace MFR.Objects.Operations.Events
+namespace MFR.Operations.Events
 {
     /// <summary>
     /// Represents a handler for an OperationFinished event.
@@ -7,7 +7,7 @@ namespace MFR.Objects.Operations.Events
     /// Reference to the instance of the object that raised the event.
     /// </param>
     /// <param name="e">
-    /// A <see cref="T:MFR.Objects.Operations.Events.OperationFinishedEventArgs"/>
+    /// A <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs"/>
     /// that contains the event data.
     /// </param>
     /// <remarks>

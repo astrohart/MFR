@@ -1,8 +1,8 @@
-using MFR.Objects.Filters.Search.Constants;
-using MFR.Objects.Filters.Search.Interfaces;
+using MFR.Filters.Search.Constants;
+using MFR.Filters.Search.Interfaces;
 using System;
 
-namespace MFR.Objects.Filters.Search
+namespace MFR.Filters.Search
 {
     /// <summary>
     /// Provides a common implementation for all search filters objects.
@@ -11,7 +11,7 @@ namespace MFR.Objects.Filters.Search
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.SearchFilter"/> and returns a
+        /// cref="T:MFR.SearchFilter"/> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="descriptor">

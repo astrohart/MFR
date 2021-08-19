@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.Objects.Operations.Exceptions
+namespace MFR.Operations.Exceptions
 {
     /// <summary>
     /// Signals that a request has been made to abort an operation.
@@ -9,7 +9,7 @@ namespace MFR.Objects.Operations.Exceptions
     {
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Operations.Exceptions.OperationAbortedException"/> and
+        /// cref="T:MFR.Operations.Exceptions.OperationAbortedException"/> and
         /// returns a reference to it.
         /// </summary>
         /// <param name="message">
@@ -19,7 +19,7 @@ namespace MFR.Objects.Operations.Exceptions
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Operations.Exceptions.OperationAbortedException"/> and
+        /// cref="T:MFR.Operations.Exceptions.OperationAbortedException"/> and
         /// returns a reference to it.
         /// </summary>
         /// <param name="message">
@@ -33,7 +33,7 @@ namespace MFR.Objects.Operations.Exceptions
 
         /// <summary>
         /// Constructs a new instance of <see
-        /// cref="T:MFR.Objects.Operations.Exceptions.OperationAbortedException"/> and
+        /// cref="T:MFR.Operations.Exceptions.OperationAbortedException"/> and
         /// returns a reference to it.
         /// </summary>
         protected OperationAbortedException()

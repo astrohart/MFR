@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Interfaces;
 using System;
 
-namespace MFR.Objects.Operations.Descriptions.Factories
+namespace MFR.Operations.Descriptions.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IOperationDescription" />
+    ///     cref="T:MFR.IOperationDescription" />
     /// interface.
     /// </summary>
     public static class GetOperationDescription
@@ -15,26 +15,26 @@ namespace MFR.Objects.Operations.Descriptions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IOperationDescription" />
+        ///     cref="T:MFR.IOperationDescription" />
         /// interface,
         /// corresponding to the specified operation <paramref name="type" />,
         /// and returns a reference to it.
         /// </summary>
         /// <param name="type">
-        /// (Required.) One of the <see cref="T:MFR.Objects.OperationType" />
+        /// (Required.) One of the <see cref="T:MFR.OperationType" />
         /// values that specifies the operation type you want the descriptive
         /// text for.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IOperationDescription" />
+        ///     cref="T:MFR.IOperationDescription" />
         /// interface that
         /// corresponds to the specified operation <paramref name="type" />, or
         /// <see langword="null" /> if no such object can be located.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <see cref="T:MFR.Objects.OperationType" /> value
+        /// Thrown if the <see cref="T:MFR.OperationType" /> value
         /// specified in the <paramref name="type" /> parameter does not have a
         /// corresponding Operation Description object associated with it.
         /// </exception>

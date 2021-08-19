@@ -1,13 +1,13 @@
-using MFR.Objects.FileSystem.Interfaces;
+using MFR.FileSystem.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.FileSystem.Factories
+namespace MFR.FileSystem.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+    ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
     public static class MakeNewFileSystemEntry
@@ -15,7 +15,7 @@ namespace MFR.Objects.FileSystem.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface, for
         /// the <paramref name="path" /> specified, and returns a reference to it.
         /// </summary>
@@ -26,17 +26,17 @@ namespace MFR.Objects.FileSystem.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry" />
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface,
         /// initialized with the specified <paramref name="path" />, or <see langword="null" /> if either an exception is thrown during the create operation or if <paramref name="path"/> is a blank value.
         /// </returns>
         /// <remarks>
         /// NOTE: The caller must also call the
-        /// <see cref="M:MFR.Objects.IOperationSpecificObject.AndOperationType" />
+        /// <see cref="M:MFR.IOperationSpecificObject.AndOperationType" />
         /// method,
         /// and, optionally, the
         /// <see
-        ///     cref="M:MFR.Objects.IFileSystemEntry.WithUserState" />
+        ///     cref="M:MFR.IFileSystemEntry.WithUserState" />
         /// fluent-builder methods on the result.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">

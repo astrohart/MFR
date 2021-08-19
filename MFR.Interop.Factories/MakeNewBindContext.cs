@@ -1,9 +1,9 @@
-using MFR.Objects.Win32;
+using MFR.Win32;
 using System;
 using System.Runtime.InteropServices.ComTypes;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Interop.Factories
+namespace MFR.Interop.Factories
 {
     /// <summary>
     /// Instructs the operating system to create instances of objects that

@@ -1,11 +1,11 @@
-using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Expressions.Registry.Interfaces;
 
-namespace MFR.Objects.Expressions.Registry.Factories
+namespace MFR.Expressions.Registry.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IRegQueryExpression{T}" />
+    ///     cref="T:MFR.IRegQueryExpression{T}" />
     /// interface.
     /// </summary>
     public static class MakeNewRegQueryExpression
@@ -13,7 +13,7 @@ namespace MFR.Objects.Expressions.Registry.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IRegQueryExpression{T}" />
+        ///     cref="T:MFR.IRegQueryExpression{T}" />
         /// interface
         /// and returns a reference to it.
         /// </summary>
@@ -24,13 +24,13 @@ namespace MFR.Objects.Expressions.Registry.Factories
         /// <remarks>
         /// Callers of this method must then invoke the fluent-builder methods
         /// <see
-        ///     cref="M:MFR.Objects.IRegQueryExpression.ForKeyPath" />
+        ///     cref="M:MFR.IRegQueryExpression.ForKeyPath" />
         /// ,
         /// <see
-        ///     cref="M:MFR.Objects.IRegQueryExpression.AndValueName" />
+        ///     cref="M:MFR.IRegQueryExpression.AndValueName" />
         /// , and, optionally, the
         /// <see
-        ///     cref="M:MFR.Objects.IRegQueryExpression.WithDefaultValue" />
+        ///     cref="M:MFR.IRegQueryExpression.WithDefaultValue" />
         /// (if needed), to set the properties of the resultant object.
         /// <para />
         /// NOTE: The object's properties are also publicly-exposed, meaning an

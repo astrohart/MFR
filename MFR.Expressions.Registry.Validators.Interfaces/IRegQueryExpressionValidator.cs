@@ -1,11 +1,11 @@
-using MFR.Objects.Expressions.Registry.Interfaces;
+using MFR.Expressions.Registry.Interfaces;
 
-namespace MFR.Objects.Expressions.Registry.Validators.Interfaces
+namespace MFR.Expressions.Registry.Validators.Interfaces
 {
     /// <summary>
     /// Validates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IRegQueryExpression{T}" />
+    ///     cref="T:MFR.IRegQueryExpression{T}" />
     /// interface.
     /// </summary>
     public interface IRegQueryExpressionValidator<T> where T : class
@@ -13,7 +13,7 @@ namespace MFR.Objects.Expressions.Registry.Validators.Interfaces
         /// <summary>
         /// Gets the instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IRegQueryExpression" />
+        ///     cref="T:MFR.IRegQueryExpression" />
         /// interface
         /// that is being validated.
         /// </summary>
@@ -25,7 +25,7 @@ namespace MFR.Objects.Expressions.Registry.Validators.Interfaces
         /// <summary>
         /// Initializes the value of the
         /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpressionValidator.Expression" />
+        ///     cref="P:MFR.IRegQueryExpressionValidator.Expression" />
         /// property to refer to the data that is to be validated.
         /// </summary>
         /// <returns>

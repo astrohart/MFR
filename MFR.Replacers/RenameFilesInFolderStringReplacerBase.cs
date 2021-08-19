@@ -1,9 +1,9 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Interfaces;
+using MFR.Configuration.Constants;
+using MFR.Operations.Constants;
+using MFR.Replacers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Replacers
+namespace MFR.Replacers
 {
     /// <summary>
     /// Defines the methods, properties, and events that all String Replacer
@@ -15,7 +15,7 @@ namespace MFR.Objects.Replacers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.TextMatchingConfiguration" />
+        ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
@@ -28,7 +28,7 @@ namespace MFR.Objects.Replacers
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

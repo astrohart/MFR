@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 using NUnit.Framework;
 using System;
 
-namespace MFR.Objects.Expressions.Matches.Factories.Tests
+namespace MFR.Expressions.Matches.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.GetMatchExpressionFactory" />
+    ///     cref="T:MFR.GetMatchExpressionFactory" />
     /// class.
     /// </summary>
     [TestFixture]

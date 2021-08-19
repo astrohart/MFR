@@ -1,15 +1,15 @@
-using MFR.Objects.Configuration.Actions.Constants;
-using MFR.Objects.Configuration.Actions.Factories;
-using MFR.Objects.Configuration.Commands.Constants;
-using MFR.Objects.Configuration.Commands.Factories;
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Configuration.Providers.Interfaces;
-using MFR.Objects.Expressions.Registry.Factories;
-using MFR.Objects.Expressions.Registry.Interfaces;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Actions.Interfaces;
+using MFR.Configuration.Actions.Constants;
+using MFR.Configuration.Actions.Factories;
+using MFR.Configuration.Commands.Constants;
+using MFR.Configuration.Commands.Factories;
+using MFR.Configuration.Constants;
+using MFR.Configuration.Interfaces;
+using MFR.Configuration.Providers.Interfaces;
+using MFR.Expressions.Registry.Factories;
+using MFR.Expressions.Registry.Interfaces;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.Messages.Actions.Interfaces;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -17,7 +17,7 @@ using xyLOGIX.Core.Debug;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
-namespace MFR.Objects.Configuration.Providers
+namespace MFR.Configuration.Providers
 {
     /// <summary>
     /// Provides shared functionality for obtaining and storing the path to the
@@ -37,7 +37,7 @@ namespace MFR.Objects.Configuration.Providers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Configuration.Providers.ConfigurationProvider" />.
+        /// <see cref="T:MFR.Configuration.Providers.ConfigurationProvider" />.
         /// </summary>
         public static ConfigurationProvider Instance
         {
@@ -72,7 +72,7 @@ namespace MFR.Objects.Configuration.Providers
 
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Objects.IConfiguration" /> interface and which
+        /// <see cref="T:MFR.IConfiguration" /> interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
@@ -142,7 +142,7 @@ namespace MFR.Objects.Configuration.Providers
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
         /// <see
-        ///     cref="M:MFR.Objects.ConfigurationProvider.Save" />
+        ///     cref="M:MFR.ConfigurationProvider.Save" />
         /// method with a
         /// value for its pathname parameter.
         /// <para />
@@ -228,7 +228,7 @@ namespace MFR.Objects.Configuration.Providers
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.Configuration" />
         /// property is then initialized to point to the data that has been loaded.
         /// </summary>
         /// <param name="pathname">
@@ -237,13 +237,13 @@ namespace MFR.Objects.Configuration.Providers
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.Configuration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         /// <exception cref="T:System.IO.FileNotFoundException">
@@ -316,13 +316,13 @@ namespace MFR.Objects.Configuration.Providers
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         public void Save(string pathname = "")
@@ -426,7 +426,7 @@ namespace MFR.Objects.Configuration.Providers
         /// actually exists at that location and we should, instead, just use
         /// the default value of the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.Configuration" />
         /// property.
         /// </summary>
         /// <param name="pathname">
@@ -436,7 +436,7 @@ namespace MFR.Objects.Configuration.Providers
         /// <para />
         /// If this parameter is blank, then the value of the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is used.
         /// </param>
         /// <returns>
@@ -444,13 +444,13 @@ namespace MFR.Objects.Configuration.Providers
         /// <paramref name="pathname" /> exists on the disk, or if the file whose path is
         /// given by the value of the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property exists on the disk; <see langword="false" /> otherwise.
         /// <para />
         /// If the <paramref name="pathname" /> passed is blank, then this method updates
         /// it to have the value of the
         /// <see
-        ///     cref="P:MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </returns>
         private bool CanLoad(ref string pathname)

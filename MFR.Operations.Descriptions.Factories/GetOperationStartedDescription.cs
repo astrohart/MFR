@@ -1,11 +1,11 @@
-using MFR.Objects.Operations.Constants;
+using MFR.Operations.Constants;
 
-namespace MFR.Objects.Operations.Descriptions.Factories
+namespace MFR.Operations.Descriptions.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IOperationStartedDescription" />
+    ///     cref="T:MFR.IOperationStartedDescription" />
     /// interface.
     /// </summary>
     public static class GetOperationStartedDescription
@@ -13,13 +13,13 @@ namespace MFR.Objects.Operations.Descriptions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IOperationStartedDescription" />
+        ///     cref="T:MFR.IOperationStartedDescription" />
         /// interface,
         /// corresponding to the specified operation <paramref name="type" /> ,
         /// and returns a reference to it.
         /// </summary>
         /// <param name="type">
-        /// (Required.) One of the <see cref="T:MFR.Objects.OperationType" />
+        /// (Required.) One of the <see cref="T:MFR.OperationType" />
         /// values that specifies the operation type you want the descriptive
         /// text for.
         /// </param>
@@ -27,12 +27,12 @@ namespace MFR.Objects.Operations.Descriptions.Factories
         /// String containing the text to describe the operation, or blank if a
         /// handler corresponding to the specified
         /// <see
-        ///     cref="T:MFR.Objects.Operations.Constants.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// value can
         /// be found.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <see cref="T:MFR.Objects.OperationType" /> value
+        /// Thrown if the <see cref="T:MFR.OperationType" /> value
         /// specified in the <paramref name="type" /> parameter does not have a
         /// corresponding Operation Started Description object associated with it.
         /// </exception>

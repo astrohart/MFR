@@ -1,13 +1,13 @@
-using MFR.Objects.Messages.Constants;
-using MFR.Objects.Messages.Interfaces;
+using MFR.Messages.Constants;
+using MFR.Messages.Interfaces;
 using System;
 
-namespace MFR.Objects.Messages.Factories
+namespace MFR.Messages.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IMessage" />
+    ///     cref="T:MFR.IMessage" />
     /// interface.
     /// </summary>
     public static class GetMessage
@@ -15,7 +15,7 @@ namespace MFR.Objects.Messages.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IMessage" />
+        ///     cref="T:MFR.IMessage" />
         /// interface and returns a
         /// reference to it.
         /// </summary>

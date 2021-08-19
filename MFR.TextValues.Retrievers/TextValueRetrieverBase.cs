@@ -1,9 +1,9 @@
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.TextValues.Retrievers.Interfaces;
+using MFR.FileSystem.Interfaces;
+using MFR.Operations.Constants;
+using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.TextValues.Retrievers
+namespace MFR.TextValues.Retrievers
 {
     /// <summary>
     /// Defines the events, methods, properties, and behaviors for all <c>Text
@@ -12,7 +12,7 @@ namespace MFR.Objects.TextValues.Retrievers
     public abstract class TextValueRetrieverBase : ITextValueRetriever
     {
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType"/> values
+        /// Gets one of the <see cref="T:MFR.OperationType"/> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -25,11 +25,11 @@ namespace MFR.Objects.TextValues.Retrievers
         /// Gets a string containing the text to be searched, from the
         /// file-system <paramref name="entry"/> provided, given the current
         /// <see
-        /// cref="P:MFR.Objects.FileAndFolderTextValueRetriever.OperationType"/> .
+        /// cref="P:MFR.FileAndFolderTextValueRetriever.OperationType"/> .
         /// </summary>
         /// <param name="entry">
         /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.Objects.FileSystem.Interfaces.IFileSystemEntry"/> interface.
+        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/> interface.
         /// </param>
         /// <returns>
         /// String containing the value data to be searched for the current

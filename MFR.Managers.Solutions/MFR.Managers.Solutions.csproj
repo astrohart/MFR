@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Objects.Managers.Solutions.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Managers.Solutions.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Objects.Managers.Solutions.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Managers.Solutions.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +47,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Objects.Managers.Solutions.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Managers.Solutions.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -60,7 +60,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Objects.Managers.Solutions.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Managers.Solutions.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +69,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Objects.Managers.Solutions</AssemblyName>
+    <AssemblyName>MFR.Managers.Solutions</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Objects.Managers.Solutions</RootNamespace>
+    <RootNamespace>MFR.Managers.Solutions</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -133,27 +133,27 @@
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
-      <Name>MFR.Objects.FileSystem.Retrievers.Factories</Name>
+      <Name>MFR.FileSystem.Retrievers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
-      <Name>MFR.Objects.Managers.Solutions.Interfaces</Name>
+      <Name>MFR.Managers.Solutions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Objects.Operations.Constants</Name>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Solutions.Factories\MFR.Solutions.Factories.csproj">
       <Project>{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}</Project>
-      <Name>MFR.Objects.Solutions.Factories</Name>
+      <Name>MFR.Solutions.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Solutions.Interfaces\MFR.Solutions.Interfaces.csproj">
       <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
-      <Name>MFR.Objects.Solutions.Interfaces</Name>
+      <Name>MFR.Solutions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.VisualStudio\MFR.VisualStudio.csproj">
       <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
-      <Name>MFR.Objects.VisualStudio</Name>
+      <Name>MFR.VisualStudio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

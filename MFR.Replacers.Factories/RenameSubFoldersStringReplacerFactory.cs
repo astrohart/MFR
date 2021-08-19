@@ -1,12 +1,12 @@
-using MFR.Objects.Configuration.Constants;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Factories.Interfaces;
-using MFR.Objects.Replacers.Interfaces;
+using MFR.Configuration.Constants;
+using MFR.Operations.Constants;
+using MFR.Replacers.Factories.Interfaces;
+using MFR.Replacers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 
-namespace MFR.Objects.Replacers.Factories
+namespace MFR.Replacers.Factories
 {
     /// <summary>
     /// Factory object that creates string replacers, specific to the Rename
@@ -34,7 +34,7 @@ namespace MFR.Objects.Replacers.Factories
 
         /// <summary>
         /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Objects.Replacers.Factories.RenameSubFoldersStringReplacerFactory"/> .
+        /// cref="T:MFR.Replacers.Factories.RenameSubFoldersStringReplacerFactory"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
         public static RenameSubFoldersStringReplacerFactory Instance
@@ -44,7 +44,7 @@ namespace MFR.Objects.Replacers.Factories
 
         /// <summary>
         /// Gets one of the <see
-        /// cref="T:MFR.Objects.OperationType"/> values that
+        /// cref="T:MFR.OperationType"/> values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -53,29 +53,29 @@ namespace MFR.Objects.Replacers.Factories
 
         /// <summary>
         /// Creates a new instance of an object that implements the <see
-        /// cref="T:MFR.Objects.IStringReplacer"/> interface and
+        /// cref="T:MFR.IStringReplacer"/> interface and
         /// returns a reference to it for the <see
-        /// cref="T:MFR.Objects.TextMatchingConfiguration"/> value that
+        /// cref="T:MFR.TextMatchingConfiguration"/> value that
         /// is specified by the <paramref name="matchingConfig"/> parameter.
         /// </summary>
         /// <param name="matchingConfig">
         /// (Required.) One of the <see
-        /// cref="T:MFR.Objects.TextMatchingConfiguration"/> values that
+        /// cref="T:MFR.TextMatchingConfiguration"/> values that
         /// specifies which type of matching is being done.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.Objects.IStringReplacer"/> interface.
+        /// cref="T:MFR.IStringReplacer"/> interface.
         /// </returns>
         /// <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">
         /// Thrown if the value passed in the <paramref name="matchingConfig"/>
         /// is not one of the <see
-        /// cref="T:MFR.Objects.TextMatchingConfiguration"/> values.
+        /// cref="T:MFR.TextMatchingConfiguration"/> values.
         /// </exception>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if a string replacer object is not defined for the Rename
         /// Files in Folder operation type that supports the <see
-        /// cref="T:MFR.Objects.TextMatchingConfiguration"/> value
+        /// cref="T:MFR.TextMatchingConfiguration"/> value
         /// passed in the <paramref name="matchingConfig"/> parameter.
         /// </exception>
         public IStringReplacer AndTextMatchingConfiguration(

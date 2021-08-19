@@ -1,11 +1,11 @@
-using MFR.Objects.Configuration;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Engines.Matching.Interfaces;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Configuration;
+using MFR.Configuration.Interfaces;
+using MFR.Engines.Matching.Interfaces;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.Operations.Constants;
 using System;
 
-namespace MFR.Objects.Engines.Matching
+namespace MFR.Engines.Matching
 {
     /// <summary>
     /// Implements functionality common to all text-expression matcher objects.
@@ -16,7 +16,7 @@ namespace MFR.Objects.Engines.Matching
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Engines.Matching.TextExpressionMatchingEngineBase" />
+        ///     cref="T:MFR.Engines.Matching.TextExpressionMatchingEngineBase" />
         /// and returns a reference to it.
         /// </summary>
         protected TextExpressionMatchingEngineBase()
@@ -27,13 +27,13 @@ namespace MFR.Objects.Engines.Matching
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.TextExpressionMatchingEngineBase" />
+        ///     cref="T:MFR.TextExpressionMatchingEngineBase" />
         /// and returns
         /// a reference to it.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IConfiguration" /> interface that holds
+        /// the <see cref="T:MFR.IConfiguration" /> interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
@@ -44,7 +44,7 @@ namespace MFR.Objects.Engines.Matching
             : base(configuration) { }
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public abstract OperationType OperationType
@@ -99,12 +99,12 @@ namespace MFR.Objects.Engines.Matching
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MFR.Objects.ITextExpressionMatchingEngine.Configuration" />
+        ///     cref="P:MFR.ITextExpressionMatchingEngine.Configuration" />
         /// property.
         /// </summary>
         /// <param name="expression">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Objects.IMatchExpression" /> interface and whose
+        /// the <see cref="T:MFR.IMatchExpression" /> interface and whose
         /// properties contain the match and pattern data.
         /// </param>
         /// <returns>

@@ -1,4 +1,4 @@
-namespace MFR.Objects.Filters.Search.Constants
+namespace MFR.Filters.Search.Constants
 {
     /// <summary>
     /// Describes the kind of search filter we have.

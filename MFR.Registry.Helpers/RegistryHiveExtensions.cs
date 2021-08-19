@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Registry.Helpers
+namespace MFR.Registry.Helpers
 {
     /// <summary>
     /// Helper methods for working with

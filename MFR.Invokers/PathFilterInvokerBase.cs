@@ -1,8 +1,8 @@
-using MFR.Objects.Invokers.Interfaces;
+using MFR.Invokers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.Invokers
+namespace MFR.Invokers
 {
     /// <summary>
     /// Provides common functionality for all path filter invoker objects.
@@ -10,7 +10,7 @@ namespace MFR.Objects.Invokers
     public class PathFilterInvokerBase : IPathFilterInvoker
     {
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Objects.Invokers.PathFilterInvokerBase"/>.
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Invokers.PathFilterInvokerBase"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static PathFilterInvokerBase Instance
@@ -57,7 +57,7 @@ namespace MFR.Objects.Invokers
         /// <summary>
         /// Gets the result of invoking the path-filtering predicate on the path
         /// specified by calling the <see
-        /// cref="M:MFR.Objects.IPathFilterInvoker.AndPath"/> method.
+        /// cref="M:MFR.IPathFilterInvoker.AndPath"/> method.
         /// </summary>
         /// <param name="pathFilter">
         /// A <see cref="T:System.Predicate"/>, taking a string as argument,

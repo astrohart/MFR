@@ -1,14 +1,14 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Tests.Common;
+using MFR.Tests.Common;
 using NUnit.Framework;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.FileSystem.Validators.Tests
+namespace MFR.FileSystem.Validators.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.FileValidator" />
+    ///     cref="T:MFR.FileValidator" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -17,7 +17,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
     {
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.FileSystem.Validators.FileValidator" />.
+        /// <see cref="T:MFR.FileSystem.Validators.FileValidator" />.
         /// </summary>
         /// <remarks>
         /// This property is meant for fluent use.
@@ -28,7 +28,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="false" /> in the event that it's passed
         /// the pathname of a file that matches the operational criteria.
         /// </summary>
@@ -48,7 +48,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> in the case that it's passed
         /// the blank/empty string as an argument.
         /// </summary>
@@ -59,7 +59,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the fully
         /// qualified pathname of a dotfile.
         /// <para />
@@ -79,7 +79,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the
         /// fully-qualified pathname of a file that is found in the <c>bin\</c>
         /// subfolder of a given project's directory.
@@ -102,7 +102,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that exists within the <c>.git</c> dotfolder of a Git repository.
         /// </summary>
@@ -124,7 +124,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when the pathname of a file
         /// that is inside the <c>obj\</c> subfolder of a project is passed to it.
         /// </summary>
@@ -148,7 +148,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when provided the pathname of
         /// a file under the <c>packages\</c> folder of a solution as its input.
         /// </summary>
@@ -172,7 +172,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file located under the <c>.vs\</c> subfolder of a solution.
         /// </summary>
@@ -194,7 +194,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the
         /// <see
         ///     langword="null" />
@@ -207,7 +207,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that is guaranteed not to exist on the disk.
         /// </summary>
@@ -225,7 +225,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that has no extension.
         /// </summary>
@@ -247,7 +247,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that has zero length.
         /// </summary>
@@ -260,7 +260,7 @@ namespace MFR.Objects.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that has zero length.
         /// </summary>

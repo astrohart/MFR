@@ -1,11 +1,11 @@
-using MFR.Objects.Messages.Constants;
+using MFR.Messages.Constants;
 
-namespace MFR.Objects.Messages.Interfaces
+namespace MFR.Messages.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that is
     /// tagged with one of the <see
-    /// cref="T:MFR.Objects.MessageType"/> enumeration values.
+    /// cref="T:MFR.MessageType"/> enumeration values.
     /// </summary>
     /// <remarks>
     /// Objects that implement this interface should treat the configuration
@@ -15,7 +15,7 @@ namespace MFR.Objects.Messages.Interfaces
     {
         /// <summary>
         /// Gets the <see
-        /// cref="T:MFR.Objects.MessageType"/> that is
+        /// cref="T:MFR.MessageType"/> that is
         /// being used to identify which message this is.
         /// </summary>
         MessageType MessageType

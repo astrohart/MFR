@@ -1,8 +1,8 @@
-﻿using MFR.Objects.Messages.Constants;
+﻿using MFR.Messages.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.Managers.Solutions.Actions.Constants
+namespace MFR.Managers.Solutions.Actions.Constants
 {
     /// <summary>
     /// Defines names for the types of actions that can be performed on
@@ -36,7 +36,7 @@ namespace MFR.Objects.Managers.Solutions.Actions.Constants
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Managers.Solutions.Actions.Constants.VisualStudioSolutionAction" />
+        ///     cref="T:MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionAction" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="messageId">

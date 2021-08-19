@@ -1,15 +1,15 @@
 using System;
 
-namespace MFR.Objects.Events
+namespace MFR.Events
 {
     /// <summary>
-    /// Defines the data that is passed by all events of type <see cref="T:MFR.Objects.Events.FileSystemEntrySkippedEventHandler"/>.
+    /// Defines the data that is passed by all events of type <see cref="T:MFR.Events.FileSystemEntrySkippedEventHandler"/>.
     /// </summary>
     public class FileSystemEntrySkippedEventArgs : EventArgs
     {
         /// <summary>
         /// Creates a new instance of <see
-        /// cref="T:MFR.Objects.Events.FileSystemEntrySkippedEventArgs"/>
+        /// cref="T:MFR.Events.FileSystemEntrySkippedEventArgs"/>
         /// and returns a reference to it.
         /// </summary>
         /// <param name="pathname">

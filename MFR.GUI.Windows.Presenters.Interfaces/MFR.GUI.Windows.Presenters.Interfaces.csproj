@@ -128,9 +128,9 @@
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Managers.History.Interfaces\MFR.Objects.Managers.History.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Managers.History.Interfaces\MFR.Managers.History.Interfaces.csproj">
       <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
-      <Name>MFR.Objects.Managers.History.Interfaces</Name>
+      <Name>MFR.Managers.History.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
@@ -144,25 +144,25 @@
       <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
       <Name>MFR.GUI.Windows.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Events\MFR.Objects.Configuration.Events.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Events\MFR.Configuration.Events.csproj">
       <Project>{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}</Project>
-      <Name>MFR.Objects.Configuration.Events</Name>
+      <Name>MFR.Configuration.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Configuration.Interfaces\MFR.Objects.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Objects.Configuration.Interfaces</Name>
+      <Name>MFR.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Events.Common\MFR.Objects.Events.Common.csproj">
+    <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
-      <Name>MFR.Objects.Events.Common</Name>
+      <Name>MFR.Events.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Operations.Events\MFR.Objects.Operations.Events.csproj">
+    <ProjectReference Include="..\MFR.Operations.Events\MFR.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
-      <Name>MFR.Objects.Operations.Events</Name>
+      <Name>MFR.Operations.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Objects.Renamers.Files.Interfaces\MFR.Objects.Renamers.Files.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Renamers.Files.Interfaces\MFR.Renamers.Files.Interfaces.csproj">
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
-      <Name>MFR.Objects.Renamers.Files.Interfaces</Name>
+      <Name>MFR.Renamers.Files.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>

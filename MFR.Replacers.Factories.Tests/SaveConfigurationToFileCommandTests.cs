@@ -1,18 +1,18 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Configuration.Commands.Constants;
-using MFR.Objects.Configuration.Commands.Factories;
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Messages.Constants;
+using MFR.Configuration.Commands.Constants;
+using MFR.Configuration.Commands.Factories;
+using MFR.Configuration.Interfaces;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.Messages.Constants;
 using NUnit.Framework;
 
-namespace MFR.Objects.Replacers.Factories.Tests
+namespace MFR.Replacers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.SaveConfigurationToFileCommand" />
+    ///     cref="T:MFR.SaveConfigurationToFileCommand" />
     /// class.
     /// </summary>
     /// <remarks>

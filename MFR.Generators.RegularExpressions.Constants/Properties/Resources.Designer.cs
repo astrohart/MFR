@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MFR.Objects.Generators.RegularExpressions.Constants.Properties {
+namespace MFR.Generators.RegularExpressions.Constants.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MFR.Objects.Generators.RegularExpressions.Constants.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Objects.Generators.RegularExpressions.Constants.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Generators.RegularExpressions.Constants.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

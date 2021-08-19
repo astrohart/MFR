@@ -1,9 +1,9 @@
-﻿using MFR.Objects.Generators.RegularExpressions.Constants;
+﻿using MFR.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;
 
-namespace MFR.Objects.Generators.RegularExpressions
+namespace MFR.Generators.RegularExpressions
 {
     /// <summary>
     /// Generator of regular expressions for exact-word matches.
@@ -30,7 +30,7 @@ namespace MFR.Objects.Generators.RegularExpressions
 
         /// <summary>
         /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator"/> .
+        /// cref="T:MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
         public static MatchWholeLineRegularExpressionGenerator Instance
@@ -40,7 +40,7 @@ namespace MFR.Objects.Generators.RegularExpressions
 
         /// <summary>
         /// Gets the <see
-        /// cref="T:MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType"/>
+        /// cref="T:MFR.Generators.RegularExpressions.Constants.RegularExpressionType"/>
         /// value that uniquely identifies which type of regular expressions
         /// that this object handles.
         /// </summary>

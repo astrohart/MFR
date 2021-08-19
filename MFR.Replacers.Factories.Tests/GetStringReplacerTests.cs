@@ -1,13 +1,13 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Replacers.Factories.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Replacers.Factories.Interfaces;
 using NUnit.Framework;
 
-namespace MFR.Objects.Replacers.Factories.Tests
+namespace MFR.Replacers.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Objects.GetStringReplacer" />
+    ///     cref="T:MFR.GetStringReplacer" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -16,13 +16,13 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.GetStringReplacer.For" />
+        ///     cref="M:MFR.GetStringReplacer.For" />
         /// method
         /// returns a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Objects.IStringReplacerFactory" />
+        /// <see cref="T:MFR.IStringReplacerFactory" />
         /// interface when the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
         /// value is passed for its argument.
         /// </summary>
         [Test]
@@ -36,14 +36,14 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.GetStringReplacer.For" />
+        ///     cref="M:MFR.GetStringReplacer.For" />
         /// method
         /// returns a reference to an instance of
         /// <see
-        ///     cref="T:MFR.Objects.RenameFilesInFolderStringReplacerFactory" />
+        ///     cref="T:MFR.RenameFilesInFolderStringReplacerFactory" />
         /// when the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -56,14 +56,14 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.GetStringReplacer.For" />
+        ///     cref="M:MFR.GetStringReplacer.For" />
         /// method
         /// returns a reference to an instance of
         /// <see
-        ///     cref="T:MFR.Objects.RenameSubFoldersStringReplacerFactory" />
+        ///     cref="T:MFR.RenameSubFoldersStringReplacerFactory" />
         /// when the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.RenameSubFolders" />
+        ///     cref="T:MFR.OperationType.RenameSubFolders" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -76,14 +76,14 @@ namespace MFR.Objects.Replacers.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.GetStringReplacer.For" />
+        ///     cref="M:MFR.GetStringReplacer.For" />
         /// method
         /// returns a reference to an instance of
         /// <see
-        ///     cref="T:MFR.Objects.ReplaceTextInFilesStringReplacerFactory" />
+        ///     cref="T:MFR.ReplaceTextInFilesStringReplacerFactory" />
         /// when the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]

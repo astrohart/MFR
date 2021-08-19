@@ -1,8 +1,8 @@
-using MFR.Objects.FileSystem.Retrievers.Interfaces;
+using MFR.FileSystem.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Objects.FileSystem.Retrievers
+namespace MFR.FileSystem.Retrievers
 {
     /// <summary>
     /// Implements functionality that is shared among objects that search file

@@ -1,26 +1,26 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Objects.Configuration.Providers.Factories;
-using MFR.Objects.Configuration.Providers.Interfaces;
-using MFR.Objects.Engines.Replacement.Factories;
-using MFR.Objects.Engines.Replacement.Intefaces;
-using MFR.Objects.Expressions.Matches.Factories;
-using MFR.Objects.Expressions.Matches.Interfaces;
-using MFR.Objects.FileSystem.Factories;
-using MFR.Objects.FileSystem.Interfaces;
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Tests.Common;
-using MFR.Objects.TextValues.Retrievers.Factories;
+using MFR.Configuration.Providers.Factories;
+using MFR.Configuration.Providers.Interfaces;
+using MFR.Engines.Replacement.Factories;
+using MFR.Engines.Replacement.Intefaces;
+using MFR.Expressions.Matches.Factories;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Tests.Common;
+using MFR.TextValues.Retrievers.Factories;
 using NUnit.Framework;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.FileSystem.Helpers.Tests
+namespace MFR.FileSystem.Helpers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods in the
     /// <see
-    ///     cref="T:MFR.Objects.FileInfoExtensions" />
+    ///     cref="T:MFR.FileInfoExtensions" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -132,7 +132,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Objects.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -149,7 +149,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <remarks>
         /// This method is different from the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed" />
+        ///     cref="M:MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed" />
         /// method in that it uses the fluent composition of objects -- rather
         /// than initializing individual variables with the results -- to test
         /// how the algorithms work when methods are called as they are in the
@@ -493,7 +493,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile" />
+        ///     cref="M:MFR.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile" />
         /// method returns <see langword="false" /> when fed the path to the
         /// Windows Notepad utility --- which we know not to be a zero-length
         /// file, since it's a Windows Application.
@@ -511,10 +511,10 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile" />
+        ///     cref="M:MFR.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile" />
         /// method returns <see langword="true" /> when fed the value of the
         /// <see
-        ///     cref="F:MFR.Objects.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE" />
+        ///     cref="F:MFR.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE" />
         /// constant as a parameter (this constant having as its value, the path
         /// to a zero-length file).
         /// </summary>
@@ -530,7 +530,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
+        ///     cref="M:MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
         /// method will not work when provided only with a filename, not a
         /// fully-qualified path.
         /// </summary>
@@ -557,7 +557,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
+        ///     cref="M:MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
         /// method works (i.e., returns <see langword="true" /> and performs the
         /// correct operations) when we give it the fully-qualified pathname of
         /// a temporary file that actually exists.
@@ -574,7 +574,7 @@ namespace MFR.Objects.FileSystem.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
+        ///     cref="M:MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo" />
         /// method works (i.e., returns <see langword="true" /> and performs the
         /// correct operations) when we give it the fully-qualified pathname of
         /// two files that have vastly different locations.

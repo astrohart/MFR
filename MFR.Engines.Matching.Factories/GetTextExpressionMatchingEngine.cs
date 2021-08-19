@@ -1,13 +1,13 @@
-using MFR.Objects.Engines.Matching.Interfaces;
-using MFR.Objects.Operations.Constants;
+using MFR.Engines.Matching.Interfaces;
+using MFR.Operations.Constants;
 using System;
 
-namespace MFR.Objects.Engines.Matching.Factories
+namespace MFR.Engines.Matching.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
+    ///     cref="T:MFR.ITextExpressionMatchingEngine" />
     /// interface and
     /// returns references to them.
     /// </summary>
@@ -16,14 +16,14 @@ namespace MFR.Objects.Engines.Matching.Factories
         /// <summary>
         /// Creates instances of objects that implement the
         /// <see
-        ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
+        ///     cref="T:MFR.ITextExpressionMatchingEngine" />
         /// interface
         /// and returns references to them.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.Objects.OperationType" />
+        ///     cref="T:MFR.OperationType" />
         /// values that
         /// specifies the operation currently being performed.
         /// </param>
@@ -31,7 +31,7 @@ namespace MFR.Objects.Engines.Matching.Factories
         /// Reference to an instance of an object that
         /// implements the
         /// <see
-        ///     cref="T:MFR.Objects.ITextExpressionMatchingEngine" />
+        ///     cref="T:MFR.ITextExpressionMatchingEngine" />
         /// interface
         /// that can tell if data matches a value.
         /// </returns>
@@ -39,11 +39,11 @@ namespace MFR.Objects.Engines.Matching.Factories
         /// After calling this method, callers must
         /// then invoke the fluent
         /// <see
-        ///     cref="M:MFR.Objects.ITextExpressionMatchingEngine.WithConfiguration" />
+        ///     cref="M:MFR.ITextExpressionMatchingEngine.WithConfiguration" />
         /// method on the result of this method in order to attach an object
         /// that implements the
         /// <see
-        ///     cref="T:MFR.Objects.IConfiguration" />
+        ///     cref="T:MFR.IConfiguration" />
         /// interface to the
         /// new object instance.
         /// </remarks>

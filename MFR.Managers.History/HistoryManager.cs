@@ -1,5 +1,5 @@
-using MFR.Objects.Configuration;
-using MFR.Objects.Managers.History.Interfaces;
+using MFR.Configuration;
+using MFR.Managers.History.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Objects.Managers.History
+namespace MFR.Managers.History
 {
     /// <summary>
     /// Manages the configuration history on behalf of the application.
@@ -30,7 +30,7 @@ namespace MFR.Objects.Managers.History
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.HistoryManager" />
+        ///     cref="T:MFR.HistoryManager" />
         /// and returns a
         /// reference to it.
         /// </summary>

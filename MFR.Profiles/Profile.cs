@@ -1,5 +1,4 @@
-﻿using MFR.Objects.Configuration;
-using MFR.Profiles.Interfaces;
+﻿using MFR.Profiles.Interfaces;
 using MFR.Profiles.Properties;
 using Newtonsoft.Json;
 using System;
@@ -14,7 +13,7 @@ namespace MFR.Profiles
     /// <c>Profile</c> s allow the user to hot-swap settings mid-flight, without
     /// actually leaving the app and coming back in.
     /// </remarks>
-    public class Profile : Configuration, IProfile
+    public class Profile : Configuration.Configuration, IProfile
     {
         /// <summary>
         /// Constructs a new instance of <see cref="T:MFR.Profiles.Profile" />

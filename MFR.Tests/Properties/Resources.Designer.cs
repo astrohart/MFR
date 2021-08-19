@@ -16,7 +16,7 @@ using System.Globalization;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-namespace MFR.Objects.Tests.Properties {
+namespace MFR.Tests.Properties {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -44,7 +44,7 @@ namespace MFR.Objects.Tests.Properties {
         internal static ResourceManager ResourceManager {
             get {
                 if (ReferenceEquals(resourceMan, null)) {
-                    ResourceManager temp = new ResourceManager("MFR.Objects.Tests.Properties.Resources", typeof(Resources).Assembly);
+                    ResourceManager temp = new ResourceManager("MFR.Tests.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

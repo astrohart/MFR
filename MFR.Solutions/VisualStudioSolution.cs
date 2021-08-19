@@ -1,8 +1,8 @@
 ﻿using EnvDTE;
-using MFR.Objects.Solutions.Exceptions;
-using MFR.Objects.Solutions.Interfaces;
-using MFR.Objects.VisualStudio;
-using MFR.Objects.Win32;
+using MFR.Solutions.Exceptions;
+using MFR.Solutions.Interfaces;
+using MFR.VisualStudio;
+using MFR.Win32;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -11,7 +11,7 @@ using xyLOGIX.Core.Extensions;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Thread = System.Threading.Thread;
 
-namespace MFR.Objects.Solutions
+namespace MFR.Solutions
 {
     /// <summary>
     /// Encapsulates the data and actions that are applicable to a Visual Studio
@@ -30,7 +30,7 @@ namespace MFR.Objects.Solutions
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Solution" />
+        ///     cref="T:MFR.Solutions.Solution" />
         /// and returns a reference to it.
         /// </summary>
         public VisualStudioSolution()
@@ -43,7 +43,7 @@ namespace MFR.Objects.Solutions
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Objects.Solutions.Solution" />
+        ///     cref="T:MFR.Solutions.Solution" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="dte">
@@ -228,17 +228,17 @@ namespace MFR.Objects.Solutions
         }
 
         /// <summary>
-        /// Asserts that the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// Asserts that the <see cref="F:MFR.Solutions.Solution._dte" />
         /// field has been set to a value other than <see langword="null" />.
         /// </summary>
-        /// <exception cref="T:MFR.Objects.Solutions.Exceptions.DteNotInitializedException">
-        /// Thrown if the <see cref="F:MFR.Objects.Solutions.Solution._dte" />
+        /// <exception cref="T:MFR.Solutions.Exceptions.DteNotInitializedException">
+        /// Thrown if the <see cref="F:MFR.Solutions.Solution._dte" />
         /// field has a <see langword="null" /> value.
         /// </exception>
         /// <remarks>
         /// This method does nothing in the event that the
         /// <see
-        ///     cref="F:MFR.Objects.Solutions.Solution._dte" />
+        ///     cref="F:MFR.Solutions.Solution._dte" />
         /// field has a value.
         /// </remarks>
         private void AssertDteInitialized()

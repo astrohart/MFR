@@ -1,11 +1,11 @@
-using MFR.Objects.Interop.Factories;
-using MFR.Objects.Interop.Monikers.Collections.Factories;
+using MFR.Interop.Factories;
+using MFR.Interop.Monikers.Collections.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.RunningObjects.Factories
+namespace MFR.RunningObjects.Factories
 {
     /// <summary>
     /// Contains methods that allow access to running object information.

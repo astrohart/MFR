@@ -1,7 +1,7 @@
-using MFR.Objects.Configuration.Interfaces;
-using MFR.Objects.Operations.Interfaces;
+using MFR.Configuration.Interfaces;
+using MFR.Operations.Interfaces;
 
-namespace MFR.Objects.Replacers.Interfaces
+namespace MFR.Replacers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that

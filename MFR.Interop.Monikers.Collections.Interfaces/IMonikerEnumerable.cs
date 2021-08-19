@@ -1,14 +1,14 @@
-using MFR.Objects.Interop.Monikers.Wrappers.Interfaces;
+using MFR.Interop.Monikers.Wrappers.Interfaces;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace MFR.Objects.Interop.Monikers.Collections.Interfaces
+namespace MFR.Interop.Monikers.Collections.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an enumerable
     /// collection of objects that implement the
     /// <see
-    ///     cref="T:MFR.Objects.IMonikerWrapper" />
+    ///     cref="T:MFR.IMonikerWrapper" />
     /// interface.
     /// </summary>
     public interface IMonikerEnumerable : IEnumerable<IMonikerWrapper>

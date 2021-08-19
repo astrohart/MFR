@@ -1,4 +1,4 @@
-using MFR.Objects.Configuration.Interfaces;
+using MFR.Configuration.Interfaces;
 
 namespace MFR.GUI.Presenters.Interfaces
 {

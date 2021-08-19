@@ -1,8 +1,8 @@
-using MFR.Objects.Expressions.Registry.Interfaces;
-using MFR.Objects.Metadata.Registry;
+using MFR.Expressions.Registry.Interfaces;
+using MFR.Metadata.Registry;
 using System;
 
-namespace MFR.Objects.Expressions.Registry
+namespace MFR.Expressions.Registry
 {
     /// <summary>
     /// Provides metadata for querying the data stored in a value contained
@@ -41,7 +41,7 @@ namespace MFR.Objects.Expressions.Registry
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="valueName">
@@ -90,7 +90,7 @@ namespace MFR.Objects.Expressions.Registry
         /// <summary>
         /// Assigns a value to the
         /// <see
-        ///     cref="P:MFR.Objects.IRegQueryExpression.ValueName" />
+        ///     cref="P:MFR.IRegQueryExpression.ValueName" />
         /// property.
         /// </summary>
         /// <param name="defaultValue">

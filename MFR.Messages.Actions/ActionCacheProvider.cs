@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Objects.Messages.Actions
+namespace MFR.Messages.Actions
 {
     /// <summary>
     /// Helper methods and properties to deal with the result cache.

@@ -1,9 +1,9 @@
-using MFR.Objects.Operations.Constants;
-using MFR.Objects.Operations.Descriptions.Interfaces;
-using MFR.Objects.Operations.Descriptions.Properties;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Interfaces;
+using MFR.Operations.Descriptions.Properties;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.Objects.Operations.Descriptions
+namespace MFR.Operations.Descriptions
 {
     /// <summary>
     /// Gets the descriptive text to be displayed to the user during a Unload
@@ -27,7 +27,7 @@ namespace MFR.Objects.Operations.Descriptions
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Objects.Operations.Descriptions.UnloadAllSolutionsInFolderOperationTypeDescription" />.
+        /// <see cref="T:MFR.Operations.Descriptions.UnloadAllSolutionsInFolderOperationTypeDescription" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static UnloadAllSolutionsInFolderOperationTypeDescription
@@ -37,7 +37,7 @@ namespace MFR.Objects.Operations.Descriptions
         } = new UnloadAllSolutionsInFolderOperationTypeDescription();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.Objects.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType

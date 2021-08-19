@@ -1,7 +1,7 @@
-using MFR.Objects.Messages.Interfaces;
+using MFR.Messages.Interfaces;
 using System.Threading.Tasks;
 
-namespace MFR.Objects.Messages
+namespace MFR.Messages
 {
     /// <summary>
     /// Defines the methods, properties, and other functionality that all
@@ -27,10 +27,10 @@ namespace MFR.Objects.Messages
         /// <summary>
         /// Provides the functionality of both the
         /// <see
-        ///     cref="M:MFR.Objects.IMessage.Execute" />
+        ///     cref="M:MFR.IMessage.Execute" />
         /// and
         /// <see
-        ///     cref="M:MFR.Objects.IMessage.ExecuteAsync" />
+        ///     cref="M:MFR.IMessage.ExecuteAsync" />
         /// methods.
         /// </summary>
         /// <remarks>
