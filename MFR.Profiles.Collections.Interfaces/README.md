@@ -4,6 +4,7 @@
 ## Contents
 
 - [IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection')
+  - [HasProfileNamed(name)](#M-MFR-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String- 'MFR.Profiles.Collections.Interfaces.IProfileCollection.HasProfileNamed(System.String)')
 - [Resources](#T-MFR-Profiles-Collections-Interfaces-Properties-Resources 'MFR.Profiles.Collections.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-Profiles-Collections-Interfaces-Properties-Resources-Culture 'MFR.Profiles.Collections.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Profiles-Collections-Interfaces-Properties-Resources-ResourceManager 'MFR.Profiles.Collections.Interfaces.Properties.Resources.ResourceManager')
@@ -22,6 +23,29 @@ Defines the publicly-exposed methods and properties of a `Profile Collection` ob
 ##### Remarks
 
 A `Profile Collection` object is what it sounds like -- a container of profiles.
+
+<a name='M-MFR-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String-'></a>
+### HasProfileNamed(name) `method`
+
+##### Summary
+
+Determines whether the profile collection already has a profile with the
+    name provided.
+
+
+
+There can only be one profile with a given name, case-insensitive.
+
+##### Returns
+
+`true` if a profile having the given name is found;
+    `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Name of the profile to be searched for. |
 
 <a name='T-MFR-Profiles-Collections-Interfaces-Properties-Resources'></a>
 ## Resources `type`
