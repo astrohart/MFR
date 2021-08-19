@@ -159,7 +159,7 @@ namespace MFR.GUI.Windows
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarMessage,
             this.statusBarProgressBar});
-            this.statusBar.Location = new System.Drawing.Point(0, 482);
+            this.statusBar.Location = new System.Drawing.Point(0, 483);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 9;
@@ -523,8 +523,8 @@ namespace MFR.GUI.Windows
             // foldButton
             // 
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 294);
-            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 515);
+            this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 318);
+            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 544);
             this.foldButton.Location = new System.Drawing.Point(15, 219);
             this.foldButton.Name = "foldButton";
             this.foldButton.Size = new System.Drawing.Size(87, 27);
@@ -710,7 +710,7 @@ namespace MFR.GUI.Windows
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(596, 504);
+            this.ClientSize = new System.Drawing.Size(596, 505);
             this.Controls.Add(this.switchButton);
             this.Controls.Add(this.standardToolBar);
             this.Controls.Add(this.hiddenFocusLabel);
