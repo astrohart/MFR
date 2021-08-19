@@ -74,6 +74,7 @@ namespace MFR.GUI
             ProcessCommandLine();
 
             // Save changes in the configuration back out to the disk.
+            // Also writes the path to the config file to the Registry.
             ConfigurationProvider.Save();
         }
 
