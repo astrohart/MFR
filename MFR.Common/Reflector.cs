@@ -28,7 +28,7 @@ namespace MFR.Common
         private readonly string _targetNamespace;
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:MFR.Objects.Reflector" />
+        /// Constructs a new instance of <see cref="T:MFR.Reflector" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="targetNamespace">
@@ -52,7 +52,7 @@ namespace MFR.Common
         ) { }
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:MFR.Objects.Reflector" />
+        /// Constructs a new instance of <see cref="T:MFR.Reflector" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="targetAssembly">

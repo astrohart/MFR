@@ -3,22 +3,22 @@
 
 ## Contents
 
-- [ProgramFlowHelper](#T-MFR-Objects-ProgramFlowHelper 'MFR.Objects.ProgramFlowHelper')
-  - [StartDebugger()](#M-MFR-Objects-ProgramFlowHelper-StartDebugger 'MFR.Objects.ProgramFlowHelper.StartDebugger')
-- [Reflector](#T-MFR-Objects-Reflector 'MFR.Objects.Reflector')
-  - [#ctor(targetNamespace)](#M-MFR-Objects-Reflector-#ctor-System-String- 'MFR.Objects.Reflector.#ctor(System.String)')
-  - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Objects-Reflector-#ctor-System-String,System-String- 'MFR.Objects.Reflector.#ctor(System.String,System.String)')
-  - [_targetAssembly](#F-MFR-Objects-Reflector-_targetAssembly 'MFR.Objects.Reflector._targetAssembly')
-  - [_targetNamespace](#F-MFR-Objects-Reflector-_targetNamespace 'MFR.Objects.Reflector._targetNamespace')
-  - [Call(obj,func,parameters)](#M-MFR-Objects-Reflector-Call-System-Object,System-String,System-Object[]- 'MFR.Objects.Reflector.Call(System.Object,System.String,System.Object[])')
-  - [Call2(obj,func,parameters)](#M-MFR-Objects-Reflector-Call2-System-Object,System-String,System-Object[]- 'MFR.Objects.Reflector.Call2(System.Object,System.String,System.Object[])')
-  - [CallAs(type,obj,func,parameters)](#M-MFR-Objects-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'MFR.Objects.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
-  - [CallAs2(type,obj,func,parameters)](#M-MFR-Objects-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]- 'MFR.Objects.Reflector.CallAs2(System.Type,System.Object,System.String,System.Object[])')
-  - [Get(obj,propertyName)](#M-MFR-Objects-Reflector-Get-System-Object,System-String- 'MFR.Objects.Reflector.Get(System.Object,System.String)')
-  - [GetAs(type,obj,propertyName)](#M-MFR-Objects-Reflector-GetAs-System-Type,System-Object,System-String- 'MFR.Objects.Reflector.GetAs(System.Type,System.Object,System.String)')
-  - [GetEnum(typeName,name)](#M-MFR-Objects-Reflector-GetEnum-System-String,System-String- 'MFR.Objects.Reflector.GetEnum(System.String,System.String)')
-  - [GetType(typeName)](#M-MFR-Objects-Reflector-GetType-System-String- 'MFR.Objects.Reflector.GetType(System.String)')
-  - [New(typeName,parameters)](#M-MFR-Objects-Reflector-New-System-String,System-Object[]- 'MFR.Objects.Reflector.New(System.String,System.Object[])')
+- [ProgramFlowHelper](#T-MFR-Objects-ProgramFlowHelper 'MFR.ProgramFlowHelper')
+  - [StartDebugger()](#M-MFR-Objects-ProgramFlowHelper-StartDebugger 'MFR.ProgramFlowHelper.StartDebugger')
+- [Reflector](#T-MFR-Objects-Reflector 'MFR.Reflector')
+  - [#ctor(targetNamespace)](#M-MFR-Objects-Reflector-#ctor-System-String- 'MFR.Reflector.#ctor(System.String)')
+  - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Objects-Reflector-#ctor-System-String,System-String- 'MFR.Reflector.#ctor(System.String,System.String)')
+  - [_targetAssembly](#F-MFR-Objects-Reflector-_targetAssembly 'MFR.Reflector._targetAssembly')
+  - [_targetNamespace](#F-MFR-Objects-Reflector-_targetNamespace 'MFR.Reflector._targetNamespace')
+  - [Call(obj,func,parameters)](#M-MFR-Objects-Reflector-Call-System-Object,System-String,System-Object[]- 'MFR.Reflector.Call(System.Object,System.String,System.Object[])')
+  - [Call2(obj,func,parameters)](#M-MFR-Objects-Reflector-Call2-System-Object,System-String,System-Object[]- 'MFR.Reflector.Call2(System.Object,System.String,System.Object[])')
+  - [CallAs(type,obj,func,parameters)](#M-MFR-Objects-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'MFR.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
+  - [CallAs2(type,obj,func,parameters)](#M-MFR-Objects-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]- 'MFR.Reflector.CallAs2(System.Type,System.Object,System.String,System.Object[])')
+  - [Get(obj,propertyName)](#M-MFR-Objects-Reflector-Get-System-Object,System-String- 'MFR.Reflector.Get(System.Object,System.String)')
+  - [GetAs(type,obj,propertyName)](#M-MFR-Objects-Reflector-GetAs-System-Type,System-Object,System-String- 'MFR.Reflector.GetAs(System.Type,System.Object,System.String)')
+  - [GetEnum(typeName,name)](#M-MFR-Objects-Reflector-GetEnum-System-String,System-String- 'MFR.Reflector.GetEnum(System.String,System.String)')
+  - [GetType(typeName)](#M-MFR-Objects-Reflector-GetType-System-String- 'MFR.Reflector.GetType(System.String)')
+  - [New(typeName,parameters)](#M-MFR-Objects-Reflector-New-System-String,System-Object[]- 'MFR.Reflector.New(System.String,System.Object[])')
 - [Resources](#T-MFR-Objects-Properties-Resources 'MFR.Common.Properties.Resources')
   - [Culture](#P-MFR-Objects-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Objects-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
@@ -75,7 +75,7 @@ Reflector("System.Windows.Forms");
 
 ##### Summary
 
-Constructs a new instance of [Reflector](#T-MFR-Objects-Reflector 'MFR.Objects.Reflector')
+Constructs a new instance of [Reflector](#T-MFR-Objects-Reflector 'MFR.Reflector')
 and returns a reference to it.
 
 ##### Parameters
@@ -101,7 +101,7 @@ string for a value. |
 
 ##### Summary
 
-Constructs a new instance of [Reflector](#T-MFR-Objects-Reflector 'MFR.Objects.Reflector')
+Constructs a new instance of [Reflector](#T-MFR-Objects-Reflector 'MFR.Reflector')
 and returns a reference to it.
 
 ##### Parameters
