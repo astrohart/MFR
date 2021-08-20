@@ -1,4 +1,4 @@
-using MFR.Configuration;
+using MFR.Settings.Configuration;
 using MFR.Engines.Matching.Factories;
 using MFR.Engines.Matching.Interfaces;
 using MFR.Expressions.Matches;
@@ -190,7 +190,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
@@ -431,10 +431,10 @@ namespace MFR.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.ConfigurationComposedObjectBase.Configuration" />
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.Configuration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
-        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
@@ -466,7 +466,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">

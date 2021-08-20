@@ -58,18 +58,6 @@ namespace MFR.Settings.Configuration.Serializers
 
             IConfiguration result;
 
-            if (string.IsNullOrWhiteSpace(pathname))
-            {
-                /*
-                 * Create a new data object in this event. We are here, most likely, because
-                 * the pathname that was desired to be utilized for the configuration file
-                 * referenced a spot on the disk where the user does not have sufficient access
-                 * privileges to create new files or read them.
-                 */
-
-                return new Configuration();
-            }
-
             try
             {
                 var content = File.ReadAllText(pathname);

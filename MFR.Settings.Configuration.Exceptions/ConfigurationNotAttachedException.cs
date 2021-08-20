@@ -5,7 +5,7 @@ namespace MFR.Settings.Configuration.Exceptions
     /// <summary>
     /// Exception that indicates that the developer forgot to call the
     /// <see
-    ///     cref="M:MFR.ConfigurationComposedObjectBase.AndAttachConfiguration" />
+    ///     cref="M:MFR.Settings.ConfigurationComposedObjectBase.AndAttachConfiguration" />
     /// method when initializing an object.
     /// </summary>
     public class ConfigurationNotAttachedException : Exception

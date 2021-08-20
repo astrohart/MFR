@@ -142,7 +142,7 @@ namespace MFR.Settings.Configuration.Providers
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
         /// <see
-        ///     cref="M:MFR.ConfigurationProvider.Save" />
+        ///     cref="M:MFR.Settings.ConfigurationProvider.Save" />
         /// method with a
         /// value for its pathname parameter.
         /// <para />

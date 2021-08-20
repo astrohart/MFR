@@ -84,14 +84,14 @@ namespace MFR.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.ConfigurationComposedObjectBase.Configuration" />
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.Configuration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>

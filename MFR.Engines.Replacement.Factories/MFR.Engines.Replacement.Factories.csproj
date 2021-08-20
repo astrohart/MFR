@@ -128,10 +128,6 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration\MFR.Settings.Configuration.csproj">
-      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
-      <Name>MFR.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Replacement.Intefaces\MFR.Engines.Replacement.Intefaces.csproj">
       <Project>{343E6F3B-042F-4001-B485-4E7C949DF18E}</Project>
       <Name>MFR.Engines.Replacement.Intefaces</Name>

@@ -1,9 +1,10 @@
-﻿using MFR.Settings.Profiles.Interfaces;
+﻿using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Profiles.Interfaces;
 using MFR.Settings.Profiles.Properties;
 using Newtonsoft.Json;
 using System;
 
-namespace MFR.Profiles
+namespace MFR.Settings.Profiles
 {
     /// <summary>
     /// A <c>Profile</c> is basically a <c>Configuration</c>, just with an ID
@@ -50,7 +51,20 @@ namespace MFR.Profiles
             ProfileId = Guid.NewGuid();
         }
 
-        public Profile(Configuration source, string name) : base(source)
+        /// <summary>
+        /// Constructs a new instance of <see cref="T:MFR.Settings.Profiles.Profile" /> and
+        /// returns a reference to it.
+        /// </summary>
+        /// <param name="source">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// that contains configuration settings to copy into this object.
+        /// </param>
+        /// <param name="name">
+        /// (Required.) String containing the descriptive name that the user wants to use
+        /// for this profile.
+        /// </param>
+        public Profile(IConfiguration source, string name) : base(source)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException(
@@ -59,7 +73,6 @@ namespace MFR.Profiles
 
             Name = name;
             ProfileId = Guid.NewGuid();
-
         }
 
         /// <summary>

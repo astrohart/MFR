@@ -1,4 +1,4 @@
-using MFR.Configuration;
+using MFR.Settings.Configuration;
 using MFR.Managers.History.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;

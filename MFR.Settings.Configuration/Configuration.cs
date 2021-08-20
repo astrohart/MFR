@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-namespace MFR.Configuration
+namespace MFR.Settings.Configuration
 {
     /// <summary>
     /// Contains properties whose values are set by the user.
@@ -32,9 +32,11 @@ namespace MFR.Configuration
         /// and returns a reference to it.
         /// </summary>
         /// <param name="source">
-        /// Instance of <see cref="T:MFR.Settings.Configuration.Configuration"/> containing existing settings.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// that contains existing configuration settings to copy into this object.
         /// </param>
-        public Configuration(Configuration source)
+        public Configuration(IConfiguration source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 

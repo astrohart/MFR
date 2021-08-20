@@ -733,7 +733,7 @@ namespace MFR.GUI.Windows
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:MFR.ConfigurationExportedEventArgs" /> that
+        /// An <see cref="T:MFR.Settings.ConfigurationExportedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>

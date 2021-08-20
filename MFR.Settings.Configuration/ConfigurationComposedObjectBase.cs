@@ -3,7 +3,7 @@ using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace MFR.Configuration
+namespace MFR.Settings.Configuration
 {
     /// <summary>
     /// Provides common functionality for all those objects that get composed
@@ -19,7 +19,7 @@ namespace MFR.Configuration
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.ConfigurationComposedObjectBase" />
+        ///     cref="T:MFR.Settings.ConfigurationComposedObjectBase" />
         /// and returns a reference to it.
         /// </summary>
         protected ConfigurationComposedObjectBase() { }
@@ -133,10 +133,10 @@ namespace MFR.Configuration
         /// <remarks>
         /// If no configuration is attached to this object, then a new
         /// <see
-        ///     cref="T:MFR.ConfigurationNotAttachedException" />
+        ///     cref="T:MFR.Settings.ConfigurationNotAttachedException" />
         /// exception is thrown.
         /// </remarks>
-        /// <exception cref="T:MFR.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         public void VerifyConfigurationAttached()

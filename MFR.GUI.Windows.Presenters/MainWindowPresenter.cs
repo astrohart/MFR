@@ -6,7 +6,7 @@ using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
-using MFR.Configuration;
+using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
@@ -823,7 +823,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.ConfigurationExportedEventArgs" /> that
+        /// A <see cref="T:MFR.Settings.ConfigurationExportedEventArgs" /> that
         /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationExported(
@@ -843,7 +843,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.ConfigurationImportedEventArgs" /> that
+        /// A <see cref="T:MFR.Settings.ConfigurationImportedEventArgs" /> that
         /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationImported(

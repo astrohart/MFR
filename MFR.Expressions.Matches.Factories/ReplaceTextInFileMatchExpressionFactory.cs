@@ -94,7 +94,7 @@ namespace MFR.Expressions.Matches.Factories
         ///     cref="M:MFR.IConfigurationComposedObject.AndAttachConfiguration" />
         /// method must be invoked; otherwise, a
         /// <see
-        ///     cref="T:MFR.ConfigurationNotAttachedException" />
+        ///     cref="T:MFR.Settings.ConfigurationNotAttachedException" />
         /// will be thrown. It is incumbent upon invokers of this method to
         /// first weed out any possible elements of the source value set that
         /// may make the <paramref name="value" /> parameter get passed a blank string.

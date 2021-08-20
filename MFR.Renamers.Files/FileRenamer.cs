@@ -1,5 +1,5 @@
 using EnvDTE;
-using MFR.Configuration;
+using MFR.Settings.Configuration;
 using MFR.Constants;
 using MFR.Engines.Replacement.Factories;
 using MFR.Events;

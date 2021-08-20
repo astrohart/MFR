@@ -7,7 +7,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.ConfigurationExtensions" />
+    ///     cref="T:MFR.Settings.ConfigurationExtensions" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -16,7 +16,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.Settings.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
@@ -44,7 +44,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.Settings.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseOnly" />
@@ -73,7 +73,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.Settings.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchExactWordOnly" />
@@ -101,7 +101,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.ConfigurationExtensions.GetTextMatchingConfiguration" />
+        ///     cref="M:MFR.Settings.ConfigurationExtensions.GetTextMatchingConfiguration" />
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
