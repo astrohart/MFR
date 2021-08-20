@@ -1,4 +1,4 @@
-using MFR.Configuration.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;

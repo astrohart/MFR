@@ -1,4 +1,4 @@
-using MFR.Configuration.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 
 namespace MFR.Managers.History.Interfaces
 {

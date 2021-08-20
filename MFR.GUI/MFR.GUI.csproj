@@ -166,21 +166,21 @@
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.CommandLine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Providers.Factories\MFR.Configuration.Providers.Factories.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
-      <Name>MFR.Configuration.Providers.Factories</Name>
+      <Name>MFR.Settings.Configuration.Providers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Providers.Interfaces\MFR.Configuration.Providers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
-      <Name>MFR.Configuration.Providers.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Providers\MFR.Configuration.Providers.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-      <Name>MFR.Configuration.Providers</Name>
+      <Name>MFR.Settings.Configuration.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

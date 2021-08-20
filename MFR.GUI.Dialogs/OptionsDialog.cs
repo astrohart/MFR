@@ -1,8 +1,8 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
-using MFR.Configuration.Providers.Factories;
-using MFR.Configuration.Providers.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
@@ -31,7 +31,7 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>

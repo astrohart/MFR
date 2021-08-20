@@ -124,9 +124,9 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>

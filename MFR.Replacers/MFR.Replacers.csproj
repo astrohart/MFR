@@ -150,13 +150,13 @@
       <Project>{A91CDE9F-5CF0-488D-8347-DB1B8C4A0E17}</Project>
       <Name>xyLOGIX.Generators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Configuration.Constants</Name>
+      <Name>MFR.Settings.Configuration.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Generators.RegularExpressions.Constants\MFR.Generators.RegularExpressions.Constants.csproj">
       <Project>{B3774D63-4894-4488-B302-72DD03BE0415}</Project>

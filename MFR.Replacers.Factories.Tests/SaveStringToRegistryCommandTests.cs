@@ -1,5 +1,5 @@
-using MFR.Configuration.Commands.Constants;
-using MFR.Configuration.Commands.Factories;
+using MFR.Settings.Configuration.Commands.Constants;
+using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Messages.Constants;
 using MFR.Messages.Factories;
 using MFR.Metadata.Registry.Factories;

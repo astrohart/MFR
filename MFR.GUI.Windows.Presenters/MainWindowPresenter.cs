@@ -7,11 +7,11 @@ using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Configuration;
-using MFR.Configuration.Events;
-using MFR.Configuration.Helpers;
-using MFR.Configuration.Interfaces;
-using MFR.Configuration.Providers.Factories;
-using MFR.Configuration.Providers.Interfaces;
+using MFR.Settings.Configuration.Events;
+using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Constants;
 using MFR.Events;
 using MFR.Events.Common;
@@ -22,8 +22,8 @@ using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Interfaces;
-using MFR.Profiles.Collections.Interfaces;
-using MFR.Profiles.Providers.Factories;
+using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Providers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -146,7 +146,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -336,7 +336,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection" />
+        ///     cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
         /// interface.
         /// </returns>
         public IProfileCollection GetProfiles()
@@ -722,7 +722,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Configuration.Configuration" /> object.
+        /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
         /// </summary>
         public void SaveOperationSelections()
         {

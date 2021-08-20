@@ -133,23 +133,23 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Configuration.Commands.Constants\MFR.Configuration.Commands.Constants.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Constants\MFR.Settings.Configuration.Commands.Constants.csproj">
       <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
-      <Name>MFR.Configuration.Commands.Constants</Name>
+      <Name>MFR.Settings.Configuration.Commands.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Commands.Factories\MFR.Configuration.Commands.Factories.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Factories\MFR.Settings.Configuration.Commands.Factories.csproj">
       <Project>{618A31B4-8C16-4054-9B2A-7614CC1AC830}</Project>
-      <Name>MFR.Configuration.Commands.Factories</Name>
+      <Name>MFR.Settings.Configuration.Commands.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Configuration.Constants</Name>
+      <Name>MFR.Settings.Configuration.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
+    <ProjectReference Include="..\MFR.Configuration\MFR.Settings.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Configuration</Name>
     </ProjectReference>

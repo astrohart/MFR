@@ -141,13 +141,13 @@
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Providers.Factories\MFR.Configuration.Providers.Factories.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
-      <Name>MFR.Configuration.Providers.Factories</Name>
+      <Name>MFR.Settings.Configuration.Providers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Providers.Interfaces\MFR.Configuration.Providers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
-      <Name>MFR.Configuration.Providers.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.History.Interfaces\MFR.Managers.History.Interfaces.csproj">
       <Project>{1274A0B9-1C8C-48A6-B682-1E3AC33536CF}</Project>
@@ -185,23 +185,23 @@
       <Project>{0D06CEA2-CE32-4611-8FA6-763309506223}</Project>
       <Name>MFR.GUI.Windows.Presenters.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Events\MFR.Configuration.Events.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Events\MFR.Settings.Configuration.Events.csproj">
       <Project>{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}</Project>
-      <Name>MFR.Configuration.Events</Name>
+      <Name>MFR.Settings.Configuration.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Helpers\MFR.Configuration.Helpers.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Helpers\MFR.Settings.Configuration.Helpers.csproj">
       <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
-      <Name>MFR.Configuration.Helpers</Name>
+      <Name>MFR.Settings.Configuration.Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Providers\MFR.Configuration.Providers.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
       <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-      <Name>MFR.Configuration.Providers</Name>
+      <Name>MFR.Settings.Configuration.Providers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
+    <ProjectReference Include="..\MFR.Configuration\MFR.Settings.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Configuration</Name>
     </ProjectReference>
@@ -253,27 +253,27 @@
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
       <Name>MFR.Renamers.Files.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
-      <Name>MFR.Profiles.Collections.Interfaces</Name>
+      <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Interfaces\MFR.Profiles.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
       <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
-      <Name>MFR.Profiles.Interfaces</Name>
+      <Name>MFR.Settings.Profiles.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Providers.Factories\MFR.Profiles.Providers.Factories.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Factories\MFR.Settings.Profiles.Providers.Factories.csproj">
       <Project>{61494E63-AE7D-4D4A-967B-D3B50E68858A}</Project>
-      <Name>MFR.Profiles.Providers.Factories</Name>
+      <Name>MFR.Settings.Profiles.Providers.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
-      <Name>MFR.Profiles.Providers.Interfaces</Name>
+      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Providers\MFR.Profiles.Providers.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers\MFR.Settings.Profiles.Providers.csproj">
       <Project>{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}</Project>
-      <Name>MFR.Profiles.Providers</Name>
+      <Name>MFR.Settings.Profiles.Providers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles\MFR.Profiles.csproj">
+    <ProjectReference Include="..\MFR.Profiles\MFR.Settings.Profiles.csproj">
       <Project>{5E70A79D-D257-4443-8530-892C76A972CC}</Project>
       <Name>MFR.Profiles</Name>
     </ProjectReference>

@@ -94,7 +94,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
+    <ProjectReference Include="..\MFR.Configuration\MFR.Settings.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Configuration</Name>
     </ProjectReference>

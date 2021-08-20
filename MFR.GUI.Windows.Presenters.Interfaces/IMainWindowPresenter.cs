@@ -2,12 +2,12 @@ using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Presenters.Interfaces;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Events;
-using MFR.Configuration.Events;
+using MFR.Settings.Configuration.Events;
 using MFR.Events.Common;
 using MFR.Managers.History.Interfaces;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Interfaces;
-using MFR.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Collections.Interfaces;
 using System;
 
 namespace MFR.GUI.Windows.Presenters.Interfaces
@@ -124,7 +124,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// <returns>
         ///     Reference to an instance of an object that implements the
         ///     <see
-        ///         cref="T:MFR.Profiles.Collections.Interfaces.IProfileCollection" />
+        ///         cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
         ///     interface.
         /// </returns>
         IProfileCollection GetProfiles();

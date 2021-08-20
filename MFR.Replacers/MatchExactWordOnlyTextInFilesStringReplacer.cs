@@ -1,4 +1,4 @@
-using MFR.Configuration.Constants;
+using MFR.Settings.Configuration.Constants;
 using MFR.Generators.RegularExpressions.Constants;
 using MFR.Generators.RegularExpressions.Factories;
 using MFR.Replacers.Properties;

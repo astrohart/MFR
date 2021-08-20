@@ -11,9 +11,9 @@ using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
-using MFR.Configuration.Events;
-using MFR.Configuration.Providers.Factories;
-using MFR.Configuration.Providers.Interfaces;
+using MFR.Settings.Configuration.Events;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Events.Common;
 using MFR.Managers.History.Factories;
 using MFR.Operations.Events;
@@ -101,7 +101,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>

@@ -144,13 +144,13 @@
       <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
       <Name>MFR.GUI.Windows.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Events\MFR.Configuration.Events.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Events\MFR.Settings.Configuration.Events.csproj">
       <Project>{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}</Project>
-      <Name>MFR.Configuration.Events</Name>
+      <Name>MFR.Settings.Configuration.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
@@ -164,13 +164,13 @@
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
       <Name>MFR.Renamers.Files.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
-      <Name>MFR.Profiles.Collections.Interfaces</Name>
+      <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
-      <Name>MFR.Profiles.Providers.Interfaces</Name>
+      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -125,17 +125,17 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Commands.Constants\MFR.Configuration.Commands.Constants.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Constants\MFR.Settings.Configuration.Commands.Constants.csproj">
       <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
-      <Name>MFR.Configuration.Commands.Constants</Name>
+      <Name>MFR.Settings.Configuration.Commands.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Serializers\MFR.Configuration.Serializers.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Serializers\MFR.Settings.Configuration.Serializers.csproj">
       <Project>{9031122F-D186-40AE-AAF1-F986AD1C5AB8}</Project>
-      <Name>MFR.Configuration.Serializers</Name>
+      <Name>MFR.Settings.Configuration.Serializers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>

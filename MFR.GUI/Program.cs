@@ -4,8 +4,8 @@ using MFR.CommandLine;
 using MFR.CommandLine.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
-using MFR.Configuration.Providers.Factories;
-using MFR.Configuration.Providers.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace MFR.GUI
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>

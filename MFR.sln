@@ -122,21 +122,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Messages", "MFR.Message
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Events", "MFR.Events\MFR.Events.csproj", "{FACD1C44-0214-4DF0-8969-4429C386A51A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Helpers", "MFR.Configuration.Helpers\MFR.Configuration.Helpers.csproj", "{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Helpers", "MFR.Settings.Configuration.Helpers\MFR.Settings.Configuration.Helpers.csproj", "{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Events", "MFR.Configuration.Events\MFR.Configuration.Events.csproj", "{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Events", "MFR.Settings.Configuration.Events\MFR.Settings.Configuration.Events.csproj", "{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Interfaces", "MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj", "{1AE68E39-484D-4347-BA55-739E0FE98246}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Interfaces", "MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj", "{1AE68E39-484D-4347-BA55-739E0FE98246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration", "MFR.Configuration\MFR.Configuration.csproj", "{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration", "MFR.Configuration\MFR.Settings.Configuration.csproj", "{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Exceptions", "MFR.Configuration.Exceptions\MFR.Configuration.Exceptions.csproj", "{8B3F92A5-3A48-4460-AF0F-BFFE0EE00727}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Exceptions", "MFR.Settings.Configuration.Exceptions\MFR.Settings.Configuration.Exceptions.csproj", "{8B3F92A5-3A48-4460-AF0F-BFFE0EE00727}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Providers", "MFR.Configuration.Providers\MFR.Configuration.Providers.csproj", "{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Providers", "MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj", "{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Serializers", "MFR.Configuration.Serializers\MFR.Configuration.Serializers.csproj", "{9031122F-D186-40AE-AAF1-F986AD1C5AB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Serializers", "MFR.Settings.Configuration.Serializers\MFR.Settings.Configuration.Serializers.csproj", "{9031122F-D186-40AE-AAF1-F986AD1C5AB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Converters", "MFR.Configuration.Converters\MFR.Configuration.Converters.csproj", "{EB94927D-3E4C-4167-BFF4-440DEDE945A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Converters", "MFR.Settings.Configuration.Converters\MFR.Settings.Configuration.Converters.csproj", "{EB94927D-3E4C-4167-BFF4-440DEDE945A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Expressions.Matches.Interfaces", "MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj", "{CFEB873A-F074-4B9E-B334-5E366C30F3F8}"
 EndProject
@@ -144,7 +144,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Expressions.Matches.Fac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Expressions.Matches", "MFR.Expressions.Matches\MFR.Expressions.Matches.csproj", "{C699FEDC-522A-4332-BF4F-A31B48B70241}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Constants", "MFR.Configuration.Constants\MFR.Configuration.Constants.csproj", "{FADE8DA4-81E7-40A8-B87D-52E647B2218A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Constants", "MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj", "{FADE8DA4-81E7-40A8-B87D-52E647B2218A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.System", "MFR.System\MFR.System.csproj", "{B44D03E4-64EE-4C69-AC4D-8ED8F8B52B6C}"
 EndProject
@@ -252,7 +252,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Controls.Helpers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Presenters.Associators", "MFR.GUI.Presenters.Associators\MFR.GUI.Presenters.Associators.csproj", "{85E988B0-691C-41B6-981A-9BC0AE1DDA8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Helpers.Tests", "MFR.Configuration.Helpers.Tests\MFR.Configuration.Helpers.Tests.csproj", "{28EFF07F-2A71-49F9-BE51-9E3E76CDA4C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Helpers.Tests", "MFR.Settings.Configuration.Helpers.Tests\MFR.Settings.Configuration.Helpers.Tests.csproj", "{28EFF07F-2A71-49F9-BE51-9E3E76CDA4C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Helpers.Tests", "MFR.FileSystem.Helpers.Tests\MFR.FileSystem.Helpers.Tests.csproj", "{4EC1C78A-28A4-4373-A830-025ED25A8F68}"
 EndProject
@@ -364,65 +364,65 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Solutions.Factories", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions", "MFR.Managers.Solutions\MFR.Managers.Solutions.csproj", "{E1078BC5-24EB-44E8-81BD-09310D81FBD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Actions.Factories", "MFR.Configuration.Actions.Factories\MFR.Configuration.Actions.Factories.csproj", "{3129BA05-3A66-4E0A-9B24-59B69C133C63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Actions.Factories", "MFR.Settings.Configuration.Actions.Factories\MFR.Settings.Configuration.Actions.Factories.csproj", "{3129BA05-3A66-4E0A-9B24-59B69C133C63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Actions.Tests", "MFR.Configuration.Actions.Tests\MFR.Configuration.Actions.Tests.csproj", "{C7190E19-445D-411D-B1D3-4CD37D660E52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Actions.Tests", "MFR.Settings.Configuration.Actions.Tests\MFR.Settings.Configuration.Actions.Tests.csproj", "{C7190E19-445D-411D-B1D3-4CD37D660E52}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Factories", "MFR.Managers.Solutions.Factories\MFR.Managers.Solutions.Factories.csproj", "{DE593641-0BE4-447B-B779-CF7D1CD9DD60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Tests", "MFR.Managers.Solutions.Tests\MFR.Managers.Solutions.Tests.csproj", "{88C655C3-FBB9-49E3-AAD2-A245622DDC29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Commands.Factories", "MFR.Configuration.Commands.Factories\MFR.Configuration.Commands.Factories.csproj", "{618A31B4-8C16-4054-9B2A-7614CC1AC830}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Commands.Factories", "MFR.Settings.Configuration.Commands.Factories\MFR.Settings.Configuration.Commands.Factories.csproj", "{618A31B4-8C16-4054-9B2A-7614CC1AC830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Commands", "MFR.Configuration.Commands\MFR.Configuration.Commands.csproj", "{CAF7CA91-4FCB-42F7-A13F-3D6D3C0C86F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Commands", "MFR.Settings.Configuration.Commands\MFR.Settings.Configuration.Commands.csproj", "{CAF7CA91-4FCB-42F7-A13F-3D6D3C0C86F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Commands.Constants", "MFR.Configuration.Commands.Constants\MFR.Configuration.Commands.Constants.csproj", "{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Commands.Constants", "MFR.Settings.Configuration.Commands.Constants\MFR.Settings.Configuration.Commands.Constants.csproj", "{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Actions.Constants", "MFR.Configuration.Actions.Constants\MFR.Configuration.Actions.Constants.csproj", "{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Actions.Constants", "MFR.Settings.Configuration.Actions.Constants\MFR.Settings.Configuration.Actions.Constants.csproj", "{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Actions", "MFR.Configuration.Actions\MFR.Configuration.Actions.csproj", "{F344AA14-CCDD-4A03-97CE-910EB0FDE2EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Actions", "MFR.Settings.Configuration.Actions\MFR.Settings.Configuration.Actions.csproj", "{F344AA14-CCDD-4A03-97CE-910EB0FDE2EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Actions.Constants", "MFR.Managers.Solutions.Actions.Constants\MFR.Managers.Solutions.Actions.Constants.csproj", "{CB27A2F5-FD98-4192-8F23-CC0D9B00DCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles", "MFR.Profiles\MFR.Profiles.csproj", "{5E70A79D-D257-4443-8530-892C76A972CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles", "MFR.Profiles\MFR.Settings.Profiles.csproj", "{5E70A79D-D257-4443-8530-892C76A972CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Interfaces", "MFR.Profiles.Interfaces\MFR.Profiles.Interfaces.csproj", "{FA89A4E5-5452-4895-9835-F61C94EE5A76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Interfaces", "MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj", "{FA89A4E5-5452-4895-9835-F61C94EE5A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Collections", "MFR.Profiles.Collections\MFR.Profiles.Collections.csproj", "{C19C0DED-C7E0-432B-AC57-194E65048B02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Collections", "MFR.Settings.Profiles.Collections\MFR.Settings.Profiles.Collections.csproj", "{C19C0DED-C7E0-432B-AC57-194E65048B02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Collections.Interfaces", "MFR.Profiles.Collections.Interfaces\MFR.Profiles.Collections.Interfaces.csproj", "{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Collections.Interfaces", "MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj", "{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers", "MFR.Profiles.Providers\MFR.Profiles.Providers.csproj", "{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Providers", "MFR.Settings.Profiles.Providers\MFR.Settings.Profiles.Providers.csproj", "{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Interfaces", "MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj", "{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Providers.Interfaces", "MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj", "{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Factories", "MFR.Profiles.Providers.Factories\MFR.Profiles.Providers.Factories.csproj", "{61494E63-AE7D-4D4A-967B-D3B50E68858A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Providers.Factories", "MFR.Settings.Profiles.Providers.Factories\MFR.Settings.Profiles.Providers.Factories.csproj", "{61494E63-AE7D-4D4A-967B-D3B50E68858A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Factories.Tests", "MFR.Profiles.Providers.Factories.Tests\MFR.Profiles.Providers.Factories.Tests.csproj", "{69F712E7-D4C0-426A-92C3-48FDE4E9CE82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Providers.Factories.Tests", "MFR.Settings.Profiles.Providers.Factories.Tests\MFR.Settings.Profiles.Providers.Factories.Tests.csproj", "{69F712E7-D4C0-426A-92C3-48FDE4E9CE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Providers.Exceptions", "MFR.Profiles.Providers.Exceptions\MFR.Profiles.Providers.Exceptions.csproj", "{AE8E228C-0E05-415D-8A67-78581F6EA8E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Providers.Exceptions", "MFR.Settings.Profiles.Providers.Exceptions\MFR.Settings.Profiles.Providers.Exceptions.csproj", "{AE8E228C-0E05-415D-8A67-78581F6EA8E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Constants", "MFR.Profiles.Constants\MFR.Profiles.Constants.csproj", "{26976BA2-FCF1-4B05-BE27-CD6D77B916B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Constants", "MFR.Settings.Profiles.Constants\MFR.Settings.Profiles.Constants.csproj", "{26976BA2-FCF1-4B05-BE27-CD6D77B916B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Actions", "MFR.Profiles.Actions\MFR.Profiles.Actions.csproj", "{9CF41E8E-A2C4-4195-A79D-6F3E71285D2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Actions", "MFR.Settings.Profiles.Actions\MFR.Settings.Profiles.Actions.csproj", "{9CF41E8E-A2C4-4195-A79D-6F3E71285D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Actions.Constants", "MFR.Profiles.Actions.Constants\MFR.Profiles.Actions.Constants.csproj", "{15C7805D-1879-4093-B671-6C168277C448}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Actions.Constants", "MFR.Settings.Profiles.Actions.Constants\MFR.Settings.Profiles.Actions.Constants.csproj", "{15C7805D-1879-4093-B671-6C168277C448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Actions.Factories", "MFR.Profiles.Actions.Factories\MFR.Profiles.Actions.Factories.csproj", "{CDB376A4-19AF-4B02-B7E1-5898088C5398}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Actions.Factories", "MFR.Settings.Profiles.Actions.Factories\MFR.Settings.Profiles.Actions.Factories.csproj", "{CDB376A4-19AF-4B02-B7E1-5898088C5398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Serializers", "MFR.Profiles.Serializers\MFR.Profiles.Serializers.csproj", "{BC28D456-9B28-4029-8C96-45C166C625C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Serializers", "MFR.Settings.Profiles.Serializers\MFR.Settings.Profiles.Serializers.csproj", "{BC28D456-9B28-4029-8C96-45C166C625C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Windows.Presenters.Events", "MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj", "{AF8498C6-2BF6-4505-BA90-39CBB40AE766}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Providers.Interfaces", "MFR.Configuration.Providers.Interfaces\MFR.Configuration.Providers.Interfaces.csproj", "{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Providers.Interfaces", "MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj", "{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Configuration.Providers.Factories", "MFR.Configuration.Providers.Factories\MFR.Configuration.Providers.Factories.csproj", "{AEA22530-C864-4063-A77A-8E6DC56F60CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Providers.Factories", "MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj", "{AEA22530-C864-4063-A77A-8E6DC56F60CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Commands.Factories", "MFR.Profiles.Commands.Factories\MFR.Profiles.Commands.Factories.csproj", "{0B228234-D21A-4205-9490-1154943FB8BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Commands.Factories", "MFR.Settings.Profiles.Commands.Factories\MFR.Settings.Profiles.Commands.Factories.csproj", "{0B228234-D21A-4205-9490-1154943FB8BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Commands.Constants", "MFR.Profiles.Commands.Constants\MFR.Profiles.Commands.Constants.csproj", "{BE4E6A55-45E6-4EC8-824B-91CCAB578C55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Commands.Constants", "MFR.Settings.Profiles.Commands.Constants\MFR.Settings.Profiles.Commands.Constants.csproj", "{BE4E6A55-45E6-4EC8-824B-91CCAB578C55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Commands", "MFR.Profiles.Commands\MFR.Profiles.Commands.csproj", "{6390961D-E116-41F6-BF52-B466F8179EB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Commands", "MFR.Settings.Profiles.Commands\MFR.Settings.Profiles.Commands.csproj", "{6390961D-E116-41F6-BF52-B466F8179EB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

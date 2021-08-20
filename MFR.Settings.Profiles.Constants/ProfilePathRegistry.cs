@@ -1,0 +1,32 @@
+﻿using System.Reflection;
+using System.Windows.Forms;
+
+namespace MFR.Settings.Profiles.Constants
+{
+    /// <summary>
+    /// Values used to read the profile list file path from the system Registry.
+    /// </summary>
+    /// <remarks>
+    /// The profile list file contains user settings that control how the
+    /// application runs.
+    /// <para />
+    /// TRhe profile list file is in JSON format.
+    /// <para />
+    /// Configuration files are intended to be stored on a per user basis.
+    /// </remarks>
+    public static class ProfilePathRegistry
+    {
+        /// <summary>
+        /// Gets the name of the Registry value that holds the path to the
+        /// profile list file.
+        /// </summary>
+        public const string ValueName = "ProfileListFile";
+
+        /// <summary>
+        /// Gets the path to the Registry subkey that stores information about
+        /// the paths of files.
+        /// </summary>
+        public static readonly string KeyName =
+            $@"HKEY_CURRENT_USER\SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Paths";
+    }
+}

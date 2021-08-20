@@ -1,5 +1,5 @@
-using MFR.Configuration.Helpers;
-using MFR.Configuration.Interfaces;
+using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Matchers.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;

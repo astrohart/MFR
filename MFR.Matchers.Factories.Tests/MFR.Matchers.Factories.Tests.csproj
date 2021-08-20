@@ -131,13 +131,13 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Configuration.Constants\MFR.Configuration.Constants.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Configuration.Constants</Name>
+      <Name>MFR.Settings.Configuration.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Matchers.Factories.Interfaces\MFR.Matchers.Factories.Interfaces.csproj">
       <Project>{ED8C8DAB-82BF-4F4C-A610-FD2940FD7DFD}</Project>

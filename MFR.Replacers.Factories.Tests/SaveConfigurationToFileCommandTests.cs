@@ -1,7 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Configuration.Commands.Constants;
-using MFR.Configuration.Commands.Factories;
-using MFR.Configuration.Interfaces;
+using MFR.Settings.Configuration.Commands.Constants;
+using MFR.Settings.Configuration.Commands.Factories;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Constants;

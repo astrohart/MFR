@@ -119,9 +119,9 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj">
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>

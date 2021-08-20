@@ -124,13 +124,13 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Profiles.Providers.Interfaces\MFR.Profiles.Providers.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
-      <Name>MFR.Profiles.Providers.Interfaces</Name>
+      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

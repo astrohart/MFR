@@ -1,4 +1,4 @@
-using MFR.Configuration.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Interfaces;
 using MFR.Operations.Interfaces;
 using System;

@@ -128,11 +128,11 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration.Interfaces\MFR.Configuration.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Configuration.Interfaces</Name>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Configuration\MFR.Configuration.csproj">
+    <ProjectReference Include="..\MFR.Configuration\MFR.Settings.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Configuration</Name>
     </ProjectReference>
