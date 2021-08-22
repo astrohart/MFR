@@ -446,6 +446,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Dialogs.Text.Retrie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests", "MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests\MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.csproj", "{DC6D5BD3-963B-4B3C-87F2-2164E333D679}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Dialogs.Tests", "MFR.GUI.Dialogs.Tests\MFR.GUI.Dialogs.Tests.csproj", "{5F783C2A-E118-4D30-A094-4F7003741DC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2206,6 +2208,14 @@ Global
 		{DC6D5BD3-963B-4B3C-87F2-2164E333D679}.Release|x64.Build.0 = Release|x64
 		{DC6D5BD3-963B-4B3C-87F2-2164E333D679}.Release|x86.ActiveCfg = Release|x86
 		{DC6D5BD3-963B-4B3C-87F2-2164E333D679}.Release|x86.Build.0 = Release|x86
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Debug|x64.ActiveCfg = Debug|x64
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Debug|x64.Build.0 = Debug|x64
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Debug|x86.ActiveCfg = Debug|x86
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Debug|x86.Build.0 = Debug|x86
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Release|x64.ActiveCfg = Release|x64
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Release|x64.Build.0 = Release|x64
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Release|x86.ActiveCfg = Release|x86
+		{5F783C2A-E118-4D30-A094-4F7003741DC4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
