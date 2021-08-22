@@ -86,7 +86,7 @@ namespace MFR.Settings.Profiles
         }
 
         /// <summary>
-        /// Gets a <see cref="T:System.Guid" /> value that uniquely identifies
+        /// Gets or sets a <see cref="T:System.Guid" /> value that uniquely identifies
         /// this <see cref="T:MFR.Settings.Profiles.Profile" />.
         /// </summary>
         /// <remarks>
@@ -97,6 +97,7 @@ namespace MFR.Settings.Profiles
         public Guid ProfileId
         {
             get;
+            set;
         } = Guid.NewGuid();
 
         /// <summary>

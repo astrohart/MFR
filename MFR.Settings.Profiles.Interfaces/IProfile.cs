@@ -28,7 +28,7 @@ namespace MFR.Settings.Profiles.Interfaces
         }
 
         /// <summary>
-        /// Gets a <see cref="T:System.Guid" /> value that uniquely identifies
+        /// Gets or sets a <see cref="T:System.Guid" /> value that uniquely identifies
         /// this <see cref="T:MFR.Settings.Profiles.Profile" />.
         /// </summary>
         /// <remarks>
@@ -38,6 +38,7 @@ namespace MFR.Settings.Profiles.Interfaces
         Guid ProfileId
         {
             get;
+            set;
         }
     }
 }
