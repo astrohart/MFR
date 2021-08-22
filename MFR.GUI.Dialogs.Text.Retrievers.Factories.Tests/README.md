@@ -5,6 +5,7 @@
 
 - [GetProfileCreateOperationTypeDialogTextTests](#T-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-GetProfileCreateOperationTypeDialogTextTests 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.GetProfileCreateOperationTypeDialogTextTests')
   - [Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_New_Works()](#M-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-GetProfileCreateOperationTypeDialogTextTests-Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_New_Works 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.GetProfileCreateOperationTypeDialogTextTests.Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_New_Works')
+  - [Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_SaveAs_Works()](#M-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-GetProfileCreateOperationTypeDialogTextTests-Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_SaveAs_Works 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.GetProfileCreateOperationTypeDialogTextTests.Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_SaveAs_Works')
 - [Resources](#T-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-Properties-Resources 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-Properties-Resources-Culture 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties.Resources.ResourceManager')
@@ -33,7 +34,26 @@ Asserts that the text returned by the
 [EnumerationValue](#M-MFR-GUI-Dialogs-Text-Retrievers-Factories-GetProfileCreateOperationTypeDialogText-EnumerationValue 'MFR.GUI.Dialogs.Text.Retrievers.Factories.GetProfileCreateOperationTypeDialogText.EnumerationValue')
 method matches the value defined by the
 [Text_AddNewProfile](#P-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-Properties-Resources-Text_AddNewProfile 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties.Resources.Text_AddNewProfile')
-property.
+property when it is passed
+[New](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType-New 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType.New') as a
+parameter.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-GetProfileCreateOperationTypeDialogTextTests-Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_SaveAs_Works'></a>
+### Test_GetProfileCreateOperationTypeDialogText_For_EnumerationValue_Of_SaveAs_Works() `method`
+
+##### Summary
+
+Asserts that the text returned by the
+[EnumerationValue](#M-MFR-GUI-Dialogs-Text-Retrievers-Factories-GetProfileCreateOperationTypeDialogText-EnumerationValue 'MFR.GUI.Dialogs.Text.Retrievers.Factories.GetProfileCreateOperationTypeDialogText.EnumerationValue')
+method matches the value defined by the
+[Text_AddNewProfile](#P-MFR-GUI-Dialogs-Text-Retrievers-Factories-Tests-Properties-Resources-Text_AddNewProfile 'MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties.Resources.Text_AddNewProfile')
+property when it is passed
+[SaveAs](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType-SaveAs 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType.SaveAs') as
+a parameter.
 
 ##### Parameters
 
