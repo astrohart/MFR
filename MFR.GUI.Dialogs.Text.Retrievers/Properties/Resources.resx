@@ -101,7 +101,7 @@
 	<data name="Text_AddNewProfile" xml:space="preserve">
 		<value>Add New Profile</value>
 	</data>
-	<data name="Text_SaveProfileAs" xml:space="preserve">
+	<data name="Text_Dialogs_SaveProfileAs" xml:space="preserve">
 		<value>Save Profile As</value>
 	</data>
 	<data name="Error_RequestedOperationTypeNotSupported" xml:space="preserve">

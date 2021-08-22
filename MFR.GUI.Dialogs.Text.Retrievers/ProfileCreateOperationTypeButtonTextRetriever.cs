@@ -5,23 +5,27 @@ using System;
 namespace MFR.GUI.Dialogs.Text.Retrievers
 {
     /// <summary>
-    /// Decides on what text a New Profile dialog box is to have in its title bar,
+    /// Decides on what text that the OK button in the New Profile dialog box is to
+    /// have displayed on its face,
     /// based on the operation being performed.
     /// </summary>
     public class
-        ProfileCreateOperationTypeDialogTextRetriever : DialogTextRetrieverBase<
+        ProfileCreateOperationTypeButtonTextRetriever : ButtonTextRetrieverBase<
             ProfileCreateOperationType>
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.GUI.Dialogs.Text.Retrievers.DialogTextRetrieverBase" /> and
+        /// <see
+        ///     cref="T:MFR.GUI.Dialogs.Text.Retrievers.ProfileCreateOperationTypeButtonTextRetriever" />
+        /// and
         /// returns a reference to it.
         /// </summary>
         /// <param name="enumeratorValue">
-        /// (Required.) Reference to an instance of the enumeration used to decide which
-        /// text to set.
+        /// (Required.) The
+        /// <see cref="T:MFR.GUI.Dialogs.Constants.ProfileCreateOperationType" /> value
+        /// that is to be used in order to decide which text to set.
         /// </param>
-        public ProfileCreateOperationTypeDialogTextRetriever(
+        public ProfileCreateOperationTypeButtonTextRetriever(
             ProfileCreateOperationType enumeratorValue) :
             base(enumeratorValue) { }
 

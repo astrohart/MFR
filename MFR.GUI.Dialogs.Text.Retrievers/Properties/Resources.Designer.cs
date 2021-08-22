@@ -72,7 +72,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Add New Profile.
         /// </summary>
-        internal static string Text_AddNewProfile {
+        internal static string Text_Dialogs_AddNewProfile {
             get {
                 return ResourceManager.GetString("Text_AddNewProfile", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Save Profile As.
         /// </summary>
-        internal static string Text_SaveProfileAs {
+        internal static string Text_Dialogs_SaveProfileAs {
             get {
                 return ResourceManager.GetString("Text_SaveProfileAs", resourceCulture);
             }
