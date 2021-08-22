@@ -428,6 +428,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Factories.Tests", "MFR.Settings.Configuration.Factories.Tests\MFR.Settings.Configuration.Factories.Tests.csproj", "{CC8F5155-FB71-4C19-AF46-EF7127CBDF3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Factories", "MFR.Settings.Profiles.Factories\MFR.Settings.Profiles.Factories.csproj", "{33167BC4-36DC-4E33-99B4-9CFF054B6D08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2116,6 +2118,14 @@ Global
 		{CC8F5155-FB71-4C19-AF46-EF7127CBDF3B}.Release|x64.Build.0 = Release|x64
 		{CC8F5155-FB71-4C19-AF46-EF7127CBDF3B}.Release|x86.ActiveCfg = Release|x86
 		{CC8F5155-FB71-4C19-AF46-EF7127CBDF3B}.Release|x86.Build.0 = Release|x86
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Debug|x64.ActiveCfg = Debug|x64
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Debug|x64.Build.0 = Debug|x64
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Debug|x86.ActiveCfg = Debug|x86
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Debug|x86.Build.0 = Debug|x86
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x64.ActiveCfg = Release|x64
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x64.Build.0 = Release|x64
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x86.ActiveCfg = Release|x86
+		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
