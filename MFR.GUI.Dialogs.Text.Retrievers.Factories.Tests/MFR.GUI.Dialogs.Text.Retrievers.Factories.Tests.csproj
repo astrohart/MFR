@@ -84,6 +84,7 @@
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.2\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -136,6 +137,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Constants\MFR.GUI.Dialogs.Constants.csproj">
+      <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
+      <Name>MFR.GUI.Dialogs.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Text.Retrievers.Factories\MFR.GUI.Dialogs.Text.Retrievers.Factories.csproj">
       <Project>{49002d48-38c0-49cf-a6cc-6314218ac468}</Project>
       <Name>MFR.GUI.Dialogs.Text.Retrievers.Factories</Name>

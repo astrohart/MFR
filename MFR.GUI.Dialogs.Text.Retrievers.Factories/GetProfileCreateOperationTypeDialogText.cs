@@ -41,7 +41,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Factories
         /// interface and returns a reference to it.
         /// </summary>
         /// <param name="retrieverType">
-        /// (Required.) One of the <typeparamref name="TEnumerator" /> values that
+        /// (Required.) One of the <see cref="T:MFR.GUI.Dialogs.Constants.ProfileCreateOperationType"/> values that
         /// specifies which dialog text retriever object to create.
         /// </param>
         /// <returns>
