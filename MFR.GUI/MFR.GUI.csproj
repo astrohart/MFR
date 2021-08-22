@@ -171,11 +171,11 @@
       <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
-      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Project>{aea22530-c864-4063-a77a-8e6dc56f60ca}</Project>
       <Name>MFR.Settings.Configuration.Providers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
-      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Project>{7f7566da-afeb-4f05-ad6e-5f44dad21b67}</Project>
       <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
