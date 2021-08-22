@@ -180,5 +180,10 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         ///     passed a <see langword="null" /> value.
         /// </exception>
         IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
+
+        /// <summary>
+        /// Occurs when the user issues a request to create a new, blank Profile.
+        /// </summary>
+        event CreateNewBlankProfileRequestedEventHandler CreateNewBlankProfileRequested;
     }
 }

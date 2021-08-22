@@ -11,6 +11,12 @@ namespace MFR.Settings.Profiles.Actions.Constants
     public class ProfileListAction : ActionType
     {
         /// <summary>
+        /// Creates a new, named profile that can be added to the list.
+        /// </summary>
+        public static readonly ProfileListAction CreateNewNamedProfile =
+            new ProfileListAction(Guid.NewGuid());
+
+        /// <summary>
         /// Loads the configuration from a file.
         /// </summary>
         public static readonly ProfileListAction LoadProfileListFromFile =

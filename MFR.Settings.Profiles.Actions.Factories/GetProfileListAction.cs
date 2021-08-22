@@ -1,4 +1,3 @@
-using MFR.Settings.Configuration.Actions;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
 using System;
@@ -45,20 +44,29 @@ namespace MFR.Settings.Profiles.Actions.Factories
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>
         public static IAction<TInput, TResult>
-            For<TInput, TResult>(ProfileListAction actionType) where TInput : class
-            where TResult : class
+            For<TInput, TResult>(ProfileListAction actionType)
+            where TInput : class where TResult : class
         {
             IAction<TInput, TResult> action;
 
             switch (actionType)
             {
-                case var _ when actionType == ProfileListAction.LoadStringFromRegistry:
+                case var _ when actionType ==
+                                ProfileListAction.LoadStringFromRegistry:
                     action =
-                        (IAction<TInput, TResult>)LoadProfileListFilePathFromRegistryAction
+                        (IAction<TInput, TResult>)
+                        LoadProfileListFilePathFromRegistryAction.Instance;
+                    break;
+
+                case var _ when actionType ==
+                                ProfileListAction.CreateNewNamedProfile:
+                    action =
+                        (IAction<TInput, TResult>)CreateNewNamedProfileAction
                             .Instance;
                     break;
 
-                case var _ when actionType == ProfileListAction.LoadProfileListFromFile:
+                case var _ when actionType ==
+                                ProfileListAction.LoadProfileListFromFile:
                     action =
                         (IAction<TInput, TResult>)LoadProfileListFromFileAction
                             .Instance;

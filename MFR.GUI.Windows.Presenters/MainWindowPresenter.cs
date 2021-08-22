@@ -1,3 +1,8 @@
+using MFR.Constants;
+using MFR.Events;
+using MFR.Events.Common;
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Helpers;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Initializers;
@@ -6,23 +11,19 @@ using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
+using MFR.Managers.History.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Factories;
+using MFR.Operations.Events;
+using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
-using MFR.Constants;
-using MFR.Events;
-using MFR.Events.Common;
-using MFR.FileSystem.Factories;
-using MFR.FileSystem.Helpers;
-using MFR.Managers.History.Interfaces;
-using MFR.Operations.Constants;
-using MFR.Operations.Descriptions.Factories;
-using MFR.Operations.Events;
-using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -155,6 +156,12 @@ namespace MFR.GUI.Windows.Presenters
         /// </remarks>
         private static IConfigurationProvider ConfigurationProvider
             => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Occurs when the user issues a request to create a new, blank Profile.
+        /// </summary>
+        public event CreateNewBlankProfileRequestedEventHandler
+            CreateNewBlankProfileRequested;
 
         /// <summary>
         /// Failed to add the requested profile. Parameter is a string containing the
@@ -705,6 +712,27 @@ namespace MFR.GUI.Windows.Presenters
             );
 
             return this;
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.EVENTNAME" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual IProfile OnCreateNewBlankProfileRequested(
+            CreateNewBlankProfileRequestedEventArgs e)
+        {
+            var result = CreateNewBlankProfileRequested?.Invoke(this, e);
+            SendMessage<CreateNewBlankProfileRequestedEventArgs>.Having
+                .Args(this, e)
+                .ForMessageId(MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE);
+            return result;
         }
 
         /// <summary>

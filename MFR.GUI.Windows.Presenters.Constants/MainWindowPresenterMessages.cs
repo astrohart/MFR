@@ -15,6 +15,11 @@ namespace MFR.GUI.Windows.Presenters.Constants
         public static readonly Guid MWP_ALL_HISTORY_CLEARED = Guid.NewGuid();
 
         /// <summary>
+        /// Unique identifier for the message that is sent by the Presenter for the main application window when the user has clicked the Add New Profile button.
+        /// </summary>
+        public static readonly Guid MWP_ADD_NEW_PROFILE = Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for the message that is sent by the Presenter of
         /// the main application window when the configuration has just been
         /// exported to a file.
