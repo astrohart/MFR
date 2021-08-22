@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Text_AddNewProfile" xml:space="preserve">
+  <data name="Text_Buttons_Create" xml:space="preserve">
+    <value>&amp;Create</value>
+  </data>
+  <data name="Text_Buttons_Save" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="Text_Dialogs_AddNewProifile" xml:space="preserve">
     <value>Add New Profile</value>
   </data>
-  <data name="Text_SaveProfileAs" xml:space="preserve">
+  <data name="Text_Dialogs_SaveProfileAs" xml:space="preserve">
     <value>Save Profile As</value>
   </data>
 </root>

@@ -22,7 +22,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.GUI.Dialogs.Text.Retrievers.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,27 +63,45 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The requested operation type is not supported.
         /// </summary>
-        internal static string Error_RequestedOperationTypeNotSupported {
+        public static string Error_RequestedOperationTypeNotSupported {
             get {
                 return ResourceManager.GetString("Error_RequestedOperationTypeNotSupported", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Create.
+        /// </summary>
+        public static string Text_Buttons_Create {
+            get {
+                return ResourceManager.GetString("Text_Buttons_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Save.
+        /// </summary>
+        public static string Text_Buttons_Save {
+            get {
+                return ResourceManager.GetString("Text_Buttons_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Profile.
         /// </summary>
-        internal static string Text_Dialogs_AddNewProfile {
+        public static string Text_Dialogs_AddNewProifile {
             get {
-                return ResourceManager.GetString("Text_AddNewProfile", resourceCulture);
+                return ResourceManager.GetString("Text_Dialogs_AddNewProifile", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Save Profile As.
         /// </summary>
-        internal static string Text_Dialogs_SaveProfileAs {
+        public static string Text_Dialogs_SaveProfileAs {
             get {
-                return ResourceManager.GetString("Text_SaveProfileAs", resourceCulture);
+                return ResourceManager.GetString("Text_Dialogs_SaveProfileAs", resourceCulture);
             }
         }
     }

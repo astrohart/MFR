@@ -112,6 +112,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetProfileCreateOperationTypeButtonTextTests.cs" />
     <Compile Include="GetProfileCreateOperationTypeDialogTextTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
@@ -125,7 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

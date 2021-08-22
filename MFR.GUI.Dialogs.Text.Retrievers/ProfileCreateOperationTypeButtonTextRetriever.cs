@@ -41,7 +41,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers
 
         /// <summary>
         /// Called to set the value of the
-        /// <see cref="P:MFR.GUI.Dialogs.Text.Retrievers.DialogTextRetrieverBase.Text" />
+        /// <see cref="P:MFR.GUI.Dialogs.Text.Retrievers.ButtonTextRetrieverBase.Text" />
         /// property based on the value of the enumeration provided.
         /// </summary>
         /// <param name="enumeratorValue">
@@ -55,11 +55,11 @@ namespace MFR.GUI.Dialogs.Text.Retrievers
             switch (enumeratorValue)
             {
                 case ProfileCreateOperationType.New:
-                    Text = Resources.Text_Dialogs_AddNewProfile;
+                    Text = Resources.Text_Buttons_Create;
                     break;
 
                 case ProfileCreateOperationType.SaveAs:
-                    Text = Resources.Text_Dialogs_SaveProfileAs;
+                    Text = Resources.Text_Buttons_Save;
                     break;
 
                 default:

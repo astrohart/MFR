@@ -30,7 +30,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests
             => Assert.That(
                 GetProfileCreateOperationTypeDialogText.By.EnumerationValue(
                     ProfileCreateOperationType.New
-                ), Is.EqualTo(Resources.Text_AddNewProfile)
+                ), Is.EqualTo(Resources.Text_Dialogs_AddNewProifile)
             );
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests
             => Assert.That(
                 GetProfileCreateOperationTypeDialogText.By.EnumerationValue(
                     ProfileCreateOperationType.SaveAs
-                ), Is.EqualTo(Resources.Text_SaveProfileAs)
+                ), Is.EqualTo(Resources.Text_Dialogs_SaveProfileAs)
             );
     }
 }

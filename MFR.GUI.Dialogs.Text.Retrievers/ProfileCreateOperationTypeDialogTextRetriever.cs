@@ -51,7 +51,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers
             switch (enumeratorValue)
             {
                 case ProfileCreateOperationType.New:
-                    Text = Resources.Text_Dialogs_AddNewProfile;
+                    Text = Resources.Text_Dialogs_AddNewProifile;
                     break;
 
                 case ProfileCreateOperationType.SaveAs:

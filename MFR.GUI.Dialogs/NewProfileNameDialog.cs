@@ -61,6 +61,10 @@ namespace MFR.GUI.Dialogs
             Text = GetProfileCreateOperationTypeDialogText.By.EnumerationValue(
                 OperationType
             );
+            createButton.Text =
+                GetProfileCreateOperationTypeButtonText.By.EnumerationValue(
+                    OperationType
+                );
         }
     }
 }
