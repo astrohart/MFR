@@ -587,6 +587,7 @@ namespace MFR.GUI.Windows
             this.newProfileButton.Name = "newProfileButton";
             this.newProfileButton.Size = new System.Drawing.Size(23, 22);
             this.newProfileButton.Text = "New Profile";
+            this.newProfileButton.Click += new System.EventHandler(this.OnToolsConfigurationNewProfile);
             // 
             // saveProfileButton
             // 

@@ -1234,5 +1234,10 @@ namespace MFR.GUI.Windows
 
             return true;
         }
+
+        private void OnToolsConfigurationNewProfile(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
