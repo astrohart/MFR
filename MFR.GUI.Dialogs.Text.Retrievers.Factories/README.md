@@ -181,7 +181,7 @@ This method has no parameters.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IDialogTextRetriever](#T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IDialogTextRetriever 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.IDialogTextRetriever')
+[IButtonTextRetriever](#T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IButtonTextRetriever 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.IButtonTextRetriever')
 interface and returns a reference to it.
 
 ##### Returns
