@@ -104,6 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonTextRetrieverBase.cs" />
     <Compile Include="DialogTextRetrieverBase.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
