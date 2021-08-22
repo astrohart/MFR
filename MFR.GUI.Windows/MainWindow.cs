@@ -1,3 +1,4 @@
+using MFR.Events.Common;
 using MFR.GUI.Constants;
 using MFR.GUI.Controls;
 using MFR.GUI.Controls.Events;
@@ -11,13 +12,12 @@ using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
-using MFR.Settings.Configuration.Events;
-using MFR.Settings.Configuration.Providers.Factories;
-using MFR.Settings.Configuration.Providers.Interfaces;
-using MFR.Events.Common;
 using MFR.Managers.History.Factories;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Factories;
+using MFR.Settings.Configuration.Events;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
@@ -1235,9 +1235,27 @@ namespace MFR.GUI.Windows
             return true;
         }
 
-        private void OnToolsConfigurationNewProfile(object sender, EventArgs e)
-        {
-            
-        }
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
+        /// raised by the New Profile toolbar button and/or Tools -> Configuration -> New
+        /// Profile menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user clisk the New Profile toolbar
+        /// button or menu item.
+        /// <para />
+        /// The goal is to prompt the user for the name of their new profile, create it,
+        /// then add it to the list of profiles and then set it as the current profile.
+        /// </remarks>
+        private void
+            OnToolsConfigurationNewProfile(object sender, EventArgs e) { }
     }
 }
