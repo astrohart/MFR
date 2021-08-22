@@ -189,6 +189,10 @@
       <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
       <Name>MFR.GUI.Dialogs.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Text.Retrievers.Factories\MFR.GUI.Dialogs.Text.Retrievers.Factories.csproj">
+      <Project>{49002D48-38C0-49CF-A6CC-6314218AC468}</Project>
+      <Name>MFR.GUI.Dialogs.Text.Retrievers.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
       <Name>MFR.Settings.Configuration.Providers.Factories</Name>
