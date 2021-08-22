@@ -1249,7 +1249,7 @@ namespace MFR.GUI.Windows
         /// data.
         /// </param>
         /// <remarks>
-        /// This method is called when the user clisk the New Profile toolbar
+        /// This method is called when the user click the New Profile toolbar
         /// button or menu item.
         /// <para />
         /// The goal is to prompt the user for the name of their new profile, create it,
