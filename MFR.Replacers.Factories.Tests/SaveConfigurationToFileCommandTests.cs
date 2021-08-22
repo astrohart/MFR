@@ -6,6 +6,7 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Factories;
 using NUnit.Framework;
 
 namespace MFR.Replacers.Factories.Tests
@@ -35,7 +36,7 @@ namespace MFR.Replacers.Factories.Tests
         private static IConfiguration CONFIGURATION_DATA
         {
             get;
-        } = new Configuration();
+        } = MakeNewConfiguration.FromScratch();
 
         /// <summary>
         /// TODO: Add unit test documentation here

@@ -10,6 +10,7 @@ using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Settings.Configuration.Factories;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -80,7 +81,7 @@ namespace MFR.Settings.Configuration.Providers
         {
             get;
             set;
-        } = new Configuration();
+        } = MakeNewConfiguration.FromScratch();
 
         /// <summary>
         /// Gets or sets the pathname of the configuration file.
@@ -286,8 +287,18 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"ConfigurationProvider.Load: Since the loading of configuration from the file '{pathname}' did not work, we are creating a blank Configuration object with the default settings."
+                );
+
                 Configuration =
-                    new Configuration(); // make a default config if can't be loaded
+                    MakeNewConfiguration.FromScratch(); // make a default config if can't be loaded
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** Blank configuration object initialized."
+                );
             }
 
             if (Configuration != null)

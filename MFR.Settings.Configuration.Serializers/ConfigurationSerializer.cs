@@ -2,6 +2,7 @@ using MFR.Settings.Configuration.Converters;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Serializers.Properties;
 using MFR.FileSystem.Helpers;
+using MFR.Settings.Configuration.Factories;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
@@ -66,7 +67,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // only whitespace, then return a blank Configuration instance
                 // with its properties all set to default values.
                 result = string.IsNullOrWhiteSpace(content)
-                    ? new Configuration()
+                    ? MakeNewConfiguration.FromScratch()
                     : ConvertConfiguration.FromJson(content);
             }
             catch (Exception ex)
