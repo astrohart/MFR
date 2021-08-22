@@ -4,7 +4,8 @@
 ## Contents
 
 - [NewProfileNameDialogTests](#T-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests')
-  - [Test_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_Dialog_Works 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests.Test_Dialog_Works')
+  - [Test_AddNewProfile_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_AddNewProfile_Dialog_Works 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests.Test_AddNewProfile_Dialog_Works')
+  - [Test_SaveProfileAs_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests.Test_SaveProfileAs_Dialog_Works')
 - [Resources](#T-MFR-GUI-Dialogs-Tests-Properties-Resources 'MFR.GUI.Dialogs.Tests.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Tests-Properties-Resources-Culture 'MFR.GUI.Dialogs.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Tests-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Tests.Properties.Resources.ResourceManager')
@@ -18,14 +19,28 @@ MFR.GUI.Dialogs.Tests
 
 ##### Summary
 
-Provides unit tests for the methods, properties, and events of the [NewProfileNameDialog](#T-MFR-GUI-Dialogs-NewProfileNameDialog 'MFR.GUI.Dialogs.NewProfileNameDialog') class.
+Provides unit tests for the methods, properties, and events of the
+[NewProfileNameDialog](#T-MFR-GUI-Dialogs-NewProfileNameDialog 'MFR.GUI.Dialogs.NewProfileNameDialog') class.
 
-<a name='M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_Dialog_Works'></a>
-### Test_Dialog_Works() `method`
+<a name='M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_AddNewProfile_Dialog_Works'></a>
+### Test_AddNewProfile_Dialog_Works() `method`
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Tests that the New Profile Name dialog works when the operation that the user
+wants to do is to add a new, blank profile.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works'></a>
+### Test_SaveProfileAs_Dialog_Works() `method`
+
+##### Summary
+
+Tests that the New Profile Name dialog works when the operation that the user
+wants to do is to save a copy of the current Profile with a new name.
 
 ##### Parameters
 
