@@ -430,6 +430,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Factories", "MFR.Settings.Profiles.Factories\MFR.Settings.Profiles.Factories.csproj", "{33167BC4-36DC-4E33-99B4-9CFF054B6D08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Requests", "MFR.Settings.Profiles.Requests\MFR.Settings.Profiles.Requests.csproj", "{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Requests.Constants", "MFR.Settings.Profiles.Requests.Constants\MFR.Settings.Profiles.Requests.Constants.csproj", "{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2126,6 +2130,22 @@ Global
 		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x64.Build.0 = Release|x64
 		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x86.ActiveCfg = Release|x86
 		{33167BC4-36DC-4E33-99B4-9CFF054B6D08}.Release|x86.Build.0 = Release|x86
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Debug|x64.ActiveCfg = Debug|x64
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Debug|x64.Build.0 = Debug|x64
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Debug|x86.ActiveCfg = Debug|x86
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Debug|x86.Build.0 = Debug|x86
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Release|x64.ActiveCfg = Release|x64
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Release|x64.Build.0 = Release|x64
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Release|x86.ActiveCfg = Release|x86
+		{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}.Release|x86.Build.0 = Release|x86
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Debug|x64.ActiveCfg = Debug|x64
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Debug|x64.Build.0 = Debug|x64
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Debug|x86.ActiveCfg = Debug|x86
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Debug|x86.Build.0 = Debug|x86
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Release|x64.ActiveCfg = Release|x64
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Release|x64.Build.0 = Release|x64
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Release|x86.ActiveCfg = Release|x86
+		{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
