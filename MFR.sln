@@ -454,6 +454,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.Profiles.Interfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.Profiles.Factories", "MFR.Params.Profiles.Factories\MFR.Params.Profiles.Factories.csproj", "{11F65E45-26CB-4D13-8552-2BBCE751DFFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.Profiles.Validators", "MFR.Params.Profiles.Validators\MFR.Params.Profiles.Validators.csproj", "{6B054493-D7DC-46CA-B75C-D405F26E7169}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2246,6 +2248,14 @@ Global
 		{11F65E45-26CB-4D13-8552-2BBCE751DFFE}.Release|x64.Build.0 = Release|x64
 		{11F65E45-26CB-4D13-8552-2BBCE751DFFE}.Release|x86.ActiveCfg = Release|x86
 		{11F65E45-26CB-4D13-8552-2BBCE751DFFE}.Release|x86.Build.0 = Release|x86
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Debug|x64.ActiveCfg = Debug|x64
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Debug|x64.Build.0 = Debug|x64
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Debug|x86.ActiveCfg = Debug|x86
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Debug|x86.Build.0 = Debug|x86
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Release|x64.ActiveCfg = Release|x64
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Release|x64.Build.0 = Release|x64
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Release|x86.ActiveCfg = Release|x86
+		{6B054493-D7DC-46CA-B75C-D405F26E7169}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
