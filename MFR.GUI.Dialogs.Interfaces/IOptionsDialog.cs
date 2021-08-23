@@ -1,4 +1,5 @@
 using MFR.GUI.Dialogs.Events;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Dialogs.Interfaces
 {
@@ -6,7 +7,7 @@ namespace MFR.GUI.Dialogs.Interfaces
     /// Defines the publicly-exposed methods and properties of a dialog box that
     /// allows the user to configure the application.
     /// </summary>
-    public interface IOptionsDialog
+    public interface IOptionsDialog : IForm
     {
         /// <summary>
         /// Occurs when data is modified in this property sheet and then the

@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Constants;
+using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Dialogs.Text.Retrievers.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using System;
@@ -10,7 +11,7 @@ namespace MFR.GUI.Dialogs
     /// Displayed to the user to allow the user to create a blank profile with a given
     /// name and/or save a profile.
     /// </summary>
-    public partial class NewProfileNameDialog : Form
+    public partial class NewProfileNameDialog : Form, INewProfileNameDialog
     {
         /// <summary>
         /// Constructs a new instance of

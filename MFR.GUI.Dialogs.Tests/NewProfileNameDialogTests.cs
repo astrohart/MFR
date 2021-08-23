@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Constants;
+using MFR.GUI.Dialogs.Factories;
 using NUnit.Framework;
 using System;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace MFR.GUI.Dialogs.Tests
         [Test]
         public void Test_AddNewProfile_Dialog_Works()
         {
-            using (var dialog = new NewProfileNameDialog())
+            using (var dialog = MakeNewNewProfileNameDialog.FromScratch())
             {
                 dialog.StartPosition = FormStartPosition.CenterScreen;
                 dialog.OperationType = ProfileCreateOperationType.New;
@@ -39,7 +40,7 @@ namespace MFR.GUI.Dialogs.Tests
         [Test]
         public void Test_SaveProfileAs_Dialog_Works()
         {
-            using (var dialog = new NewProfileNameDialog())
+            using (var dialog = MakeNewNewProfileNameDialog.FromScratch())
             {
                 dialog.StartPosition = FormStartPosition.CenterScreen;
                 dialog.OperationType = ProfileCreateOperationType.SaveAs;
