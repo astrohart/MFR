@@ -464,6 +464,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Validators", "..\xy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Validators.Events", "..\xyLOGIX.Validators.VS2019\xyLOGIX.Validators.Events\xyLOGIX.Validators.Events.csproj", "{F1E3A4DD-876F-428C-BA4A-DF5FBD75B2CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.Profiles.Validators.Factories", "MFR.Params.Profiles.Validators.Factories\MFR.Params.Profiles.Validators.Factories.csproj", "{FCAB5948-CC63-4A34-879B-ABC7E300CE99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2296,6 +2298,14 @@ Global
 		{F1E3A4DD-876F-428C-BA4A-DF5FBD75B2CF}.Release|x64.Build.0 = Release|x64
 		{F1E3A4DD-876F-428C-BA4A-DF5FBD75B2CF}.Release|x86.ActiveCfg = Release|x86
 		{F1E3A4DD-876F-428C-BA4A-DF5FBD75B2CF}.Release|x86.Build.0 = Release|x86
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Debug|x64.ActiveCfg = Debug|x64
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Debug|x64.Build.0 = Debug|x64
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Debug|x86.ActiveCfg = Debug|x86
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Debug|x86.Build.0 = Debug|x86
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x64.ActiveCfg = Release|x64
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x64.Build.0 = Release|x64
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x86.ActiveCfg = Release|x86
+		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
