@@ -113,6 +113,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SendErrorReportRequestedEventArgs.cs" />
+    <Compile Include="SendErrorReportRequestedEventHandler.cs" />
+    <Compile Include="ViewErrorReportRequestedEventArgs.cs" />
+    <Compile Include="ViewErrorReportRequestedEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

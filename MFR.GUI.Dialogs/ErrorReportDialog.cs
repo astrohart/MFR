@@ -1,6 +1,6 @@
+using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Dialogs.Interfaces;
 using System;
-using System.Diagnostics;
-using Alphaleonis.Win32.Filesystem;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Dialogs
@@ -8,7 +8,7 @@ namespace MFR.GUI.Dialogs
     /// <summary>
     /// Displays information to the user about an exception or error.
     /// </summary>
-    public partial class ErrorReportDialog : Form
+    public partial class ErrorReportDialog : Form, IErrorReportDialog
     {
         /// <summary>
         /// Constructs a new instance of
@@ -23,13 +23,61 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="T:System.Exception"/> that describes the error that occurred.
+        /// Gets or sets the value of the Reproduction Steps text box.
+        /// </summary>
+        public string ReproductionSteps
+        {
+            get => reproductionStepsTextBox.Text;
+            set => reproductionStepsTextBox.Text = value;
+        }
+
+        /// <summary>
+        /// Gets a string that contains the contents of an error report, given the value of
+        /// the <see cref="P:MFR.GUI.Dialogs.ErrorReportDialog.Exception" /> property.
+        /// </summary>
+        public string ErrorReportContents
+            => $"{Exception.GetType()}: {Exception.Message}\n\t{Exception.StackTrace}";
+
+        /// <summary>
+        /// Gets a reference to the View Report link-label control.
+        /// </summary>
+        public LinkLabel ViewReportLinkLabel
+            => viewReportLinkLabel;
+
+        /// <summary>
+        /// Gets or sets the <see cref="T:System.Exception" /> that describes the error
+        /// that occurred.
         /// </summary>
         public Exception Exception
         {
             get;
             set;
         }
+
+        /// <summary>
+        /// Occurs when the user requests to view the error report.
+        /// </summary>
+        public event ViewErrorReportRequestedEventHandler
+            ViewErrorReportRequested;
+
+        /// <summary>
+        /// Occurs when the user clicks the Send Report button.
+        /// </summary>
+        public event SendErrorReportRequestedEventHandler
+            SendErrorReportRequested;
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.SendErrorReportRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.Exception" /> that contains the event
+        /// data.
+        /// </param>
+        protected virtual void OnSendErrorReportRequested(
+            SendErrorReportRequestedEventArgs e)
+            => SendErrorReportRequested?.Invoke(this, e);
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosed" /> event.
@@ -82,23 +130,60 @@ namespace MFR.GUI.Dialogs
         /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
-        /// This method responds by dumping the current
-        /// <see
-        ///     cref="T:System.Exception" />
-        /// 's message and stack trace to a text file
-        /// in the user's temporary files folder, and then launches Notepad to
-        /// view it.
+        /// This method responds by raising the
+        /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.ViewErrorReportRequested" />
+        /// event.
+        /// <para />
+        /// Doing this allows the caller of this dialog to attach their own custom
+        /// event-handling logic.
         /// </remarks>
         private void OnLinkClickedViewErrorReportLinkLabel(object sender,
             LinkLabelLinkClickedEventArgs e)
-        {
-            var dumpFile = Path.GetTempFileName();
-            File.WriteAllText(
-                dumpFile,
-                $"{Exception.GetType()}: {Exception.Message}\n\t{Exception.StackTrace}"
+            => OnViewErrorReportRequested(
+                new ViewErrorReportRequestedEventArgs(
+                    Exception, ErrorReportContents
+                )
             );
 
-            Process.Start("notepad", dumpFile);
-        }
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.ViewErrorReportRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnViewErrorReportRequested(
+            ViewErrorReportRequestedEventArgs e)
+            => ViewErrorReportRequested?.Invoke(this, e);
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event raised by
+        /// the Send Report button.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by raising the
+        /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.SendErrorReportRequested" />
+        /// event.
+        /// <para />
+        /// Doing so allows the invoker of this dialog to decide how to carry out the
+        /// action.
+        /// </remarks>
+        private void OnClickSendReportButton(object sender, EventArgs e)
+            => OnSendErrorReportRequested(
+                new SendErrorReportRequestedEventArgs(
+                    Exception, ErrorReportContents
+                )
+            );
     }
 }

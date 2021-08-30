@@ -44,7 +44,7 @@ namespace MFR.Engines.Matching.Tests
 
             Assert.IsTrue(
                 engine.IsMatch(
-                    FileHelpers.GetContent(
+                    FileHelpers.GetTextContent(
                         StringConstants
                             .JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH
                     ), "Displayer", "Processor"

@@ -84,15 +84,58 @@ namespace MFR.Tests.Common
         /// String containing the fully-qualified pathname of a <c>bin\</c>
         /// folder in a project.
         /// </summary>
-        private const string PATHNAME_OF_BIN_FOLDER =
+        private const string MFR_TESTS_PROJECT_BIN_FOLDER_PATH =
             @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Tests\bin";
 
         /// <summary>
         /// String containing the fully-qualified pathname of a <c>obj\</c>
-        /// folder in a project.
+        /// folder in the <c>MFR.Tests</c> project.
         /// </summary>
-        private const string PATHNAME_OF_OBJ_FOLDER =
+        private const string MFR_TESTS_PROJECT_OBJ_FOLDER_PATH =
             @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Tests\obj";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a <c>obj</c> folder in the
+        /// <c>xyLOGIX.Interop.GitRepos</c> project.
+        /// </summary>
+        private const string GITREPOS_OBJ_FOLDER_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\obj";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the solution folder for the
+        /// <c>PortfolioMonitor</c> solution.
+        /// </summary>
+        private const string PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>.git</c> dotfolder
+        /// under the <c>xyLOGIX.Interop.GitRepos</c> solution folder.
+        /// </summary>
+        private const string GITREPOS_GIT_DIR_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>.vs</c> dotfolder for
+        /// the <c>PortfolioMonitor</c> solution.
+        /// </summary>
+        private const string PORTRFOLIO_MONITOR_VS_FOLDER_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>packages</c> folder
+        /// for the <c>xyLOGIX.Interop.GitRepos</c>
+        /// solution.
+        /// </summary>
+        private const string GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>.vs</c> dotfolder of
+        /// the <c>xyLOGIX.Interop.GitRepos</c> solution.
+        /// </summary>
+        private const string GITREPOS_SOLUTION_VS_DOTFOLDER_PATH =
+            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.vs";
 
         /// <summary>
         /// String containing the path to a 'dotfolder' -- i.e., a folder whose
@@ -149,7 +192,8 @@ namespace MFR.Tests.Common
         /// on the local machine.
         /// </summary>
         /// <remarks>
-        /// We started by making this constant equal to the path to NOTEPAD.EXE.
+        /// We started by making this constant equal to the path to <c>NOTEPAD.EXE</c>,
+        /// which we know is installed with every version and edition of Windows.
         /// </remarks>
         public static readonly string FILE_GUARANTEED_TO_EXIST = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.System),
@@ -260,113 +304,130 @@ namespace MFR.Tests.Common
         /// inside the <c>obj\</c> folder of a project.
         /// </summary>
         public static readonly string
-            PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER = Directory
-                .EnumerateFiles(
-                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\obj",
-                    "*", SearchOption.AllDirectories
-                )
-                .FirstOrDefault();
+            PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER =
+                !Directory.Exists(GITREPOS_OBJ_FOLDER_PATH)
+                    ? string.Empty
+                    : Directory.EnumerateFiles(
+                                   GITREPOS_OBJ_FOLDER_PATH, "*",
+                                   SearchOption.AllDirectories
+                               )
+                               .FirstOrDefault();
 
         /// <summary>
         /// String containing the fully-qualified pathname of a file that has no extension.
         /// </summary>
         public static readonly string PATHNAME_OF_FILE_HAVING_NO_EXTENSION =
-            Directory.EnumerateFiles(
-                         @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor",
-                         "*", SearchOption.AllDirectories
-                     )
-                     .FirstOrDefault(
-                         filename => !Path.GetFileName(filename)
-                                          .Contains(".")
-                     );
+            !Directory.Exists(PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateFiles(
+                               PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH, "*",
+                               SearchOption.AllDirectories
+                           )
+                           .FirstOrDefault(
+                               filename => !Path.GetFileName(filename)
+                                                .Contains(".")
+                           );
 
         /// <summary>
         /// String containing the fully-qualified pathname of a file that is in
         /// a <c>bin\</c> folder of a particular project.
         /// </summary>
         public static readonly string PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER =
-            Directory.EnumerateFiles(
-                         PATHNAME_OF_BIN_FOLDER, "*",
-                         SearchOption.AllDirectories
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(MFR_TESTS_PROJECT_BIN_FOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateFiles(
+                               MFR_TESTS_PROJECT_BIN_FOLDER_PATH, "*",
+                               SearchOption.AllDirectories
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String containing the fully-qualified pathname of one of the index
         /// files that are commonly found in a Git repository's <c>.git\</c> dotfolder.
         /// </summary>
         public static readonly string
-            PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER = Directory
-                .EnumerateFiles(
-                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git",
-                    "*", SearchOption.AllDirectories
-                )
-                .FirstOrDefault();
+            PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER =
+                !Directory.Exists(GITREPOS_GIT_DIR_PATH)
+                    ? string.Empty
+                    : Directory.EnumerateFiles(
+                                   GITREPOS_GIT_DIR_PATH, "*",
+                                   SearchOption.AllDirectories
+                               )
+                               .FirstOrDefault();
 
         /// <summary>
         /// String containing the fully-qualified pathname of a file that is
         /// located within the <c>.vs\</c> dotfolder of a solution.
         /// </summary>
         public static readonly string PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER =
-            Directory.EnumerateFiles(
-                         @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs",
-                         "*", SearchOption.AllDirectories
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(PORTRFOLIO_MONITOR_VS_FOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateFiles(
+                               PORTRFOLIO_MONITOR_VS_FOLDER_PATH, "*",
+                               SearchOption.AllDirectories
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String containing the fully-qualified pathname of a file that is
         /// located within the <c>packages</c> subfolder of a solution.
         /// </summary>
         public static readonly string
-            PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER = Directory
-                .EnumerateFiles(
-                    @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages",
-                    "*", SearchOption.AllDirectories
-                )
-                .FirstOrDefault();
+            PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER =
+                !Directory.Exists(GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH)
+                    ? string.Empty
+                    : Directory.EnumerateFiles(
+                                   GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH, "*",
+                                   SearchOption.AllDirectories
+                               )
+                               .FirstOrDefault();
 
         /// <summary>
         /// String consisting of the path to a subfolder of a project's \bin folder.
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_BIN_DIR =
-            Directory.EnumerateDirectories(
-                         PATHNAME_OF_BIN_FOLDER, "*",
-                         DirectoryEnumerationOptions.Folders |
-                         DirectoryEnumerationOptions.AsLongPath |
-                         DirectoryEnumerationOptions.Recursive |
-                         DirectoryEnumerationOptions.SkipReparsePoints
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(MFR_TESTS_PROJECT_BIN_FOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateDirectories(
+                               MFR_TESTS_PROJECT_BIN_FOLDER_PATH, "*",
+                               DirectoryEnumerationOptions.Folders |
+                               DirectoryEnumerationOptions.AsLongPath |
+                               DirectoryEnumerationOptions.Recursive |
+                               DirectoryEnumerationOptions.SkipReparsePoints
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String containing the fully-qualified pathname of a subfolder of the
         /// <c>.git\</c> folder of a solution.
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_GIT_FOLDER =
-            Directory.EnumerateDirectories(
-                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git",
-                         "*",
-                         DirectoryEnumerationOptions.Folders |
-                         DirectoryEnumerationOptions.AsLongPath |
-                         DirectoryEnumerationOptions.Recursive |
-                         DirectoryEnumerationOptions.SkipReparsePoints
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(GITREPOS_GIT_DIR_PATH)
+                ? string.Empty
+                : Directory.EnumerateDirectories(
+                               GITREPOS_GIT_DIR_PATH, "*",
+                               DirectoryEnumerationOptions.Folders |
+                               DirectoryEnumerationOptions.AsLongPath |
+                               DirectoryEnumerationOptions.Recursive |
+                               DirectoryEnumerationOptions.SkipReparsePoints
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String consisting of the path to a subfolder of a project's
         /// <c>obj\</c> subfolder.
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_OBJ_FOLDER =
-            Directory.EnumerateDirectories(
-                         PATHNAME_OF_OBJ_FOLDER, "*",
-                         DirectoryEnumerationOptions.Folders |
-                         DirectoryEnumerationOptions.AsLongPath |
-                         DirectoryEnumerationOptions.Recursive |
-                         DirectoryEnumerationOptions.SkipReparsePoints
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(MFR_TESTS_PROJECT_OBJ_FOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateDirectories(
+                               MFR_TESTS_PROJECT_OBJ_FOLDER_PATH, "*",
+                               DirectoryEnumerationOptions.Folders |
+                               DirectoryEnumerationOptions.AsLongPath |
+                               DirectoryEnumerationOptions.Recursive |
+                               DirectoryEnumerationOptions.SkipReparsePoints
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String consisting of the path to a subfolder of the <c>packages\</c>
@@ -374,29 +435,31 @@ namespace MFR.Tests.Common
         /// </summary>
         [Obsolete]
         public static readonly string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER =
-            Directory.EnumerateDirectories(
-                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages",
-                         "*",
-                         DirectoryEnumerationOptions.Folders |
-                         DirectoryEnumerationOptions.AsLongPath |
-                         DirectoryEnumerationOptions.Recursive |
-                         DirectoryEnumerationOptions.SkipReparsePoints
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateDirectories(
+                               GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH, "*",
+                               DirectoryEnumerationOptions.Folders |
+                               DirectoryEnumerationOptions.AsLongPath |
+                               DirectoryEnumerationOptions.Recursive |
+                               DirectoryEnumerationOptions.SkipReparsePoints
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String consisting of the path to a subfolder of a solution's '\.vs' dotfolder.
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_VS_DOTFOLDER =
-            Directory.EnumerateDirectories(
-                         @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.vs",
-                         "*",
-                         DirectoryEnumerationOptions.Folders |
-                         DirectoryEnumerationOptions.AsLongPath |
-                         DirectoryEnumerationOptions.Recursive |
-                         DirectoryEnumerationOptions.SkipReparsePoints
-                     )
-                     .FirstOrDefault();
+            !Directory.Exists(GITREPOS_SOLUTION_VS_DOTFOLDER_PATH)
+                ? string.Empty
+                : Directory.EnumerateDirectories(
+                               GITREPOS_SOLUTION_VS_DOTFOLDER_PATH, "*",
+                               DirectoryEnumerationOptions.Folders |
+                               DirectoryEnumerationOptions.AsLongPath |
+                               DirectoryEnumerationOptions.Recursive |
+                               DirectoryEnumerationOptions.SkipReparsePoints
+                           )
+                           .FirstOrDefault();
 
         /// <summary>
         /// String consisting of the path to the Windows System32 folder.

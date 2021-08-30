@@ -40,8 +40,8 @@ namespace MFR.GUI.Dialogs
             this.viewReportLinkLabel = new System.Windows.Forms.LinkLabel();
             this.reproductionStepsLabel = new System.Windows.Forms.Label();
             this.reproductionStepsTextBox = new System.Windows.Forms.TextBox();
-            this.sendButton = new System.Windows.Forms.Button();
-            this.dontSendButton = new System.Windows.Forms.Button();
+            this.sendReportButton = new System.Windows.Forms.Button();
+            this.dontSendReportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appIconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,36 +123,37 @@ namespace MFR.GUI.Dialogs
             this.reproductionStepsTextBox.Size = new System.Drawing.Size(453, 129);
             this.reproductionStepsTextBox.TabIndex = 6;
             // 
-            // sendButton
+            // sendReportButton
             // 
-            this.sendButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.sendButton.Location = new System.Drawing.Point(390, 379);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(87, 27);
-            this.sendButton.TabIndex = 8;
-            this.sendButton.Text = "&Send report";
-            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendReportButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.sendReportButton.Location = new System.Drawing.Point(390, 379);
+            this.sendReportButton.Name = "sendReportButton";
+            this.sendReportButton.Size = new System.Drawing.Size(87, 27);
+            this.sendReportButton.TabIndex = 8;
+            this.sendReportButton.Text = "&Send report";
+            this.sendReportButton.UseVisualStyleBackColor = true;
+            this.sendReportButton.Click += new System.EventHandler(this.OnClickSendReportButton);
             // 
-            // dontSendButton
+            // dontSendReportButton
             // 
-            this.dontSendButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.dontSendButton.Location = new System.Drawing.Point(297, 379);
-            this.dontSendButton.Name = "dontSendButton";
-            this.dontSendButton.Size = new System.Drawing.Size(87, 27);
-            this.dontSendButton.TabIndex = 7;
-            this.dontSendButton.Text = "&Don\'t send";
-            this.dontSendButton.UseVisualStyleBackColor = true;
+            this.dontSendReportButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.dontSendReportButton.Location = new System.Drawing.Point(297, 379);
+            this.dontSendReportButton.Name = "dontSendReportButton";
+            this.dontSendReportButton.Size = new System.Drawing.Size(87, 27);
+            this.dontSendReportButton.TabIndex = 7;
+            this.dontSendReportButton.Text = "&Don\'t send";
+            this.dontSendReportButton.UseVisualStyleBackColor = true;
             // 
             // ErrorReportDialog
             // 
-            this.AcceptButton = this.dontSendButton;
+            this.AcceptButton = this.sendReportButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.sendButton;
+            this.CancelButton = this.sendReportButton;
             this.ClientSize = new System.Drawing.Size(489, 418);
-            this.Controls.Add(this.dontSendButton);
-            this.Controls.Add(this.sendButton);
+            this.Controls.Add(this.dontSendReportButton);
+            this.Controls.Add(this.sendReportButton);
             this.Controls.Add(this.reproductionStepsTextBox);
             this.Controls.Add(this.reproductionStepsLabel);
             this.Controls.Add(this.viewReportLinkLabel);
@@ -185,7 +186,7 @@ namespace MFR.GUI.Dialogs
         private System.Windows.Forms.LinkLabel viewReportLinkLabel;
         private System.Windows.Forms.Label reproductionStepsLabel;
         private System.Windows.Forms.TextBox reproductionStepsTextBox;
-        private System.Windows.Forms.Button sendButton;
-        private System.Windows.Forms.Button dontSendButton;
+        private System.Windows.Forms.Button sendReportButton;
+        private System.Windows.Forms.Button dontSendReportButton;
     }
 }

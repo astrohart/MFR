@@ -1,6 +1,7 @@
 using MFR.FileSystem.Interfaces;
 using System;
 using System.IO;
+using xyLOGIX.Core.Debug;
 using File = Alphaleonis.Win32.Filesystem.File;
 using FileInfo = Alphaleonis.Win32.Filesystem.FileInfo;
 
@@ -22,7 +23,7 @@ namespace MFR.FileSystem.Factories
         /// </param>
         /// <returns>
         /// A <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />, initialized with the specified
-        /// <paramref name="path" />.
+        /// <paramref name="path" />.<para/><see langword="null" /> is returned if the operation failed.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="path" />, is passed
@@ -45,7 +46,32 @@ namespace MFR.FileSystem.Factories
                     "The system cannot locate the file specified.", path
                 );
 
-            return new FileInfo(path);
+            FileInfo result;
+
+            try
+            {
+                /*
+                 * We add extra robustness here, since this is a File I/O
+                 * operation.  The operation may fail because the provided
+                 * path may refer to a file that can't be accessed by the
+                 * user, or any one of a myriad other reasons.
+                 *
+                 * If this is so, then we set the result variable to null
+                 * as a signal to the caller of this method that the operation
+                 * failed.
+                 */
+
+                result = new FileInfo(path);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = null;
+            }
+
+            return result;
         }
 
         /// <summary>

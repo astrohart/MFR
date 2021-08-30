@@ -1,8 +1,11 @@
 using MFR.Constants;
+using MFR.Errors.Reports.Commands.Constants;
+using MFR.Errors.Reports.Commands.Factories;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
+using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Initializers;
@@ -426,12 +429,12 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Begins the rename operation.
         /// </summary>
-        public void Process()
+        public void DoSelectedOperations()
         {
             // write the name of the current class and method we are now
             // entering, into the log
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.Process"
+                DebugLevel.Debug, "In MainWindowPresenter.DoSelectedOperations"
             );
 
             if (_mainWindow == null || _fileRenamer == null)
@@ -448,7 +451,8 @@ namespace MFR.GUI.Windows.Presenters
             CommenceRenameOperation();
 
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.Process: Done."
+                DebugLevel.Debug,
+                "MainWindowPresenter.DoSelectedOperations: Done."
             );
         }
 

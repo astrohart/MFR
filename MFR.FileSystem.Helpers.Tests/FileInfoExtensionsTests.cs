@@ -50,7 +50,7 @@ namespace MFR.FileSystem.Helpers.Tests
         public void Initialize()
         {
             DebugFileAndFolderHelper.ClearTempFileDir();
-            FileHelpers.FillWithJunk(StringConstants.EXISTING_TEMP_FILE);
+            FileHelpers.FillTextFileWithJunk(StringConstants.EXISTING_TEMP_FILE);
         }
 
         /// <summary>
@@ -587,7 +587,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     Environment.SpecialFolder.UserProfile
                 ), $"{Guid.NewGuid():N}.txt"
             );
-            FileHelpers.FillWithJunk(source);
+            FileHelpers.FillTextFileWithJunk(source);
 
             var dest = Path.Combine(
                 Environment.GetFolderPath(
@@ -620,7 +620,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.IsTrue(File.Exists(source));
 
             /* fill the temp file with trash data */
-            FileHelpers.FillWithJunk(source);
+            FileHelpers.FillTextFileWithJunk(source);
 
             Assert.IsTrue(new FileInfo(source).RenameTo(dest));
             Assert.IsFalse(File.Exists(source));

@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Exceptions;
+using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers.Properties;
 using System;
 using xyLOGIX.Core.Debug;
@@ -11,6 +12,66 @@ namespace MFR.FileSystem.Helpers
     /// </summary>
     public static class FileHelpers
     {
+        /// <summary>
+        /// Dumps the specified <paramref name="text" /> to a file in the current user's
+        /// temporary files directory, and then returns the path to the file thusly
+        /// created.
+        /// </summary>
+        /// <param name="text">
+        /// (Required.) String containing the text to be writren to the file.
+        /// </param>
+        /// <returns>
+        /// String containing the fully-qualified pathname to the file where the
+        /// specified <paramref name="text" /> was written.  If an exception occurred, such
+        /// as File I/O error, then the return value of this method is the empty string.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref name="text" />, is passed a blank or <see langword="null" /> string
+        /// for a value.
+        /// </exception>
+        public static string DumpTextToTempFile(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(text)
+                );
+
+            string result;
+
+            try
+            {
+                result = Path.GetTempFileName();
+                File.WriteAllText(result, text);
+
+                /*
+                 * Run a check to ensure that the file actually got written
+                 * and that the data provided was written to it.
+                 *
+                 * This check uses the trigraph operator to be the identity map
+                 * if the new file is valid (i.e, exists, has nonzero length, and
+                 * its length matches that of the text submitted for writing) or
+                 * replaces the result with the empty string if the file written
+                 * fails to meet the conditions above (the empty string is a signal
+                 * to the caller that the write operation failed).
+                 */
+
+                var resultantFile = MakeNewFileInfo.ForPath(result);
+                result = resultantFile.Exists && resultantFile.Length > 0 && resultantFile.Length == text.Length
+                    ? result
+                    : string.Empty;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Reads all the data in from the file whose pathname is given by the '
         /// <paramref name="path" /> parameter, caches it, and then returns it.
@@ -37,7 +98,7 @@ namespace MFR.FileSystem.Helpers
         /// String containing the file's contents; otherwise, the empty string
         /// if the file does not meet the criteria specified in the path filter.
         /// </returns>
-        public static string GetContent(string path,
+        public static string GetTextContent(string path,
             Predicate<string> pathFilter = null)
         {
             var result = string.Empty;
@@ -73,7 +134,7 @@ namespace MFR.FileSystem.Helpers
         /// This method throws <see cref="T:System.InvalidOperationException" /> if the
         /// pathname is not an absolute pathname to a file on the disk.
         /// </param>
-        public static void FillWithJunk(string path)
+        public static void FillTextFileWithJunk(string path)
         {
             if (File.Exists(path))
                 File.Delete(path);
@@ -139,12 +200,15 @@ namespace MFR.FileSystem.Helpers
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"FileHelpers.MakeSureContainingFolderExists: Checking whether the operation succeeded..."
+                "FileHelpers.MakeSureContainingFolderExists: Checking whether the operation succeeded..."
             );
 
             VerifyFolderCreated(containingFolderName);
 
-            DebugUtils.WriteLine(DebugLevel.Debug, "FileHelpers.MakeSureContainingFolderExists: Done.");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "FileHelpers.MakeSureContainingFolderExists: Done."
+            );
         }
 
         /// <summary>
@@ -167,10 +231,15 @@ namespace MFR.FileSystem.Helpers
         private static void VerifyFolderCreated(string containingFolderName)
         {
             // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In FileHelpers.VerifyFolderCreated");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In FileHelpers.VerifyFolderCreated"
+            );
 
             // Dump the variable containingFolderName to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileHelpers.VerifyFolderCreated: containingFolderName = '{containingFolderName}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileHelpers.VerifyFolderCreated: containingFolderName = '{containingFolderName}'"
+            );
 
             if (string.IsNullOrWhiteSpace(containingFolderName))
                 throw new ArgumentException(
@@ -216,19 +285,22 @@ namespace MFR.FileSystem.Helpers
         /// configuration file if it already exists.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the <paramref name="folderName"/> or <paramref
-        /// name="fileName"/> parameters are blank.
+        /// Thrown if either of the <paramref name="folderName" /> or
+        /// <paramref
+        ///     name="fileName" />
+        /// parameters are blank.
         /// </exception>
         public static string CreateOrOpenTextFile(string folderName,
             string fileName = "config.json")
         {
             if (string.IsNullOrWhiteSpace(folderName))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(folderName)
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
+                    nameof(folderName)
                 );
             if (string.IsNullOrWhiteSpace(fileName))
                 throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
                     nameof(fileName)
                 );
 
@@ -238,7 +310,6 @@ namespace MFR.FileSystem.Helpers
                 throw new InvalidPathException(
                     "The path specified is not valid.", result
                 );
-            
 
             try
             {
@@ -250,7 +321,8 @@ namespace MFR.FileSystem.Helpers
                 {
                     MakeSureContainingFolderExists(result);
 
-                    File.CreateText(result).Close();
+                    File.CreateText(result)
+                        .Close();
                 }
             }
             catch (Exception ex)

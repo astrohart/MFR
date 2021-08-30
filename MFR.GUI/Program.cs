@@ -1,9 +1,9 @@
-using MFR.GUI.Launchers.Dialogs;
-using MFR.GUI.Windows;
 using MFR.CommandLine;
 using MFR.CommandLine.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
+using MFR.GUI.Displayers;
+using MFR.GUI.Windows;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -155,7 +155,9 @@ namespace MFR.GUI
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
 
-            ErrorDialogLauncher.Display(Application.OpenForms[0], e.Exception);
+            // display a dialog box that explains what happened in a user-friendly way
+            // and which allows the user to choose to send an error report.
+            Display.ErrorReportDialog(e.Exception);
         }
 
         /// <summary>

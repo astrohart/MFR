@@ -135,7 +135,7 @@ namespace MFR.FileSystem.Retrievers
                                       path => MakeNewFileSystemEntry
                                               .ForPath(path)
                                               .AndHavingUserState(
-                                                  FileHelpers.GetContent(path)
+                                                  FileHelpers.GetTextContent(path)
                                               )
                                   )
                                   .Where(

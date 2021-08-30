@@ -4,6 +4,7 @@ using MFR.GUI.Dialogs.Text.Retrievers.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using System;
 using System.Windows.Forms;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI.Dialogs
 {
@@ -87,10 +88,8 @@ namespace MFR.GUI.Dialogs
 
             if (string.IsNullOrWhiteSpace(ProfileName))
             {
-                MessageBox.Show(
-                    this, "You must provide a non-blank Profile Name.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                Messages.ShowStopError(
+                    this, "You must provide a non-blank Profile Name."
                 );
                 return false;
             }
@@ -99,11 +98,9 @@ namespace MFR.GUI.Dialogs
                                   .ProfileCollection
                                   .HasProfileNamed(ProfileName))
             {
-                MessageBox.Show(
+                Messages.ShowStopError(
                     this,
-                    $"A profile named '{ProfileName}' already exists.\n\nPlease use another name.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                    $"A profile named '{ProfileName}' already exists.\n\nPlease use another name."
                 );
                 return false;
             }

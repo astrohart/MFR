@@ -6,7 +6,9 @@ using MFR.GUI.Controls.Helpers;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs;
 using MFR.GUI.Dialogs.Events;
-using MFR.GUI.Launchers.Dialogs;
+using MFR.GUI.Displayers;
+using MFR.GUI.Launchers.Dialogs.Factories;
+using MFR.GUI.Launchers.Dialogs.Params.Factories;
 using MFR.GUI.Presenters.Associators;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
@@ -521,7 +523,7 @@ namespace MFR.GUI.Windows
 
             try
             {
-                _presenter.Process();
+                _presenter.DoSelectedOperations();
             }
             catch (Exception ex)
             {
@@ -615,7 +617,8 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
-        /// event raised by the user clicking on the About command on the HelpProfileExplainerDialog menu.
+        /// event raised by the user clicking on the About command on the
+        /// HelpProfileExplainerDialog menu.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -633,7 +636,8 @@ namespace MFR.GUI.Windows
         /// Handles the
         /// <see
         ///     cref="E:System.Windows.Forms.ToolStripDropDownItem.DropDownOpening" />
-        /// event raised by the message of the user clicking on the HelpProfileExplainerDialog menu to
+        /// event raised by the message of the user clicking on the
+        /// HelpProfileExplainerDialog menu to
         /// open it.
         /// </summary>
         /// <param name="sender">
@@ -644,7 +648,8 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         /// This method responds to the event by ensuring that the text of the
-        /// HelpProfileExplainerDialog menu's About command contains the full name of this application.
+        /// HelpProfileExplainerDialog menu's About command contains the full name of this
+        /// application.
         /// </remarks>
         private void OnHelpMenuDropDownOpening(object sender, EventArgs e)
         {
@@ -888,7 +893,9 @@ namespace MFR.GUI.Windows
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
 
-            ErrorDialogLauncher.Display(this, e.Exception);
+            // display a dialog box that explains what happened in a user-friendly way
+            // and which allows the user to choose to send an error report.
+            Display.ErrorReportDialog(this, e.Exception);
         }
 
         /// <summary>
