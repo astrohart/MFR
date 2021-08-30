@@ -199,7 +199,7 @@ title bar.
 ##### Summary
 
 Called to set the value of the
-[Text](#P-MFR-GUI-Dialogs-Text-Retrievers-DialogTextRetrieverBase-Text 'MFR.GUI.Dialogs.Text.Retrievers.DialogTextRetrieverBase.Text')
+[Text](#P-MFR-GUI-Dialogs-Text-Retrievers-ButtonTextRetrieverBase-Text 'MFR.GUI.Dialogs.Text.Retrievers.ButtonTextRetrieverBase.Text')
 property based on the value of the enumeration provided.
 
 ##### Parameters
