@@ -3,11 +3,32 @@
 
 ## Contents
 
+- [IButtonTextRetriever](#T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IButtonTextRetriever 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.IButtonTextRetriever')
+  - [Text](#P-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IButtonTextRetriever-Text 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.IButtonTextRetriever.Text')
 - [IDialogTextRetriever](#T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IDialogTextRetriever 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.IDialogTextRetriever')
   - [Text](#P-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IDialogTextRetriever-Text 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.IDialogTextRetriever.Text')
 - [Resources](#T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-Properties-Resources 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Text.Retrievers.Interfaces.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IButtonTextRetriever'></a>
+## IButtonTextRetriever `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Text.Retrievers.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of a Button Text Retriever
+object.
+
+<a name='P-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IButtonTextRetriever-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string containing the text that should be displayed on the button.
 
 <a name='T-MFR-GUI-Dialogs-Text-Retrievers-Interfaces-IDialogTextRetriever'></a>
 ## IDialogTextRetriever `type`
