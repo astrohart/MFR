@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Profiles.Serializers
+# MFR.Settings.Profiles.Serializers
 
 ## Contents
 
-- [ProfileListSerializer](#T-MFR-Profiles-Serializers-ProfileListSerializer 'MFR.Profiles.Serializers.ProfileListSerializer')
-  - [Load(pathname)](#M-MFR-Profiles-Serializers-ProfileListSerializer-Load-System-String- 'MFR.Profiles.Serializers.ProfileListSerializer.Load(System.String)')
-  - [Save(pathname,profileList)](#M-MFR-Profiles-Serializers-ProfileListSerializer-Save-System-String,MFR-Profiles-Collections-Interfaces-IProfileCollection- 'MFR.Profiles.Serializers.ProfileListSerializer.Save(System.String,MFR.Profiles.Collections.Interfaces.IProfileCollection)')
-- [Resources](#T-MFR-Profiles-Serializers-Properties-Resources 'MFR.Profiles.Serializers.Properties.Resources')
-  - [Culture](#P-MFR-Profiles-Serializers-Properties-Resources-Culture 'MFR.Profiles.Serializers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Profiles-Serializers-Properties-Resources-ResourceManager 'MFR.Profiles.Serializers.Properties.Resources.ResourceManager')
+- [ProfileListSerializer](#T-MFR-Settings-Profiles-Serializers-ProfileListSerializer 'MFR.Settings.Profiles.Serializers.ProfileListSerializer')
+  - [Load(pathname)](#M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Load-System-String- 'MFR.Settings.Profiles.Serializers.ProfileListSerializer.Load(System.String)')
+  - [Save(pathname,profileList)](#M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection- 'MFR.Settings.Profiles.Serializers.ProfileListSerializer.Save(System.String,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection)')
+- [Resources](#T-MFR-Settings-Profiles-Serializers-Properties-Resources 'MFR.Settings.Profiles.Serializers.Properties.Resources')
+  - [Culture](#P-MFR-Settings-Profiles-Serializers-Properties-Resources-Culture 'MFR.Settings.Profiles.Serializers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Settings-Profiles-Serializers-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Serializers.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Profiles-Serializers-ProfileListSerializer'></a>
+<a name='T-MFR-Settings-Profiles-Serializers-ProfileListSerializer'></a>
 ## ProfileListSerializer `type`
 
 ##### Namespace
 
-MFR.Profiles.Serializers
+MFR.Settings.Profiles.Serializers
 
 ##### Summary
 
@@ -23,9 +23,9 @@ Loads and stores profile list information to/from a file.
 
 ##### Remarks
 
-The profile information is used in code via the [IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection') interface.
+The profile information is used in code via the [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') interface.
 
-<a name='M-MFR-Profiles-Serializers-ProfileListSerializer-Load-System-String-'></a>
+<a name='M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Load-System-String-'></a>
 ### Load(pathname) `method`
 
 ##### Summary
@@ -34,7 +34,7 @@ Loads data about the list of profiles from the file with the path specified by t
 
 ##### Returns
 
-Reference to an instance of an object that implements the [IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection') interface.
+Reference to an instance of an object that implements the [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') interface.
 
 
 
@@ -60,7 +60,7 @@ passed a blank or `null` string for a value. |
 `pathname`
 parameter, cannot be located on the disk. |
 
-<a name='M-MFR-Profiles-Serializers-ProfileListSerializer-Save-System-String,MFR-Profiles-Collections-Interfaces-IProfileCollection-'></a>
+<a name='M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
 ### Save(pathname,profileList) `method`
 
 ##### Summary
@@ -73,23 +73,23 @@ Saves profile-list data to a file.
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of the file that the data
     is to be saved to. |
-| profileList | [MFR.Profiles.Collections.Interfaces.IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection') | (Required.) Reference to an instance of an object that implements
+| profileList | [MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') | (Required.) Reference to an instance of an object that implements
     the
-    [IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection')
+    [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
     interface, containing the data to be written to the disk. |
 
-<a name='T-MFR-Profiles-Serializers-Properties-Resources'></a>
+<a name='T-MFR-Settings-Profiles-Serializers-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Profiles.Serializers.Properties
+MFR.Settings.Profiles.Serializers.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Profiles-Serializers-Properties-Resources-Culture'></a>
+<a name='P-MFR-Settings-Profiles-Serializers-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -97,7 +97,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Profiles-Serializers-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Settings-Profiles-Serializers-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
