@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Profiles.Collections.Interfaces
+# MFR.Settings.Profiles.Collections.Interfaces
 
 ## Contents
 
-- [IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection')
-  - [HasProfileNamed(name)](#M-MFR-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String- 'MFR.Profiles.Collections.Interfaces.IProfileCollection.HasProfileNamed(System.String)')
-- [Resources](#T-MFR-Profiles-Collections-Interfaces-Properties-Resources 'MFR.Profiles.Collections.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Profiles-Collections-Interfaces-Properties-Resources-Culture 'MFR.Profiles.Collections.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Profiles-Collections-Interfaces-Properties-Resources-ResourceManager 'MFR.Profiles.Collections.Interfaces.Properties.Resources.ResourceManager')
+- [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+  - [HasProfileNamed(name)](#M-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String- 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection.HasProfileNamed(System.String)')
+- [Resources](#T-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources 'MFR.Settings.Profiles.Collections.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources-Culture 'MFR.Settings.Profiles.Collections.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Collections.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Profiles-Collections-Interfaces-IProfileCollection'></a>
+<a name='T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection'></a>
 ## IProfileCollection `type`
 
 ##### Namespace
 
-MFR.Profiles.Collections.Interfaces
+MFR.Settings.Profiles.Collections.Interfaces
 
 ##### Summary
 
@@ -24,7 +24,7 @@ Defines the publicly-exposed methods and properties of a `Profile Collection` ob
 
 A `Profile Collection` object is what it sounds like -- a container of profiles.
 
-<a name='M-MFR-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String-'></a>
+<a name='M-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String-'></a>
 ### HasProfileNamed(name) `method`
 
 ##### Summary
@@ -47,18 +47,18 @@ There can only be one profile with a given name, case-insensitive.
 | ---- | ---- | ----------- |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Name of the profile to be searched for. |
 
-<a name='T-MFR-Profiles-Collections-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Profiles.Collections.Interfaces.Properties
+MFR.Settings.Profiles.Collections.Interfaces.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Profiles-Collections-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -66,7 +66,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Profiles-Collections-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
