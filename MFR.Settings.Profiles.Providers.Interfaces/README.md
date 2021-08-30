@@ -1,26 +1,26 @@
 <a name='assembly'></a>
-# MFR.Profiles.Providers.Interfaces
+# MFR.Settings.Profiles.Providers.Interfaces
 
 ## Contents
 
-- [IProfileProvider](#T-MFR-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Profiles.Providers.Interfaces.IProfileProvider')
-  - [DefaultProfileDir](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileDir 'MFR.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileDir')
-  - [ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
-  - [ProfileListPathKeyName](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathKeyName')
-  - [ProfileListPathValueName](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathValueName')
-  - [Profiles](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-Profiles 'MFR.Profiles.Providers.Interfaces.IProfileProvider.Profiles')
-  - [Load(pathname)](#M-MFR-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String- 'MFR.Profiles.Providers.Interfaces.IProfileProvider.Load(System.String)')
-  - [Save(pathname)](#M-MFR-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String- 'MFR.Profiles.Providers.Interfaces.IProfileProvider.Save(System.String)')
-- [Resources](#T-MFR-Profiles-Providers-Interfaces-Properties-Resources 'MFR.Profiles.Providers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Profiles-Providers-Interfaces-Properties-Resources-Culture 'MFR.Profiles.Providers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Profiles-Providers-Interfaces-Properties-Resources-ResourceManager 'MFR.Profiles.Providers.Interfaces.Properties.Resources.ResourceManager')
+- [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
+  - [DefaultProfileListDir](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileListDir 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileListDir')
+  - [ProfileCollection](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollection 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollection')
+  - [ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+  - [ProfileListPathKeyName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathKeyName')
+  - [ProfileListPathValueName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathValueName')
+  - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Load(System.String)')
+  - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Save(System.String)')
+- [Resources](#T-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources 'MFR.Settings.Profiles.Providers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Profiles-Providers-Interfaces-IProfileProvider'></a>
+<a name='T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider'></a>
 ## IProfileProvider `type`
 
 ##### Namespace
 
-MFR.Profiles.Providers.Interfaces
+MFR.Settings.Profiles.Providers.Interfaces
 
 ##### Summary
 
@@ -36,8 +36,8 @@ object.
 A `Profile Provider` object maintains a collection of the profiles
 defined by the user.
 
-<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileDir'></a>
-### DefaultProfileDir `property`
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileListDir'></a>
+### DefaultProfileListDir `property`
 
 ##### Summary
 
@@ -48,36 +48,13 @@ Gets the default folder for the configuration file.
 We store the profile configuration file, by default, in a folder
 under the current user's AppData folder.
 
-<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath'></a>
-### ProfileListFilePath `property`
-
-##### Summary
-
-Gets a string whose value is the pathname of the profile list file.
-
-<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName'></a>
-### ProfileListPathKeyName `property`
-
-##### Summary
-
-Gets a string whose value is the pathname of the system Registry key
-in which Profile settings are stored.
-
-<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName'></a>
-### ProfileListPathValueName `property`
-
-##### Summary
-
-Gets a string whose value is the Registry value under which we store
-the path to the profile list file.
-
-<a name='P-MFR-Profiles-Providers-Interfaces-IProfileProvider-Profiles'></a>
-### Profiles `property`
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollection'></a>
+### ProfileCollection `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProfileCollection](#T-MFR-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Profiles.Collections.Interfaces.IProfileCollection')
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
 interface.
 
 ##### Remarks
@@ -90,7 +67,30 @@ allows access to the set of profiles defined by the user.
 If this property is read prior to any profiles being loaded, it
 should return a reference the empty collection.
 
-<a name='M-MFR-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String-'></a>
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath'></a>
+### ProfileListFilePath `property`
+
+##### Summary
+
+Gets a string whose value is the pathname of the profile list file.
+
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName'></a>
+### ProfileListPathKeyName `property`
+
+##### Summary
+
+Gets a string whose value is the pathname of the system Registry key
+in which Profile settings are stored.
+
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName'></a>
+### ProfileListPathValueName `property`
+
+##### Summary
+
+Gets a string whose value is the Registry value under which we store
+the path to the profile list file.
+
+<a name='M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
 
 ##### Summary
@@ -117,7 +117,7 @@ parameter cannot be found on the disk. |
 The file whose pathname is passed must not be the actual
 configuration file, but a separate file.
 
-<a name='M-MFR-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String-'></a>
+<a name='M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String-'></a>
 ### Save(pathname) `method`
 
 ##### Summary
@@ -136,27 +136,27 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+[ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ProfileListFilePath](#P-MFR-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+[ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
 property is blank, then this method does nothing.
 
-<a name='T-MFR-Profiles-Providers-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Profiles.Providers.Interfaces.Properties
+MFR.Settings.Profiles.Providers.Interfaces.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Profiles-Providers-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -164,7 +164,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Profiles-Providers-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
