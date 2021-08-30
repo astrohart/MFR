@@ -122,6 +122,12 @@
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="FolderSelectDialog.cs" />
+    <Compile Include="HelpProfileExplainerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpProfileExplainerDialog.Designer.cs">
+      <DependentUpon>HelpProfileExplainerDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewProfileNameDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorReportDialog.resx">
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpProfileExplainerDialog.resx">
+      <DependentUpon>HelpProfileExplainerDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewProfileNameDialog.resx">
       <DependentUpon>NewProfileNameDialog.cs</DependentUpon>

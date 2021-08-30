@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="MakeNewHelpProfileExplainerDialog.cs" />
     <Compile Include="MakeNewNewProfileNameDialog.cs" />
     <Compile Include="MakeNewProgressDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -615,7 +615,7 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
-        /// event raised by the user clicking on the About command on the Help menu.
+        /// event raised by the user clicking on the About command on the HelpProfileExplainerDialog menu.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -633,7 +633,7 @@ namespace MFR.GUI.Windows
         /// Handles the
         /// <see
         ///     cref="E:System.Windows.Forms.ToolStripDropDownItem.DropDownOpening" />
-        /// event raised by the message of the user clicking on the Help menu to
+        /// event raised by the message of the user clicking on the HelpProfileExplainerDialog menu to
         /// open it.
         /// </summary>
         /// <param name="sender">
@@ -644,7 +644,7 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         /// This method responds to the event by ensuring that the text of the
-        /// Help menu's About command contains the full name of this application.
+        /// HelpProfileExplainerDialog menu's About command contains the full name of this application.
         /// </remarks>
         private void OnHelpMenuDropDownOpening(object sender, EventArgs e)
         {

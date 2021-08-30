@@ -399,7 +399,7 @@ namespace MFR.GUI.Windows
             this.helpAbout});
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(44, 20);
-            this.helpMenu.Text = "&Help";
+            this.helpMenu.Text = "&HelpProfileExplainerDialog";
             this.helpMenu.DropDownOpening += new System.EventHandler(this.OnHelpMenuDropDownOpening);
             // 
             // helpAbout

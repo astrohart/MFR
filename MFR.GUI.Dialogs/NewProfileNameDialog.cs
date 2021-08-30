@@ -138,5 +138,27 @@ namespace MFR.GUI.Dialogs
                     OperationType
                 );
         }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event raised by
+        /// the Read More About Profiles link label.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user clicks the
+        /// <b>Read More About Profiles</b> link.
+        /// <para />
+        /// The default action is to bring up a Help window that describes profiles and
+        /// what can be done with them.
+        /// </remarks>
+        private void OnClickReadMoreAboutProfilesLinkLabel(object sender,
+            EventArgs e) { }
     }
 }

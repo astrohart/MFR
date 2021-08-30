@@ -25,7 +25,8 @@ namespace MFR.GUI.Dialogs.Tests
                 dialog.StartPosition = FormStartPosition.CenterScreen;
                 dialog.OperationType = ProfileCreateOperationType.New;
 
-                dialog.ShowDialog();
+                if (dialog.ShowDialog() == DialogResult.Cancel)
+                    return;
 
                 Console.WriteLine(
                     $"Profile name chosen by user is: {dialog.ProfileName}."

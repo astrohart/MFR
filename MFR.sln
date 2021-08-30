@@ -466,6 +466,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Validators.Events",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.Profiles.Validators.Factories", "MFR.Params.Profiles.Validators.Factories\MFR.Params.Profiles.Validators.Factories.csproj", "{FCAB5948-CC63-4A34-879B-ABC7E300CE99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Win32.Interact", "..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj", "{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2306,6 +2308,14 @@ Global
 		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x64.Build.0 = Release|x64
 		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x86.ActiveCfg = Release|x86
 		{FCAB5948-CC63-4A34-879B-ABC7E300CE99}.Release|x86.Build.0 = Release|x86
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Debug|x64.ActiveCfg = Debug|x64
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Debug|x64.Build.0 = Debug|x64
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Debug|x86.ActiveCfg = Debug|x86
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Debug|x86.Build.0 = Debug|x86
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Release|x64.ActiveCfg = Release|x64
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Release|x64.Build.0 = Release|x64
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Release|x86.ActiveCfg = Release|x86
+		{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
