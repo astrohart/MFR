@@ -140,7 +140,7 @@ MFR.GUI.Dialogs.Text.Retrievers.Factories
 
 ##### Summary
 
-Retrieves the text to be displayed on a button box's title bar given a
+Retrieves the text to be displayed on a button's face given a
 particular
 [ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') value.
 
@@ -186,14 +186,15 @@ interface and returns a reference to it.
 
 ##### Returns
 
-String containing the text that should be displayed on the calling button box's
-title bar.
+String containing the text that should be displayed on a button's face.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| retrieverType | [MFR.GUI.Dialogs.Constants.ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') | (Required.) One of the [ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') values that
+| retrieverType | [MFR.GUI.Dialogs.Constants.ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') | (Required.) One of the
+[ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') values
+that
 specifies which button text retriever object to create. |
 
 ##### Exceptions
@@ -204,9 +205,8 @@ specifies which button text retriever object to create. |
 
 ##### Remarks
 
-This method is to be used for button boxes whose title bar text varies
-slightly, depending on the specific user operation for which the button box was
-summoned.
+This method is to be used for buttons whose text varies slightly, depending on
+the specific user operation for which the dialog box was summoned.
 
 <a name='T-MFR-GUI-Dialogs-Text-Retrievers-Factories-GetProfileCreateOperationTypeDialogText'></a>
 ## GetProfileCreateOperationTypeDialogText `type`
