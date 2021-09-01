@@ -488,6 +488,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Launchers.Dialogs.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Displayers", "MFR.GUI.Displayers\MFR.GUI.Displayers.csproj", "{88EE1339-FB88-453E-9517-81D51B9C1D9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Launchers.Dialogs.Actions", "MFR.GUI.Launchers.Dialogs.Actions\MFR.GUI.Launchers.Dialogs.Actions.csproj", "{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2416,6 +2418,14 @@ Global
 		{88EE1339-FB88-453E-9517-81D51B9C1D9D}.Release|x64.Build.0 = Release|x64
 		{88EE1339-FB88-453E-9517-81D51B9C1D9D}.Release|x86.ActiveCfg = Release|x86
 		{88EE1339-FB88-453E-9517-81D51B9C1D9D}.Release|x86.Build.0 = Release|x86
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Debug|x64.ActiveCfg = Debug|x64
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Debug|x64.Build.0 = Debug|x64
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Debug|x86.ActiveCfg = Debug|x86
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Debug|x86.Build.0 = Debug|x86
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Release|x64.ActiveCfg = Release|x64
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Release|x64.Build.0 = Release|x64
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Release|x86.ActiveCfg = Release|x86
+		{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
