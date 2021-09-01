@@ -1,5 +1,5 @@
 using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
-using System.Windows.Forms;
+using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 
 namespace MFR.GUI.Launchers.Dialogs.Interfaces
 {
@@ -24,9 +24,12 @@ namespace MFR.GUI.Launchers.Dialogs.Interfaces
         /// the dialog.
         /// </param>
         /// <returns>
-        /// A <see cref="T:System.Windows.Forms.DialogResult" /> value that
-        /// corresponds to the means used by the user to dismiss the dialog.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults" />
+        /// interface.
         /// </returns>
-        DialogResult Launch(IErrorReportDialogLaunchParams parms);
+        IErrorReportDialogLaunchResults Launch(
+            IErrorReportDialogLaunchParams parms);
     }
 }

@@ -20,11 +20,15 @@ namespace MFR.GUI.Dialogs.Events
         /// (Required.) String containing the content of the detailed error report to be
         /// sent.
         /// </param>
+        /// <param name="reproductionSteps">
+        /// (Required.) String containing the user's report of what was happening that led up to the error.
+        /// </param>
         public SendErrorReportRequestedEventArgs(Exception exception,
-            string errorReportContent)
+            string errorReportContent, string reproductionSteps)
         {
             Exception = exception;
             ErrorReportContent = errorReportContent;
+            ReproductionSteps = reproductionSteps;
         }
 
         /// <summary>
@@ -43,5 +47,10 @@ namespace MFR.GUI.Dialogs.Events
         {
             get;
         }
+
+        /// <summary>
+        /// Gets a string that contains the user's explanation of what led up to the error.
+        /// </summary>
+        public string ReproductionSteps { get; }
     }
 }

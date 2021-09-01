@@ -157,6 +157,10 @@
       <Project>{344B2E14-DF98-439D-83B5-02A29BBCB070}</Project>
       <Name>MFR.GUI.Launchers.Dialogs.Params.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results.Interfaces\MFR.GUI.Launchers.Dialogs.Results.Interfaces.csproj">
+      <Project>{0C682E27-057C-4BDC-89B7-5D367D5650D1}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Results.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
       <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
       <Name>MFR.Messages.Commands.Interfaces</Name>

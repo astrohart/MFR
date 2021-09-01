@@ -66,13 +66,13 @@ namespace MFR.Settings.Profiles.Actions
         /// </remarks>
         protected override IProfile CommonExecute()
         {
-            if (string.IsNullOrWhiteSpace(_input))
+            if (string.IsNullOrWhiteSpace(Input))
                 throw new InvalidOperationException(
                     "The new profile must have a name."
                 );
 
             return MakeNewProfile.FromScratch()
-                                 .HavingName(_input);
+                                 .HavingName(Input);
         }
     }
 }

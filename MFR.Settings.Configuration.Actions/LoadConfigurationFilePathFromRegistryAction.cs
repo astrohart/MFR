@@ -77,13 +77,13 @@ namespace MFR.Settings.Configuration.Actions
             // Run validation on the properties of the input registry query
             // expression object. This method throws exceptions if data is not valid.
             GetRegistryExpressionValidator<string>.Instance()
-                                                  .ForRegQueryExpression(_input)
+                                                  .ForRegQueryExpression(Input)
                                                   .Validate();
 
             return MakeNewFileSystemEntry.ForPath(
                 SystemPreparer.GetRegistryString(
-                                  _input.KeyPath, _input.ValueName,
-                                  _input.DefaultValue
+                                  Input.KeyPath, Input.ValueName,
+                                  Input.DefaultValue
                               )
                               .Replace("\"", string.Empty)
             );

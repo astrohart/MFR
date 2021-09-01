@@ -82,7 +82,7 @@ namespace MFR.Settings.Configuration.Actions
 
             // Check to see if the required field, _input, is null. If it is,
             // send an error to the log file and quit.
-            if (_input == null)
+            if (Input == null)
             {
                 // the field _input is required.
                 DebugUtils.WriteLine(
@@ -107,17 +107,17 @@ namespace MFR.Settings.Configuration.Actions
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"*** SUCCESS *** The file with path '{_input.Path}' was found on the disk.  Proceeding..."
+                $"*** SUCCESS *** The file with path '{Input.Path}' was found on the disk.  Proceeding..."
             );
 
             try
             {
-                _input.Path = FileHelpers.CreateOrOpenTextFile(
-                    Path.GetDirectoryName(_input.Path),
-                    Path.GetFileName(_input.Path)
+                Input.Path = FileHelpers.CreateOrOpenTextFile(
+                    Path.GetDirectoryName(Input.Path),
+                    Path.GetFileName(Input.Path)
                 );
 
-                result = ConfigurationSerializer.Load(_input.Path);
+                result = ConfigurationSerializer.Load(Input.Path);
             }
             catch (Exception ex)
             {

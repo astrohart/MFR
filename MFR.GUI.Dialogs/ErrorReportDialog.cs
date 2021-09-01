@@ -182,7 +182,7 @@ namespace MFR.GUI.Dialogs
         private void OnClickSendReportButton(object sender, EventArgs e)
             => OnSendErrorReportRequested(
                 new SendErrorReportRequestedEventArgs(
-                    Exception, ErrorReportContents
+                    Exception, ErrorReportContents, ReproductionSteps
                 )
             );
     }

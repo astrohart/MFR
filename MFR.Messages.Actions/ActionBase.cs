@@ -25,7 +25,11 @@ namespace MFR.Messages.Actions
         /// Reference to an instance of <typeparamref name="TInput" /> that
         /// contains the input data.
         /// </summary>
-        protected TInput _input;
+        protected TInput Input
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -36,7 +40,7 @@ namespace MFR.Messages.Actions
         /// </summary>
         protected ActionBase()
         {
-            _input = null;
+            Input = null;
         }
 
         /// <summary>
@@ -48,7 +52,7 @@ namespace MFR.Messages.Actions
         /// </summary>
         protected ActionBase(TInput input)
         {
-            _input = input;
+            Input = input;
         }
 
         /// <summary>
@@ -92,7 +96,7 @@ namespace MFR.Messages.Actions
         /// </returns>
         public IAction<TInput, TResult> WithInput(TInput input)
         {
-            _input = input ?? throw new ArgumentNullException(nameof(input));
+            Input = input ?? throw new ArgumentNullException(nameof(input));
 
             return this;
         }

@@ -1,9 +1,10 @@
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Launchers.Dialogs.Interfaces;
 using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
+using MFR.GUI.Launchers.Dialogs.Results.Factories;
+using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Launchers.Dialogs
@@ -53,12 +54,15 @@ namespace MFR.GUI.Launchers.Dialogs
         /// the dialog.
         /// </param>
         /// <returns>
-        /// A <see cref="T:System.Windows.Forms.DialogResult" /> value that
-        /// corresponds to the means used by the user to dismiss the dialog.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults" />
+        /// interface that describes the results of the user's choices in the dialog box.
         /// </returns>
-        public DialogResult Launch(IErrorReportDialogLaunchParams parms)
+        public IErrorReportDialogLaunchResults Launch(
+            IErrorReportDialogLaunchParams parms)
         {
-            var result = DialogResult.None;
+            IErrorReportDialogLaunchResults results;
 
             try
             {
@@ -74,9 +78,17 @@ namespace MFR.GUI.Launchers.Dialogs
                             parms.SendHandler
                         );
 
-                    result = parms.Owner == null
+                    var dialogResult = parms.Owner == null
                         ? dialog.ShowDialog()
                         : dialog.ShowDialog(parms.Owner);
+
+                    results =
+                        MakeNewErrorReportDialogLaunchResults
+                            .WithPropertyValues(
+                                dialogResult, dialog.Exception,
+                                dialog.ErrorReportContents,
+                                dialog.ReproductionSteps
+                            );
                 }
             }
             catch (Exception ex)
@@ -84,10 +96,10 @@ namespace MFR.GUI.Launchers.Dialogs
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = DialogResult.None;
+                results = null;
             }
 
-            return result;
+            return results;
         }
     }
 }

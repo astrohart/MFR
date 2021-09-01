@@ -91,7 +91,7 @@ namespace MFR.Messages.Actions
         /// </param>
         [Log(AttributeExclude = true)]
         protected virtual void AddResultToCache(TResult resultToAdd)
-            => ActionCacheProvider<TInput, TResult>.Add(_input, resultToAdd);
+            => ActionCacheProvider<TInput, TResult>.Add(Input, resultToAdd);
 
         /// <summary>
         /// Executes this message.
@@ -122,7 +122,7 @@ namespace MFR.Messages.Actions
 
             // Check to see if the required field, _input, is null. If it is,
             // send an error to the log file and quit.
-            if (_input == default(TInput))
+            if (Input == default(TInput))
             {
                 // the field _input is required.
                 DebugUtils.WriteLine(
@@ -256,7 +256,7 @@ namespace MFR.Messages.Actions
         [Log(AttributeExclude = true)]
         protected virtual bool TryGetCachedResult(out TResult result)
             => ActionCacheProvider<TInput, TResult>.ResultCache.TryGetValue(
-                _input, out result
+                Input, out result
             );
     }
 }

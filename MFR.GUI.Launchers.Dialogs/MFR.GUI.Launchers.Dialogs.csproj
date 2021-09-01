@@ -162,6 +162,18 @@
       <Project>{344B2E14-DF98-439D-83B5-02A29BBCB070}</Project>
       <Name>MFR.GUI.Launchers.Dialogs.Params.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results.Factories\MFR.GUI.Launchers.Dialogs.Results.Factories.csproj">
+      <Project>{07613CA1-ACA3-433E-8085-177A71C9D0B3}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Results.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results.Interfaces\MFR.GUI.Launchers.Dialogs.Results.Interfaces.csproj">
+      <Project>{0C682E27-057C-4BDC-89B7-5D367D5650D1}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Results.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results\MFR.GUI.Launchers.Dialogs.Results.csproj">
+      <Project>{CE0D714B-284D-4B08-92D7-0C52FD4161AF}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Results</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
