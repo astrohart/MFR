@@ -14,6 +14,29 @@ namespace MFR.GUI.Displayers
     public static class Display
     {
         /// <summary>
+        /// Shows a Help window that explains Profiles to the user.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that
+        /// implements the <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
+        /// <para />
+        /// The object that implements this interface represents the parent window of the
+        /// dialog box.
+        /// </param>
+        public static void HelpProfileExplainerDialog(IWin32Window owner)
+            => GetHelpProfileExplainerDialogLauncher.SoleInstance()
+                                                    .Launch(owner);
+
+        /// <summary>
+        /// Shows a Help window that explains Profiles to the user.
+        /// </summary>
+        public static void HelpProfileExplainerDialog()
+            => GetHelpProfileExplainerDialogLauncher.SoleInstance()
+                                                    .Launch(
+                                                        Application.OpenForms[0]
+                                                    );
+
+        /// <summary>
         /// Handles the
         /// <see
         ///     cref="E:MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.ViewErrorReportRequested" />
