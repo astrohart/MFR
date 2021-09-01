@@ -47,6 +47,9 @@ namespace MFR.GUI.Launchers.Dialogs
         /// <returns>
         /// A <see cref="T:System.Windows.Forms.DialogResult" /> value that
         /// corresponds to the means used by the user to dismiss the dialog.
+        /// <para />
+        /// If an error occurs, then the
+        /// <see cref="T:System.Windows.Forms.DialogResult.None" /> value is returned.
         /// </returns>
         public DialogResult Launch(IWin32Window owner)
         {
@@ -56,10 +59,9 @@ namespace MFR.GUI.Launchers.Dialogs
             {
                 using (var dialog =
                     MakeNewHelpProfileExplainerDialog.FromScratch())
-                    result = (owner == null) ? dialog.ShowDialog() :
-                        dialog.ShowDialog(
-                            owner
-                        );
+                    result = owner == null
+                        ? dialog.ShowDialog()
+                        : dialog.ShowDialog(owner);
             }
             catch (Exception ex)
             {
