@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace MFR.GUI.Displayers
 {
     /// <summary>
-    /// Methods that display parts of the UI.
+    /// Contains methods to display dialog boxes.
     /// </summary>
     public static class Display
     {
@@ -45,6 +45,16 @@ namespace MFR.GUI.Displayers
         /// A <see cref="T:System.Exception" /> that describes the
         /// error to be reported.
         /// </param>
+        /// <remarks>
+        /// This method invokes a user-friendly dialog box that prompts the user
+        /// to type in what happened that led to the error encountered.
+        /// <para />
+        /// This method associates the
+        /// <see cref="M:MFR.GUI.Displayers.Display.OnViewErrorReportRequested" /> method
+        /// as a handler of the
+        /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.ViewErrorReportRequested" />
+        /// event.
+        /// </remarks>
         public static void ErrorReportDialog(Exception exception)
             => GetErrorReportDialogLauncher.SoleInstance()
                                            .Launch(
@@ -73,7 +83,15 @@ namespace MFR.GUI.Displayers
         /// A <see cref="T:System.Exception" /> that describes the
         /// error to be reported.
         /// </param>
-        public static void ErrorReportDialog(IWin32Window owner, Exception exception)
+        /// <remarks>
+        /// This method also associates the
+        /// <see cref="M:MFR.GUI.Displayers.Display.OnViewErrorReportRequested" /> method
+        /// as the handler for the
+        /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.ViewErrorReportRequested" />
+        /// event.
+        /// </remarks>
+        public static void ErrorReportDialog(IWin32Window owner,
+            Exception exception)
             => GetErrorReportDialogLauncher.SoleInstance()
                                            .Launch(
                                                MakeNewErrorReportDialogLaunchParams
