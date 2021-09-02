@@ -165,6 +165,14 @@
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
       <Name>MFR.Messages.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
+      <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
+      <Name>MFR.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
+      <Project>{e7407a37-0a5a-4eec-a5a7-b8153b386027}</Project>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Requests\MFR.Messages.Requests.csproj">
       <Project>{E9DB6CE2-0665-4BE9-92D7-70CFA7F185B2}</Project>
       <Name>MFR.Messages.Requests</Name>

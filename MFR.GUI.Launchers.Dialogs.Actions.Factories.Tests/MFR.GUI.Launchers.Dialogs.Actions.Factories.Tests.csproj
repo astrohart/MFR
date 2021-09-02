@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.9.8\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.8\build\PostSharp.props')" />
+  <Import Project="..\packages\NUnit.3.13.2\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.2\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{94319A4A-1BB5-4EF4-B530-37D8B9AB603D}</ProjectGuid>
+    <ProjectGuid>{2AD75780-B145-4163-9933-71A6F647E0C3}</ProjectGuid>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -21,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Settings.Profiles.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Settings.Profiles.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Settings.Profiles.Requests.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -59,8 +60,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Settings.Profiles.Requests.xml</DocumentationFile>
+    <SkipPostSharp>True</SkipPostSharp>
+    <DocumentationFile>bin\x86\Release\MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Settings.Profiles.Requests</AssemblyName>
+    <AssemblyName>MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Settings.Profiles.Requests</RootNamespace>
+    <RootNamespace>MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -81,8 +82,8 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.2\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="PostSharp, Version=6.9.8.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.6.9.8\lib\net45\PostSharp.dll</HintPath>
@@ -103,7 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateNewBlankProfileRequest.cs" />
+    <Compile Include="GetDialogLauncherActionTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,40 +129,34 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
-      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
-      <Name>MFR.Messages.Constants</Name>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions.Constants\MFR.GUI.Launchers.Dialogs.Actions.Constants.csproj">
+      <Project>{0828A045-41EC-454D-94B9-B8672B1B5C92}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
-      <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
-      <Name>MFR.Messages.Interfaces</Name>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions.Factories\MFR.GUI.Launchers.Dialogs.Actions.Factories.csproj">
+      <Project>{EE61C8E4-F44E-4B0B-8AFF-5A0ACADA1502}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
-      <Project>{e7407a37-0a5a-4eec-a5a7-b8153b386027}</Project>
-      <Name>MFR.Messages.Requests.Intefaces</Name>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions\MFR.GUI.Launchers.Dialogs.Actions.csproj">
+      <Project>{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Requests\MFR.Messages.Requests.csproj">
-      <Project>{E9DB6CE2-0665-4BE9-92D7-70CFA7F185B2}</Project>
-      <Name>MFR.Messages.Requests</Name>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Params.Interfaces\MFR.GUI.Launchers.Dialogs.Params.Interfaces.csproj">
+      <Project>{344B2E14-DF98-439D-83B5-02A29BBCB070}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Params.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages\MFR.Messages.csproj">
-      <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>
-      <Name>MFR.Messages</Name>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results.Interfaces\MFR.GUI.Launchers.Dialogs.Results.Interfaces.csproj">
+      <Project>{0C682E27-057C-4BDC-89B7-5D367D5650D1}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Results.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Factories\MFR.Settings.Profiles.Factories.csproj">
-      <Project>{33167BC4-36DC-4E33-99B4-9CFF054B6D08}</Project>
-      <Name>MFR.Settings.Profiles.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
-      <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
-      <Name>MFR.Settings.Profiles.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Requests.Constants\MFR.Settings.Profiles.Requests.Constants.csproj">
-      <Project>{743CDEFD-55C4-4BD7-B807-539D9F1AE98C}</Project>
-      <Name>MFR.Settings.Profiles.Requests.Constants</Name>
+    <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
+      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
+      <Name>MFR.Messages.Actions.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\PostSharp.6.9.8\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.8\build\PostSharp.targets')" />
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <PropertyGroup>
     <PreBuildEvent>if exist "$(TargetDir)$(ProjectName).md" (
     if exist "$(ProjectDir)README.md" (
@@ -187,14 +182,4 @@ exit /b 0</PreBuildEvent>
 )
 exit /b 0</PostBuildEvent>
   </PropertyGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\PostSharp.6.9.8\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.8\build\PostSharp.props'))" />
-    <Error Condition="!Exists('..\packages\PostSharp.6.9.8\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.8\build\PostSharp.targets'))" />
-    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
-  </Target>
-  <Import Project="..\packages\PostSharp.6.9.8\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.8\build\PostSharp.targets')" />
-  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
 </Project>

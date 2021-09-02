@@ -22,16 +22,6 @@ namespace MFR.Messages.Actions
         IAction<TInput, TResult> where TInput : class where TResult : class
     {
         /// <summary>
-        /// Reference to an instance of <typeparamref name="TInput" /> that
-        /// contains the input data.
-        /// </summary>
-        protected TInput Input
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.ActionBase" />
@@ -53,6 +43,27 @@ namespace MFR.Messages.Actions
         protected ActionBase(TInput input)
         {
             Input = input;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object of type
+        /// <typeparamref name="TInput" /> that
+        /// contains the input data for this <c>Action</c>.
+        /// </summary>
+        public TInput Input
+        {
+            get;
+            protected set;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object of type
+        /// <typeparamref name="TResult" /> that contains the results of executing this
+        /// <c>Request</c>.
+        /// </summary>
+        public TResult Result
+        {
+            get;
         }
 
         /// <summary>

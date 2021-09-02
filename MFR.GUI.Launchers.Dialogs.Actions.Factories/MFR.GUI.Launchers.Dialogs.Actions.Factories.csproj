@@ -103,7 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetDialogAction.cs" />
+    <Compile Include="GetDialogLauncherAction.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +126,52 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions.Constants\MFR.GUI.Launchers.Dialogs.Actions.Constants.csproj">
+      <Project>{0828A045-41EC-454D-94B9-B8672B1B5C92}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions\MFR.GUI.Launchers.Dialogs.Actions.csproj">
+      <Project>{C93B2F44-3C2C-462F-BA14-EDFEB06704F2}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Params.Interfaces\MFR.GUI.Launchers.Dialogs.Params.Interfaces.csproj">
+      <Project>{344B2E14-DF98-439D-83B5-02A29BBCB070}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Params.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results.Interfaces\MFR.GUI.Launchers.Dialogs.Results.Interfaces.csproj">
+      <Project>{0C682E27-057C-4BDC-89B7-5D367D5650D1}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Results.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
+      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
+      <Name>MFR.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Actions\MFR.Messages.Actions.csproj">
+      <Project>{065848D5-CC1F-4153-988B-2C7EA2FA964C}</Project>
+      <Name>MFR.Messages.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Messages.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
+      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Requests\MFR.Messages.Requests.csproj">
+      <Project>{E9DB6CE2-0665-4BE9-92D7-70CFA7F185B2}</Project>
+      <Name>MFR.Messages.Requests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages\MFR.Messages.csproj">
+      <Project>{8D003E37-AE40-447B-BA6A-5901321066FD}</Project>
+      <Name>MFR.Messages</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\PostSharp.6.9.8\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.8\build\PostSharp.targets')" />

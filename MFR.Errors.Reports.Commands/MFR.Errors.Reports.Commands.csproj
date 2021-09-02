@@ -144,6 +144,10 @@
       <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
       <Name>MFR.GUI.Dialogs.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
+      <Project>{b3bde739-5fbb-46b4-8411-a66b7e9383dd}</Project>
+      <Name>MFR.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Commands\MFR.Messages.Commands.csproj">
       <Project>{1683F1C0-B348-4263-A839-7E3BA29A1E95}</Project>
       <Name>MFR.Messages.Commands</Name>

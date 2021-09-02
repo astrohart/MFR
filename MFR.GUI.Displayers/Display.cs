@@ -1,6 +1,7 @@
 ﻿using MFR.Errors.Reports.Commands.Constants;
 using MFR.Errors.Reports.Commands.Factories;
 using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Launchers.Dialogs.Actions.Factories;
 using MFR.GUI.Launchers.Dialogs.Factories;
 using MFR.GUI.Launchers.Dialogs.Params.Factories;
 using System;
@@ -68,6 +69,11 @@ namespace MFR.GUI.Displayers
         /// A <see cref="T:System.Exception" /> that describes the
         /// error to be reported.
         /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="exception" />, is passed a <see langword="null" />
+        /// value.
+        /// </exception>
         /// <remarks>
         /// This method invokes a user-friendly dialog box that prompts the user
         /// to type in what happened that led to the error encountered.
@@ -79,6 +85,14 @@ namespace MFR.GUI.Displayers
         /// event.
         /// </remarks>
         public static void ErrorReportDialog(Exception exception)
+        {
+            if (exception == null)
+                throw new ArgumentNullException(nameof(exception));
+
+            GetDialogLauncherAction.
+        }
+
+        /*
             => GetErrorReportDialogLauncher.SoleInstance()
                                            .Launch(
                                                MakeNewErrorReportDialogLaunchParams
@@ -91,6 +105,7 @@ namespace MFR.GUI.Displayers
                                                        OnViewErrorReportRequested
                                                    )
                                            );
+        */
 
         /// <summary>
         /// Launches a dialog box to display a report that an error occurred.

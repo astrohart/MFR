@@ -1,19 +1,17 @@
+﻿using MFR.GUI.Launchers.Dialogs.Actions.Constants;
 using MFR.Messages.Actions.Interfaces;
-using MFR.Settings.Profiles.Actions.Constants;
 using System;
 
-namespace MFR.Settings.Profiles.Actions.Factories
+namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
     ///     cref="T:MFR.IAction" />
-    /// interface, in order to perform actions on the list of profiles.
+    /// interface and that summon and collect results from the various dialog boxes
+    /// that are invoked by the commands in this application.
     /// </summary>
-    /// <remarks>
-    /// In our parlance, an Action is a process that has both an input and an output.
-    /// </remarks>
-    public static class GetProfileListAction
+    public static class GetDialogLauncherAction
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -43,36 +41,22 @@ namespace MFR.Settings.Profiles.Actions.Factories
         /// value provided
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>
-        public static IAction<TInput, TResult>
-            For<TInput, TResult>(ProfileListAction actionType)
-            where TInput : class where TResult : class
+        public static IAction<TInput, TResult> For<TInput, TResult>(
+            DialogLauncherAction actionType) where TInput : class
+            where TResult : class
         {
             IAction<TInput, TResult> action;
 
             switch (actionType)
             {
                 case var _ when actionType ==
-                                ProfileListAction.LoadStringFromRegistry:
+                                DialogLauncherAction.LaunchErrorReportDialog:
                     action =
                         (IAction<TInput, TResult>)
-                        LoadProfileListFilePathFromRegistryAction.Instance;
+                        LaunchErrorReportDialogAction.Instance;
                     break;
 
-                case var _ when actionType ==
-                                ProfileListAction.CreateNewNamedProfile:
-                    action =
-                        (IAction<TInput, TResult>)CreateNewNamedProfileAction
-                            .Instance;
-                    break;
-
-                case var _ when actionType ==
-                                ProfileListAction.LoadProfileListFromFile:
-                    action =
-                        (IAction<TInput, TResult>)LoadProfileListFromFileAction
-                            .Instance;
-                    break;
-
-                default:
+                        default:
                     throw new ArgumentOutOfRangeException(
                         nameof(actionType), actionType,
                         $"There is no message available that corresponds to the '{actionType}' action type."

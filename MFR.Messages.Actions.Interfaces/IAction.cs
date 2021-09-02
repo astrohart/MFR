@@ -99,5 +99,12 @@ namespace MFR.Messages.Actions.Interfaces
         /// method, for fluent use.
         /// </returns>
         IAction<TInput, TResult> WithInput(TInput input);
+
+        /// <summary>
+        /// Gets a reference to an instance of an object of type
+        /// <typeparamref name="TInput" /> that
+        /// contains the input data for this <c>Action</c>.
+        /// </summary>
+        TInput Input { get; }
     }
 }

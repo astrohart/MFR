@@ -141,6 +141,10 @@
       <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
       <Name>MFR.GUI.Dialogs.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions.Factories\MFR.GUI.Launchers.Dialogs.Actions.Factories.csproj">
+      <Project>{EE61C8E4-F44E-4B0B-8AFF-5A0ACADA1502}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Factories\MFR.GUI.Launchers.Dialogs.Factories.csproj">
       <Project>{1633B11F-B2F3-4BA9-B9B7-C7E64A17A9C7}</Project>
       <Name>MFR.GUI.Launchers.Dialogs.Factories</Name>
