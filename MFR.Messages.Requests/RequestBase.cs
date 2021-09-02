@@ -12,14 +12,15 @@ namespace MFR.Messages.Requests
             IRequest<TResult> where TResult : class
     {
         /// <summary>
-        /// Executes this message.
+        /// Gets a reference to an instance of an object of type
+        /// <typeparamref name="TResult" /> that contains the results of executing this
+        /// <c>Request</c>.
         /// </summary>
-        /// <returns>
-        /// A <typeparamref name="TResult" /> instance containing data from the
-        /// result of executing the message.
-        /// </returns>
-        public TResult Execute()
-            => CommonExecute();
+        public TResult Result
+        {
+            get;
+            protected set;
+        }
 
         /// <summary>
         /// Executes this message.
@@ -28,8 +29,24 @@ namespace MFR.Messages.Requests
         /// A <typeparamref name="TResult" /> instance containing data from the
         /// result of executing the message.
         /// </returns>
-        public Task<TResult> ExecuteAsync()
-            => Task.Run(CommonExecute);
+        public TResult Execute()
+        {
+            Result = CommonExecute();
+            return Result;
+        }
+
+        /// <summary>
+        /// Executes this message asynchronously.
+        /// </summary>
+        /// <returns>
+        /// A <typeparamref name="TResult" /> instance containing data from the
+        /// result of executing the message.
+        /// </returns>
+        public async Task<TResult> ExecuteAsync()
+        {
+            await Task.Run(()=>Result = CommonExecute());
+            return Result;
+        }
 
         /// <summary>
         /// Executes this message.

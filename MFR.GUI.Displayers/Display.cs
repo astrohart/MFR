@@ -1,9 +1,12 @@
 ﻿using MFR.Errors.Reports.Commands.Constants;
 using MFR.Errors.Reports.Commands.Factories;
 using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Launchers.Dialogs.Actions.Constants;
 using MFR.GUI.Launchers.Dialogs.Actions.Factories;
 using MFR.GUI.Launchers.Dialogs.Factories;
 using MFR.GUI.Launchers.Dialogs.Params.Factories;
+using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
+using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -89,7 +92,19 @@ namespace MFR.GUI.Displayers
             if (exception == null)
                 throw new ArgumentNullException(nameof(exception));
 
-            GetDialogLauncherAction.
+            GetDialogLauncherAction
+                .For<IErrorReportDialogLaunchParams,
+                    IErrorReportDialogLaunchResults>(
+                    DialogLauncherAction.LaunchErrorReportDialog
+                )
+                .WithInput(
+                    MakeNewErrorReportDialogLaunchParams.FromScratch()
+                        .ForException(exception)
+                        .AndOwnerWindow(Application.OpenForms[0])
+                        .AndAttachViewErrorReportRequestedEventHandler(
+                            OnViewErrorReportRequested
+                        )
+                );
         }
 
         /*

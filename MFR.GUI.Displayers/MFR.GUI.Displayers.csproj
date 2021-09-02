@@ -141,6 +141,10 @@
       <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
       <Name>MFR.GUI.Dialogs.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions.Constants\MFR.GUI.Launchers.Dialogs.Actions.Constants.csproj">
+      <Project>{0828A045-41EC-454D-94B9-B8672B1B5C92}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Actions.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Actions.Factories\MFR.GUI.Launchers.Dialogs.Actions.Factories.csproj">
       <Project>{EE61C8E4-F44E-4B0B-8AFF-5A0ACADA1502}</Project>
       <Name>MFR.GUI.Launchers.Dialogs.Actions.Factories</Name>
@@ -165,6 +169,10 @@
       <Project>{0C682E27-057C-4BDC-89B7-5D367D5650D1}</Project>
       <Name>MFR.GUI.Launchers.Dialogs.Results.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
+      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
+      <Name>MFR.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
       <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
       <Name>MFR.Messages.Commands.Interfaces</Name>
@@ -176,6 +184,10 @@
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
       <Name>MFR.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
+      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

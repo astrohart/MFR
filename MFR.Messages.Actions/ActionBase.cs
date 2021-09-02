@@ -57,16 +57,6 @@ namespace MFR.Messages.Actions
         }
 
         /// <summary>
-        /// Gets a reference to an instance of an object of type
-        /// <typeparamref name="TResult" /> that contains the results of executing this
-        /// <c>Request</c>.
-        /// </summary>
-        public TResult Result
-        {
-            get;
-        }
-
-        /// <summary>
         /// Returns a reference to this same object, but cast to the
         /// <see
         ///     cref="T:MFR.ICachedResultAction" />
