@@ -52,3 +52,5 @@ During its operation, before the app begins any of the requested operations, if 
 1. Close the solution(s) in their respective instance(s) of Visual Studio;
 2. Perform the requested operations; and
 3. Re-open all previously closed solution(s), each in the instance of Visual Studio that it was originally open in.
+
+**NOTE:** You can also run the tool in with the **What folder should the operation start in?** drop-down set to, in principle, _any_ folder on your hard disk, provided that that there are more than `.sln` files anywhere in the directory tree.
