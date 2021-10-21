@@ -405,7 +405,7 @@ namespace MFR.GUI.Windows
             // helpAbout
             // 
             this.helpAbout.Name = "helpAbout";
-            this.helpAbout.Size = new System.Drawing.Size(180, 22);
+            this.helpAbout.Size = new System.Drawing.Size(165, 22);
             this.helpAbout.Text = "&About [App Title]";
             this.helpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 

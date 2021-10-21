@@ -47,7 +47,9 @@ namespace MFR.GUI.Windows
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MainWindow() { }
+        static MainWindow()
+        {
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -76,49 +78,14 @@ namespace MFR.GUI.Windows
         } = new MainWindow();
 
         /// <summary>
-        /// Gets a value indicating whether the data entered on this form is valid.
-        /// </summary>
-        [Log(AttributeExclude = true)] // do not log this method
-        public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
-               Directory.Exists(StartingFolderComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
-
-        /// <summary>
-        /// Gets a value that indicates whether the history is free of all
-        /// previous entries.
-        /// </summary>
-        private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
-
-        [Log(AttributeExclude = true)] // do not log this method
-        private bool OnlyReplaceInFilesOperationIsEnabled
-            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
-               OperationsCheckedListBox.GetItemChecked(2);
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the actions
-        /// associated with it.
-        /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough] get => findWhatcomboBox;
+            [DebuggerStepThrough]
+            get => findWhatcomboBox;
         }
 
         /// <summary>
@@ -132,7 +99,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public FoldUnfoldButton FoldButton
         {
-            [DebuggerStepThrough] get => foldButton;
+            [DebuggerStepThrough]
+            get => foldButton;
         }
 
         /// <summary>
@@ -141,6 +109,16 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public string FullApplicationName
             => $"{ProgramText.MainWindowTitle} {Version}";
+
+        /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        [Log(AttributeExclude = true)] // do not log this method
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
+               Directory.Exists(StartingFolderComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
 
         /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
@@ -181,7 +159,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public CheckedListBox OperationsCheckedListBox
         {
-            [DebuggerStepThrough] get => operationsCheckedListBox;
+            [DebuggerStepThrough]
+            get => operationsCheckedListBox;
         }
 
         /// <summary>
@@ -191,7 +170,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough] get => replaceWithComboBox;
+            [DebuggerStepThrough]
+            get => replaceWithComboBox;
         }
 
         /// <summary>
@@ -211,7 +191,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public int SelectedOptionTab
         {
-            [DebuggerStepThrough] get => optionsTabControl.SelectedIndex;
+            [DebuggerStepThrough]
+            get => optionsTabControl.SelectedIndex;
             set => optionsTabControl.SelectedIndex = value;
         }
 
@@ -222,7 +203,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough] get => startingFolderComboBox;
+            [DebuggerStepThrough]
+            get => startingFolderComboBox;
         }
 
         /// <summary>
@@ -246,6 +228,32 @@ namespace MFR.GUI.Windows
         } = Assembly.GetEntryAssembly()
                     .GetName()
                     .Version.ToString();
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a value that indicates whether the history is free of all
+        /// previous entries.
+        /// </summary>
+        private bool IsHistoryClear
+            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
+               ReplaceWithComboBox.IsClear();
+
+        [Log(AttributeExclude = true)] // do not log this method
+        private bool OnlyReplaceInFilesOperationIsEnabled
+            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
+               OperationsCheckedListBox.GetItemChecked(2);
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
@@ -966,6 +974,31 @@ namespace MFR.GUI.Windows
             => _presenter.ImportConfiguration();
 
         /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
+        /// raised by the New Profile toolbar button and/or Tools -> Configuration -> New
+        /// Profile menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user click the New Profile toolbar
+        /// button or menu item.
+        /// <para />
+        /// The goal is to prompt the user for the name of their new profile, create it,
+        /// then add it to the list of profiles and then set it as the current profile.
+        /// </remarks>
+        private void
+            OnToolsConfigurationNewProfile(object sender, EventArgs e)
+        {
+        }
+
+        /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event for the Tools -&gt; Import and Export Configuration -&gt;
         /// Export Configuration menu command.
@@ -1239,28 +1272,5 @@ namespace MFR.GUI.Windows
 
             return true;
         }
-
-        /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the New Profile toolbar button and/or Tools -> Configuration -> New
-        /// Profile menu command.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the
-        /// event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        /// <remarks>
-        /// This method is called when the user click the New Profile toolbar
-        /// button or menu item.
-        /// <para />
-        /// The goal is to prompt the user for the name of their new profile, create it,
-        /// then add it to the list of profiles and then set it as the current profile.
-        /// </remarks>
-        private void
-            OnToolsConfigurationNewProfile(object sender, EventArgs e) { }
     }
 }
