@@ -125,12 +125,22 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
+                /*
+                 * NOTE: Avoid, at all costs, doing a ToList() call here,
+                 * or anywhere else in the code, if it can be helped.  The
+                 * reason is, that some projects in which we are to replace
+                 * text in files have a truly massive number of files and
+                 * if we call ToList(), there is a probability that the memory
+                 * allocated to this process would overflow.  IEnumerable is
+                 * very efficient at managing memory so long as you do not
+                 * call ToList etc.
+                 */
+
                 result = Directory.EnumerateFiles(
                                       rootFolderPath, SearchPattern,
                                       SearchOption
                                   )
                                   .Where(ShouldNotSkipFileSystemEntry)
-                                  .ToList() // narrow down list of elements to process
                                   .Select(
                                       path => MakeNewFileSystemEntry
                                               .ForPath(path)
