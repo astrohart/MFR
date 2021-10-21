@@ -399,13 +399,13 @@ namespace MFR.GUI.Windows
             this.helpAbout});
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(44, 20);
-            this.helpMenu.Text = "&HelpProfileExplainerDialog";
+            this.helpMenu.Text = "&Help";
             this.helpMenu.DropDownOpening += new System.EventHandler(this.OnHelpMenuDropDownOpening);
             // 
             // helpAbout
             // 
             this.helpAbout.Name = "helpAbout";
-            this.helpAbout.Size = new System.Drawing.Size(165, 22);
+            this.helpAbout.Size = new System.Drawing.Size(180, 22);
             this.helpAbout.Text = "&About [App Title]";
             this.helpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
