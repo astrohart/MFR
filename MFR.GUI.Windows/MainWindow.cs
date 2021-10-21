@@ -7,8 +7,6 @@ using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Displayers;
-using MFR.GUI.Launchers.Dialogs.Factories;
-using MFR.GUI.Launchers.Dialogs.Params.Factories;
 using MFR.GUI.Presenters.Associators;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
