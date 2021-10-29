@@ -13,6 +13,12 @@ namespace MFR.GUI.Models
     public class OperationTypeInfo : IOperationTypeInfo
     {
         /// <summary>
+        /// One of the <see cref="T:MFR.Operations.Constants.OperationType" /> values that
+        /// corresponds to the type of operation to perform.
+        /// </summary>
+        private OperationType _operationType;
+
+        /// <summary>
         /// Gets or sets a value that indicates whether the user wants to perform the
         /// operation.
         /// </summary>
@@ -28,7 +34,7 @@ namespace MFR.GUI.Models
         public string Name
         {
             get;
-            set;
+            internal set;
         }
 
         /// <summary>
@@ -37,8 +43,12 @@ namespace MFR.GUI.Models
         /// </summary>
         public OperationType OperationType
         {
-            get;
-            set;
+            get => _operationType;
+            set {
+                _operationType = value;
+
+                Name = ConvertOperationType.ToString(value);
+            }
         }
 
         /// <summary>Returns a string that represents the current object.</summary>

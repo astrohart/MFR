@@ -24,7 +24,6 @@ namespace MFR.GUI.Models.Interfaces
         string Name
         {
             get;
-            set;
         }
 
         /// <summary>
