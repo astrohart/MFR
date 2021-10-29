@@ -9,13 +9,13 @@ namespace MFR.Operations.Constants
         /// Loads all the *.sln files in a given folder, each in its own Visual
         /// Studio instance.
         /// </summary>
-        LoadAllSolutionsInFolder,
+        LoadAllSolutionsInFolder = 3,
 
         /// <summary>
         /// Unloads all *.sln files in a given folder, that are currently loaded
         /// in running instances of Visual Studio.
         /// </summary>
-        UnloadAllSolutionsInFolder,
+        UnloadAllSolutionsInFolder = 4,
 
         /// <summary>
         /// Closes the active solution in Visual Studio.
@@ -24,7 +24,7 @@ namespace MFR.Operations.Constants
         /// The "active" solution is defined as that which exists as a
         /// <c>.sln</c> file in the starting (root) folder.
         /// </remarks>
-        CloseActiveSolution,
+        CloseActiveSolution = 5,
 
         /// <summary>
         /// Finds the instance of Visual Studio that has the solution open.
@@ -32,12 +32,12 @@ namespace MFR.Operations.Constants
         /// <remarks>
         /// The particular solution is that which exists in the starting (root) folder.
         /// </remarks>
-        FindVisualStudio,
+        FindVisualStudio = 6,
 
         /// <summary>
         /// The list of file system entries to be renamed is being retrieved.
         /// </summary>
-        GettingListOfFilesToBeRenamed,
+        GettingListOfFilesToBeRenamed = 7,
 
         /// <summary>
         /// Open the solution back up in Visual Studio.
@@ -46,7 +46,7 @@ namespace MFR.Operations.Constants
         /// The "active" solution is defined as that which exists as a
         /// <c>.sln</c> file in the starting (root) folder.
         /// </remarks>
-        OpenActiveSolution,
+        OpenActiveSolution = 8,
 
         /// <summary>
         /// We are replacing text values in the names of files.

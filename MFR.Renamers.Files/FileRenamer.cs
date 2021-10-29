@@ -1,5 +1,4 @@
 using EnvDTE;
-using MFR.Settings.Configuration;
 using MFR.Constants;
 using MFR.Engines.Replacement.Factories;
 using MFR.Events;
@@ -14,6 +13,7 @@ using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
+using MFR.Settings.Configuration;
 using MFR.TextValues.Retrievers.Factories;
 using MFR.VisualStudio;
 using MFR.Win32;
@@ -81,51 +81,6 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Gets a value that indicates whether an abort of the current
-        /// operation has been requested.
-        /// </summary>
-        public bool AbortRequested
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to a collection of of the
-        /// <see
-        ///     cref="T:MFR.OperationType" />
-        /// values.
-        /// </summary>
-        /// <remarks>
-        /// All the values in this collection identify operations that the user
-        /// wishes to perform.
-        /// <para />
-        /// This list should be cleared after every run.
-        /// <para />
-        /// If the list is empty when the
-        /// <see
-        ///     cref="M:MFR.FileRenamer.ProcessAll" />
-        /// method is called, do
-        /// nothing or throw an exception.
-        /// </remarks>
-        protected IList<OperationType> EnabledOperations
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        private bool ShouldReOpenSolution
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Occurs when an exception is thrown from an operation.
         /// </summary>
         public event ExceptionRaisedEventHandler ExceptionRaised;
@@ -178,6 +133,16 @@ namespace MFR.Renamers.Files
             SubfoldersToBeRenamedCounted;
 
         /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// Gets a string containing the full pathname of the folder where all
         /// operations start.
         /// </summary>
@@ -185,6 +150,73 @@ namespace MFR.Renamers.Files
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
+        /// method is called, do
+        /// nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        private bool ShouldReOpenSolution
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
         }
 
         /// <summary>
@@ -233,52 +265,62 @@ namespace MFR.Renamers.Files
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                )
-            );
+            if (Configuration.RenameFiles)
+            {
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    )
+                );
 
-            RenameSubFoldersOf(
-                RootDirectoryPath, findWhat, replaceWith, pathFilter
-            );
+                RenameSubFoldersOf(
+                    RootDirectoryPath, findWhat, replaceWith, pathFilter
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"*** Finished processing subfolders of '{RootDirectoryPath}'."
-                )
-            );
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+                    )
+                );
+            }
 
-            RenameFilesInFolder(
-                RootDirectoryPath, findWhat, replaceWith, pathFilter
-            );
+            if (Configuration.RenameSubfolders)
+            {
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    )
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
-                )
-            );
+                RenameFilesInFolder(
+                    RootDirectoryPath, findWhat, replaceWith, pathFilter
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+                    )
+                );
+            }
 
-            ReplaceTextInFiles(
-                RootDirectoryPath, findWhat, replaceWith, pathFilter
-            );
+            if (Configuration.ReplaceInFiles)
+            {
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    )
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
-                )
-            );
+                ReplaceTextInFiles(
+                    RootDirectoryPath, findWhat, replaceWith, pathFilter
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+                    )
+                );
+            }
         }
 
         /// <summary>
@@ -1131,38 +1173,6 @@ namespace MFR.Renamers.Files
             RootDirectoryPath = rootDirectoryPath;
 
             return this;
-        }
-
-        /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
         }
 
         /// <summary>

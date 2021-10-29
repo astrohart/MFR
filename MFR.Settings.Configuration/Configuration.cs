@@ -1,4 +1,5 @@
 using MFR.GUI.Models;
+using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
 using System;
@@ -56,18 +57,6 @@ namespace MFR.Settings.Configuration
             StartingFolder = source.StartingFolder;
             StartingFolderHistory = source.StartingFolderHistory;
         }
-
-        /// <summary>
-        /// Gets or sets a reference to a collection of instances of
-        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
-        /// operations to be performed on or off.
-        /// </summary>
-        [JsonProperty("operationsToPerform")]
-        public List<OperationTypeInfo> OperationsToPerform
-        {
-            get;
-            set;
-        } = new List<OperationTypeInfo>();
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
@@ -128,24 +117,42 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a value that indicates whether we should rename files
-        /// in the folders encountered.
+        /// Gets or sets a reference to a collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
+        /// operations to be performed on or off.
         /// </summary>
-        [JsonProperty("renameFiles")]
-        public bool RenameFiles
+        [JsonProperty("operationsToPerform")]
+        public List<OperationTypeInfo> OperationsToPerform
         {
             get;
             set;
+        } = new List<OperationTypeInfo>();
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether we should rename files
+        /// in the folders encountered.
+        /// </summary>
+        public bool RenameFiles
+        {
+            get
+                => OperationsToPerform[(int)OperationType.RenameFilesInFolder]
+                    .Enabled;
+            set
+                => OperationsToPerform[(int)OperationType.RenameFilesInFolder]
+                    .Enabled = value;
         }
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.
         /// </summary>
-        [JsonProperty("renameSubfolders")]
         public bool RenameSubfolders
         {
-            get;
-            set;
+            get
+                => OperationsToPerform[(int)OperationType.RenameSubFolders]
+                    .Enabled;
+            set
+                => OperationsToPerform[(int)OperationType.RenameSubFolders]
+                    .Enabled = value;
         }
 
         /// <summary>
@@ -170,11 +177,14 @@ namespace MFR.Settings.Configuration
         /// Gets or sets a value that indicates whether we should replace text
         /// in files.
         /// </summary>
-        [JsonProperty("replaceInFiles")]
         public bool ReplaceInFiles
         {
-            get;
-            set;
+            get
+                => OperationsToPerform[(int)OperationType.ReplaceTextInFiles]
+                    .Enabled;
+            set
+                => OperationsToPerform[(int)OperationType.ReplaceTextInFiles]
+                    .Enabled = value;
         }
 
         /// <summary>
