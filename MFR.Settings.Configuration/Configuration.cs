@@ -1,3 +1,4 @@
+using MFR.GUI.Models;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
 using System;
@@ -55,6 +56,18 @@ namespace MFR.Settings.Configuration
             StartingFolder = source.StartingFolder;
             StartingFolderHistory = source.StartingFolderHistory;
         }
+
+        /// <summary>
+        /// Gets or sets a reference to a collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
+        /// operations to be performed on or off.
+        /// </summary>
+        [JsonProperty("operationsToPerform")]
+        public List<OperationTypeInfo> OperationsToPerform
+        {
+            get;
+            set;
+        } = new List<OperationTypeInfo>();
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified

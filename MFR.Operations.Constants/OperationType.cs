@@ -51,17 +51,17 @@ namespace MFR.Operations.Constants
         /// <summary>
         /// We are replacing text values in the names of files.
         /// </summary>
-        RenameFilesInFolder,
+        RenameFilesInFolder = 0,
 
         /// <summary>
         /// We are replacing text in the content of the files.
         /// </summary>
-        ReplaceTextInFiles,
+        ReplaceTextInFiles = 2,
 
         /// <summary>
         /// We are replacing text in the names of folders.
         /// </summary>
-        RenameSubFolders,
+        RenameSubFolders = 1,
 
         /// <summary>
         /// Unknown operation type.

@@ -1,5 +1,6 @@
 ﻿using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
+using Newtonsoft.Json;
 
 namespace MFR.GUI.Models
 {
@@ -22,6 +23,7 @@ namespace MFR.GUI.Models
         /// Gets or sets a value that indicates whether the user wants to perform the
         /// operation.
         /// </summary>
+        [JsonProperty("enabled")]
         public bool Enabled
         {
             get;
@@ -31,16 +33,18 @@ namespace MFR.GUI.Models
         /// <summary>
         /// Gets or sets the name of the operation type.
         /// </summary>
+        [JsonProperty("name")]
         public string Name
         {
             get;
-            internal set;
+            set;
         }
 
         /// <summary>
         /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" /> value
         /// that corresponds to the type of operation to perform.
         /// </summary>
+        [JsonProperty("operationType")]
         public OperationType OperationType
         {
             get => _operationType;
