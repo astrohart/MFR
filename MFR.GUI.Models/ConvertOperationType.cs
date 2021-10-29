@@ -34,7 +34,7 @@ namespace MFR.GUI.Models
                     break;
 
                 case OperationType.RenameSubFolders:
-                    result = "Rename Sub Folders";
+                    result = "Rename Subfolders";
                     break;
 
                 case OperationType.ReplaceTextInFiles:
