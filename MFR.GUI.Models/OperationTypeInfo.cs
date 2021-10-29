@@ -1,0 +1,53 @@
+﻿using MFR.GUI.Models.Interfaces;
+using MFR.Operations.Constants;
+
+namespace MFR.GUI.Models
+{
+    /// <summary>
+    /// Information about a type of operation to perform to indicate whether the user
+    /// wants to perform the operation.
+    /// <para />
+    /// Provides a model for a particular item in the CheckedListBox in the Operations
+    /// tab of the GUI.
+    /// </summary>
+    public class OperationTypeInfo : IOperationTypeInfo
+    {
+        /// <summary>
+        /// Gets or sets a value that indicates whether the user wants to perform the
+        /// operation.
+        /// </summary>
+        public bool Enabled
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the operation type.
+        /// </summary>
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" /> value
+        /// that corresponds to the type of operation to perform.
+        /// </summary>
+        public OperationType OperationType
+        {
+            get;
+            set;
+        }
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        /// <remarks>
+        /// This method returns the value of the
+        /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.Name" /> property.
+        /// </remarks>
+        public override string ToString()
+            => Name;
+    }
+}
