@@ -34,8 +34,9 @@ otherwise-unhandled exception.
 
 ##### Returns
 
-A [DialogResult](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.DialogResult 'System.Windows.Forms.DialogResult') value that
-corresponds to the means used by the user to dismiss the dialog.
+Reference to an instance of an object that implements the
+[IErrorReportDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IErrorReportDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults')
+interface.
 
 ##### Parameters
 
