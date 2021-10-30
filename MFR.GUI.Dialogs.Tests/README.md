@@ -5,9 +5,9 @@
 
 - [HelpProfileExplainerDialogTests](#T-MFR-GUI-Dialogs-Tests-HelpProfileExplainerDialogTests 'MFR.GUI.Dialogs.Tests.HelpProfileExplainerDialogTests')
   - [Test_HelpExplainerDialog_Works()](#M-MFR-GUI-Dialogs-Tests-HelpProfileExplainerDialogTests-Test_HelpExplainerDialog_Works 'MFR.GUI.Dialogs.Tests.HelpProfileExplainerDialogTests.Test_HelpExplainerDialog_Works')
-- [NewProfileNameDialogTests](#T-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests')
-  - [Test_AddNewProfile_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_AddNewProfile_Dialog_Works 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests.Test_AddNewProfile_Dialog_Works')
-  - [Test_SaveProfileAs_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works 'MFR.GUI.Dialogs.Tests.NewProfileNameDialogTests.Test_SaveProfileAs_Dialog_Works')
+- [ProfileNameDialogTests](#T-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests 'MFR.GUI.Dialogs.Tests.ProfileNameDialogTests')
+  - [Test_AddNewProfile_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests-Test_AddNewProfile_Dialog_Works 'MFR.GUI.Dialogs.Tests.ProfileNameDialogTests.Test_AddNewProfile_Dialog_Works')
+  - [Test_SaveProfileAs_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works 'MFR.GUI.Dialogs.Tests.ProfileNameDialogTests.Test_SaveProfileAs_Dialog_Works')
 - [Resources](#T-MFR-GUI-Dialogs-Tests-Properties-Resources 'MFR.GUI.Dialogs.Tests.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Tests-Properties-Resources-Culture 'MFR.GUI.Dialogs.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Tests-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Tests.Properties.Resources.ResourceManager')
@@ -37,8 +37,8 @@ properly displays the dialog box.
 
 This method has no parameters.
 
-<a name='T-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests'></a>
-## NewProfileNameDialogTests `type`
+<a name='T-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests'></a>
+## ProfileNameDialogTests `type`
 
 ##### Namespace
 
@@ -47,9 +47,9 @@ MFR.GUI.Dialogs.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[NewProfileNameDialog](#T-MFR-GUI-Dialogs-NewProfileNameDialog 'MFR.GUI.Dialogs.NewProfileNameDialog') class.
+[ProfileNameDialog](#T-MFR-GUI-Dialogs-ProfileNameDialog 'MFR.GUI.Dialogs.ProfileNameDialog') class.
 
-<a name='M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_AddNewProfile_Dialog_Works'></a>
+<a name='M-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests-Test_AddNewProfile_Dialog_Works'></a>
 ### Test_AddNewProfile_Dialog_Works() `method`
 
 ##### Summary
@@ -61,7 +61,7 @@ wants to do is to add a new, blank profile.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Dialogs-Tests-NewProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works'></a>
+<a name='M-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works'></a>
 ### Test_SaveProfileAs_Dialog_Works() `method`
 
 ##### Summary
