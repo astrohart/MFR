@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.Configuration.Helpers
+# MFR.Configuration.Helpers
 
 ## Contents
 
-- [ConfigurationExtensions](#T-MFR-Objects-Configuration-Helpers-ConfigurationExtensions 'MFR.Objects.Configuration.Helpers.ConfigurationExtensions')
-  - [GetTextMatchingConfiguration(config)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-GetTextMatchingConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Configuration.Helpers.ConfigurationExtensions.GetTextMatchingConfiguration(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [SaveCurrentFindWhatAndHistory(config,comboBox)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentFindWhatAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Objects.Configuration.Helpers.ConfigurationExtensions.SaveCurrentFindWhatAndHistory(MFR.Objects.Configuration.Interfaces.IConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
-  - [SaveCurrentReplaceWithAndHistory(config,comboBox)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentReplaceWithAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Objects.Configuration.Helpers.ConfigurationExtensions.SaveCurrentReplaceWithAndHistory(MFR.Objects.Configuration.Interfaces.IConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
-  - [SaveCurrentStartingFolderAndHistory(config,comboBox)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentStartingFolderAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Objects.Configuration.Helpers.ConfigurationExtensions.SaveCurrentStartingFolderAndHistory(MFR.Objects.Configuration.Interfaces.IConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
-- [Resources](#T-MFR-Objects-Configuration-Helpers-Properties-Resources 'MFR.Objects.Configuration.Helpers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Helpers-Properties-Resources-Culture 'MFR.Objects.Configuration.Helpers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Helpers-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Helpers.Properties.Resources.ResourceManager')
+- [ConfigurationExtensions](#T-MFR-Objects-Configuration-Helpers-ConfigurationExtensions 'MFR.Configuration.Helpers.ConfigurationExtensions')
+  - [GetTextMatchingConfiguration(config)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-GetTextMatchingConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Configuration.Helpers.ConfigurationExtensions.GetTextMatchingConfiguration(MFR.Configuration.Interfaces.IConfiguration)')
+  - [SaveCurrentFindWhatAndHistory(config,comboBox)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentFindWhatAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Configuration.Helpers.ConfigurationExtensions.SaveCurrentFindWhatAndHistory(MFR.Configuration.Interfaces.IConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
+  - [SaveCurrentReplaceWithAndHistory(config,comboBox)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentReplaceWithAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Configuration.Helpers.ConfigurationExtensions.SaveCurrentReplaceWithAndHistory(MFR.Configuration.Interfaces.IConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
+  - [SaveCurrentStartingFolderAndHistory(config,comboBox)](#M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentStartingFolderAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Configuration.Helpers.ConfigurationExtensions.SaveCurrentStartingFolderAndHistory(MFR.Configuration.Interfaces.IConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
+- [Resources](#T-MFR-Objects-Configuration-Helpers-Properties-Resources 'MFR.Configuration.Helpers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Configuration-Helpers-Properties-Resources-Culture 'MFR.Configuration.Helpers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Configuration-Helpers-Properties-Resources-ResourceManager 'MFR.Configuration.Helpers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Configuration-Helpers-ConfigurationExtensions'></a>
 ## ConfigurationExtensions `type`
 
 ##### Namespace
 
-MFR.Objects.Configuration.Helpers
+MFR.Configuration.Helpers
 
 ##### Summary
 
@@ -28,21 +28,21 @@ Extension methods for objects implementing the [IConfiguration](#T-MFR-GUI-IConf
 
 ##### Summary
 
-Gets the [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration') value
+Gets the [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') value
 that corresponds to the values set in the configuration object, a
 reference to which is passed by the `config` parameter.
 
 ##### Returns
 
-The [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration') value that
-corresponds to the values of the [IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
-and [IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord') properties.
+The [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') value that
+corresponds to the values of the [IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Configuration.Interfaces.IConfigurationMatchCase')
+and [IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Configuration.Interfaces.IConfigurationMatchExactWord') properties.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| config | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | Reference to an instance of an object that implements the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface. |
+| config | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | Reference to an instance of an object that implements the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface. |
 
 <a name='M-MFR-Objects-Configuration-Helpers-ConfigurationExtensions-SaveCurrentFindWhatAndHistory-MFR-Objects-Configuration-Interfaces-IConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox-'></a>
 ### SaveCurrentFindWhatAndHistory(config,comboBox) `method`
@@ -56,8 +56,8 @@ the configuration.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| config | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface and which
+| config | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface and which
 allows access to the configuration data. |
 | comboBox | [MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') | (Required.) Reference to an instance of an object that implements
 the [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
@@ -81,8 +81,8 @@ to the configuration.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| config | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface and which
+| config | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface and which
 allows access to the configuration data. |
 | comboBox | [MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') | (Required.) Reference to an instance of an object that implements
 the [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
@@ -106,8 +106,8 @@ history to the configuration.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| config | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface and which
+| config | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface and which
 allows access to the configuration data. |
 | comboBox | [MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') | (Required.) Reference to an instance of an object that implements
 the [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
@@ -125,7 +125,7 @@ content to the user. |
 
 ##### Namespace
 
-MFR.Objects.Configuration.Helpers.Properties
+MFR.Configuration.Helpers.Properties
 
 ##### Summary
 

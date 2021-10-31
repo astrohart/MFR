@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Exceptions
+# MFR.FileSystem.Exceptions
 
 ## Contents
 
-- [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.Objects.FileSystem.Exceptions.InvalidPathException')
-  - [#ctor(message,path)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String- 'MFR.Objects.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String)')
-  - [#ctor(message,paramName,path)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String,System-String- 'MFR.Objects.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String,System.String)')
-  - [#ctor(message,path,innerException)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String,System-Exception- 'MFR.Objects.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String,System.Exception)')
-  - [#ctor(message,path,paramName,innerException)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String,System-String,System-Exception- 'MFR.Objects.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String,System.String,System.Exception)')
-  - [#ctor()](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor 'MFR.Objects.FileSystem.Exceptions.InvalidPathException.#ctor')
-  - [Path](#P-MFR-Objects-FileSystem-Exceptions-InvalidPathException-Path 'MFR.Objects.FileSystem.Exceptions.InvalidPathException.Path')
-- [Resources](#T-MFR-Objects-FileSystem-Exceptions-Properties-Resources 'MFR.Objects.FileSystem.Exceptions.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Exceptions-Properties-Resources-Culture 'MFR.Objects.FileSystem.Exceptions.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Exceptions-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Exceptions.Properties.Resources.ResourceManager')
+- [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.FileSystem.Exceptions.InvalidPathException')
+  - [#ctor(message,path)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String- 'MFR.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String)')
+  - [#ctor(message,paramName,path)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String,System-String- 'MFR.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String,System.String)')
+  - [#ctor(message,path,innerException)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String,System-Exception- 'MFR.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String,System.Exception)')
+  - [#ctor(message,path,paramName,innerException)](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor-System-String,System-String,System-String,System-Exception- 'MFR.FileSystem.Exceptions.InvalidPathException.#ctor(System.String,System.String,System.String,System.Exception)')
+  - [#ctor()](#M-MFR-Objects-FileSystem-Exceptions-InvalidPathException-#ctor 'MFR.FileSystem.Exceptions.InvalidPathException.#ctor')
+  - [Path](#P-MFR-Objects-FileSystem-Exceptions-InvalidPathException-Path 'MFR.FileSystem.Exceptions.InvalidPathException.Path')
+- [Resources](#T-MFR-Objects-FileSystem-Exceptions-Properties-Resources 'MFR.FileSystem.Exceptions.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Exceptions-Properties-Resources-Culture 'MFR.FileSystem.Exceptions.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Exceptions-Properties-Resources-ResourceManager 'MFR.FileSystem.Exceptions.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Exceptions-InvalidPathException'></a>
 ## InvalidPathException `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Exceptions
+MFR.FileSystem.Exceptions
 
 ##### Summary
 
@@ -32,7 +32,7 @@ pathname that does not satisfy operating-system rules.
 
 ##### Summary
 
-Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.Objects.FileSystem.Exceptions.InvalidPathException') and returns
+Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.FileSystem.Exceptions.InvalidPathException') and returns
 a reference to it.
 
 ##### Parameters
@@ -47,7 +47,7 @@ a reference to it.
 
 ##### Summary
 
-Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.Objects.FileSystem.Exceptions.InvalidPathException') and returns
+Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.FileSystem.Exceptions.InvalidPathException') and returns
 a reference to it.
 
 ##### Parameters
@@ -63,7 +63,7 @@ a reference to it.
 
 ##### Summary
 
-Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.Objects.FileSystem.Exceptions.InvalidPathException') and returns
+Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.FileSystem.Exceptions.InvalidPathException') and returns
 a reference to it.
 
 ##### Parameters
@@ -82,7 +82,7 @@ that handles the inner exception. |
 
 ##### Summary
 
-Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.Objects.FileSystem.Exceptions.InvalidPathException') and returns
+Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.FileSystem.Exceptions.InvalidPathException') and returns
 a reference to it.
 
 ##### Parameters
@@ -102,7 +102,7 @@ that handles the inner exception. |
 
 ##### Summary
 
-Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.Objects.FileSystem.Exceptions.InvalidPathException') and returns
+Constructs a new instance of [InvalidPathException](#T-MFR-Objects-FileSystem-Exceptions-InvalidPathException 'MFR.FileSystem.Exceptions.InvalidPathException') and returns
 a reference to it.
 
 ##### Parameters
@@ -128,7 +128,7 @@ system rules.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Exceptions.Properties
+MFR.FileSystem.Exceptions.Properties
 
 ##### Summary
 

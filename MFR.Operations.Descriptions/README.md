@@ -1,88 +1,88 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations.Descriptions
+# MFR.Operations.Descriptions
 
 ## Contents
 
-- [CloseActiveSolutionOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.#cctor')
-- [FindVisualStudioOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.#cctor')
-- [GettingListOfFilesToBeRenamedOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.#cctor')
-- [OpenActiveSolutionOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.#cctor')
-- [RenameFilesInFolderOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-#ctor 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-Instance 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-OperationType 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-Text 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-#cctor 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.#cctor')
-- [RenameFilesInFolderOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.#cctor')
-- [RenameSubFoldersOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-#ctor 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-Instance 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-OperationType 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-Text 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-#cctor 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.#cctor')
-- [RenameSubFoldersOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.#cctor')
-- [ReplaceTextInFilesOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-#ctor 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-Instance 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-OperationType 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-Text 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-#cctor 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.#cctor')
-- [ReplaceTextInFilesOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription')
-  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-#ctor 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.#ctor')
-  - [Instance](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-Instance 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.Instance')
-  - [OperationType](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-OperationType 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.OperationType')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-Text 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.Text')
-  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-#cctor 'MFR.Objects.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.#cctor')
-- [Resources](#T-MFR-Objects-Operations-Descriptions-Properties-Resources 'MFR.Objects.Operations.Descriptions.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-Culture 'MFR.Objects.Operations.Descriptions.Properties.Resources.Culture')
-  - [OperationDescription_RenameFilesInFolder](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationDescription_RenameFilesInFolder 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationDescription_RenameFilesInFolder')
-  - [OperationDescription_RenameSubFolders](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSubFolders 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationDescription_RenameSubFolders')
-  - [OperationDescription_ReplaceTextInFiles](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationDescription_ReplaceTextInFiles 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationDescription_ReplaceTextInFiles')
-  - [OperationStartedDescription_CloseActiveSolution](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CloseActiveSolution 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CloseActiveSolution')
-  - [OperationStartedDescription_FindVisualStudio](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_FindVisualStudio 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_FindVisualStudio')
-  - [OperationStartedDescription_GettingListOfFilesToBeRenamed](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_GettingListOfFilesToBeRenamed 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_GettingListOfFilesToBeRenamed')
-  - [OperationStartedDescription_OpenActiveSolution](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_OpenActiveSolution 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_OpenActiveSolution')
-  - [OperationStartedDescription_RenameFilesInFolder](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_RenameFilesInFolder 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_RenameFilesInFolder')
-  - [OperationStartedDescription_RenameSubFolders](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_RenameSubFolders 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_RenameSubFolders')
-  - [OperationStartedDescription_ReplaceTextInFiles](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_ReplaceTextInFiles 'MFR.Objects.Operations.Descriptions.Properties.Resources.OperationStartedDescription_ReplaceTextInFiles')
-  - [ResourceManager](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Descriptions.Properties.Resources.ResourceManager')
+- [CloseActiveSolutionOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription 'MFR.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.CloseActiveSolutionOperationTypeStartedDescription.#cctor')
+- [FindVisualStudioOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription 'MFR.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.FindVisualStudioOperationTypeStartedDescription.#cctor')
+- [GettingListOfFilesToBeRenamedOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription 'MFR.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.GettingListOfFilesToBeRenamedOperationTypeStartedDescription.#cctor')
+- [OpenActiveSolutionOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription 'MFR.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.OpenActiveSolutionOperationTypeStartedDescription.#cctor')
+- [RenameFilesInFolderOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-#ctor 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-Instance 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-OperationType 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-Text 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-#cctor 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription.#cctor')
+- [RenameFilesInFolderOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeStartedDescription.#cctor')
+- [RenameSubFoldersOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-#ctor 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-Instance 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-OperationType 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-Text 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-#cctor 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeDescription.#cctor')
+- [RenameSubFoldersOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.RenameSubFoldersOperationTypeStartedDescription.#cctor')
+- [ReplaceTextInFilesOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-#ctor 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-Instance 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-OperationType 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-Text 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-#cctor 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeDescription.#cctor')
+- [ReplaceTextInFilesOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription')
+  - [#ctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-#ctor 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.#ctor')
+  - [Instance](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-Instance 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.Instance')
+  - [OperationType](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-OperationType 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.OperationType')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-Text 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.Text')
+  - [#cctor()](#M-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-#cctor 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationTypeStartedDescription.#cctor')
+- [Resources](#T-MFR-Objects-Operations-Descriptions-Properties-Resources 'MFR.Operations.Descriptions.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-Culture 'MFR.Operations.Descriptions.Properties.Resources.Culture')
+  - [OperationDescription_RenameFilesInFolder](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationDescription_RenameFilesInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameFilesInFolder')
+  - [OperationDescription_RenameSubFolders](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSubFolders 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameSubFolders')
+  - [OperationDescription_ReplaceTextInFiles](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationDescription_ReplaceTextInFiles 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_ReplaceTextInFiles')
+  - [OperationStartedDescription_CloseActiveSolution](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CloseActiveSolution 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CloseActiveSolution')
+  - [OperationStartedDescription_FindVisualStudio](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_FindVisualStudio 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_FindVisualStudio')
+  - [OperationStartedDescription_GettingListOfFilesToBeRenamed](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_GettingListOfFilesToBeRenamed 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_GettingListOfFilesToBeRenamed')
+  - [OperationStartedDescription_OpenActiveSolution](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_OpenActiveSolution 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_OpenActiveSolution')
+  - [OperationStartedDescription_RenameFilesInFolder](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_RenameFilesInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_RenameFilesInFolder')
+  - [OperationStartedDescription_RenameSubFolders](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_RenameSubFolders 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_RenameSubFolders')
+  - [OperationStartedDescription_ReplaceTextInFiles](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-OperationStartedDescription_ReplaceTextInFiles 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_ReplaceTextInFiles')
+  - [ResourceManager](#P-MFR-Objects-Operations-Descriptions-Properties-Resources-ResourceManager 'MFR.Operations.Descriptions.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription'></a>
 ## CloseActiveSolutionOperationTypeStartedDescription `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -106,7 +106,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[CloseActiveSolutionOperationStartedDescription](#T-MFR-Objects-CloseActiveSolutionOperationStartedDescription 'MFR.Objects.CloseActiveSolutionOperationStartedDescription')
+[CloseActiveSolutionOperationStartedDescription](#T-MFR-Objects-CloseActiveSolutionOperationStartedDescription 'MFR.CloseActiveSolutionOperationStartedDescription')
 .
 
 <a name='P-MFR-Objects-Operations-Descriptions-CloseActiveSolutionOperationTypeStartedDescription-OperationType'></a>
@@ -115,7 +115,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -147,7 +147,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -171,7 +171,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[FindVisualStudioOperationStartedDescription](#T-MFR-Objects-FindVisualStudioOperationStartedDescription 'MFR.Objects.FindVisualStudioOperationStartedDescription')
+[FindVisualStudioOperationStartedDescription](#T-MFR-Objects-FindVisualStudioOperationStartedDescription 'MFR.FindVisualStudioOperationStartedDescription')
 .
 
 <a name='P-MFR-Objects-Operations-Descriptions-FindVisualStudioOperationTypeStartedDescription-OperationType'></a>
@@ -180,7 +180,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -212,7 +212,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -235,14 +235,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [GettingListOfFilesToBeRenamedOperationStartedDescription](#T-MFR-Objects-GettingListOfFilesToBeRenamedOperationStartedDescription 'MFR.Objects.GettingListOfFilesToBeRenamedOperationStartedDescription') .
+Gets a reference to the one and only instance of [GettingListOfFilesToBeRenamedOperationStartedDescription](#T-MFR-Objects-GettingListOfFilesToBeRenamedOperationStartedDescription 'MFR.GettingListOfFilesToBeRenamedOperationStartedDescription') .
 
 <a name='P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Objects-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationTypeStartedDescription-Text'></a>
@@ -273,7 +273,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -296,14 +296,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [OpenActiveSolutionOperationStartedDescription](#T-MFR-Objects-OpenActiveSolutionOperationStartedDescription 'MFR.Objects.OpenActiveSolutionOperationStartedDescription') .
+Gets a reference to the one and only instance of [OpenActiveSolutionOperationStartedDescription](#T-MFR-Objects-OpenActiveSolutionOperationStartedDescription 'MFR.OpenActiveSolutionOperationStartedDescription') .
 
 <a name='P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Objects-Operations-Descriptions-OpenActiveSolutionOperationTypeStartedDescription-Text'></a>
@@ -334,7 +334,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -356,7 +356,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [RenameFilesInFolderOperationDescription](#T-MFR-Objects-RenameFilesInFolderOperationDescription 'MFR.Objects.RenameFilesInFolderOperationDescription').
+Gets a reference to the one and only instance of [RenameFilesInFolderOperationDescription](#T-MFR-Objects-RenameFilesInFolderOperationDescription 'MFR.RenameFilesInFolderOperationDescription').
 
 <a name='P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeDescription-OperationType'></a>
 ### OperationType `property`
@@ -364,7 +364,7 @@ Gets a reference to the one and only instance of [RenameFilesInFolderOperationDe
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -396,7 +396,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -418,7 +418,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [RenameFilesInFolderOperationStartedDescription](#T-MFR-Objects-RenameFilesInFolderOperationStartedDescription 'MFR.Objects.RenameFilesInFolderOperationStartedDescription').
+Gets a reference to the one and only instance of [RenameFilesInFolderOperationStartedDescription](#T-MFR-Objects-RenameFilesInFolderOperationStartedDescription 'MFR.RenameFilesInFolderOperationStartedDescription').
 
 <a name='P-MFR-Objects-Operations-Descriptions-RenameFilesInFolderOperationTypeStartedDescription-OperationType'></a>
 ### OperationType `property`
@@ -426,7 +426,7 @@ Gets a reference to the one and only instance of [RenameFilesInFolderOperationSt
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -458,7 +458,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -480,7 +480,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [RenameSubFoldersOperationDescription](#T-MFR-Objects-RenameSubFoldersOperationDescription 'MFR.Objects.RenameSubFoldersOperationDescription').
+Gets a reference to the one and only instance of [RenameSubFoldersOperationDescription](#T-MFR-Objects-RenameSubFoldersOperationDescription 'MFR.RenameSubFoldersOperationDescription').
 
 <a name='P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeDescription-OperationType'></a>
 ### OperationType `property`
@@ -488,7 +488,7 @@ Gets a reference to the one and only instance of [RenameSubFoldersOperationDescr
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -520,7 +520,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -544,7 +544,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[RenameSubFoldersOperationStartedDescription](#T-MFR-Objects-RenameSubFoldersOperationStartedDescription 'MFR.Objects.RenameSubFoldersOperationStartedDescription')
+[RenameSubFoldersOperationStartedDescription](#T-MFR-Objects-RenameSubFoldersOperationStartedDescription 'MFR.RenameSubFoldersOperationStartedDescription')
 .
 
 <a name='P-MFR-Objects-Operations-Descriptions-RenameSubFoldersOperationTypeStartedDescription-OperationType'></a>
@@ -553,7 +553,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -585,7 +585,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -608,14 +608,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [ReplaceTextInFilesOperationDescription](#T-MFR-Objects-ReplaceTextInFilesOperationDescription 'MFR.Objects.ReplaceTextInFilesOperationDescription').
+Gets a reference to the one and only instance of [ReplaceTextInFilesOperationDescription](#T-MFR-Objects-ReplaceTextInFilesOperationDescription 'MFR.ReplaceTextInFilesOperationDescription').
 
 <a name='P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeDescription-Text'></a>
@@ -646,7 +646,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions
+MFR.Operations.Descriptions
 
 ##### Summary
 
@@ -669,14 +669,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [ReplaceTextInFilesOperationStartedDescription](#T-MFR-Objects-ReplaceTextInFilesOperationStartedDescription 'MFR.Objects.ReplaceTextInFilesOperationStartedDescription').
+Gets a reference to the one and only instance of [ReplaceTextInFilesOperationStartedDescription](#T-MFR-Objects-ReplaceTextInFilesOperationStartedDescription 'MFR.ReplaceTextInFilesOperationStartedDescription').
 
 <a name='P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Objects-Operations-Descriptions-ReplaceTextInFilesOperationTypeStartedDescription-Text'></a>
@@ -707,7 +707,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions.Properties
+MFR.Operations.Descriptions.Properties
 
 ##### Summary
 

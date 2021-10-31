@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Factories
+# MFR.FileSystem.Factories
 
 ## Contents
 
-- [MakeNewDirectoryInfo](#T-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo 'MFR.Objects.FileSystem.Factories.MakeNewDirectoryInfo')
-  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo-ForPath-System-String- 'MFR.Objects.FileSystem.Factories.MakeNewDirectoryInfo.ForPath(System.String)')
-- [MakeNewFileInfo](#T-MFR-Objects-FileSystem-Factories-MakeNewFileInfo 'MFR.Objects.FileSystem.Factories.MakeNewFileInfo')
-  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-ForPath-System-String- 'MFR.Objects.FileSystem.Factories.MakeNewFileInfo.ForPath(System.String)')
-  - [FromFileSystemEntry(entry)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-FromFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Factories.MakeNewFileInfo.FromFileSystemEntry(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-- [MakeNewFileSystemEntry](#T-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry 'MFR.Objects.FileSystem.Factories.MakeNewFileSystemEntry')
-  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry-ForPath-System-String- 'MFR.Objects.FileSystem.Factories.MakeNewFileSystemEntry.ForPath(System.String)')
-- [Resources](#T-MFR-Objects-FileSystem-Factories-Properties-Resources 'MFR.Objects.FileSystem.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Factories-Properties-Resources-Culture 'MFR.Objects.FileSystem.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Factories-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Factories.Properties.Resources.ResourceManager')
+- [MakeNewDirectoryInfo](#T-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo 'MFR.FileSystem.Factories.MakeNewDirectoryInfo')
+  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo-ForPath-System-String- 'MFR.FileSystem.Factories.MakeNewDirectoryInfo.ForPath(System.String)')
+- [MakeNewFileInfo](#T-MFR-Objects-FileSystem-Factories-MakeNewFileInfo 'MFR.FileSystem.Factories.MakeNewFileInfo')
+  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-ForPath-System-String- 'MFR.FileSystem.Factories.MakeNewFileInfo.ForPath(System.String)')
+  - [FromFileSystemEntry(entry)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileInfo-FromFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Factories.MakeNewFileInfo.FromFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+- [MakeNewFileSystemEntry](#T-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry 'MFR.FileSystem.Factories.MakeNewFileSystemEntry')
+  - [ForPath(path)](#M-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry-ForPath-System-String- 'MFR.FileSystem.Factories.MakeNewFileSystemEntry.ForPath(System.String)')
+- [Resources](#T-MFR-Objects-FileSystem-Factories-Properties-Resources 'MFR.FileSystem.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Factories-Properties-Resources-Culture 'MFR.FileSystem.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Factories-Properties-Resources-ResourceManager 'MFR.FileSystem.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Factories-MakeNewDirectoryInfo'></a>
 ## MakeNewDirectoryInfo `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Factories
+MFR.FileSystem.Factories
 
 ##### Summary
 
@@ -50,7 +50,7 @@ that represents the folder with the specified `path`.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Factories
+MFR.FileSystem.Factories
 
 ##### Summary
 
@@ -94,7 +94,7 @@ parameter, cannot be located on the disk. |
 
 Creates a new instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') for the
 file whose path is specified by the object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface, a reference to which is passed in the
 `entry`
 parameter.
@@ -109,8 +109,8 @@ the `entry` parameter.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that contains the file's path. |
 
 ##### Exceptions
@@ -118,7 +118,7 @@ interface that contains the file's path. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required
-[Path](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
 property is passed a blank or `null` string for a value. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
@@ -128,12 +128,12 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Factories
+MFR.FileSystem.Factories
 
 ##### Summary
 
 Creates new instances of objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface.
 
 <a name='M-MFR-Objects-FileSystem-Factories-MakeNewFileSystemEntry-ForPath-System-String-'></a>
@@ -142,14 +142,14 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface, for
 the `path` specified, and returns a reference to it.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface,
 initialized with the specified `path`, or `null` if either an exception is thrown during the create operation or if `path` is a blank value.
 
@@ -170,10 +170,10 @@ a blank or `null` string for a value. |
 ##### Remarks
 
 NOTE: The caller must also call the
-[AndOperationType](#M-MFR-Objects-IOperationSpecificObject-AndOperationType 'MFR.Objects.IOperationSpecificObject.AndOperationType')
+[AndOperationType](#M-MFR-Objects-IOperationSpecificObject-AndOperationType 'MFR.IOperationSpecificObject.AndOperationType')
 method,
 and, optionally, the
-[WithUserState](#M-MFR-Objects-IFileSystemEntry-WithUserState 'MFR.Objects.IFileSystemEntry.WithUserState')
+[WithUserState](#M-MFR-Objects-IFileSystemEntry-WithUserState 'MFR.IFileSystemEntry.WithUserState')
 fluent-builder methods on the result.
 
 <a name='T-MFR-Objects-FileSystem-Factories-Properties-Resources'></a>
@@ -181,7 +181,7 @@ fluent-builder methods on the result.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Factories.Properties
+MFR.FileSystem.Factories.Properties
 
 ##### Summary
 

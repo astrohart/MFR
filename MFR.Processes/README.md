@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Processes
+# MFR.Processes
 
 ## Contents
 
-- [ProcessIdProvider](#T-MFR-Objects-Processes-ProcessIdProvider 'MFR.Objects.Processes.ProcessIdProvider')
-  - [GetAllProcessIDsOf(path)](#M-MFR-Objects-Processes-ProcessIdProvider-GetAllProcessIDsOf-System-String- 'MFR.Objects.Processes.ProcessIdProvider.GetAllProcessIDsOf(System.String)')
-  - [GetProcessIDOf(path)](#M-MFR-Objects-Processes-ProcessIdProvider-GetProcessIDOf-System-String- 'MFR.Objects.Processes.ProcessIdProvider.GetProcessIDOf(System.String)')
-- [Resources](#T-MFR-Objects-Processes-Properties-Resources 'MFR.Objects.Processes.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Processes-Properties-Resources-Culture 'MFR.Objects.Processes.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Processes-Properties-Resources-ResourceManager 'MFR.Objects.Processes.Properties.Resources.ResourceManager')
+- [ProcessIdProvider](#T-MFR-Objects-Processes-ProcessIdProvider 'MFR.Processes.ProcessIdProvider')
+  - [GetAllProcessIDsOf(path)](#M-MFR-Objects-Processes-ProcessIdProvider-GetAllProcessIDsOf-System-String- 'MFR.Processes.ProcessIdProvider.GetAllProcessIDsOf(System.String)')
+  - [GetProcessIDOf(path)](#M-MFR-Objects-Processes-ProcessIdProvider-GetProcessIDOf-System-String- 'MFR.Processes.ProcessIdProvider.GetProcessIDOf(System.String)')
+- [Resources](#T-MFR-Objects-Processes-Properties-Resources 'MFR.Processes.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Processes-Properties-Resources-Culture 'MFR.Processes.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Processes-Properties-Resources-ResourceManager 'MFR.Processes.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Processes-ProcessIdProvider'></a>
 ## ProcessIdProvider `type`
 
 ##### Namespace
 
-MFR.Objects.Processes
+MFR.Processes
 
 ##### Summary
 
@@ -68,7 +68,7 @@ pathname, of hte .exe file that you think is currently a running process. |
 
 ##### Namespace
 
-MFR.Objects.Processes.Properties
+MFR.Processes.Properties
 
 ##### Summary
 

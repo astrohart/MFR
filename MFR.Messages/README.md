@@ -1,30 +1,30 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages
+# MFR.Messages
 
 ## Contents
 
-- [FixedMessageTypeSpecificObjectBase](#T-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase 'MFR.Objects.Messages.FixedMessageTypeSpecificObjectBase')
-  - [MessageType](#P-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase-MessageType 'MFR.Objects.Messages.FixedMessageTypeSpecificObjectBase.MessageType')
-- [MessageBase](#T-MFR-Objects-Messages-MessageBase 'MFR.Objects.Messages.MessageBase')
-  - [CommonExecute()](#M-MFR-Objects-Messages-MessageBase-CommonExecute 'MFR.Objects.Messages.MessageBase.CommonExecute')
-  - [Execute()](#M-MFR-Objects-Messages-MessageBase-Execute 'MFR.Objects.Messages.MessageBase.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-MessageBase-ExecuteAsync 'MFR.Objects.Messages.MessageBase.ExecuteAsync')
-- [Resources](#T-MFR-Objects-Messages-Properties-Resources 'MFR.Objects.Messages.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Properties-Resources-Culture 'MFR.Objects.Messages.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Properties.Resources.ResourceManager')
+- [FixedMessageTypeSpecificObjectBase](#T-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase 'MFR.Messages.FixedMessageTypeSpecificObjectBase')
+  - [MessageType](#P-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase-MessageType 'MFR.Messages.FixedMessageTypeSpecificObjectBase.MessageType')
+- [MessageBase](#T-MFR-Objects-Messages-MessageBase 'MFR.Messages.MessageBase')
+  - [CommonExecute()](#M-MFR-Objects-Messages-MessageBase-CommonExecute 'MFR.Messages.MessageBase.CommonExecute')
+  - [Execute()](#M-MFR-Objects-Messages-MessageBase-Execute 'MFR.Messages.MessageBase.Execute')
+  - [ExecuteAsync()](#M-MFR-Objects-Messages-MessageBase-ExecuteAsync 'MFR.Messages.MessageBase.ExecuteAsync')
+- [Resources](#T-MFR-Objects-Messages-Properties-Resources 'MFR.Messages.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Properties-Resources-Culture 'MFR.Messages.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Properties-Resources-ResourceManager 'MFR.Messages.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase'></a>
 ## FixedMessageTypeSpecificObjectBase `type`
 
 ##### Namespace
 
-MFR.Objects.Messages
+MFR.Messages
 
 ##### Summary
 
 Defines the methods, properties, and other functionality that are common
 to all objects that are tagged with a
-[MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType')
+[MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType')
 enumeration value.
 
 <a name='P-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase-MessageType'></a>
@@ -33,7 +33,7 @@ enumeration value.
 ##### Summary
 
 Gets the
-[MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType')
+[MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType')
 that is
 being used to identify which message this is.
 
@@ -42,7 +42,7 @@ being used to identify which message this is.
 
 ##### Namespace
 
-MFR.Objects.Messages
+MFR.Messages
 
 ##### Summary
 
@@ -59,9 +59,9 @@ All message objects perform operations that do not require any input or output.
 ##### Summary
 
 Provides the functionality of both the
-[Execute](#M-MFR-Objects-IMessage-Execute 'MFR.Objects.IMessage.Execute')
+[Execute](#M-MFR-Objects-IMessage-Execute 'MFR.IMessage.Execute')
 and
-[ExecuteAsync](#M-MFR-Objects-IMessage-ExecuteAsync 'MFR.Objects.IMessage.ExecuteAsync')
+[ExecuteAsync](#M-MFR-Objects-IMessage-ExecuteAsync 'MFR.IMessage.ExecuteAsync')
 methods.
 
 ##### Parameters
@@ -100,7 +100,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Messages.Properties
+MFR.Messages.Properties
 
 ##### Summary
 

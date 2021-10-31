@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Matches.Interfaces
+# MFR.Expressions.Matches.Interfaces
 
 ## Contents
 
-- [IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression')
-  - [FindWhat](#P-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-FindWhat 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression.FindWhat')
-  - [ReplaceWith](#P-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-ReplaceWith 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression.ReplaceWith')
-  - [Value](#P-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-Value 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression.Value')
-- [Resources](#T-MFR-Objects-Expressions-Matches-Interfaces-Properties-Resources 'MFR.Objects.Expressions.Matches.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Matches-Interfaces-Properties-Resources-Culture 'MFR.Objects.Expressions.Matches.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Matches-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Matches.Interfaces.Properties.Resources.ResourceManager')
+- [IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression')
+  - [FindWhat](#P-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-FindWhat 'MFR.Expressions.Matches.Interfaces.IMatchExpression.FindWhat')
+  - [ReplaceWith](#P-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-ReplaceWith 'MFR.Expressions.Matches.Interfaces.IMatchExpression.ReplaceWith')
+  - [Value](#P-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-Value 'MFR.Expressions.Matches.Interfaces.IMatchExpression.Value')
+- [Resources](#T-MFR-Objects-Expressions-Matches-Interfaces-Properties-Resources 'MFR.Expressions.Matches.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Matches-Interfaces-Properties-Resources-Culture 'MFR.Expressions.Matches.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Matches-Interfaces-Properties-Resources-ResourceManager 'MFR.Expressions.Matches.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression'></a>
 ## IMatchExpression `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Matches.Interfaces
+MFR.Expressions.Matches.Interfaces
 
 ##### Summary
 
@@ -50,7 +50,7 @@ Gets or sets a string containing a pattern to be matched against.
 
 ##### Namespace
 
-MFR.Objects.Expressions.Matches.Interfaces.Properties
+MFR.Expressions.Matches.Interfaces.Properties
 
 ##### Summary
 

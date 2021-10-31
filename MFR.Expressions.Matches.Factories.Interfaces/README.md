@@ -1,30 +1,30 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Matches.Factories.Interfaces
+# MFR.Expressions.Matches.Factories.Interfaces
 
 ## Contents
 
-- [IMatchExpressionFactory](#T-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
-  - [FindWhat](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-FindWhat 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.FindWhat')
-  - [ReplaceWith](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-ReplaceWith 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.ReplaceWith')
-  - [Value](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-Value 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.Value')
-  - [AndReplaceItWith(replaceWith)](#M-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-AndReplaceItWith-System-String- 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.AndReplaceItWith(System.String)')
-  - [ForTextValue(value)](#M-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-ForTextValue-System-String- 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.ForTextValue(System.String)')
-  - [ToFindWhat(findWhat)](#M-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-ToFindWhat-System-String- 'MFR.Objects.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.ToFindWhat(System.String)')
-- [Resources](#T-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources 'MFR.Objects.Expressions.Matches.Factories.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources-Culture 'MFR.Objects.Expressions.Matches.Factories.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Matches.Factories.Interfaces.Properties.Resources.ResourceManager')
+- [IMatchExpressionFactory](#T-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+  - [FindWhat](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-FindWhat 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.FindWhat')
+  - [ReplaceWith](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-ReplaceWith 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.ReplaceWith')
+  - [Value](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-Value 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.Value')
+  - [AndReplaceItWith(replaceWith)](#M-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-AndReplaceItWith-System-String- 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.AndReplaceItWith(System.String)')
+  - [ForTextValue(value)](#M-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-ForTextValue-System-String- 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.ForTextValue(System.String)')
+  - [ToFindWhat(findWhat)](#M-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-ToFindWhat-System-String- 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory.ToFindWhat(System.String)')
+- [Resources](#T-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources 'MFR.Expressions.Matches.Factories.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources-Culture 'MFR.Expressions.Matches.Factories.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Matches-Factories-Interfaces-Properties-Resources-ResourceManager 'MFR.Expressions.Matches.Factories.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory'></a>
 ## IMatchExpressionFactory `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Matches.Factories.Interfaces
+MFR.Expressions.Matches.Factories.Interfaces
 
 ##### Summary
 
 Creates instances of objects that implements the
-[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
+[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
 interface for the
 various operation types.
 
@@ -49,9 +49,9 @@ search criteria.
 
 Gets or sets a string containing the text that all occurrences of
 the pattern in the
-[FindWhat](#P-MFR-Objects-MatchExpressionFactoryBase-FindWhat 'MFR.Objects.MatchExpressionFactoryBase.FindWhat')
+[FindWhat](#P-MFR-Objects-MatchExpressionFactoryBase-FindWhat 'MFR.MatchExpressionFactoryBase.FindWhat')
 property get replaced with in the
-[Value](#P-MFR-Objects-MatchExpressionFactoryBase-Value 'MFR.Objects.MatchExpressionFactoryBase.Value')
+[Value](#P-MFR-Objects-MatchExpressionFactoryBase-Value 'MFR.MatchExpressionFactoryBase.Value')
 property.
 
 <a name='P-MFR-Objects-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-Value'></a>
@@ -68,7 +68,7 @@ Gets or sets a string containing the text data to be searched.
 
 Initializes the value that text matching the pattern specified by
 the
-[ToFindWhat](#M-MFR-Objects-IMatchExpressionFactory-ToFindWhat 'MFR.Objects.IMatchExpressionFactory.ToFindWhat')
+[ToFindWhat](#M-MFR-Objects-IMatchExpressionFactory-ToFindWhat 'MFR.IMatchExpressionFactory.ToFindWhat')
 method will be replaced with.
 
 
@@ -79,7 +79,7 @@ Files operation type.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
+[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
 interface.
 
 ##### Parameters
@@ -101,7 +101,7 @@ for the Replace Text in Files operation type. |
 
 This method is the final method in the fluent-build chain,
 outputting an instance of an object that implements the
-[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
+[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
 interface as a result.
 
 
@@ -146,9 +146,9 @@ invoked first.
 
 
 However, prior to even invoking this method, the
-[AndAttachConfiguration](#M-MFR-Objects-IConfigurationComposedObject-AndAttachConfiguration 'MFR.Objects.IConfigurationComposedObject.AndAttachConfiguration')
+[AndAttachConfiguration](#M-MFR-Objects-IConfigurationComposedObject-AndAttachConfiguration 'MFR.IConfigurationComposedObject.AndAttachConfiguration')
 method must be invoked; otherwise, a
-[ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException')
+[ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException')
 will be thrown. It is incumbent upon invokers of this method to
 first weed out any possible elements of the source value set that
 may make the `value` parameter get passed a blank string.
@@ -186,7 +186,7 @@ Files operation type. |
 ##### Remarks
 
 It is recommended to call this method after calling the
-[ForTextValue](#M-MFR-Objects-IMatchExpressionFactory-ForTextValue 'MFR.Objects.IMatchExpressionFactory.ForTextValue')
+[ForTextValue](#M-MFR-Objects-IMatchExpressionFactory-ForTextValue 'MFR.IMatchExpressionFactory.ForTextValue')
 method.
 
 
@@ -200,7 +200,7 @@ possible elements of the source value set that may make the
 
 ##### Namespace
 
-MFR.Objects.Expressions.Matches.Factories.Interfaces.Properties
+MFR.Expressions.Matches.Factories.Interfaces.Properties
 
 ##### Summary
 

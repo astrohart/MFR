@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Generators.RegularExpressions.Interfaces
+# MFR.Generators.RegularExpressions.Interfaces
 
 ## Contents
 
-- [IFixedRegularExpressionTypeObject](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IFixedRegularExpressionTypeObject 'MFR.Objects.Generators.RegularExpressions.Interfaces.IFixedRegularExpressionTypeObject')
-  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-Interfaces-IFixedRegularExpressionTypeObject-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Interfaces.IFixedRegularExpressionTypeObject.RegularExpressionType')
-- [IRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator')
-- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-Properties-Resources 'MFR.Objects.Generators.RegularExpressions.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Interfaces-Properties-Resources-Culture 'MFR.Objects.Generators.RegularExpressions.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Generators.RegularExpressions.Interfaces.Properties.Resources.ResourceManager')
+- [IFixedRegularExpressionTypeObject](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IFixedRegularExpressionTypeObject 'MFR.Generators.RegularExpressions.Interfaces.IFixedRegularExpressionTypeObject')
+  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-Interfaces-IFixedRegularExpressionTypeObject-RegularExpressionType 'MFR.Generators.RegularExpressions.Interfaces.IFixedRegularExpressionTypeObject.RegularExpressionType')
+- [IRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IRegularExpressionGenerator 'MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator')
+- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-Properties-Resources 'MFR.Generators.RegularExpressions.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Interfaces-Properties-Resources-Culture 'MFR.Generators.RegularExpressions.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Interfaces-Properties-Resources-ResourceManager 'MFR.Generators.RegularExpressions.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Generators-RegularExpressions-Interfaces-IFixedRegularExpressionTypeObject'></a>
 ## IFixedRegularExpressionTypeObject `type`
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Interfaces
+MFR.Generators.RegularExpressions.Interfaces
 
 ##### Summary
 
@@ -27,7 +27,7 @@ Defines the publicly-exposed methods and properties of an object that processes 
 ##### Summary
 
 Gets the
-[RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType')
+[RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
 value that uniquely identifies which type of regular expressions
 that this object handles.
 
@@ -36,7 +36,7 @@ that this object handles.
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Interfaces
+MFR.Generators.RegularExpressions.Interfaces
 
 ##### Summary
 
@@ -47,7 +47,7 @@ Defines the publicly-exposed methods and properties of an object that generates 
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Interfaces.Properties
+MFR.Generators.RegularExpressions.Interfaces.Properties
 
 ##### Summary
 

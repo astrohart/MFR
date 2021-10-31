@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Matchers.Interfaces
+# MFR.Matchers.Interfaces
 
 ## Contents
 
-- [IStringMatcher](#T-MFR-Objects-Matchers-Interfaces-IStringMatcher 'MFR.Objects.Matchers.Interfaces.IStringMatcher')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.Interfaces.IStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [Resources](#T-MFR-Objects-Matchers-Interfaces-Properties-Resources 'MFR.Objects.Matchers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Matchers-Interfaces-Properties-Resources-Culture 'MFR.Objects.Matchers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Matchers-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Matchers.Interfaces.Properties.Resources.ResourceManager')
+- [IStringMatcher](#T-MFR-Objects-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.Interfaces.IStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Objects-Matchers-Interfaces-Properties-Resources 'MFR.Matchers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Matchers-Interfaces-Properties-Resources-Culture 'MFR.Matchers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Matchers-Interfaces-Properties-Resources-ResourceManager 'MFR.Matchers.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Matchers-Interfaces-IStringMatcher'></a>
 ## IStringMatcher `type`
 
 ##### Namespace
 
-MFR.Objects.Matchers.Interfaces
+MFR.Matchers.Interfaces
 
 ##### Summary
 
@@ -67,7 +67,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers.Interfaces.Properties
+MFR.Matchers.Interfaces.Properties
 
 ##### Summary
 

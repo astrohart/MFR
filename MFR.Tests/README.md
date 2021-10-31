@@ -1,37 +1,37 @@
 <a name='assembly'></a>
-# MFR.Objects.Tests
+# MFR.Tests
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Tests-Properties-Resources 'MFR.Objects.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Tests-Properties-Resources-Culture 'MFR.Objects.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Tests.Properties.Resources.ResourceManager')
-  - [SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER](#P-MFR-Objects-Tests-Properties-Resources-SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER 'MFR.Objects.Tests.Properties.Resources.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER')
-- [StringExtensionsTests](#T-MFR-Objects-Tests-StringExtensionsTests 'MFR.Objects.Tests.StringExtensionsTests')
-  - [Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly')
-  - [Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension')
-  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput')
-  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput')
-  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace')
-  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName')
-  - [Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists')
-  - [Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist 'MFR.Objects.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist')
-  - [Test_IsFolderPath_ReturnsFalse_ForBlankInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForBlankInput 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForBlankInput')
-  - [Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist')
-  - [Test_IsFolderPath_ReturnsFalse_ForFileThatExists()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFileThatExists 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFileThatExists')
-  - [Test_IsFolderPath_ReturnsFalse_ForFilenameOnly()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFilenameOnly 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFilenameOnly')
-  - [Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension')
-  - [Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist')
-  - [Test_IsFolderPath_ReturnsFalse_ForNullInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForNullInput 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForNullInput')
-  - [Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput')
-  - [Test_IsFolderPath_ReturnsTrue_ForFolderThatExists()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsTrue_ForFolderThatExists 'MFR.Objects.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsTrue_ForFolderThatExists')
+- [Resources](#T-MFR-Objects-Tests-Properties-Resources 'MFR.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Tests-Properties-Resources-Culture 'MFR.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Tests-Properties-Resources-ResourceManager 'MFR.Tests.Properties.Resources.ResourceManager')
+  - [SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER](#P-MFR-Objects-Tests-Properties-Resources-SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER 'MFR.Tests.Properties.Resources.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER')
+- [StringExtensionsTests](#T-MFR-Objects-Tests-StringExtensionsTests 'MFR.Tests.StringExtensionsTests')
+  - [Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly')
+  - [Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension')
+  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput')
+  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput')
+  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace')
+  - [Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName')
+  - [Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists')
+  - [Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist 'MFR.Tests.StringExtensionsTests.Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist')
+  - [Test_IsFolderPath_ReturnsFalse_ForBlankInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForBlankInput 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForBlankInput')
+  - [Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist')
+  - [Test_IsFolderPath_ReturnsFalse_ForFileThatExists()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFileThatExists 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFileThatExists')
+  - [Test_IsFolderPath_ReturnsFalse_ForFilenameOnly()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFilenameOnly 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFilenameOnly')
+  - [Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension')
+  - [Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist')
+  - [Test_IsFolderPath_ReturnsFalse_ForNullInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForNullInput 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForNullInput')
+  - [Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput')
+  - [Test_IsFolderPath_ReturnsTrue_ForFolderThatExists()](#M-MFR-Objects-Tests-StringExtensionsTests-Test_IsFolderPath_ReturnsTrue_ForFolderThatExists 'MFR.Tests.StringExtensionsTests.Test_IsFolderPath_ReturnsTrue_ForFolderThatExists')
 
 <a name='T-MFR-Objects-Tests-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Tests.Properties
+MFR.Tests.Properties
 
 ##### Summary
 
@@ -64,7 +64,7 @@ Looks up a localized string similar to C:\Users\Administrator\source\repos\astro
 
 ##### Namespace
 
-MFR.Objects.Tests
+MFR.Tests
 
 ##### Summary
 

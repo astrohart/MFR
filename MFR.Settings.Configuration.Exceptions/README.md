@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Configuration.Exceptions
+# MFR.Configuration.Exceptions
 
 ## Contents
 
-- [ConfigurationNotAttachedException](#T-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Objects.Configuration.Exceptions.ConfigurationNotAttachedException')
-  - [#ctor()](#M-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException-#ctor 'MFR.Objects.Configuration.Exceptions.ConfigurationNotAttachedException.#ctor')
-- [Resources](#T-MFR-Objects-Configuration-Exceptions-Properties-Resources 'MFR.Objects.Configuration.Exceptions.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Exceptions-Properties-Resources-Culture 'MFR.Objects.Configuration.Exceptions.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Exceptions-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Exceptions.Properties.Resources.ResourceManager')
+- [ConfigurationNotAttachedException](#T-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Configuration.Exceptions.ConfigurationNotAttachedException')
+  - [#ctor()](#M-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException-#ctor 'MFR.Configuration.Exceptions.ConfigurationNotAttachedException.#ctor')
+- [Resources](#T-MFR-Objects-Configuration-Exceptions-Properties-Resources 'MFR.Configuration.Exceptions.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Configuration-Exceptions-Properties-Resources-Culture 'MFR.Configuration.Exceptions.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Configuration-Exceptions-Properties-Resources-ResourceManager 'MFR.Configuration.Exceptions.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException'></a>
 ## ConfigurationNotAttachedException `type`
 
 ##### Namespace
 
-MFR.Objects.Configuration.Exceptions
+MFR.Configuration.Exceptions
 
 ##### Summary
 
 Exception that indicates that the developer forgot to call the
-[AndAttachConfiguration](#M-MFR-Objects-ConfigurationComposedObjectBase-AndAttachConfiguration 'MFR.Objects.ConfigurationComposedObjectBase.AndAttachConfiguration')
+[AndAttachConfiguration](#M-MFR-Objects-ConfigurationComposedObjectBase-AndAttachConfiguration 'MFR.ConfigurationComposedObjectBase.AndAttachConfiguration')
 method when initializing an object.
 
 <a name='M-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException-#ctor'></a>
@@ -28,7 +28,7 @@ method when initializing an object.
 ##### Summary
 
 Constructs a new instance of
-[ConfigurationNotAttachedException](#T-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Objects.Configuration.Exceptions.ConfigurationNotAttachedException')
+[ConfigurationNotAttachedException](#T-MFR-Objects-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Configuration.Exceptions.ConfigurationNotAttachedException')
 and returns a reference to it.
 
 ##### Parameters
@@ -40,7 +40,7 @@ This constructor has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Configuration.Exceptions.Properties
+MFR.Configuration.Exceptions.Properties
 
 ##### Summary
 

@@ -1,26 +1,26 @@
 <a name='assembly'></a>
-# MFR.Objects.Metadata.Registry.Interfaces
+# MFR.Metadata.Registry.Interfaces
 
 ## Contents
 
-- [IRegOperationMetadata\`1](#T-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1')
-  - [Hive](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-Hive 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.Hive')
-  - [KeyPath](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-KeyPath 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.KeyPath')
-  - [Value](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-Value 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.Value')
-  - [ValueName](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-ValueName 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.ValueName')
-  - [AndValueName(valueName)](#M-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-AndValueName-System-String- 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.AndValueName(System.String)')
-  - [ForKeyPath()](#M-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-ForKeyPath-System-String- 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.ForKeyPath(System.String)')
-  - [WithValue(value)](#M-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-WithValue-`0- 'MFR.Objects.Metadata.Registry.Interfaces.IRegOperationMetadata`1.WithValue(`0)')
-- [Resources](#T-MFR-Objects-Metadata-Registry-Interfaces-Properties-Resources 'MFR.Objects.Metadata.Registry.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Metadata-Registry-Interfaces-Properties-Resources-Culture 'MFR.Objects.Metadata.Registry.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Metadata-Registry-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Metadata.Registry.Interfaces.Properties.Resources.ResourceManager')
+- [IRegOperationMetadata\`1](#T-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1')
+  - [Hive](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-Hive 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.Hive')
+  - [KeyPath](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-KeyPath 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.KeyPath')
+  - [Value](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-Value 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.Value')
+  - [ValueName](#P-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-ValueName 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.ValueName')
+  - [AndValueName(valueName)](#M-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-AndValueName-System-String- 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.AndValueName(System.String)')
+  - [ForKeyPath()](#M-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-ForKeyPath-System-String- 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.ForKeyPath(System.String)')
+  - [WithValue(value)](#M-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1-WithValue-`0- 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata`1.WithValue(`0)')
+- [Resources](#T-MFR-Objects-Metadata-Registry-Interfaces-Properties-Resources 'MFR.Metadata.Registry.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Metadata-Registry-Interfaces-Properties-Resources-Culture 'MFR.Metadata.Registry.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Metadata-Registry-Interfaces-Properties-Resources-ResourceManager 'MFR.Metadata.Registry.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Metadata-Registry-Interfaces-IRegOperationMetadata`1'></a>
 ## IRegOperationMetadata\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Metadata.Registry.Interfaces
+MFR.Metadata.Registry.Interfaces
 
 ##### Summary
 
@@ -76,7 +76,7 @@ data to, the (Default) value under a particular registry key.
 ##### Summary
 
 Assigns a value to the
-[ValueName](#P-MFR-Objects-IRegQueryExpression-ValueName 'MFR.Objects.IRegQueryExpression.ValueName')
+[ValueName](#P-MFR-Objects-IRegQueryExpression-ValueName 'MFR.IRegQueryExpression.ValueName')
 property.
 
 ##### Returns
@@ -125,7 +125,7 @@ If the hive ( `HKEY_`) is not included, then
 ##### Summary
 
 Assigns data to be written to the system Registry to the
-[Value](#P-MFR-Objects-IRegOperationMetadata-Value 'MFR.Objects.IRegOperationMetadata.Value')
+[Value](#P-MFR-Objects-IRegOperationMetadata-Value 'MFR.IRegOperationMetadata.Value')
 property.
 
 ##### Returns
@@ -149,7 +149,7 @@ Calling this method is optional.
 
 ##### Namespace
 
-MFR.Objects.Metadata.Registry.Interfaces.Properties
+MFR.Metadata.Registry.Interfaces.Properties
 
 ##### Summary
 

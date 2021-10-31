@@ -1,29 +1,29 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Factories.Tests
+# MFR.FileSystem.Factories.Tests
 
 ## Contents
 
-- [MakeNewFileInfoTests](#T-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests 'MFR.Objects.FileSystem.Factories.Tests.MakeNewFileInfoTests')
-  - [Test_ForPath_ReturnsValidFileInfo_ForFileThatExists()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ReturnsValidFileInfo_ForFileThatExists 'MFR.Objects.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ReturnsValidFileInfo_ForFileThatExists')
-  - [Test_ForPath_ThrowsArgumentException_ForBlankFilename()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsArgumentException_ForBlankFilename 'MFR.Objects.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsArgumentException_ForBlankFilename')
-  - [Test_ForPath_ThrowsArgumentException_ForNullFilename()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsArgumentException_ForNullFilename 'MFR.Objects.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsArgumentException_ForNullFilename')
-  - [Test_ForPath_ThrowsArgumentException_ForWhitespaceFilename()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsArgumentException_ForWhitespaceFilename 'MFR.Objects.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsArgumentException_ForWhitespaceFilename')
-  - [Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile 'MFR.Objects.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile')
-- [Resources](#T-MFR-Objects-FileSystem-Factories-Tests-Properties-Resources 'MFR.Objects.FileSystem.Factories.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Factories-Tests-Properties-Resources-Culture 'MFR.Objects.FileSystem.Factories.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Factories.Tests.Properties.Resources.ResourceManager')
+- [MakeNewFileInfoTests](#T-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests 'MFR.FileSystem.Factories.Tests.MakeNewFileInfoTests')
+  - [Test_ForPath_ReturnsValidFileInfo_ForFileThatExists()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ReturnsValidFileInfo_ForFileThatExists 'MFR.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ReturnsValidFileInfo_ForFileThatExists')
+  - [Test_ForPath_ThrowsArgumentException_ForBlankFilename()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsArgumentException_ForBlankFilename 'MFR.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsArgumentException_ForBlankFilename')
+  - [Test_ForPath_ThrowsArgumentException_ForNullFilename()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsArgumentException_ForNullFilename 'MFR.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsArgumentException_ForNullFilename')
+  - [Test_ForPath_ThrowsArgumentException_ForWhitespaceFilename()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsArgumentException_ForWhitespaceFilename 'MFR.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsArgumentException_ForWhitespaceFilename')
+  - [Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile()](#M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile 'MFR.FileSystem.Factories.Tests.MakeNewFileInfoTests.Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile')
+- [Resources](#T-MFR-Objects-FileSystem-Factories-Tests-Properties-Resources 'MFR.FileSystem.Factories.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Factories-Tests-Properties-Resources-Culture 'MFR.FileSystem.Factories.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Factories-Tests-Properties-Resources-ResourceManager 'MFR.FileSystem.Factories.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests'></a>
 ## MakeNewFileInfoTests `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Factories.Tests
+MFR.FileSystem.Factories.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[MakeNewFileInfo](#T-MFR-Objects-MakeNewFileInfo 'MFR.Objects.MakeNewFileInfo')
+[MakeNewFileInfo](#T-MFR-Objects-MakeNewFileInfo 'MFR.MakeNewFileInfo')
 class.
 
 <a name='M-MFR-Objects-FileSystem-Factories-Tests-MakeNewFileInfoTests-Test_ForPath_ReturnsValidFileInfo_ForFileThatExists'></a>
@@ -86,7 +86,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Factories.Tests.Properties
+MFR.FileSystem.Factories.Tests.Properties
 
 ##### Summary
 

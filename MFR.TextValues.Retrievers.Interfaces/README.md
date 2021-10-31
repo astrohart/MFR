@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.TextValues.Retrievers.Interfaces
+# MFR.TextValues.Retrievers.Interfaces
 
 ## Contents
 
-- [ITextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.Objects.TextValues.Retrievers.Interfaces.ITextValueRetriever')
-  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.TextValues.Retrievers.Interfaces.ITextValueRetriever.GetTextValue(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-- [Resources](#T-MFR-Objects-TextValues-Retrievers-Interfaces-Properties-Resources 'MFR.Objects.TextValues.Retrievers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-TextValues-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.Objects.TextValues.Retrievers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-TextValues-Retrievers-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.TextValues.Retrievers.Interfaces.Properties.Resources.ResourceManager')
+- [ITextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+- [Resources](#T-MFR-Objects-TextValues-Retrievers-Interfaces-Properties-Resources 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-TextValues-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-TextValues-Retrievers-Interfaces-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-TextValues-Retrievers-Interfaces-ITextValueRetriever'></a>
 ## ITextValueRetriever `type`
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers.Interfaces
+MFR.TextValues.Retrievers.Interfaces
 
 ##### Summary
 
@@ -23,7 +23,7 @@ Defines the public-exposed methods and properties of a text-retriever object.
 ##### Remarks
 
 Such objects examine the properties of another object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface.
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface.
 
 
 
@@ -42,7 +42,7 @@ the other.
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') now being processed.
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') now being processed.
 
 ##### Returns
 
@@ -53,8 +53,8 @@ operation type, or the empty string if the data source has no data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface. |
 
 ##### Exceptions
@@ -69,7 +69,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers.Interfaces.Properties
+MFR.TextValues.Retrievers.Interfaces.Properties
 
 ##### Summary
 

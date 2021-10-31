@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.Registry.Helpers
+# MFR.Registry.Helpers
 
 ## Contents
 
-- [RegistryHiveExtensions](#T-MFR-Objects-Registry-Helpers-RegistryHiveExtensions 'MFR.Objects.Registry.Helpers.RegistryHiveExtensions')
-  - [HasValueWithName(keyPath,valueName)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-HasValueWithName-System-String,System-String- 'MFR.Objects.Registry.Helpers.RegistryHiveExtensions.HasValueWithName(System.String,System.String)')
-  - [RemoveHiveName(keyPath)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-RemoveHiveName-System-String- 'MFR.Objects.Registry.Helpers.RegistryHiveExtensions.RemoveHiveName(System.String)')
-  - [StartsWithValidHiveName(keyPath)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-StartsWithValidHiveName-System-String- 'MFR.Objects.Registry.Helpers.RegistryHiveExtensions.StartsWithValidHiveName(System.String)')
-  - [ToRegistryHive(hiveName)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-ToRegistryHive-System-String- 'MFR.Objects.Registry.Helpers.RegistryHiveExtensions.ToRegistryHive(System.String)')
-- [Resources](#T-MFR-Objects-Registry-Helpers-Properties-Resources 'MFR.Objects.Registry.Helpers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Registry-Helpers-Properties-Resources-Culture 'MFR.Objects.Registry.Helpers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Registry-Helpers-Properties-Resources-ResourceManager 'MFR.Objects.Registry.Helpers.Properties.Resources.ResourceManager')
+- [RegistryHiveExtensions](#T-MFR-Objects-Registry-Helpers-RegistryHiveExtensions 'MFR.Registry.Helpers.RegistryHiveExtensions')
+  - [HasValueWithName(keyPath,valueName)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-HasValueWithName-System-String,System-String- 'MFR.Registry.Helpers.RegistryHiveExtensions.HasValueWithName(System.String,System.String)')
+  - [RemoveHiveName(keyPath)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-RemoveHiveName-System-String- 'MFR.Registry.Helpers.RegistryHiveExtensions.RemoveHiveName(System.String)')
+  - [StartsWithValidHiveName(keyPath)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-StartsWithValidHiveName-System-String- 'MFR.Registry.Helpers.RegistryHiveExtensions.StartsWithValidHiveName(System.String)')
+  - [ToRegistryHive(hiveName)](#M-MFR-Objects-Registry-Helpers-RegistryHiveExtensions-ToRegistryHive-System-String- 'MFR.Registry.Helpers.RegistryHiveExtensions.ToRegistryHive(System.String)')
+- [Resources](#T-MFR-Objects-Registry-Helpers-Properties-Resources 'MFR.Registry.Helpers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Registry-Helpers-Properties-Resources-Culture 'MFR.Registry.Helpers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Registry-Helpers-Properties-Resources-ResourceManager 'MFR.Registry.Helpers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Registry-Helpers-RegistryHiveExtensions'></a>
 ## RegistryHiveExtensions `type`
 
 ##### Namespace
 
-MFR.Objects.Registry.Helpers
+MFR.Registry.Helpers
 
 ##### Summary
 
@@ -150,7 +150,7 @@ values corresponds to the value passed in `hiveName`. |
 
 ##### Namespace
 
-MFR.Objects.Registry.Helpers.Properties
+MFR.Registry.Helpers.Properties
 
 ##### Summary
 

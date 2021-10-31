@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Requests
+# MFR.Messages.Requests
 
 ## Contents
 
-- [RequestBase\`1](#T-MFR-Objects-Messages-Requests-RequestBase`1 'MFR.Objects.Messages.Requests.RequestBase`1')
-  - [CommonExecute()](#M-MFR-Objects-Messages-Requests-RequestBase`1-CommonExecute 'MFR.Objects.Messages.Requests.RequestBase`1.CommonExecute')
-  - [Execute()](#M-MFR-Objects-Messages-Requests-RequestBase`1-Execute 'MFR.Objects.Messages.Requests.RequestBase`1.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-Requests-RequestBase`1-ExecuteAsync 'MFR.Objects.Messages.Requests.RequestBase`1.ExecuteAsync')
-- [Resources](#T-MFR-Objects-Messages-Requests-Properties-Resources 'MFR.Objects.Messages.Requests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Requests-Properties-Resources-Culture 'MFR.Objects.Messages.Requests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Requests-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Requests.Properties.Resources.ResourceManager')
+- [RequestBase\`1](#T-MFR-Objects-Messages-Requests-RequestBase`1 'MFR.Messages.Requests.RequestBase`1')
+  - [CommonExecute()](#M-MFR-Objects-Messages-Requests-RequestBase`1-CommonExecute 'MFR.Messages.Requests.RequestBase`1.CommonExecute')
+  - [Execute()](#M-MFR-Objects-Messages-Requests-RequestBase`1-Execute 'MFR.Messages.Requests.RequestBase`1.Execute')
+  - [ExecuteAsync()](#M-MFR-Objects-Messages-Requests-RequestBase`1-ExecuteAsync 'MFR.Messages.Requests.RequestBase`1.ExecuteAsync')
+- [Resources](#T-MFR-Objects-Messages-Requests-Properties-Resources 'MFR.Messages.Requests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Requests-Properties-Resources-Culture 'MFR.Messages.Requests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Requests-Properties-Resources-ResourceManager 'MFR.Messages.Requests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Requests-RequestBase`1'></a>
 ## RequestBase\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Requests
+MFR.Messages.Requests
 
 ##### Summary
 
@@ -81,7 +81,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Messages.Requests.Properties
+MFR.Messages.Requests.Properties
 
 ##### Summary
 

@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Invokers.Interfaces
+# MFR.Invokers.Interfaces
 
 ## Contents
 
-- [IPathFilterInvoker](#T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker 'MFR.Objects.Invokers.Interfaces.IPathFilterInvoker')
-  - [AndPath()](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-AndPath-System-String- 'MFR.Objects.Invokers.Interfaces.IPathFilterInvoker.AndPath(System.String)')
-  - [Passes(pathFilter)](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-Passes-System-Predicate{System-String}- 'MFR.Objects.Invokers.Interfaces.IPathFilterInvoker.Passes(System.Predicate{System.String})')
-- [Resources](#T-MFR-Objects-Invokers-Interfaces-Properties-Resources 'MFR.Objects.Invokers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Invokers-Interfaces-Properties-Resources-Culture 'MFR.Objects.Invokers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Invokers-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Invokers.Interfaces.Properties.Resources.ResourceManager')
+- [IPathFilterInvoker](#T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker 'MFR.Invokers.Interfaces.IPathFilterInvoker')
+  - [AndPath()](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-AndPath-System-String- 'MFR.Invokers.Interfaces.IPathFilterInvoker.AndPath(System.String)')
+  - [Passes(pathFilter)](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-Passes-System-Predicate{System-String}- 'MFR.Invokers.Interfaces.IPathFilterInvoker.Passes(System.Predicate{System.String})')
+- [Resources](#T-MFR-Objects-Invokers-Interfaces-Properties-Resources 'MFR.Invokers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Invokers-Interfaces-Properties-Resources-Culture 'MFR.Invokers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Invokers-Interfaces-Properties-Resources-ResourceManager 'MFR.Invokers.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker'></a>
 ## IPathFilterInvoker `type`
 
 ##### Namespace
 
-MFR.Objects.Invokers.Interfaces
+MFR.Invokers.Interfaces
 
 ##### Summary
 
@@ -44,7 +44,7 @@ This method has no parameters.
 ##### Summary
 
 Gets the result of invoking the path-filtering predicate on the path
-specified by calling the [AndPath](#M-MFR-Objects-IPathFilterInvoker-AndPath 'MFR.Objects.IPathFilterInvoker.AndPath') method.
+specified by calling the [AndPath](#M-MFR-Objects-IPathFilterInvoker-AndPath 'MFR.IPathFilterInvoker.AndPath') method.
 
 ##### Returns
 
@@ -64,7 +64,7 @@ that decides whether the path should be allowed. |
 
 ##### Namespace
 
-MFR.Objects.Invokers.Interfaces.Properties
+MFR.Invokers.Interfaces.Properties
 
 ##### Summary
 

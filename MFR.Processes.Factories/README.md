@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Processes.Factories
+# MFR.Processes.Factories
 
 ## Contents
 
-- [MakeNewProcessIdProvider](#T-MFR-Objects-Processes-Factories-MakeNewProcessIdProvider 'MFR.Objects.Processes.Factories.MakeNewProcessIdProvider')
-  - [FromScratch()](#M-MFR-Objects-Processes-Factories-MakeNewProcessIdProvider-FromScratch 'MFR.Objects.Processes.Factories.MakeNewProcessIdProvider.FromScratch')
-- [Resources](#T-MFR-Objects-Processes-Factories-Properties-Resources 'MFR.Objects.Processes.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Processes-Factories-Properties-Resources-Culture 'MFR.Objects.Processes.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Processes-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Processes.Factories.Properties.Resources.ResourceManager')
+- [MakeNewProcessIdProvider](#T-MFR-Objects-Processes-Factories-MakeNewProcessIdProvider 'MFR.Processes.Factories.MakeNewProcessIdProvider')
+  - [FromScratch()](#M-MFR-Objects-Processes-Factories-MakeNewProcessIdProvider-FromScratch 'MFR.Processes.Factories.MakeNewProcessIdProvider.FromScratch')
+- [Resources](#T-MFR-Objects-Processes-Factories-Properties-Resources 'MFR.Processes.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Processes-Factories-Properties-Resources-Culture 'MFR.Processes.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Processes-Factories-Properties-Resources-ResourceManager 'MFR.Processes.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Processes-Factories-MakeNewProcessIdProvider'></a>
 ## MakeNewProcessIdProvider `type`
 
 ##### Namespace
 
-MFR.Objects.Processes.Factories
+MFR.Processes.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.Objects.IProcessIdProvider')
+[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.IProcessIdProvider')
 interface.
 
 <a name='M-MFR-Objects-Processes-Factories-MakeNewProcessIdProvider-FromScratch'></a>
@@ -28,14 +28,14 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.Objects.IProcessIdProvider')
+[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.IProcessIdProvider')
 interface and
 returns a reference to it.
 
 ##### Returns
 
 Reference to a new instance of an object that implements the
-[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.Objects.IProcessIdProvider')
+[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.IProcessIdProvider')
 interface.
 
 ##### Parameters
@@ -47,7 +47,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Processes.Factories.Properties
+MFR.Processes.Factories.Properties
 
 ##### Summary
 

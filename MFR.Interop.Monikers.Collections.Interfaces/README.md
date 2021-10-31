@@ -1,32 +1,32 @@
 <a name='assembly'></a>
-# MFR.Objects.Interop.Monikers.Collections.Interfaces
+# MFR.Interop.Monikers.Collections.Interfaces
 
 ## Contents
 
-- [IMonikerEnumerable](#T-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable')
-  - [AndAttachOperatingSystemEnumerator(monikerEnumerator)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndAttachOperatingSystemEnumerator-System-Runtime-InteropServices-ComTypes-IEnumMoniker- 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable.AndAttachOperatingSystemEnumerator(System.Runtime.InteropServices.ComTypes.IEnumMoniker)')
-  - [AndBindContext(bindContext)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable.AndBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
-  - [AndRunningObjectTable(runningObjectTable)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable.AndRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
-- [IMonikerEnumerator](#T-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator')
-  - [AttachBindContext(bindContext)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator-AttachBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator.AttachBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
-  - [AttachOperatingSystemEnumerator(monikerEnumerator)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator-AttachOperatingSystemEnumerator-System-Runtime-InteropServices-ComTypes-IEnumMoniker- 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator.AttachOperatingSystemEnumerator(System.Runtime.InteropServices.ComTypes.IEnumMoniker)')
-  - [AttachRunningObjectTable(runningObjectTable)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator-AttachRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Objects.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator.AttachRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
-- [Resources](#T-MFR-Objects-Interop-Monikers-Collections-Interfaces-Properties-Resources 'MFR.Objects.Interop.Monikers.Collections.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Interop-Monikers-Collections-Interfaces-Properties-Resources-Culture 'MFR.Objects.Interop.Monikers.Collections.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Collections-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Interop.Monikers.Collections.Interfaces.Properties.Resources.ResourceManager')
+- [IMonikerEnumerable](#T-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable')
+  - [AndAttachOperatingSystemEnumerator(monikerEnumerator)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndAttachOperatingSystemEnumerator-System-Runtime-InteropServices-ComTypes-IEnumMoniker- 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable.AndAttachOperatingSystemEnumerator(System.Runtime.InteropServices.ComTypes.IEnumMoniker)')
+  - [AndBindContext(bindContext)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable.AndBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
+  - [AndRunningObjectTable(runningObjectTable)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerable.AndRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
+- [IMonikerEnumerator](#T-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator')
+  - [AttachBindContext(bindContext)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator-AttachBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator.AttachBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
+  - [AttachOperatingSystemEnumerator(monikerEnumerator)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator-AttachOperatingSystemEnumerator-System-Runtime-InteropServices-ComTypes-IEnumMoniker- 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator.AttachOperatingSystemEnumerator(System.Runtime.InteropServices.ComTypes.IEnumMoniker)')
+  - [AttachRunningObjectTable(runningObjectTable)](#M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerator-AttachRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Interop.Monikers.Collections.Interfaces.IMonikerEnumerator.AttachRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
+- [Resources](#T-MFR-Objects-Interop-Monikers-Collections-Interfaces-Properties-Resources 'MFR.Interop.Monikers.Collections.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Interop-Monikers-Collections-Interfaces-Properties-Resources-Culture 'MFR.Interop.Monikers.Collections.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Collections-Interfaces-Properties-Resources-ResourceManager 'MFR.Interop.Monikers.Collections.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable'></a>
 ## IMonikerEnumerable `type`
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Collections.Interfaces
+MFR.Interop.Monikers.Collections.Interfaces
 
 ##### Summary
 
 Defines the publicly-exposed methods and properties of an enumerable
 collection of objects that implement the
-[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.Objects.IMonikerWrapper')
+[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.IMonikerWrapper')
 interface.
 
 <a name='M-MFR-Objects-Interop-Monikers-Collections-Interfaces-IMonikerEnumerable-AndAttachOperatingSystemEnumerator-System-Runtime-InteropServices-ComTypes-IEnumMoniker-'></a>
@@ -128,7 +128,7 @@ interface. |
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Collections.Interfaces
+MFR.Interop.Monikers.Collections.Interfaces
 
 ##### Summary
 
@@ -233,7 +233,7 @@ interface. |
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Collections.Interfaces.Properties
+MFR.Interop.Monikers.Collections.Interfaces.Properties
 
 ##### Summary
 

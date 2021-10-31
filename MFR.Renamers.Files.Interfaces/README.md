@@ -1,27 +1,27 @@
 <a name='assembly'></a>
-# MFR.Objects.Renamers.Files.Interfaces
+# MFR.Renamers.Files.Interfaces
 
 ## Contents
 
-- [IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer')
-  - [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
-  - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
-  - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RequestAbort()](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RequestAbort 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RequestAbort')
-  - [StartingFrom()](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-StartingFrom-System-String- 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.StartingFrom(System.String)')
-- [Resources](#T-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources 'MFR.Objects.Renamers.Files.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-Culture 'MFR.Objects.Renamers.Files.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Renamers.Files.Interfaces.Properties.Resources.ResourceManager')
+- [IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
+  - [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
+  - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
+  - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RequestAbort()](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RequestAbort 'MFR.Renamers.Files.Interfaces.IFileRenamer.RequestAbort')
+  - [StartingFrom()](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-StartingFrom-System-String- 'MFR.Renamers.Files.Interfaces.IFileRenamer.StartingFrom(System.String)')
+- [Resources](#T-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources 'MFR.Renamers.Files.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-Culture 'MFR.Renamers.Files.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer'></a>
 ## IFileRenamer `type`
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Interfaces
+MFR.Renamers.Files.Interfaces
 
 ##### Summary
 
@@ -44,7 +44,7 @@ operations start.
 
 Executes the Rename Subfolders, Rename Files, and Replace Text in
 Files operation on all the folders and files in the root folder with
-the pathname stored in the [RootDirectoryPath](#P-MFR-Objects-FileRenamer-RootDirectoryPath 'MFR.Objects.FileRenamer.RootDirectoryPath') property.
+the pathname stored in the [RootDirectoryPath](#P-MFR-Objects-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath') property.
 
 ##### Parameters
 
@@ -250,7 +250,7 @@ This method has no parameters.
 
 ##### Summary
 
-Initializes the value of the [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
+Initializes the value of the [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
 property to the value specified in the `rootDirectoryPath` parameter.
 
 
@@ -271,7 +271,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Interfaces.Properties
+MFR.Renamers.Files.Interfaces.Properties
 
 ##### Summary
 

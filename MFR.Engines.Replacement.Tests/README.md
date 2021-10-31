@@ -1,31 +1,31 @@
 <a name='assembly'></a>
-# MFR.Objects.Engines.Replacement.Tests
+# MFR.Engines.Replacement.Tests
 
 ## Contents
 
-- [FolderNameReplacementEngineTests](#T-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests 'MFR.Objects.Engines.Replacement.Tests.FolderNameReplacementEngineTests')
-  - [Initialize()](#M-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests-Initialize 'MFR.Objects.Engines.Replacement.Tests.FolderNameReplacementEngineTests.Initialize')
-  - [Test_FolderName_ReplacedCorrectly()](#M-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests-Test_FolderName_ReplacedCorrectly 'MFR.Objects.Engines.Replacement.Tests.FolderNameReplacementEngineTests.Test_FolderName_ReplacedCorrectly')
-- [Resources](#T-MFR-Objects-Engines-Replacement-Tests-Properties-Resources 'MFR.Objects.Engines.Replacement.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Replacement-Tests-Properties-Resources-Culture 'MFR.Objects.Engines.Replacement.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Replacement.Tests.Properties.Resources.ResourceManager')
-- [TextReplacementEngineTestBase](#T-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase')
-  - [Configuration](#P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Configuration 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.Configuration')
-  - [Replacer](#P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Replacer 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.Replacer')
-  - [CreateReplacementEngineFor(type)](#M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-CreateReplacementEngineFor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.CreateReplacementEngineFor(MFR.Objects.Operations.Constants.OperationType)')
-  - [Initialize()](#M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Initialize 'MFR.Objects.Engines.Replacement.Tests.TextReplacementEngineTestBase.Initialize')
+- [FolderNameReplacementEngineTests](#T-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests 'MFR.Engines.Replacement.Tests.FolderNameReplacementEngineTests')
+  - [Initialize()](#M-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests-Initialize 'MFR.Engines.Replacement.Tests.FolderNameReplacementEngineTests.Initialize')
+  - [Test_FolderName_ReplacedCorrectly()](#M-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests-Test_FolderName_ReplacedCorrectly 'MFR.Engines.Replacement.Tests.FolderNameReplacementEngineTests.Test_FolderName_ReplacedCorrectly')
+- [Resources](#T-MFR-Objects-Engines-Replacement-Tests-Properties-Resources 'MFR.Engines.Replacement.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Engines-Replacement-Tests-Properties-Resources-Culture 'MFR.Engines.Replacement.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Tests-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Tests.Properties.Resources.ResourceManager')
+- [TextReplacementEngineTestBase](#T-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase')
+  - [Configuration](#P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Configuration 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.Configuration')
+  - [Replacer](#P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Replacer 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.Replacer')
+  - [CreateReplacementEngineFor(type)](#M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-CreateReplacementEngineFor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.CreateReplacementEngineFor(MFR.Operations.Constants.OperationType)')
+  - [Initialize()](#M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Initialize 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.Initialize')
 
 <a name='T-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests'></a>
 ## FolderNameReplacementEngineTests `type`
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Tests
+MFR.Engines.Replacement.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[FolderNameReplacementEngine](#T-MFR-Objects-FolderNameReplacementEngine 'MFR.Objects.FolderNameReplacementEngine')
+[FolderNameReplacementEngine](#T-MFR-Objects-FolderNameReplacementEngine 'MFR.FolderNameReplacementEngine')
 class.
 
 <a name='M-MFR-Objects-Engines-Replacement-Tests-FolderNameReplacementEngineTests-Initialize'></a>
@@ -55,7 +55,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Tests.Properties
+MFR.Engines.Replacement.Tests.Properties
 
 ##### Summary
 
@@ -81,7 +81,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Tests
+MFR.Engines.Replacement.Tests
 
 ##### Summary
 
@@ -94,7 +94,7 @@ mandatory implementation details.
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface.
 
 <a name='P-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-Replacer'></a>
@@ -103,7 +103,7 @@ interface.
 ##### Summary
 
 Reference to an instance of an object that implements the
-[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
+[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.ITextReplacementEngine')
 interface.
 
 <a name='M-MFR-Objects-Engines-Replacement-Tests-TextReplacementEngineTestBase-CreateReplacementEngineFor-MFR-Objects-Operations-Constants-OperationType-'></a>
@@ -112,7 +112,7 @@ interface.
 ##### Summary
 
 Creates an instance of an object that implements the
-[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
+[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.ITextReplacementEngine')
 interface for the
 specified operation `type`.
 
@@ -120,7 +120,7 @@ specified operation `type`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 specifies which operation to create a data-matcher object for. |
 
 ##### Exceptions

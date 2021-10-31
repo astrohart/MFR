@@ -1,28 +1,28 @@
 <a name='assembly'></a>
-# MFR.Objects.Configuration.Helpers.Tests
+# MFR.Configuration.Helpers.Tests
 
 ## Contents
 
-- [ConfigurationExtensionsTests](#T-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests 'MFR.Objects.Configuration.Helpers.Tests.ConfigurationExtensionsTests')
-  - [Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue 'MFR.Objects.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue')
-  - [Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue 'MFR.Objects.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue')
-  - [Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue 'MFR.Objects.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue')
-  - [Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse 'MFR.Objects.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse')
-- [Resources](#T-MFR-Objects-Configuration-Helpers-Tests-Properties-Resources 'MFR.Objects.Configuration.Helpers.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Helpers-Tests-Properties-Resources-Culture 'MFR.Objects.Configuration.Helpers.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Helpers-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Helpers.Tests.Properties.Resources.ResourceManager')
+- [ConfigurationExtensionsTests](#T-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests 'MFR.Configuration.Helpers.Tests.ConfigurationExtensionsTests')
+  - [Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue 'MFR.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue')
+  - [Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue 'MFR.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue')
+  - [Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue 'MFR.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue')
+  - [Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse()](#M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse 'MFR.Configuration.Helpers.Tests.ConfigurationExtensionsTests.Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse')
+- [Resources](#T-MFR-Objects-Configuration-Helpers-Tests-Properties-Resources 'MFR.Configuration.Helpers.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Configuration-Helpers-Tests-Properties-Resources-Culture 'MFR.Configuration.Helpers.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Configuration-Helpers-Tests-Properties-Resources-ResourceManager 'MFR.Configuration.Helpers.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests'></a>
 ## ConfigurationExtensionsTests `type`
 
 ##### Namespace
 
-MFR.Objects.Configuration.Helpers.Tests
+MFR.Configuration.Helpers.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[ConfigurationExtensions](#T-MFR-Objects-ConfigurationExtensions 'MFR.Objects.ConfigurationExtensions')
+[ConfigurationExtensions](#T-MFR-Objects-ConfigurationExtensions 'MFR.ConfigurationExtensions')
 class.
 
 <a name='M-MFR-Objects-Configuration-Helpers-Tests-ConfigurationExtensionsTests-Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue'></a>
@@ -31,14 +31,14 @@ class.
 ##### Summary
 
 Asserts that the
-[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration')
+[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.ConfigurationExtensions.GetTextMatchingConfiguration')
 method returns the
-[MatchCaseAndExactWord](#T-MFR-Objects-TextMatchingConfiguration-MatchCaseAndExactWord 'MFR.Objects.TextMatchingConfiguration.MatchCaseAndExactWord')
+[MatchCaseAndExactWord](#T-MFR-Objects-TextMatchingConfiguration-MatchCaseAndExactWord 'MFR.TextMatchingConfiguration.MatchCaseAndExactWord')
 enum value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Configuration.Interfaces.IConfigurationMatchCase')
 property is set to
 `true` and whose
-[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Configuration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `true`.
 
@@ -52,15 +52,15 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration')
+[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.ConfigurationExtensions.GetTextMatchingConfiguration')
 method returns the
-[MatchCaseOnly](#T-MFR-Objects-TextMatchingConfiguration-MatchCaseOnly 'MFR.Objects.TextMatchingConfiguration.MatchCaseOnly')
+[MatchCaseOnly](#T-MFR-Objects-TextMatchingConfiguration-MatchCaseOnly 'MFR.TextMatchingConfiguration.MatchCaseOnly')
 enum
 value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Configuration.Interfaces.IConfigurationMatchCase')
 property is set to
 `true` and whose
-[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Configuration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `false`.
 
@@ -74,14 +74,14 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration')
+[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.ConfigurationExtensions.GetTextMatchingConfiguration')
 method returns the
-[MatchExactWordOnly](#T-MFR-Objects-TextMatchingConfiguration-MatchExactWordOnly 'MFR.Objects.TextMatchingConfiguration.MatchExactWordOnly')
+[MatchExactWordOnly](#T-MFR-Objects-TextMatchingConfiguration-MatchExactWordOnly 'MFR.TextMatchingConfiguration.MatchExactWordOnly')
 enum value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Configuration.Interfaces.IConfigurationMatchCase')
 property is set to
 `false` and whose
-[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Configuration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `true`.
 
@@ -95,14 +95,14 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.Objects.ConfigurationExtensions.GetTextMatchingConfiguration')
+[GetTextMatchingConfiguration](#M-MFR-Objects-ConfigurationExtensions-GetTextMatchingConfiguration 'MFR.ConfigurationExtensions.GetTextMatchingConfiguration')
 method returns the
-[NeitherMatchCaseNorExactWord](#T-MFR-Objects-TextMatchingConfiguration-NeitherMatchCaseNorExactWord 'MFR.Objects.TextMatchingConfiguration.NeitherMatchCaseNorExactWord')
+[NeitherMatchCaseNorExactWord](#T-MFR-Objects-TextMatchingConfiguration-NeitherMatchCaseNorExactWord 'MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord')
 enum value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Configuration.Interfaces.IConfigurationMatchCase')
 property is set to
 `false` and whose
-[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Configuration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `false`.
 
@@ -115,7 +115,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Configuration.Helpers.Tests.Properties
+MFR.Configuration.Helpers.Tests.Properties
 
 ##### Summary
 

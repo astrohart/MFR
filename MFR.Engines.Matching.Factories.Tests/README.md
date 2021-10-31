@@ -1,31 +1,31 @@
 <a name='assembly'></a>
-# MFR.Objects.Engines.Matching.Factories.Tests
+# MFR.Engines.Matching.Factories.Tests
 
 ## Contents
 
-- [GetTextExpressionMatchingEngineTests](#T-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests')
-  - [Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType')
-  - [Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType')
-  - [Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType 'MFR.Objects.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType')
-- [Resources](#T-MFR-Objects-Engines-Matching-Factories-Tests-Properties-Resources 'MFR.Objects.Engines.Matching.Factories.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Matching-Factories-Tests-Properties-Resources-Culture 'MFR.Objects.Engines.Matching.Factories.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Matching-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Matching.Factories.Tests.Properties.Resources.ResourceManager')
+- [GetTextExpressionMatchingEngineTests](#T-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests')
+  - [Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType')
+  - [Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType')
+  - [Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()](#M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType 'MFR.Engines.Matching.Factories.Tests.GetTextExpressionMatchingEngineTests.Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType')
+- [Resources](#T-MFR-Objects-Engines-Matching-Factories-Tests-Properties-Resources 'MFR.Engines.Matching.Factories.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Engines-Matching-Factories-Tests-Properties-Resources-Culture 'MFR.Engines.Matching.Factories.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Engines-Matching-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Factories.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests'></a>
 ## GetTextExpressionMatchingEngineTests `type`
 
 ##### Namespace
 
-MFR.Objects.Engines.Matching.Factories.Tests
+MFR.Engines.Matching.Factories.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[GetTextExpressionMatchingEngine](#T-MFR-Objects-GetTextExpressionMatchingEngine 'MFR.Objects.GetTextExpressionMatchingEngine')
+[GetTextExpressionMatchingEngine](#T-MFR-Objects-GetTextExpressionMatchingEngine 'MFR.GetTextExpressionMatchingEngine')
 class.
 
 <a name='M-MFR-Objects-Engines-Matching-Factories-Tests-GetTextExpressionMatchingEngineTests-Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType'></a>
@@ -110,7 +110,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Engines.Matching.Factories.Tests.Properties
+MFR.Engines.Matching.Factories.Tests.Properties
 
 ##### Summary
 

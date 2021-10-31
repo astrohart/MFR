@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Generators.RegularExpressions.Factories
+# MFR.Generators.RegularExpressions.Factories
 
 ## Contents
 
-- [GetRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Factories-GetRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator')
-  - [For(type)](#M-MFR-Objects-Generators-RegularExpressions-Factories-GetRegularExpressionGenerator-For-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType- 'MFR.Objects.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For(MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType)')
-- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Factories-Properties-Resources 'MFR.Objects.Generators.RegularExpressions.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Factories-Properties-Resources-Culture 'MFR.Objects.Generators.RegularExpressions.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Generators.RegularExpressions.Factories.Properties.Resources.ResourceManager')
+- [GetRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Factories-GetRegularExpressionGenerator 'MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator')
+  - [For(type)](#M-MFR-Objects-Generators-RegularExpressions-Factories-GetRegularExpressionGenerator-For-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType- 'MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator.For(MFR.Generators.RegularExpressions.Constants.RegularExpressionType)')
+- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Factories-Properties-Resources 'MFR.Generators.RegularExpressions.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Factories-Properties-Resources-Culture 'MFR.Generators.RegularExpressions.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Factories-Properties-Resources-ResourceManager 'MFR.Generators.RegularExpressions.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Generators-RegularExpressions-Factories-GetRegularExpressionGenerator'></a>
 ## GetRegularExpressionGenerator `type`
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Factories
+MFR.Generators.RegularExpressions.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator')
+[IRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IRegularExpressionGenerator 'MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator')
 interface.
 
 <a name='M-MFR-Objects-Generators-RegularExpressions-Factories-GetRegularExpressionGenerator-For-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-'></a>
@@ -28,15 +28,15 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator')
+[IRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-Interfaces-IRegularExpressionGenerator 'MFR.Generators.RegularExpressions.Interfaces.IRegularExpressionGenerator')
 interface and returns a reference to it.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType') | (Required.) One of the
-[RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType')
+| type | [MFR.Generators.RegularExpressions.Constants.RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType') | (Required.) One of the
+[RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
 values that specifies the type of regular expression that you want
 to generate. |
 
@@ -45,7 +45,7 @@ to generate. |
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Factories.Properties
+MFR.Generators.RegularExpressions.Factories.Properties
 
 ##### Summary
 

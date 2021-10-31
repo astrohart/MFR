@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Validators.Interfaces
+# MFR.FileSystem.Validators.Interfaces
 
 ## Contents
 
-- [IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.Objects.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-  - [DoesExist(entry)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-DoesExist-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.DoesExist(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-  - [IsValid(entry)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-IsValid-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.IsValid(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-  - [ShouldSkip(path)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldSkip-System-String- 'MFR.Objects.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.ShouldSkip(System.String)')
-- [Resources](#T-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources 'MFR.Objects.FileSystem.Validators.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-Culture 'MFR.Objects.FileSystem.Validators.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Validators.Interfaces.Properties.Resources.ResourceManager')
+- [IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
+  - [DoesExist(entry)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-DoesExist-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [IsValid(entry)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-IsValid-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [ShouldSkip(path)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldSkip-System-String- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.ShouldSkip(System.String)')
+- [Resources](#T-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources 'MFR.FileSystem.Validators.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Validators.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Validators.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator'></a>
 ## IFileSystemEntryValidator `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Validators.Interfaces
+MFR.FileSystem.Validators.Interfaces
 
 ##### Summary
 
@@ -47,8 +47,8 @@ exists on the disk; `false` otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
@@ -69,8 +69,8 @@ the disk at the pathname indicated.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface containing information about the entry to be checked. |
 
 ##### Exceptions
@@ -126,7 +126,7 @@ file-system entry that is to potentially be skipped. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Validators.Interfaces.Properties
+MFR.FileSystem.Validators.Interfaces.Properties
 
 ##### Summary
 

@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Registry.Factories
+# MFR.Expressions.Registry.Factories
 
 ## Contents
 
-- [MakeNewRegQueryExpression](#T-MFR-Objects-Expressions-Registry-Factories-MakeNewRegQueryExpression 'MFR.Objects.Expressions.Registry.Factories.MakeNewRegQueryExpression')
-  - [FromScatch\`\`1()](#M-MFR-Objects-Expressions-Registry-Factories-MakeNewRegQueryExpression-FromScatch``1 'MFR.Objects.Expressions.Registry.Factories.MakeNewRegQueryExpression.FromScatch``1')
-- [Resources](#T-MFR-Objects-Expressions-Registry-Factories-Properties-Resources 'MFR.Objects.Expressions.Registry.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Registry-Factories-Properties-Resources-Culture 'MFR.Objects.Expressions.Registry.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Registry.Factories.Properties.Resources.ResourceManager')
+- [MakeNewRegQueryExpression](#T-MFR-Objects-Expressions-Registry-Factories-MakeNewRegQueryExpression 'MFR.Expressions.Registry.Factories.MakeNewRegQueryExpression')
+  - [FromScatch\`\`1()](#M-MFR-Objects-Expressions-Registry-Factories-MakeNewRegQueryExpression-FromScatch``1 'MFR.Expressions.Registry.Factories.MakeNewRegQueryExpression.FromScatch``1')
+- [Resources](#T-MFR-Objects-Expressions-Registry-Factories-Properties-Resources 'MFR.Expressions.Registry.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Registry-Factories-Properties-Resources-Culture 'MFR.Expressions.Registry.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Factories-Properties-Resources-ResourceManager 'MFR.Expressions.Registry.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Registry-Factories-MakeNewRegQueryExpression'></a>
 ## MakeNewRegQueryExpression `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Factories
+MFR.Expressions.Registry.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IRegQueryExpression{T}](#T-MFR-Objects-IRegQueryExpression{T} 'MFR.Objects.IRegQueryExpression{T}')
+[IRegQueryExpression{T}](#T-MFR-Objects-IRegQueryExpression{T} 'MFR.IRegQueryExpression{T}')
 interface.
 
 <a name='M-MFR-Objects-Expressions-Registry-Factories-MakeNewRegQueryExpression-FromScatch``1'></a>
@@ -28,7 +28,7 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IRegQueryExpression{T}](#T-MFR-Objects-IRegQueryExpression{T} 'MFR.Objects.IRegQueryExpression{T}')
+[IRegQueryExpression{T}](#T-MFR-Objects-IRegQueryExpression{T} 'MFR.IRegQueryExpression{T}')
 interface
 and returns a reference to it.
 
@@ -46,11 +46,11 @@ from the system Registry. |
 ##### Remarks
 
 Callers of this method must then invoke the fluent-builder methods
-[ForKeyPath](#M-MFR-Objects-IRegQueryExpression-ForKeyPath 'MFR.Objects.IRegQueryExpression.ForKeyPath')
+[ForKeyPath](#M-MFR-Objects-IRegQueryExpression-ForKeyPath 'MFR.IRegQueryExpression.ForKeyPath')
 ,
-[AndValueName](#M-MFR-Objects-IRegQueryExpression-AndValueName 'MFR.Objects.IRegQueryExpression.AndValueName')
+[AndValueName](#M-MFR-Objects-IRegQueryExpression-AndValueName 'MFR.IRegQueryExpression.AndValueName')
 , and, optionally, the
-[WithDefaultValue](#M-MFR-Objects-IRegQueryExpression-WithDefaultValue 'MFR.Objects.IRegQueryExpression.WithDefaultValue')
+[WithDefaultValue](#M-MFR-Objects-IRegQueryExpression-WithDefaultValue 'MFR.IRegQueryExpression.WithDefaultValue')
 (if needed), to set the properties of the resultant object.
 
 
@@ -67,7 +67,7 @@ Callers are free to pick whichever instantiation method they feel is best.
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Factories.Properties
+MFR.Expressions.Registry.Factories.Properties
 
 ##### Summary
 

@@ -1,38 +1,38 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Commands
+# MFR.Messages.Commands
 
 ## Contents
 
-- [CommandBase\`1](#T-MFR-Objects-Messages-Commands-CommandBase`1 'MFR.Objects.Messages.Commands.CommandBase`1')
-  - [#ctor()](#M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor 'MFR.Objects.Messages.Commands.CommandBase`1.#ctor')
-  - [#ctor()](#M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor-`0- 'MFR.Objects.Messages.Commands.CommandBase`1.#ctor(`0)')
-  - [Input](#P-MFR-Objects-Messages-Commands-CommandBase`1-Input 'MFR.Objects.Messages.Commands.CommandBase`1.Input')
-  - [CommonExecute()](#M-MFR-Objects-Messages-Commands-CommandBase`1-CommonExecute 'MFR.Objects.Messages.Commands.CommandBase`1.CommonExecute')
-  - [Execute()](#M-MFR-Objects-Messages-Commands-CommandBase`1-Execute 'MFR.Objects.Messages.Commands.CommandBase`1.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-Commands-CommandBase`1-ExecuteAsync 'MFR.Objects.Messages.Commands.CommandBase`1.ExecuteAsync')
-  - [WithInput(input)](#M-MFR-Objects-Messages-Commands-CommandBase`1-WithInput-`0- 'MFR.Objects.Messages.Commands.CommandBase`1.WithInput(`0)')
-- [Resources](#T-MFR-Objects-Messages-Commands-Properties-Resources 'MFR.Objects.Messages.Commands.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Commands-Properties-Resources-Culture 'MFR.Objects.Messages.Commands.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Commands.Properties.Resources.ResourceManager')
-- [SaveConfigurationToFileCommand](#T-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand 'MFR.Objects.Messages.Commands.SaveConfigurationToFileCommand')
-  - [#ctor()](#M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-#ctor 'MFR.Objects.Messages.Commands.SaveConfigurationToFileCommand.#ctor')
-  - [Instance](#P-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-Instance 'MFR.Objects.Messages.Commands.SaveConfigurationToFileCommand.Instance')
-  - [MessageType](#P-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-MessageType 'MFR.Objects.Messages.Commands.SaveConfigurationToFileCommand.MessageType')
-  - [#cctor()](#M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-#cctor 'MFR.Objects.Messages.Commands.SaveConfigurationToFileCommand.#cctor')
-  - [CommonExecute()](#M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-CommonExecute 'MFR.Objects.Messages.Commands.SaveConfigurationToFileCommand.CommonExecute')
-- [SaveStringToRegistryCommand](#T-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand 'MFR.Objects.Messages.Commands.SaveStringToRegistryCommand')
-  - [#ctor()](#M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-#ctor 'MFR.Objects.Messages.Commands.SaveStringToRegistryCommand.#ctor')
-  - [Instance](#P-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-Instance 'MFR.Objects.Messages.Commands.SaveStringToRegistryCommand.Instance')
-  - [MessageType](#P-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-MessageType 'MFR.Objects.Messages.Commands.SaveStringToRegistryCommand.MessageType')
-  - [#cctor()](#M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-#cctor 'MFR.Objects.Messages.Commands.SaveStringToRegistryCommand.#cctor')
-  - [CommonExecute()](#M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-CommonExecute 'MFR.Objects.Messages.Commands.SaveStringToRegistryCommand.CommonExecute')
+- [CommandBase\`1](#T-MFR-Objects-Messages-Commands-CommandBase`1 'MFR.Messages.Commands.CommandBase`1')
+  - [#ctor()](#M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor 'MFR.Messages.Commands.CommandBase`1.#ctor')
+  - [#ctor()](#M-MFR-Objects-Messages-Commands-CommandBase`1-#ctor-`0- 'MFR.Messages.Commands.CommandBase`1.#ctor(`0)')
+  - [Input](#P-MFR-Objects-Messages-Commands-CommandBase`1-Input 'MFR.Messages.Commands.CommandBase`1.Input')
+  - [CommonExecute()](#M-MFR-Objects-Messages-Commands-CommandBase`1-CommonExecute 'MFR.Messages.Commands.CommandBase`1.CommonExecute')
+  - [Execute()](#M-MFR-Objects-Messages-Commands-CommandBase`1-Execute 'MFR.Messages.Commands.CommandBase`1.Execute')
+  - [ExecuteAsync()](#M-MFR-Objects-Messages-Commands-CommandBase`1-ExecuteAsync 'MFR.Messages.Commands.CommandBase`1.ExecuteAsync')
+  - [WithInput(input)](#M-MFR-Objects-Messages-Commands-CommandBase`1-WithInput-`0- 'MFR.Messages.Commands.CommandBase`1.WithInput(`0)')
+- [Resources](#T-MFR-Objects-Messages-Commands-Properties-Resources 'MFR.Messages.Commands.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Commands-Properties-Resources-Culture 'MFR.Messages.Commands.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Properties-Resources-ResourceManager 'MFR.Messages.Commands.Properties.Resources.ResourceManager')
+- [SaveConfigurationToFileCommand](#T-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand 'MFR.Messages.Commands.SaveConfigurationToFileCommand')
+  - [#ctor()](#M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-#ctor 'MFR.Messages.Commands.SaveConfigurationToFileCommand.#ctor')
+  - [Instance](#P-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-Instance 'MFR.Messages.Commands.SaveConfigurationToFileCommand.Instance')
+  - [MessageType](#P-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-MessageType 'MFR.Messages.Commands.SaveConfigurationToFileCommand.MessageType')
+  - [#cctor()](#M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-#cctor 'MFR.Messages.Commands.SaveConfigurationToFileCommand.#cctor')
+  - [CommonExecute()](#M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-CommonExecute 'MFR.Messages.Commands.SaveConfigurationToFileCommand.CommonExecute')
+- [SaveStringToRegistryCommand](#T-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand 'MFR.Messages.Commands.SaveStringToRegistryCommand')
+  - [#ctor()](#M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-#ctor 'MFR.Messages.Commands.SaveStringToRegistryCommand.#ctor')
+  - [Instance](#P-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-Instance 'MFR.Messages.Commands.SaveStringToRegistryCommand.Instance')
+  - [MessageType](#P-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-MessageType 'MFR.Messages.Commands.SaveStringToRegistryCommand.MessageType')
+  - [#cctor()](#M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-#cctor 'MFR.Messages.Commands.SaveStringToRegistryCommand.#cctor')
+  - [CommonExecute()](#M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-CommonExecute 'MFR.Messages.Commands.SaveStringToRegistryCommand.CommonExecute')
 
 <a name='T-MFR-Objects-Messages-Commands-CommandBase`1'></a>
 ## CommandBase\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands
+MFR.Messages.Commands
 
 ##### Summary
 
@@ -61,7 +61,7 @@ This object is composed with the message object at runtime. |
 ##### Summary
 
 Constructs a new instance of
-[ActionBase](#T-MFR-Objects-ActionBase 'MFR.Objects.ActionBase')
+[ActionBase](#T-MFR-Objects-ActionBase 'MFR.ActionBase')
 and returns a
 reference to it.
 
@@ -75,7 +75,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[ActionBase](#T-MFR-Objects-ActionBase 'MFR.Objects.ActionBase')
+[ActionBase](#T-MFR-Objects-ActionBase 'MFR.ActionBase')
 and returns a
 reference to it.
 
@@ -154,7 +154,7 @@ that contains data to be provided to the message. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands.Properties
+MFR.Messages.Commands.Properties
 
 ##### Summary
 
@@ -180,24 +180,24 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands
+MFR.Messages.Commands
 
 ##### Summary
 
 Saves a configuration object, i.e., one that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface, to a JSON file.
 
 ##### Remarks
 
 This command takes a reference to an instance of an object that
-implements the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+implements the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface as input, and does not return any output.
 
 
 
 This command requires that the
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property be
 initialized to the pathname where the configuration data should be
 saved; preferably, the file should have the .json extension.
@@ -205,7 +205,7 @@ saved; preferably, the file should have the .json extension.
 
 
 This command also requires that the
-[UserState](#P-MFR-Objects-IFileSystemEntry-UserState 'MFR.Objects.IFileSystemEntry.UserState')
+[UserState](#P-MFR-Objects-IFileSystemEntry-UserState 'MFR.IFileSystemEntry.UserState')
 property
 be initialized to a reference to the configuration object containing the
 data that is to be saved.
@@ -227,7 +227,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[SavePathToRegistryAction](#T-MFR-Objects-SavePathToRegistryAction 'MFR.Objects.SavePathToRegistryAction')
+[SavePathToRegistryAction](#T-MFR-Objects-SavePathToRegistryAction 'MFR.SavePathToRegistryAction')
 .
 
 <a name='P-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-MessageType'></a>
@@ -235,7 +235,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType') that is
+Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType') that is
 being used to identify which message this is.
 
 <a name='M-MFR-Objects-Messages-Commands-SaveConfigurationToFileCommand-#cctor'></a>
@@ -275,7 +275,7 @@ if the input is `null`.
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands
+MFR.Messages.Commands
 
 ##### Summary
 
@@ -298,7 +298,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[SavePathToRegistryAction](#T-MFR-Objects-SavePathToRegistryAction 'MFR.Objects.SavePathToRegistryAction')
+[SavePathToRegistryAction](#T-MFR-Objects-SavePathToRegistryAction 'MFR.SavePathToRegistryAction')
 .
 
 <a name='P-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-MessageType'></a>
@@ -306,7 +306,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType') that is
+Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType') that is
 being used to identify which message this is.
 
 <a name='M-MFR-Objects-Messages-Commands-SaveStringToRegistryCommand-#cctor'></a>

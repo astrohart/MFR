@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.TextValues.Retrievers.Factories
+# MFR.TextValues.Retrievers.Factories
 
 ## Contents
 
-- [GetTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-Factories-GetTextValueRetriever 'MFR.Objects.TextValues.Retrievers.Factories.GetTextValueRetriever')
-  - [For(type)](#M-MFR-Objects-TextValues-Retrievers-Factories-GetTextValueRetriever-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.TextValues.Retrievers.Factories.GetTextValueRetriever.For(MFR.Objects.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-Objects-TextValues-Retrievers-Factories-Properties-Resources 'MFR.Objects.TextValues.Retrievers.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-TextValues-Retrievers-Factories-Properties-Resources-Culture 'MFR.Objects.TextValues.Retrievers.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-TextValues-Retrievers-Factories-Properties-Resources-ResourceManager 'MFR.Objects.TextValues.Retrievers.Factories.Properties.Resources.ResourceManager')
+- [GetTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-Factories-GetTextValueRetriever 'MFR.TextValues.Retrievers.Factories.GetTextValueRetriever')
+  - [For(type)](#M-MFR-Objects-TextValues-Retrievers-Factories-GetTextValueRetriever-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.TextValues.Retrievers.Factories.GetTextValueRetriever.For(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-Objects-TextValues-Retrievers-Factories-Properties-Resources 'MFR.TextValues.Retrievers.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-TextValues-Retrievers-Factories-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-TextValues-Retrievers-Factories-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-TextValues-Retrievers-Factories-GetTextValueRetriever'></a>
 ## GetTextValueRetriever `type`
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers.Factories
+MFR.TextValues.Retrievers.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[ITextValueRetriever](#T-MFR-Objects-FileSystem-Retrievers-ITextValueRetriever 'MFR.Objects.FileSystem.Retrievers.ITextValueRetriever')
+[ITextValueRetriever](#T-MFR-Objects-FileSystem-Retrievers-ITextValueRetriever 'MFR.FileSystem.Retrievers.ITextValueRetriever')
 interface.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-Factories-GetTextValueRetriever-For-MFR-Objects-Operations-Constants-OperationType-'></a>
@@ -28,21 +28,21 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[ITextValueRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-ITextValueRetriever 'MFR.Objects.FileSystem.Retrievers.Interfaces.ITextValueRetriever')
+[ITextValueRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-ITextValueRetriever 'MFR.FileSystem.Retrievers.Interfaces.ITextValueRetriever')
 interface and returns a reference to it.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[ITextValueRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-ITextValueRetriever 'MFR.Objects.FileSystem.Retrievers.Interfaces.ITextValueRetriever')
+[ITextValueRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-ITextValueRetriever 'MFR.FileSystem.Retrievers.Interfaces.ITextValueRetriever')
 interface.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | One of the
-[OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the
+[OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values
 that specifies which operation is currently being performed. |
 
@@ -59,7 +59,7 @@ parameter is not one of the supported values. |
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers.Factories.Properties
+MFR.TextValues.Retrievers.Factories.Properties
 
 ##### Summary
 

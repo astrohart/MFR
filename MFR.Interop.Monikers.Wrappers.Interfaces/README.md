@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Interop.Monikers.Wrappers.Interfaces
+# MFR.Interop.Monikers.Wrappers.Interfaces
 
 ## Contents
 
-- [IMonikerWrapper](#T-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper')
-  - [ComObject](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper-ComObject 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper.ComObject')
-  - [DisplayName](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper-DisplayName 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper.DisplayName')
-  - [Moniker](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper-Moniker 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper.Moniker')
-- [Resources](#T-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-Properties-Resources 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-Properties-Resources-Culture 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Interop.Monikers.Wrappers.Interfaces.Properties.Resources.ResourceManager')
+- [IMonikerWrapper](#T-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper 'MFR.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper')
+  - [ComObject](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper-ComObject 'MFR.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper.ComObject')
+  - [DisplayName](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper-DisplayName 'MFR.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper.DisplayName')
+  - [Moniker](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper-Moniker 'MFR.Interop.Monikers.Wrappers.Interfaces.IMonikerWrapper.Moniker')
+- [Resources](#T-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-Properties-Resources 'MFR.Interop.Monikers.Wrappers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-Properties-Resources-Culture 'MFR.Interop.Monikers.Wrappers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-Properties-Resources-ResourceManager 'MFR.Interop.Monikers.Wrappers.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Interop-Monikers-Wrappers-Interfaces-IMonikerWrapper'></a>
 ## IMonikerWrapper `type`
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Wrappers.Interfaces
+MFR.Interop.Monikers.Wrappers.Interfaces
 
 ##### Summary
 
@@ -53,7 +53,7 @@ Gets a reference to an instance of an object that implements the
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Wrappers.Interfaces.Properties
+MFR.Interop.Monikers.Wrappers.Interfaces.Properties
 
 ##### Summary
 

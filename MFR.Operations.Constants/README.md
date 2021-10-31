@@ -1,27 +1,27 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations.Constants
+# MFR.Operations.Constants
 
 ## Contents
 
-- [OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType')
-  - [CloseActiveSolution](#F-MFR-Objects-Operations-Constants-OperationType-CloseActiveSolution 'MFR.Objects.Operations.Constants.OperationType.CloseActiveSolution')
-  - [FindVisualStudio](#F-MFR-Objects-Operations-Constants-OperationType-FindVisualStudio 'MFR.Objects.Operations.Constants.OperationType.FindVisualStudio')
-  - [GettingListOfFilesToBeRenamed](#F-MFR-Objects-Operations-Constants-OperationType-GettingListOfFilesToBeRenamed 'MFR.Objects.Operations.Constants.OperationType.GettingListOfFilesToBeRenamed')
-  - [OpenActiveSolution](#F-MFR-Objects-Operations-Constants-OperationType-OpenActiveSolution 'MFR.Objects.Operations.Constants.OperationType.OpenActiveSolution')
-  - [RenameFilesInFolder](#F-MFR-Objects-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Objects.Operations.Constants.OperationType.RenameFilesInFolder')
-  - [RenameSubFolders](#F-MFR-Objects-Operations-Constants-OperationType-RenameSubFolders 'MFR.Objects.Operations.Constants.OperationType.RenameSubFolders')
-  - [ReplaceTextInFiles](#F-MFR-Objects-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Objects.Operations.Constants.OperationType.ReplaceTextInFiles')
-  - [Unknown](#F-MFR-Objects-Operations-Constants-OperationType-Unknown 'MFR.Objects.Operations.Constants.OperationType.Unknown')
-- [Resources](#T-MFR-Objects-Operations-Constants-Properties-Resources 'MFR.Objects.Operations.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Constants-Properties-Resources-Culture 'MFR.Objects.Operations.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Constants-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Constants.Properties.Resources.ResourceManager')
+- [OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+  - [CloseActiveSolution](#F-MFR-Objects-Operations-Constants-OperationType-CloseActiveSolution 'MFR.Operations.Constants.OperationType.CloseActiveSolution')
+  - [FindVisualStudio](#F-MFR-Objects-Operations-Constants-OperationType-FindVisualStudio 'MFR.Operations.Constants.OperationType.FindVisualStudio')
+  - [GettingListOfFilesToBeRenamed](#F-MFR-Objects-Operations-Constants-OperationType-GettingListOfFilesToBeRenamed 'MFR.Operations.Constants.OperationType.GettingListOfFilesToBeRenamed')
+  - [OpenActiveSolution](#F-MFR-Objects-Operations-Constants-OperationType-OpenActiveSolution 'MFR.Operations.Constants.OperationType.OpenActiveSolution')
+  - [RenameFilesInFolder](#F-MFR-Objects-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+  - [RenameSubFolders](#F-MFR-Objects-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+  - [ReplaceTextInFiles](#F-MFR-Objects-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+  - [Unknown](#F-MFR-Objects-Operations-Constants-OperationType-Unknown 'MFR.Operations.Constants.OperationType.Unknown')
+- [Resources](#T-MFR-Objects-Operations-Constants-Properties-Resources 'MFR.Operations.Constants.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Constants-Properties-Resources-Culture 'MFR.Operations.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Operations-Constants-Properties-Resources-ResourceManager 'MFR.Operations.Constants.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-Constants-OperationType'></a>
 ## OperationType `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Constants
+MFR.Operations.Constants
 
 ##### Summary
 
@@ -102,7 +102,7 @@ Unknown operation type.
 
 ##### Namespace
 
-MFR.Objects.Operations.Constants.Properties
+MFR.Operations.Constants.Properties
 
 ##### Summary
 

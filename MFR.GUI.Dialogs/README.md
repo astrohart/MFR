@@ -524,12 +524,12 @@ Raises the [](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified'
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.GUI.Dialogs.Events.ModifiedEventArgs](#T-MFR-GUI-Dialogs-Events-ModifiedEventArgs 'MFR.GUI.Dialogs.Events.ModifiedEventArgs') | A [ModifiedEventArgs](#T-MFR-Objects-ModifiedEventArgs 'MFR.Objects.ModifiedEventArgs') that contains the
+| e | [MFR.GUI.Dialogs.Events.ModifiedEventArgs](#T-MFR-GUI-Dialogs-Events-ModifiedEventArgs 'MFR.GUI.Dialogs.Events.ModifiedEventArgs') | A [ModifiedEventArgs](#T-MFR-Objects-ModifiedEventArgs 'MFR.ModifiedEventArgs') that contains the
 event data. |
 
 ##### Remarks
 
-If the [Handled](#P-MFR-Objects-ModifiedEventArgs-Handled 'MFR.Objects.ModifiedEventArgs.Handled')
+If the [Handled](#P-MFR-Objects-ModifiedEventArgs-Handled 'MFR.ModifiedEventArgs.Handled')
 property is set `true` by the event's handler, then
 the [IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified') will be set to
 `false`.

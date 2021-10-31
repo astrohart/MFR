@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Replacers.Tests
+# MFR.Replacers.Tests
 
 ## Contents
 
-- [MatchCaseAndExactWordFolderNameStringReplacerTests](#T-MFR-Objects-Replacers-Tests-MatchCaseAndExactWordFolderNameStringReplacerTests 'MFR.Objects.Replacers.Tests.MatchCaseAndExactWordFolderNameStringReplacerTests')
-  - [Test_Replace_Works()](#M-MFR-Objects-Replacers-Tests-MatchCaseAndExactWordFolderNameStringReplacerTests-Test_Replace_Works 'MFR.Objects.Replacers.Tests.MatchCaseAndExactWordFolderNameStringReplacerTests.Test_Replace_Works')
-- [Resources](#T-MFR-Objects-Replacers-Tests-Properties-Resources 'MFR.Objects.Replacers.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Replacers-Tests-Properties-Resources-Culture 'MFR.Objects.Replacers.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Replacers-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Replacers.Tests.Properties.Resources.ResourceManager')
+- [MatchCaseAndExactWordFolderNameStringReplacerTests](#T-MFR-Objects-Replacers-Tests-MatchCaseAndExactWordFolderNameStringReplacerTests 'MFR.Replacers.Tests.MatchCaseAndExactWordFolderNameStringReplacerTests')
+  - [Test_Replace_Works()](#M-MFR-Objects-Replacers-Tests-MatchCaseAndExactWordFolderNameStringReplacerTests-Test_Replace_Works 'MFR.Replacers.Tests.MatchCaseAndExactWordFolderNameStringReplacerTests.Test_Replace_Works')
+- [Resources](#T-MFR-Objects-Replacers-Tests-Properties-Resources 'MFR.Replacers.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Replacers-Tests-Properties-Resources-Culture 'MFR.Replacers.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Replacers-Tests-Properties-Resources-ResourceManager 'MFR.Replacers.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Replacers-Tests-MatchCaseAndExactWordFolderNameStringReplacerTests'></a>
 ## MatchCaseAndExactWordFolderNameStringReplacerTests `type`
 
 ##### Namespace
 
-MFR.Objects.Replacers.Tests
+MFR.Replacers.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[MatchCaseAndExactWordFolderNameStringReplacer](#T-MFR-Objects-MatchCaseAndExactWordFolderNameStringReplacer 'MFR.Objects.MatchCaseAndExactWordFolderNameStringReplacer')
+[MatchCaseAndExactWordFolderNameStringReplacer](#T-MFR-Objects-MatchCaseAndExactWordFolderNameStringReplacer 'MFR.MatchCaseAndExactWordFolderNameStringReplacer')
 class.
 
 <a name='M-MFR-Objects-Replacers-Tests-MatchCaseAndExactWordFolderNameStringReplacerTests-Test_Replace_Works'></a>
@@ -28,10 +28,10 @@ class.
 ##### Summary
 
 Asserts that the
-[Replace](#M-MFR-Objects-IStringReplacer-Replace 'MFR.Objects.IStringReplacer.Replace')
+[Replace](#M-MFR-Objects-IStringReplacer-Replace 'MFR.IStringReplacer.Replace')
 method,
 when the
-[MatchCaseAndExactWord](#T-MFR-Objects-TextMatchingConfiguration-MatchCaseAndExactWord 'MFR.Objects.TextMatchingConfiguration.MatchCaseAndExactWord')
+[MatchCaseAndExactWord](#T-MFR-Objects-TextMatchingConfiguration-MatchCaseAndExactWord 'MFR.TextMatchingConfiguration.MatchCaseAndExactWord')
 matching configuration is used, properly does replacement in folder
 names using an exact-word match.
 
@@ -44,7 +44,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Replacers.Tests.Properties
+MFR.Replacers.Tests.Properties
 
 ##### Summary
 

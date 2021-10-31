@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Requests.Intefaces
+# MFR.Messages.Requests.Intefaces
 
 ## Contents
 
-- [IRequest\`1](#T-MFR-Objects-Messages-Requests-Intefaces-IRequest`1 'MFR.Objects.Messages.Requests.Intefaces.IRequest`1')
-  - [Execute()](#M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-Execute 'MFR.Objects.Messages.Requests.Intefaces.IRequest`1.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-ExecuteAsync 'MFR.Objects.Messages.Requests.Intefaces.IRequest`1.ExecuteAsync')
-- [Resources](#T-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources 'MFR.Objects.Messages.Requests.Intefaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-Culture 'MFR.Objects.Messages.Requests.Intefaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Requests.Intefaces.Properties.Resources.ResourceManager')
+- [IRequest\`1](#T-MFR-Objects-Messages-Requests-Intefaces-IRequest`1 'MFR.Messages.Requests.Intefaces.IRequest`1')
+  - [Execute()](#M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-Execute 'MFR.Messages.Requests.Intefaces.IRequest`1.Execute')
+  - [ExecuteAsync()](#M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-ExecuteAsync 'MFR.Messages.Requests.Intefaces.IRequest`1.ExecuteAsync')
+- [Resources](#T-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources 'MFR.Messages.Requests.Intefaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-Culture 'MFR.Messages.Requests.Intefaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-ResourceManager 'MFR.Messages.Requests.Intefaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Requests-Intefaces-IRequest`1'></a>
 ## IRequest\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Requests.Intefaces
+MFR.Messages.Requests.Intefaces
 
 ##### Summary
 
@@ -80,7 +80,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Messages.Requests.Intefaces.Properties
+MFR.Messages.Requests.Intefaces.Properties
 
 ##### Summary
 

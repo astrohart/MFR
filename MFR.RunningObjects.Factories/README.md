@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.RunningObjects.Factories
+# MFR.RunningObjects.Factories
 
 ## Contents
 
-- [GetRunningObject](#T-MFR-Objects-RunningObjects-Factories-GetRunningObject 'MFR.Objects.RunningObjects.Factories.GetRunningObject')
-  - [ByDisplayName(displayName)](#M-MFR-Objects-RunningObjects-Factories-GetRunningObject-ByDisplayName-System-String- 'MFR.Objects.RunningObjects.Factories.GetRunningObject.ByDisplayName(System.String)')
-  - [DisplayNames()](#M-MFR-Objects-RunningObjects-Factories-GetRunningObject-DisplayNames 'MFR.Objects.RunningObjects.Factories.GetRunningObject.DisplayNames')
-- [Resources](#T-MFR-Objects-RunningObjects-Factories-Properties-Resources 'MFR.Objects.RunningObjects.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-RunningObjects-Factories-Properties-Resources-Culture 'MFR.Objects.RunningObjects.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-RunningObjects-Factories-Properties-Resources-ResourceManager 'MFR.Objects.RunningObjects.Factories.Properties.Resources.ResourceManager')
+- [GetRunningObject](#T-MFR-Objects-RunningObjects-Factories-GetRunningObject 'MFR.RunningObjects.Factories.GetRunningObject')
+  - [ByDisplayName(displayName)](#M-MFR-Objects-RunningObjects-Factories-GetRunningObject-ByDisplayName-System-String- 'MFR.RunningObjects.Factories.GetRunningObject.ByDisplayName(System.String)')
+  - [DisplayNames()](#M-MFR-Objects-RunningObjects-Factories-GetRunningObject-DisplayNames 'MFR.RunningObjects.Factories.GetRunningObject.DisplayNames')
+- [Resources](#T-MFR-Objects-RunningObjects-Factories-Properties-Resources 'MFR.RunningObjects.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-RunningObjects-Factories-Properties-Resources-Culture 'MFR.RunningObjects.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-RunningObjects-Factories-Properties-Resources-ResourceManager 'MFR.RunningObjects.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-RunningObjects-Factories-GetRunningObject'></a>
 ## GetRunningObject `type`
 
 ##### Namespace
 
-MFR.Objects.RunningObjects.Factories
+MFR.RunningObjects.Factories
 
 ##### Summary
 
@@ -72,7 +72,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.RunningObjects.Factories.Properties
+MFR.RunningObjects.Factories.Properties
 
 ##### Summary
 

@@ -1,40 +1,40 @@
 <a name='assembly'></a>
-# MFR.Objects.Configuration.Interfaces
+# MFR.Configuration.Interfaces
 
 ## Contents
 
-- [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration')
-  - [FindWhat](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-FindWhat 'MFR.Objects.Configuration.Interfaces.IConfiguration.FindWhat')
-  - [FindWhatHistory](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-FindWhatHistory 'MFR.Objects.Configuration.Interfaces.IConfiguration.FindWhatHistory')
-  - [IsFolded](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-IsFolded 'MFR.Objects.Configuration.Interfaces.IConfiguration.IsFolded')
-  - [MatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-MatchCase 'MFR.Objects.Configuration.Interfaces.IConfiguration.MatchCase')
-  - [MatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-MatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfiguration.MatchExactWord')
-  - [ReOpenSolution](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReOpenSolution 'MFR.Objects.Configuration.Interfaces.IConfiguration.ReOpenSolution')
-  - [RenameFiles](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-RenameFiles 'MFR.Objects.Configuration.Interfaces.IConfiguration.RenameFiles')
-  - [RenameSubfolders](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-RenameSubfolders 'MFR.Objects.Configuration.Interfaces.IConfiguration.RenameSubfolders')
-  - [ReplaceInFiles](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReplaceInFiles 'MFR.Objects.Configuration.Interfaces.IConfiguration.ReplaceInFiles')
-  - [ReplaceWith](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReplaceWith 'MFR.Objects.Configuration.Interfaces.IConfiguration.ReplaceWith')
-  - [ReplaceWithHistory](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReplaceWithHistory 'MFR.Objects.Configuration.Interfaces.IConfiguration.ReplaceWithHistory')
-  - [SelectedOptionTab](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-SelectedOptionTab 'MFR.Objects.Configuration.Interfaces.IConfiguration.SelectedOptionTab')
-  - [StartingFolder](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-StartingFolder 'MFR.Objects.Configuration.Interfaces.IConfiguration.StartingFolder')
-  - [StartingFolderHistory](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-StartingFolderHistory 'MFR.Objects.Configuration.Interfaces.IConfiguration.StartingFolderHistory')
-- [IConfigurationComposedObject](#T-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject 'MFR.Objects.Configuration.Interfaces.IConfigurationComposedObject')
-  - [Configuration](#P-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-Configuration 'MFR.Objects.Configuration.Interfaces.IConfigurationComposedObject.Configuration')
-  - [AndAttachConfiguration()](#M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-AndAttachConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Configuration.Interfaces.IConfigurationComposedObject.AndAttachConfiguration(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [UpdateConfiguration(configuration)](#M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Configuration.Interfaces.IConfigurationComposedObject.UpdateConfiguration(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [VerifyConfigurationAttached()](#M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-VerifyConfigurationAttached 'MFR.Objects.Configuration.Interfaces.IConfigurationComposedObject.VerifyConfigurationAttached')
-- [IFixedTextMatchingConfigurationSpecificObject](#T-MFR-Objects-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject 'MFR.Objects.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject-TextMatchingConfiguration 'MFR.Objects.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration')
-- [Resources](#T-MFR-Objects-Configuration-Interfaces-Properties-Resources 'MFR.Objects.Configuration.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Interfaces-Properties-Resources-Culture 'MFR.Objects.Configuration.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Interfaces.Properties.Resources.ResourceManager')
+- [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration')
+  - [FindWhat](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-FindWhat 'MFR.Configuration.Interfaces.IConfiguration.FindWhat')
+  - [FindWhatHistory](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-FindWhatHistory 'MFR.Configuration.Interfaces.IConfiguration.FindWhatHistory')
+  - [IsFolded](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-IsFolded 'MFR.Configuration.Interfaces.IConfiguration.IsFolded')
+  - [MatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-MatchCase 'MFR.Configuration.Interfaces.IConfiguration.MatchCase')
+  - [MatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-MatchExactWord 'MFR.Configuration.Interfaces.IConfiguration.MatchExactWord')
+  - [ReOpenSolution](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReOpenSolution 'MFR.Configuration.Interfaces.IConfiguration.ReOpenSolution')
+  - [RenameFiles](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-RenameFiles 'MFR.Configuration.Interfaces.IConfiguration.RenameFiles')
+  - [RenameSubfolders](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-RenameSubfolders 'MFR.Configuration.Interfaces.IConfiguration.RenameSubfolders')
+  - [ReplaceInFiles](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReplaceInFiles 'MFR.Configuration.Interfaces.IConfiguration.ReplaceInFiles')
+  - [ReplaceWith](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReplaceWith 'MFR.Configuration.Interfaces.IConfiguration.ReplaceWith')
+  - [ReplaceWithHistory](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-ReplaceWithHistory 'MFR.Configuration.Interfaces.IConfiguration.ReplaceWithHistory')
+  - [SelectedOptionTab](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-SelectedOptionTab 'MFR.Configuration.Interfaces.IConfiguration.SelectedOptionTab')
+  - [StartingFolder](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-StartingFolder 'MFR.Configuration.Interfaces.IConfiguration.StartingFolder')
+  - [StartingFolderHistory](#P-MFR-Objects-Configuration-Interfaces-IConfiguration-StartingFolderHistory 'MFR.Configuration.Interfaces.IConfiguration.StartingFolderHistory')
+- [IConfigurationComposedObject](#T-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject 'MFR.Configuration.Interfaces.IConfigurationComposedObject')
+  - [Configuration](#P-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-Configuration 'MFR.Configuration.Interfaces.IConfigurationComposedObject.Configuration')
+  - [AndAttachConfiguration()](#M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-AndAttachConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Configuration.Interfaces.IConfigurationComposedObject.AndAttachConfiguration(MFR.Configuration.Interfaces.IConfiguration)')
+  - [UpdateConfiguration(configuration)](#M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Configuration.Interfaces.IConfigurationComposedObject.UpdateConfiguration(MFR.Configuration.Interfaces.IConfiguration)')
+  - [VerifyConfigurationAttached()](#M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-VerifyConfigurationAttached 'MFR.Configuration.Interfaces.IConfigurationComposedObject.VerifyConfigurationAttached')
+- [IFixedTextMatchingConfigurationSpecificObject](#T-MFR-Objects-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject 'MFR.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject-TextMatchingConfiguration 'MFR.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration')
+- [Resources](#T-MFR-Objects-Configuration-Interfaces-Properties-Resources 'MFR.Configuration.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Configuration-Interfaces-Properties-Resources-Culture 'MFR.Configuration.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Configuration-Interfaces-Properties-Resources-ResourceManager 'MFR.Configuration.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Configuration-Interfaces-IConfiguration'></a>
 ## IConfiguration `type`
 
 ##### Namespace
 
-MFR.Objects.Configuration.Interfaces
+MFR.Configuration.Interfaces
 
 ##### Summary
 
@@ -166,13 +166,13 @@ most-recently-used values for Starting Folder.
 
 ##### Namespace
 
-MFR.Objects.Configuration.Interfaces
+MFR.Configuration.Interfaces
 
 ##### Summary
 
 Defines the public-exposed methods and properties of an object that is
 composed with an instance of another object that implements the
-[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration')
+[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration')
 interface.
 
 <a name='P-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-Configuration'></a>
@@ -181,7 +181,7 @@ interface.
 ##### Summary
 
 Gets or sets a reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') interface.
+the [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') interface.
 
 <a name='M-MFR-Objects-Configuration-Interfaces-IConfigurationComposedObject-AndAttachConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration-'></a>
 ### AndAttachConfiguration() `method`
@@ -190,7 +190,7 @@ the [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR
 
 Associates user settings, in the form of an instance of an object
 that implements the
-[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration')
+[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration')
 interface, with
 this matcher.
 
@@ -212,7 +212,7 @@ is passed a `null` value. |
 
 ##### Remarks
 
-The [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration')
+The [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration')
 -implementing configuration object controls the behavior of this
 text-expression matcher object by dint of the settings chosen by the
 user at runtime.
@@ -228,8 +228,8 @@ Updates the configuration currently being used with a new value.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') interface
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') interface
 which has the new settings. |
 
 ##### Exceptions
@@ -259,12 +259,12 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
 If no configuration is attached to this object, then a new
-[ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException')
+[ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException')
 exception is thrown.
 
 <a name='T-MFR-Objects-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject'></a>
@@ -272,13 +272,13 @@ exception is thrown.
 
 ##### Namespace
 
-MFR.Objects.Configuration.Interfaces
+MFR.Configuration.Interfaces
 
 ##### Summary
 
 Defines the public-exposed methods and properties of an object that is
 tagged with one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values.
 
 ##### Remarks
@@ -291,7 +291,7 @@ This interface represents an object for which the operation type is immutable.
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values that
 corresponds to the type of operation being performed.
 
@@ -300,7 +300,7 @@ corresponds to the type of operation being performed.
 
 ##### Namespace
 
-MFR.Objects.Configuration.Interfaces.Properties
+MFR.Configuration.Interfaces.Properties
 
 ##### Summary
 

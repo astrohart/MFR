@@ -6,8 +6,8 @@
 - [Program](#T-MFR-GUI-Program 'MFR.GUI.Program')
   - [CommandLineInfo](#P-MFR-GUI-Program-CommandLineInfo 'MFR.GUI.Program.CommandLineInfo')
   - [Main(args)](#M-MFR-GUI-Program-Main-System-String[]- 'MFR.GUI.Program.Main(System.String[])')
-  - [OnCommandLineInfoInvalid(sender,e)](#M-MFR-GUI-Program-OnCommandLineInfoInvalid-System-Object,MFR-Objects-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.GUI.Program.OnCommandLineInfoInvalid(System.Object,MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
-  - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Program-OnRootDirectoryInvalid-System-Object,MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Program.OnRootDirectoryInvalid(System.Object,MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs)')
+  - [OnCommandLineInfoInvalid(sender,e)](#M-MFR-GUI-Program-OnCommandLineInfoInvalid-System-Object,MFR-Objects-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.GUI.Program.OnCommandLineInfoInvalid(System.Object,MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
+  - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Program-OnRootDirectoryInvalid-System-Object,MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Program.OnRootDirectoryInvalid(System.Object,MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs)')
   - [OnThreadException(sender,e)](#M-MFR-GUI-Program-OnThreadException-System-Object,System-Threading-ThreadExceptionEventArgs- 'MFR.GUI.Program.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)')
   - [ParseCommandLine(args)](#M-MFR-GUI-Program-ParseCommandLine-System-String[]- 'MFR.GUI.Program.ParseCommandLine(System.String[])')
   - [ProcessCommandLine()](#M-MFR-GUI-Program-ProcessCommandLine 'MFR.GUI.Program.ProcessCommandLine')
@@ -40,7 +40,7 @@ functionality.
 ##### Summary
 
 Gets a reference to an instance of a
-[CommandLineInfo](#T-MFR-Objects-CommandLine-CommandLineInfo 'MFR.Objects.CommandLine.CommandLineInfo')
+[CommandLineInfo](#T-MFR-Objects-CommandLine-CommandLineInfo 'MFR.CommandLine.CommandLineInfo')
 object that is
 initialized with the values specified (if any) by the user on this
 application's command line.
@@ -65,7 +65,7 @@ command-line argument passed to this application. |
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-CommandLine-Validators-Interfaces-ICommandLineValidator-CommandLineInfoInvalid 'MFR.Objects.CommandLine.Validators.Interfaces.ICommandLineValidator.CommandLineInfoInvalid')
+[](#E-MFR-Objects-CommandLine-Validators-Interfaces-ICommandLineValidator-CommandLineInfoInvalid 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.CommandLineInfoInvalid')
 event raised by the command-line validator object.
 
 ##### Parameters
@@ -73,8 +73,8 @@ event raised by the command-line validator object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs') | A
-[CommandLineInfoInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.Objects.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs')
+| e | [MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs') | A
+[CommandLineInfoInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs')
 that contains the event data. |
 
 ##### Remarks
@@ -87,7 +87,7 @@ This method responds by showing an error message to the user.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.Objects.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
+[](#E-MFR-Objects-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
 event raised by the root-directory validator object.
 
 ##### Parameters
@@ -95,8 +95,8 @@ event raised by the root-directory validator object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs') | A
-[RootDirectoryInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs 'MFR.Objects.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs')
+| e | [MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs 'MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs') | A
+[RootDirectoryInvalidEventArgs](#T-MFR-Objects-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs 'MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs')
 that contains the event data. |
 
 ##### Remarks
@@ -144,7 +144,7 @@ and stack trace.
 ##### Summary
 
 Initializes a new instance of
-[CommandLineInfo](#T-MFR-Objects-CommandLine-CommandLineInfo 'MFR.Objects.CommandLine.CommandLineInfo')
+[CommandLineInfo](#T-MFR-Objects-CommandLine-CommandLineInfo 'MFR.CommandLine.CommandLineInfo')
 from the
 arguments passed by the user on the command line, and initializes
 the [CommandLineInfo](#P-MFR-GUI-Program-CommandLineInfo 'MFR.GUI.Program.CommandLineInfo') property with a

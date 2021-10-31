@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Validators.Factories
+# MFR.FileSystem.Validators.Factories
 
 ## Contents
 
-- [GetFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Validators-Factories-GetFileSystemEntryValidator 'MFR.Objects.FileSystem.Validators.Factories.GetFileSystemEntryValidator')
-  - [For(type)](#M-MFR-Objects-FileSystem-Validators-Factories-GetFileSystemEntryValidator-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.FileSystem.Validators.Factories.GetFileSystemEntryValidator.For(MFR.Objects.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-Objects-FileSystem-Validators-Factories-Properties-Resources 'MFR.Objects.FileSystem.Validators.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Validators-Factories-Properties-Resources-Culture 'MFR.Objects.FileSystem.Validators.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Factories-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Validators.Factories.Properties.Resources.ResourceManager')
+- [GetFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Validators-Factories-GetFileSystemEntryValidator 'MFR.FileSystem.Validators.Factories.GetFileSystemEntryValidator')
+  - [For(type)](#M-MFR-Objects-FileSystem-Validators-Factories-GetFileSystemEntryValidator-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.FileSystem.Validators.Factories.GetFileSystemEntryValidator.For(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-Objects-FileSystem-Validators-Factories-Properties-Resources 'MFR.FileSystem.Validators.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Validators-Factories-Properties-Resources-Culture 'MFR.FileSystem.Validators.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Factories-Properties-Resources-ResourceManager 'MFR.FileSystem.Validators.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Validators-Factories-GetFileSystemEntryValidator'></a>
 ## GetFileSystemEntryValidator `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Validators.Factories
+MFR.FileSystem.Validators.Factories
 
 ##### Summary
 
 Gets instances of objects that implement the
-[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator')
+[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Interfaces.IFileSystemEntryValidator')
 interface
 that correspond to the type of file-system operation that is being performed.
 
@@ -29,16 +29,16 @@ that correspond to the type of file-system operation that is being performed.
 ##### Summary
 
 Gets a reference to an instance of an object implementing the
-[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator')
+[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Interfaces.IFileSystemEntryValidator')
 interface corresponding to the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 value that is
 provided in the `type` parameter.
 
 ##### Returns
 
 Reference to the instance of the object implementing the
-[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator')
+[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Interfaces.IFileSystemEntryValidator')
 interface that corresponds to the type of file-system operation
 specified by the `type` parameter.
 
@@ -46,7 +46,7 @@ specified by the `type` parameter.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that specifies the type of file-system operation that is
 being performed. |
 
@@ -62,7 +62,7 @@ for the specified operation `type`. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Validators.Factories.Properties
+MFR.FileSystem.Validators.Factories.Properties
 
 ##### Summary
 

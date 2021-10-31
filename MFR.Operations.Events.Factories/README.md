@@ -1,18 +1,18 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations.Events.Factories
+# MFR.Operations.Events.Factories
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Operations-Events-Factories-Properties-Resources 'MFR.Objects.Operations.Events.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Events-Factories-Properties-Resources-Culture 'MFR.Objects.Operations.Events.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Events-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Events.Factories.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Objects-Operations-Events-Factories-Properties-Resources 'MFR.Operations.Events.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Events-Factories-Properties-Resources-Culture 'MFR.Operations.Events.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Operations-Events-Factories-Properties-Resources-ResourceManager 'MFR.Operations.Events.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-Events-Factories-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Events.Factories.Properties
+MFR.Operations.Events.Factories.Properties
 
 ##### Summary
 

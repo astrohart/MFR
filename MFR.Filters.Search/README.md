@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.Filters.Search
+# MFR.Filters.Search
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Filters-Search-Properties-Resources 'MFR.Objects.Filters.Search.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Filters-Search-Properties-Resources-Culture 'MFR.Objects.Filters.Search.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Filters-Search-Properties-Resources-ResourceManager 'MFR.Objects.Filters.Search.Properties.Resources.ResourceManager')
-- [SearchFilterItemBase](#T-MFR-Objects-Filters-Search-SearchFilterItemBase 'MFR.Objects.Filters.Search.SearchFilterItemBase')
-  - [#ctor(descriptor)](#M-MFR-Objects-Filters-Search-SearchFilterItemBase-#ctor-System-String- 'MFR.Objects.Filters.Search.SearchFilterItemBase.#ctor(System.String)')
-  - [Descriptor](#P-MFR-Objects-Filters-Search-SearchFilterItemBase-Descriptor 'MFR.Objects.Filters.Search.SearchFilterItemBase.Descriptor')
-  - [IsExclusion](#P-MFR-Objects-Filters-Search-SearchFilterItemBase-IsExclusion 'MFR.Objects.Filters.Search.SearchFilterItemBase.IsExclusion')
-  - [Type](#P-MFR-Objects-Filters-Search-SearchFilterItemBase-Type 'MFR.Objects.Filters.Search.SearchFilterItemBase.Type')
+- [Resources](#T-MFR-Objects-Filters-Search-Properties-Resources 'MFR.Filters.Search.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Filters-Search-Properties-Resources-Culture 'MFR.Filters.Search.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Filters-Search-Properties-Resources-ResourceManager 'MFR.Filters.Search.Properties.Resources.ResourceManager')
+- [SearchFilterItemBase](#T-MFR-Objects-Filters-Search-SearchFilterItemBase 'MFR.Filters.Search.SearchFilterItemBase')
+  - [#ctor(descriptor)](#M-MFR-Objects-Filters-Search-SearchFilterItemBase-#ctor-System-String- 'MFR.Filters.Search.SearchFilterItemBase.#ctor(System.String)')
+  - [Descriptor](#P-MFR-Objects-Filters-Search-SearchFilterItemBase-Descriptor 'MFR.Filters.Search.SearchFilterItemBase.Descriptor')
+  - [IsExclusion](#P-MFR-Objects-Filters-Search-SearchFilterItemBase-IsExclusion 'MFR.Filters.Search.SearchFilterItemBase.IsExclusion')
+  - [Type](#P-MFR-Objects-Filters-Search-SearchFilterItemBase-Type 'MFR.Filters.Search.SearchFilterItemBase.Type')
 
 <a name='T-MFR-Objects-Filters-Search-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Filters.Search.Properties
+MFR.Filters.Search.Properties
 
 ##### Summary
 
@@ -43,7 +43,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Filters.Search
+MFR.Filters.Search
 
 ##### Summary
 
@@ -54,7 +54,7 @@ Provides a common implementation for all search filters objects.
 
 ##### Summary
 
-Constructs a new instance of [SearchFilter](#T-MFR-Objects-SearchFilter 'MFR.Objects.SearchFilter') and returns a
+Constructs a new instance of [SearchFilter](#T-MFR-Objects-SearchFilter 'MFR.SearchFilter') and returns a
 reference to it.
 
 ##### Parameters

@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations.Exceptions
+# MFR.Operations.Exceptions
 
 ## Contents
 
-- [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Objects.Operations.Exceptions.OperationAbortedException')
-  - [#ctor(message)](#M-MFR-Objects-Operations-Exceptions-OperationAbortedException-#ctor-System-String- 'MFR.Objects.Operations.Exceptions.OperationAbortedException.#ctor(System.String)')
-  - [#ctor(message,innerException)](#M-MFR-Objects-Operations-Exceptions-OperationAbortedException-#ctor-System-String,System-Exception- 'MFR.Objects.Operations.Exceptions.OperationAbortedException.#ctor(System.String,System.Exception)')
-  - [#ctor()](#M-MFR-Objects-Operations-Exceptions-OperationAbortedException-#ctor 'MFR.Objects.Operations.Exceptions.OperationAbortedException.#ctor')
-- [Resources](#T-MFR-Objects-Operations-Exceptions-Properties-Resources 'MFR.Objects.Operations.Exceptions.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Exceptions-Properties-Resources-Culture 'MFR.Objects.Operations.Exceptions.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Exceptions-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Exceptions.Properties.Resources.ResourceManager')
+- [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException')
+  - [#ctor(message)](#M-MFR-Objects-Operations-Exceptions-OperationAbortedException-#ctor-System-String- 'MFR.Operations.Exceptions.OperationAbortedException.#ctor(System.String)')
+  - [#ctor(message,innerException)](#M-MFR-Objects-Operations-Exceptions-OperationAbortedException-#ctor-System-String,System-Exception- 'MFR.Operations.Exceptions.OperationAbortedException.#ctor(System.String,System.Exception)')
+  - [#ctor()](#M-MFR-Objects-Operations-Exceptions-OperationAbortedException-#ctor 'MFR.Operations.Exceptions.OperationAbortedException.#ctor')
+- [Resources](#T-MFR-Objects-Operations-Exceptions-Properties-Resources 'MFR.Operations.Exceptions.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Exceptions-Properties-Resources-Culture 'MFR.Operations.Exceptions.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Operations-Exceptions-Properties-Resources-ResourceManager 'MFR.Operations.Exceptions.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-Exceptions-OperationAbortedException'></a>
 ## OperationAbortedException `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Exceptions
+MFR.Operations.Exceptions
 
 ##### Summary
 
@@ -27,7 +27,7 @@ Signals that a request has been made to abort an operation.
 
 ##### Summary
 
-Constructs a new instance of [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Objects.Operations.Exceptions.OperationAbortedException') and
+Constructs a new instance of [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException') and
 returns a reference to it.
 
 ##### Parameters
@@ -41,7 +41,7 @@ returns a reference to it.
 
 ##### Summary
 
-Constructs a new instance of [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Objects.Operations.Exceptions.OperationAbortedException') and
+Constructs a new instance of [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException') and
 returns a reference to it.
 
 ##### Parameters
@@ -56,7 +56,7 @@ returns a reference to it.
 
 ##### Summary
 
-Constructs a new instance of [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Objects.Operations.Exceptions.OperationAbortedException') and
+Constructs a new instance of [OperationAbortedException](#T-MFR-Objects-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException') and
 returns a reference to it.
 
 ##### Parameters
@@ -68,7 +68,7 @@ This constructor has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Operations.Exceptions.Properties
+MFR.Operations.Exceptions.Properties
 
 ##### Summary
 

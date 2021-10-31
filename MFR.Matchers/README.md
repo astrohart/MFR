@@ -1,103 +1,103 @@
 <a name='assembly'></a>
-# MFR.Objects.Matchers
+# MFR.Matchers
 
 ## Contents
 
-- [MatchCaseAndExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-#ctor 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-Instance 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-#cctor 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher.#cctor')
-  - [GetPattern(findWhat)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-GetPattern-System-String- 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher.GetPattern(System.String)')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchCaseAndExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-#ctor 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-Instance 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-#cctor 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchCaseAndExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-#ctor 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-Instance 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-#cctor 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchCaseOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-#ctor 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-Instance 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-#cctor 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchCaseOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-#ctor 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-Instance 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-#cctor 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchCaseOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-#ctor 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-Instance 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-#cctor 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchExactWordOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-#ctor 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-Instance 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-#cctor 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchExactWordOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-#ctor 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-Instance 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-#cctor 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [MatchExactWordOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-#ctor 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-Instance 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-#cctor 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [NeitherMatchCaseNorExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-#ctor 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-Instance 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-#cctor 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [NeitherMatchCaseNorExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-#ctor 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-Instance 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-#cctor 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [NeitherMatchCaseNorExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher')
-  - [#ctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-#ctor 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-Instance 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.Instance')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.TextMatchingConfiguration')
-  - [#cctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-#cctor 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.#cctor')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [RenameFilesInFolderStringMatcherBase](#T-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase 'MFR.Objects.Matchers.RenameFilesInFolderStringMatcherBase')
-  - [OperationType](#P-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase-OperationType 'MFR.Objects.Matchers.RenameFilesInFolderStringMatcherBase.OperationType')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase-TextMatchingConfiguration 'MFR.Objects.Matchers.RenameFilesInFolderStringMatcherBase.TextMatchingConfiguration')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.RenameFilesInFolderStringMatcherBase.IsMatch(System.String,System.String,System.String)')
-- [RenameSubFoldersStringMatcherBase](#T-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase 'MFR.Objects.Matchers.RenameSubFoldersStringMatcherBase')
-  - [OperationType](#P-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase-OperationType 'MFR.Objects.Matchers.RenameSubFoldersStringMatcherBase.OperationType')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase-TextMatchingConfiguration 'MFR.Objects.Matchers.RenameSubFoldersStringMatcherBase.TextMatchingConfiguration')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.RenameSubFoldersStringMatcherBase.IsMatch(System.String,System.String,System.String)')
-- [ReplaceTextInFilesStringMatcherBase](#T-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase 'MFR.Objects.Matchers.ReplaceTextInFilesStringMatcherBase')
-  - [OperationType](#P-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase-OperationType 'MFR.Objects.Matchers.ReplaceTextInFilesStringMatcherBase.OperationType')
-  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase-TextMatchingConfiguration 'MFR.Objects.Matchers.ReplaceTextInFilesStringMatcherBase.TextMatchingConfiguration')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Matchers.ReplaceTextInFilesStringMatcherBase.IsMatch(System.String,System.String,System.String)')
-- [Resources](#T-MFR-Objects-Matchers-Properties-Resources 'MFR.Objects.Matchers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Matchers-Properties-Resources-Culture 'MFR.Objects.Matchers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Matchers-Properties-Resources-ResourceManager 'MFR.Objects.Matchers.Properties.Resources.ResourceManager')
+- [MatchCaseAndExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-#ctor 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-Instance 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-#cctor 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher.#cctor')
+  - [GetPattern(findWhat)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-GetPattern-System-String- 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher.GetPattern(System.String)')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchCaseAndExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-#ctor 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-Instance 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-#cctor 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchCaseAndExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-#ctor 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-Instance 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-#cctor 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchCaseOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-#ctor 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-Instance 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-#cctor 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchCaseOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-#ctor 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-Instance 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-#cctor 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchCaseOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-#ctor 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-Instance 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-#cctor 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchExactWordOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-#ctor 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-Instance 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-#cctor 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchExactWordOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-#ctor 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-Instance 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-#cctor 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [MatchExactWordOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-#ctor 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-Instance 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-#cctor 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [NeitherMatchCaseNorExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-#ctor 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-Instance 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-#cctor 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [NeitherMatchCaseNorExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-#ctor 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-Instance 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-TextMatchingConfiguration 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-#cctor 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [NeitherMatchCaseNorExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher')
+  - [#ctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-#ctor 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-Instance 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.Instance')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-TextMatchingConfiguration 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.TextMatchingConfiguration')
+  - [#cctor()](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-#cctor 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.#cctor')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [RenameFilesInFolderStringMatcherBase](#T-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase 'MFR.Matchers.RenameFilesInFolderStringMatcherBase')
+  - [OperationType](#P-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase-OperationType 'MFR.Matchers.RenameFilesInFolderStringMatcherBase.OperationType')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase-TextMatchingConfiguration 'MFR.Matchers.RenameFilesInFolderStringMatcherBase.TextMatchingConfiguration')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-RenameFilesInFolderStringMatcherBase-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.RenameFilesInFolderStringMatcherBase.IsMatch(System.String,System.String,System.String)')
+- [RenameSubFoldersStringMatcherBase](#T-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase 'MFR.Matchers.RenameSubFoldersStringMatcherBase')
+  - [OperationType](#P-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase-OperationType 'MFR.Matchers.RenameSubFoldersStringMatcherBase.OperationType')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase-TextMatchingConfiguration 'MFR.Matchers.RenameSubFoldersStringMatcherBase.TextMatchingConfiguration')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-RenameSubFoldersStringMatcherBase-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.RenameSubFoldersStringMatcherBase.IsMatch(System.String,System.String,System.String)')
+- [ReplaceTextInFilesStringMatcherBase](#T-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase 'MFR.Matchers.ReplaceTextInFilesStringMatcherBase')
+  - [OperationType](#P-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase-OperationType 'MFR.Matchers.ReplaceTextInFilesStringMatcherBase.OperationType')
+  - [TextMatchingConfiguration](#P-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase-TextMatchingConfiguration 'MFR.Matchers.ReplaceTextInFilesStringMatcherBase.TextMatchingConfiguration')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-ReplaceTextInFilesStringMatcherBase-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.ReplaceTextInFilesStringMatcherBase.IsMatch(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Objects-Matchers-Properties-Resources 'MFR.Matchers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Matchers-Properties-Resources-Culture 'MFR.Matchers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Matchers-Properties-Resources-ResourceManager 'MFR.Matchers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher'></a>
 ## MatchCaseAndExactWordFileNameStringMatcher `type`
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -123,7 +123,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchCaseAndExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher 'MFR.Objects.Matchers.MatchCaseAndExactWordFileNameStringMatcher')
+[MatchCaseAndExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher 'MFR.Matchers.MatchCaseAndExactWordFileNameStringMatcher')
 .
 
 <a name='P-MFR-Objects-Matchers-MatchCaseAndExactWordFileNameStringMatcher-TextMatchingConfiguration'></a>
@@ -132,7 +132,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values that
 corresponds to the type of operation being performed.
 
@@ -207,7 +207,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -233,7 +233,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchCaseAndExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher 'MFR.Objects.Matchers.MatchCaseAndExactWordFolderNameStringMatcher')
+[MatchCaseAndExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher')
 .
 
 <a name='P-MFR-Objects-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-TextMatchingConfiguration'></a>
@@ -242,7 +242,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -297,7 +297,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -323,7 +323,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchCaseAndExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher 'MFR.Objects.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher')
+[MatchCaseAndExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher 'MFR.Matchers.MatchCaseAndExactWordTextInFilesStringMatcher')
 .
 
 <a name='P-MFR-Objects-Matchers-MatchCaseAndExactWordTextInFilesStringMatcher-TextMatchingConfiguration'></a>
@@ -332,7 +332,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values that
 corresponds to the type of operation being performed.
 
@@ -387,7 +387,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -413,7 +413,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchCaseOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher 'MFR.Objects.Matchers.MatchCaseOnlyFileNameStringMatcher').
+[MatchCaseOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher 'MFR.Matchers.MatchCaseOnlyFileNameStringMatcher').
 
 <a name='P-MFR-Objects-Matchers-MatchCaseOnlyFileNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -421,7 +421,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -476,7 +476,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -502,7 +502,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchCaseOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher 'MFR.Objects.Matchers.MatchCaseOnlyFolderNameStringMatcher').
+[MatchCaseOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher').
 
 <a name='P-MFR-Objects-Matchers-MatchCaseOnlyFolderNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -510,7 +510,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -565,7 +565,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -591,7 +591,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchCaseOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher 'MFR.Objects.Matchers.MatchCaseOnlyTextInFilesStringMatcher').
+[MatchCaseOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher 'MFR.Matchers.MatchCaseOnlyTextInFilesStringMatcher').
 
 <a name='P-MFR-Objects-Matchers-MatchCaseOnlyTextInFilesStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -599,7 +599,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -654,7 +654,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -677,14 +677,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [MatchExactWordOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher 'MFR.Objects.Matchers.MatchExactWordOnlyFileNameStringMatcher').
+Gets a reference to the one and only instance of [MatchExactWordOnlyFileNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher 'MFR.Matchers.MatchExactWordOnlyFileNameStringMatcher').
 
 <a name='P-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
 
 ##### Summary
 
-Gets one of the [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration') values
+Gets one of the [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Matchers-MatchExactWordOnlyFileNameStringMatcher-#cctor'></a>
@@ -734,7 +734,7 @@ replaced with. |
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -760,7 +760,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchExactWordOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher 'MFR.Objects.Matchers.MatchExactWordOnlyFolderNameStringMatcher')
+[MatchExactWordOnlyFolderNameStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher')
 .
 
 <a name='P-MFR-Objects-Matchers-MatchExactWordOnlyFolderNameStringMatcher-TextMatchingConfiguration'></a>
@@ -769,7 +769,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -824,7 +824,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -850,7 +850,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[MatchExactWordOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher 'MFR.Objects.Matchers.MatchExactWordOnlyTextInFilesStringMatcher')
+[MatchExactWordOnlyTextInFilesStringMatcher](#T-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher 'MFR.Matchers.MatchExactWordOnlyTextInFilesStringMatcher')
 .
 
 <a name='P-MFR-Objects-Matchers-MatchExactWordOnlyTextInFilesStringMatcher-TextMatchingConfiguration'></a>
@@ -859,7 +859,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -914,7 +914,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -937,14 +937,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [NeitherMatchCaseNorExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher').
+Gets a reference to the one and only instance of [NeitherMatchCaseNorExactWordFileNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordFileNameStringMatcher').
 
 <a name='P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
 
 ##### Summary
 
-Gets one of the [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration') values
+Gets one of the [TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFileNameStringMatcher-#cctor'></a>
@@ -994,7 +994,7 @@ replaced with. |
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -1022,7 +1022,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[NeitherMatchCaseNorExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher')
+[NeitherMatchCaseNorExactWordFolderNameStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher')
 .
 
 <a name='P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-TextMatchingConfiguration'></a>
@@ -1031,7 +1031,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values that
 corresponds to the type of operation being performed.
 
@@ -1086,7 +1086,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -1110,7 +1110,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[NeitherMatchCaseNorExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher 'MFR.Objects.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher').
+[NeitherMatchCaseNorExactWordTextInFilesStringMatcher](#T-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordTextInFilesStringMatcher').
 
 <a name='P-MFR-Objects-Matchers-NeitherMatchCaseNorExactWordTextInFilesStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -1118,7 +1118,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -1173,7 +1173,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -1186,7 +1186,7 @@ objects for the Rename Files in Folder operation type have in common.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -1196,7 +1196,7 @@ corresponds to the type of operation being performed.
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -1240,7 +1240,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -1253,7 +1253,7 @@ objects for the Rename Sub Folders operation type have in common.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -1263,7 +1263,7 @@ corresponds to the type of operation being performed.
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -1307,7 +1307,7 @@ or `findWhat`, are passed blank or
 
 ##### Namespace
 
-MFR.Objects.Matchers
+MFR.Matchers
 
 ##### Summary
 
@@ -1320,7 +1320,7 @@ objects for the Replace Text in Files operation type have in common.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -1330,7 +1330,7 @@ corresponds to the type of operation being performed.
 ##### Summary
 
 Gets one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that corresponds to the type of operation being performed.
 
@@ -1380,7 +1380,7 @@ return value.
 
 ##### Namespace
 
-MFR.Objects.Matchers.Properties
+MFR.Matchers.Properties
 
 ##### Summary
 

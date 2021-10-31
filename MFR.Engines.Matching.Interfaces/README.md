@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Engines.Matching.Interfaces
+# MFR.Engines.Matching.Interfaces
 
 ## Contents
 
-- [ITextExpressionMatchingEngine](#T-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Objects.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Objects.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(System.String,System.String,System.String)')
-  - [IsMatch(expression)](#M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Objects.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression)')
-- [Resources](#T-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources 'MFR.Objects.Engines.Matching.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-Culture 'MFR.Objects.Engines.Matching.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Matching.Interfaces.Properties.Resources.ResourceManager')
+- [ITextExpressionMatchingEngine](#T-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(System.String,System.String,System.String)')
+  - [IsMatch(expression)](#M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
+- [Resources](#T-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources 'MFR.Engines.Matching.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-Culture 'MFR.Engines.Matching.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine'></a>
 ## ITextExpressionMatchingEngine `type`
 
 ##### Namespace
 
-MFR.Objects.Engines.Matching.Interfaces
+MFR.Engines.Matching.Interfaces
 
 ##### Summary
 
@@ -65,7 +65,7 @@ Determines whether data and a search patterned, bound up together in
 the form of the `expression` provided, contain a
 data match according to rules specified by the user in the object, a
 reference to which is specified in the
-[Configuration](#P-MFR-Objects-ITextExpressionMatchingEngine-Configuration 'MFR.Objects.ITextExpressionMatchingEngine.Configuration')
+[Configuration](#P-MFR-Objects-ITextExpressionMatchingEngine-Configuration 'MFR.ITextExpressionMatchingEngine.Configuration')
 property.
 
 ##### Returns
@@ -78,8 +78,8 @@ otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expression | [MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
-the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
+| expression | [MFR.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
+the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
 interface and whose properties contain the match and pattern data. |
 
 ##### Exceptions
@@ -94,7 +94,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.Engines.Matching.Interfaces.Properties
+MFR.Engines.Matching.Interfaces.Properties
 
 ##### Summary
 

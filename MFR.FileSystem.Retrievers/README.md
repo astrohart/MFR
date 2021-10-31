@@ -1,60 +1,60 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Retrievers
+# MFR.FileSystem.Retrievers
 
 ## Contents
 
-- [FileAndFolderNameFileSystemEntryListRetrieverBase](#T-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase 'MFR.Objects.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase')
-  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-AndReplaceItWith-System-String- 'MFR.Objects.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.AndReplaceItWith(System.String)')
-  - [Reset()](#M-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-Reset 'MFR.Objects.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.Reset')
-- [FileSystemEntryListRetrieverBase](#T-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
-  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
-  - [FileSystemEntryValidatorSays](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
-  - [FindWhat](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
-  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
-  - [ReplaceWith](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ReplaceWith 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ReplaceWith')
-  - [SearchOption](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchOption 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchOption')
-  - [SearchPattern](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchPattern 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchPattern')
-  - [TextExpressionMatchingEngineSays](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-TextExpressionMatchingEngineSays 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.TextExpressionMatchingEngineSays')
-  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-AndReplaceItWith-System-String- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.AndReplaceItWith(System.String)')
-  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-  - [ForFileSystemEntry(entry)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ForFileSystemEntry(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-  - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-  - [PassesPathFilter(pathFilter,entry)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-PassesPathFilter-System-Predicate{System-String},MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.PassesPathFilter(System.Predicate{System.String},MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-  - [Reset()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.Reset')
-  - [SearchCriteriaMatch(entry)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchCriteriaMatch-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchCriteriaMatch(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-  - [ShouldNotSkipFileSystemEntry(path)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldNotSkipFileSystemEntry-System-String- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ShouldNotSkipFileSystemEntry(System.String)')
-  - [ToFindWhat(findWhat)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ToFindWhat(System.String)')
-  - [UsingSearchPattern()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-UsingSearchPattern-System-String- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.UsingSearchPattern(System.String)')
-  - [WithSearchOption(option)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-WithSearchOption-System-IO-SearchOption- 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.WithSearchOption(System.IO.SearchOption)')
-- [FilesToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever')
-  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-#ctor 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever.#ctor')
-  - [Instance](#P-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-Instance 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever.Instance')
-  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-OperationType 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever.OperationType')
-  - [#cctor()](#M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-#cctor 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever.#cctor')
-  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-- [FolderToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever')
-  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-#ctor 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever.#ctor')
-  - [Instance](#P-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-Instance 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever.Instance')
-  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-OperationType 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever.OperationType')
-  - [#cctor()](#M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-#cctor 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever.#cctor')
-  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Properties-Resources 'MFR.Objects.FileSystem.Retrievers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Properties-Resources-Culture 'MFR.Objects.FileSystem.Retrievers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Retrievers.Properties.Resources.ResourceManager')
-- [TextInFilesRetriever](#T-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever')
-  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-#ctor 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever.#ctor')
-  - [Instance](#P-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-Instance 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever.Instance')
-  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-OperationType 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever.OperationType')
-  - [#cctor()](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-#cctor 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever.#cctor')
-  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-AndReplaceItWith-System-String- 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever.AndReplaceItWith(System.String)')
-  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+- [FileAndFolderNameFileSystemEntryListRetrieverBase](#T-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase')
+  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-AndReplaceItWith-System-String- 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.AndReplaceItWith(System.String)')
+  - [Reset()](#M-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.Reset')
+- [FileSystemEntryListRetrieverBase](#T-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
+  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
+  - [FileSystemEntryValidatorSays](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
+  - [FindWhat](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
+  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
+  - [ReplaceWith](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ReplaceWith 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ReplaceWith')
+  - [SearchOption](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchOption 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchOption')
+  - [SearchPattern](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchPattern 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchPattern')
+  - [TextExpressionMatchingEngineSays](#P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-TextExpressionMatchingEngineSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.TextExpressionMatchingEngineSays')
+  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-AndReplaceItWith-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.AndReplaceItWith(System.String)')
+  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+  - [ForFileSystemEntry(entry)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ForFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+  - [PassesPathFilter(pathFilter,entry)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-PassesPathFilter-System-Predicate{System-String},MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.PassesPathFilter(System.Predicate{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [Reset()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.Reset')
+  - [SearchCriteriaMatch(entry)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchCriteriaMatch-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchCriteriaMatch(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [ShouldNotSkipFileSystemEntry(path)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldNotSkipFileSystemEntry-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ShouldNotSkipFileSystemEntry(System.String)')
+  - [ToFindWhat(findWhat)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ToFindWhat(System.String)')
+  - [UsingSearchPattern()](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.UsingSearchPattern(System.String)')
+  - [WithSearchOption(option)](#M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-WithSearchOption-System-IO-SearchOption- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.WithSearchOption(System.IO.SearchOption)')
+- [FilesToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever 'MFR.FileSystem.Retrievers.FilesToRenameRetriever')
+  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-#ctor 'MFR.FileSystem.Retrievers.FilesToRenameRetriever.#ctor')
+  - [Instance](#P-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-Instance 'MFR.FileSystem.Retrievers.FilesToRenameRetriever.Instance')
+  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-OperationType 'MFR.FileSystem.Retrievers.FilesToRenameRetriever.OperationType')
+  - [#cctor()](#M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-#cctor 'MFR.FileSystem.Retrievers.FilesToRenameRetriever.#cctor')
+  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FilesToRenameRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+- [FolderToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever 'MFR.FileSystem.Retrievers.FolderToRenameRetriever')
+  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-#ctor 'MFR.FileSystem.Retrievers.FolderToRenameRetriever.#ctor')
+  - [Instance](#P-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-Instance 'MFR.FileSystem.Retrievers.FolderToRenameRetriever.Instance')
+  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-OperationType 'MFR.FileSystem.Retrievers.FolderToRenameRetriever.OperationType')
+  - [#cctor()](#M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-#cctor 'MFR.FileSystem.Retrievers.FolderToRenameRetriever.#cctor')
+  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FolderToRenameRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Properties-Resources 'MFR.FileSystem.Retrievers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Properties-Resources-Culture 'MFR.FileSystem.Retrievers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Properties-Resources-ResourceManager 'MFR.FileSystem.Retrievers.Properties.Resources.ResourceManager')
+- [TextInFilesRetriever](#T-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever')
+  - [#ctor()](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-#ctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#ctor')
+  - [Instance](#P-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-Instance 'MFR.FileSystem.Retrievers.TextInFilesRetriever.Instance')
+  - [OperationType](#P-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-OperationType 'MFR.FileSystem.Retrievers.TextInFilesRetriever.OperationType')
+  - [#cctor()](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-#cctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#cctor')
+  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-AndReplaceItWith-System-String- 'MFR.FileSystem.Retrievers.TextInFilesRetriever.AndReplaceItWith(System.String)')
+  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.TextInFilesRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
 
 <a name='T-MFR-Objects-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase'></a>
 ## FileAndFolderNameFileSystemEntryListRetrieverBase `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers
+MFR.FileSystem.Retrievers
 
 ##### Summary
 
@@ -114,7 +114,7 @@ This method typically is called from a class constructor.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers
+MFR.FileSystem.Retrievers
 
 ##### Summary
 
@@ -127,7 +127,7 @@ retriever objects across all types of operations.
 ##### Summary
 
 Constructs a new instance of
-[FileSystemEntryListRetrieverBase](#T-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.Objects.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
+[FileSystemEntryListRetrieverBase](#T-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
 and returns a reference to it.
 
 ##### Parameters
@@ -141,7 +141,7 @@ This constructor has no parameters.
 
 Fluent bridge property that accesses the appropriate file-system
 entry validator object, that implements the
-[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryValidator')
+[IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Interfaces.IFileSystemEntryValidator')
 interface, for the current operation type.
 
 ##### Remarks
@@ -161,7 +161,7 @@ and/or contents of a file or folder.
 
 The value of this property can be set by clients of this object
 using the
-[ToFindWhat](#M-MFR-Objects-IFileSystemEntryListRetriever-ToFindWhat 'MFR.Objects.IFileSystemEntryListRetriever.ToFindWhat')
+[ToFindWhat](#M-MFR-Objects-IFileSystemEntryListRetriever-ToFindWhat 'MFR.IFileSystemEntryListRetriever.ToFindWhat')
 method.
 
 <a name='P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType'></a>
@@ -170,7 +170,7 @@ method.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -186,7 +186,7 @@ in the contents or name of a folder or file.
 
 The value of this property can be set by clients of this object
 using the
-[AndReplaceItWith](#M-MFR-Objects-IFileSystemEntryListRetriever-AndReplaceItWith 'MFR.Objects.IFileSystemEntryListRetriever.AndReplaceItWith')
+[AndReplaceItWith](#M-MFR-Objects-IFileSystemEntryListRetriever-AndReplaceItWith 'MFR.IFileSystemEntryListRetriever.AndReplaceItWith')
 method.
 
 <a name='P-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchOption'></a>
@@ -217,7 +217,7 @@ classes that implement this interface may specify something different.
 
 Fluent bridge property that accesses the appropriate text-expression
 matcher object, that implements the
-[ITextExpressionMatchingEngine](#T-MFR-Objects-ITextExpressionMatchingEngine 'MFR.Objects.ITextExpressionMatchingEngine')
+[ITextExpressionMatchingEngine](#T-MFR-Objects-ITextExpressionMatchingEngine 'MFR.ITextExpressionMatchingEngine')
 interface,
 for the current operation type and configuration.
 
@@ -254,13 +254,13 @@ allowed by some implementations to be blank.
 ##### Summary
 
 Provides the implementation of the
-[GetMatchingFileSystemPaths](#M-MFR-Objects-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.Objects.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths')
+[GetMatchingFileSystemPaths](#M-MFR-Objects-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths')
 method.
 
 ##### Returns
 
 Collection of instances of objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that
 correspond to the file system entries that match the criteria specified.
 
@@ -293,7 +293,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -301,7 +301,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.Objects.ConfigurationComposedObjectBase.Configuration')
+[Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.ConfigurationComposedObjectBase.Configuration')
 property is set to a valid object instance reference.
 
 <a name='M-MFR-Objects-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
@@ -310,7 +310,7 @@ property is set to a valid object instance reference.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression') interface.
+[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression') interface.
 
 
 
@@ -324,7 +324,7 @@ text-expression matching and or replacement-engine objects.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
+[IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
 interface.
 
 
@@ -335,8 +335,8 @@ The properties of the object provide text-search and replacement criteria.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
@@ -344,9 +344,9 @@ the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MF
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that the
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property of
 the object referenced by the `entry` parameter is a
 blank or `null` string. |
@@ -362,7 +362,7 @@ object and that correspond to the type of operation being performed.
 ##### Returns
 
 Collection of instances of objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that
 correspond to the file system entries that match the criteria specified.
 
@@ -395,7 +395,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
 `rootFolderPath`
 ' parameter cannot be located on the disk. |
@@ -426,8 +426,8 @@ logic to be executed to determine a match to the file-system
 `entry` passed. If this parameter is
 `null`
 , then this method returns `true`. |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Optional.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Optional.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that has the data to run decision-making upon. If this
 parameter is `null`, then this method returns
 `false`. |
@@ -466,8 +466,8 @@ operation; `false` otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that has the data for the matching process. |
 
 ##### Exceptions
@@ -603,7 +603,7 @@ enumeration. |
 
 Calling this method is optional. If this method is not called, the
 type that implements the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever')
 interface will decide what is the default value to be utilized.
 
 <a name='T-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever'></a>
@@ -611,7 +611,7 @@ interface will decide what is the default value to be utilized.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers
+MFR.FileSystem.Retrievers
 
 ##### Summary
 
@@ -635,14 +635,14 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[FilesToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever 'MFR.Objects.FileSystem.Retrievers.FilesToRenameRetriever').
+[FilesToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever 'MFR.FileSystem.Retrievers.FilesToRenameRetriever').
 
 <a name='P-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-FileSystem-Retrievers-FilesToRenameRetriever-#cctor'></a>
@@ -667,7 +667,7 @@ object and that correspond to the type of operation being performed.
 ##### Returns
 
 Collection of instances of objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that correspond to the file system entries that match the
 criteria specified.
 
@@ -700,7 +700,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -708,7 +708,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.Objects.ConfigurationComposedObjectBase.Configuration')
+[Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.ConfigurationComposedObjectBase.Configuration')
 property is set to a valid object instance reference.
 
 <a name='T-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever'></a>
@@ -716,7 +716,7 @@ property is set to a valid object instance reference.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers
+MFR.FileSystem.Retrievers
 
 ##### Summary
 
@@ -740,14 +740,14 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[FolderToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever 'MFR.Objects.FileSystem.Retrievers.FolderToRenameRetriever').
+[FolderToRenameRetriever](#T-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever 'MFR.FileSystem.Retrievers.FolderToRenameRetriever').
 
 <a name='P-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-FileSystem-Retrievers-FolderToRenameRetriever-#cctor'></a>
@@ -772,7 +772,7 @@ object and that correspond to the type of operation being performed.
 ##### Returns
 
 Collection of instances of objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that correspond to the file system entries that match the
 criteria specified.
 
@@ -805,7 +805,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -813,7 +813,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.Objects.ConfigurationComposedObjectBase.Configuration')
+[Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.ConfigurationComposedObjectBase.Configuration')
 property is set to a valid object instance reference.
 
 <a name='T-MFR-Objects-FileSystem-Retrievers-Properties-Resources'></a>
@@ -821,7 +821,7 @@ property is set to a valid object instance reference.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers.Properties
+MFR.FileSystem.Retrievers.Properties
 
 ##### Summary
 
@@ -847,7 +847,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers
+MFR.FileSystem.Retrievers
 
 ##### Summary
 
@@ -870,14 +870,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [TextInFilesRetriever](#T-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever 'MFR.Objects.FileSystem.Retrievers.TextInFilesRetriever').
+Gets a reference to the one and only instance of [TextInFilesRetriever](#T-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever').
 
 <a name='P-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-FileSystem-Retrievers-TextInFilesRetriever-#cctor'></a>
@@ -918,11 +918,11 @@ allowed by some implementations to be blank.
 
 ##### Summary
 
-Provides the implementation of the [GetMatchingFileSystemPaths](#M-MFR-Objects-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.Objects.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths') method.
+Provides the implementation of the [GetMatchingFileSystemPaths](#M-MFR-Objects-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths') method.
 
 ##### Returns
 
-Collection of instances of objects that implement the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+Collection of instances of objects that implement the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that correspond to the file system entries that match the
 criteria specified.
 
@@ -957,10 +957,10 @@ filtering is done. |
 is passed a blank or `null` string for a value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Objects.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.Objects.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.ConfigurationNotAttachedException](#T-MFR-Objects-ConfigurationNotAttachedException 'MFR.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
 Implementers of this method have a guarantee that the `rootFolderPath` parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the [Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.Objects.ConfigurationComposedObjectBase.Configuration')
+pathname of a folder that exists on the disk, and that the [Configuration](#P-MFR-Objects-ConfigurationComposedObjectBase-Configuration 'MFR.ConfigurationComposedObjectBase.Configuration')
 property is set to a valid object instance reference.

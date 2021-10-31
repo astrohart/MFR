@@ -1,36 +1,36 @@
 <a name='assembly'></a>
-# MFR.Objects.Interop.Monikers.Wrappers.Factories
+# MFR.Interop.Monikers.Wrappers.Factories
 
 ## Contents
 
-- [GetOperatingSystemObjectDisplayName](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName')
-  - [#ctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-#ctor 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.#ctor')
-  - [_bindContext](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-_bindContext 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName._bindContext')
-  - [_moniker](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-_moniker 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName._moniker')
-  - [Instance](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-Instance 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.Instance')
-  - [#cctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-#cctor 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.#cctor')
-  - [FromMoniker()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-FromMoniker-System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.FromMoniker(System.Runtime.InteropServices.ComTypes.IMoniker)')
-  - [UsingBindContext(bindContext)](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-UsingBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.UsingBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
-- [GetRunningOperatingSystemObject](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject')
-  - [#ctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-#ctor 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.#ctor')
-  - [_moniker](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-_moniker 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject._moniker')
-  - [_runningObjectTable](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-_runningObjectTable 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject._runningObjectTable')
-  - [Instance](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-Instance 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.Instance')
-  - [#cctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-#cctor 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.#cctor')
-  - [AndRunningObjectTable()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-AndRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.AndRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
-  - [FromMoniker()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-FromMoniker-System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.FromMoniker(System.Runtime.InteropServices.ComTypes.IMoniker)')
-- [MakeNewMonikerWrapper](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper 'MFR.Objects.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper')
-  - [From(bindContext,runningObjectTable,currentMoniker)](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper-From-System-Runtime-InteropServices-ComTypes-IBindCtx,System-Runtime-InteropServices-ComTypes-IRunningObjectTable,System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Objects.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper.From(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IRunningObjectTable,System.Runtime.InteropServices.ComTypes.IMoniker)')
-- [Resources](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources 'MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources-Culture 'MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties.Resources.ResourceManager')
+- [GetOperatingSystemObjectDisplayName](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName')
+  - [#ctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-#ctor 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.#ctor')
+  - [_bindContext](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-_bindContext 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName._bindContext')
+  - [_moniker](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-_moniker 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName._moniker')
+  - [Instance](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-Instance 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.Instance')
+  - [#cctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-#cctor 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.#cctor')
+  - [FromMoniker()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-FromMoniker-System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.FromMoniker(System.Runtime.InteropServices.ComTypes.IMoniker)')
+  - [UsingBindContext(bindContext)](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-UsingBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Interop.Monikers.Wrappers.Factories.GetOperatingSystemObjectDisplayName.UsingBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
+- [GetRunningOperatingSystemObject](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject')
+  - [#ctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-#ctor 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.#ctor')
+  - [_moniker](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-_moniker 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject._moniker')
+  - [_runningObjectTable](#F-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-_runningObjectTable 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject._runningObjectTable')
+  - [Instance](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-Instance 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.Instance')
+  - [#cctor()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-#cctor 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.#cctor')
+  - [AndRunningObjectTable()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-AndRunningObjectTable-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.AndRunningObjectTable(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
+  - [FromMoniker()](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-FromMoniker-System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject.FromMoniker(System.Runtime.InteropServices.ComTypes.IMoniker)')
+- [MakeNewMonikerWrapper](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper 'MFR.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper')
+  - [From(bindContext,runningObjectTable,currentMoniker)](#M-MFR-Objects-Interop-Monikers-Wrappers-Factories-MakeNewMonikerWrapper-From-System-Runtime-InteropServices-ComTypes-IBindCtx,System-Runtime-InteropServices-ComTypes-IRunningObjectTable,System-Runtime-InteropServices-ComTypes-IMoniker- 'MFR.Interop.Monikers.Wrappers.Factories.MakeNewMonikerWrapper.From(System.Runtime.InteropServices.ComTypes.IBindCtx,System.Runtime.InteropServices.ComTypes.IRunningObjectTable,System.Runtime.InteropServices.ComTypes.IMoniker)')
+- [Resources](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources 'MFR.Interop.Monikers.Wrappers.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources-Culture 'MFR.Interop.Monikers.Wrappers.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Wrappers-Factories-Properties-Resources-ResourceManager 'MFR.Interop.Monikers.Wrappers.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName'></a>
 ## GetOperatingSystemObjectDisplayName `type`
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Wrappers.Factories
+MFR.Interop.Monikers.Wrappers.Factories
 
 ##### Summary
 
@@ -72,7 +72,7 @@ interface.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[GetDisplayName](#T-MFR-Objects-GetDisplayName 'MFR.Objects.GetDisplayName').
+[GetDisplayName](#T-MFR-Objects-GetDisplayName 'MFR.GetDisplayName').
 
 <a name='M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetOperatingSystemObjectDisplayName-#cctor'></a>
 ### #cctor() `method`
@@ -120,7 +120,7 @@ Associates a reference to an instance of an
 operating-system-provided object that implements the
 [IBindCtx](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.InteropServices.ComTypes.IBindCtx 'System.Runtime.InteropServices.ComTypes.IBindCtx')
 interface with this factory and, using it and the
-[_moniker](#F-MFR-Objects-GetDisplayName-_moniker 'MFR.Objects.GetDisplayName._moniker')
+[_moniker](#F-MFR-Objects-GetDisplayName-_moniker 'MFR.GetDisplayName._moniker')
 field's
 value, attempts to obtain the moniker's display name from the
 operating system.
@@ -145,13 +145,13 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `bindContext`, is
 passed a `null` value. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if this method has been called without calling the
-[FromMoniker](#M-MFR-Objects-GetOperatingSystemObjectDisplayName-FromMoniker 'MFR.Objects.GetOperatingSystemObjectDisplayName.FromMoniker')
+[FromMoniker](#M-MFR-Objects-GetOperatingSystemObjectDisplayName-FromMoniker 'MFR.GetOperatingSystemObjectDisplayName.FromMoniker')
 method first. |
 
 ##### Remarks
 
 Clients of this class must call the
-[FromMoniker](#M-MFR-Objects-GetOperatingSystemObjectDisplayName-FromMoniker 'MFR.Objects.GetOperatingSystemObjectDisplayName.FromMoniker')
+[FromMoniker](#M-MFR-Objects-GetOperatingSystemObjectDisplayName-FromMoniker 'MFR.GetOperatingSystemObjectDisplayName.FromMoniker')
 method prior to calling this method. If that has not been done, then
 this method will throw
 [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException')
@@ -162,7 +162,7 @@ this method will throw
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Wrappers.Factories
+MFR.Interop.Monikers.Wrappers.Factories
 
 ##### Summary
 
@@ -199,7 +199,7 @@ Reference to an instance of an object that implements the [IRunningObjectTable](
 
 ##### Summary
 
-Gets a reference to the one and only instance of [GetRunningOperatingSystemObject](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject 'MFR.Objects.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject').
+Gets a reference to the one and only instance of [GetRunningOperatingSystemObject](#T-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject 'MFR.Interop.Monikers.Wrappers.Factories.GetRunningOperatingSystemObject').
 
 <a name='M-MFR-Objects-Interop-Monikers-Wrappers-Factories-GetRunningOperatingSystemObject-#cctor'></a>
 ### #cctor() `method`
@@ -259,12 +259,12 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Wrappers.Factories
+MFR.Interop.Monikers.Wrappers.Factories
 
 ##### Summary
 
 Creates and initializes instances of objects that implement the
-[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.Objects.IMonikerWrapper')
+[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.IMonikerWrapper')
 interface and returns
 references to them.
 
@@ -274,7 +274,7 @@ references to them.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.Objects.IMonikerWrapper')
+[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.IMonikerWrapper')
 interface, given
 the provided `bindContext`,
 `runningObjectTable`
@@ -284,7 +284,7 @@ references that are provided in the corresponding arguments.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.Objects.IMonikerWrapper')
+[IMonikerWrapper](#T-MFR-Objects-IMonikerWrapper 'MFR.IMonikerWrapper')
 interface, with
 its properties initialized.
 
@@ -319,7 +319,7 @@ value. |
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Wrappers.Factories.Properties
+MFR.Interop.Monikers.Wrappers.Factories.Properties
 
 ##### Summary
 

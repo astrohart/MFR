@@ -1,80 +1,80 @@
 <a name='assembly'></a>
-# MFR.Objects.Tests.Common
+# MFR.Tests.Common
 
 ## Contents
 
-- [ConfigurationBuilder](#T-MFR-Objects-Tests-Common-ConfigurationBuilder 'MFR.Objects.Tests.Common.ConfigurationBuilder')
-  - [#ctor()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-#ctor 'MFR.Objects.Tests.Common.ConfigurationBuilder.#ctor')
-  - [_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase')
-  - [_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord')
-  - [Instance](#P-MFR-Objects-Tests-Common-ConfigurationBuilder-Instance 'MFR.Objects.Tests.Common.ConfigurationBuilder.Instance')
-  - [#cctor()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-#cctor 'MFR.Objects.Tests.Common.ConfigurationBuilder.#cctor')
-  - [AndSetMatchExactWord(matchExactWord)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-AndSetMatchExactWord-System-Boolean- 'MFR.Objects.Tests.Common.ConfigurationBuilder.AndSetMatchExactWord(System.Boolean)')
-  - [Build()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-Build 'MFR.Objects.Tests.Common.ConfigurationBuilder.Build')
-  - [BuildConfigurationForUseCase(matchCase,matchExactWord)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-BuildConfigurationForUseCase-System-Boolean,System-Boolean- 'MFR.Objects.Tests.Common.ConfigurationBuilder.BuildConfigurationForUseCase(System.Boolean,System.Boolean)')
-  - [SetMatchCase(matchCase)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-SetMatchCase-System-Boolean- 'MFR.Objects.Tests.Common.ConfigurationBuilder.SetMatchCase(System.Boolean)')
-- [RegistryDataExchangeTestsBase](#T-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase')
-  - [CONFIG_FILE_DIR](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_DIR')
-  - [CONFIG_FILE_NAME](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_NAME')
-  - [CONFIG_FILE_PATH](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_PATH')
-  - [KEY_PATH](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-KEY_PATH 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.KEY_PATH')
-  - [VALUE_NAME](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-VALUE_NAME 'MFR.Objects.Tests.Common.RegistryDataExchangeTestsBase.VALUE_NAME')
-- [Resources](#T-MFR-Objects-Tests-Common-Properties-Resources 'MFR.Objects.Tests.Common.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Tests-Common-Properties-Resources-Culture 'MFR.Objects.Tests.Common.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Tests-Common-Properties-Resources-ResourceManager 'MFR.Objects.Tests.Common.Properties.Resources.ResourceManager')
-- [StringConstants](#T-MFR-Objects-Tests-Common-StringConstants 'MFR.Objects.Tests.Common.StringConstants')
-  - [DEVENV_FILENAME](#F-MFR-Objects-Tests-Common-StringConstants-DEVENV_FILENAME 'MFR.Objects.Tests.Common.StringConstants.DEVENV_FILENAME')
-  - [DOTFOLDER_PATH_KNOWN_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-DOTFOLDER_PATH_KNOWN_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.DOTFOLDER_PATH_KNOWN_TO_EXIST')
-  - [EMPTY_STRING](#F-MFR-Objects-Tests-Common-StringConstants-EMPTY_STRING 'MFR.Objects.Tests.Common.StringConstants.EMPTY_STRING')
-  - [EXISTING_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-EXISTING_TEMP_FILE 'MFR.Objects.Tests.Common.StringConstants.EXISTING_TEMP_FILE')
-  - [EXISTING_TEMP_FILE_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-EXISTING_TEMP_FILE_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.EXISTING_TEMP_FILE_FILENAME_ONLY')
-  - [FAKE_PROJECT_NAME_WITH_DOTS](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS 'MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS')
-  - [FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX 'MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX')
-  - [FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
-  - [FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY')
-  - [FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION')
-  - [FILE_MATCHING_OPERATIONAL_CRITERIA](#F-MFR-Objects-Tests-Common-StringConstants-FILE_MATCHING_OPERATIONAL_CRITERIA 'MFR.Objects.Tests.Common.StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA')
-  - [FOLDER_MATCHING_OPERATIONAL_CRITIERIA](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATIONAL_CRITIERIA 'MFR.Objects.Tests.Common.StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA')
-  - [FOLDER_THAT_IS_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_THAT_IS_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FOLDER_THAT_IS_GUARANTEED_TO_EXIST')
-  - [GIBBERISH](#F-MFR-Objects-Tests-Common-StringConstants-GIBBERISH 'MFR.Objects.Tests.Common.StringConstants.GIBBERISH')
-  - [JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH](#F-MFR-Objects-Tests-Common-StringConstants-JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH 'MFR.Objects.Tests.Common.StringConstants.JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH')
-  - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER 'MFR.Objects.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER')
-  - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH 'MFR.Objects.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH')
-  - [NEW_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE 'MFR.Objects.Tests.Common.StringConstants.NEW_TEMP_FILE')
-  - [NEW_TEMP_FILE_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE_FILENAME_ONLY 'MFR.Objects.Tests.Common.StringConstants.NEW_TEMP_FILE_FILENAME_ONLY')
-  - [NONEXISTENT_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FILE 'MFR.Objects.Tests.Common.StringConstants.NONEXISTENT_FILE')
-  - [NONEXISTENT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FOLDER 'MFR.Objects.Tests.Common.StringConstants.NONEXISTENT_FOLDER')
-  - [NOTEPAD_PATH](#F-MFR-Objects-Tests-Common-StringConstants-NOTEPAD_PATH 'MFR.Objects.Tests.Common.StringConstants.NOTEPAD_PATH')
-  - [NULL_STRING](#F-MFR-Objects-Tests-Common-StringConstants-NULL_STRING 'MFR.Objects.Tests.Common.StringConstants.NULL_STRING')
-  - [PATHNAME_OF_BIN_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_BIN_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_BIN_FOLDER')
-  - [PATHNAME_OF_DOTFILE](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_DOTFILE 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_DOTFILE')
-  - [PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER')
-  - [PATHNAME_OF_FILE_HAVING_NO_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_HAVING_NO_EXTENSION 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_HAVING_NO_EXTENSION')
-  - [PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER')
-  - [PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER')
-  - [PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER')
-  - [PATHNAME_OF_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_OBJ_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_OF_OBJ_FOLDER')
-  - [PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER 'MFR.Objects.Tests.Common.StringConstants.PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER')
-  - [PORTFOLIO_MONITOR_X_UDL_FILE](#F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE 'MFR.Objects.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE')
-  - [SUBFOLDER_OF_BIN_DIR](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_BIN_DIR 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_BIN_DIR')
-  - [SUBFOLDER_OF_GIT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_GIT_FOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_GIT_FOLDER')
-  - [SUBFOLDER_OF_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_OBJ_FOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_OBJ_FOLDER')
-  - [SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER')
-  - [SUBFOLDER_OF_VS_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_VS_DOTFOLDER 'MFR.Objects.Tests.Common.StringConstants.SUBFOLDER_OF_VS_DOTFOLDER')
-  - [WHITESPACE](#F-MFR-Objects-Tests-Common-StringConstants-WHITESPACE 'MFR.Objects.Tests.Common.StringConstants.WHITESPACE')
-  - [WINDOWS_SYSTEM_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-WINDOWS_SYSTEM_FOLDER 'MFR.Objects.Tests.Common.StringConstants.WINDOWS_SYSTEM_FOLDER')
+- [ConfigurationBuilder](#T-MFR-Objects-Tests-Common-ConfigurationBuilder 'MFR.Tests.Common.ConfigurationBuilder')
+  - [#ctor()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-#ctor 'MFR.Tests.Common.ConfigurationBuilder.#ctor')
+  - [_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Tests.Common.ConfigurationBuilder._matchCase')
+  - [_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Tests.Common.ConfigurationBuilder._matchExactWord')
+  - [Instance](#P-MFR-Objects-Tests-Common-ConfigurationBuilder-Instance 'MFR.Tests.Common.ConfigurationBuilder.Instance')
+  - [#cctor()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-#cctor 'MFR.Tests.Common.ConfigurationBuilder.#cctor')
+  - [AndSetMatchExactWord(matchExactWord)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-AndSetMatchExactWord-System-Boolean- 'MFR.Tests.Common.ConfigurationBuilder.AndSetMatchExactWord(System.Boolean)')
+  - [Build()](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-Build 'MFR.Tests.Common.ConfigurationBuilder.Build')
+  - [BuildConfigurationForUseCase(matchCase,matchExactWord)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-BuildConfigurationForUseCase-System-Boolean,System-Boolean- 'MFR.Tests.Common.ConfigurationBuilder.BuildConfigurationForUseCase(System.Boolean,System.Boolean)')
+  - [SetMatchCase(matchCase)](#M-MFR-Objects-Tests-Common-ConfigurationBuilder-SetMatchCase-System-Boolean- 'MFR.Tests.Common.ConfigurationBuilder.SetMatchCase(System.Boolean)')
+- [RegistryDataExchangeTestsBase](#T-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase 'MFR.Tests.Common.RegistryDataExchangeTestsBase')
+  - [CONFIG_FILE_DIR](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR 'MFR.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_DIR')
+  - [CONFIG_FILE_NAME](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME 'MFR.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_NAME')
+  - [CONFIG_FILE_PATH](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH 'MFR.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_PATH')
+  - [KEY_PATH](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-KEY_PATH 'MFR.Tests.Common.RegistryDataExchangeTestsBase.KEY_PATH')
+  - [VALUE_NAME](#F-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase-VALUE_NAME 'MFR.Tests.Common.RegistryDataExchangeTestsBase.VALUE_NAME')
+- [Resources](#T-MFR-Objects-Tests-Common-Properties-Resources 'MFR.Tests.Common.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Tests-Common-Properties-Resources-Culture 'MFR.Tests.Common.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Tests-Common-Properties-Resources-ResourceManager 'MFR.Tests.Common.Properties.Resources.ResourceManager')
+- [StringConstants](#T-MFR-Objects-Tests-Common-StringConstants 'MFR.Tests.Common.StringConstants')
+  - [DEVENV_FILENAME](#F-MFR-Objects-Tests-Common-StringConstants-DEVENV_FILENAME 'MFR.Tests.Common.StringConstants.DEVENV_FILENAME')
+  - [DOTFOLDER_PATH_KNOWN_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-DOTFOLDER_PATH_KNOWN_TO_EXIST 'MFR.Tests.Common.StringConstants.DOTFOLDER_PATH_KNOWN_TO_EXIST')
+  - [EMPTY_STRING](#F-MFR-Objects-Tests-Common-StringConstants-EMPTY_STRING 'MFR.Tests.Common.StringConstants.EMPTY_STRING')
+  - [EXISTING_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-EXISTING_TEMP_FILE 'MFR.Tests.Common.StringConstants.EXISTING_TEMP_FILE')
+  - [EXISTING_TEMP_FILE_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-EXISTING_TEMP_FILE_FILENAME_ONLY 'MFR.Tests.Common.StringConstants.EXISTING_TEMP_FILE_FILENAME_ONLY')
+  - [FAKE_PROJECT_NAME_WITH_DOTS](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS 'MFR.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS')
+  - [FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX 'MFR.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS_EXACT_WORD_MATCH_REGEX')
+  - [FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
+  - [FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY 'MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY')
+  - [FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION 'MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION')
+  - [FILE_MATCHING_OPERATIONAL_CRITERIA](#F-MFR-Objects-Tests-Common-StringConstants-FILE_MATCHING_OPERATIONAL_CRITERIA 'MFR.Tests.Common.StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA')
+  - [FOLDER_MATCHING_OPERATIONAL_CRITIERIA](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_MATCHING_OPERATIONAL_CRITIERIA 'MFR.Tests.Common.StringConstants.FOLDER_MATCHING_OPERATIONAL_CRITIERIA')
+  - [FOLDER_THAT_IS_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FOLDER_THAT_IS_GUARANTEED_TO_EXIST 'MFR.Tests.Common.StringConstants.FOLDER_THAT_IS_GUARANTEED_TO_EXIST')
+  - [GIBBERISH](#F-MFR-Objects-Tests-Common-StringConstants-GIBBERISH 'MFR.Tests.Common.StringConstants.GIBBERISH')
+  - [JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH](#F-MFR-Objects-Tests-Common-StringConstants-JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH 'MFR.Tests.Common.StringConstants.JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH')
+  - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER 'MFR.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER')
+  - [MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH](#F-MFR-Objects-Tests-Common-StringConstants-MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH 'MFR.Tests.Common.StringConstants.MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH')
+  - [NEW_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE 'MFR.Tests.Common.StringConstants.NEW_TEMP_FILE')
+  - [NEW_TEMP_FILE_FILENAME_ONLY](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE_FILENAME_ONLY 'MFR.Tests.Common.StringConstants.NEW_TEMP_FILE_FILENAME_ONLY')
+  - [NONEXISTENT_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FILE 'MFR.Tests.Common.StringConstants.NONEXISTENT_FILE')
+  - [NONEXISTENT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-NONEXISTENT_FOLDER 'MFR.Tests.Common.StringConstants.NONEXISTENT_FOLDER')
+  - [NOTEPAD_PATH](#F-MFR-Objects-Tests-Common-StringConstants-NOTEPAD_PATH 'MFR.Tests.Common.StringConstants.NOTEPAD_PATH')
+  - [NULL_STRING](#F-MFR-Objects-Tests-Common-StringConstants-NULL_STRING 'MFR.Tests.Common.StringConstants.NULL_STRING')
+  - [PATHNAME_OF_BIN_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_BIN_FOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_OF_BIN_FOLDER')
+  - [PATHNAME_OF_DOTFILE](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_DOTFILE 'MFR.Tests.Common.StringConstants.PATHNAME_OF_DOTFILE')
+  - [PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER')
+  - [PATHNAME_OF_FILE_HAVING_NO_EXTENSION](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_HAVING_NO_EXTENSION 'MFR.Tests.Common.StringConstants.PATHNAME_OF_FILE_HAVING_NO_EXTENSION')
+  - [PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER')
+  - [PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER')
+  - [PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER')
+  - [PATHNAME_OF_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_OF_OBJ_FOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_OF_OBJ_FOLDER')
+  - [PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER 'MFR.Tests.Common.StringConstants.PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER')
+  - [PORTFOLIO_MONITOR_X_UDL_FILE](#F-MFR-Objects-Tests-Common-StringConstants-PORTFOLIO_MONITOR_X_UDL_FILE 'MFR.Tests.Common.StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE')
+  - [SUBFOLDER_OF_BIN_DIR](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_BIN_DIR 'MFR.Tests.Common.StringConstants.SUBFOLDER_OF_BIN_DIR')
+  - [SUBFOLDER_OF_GIT_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_GIT_FOLDER 'MFR.Tests.Common.StringConstants.SUBFOLDER_OF_GIT_FOLDER')
+  - [SUBFOLDER_OF_OBJ_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_OBJ_FOLDER 'MFR.Tests.Common.StringConstants.SUBFOLDER_OF_OBJ_FOLDER')
+  - [SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER 'MFR.Tests.Common.StringConstants.SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER')
+  - [SUBFOLDER_OF_VS_DOTFOLDER](#F-MFR-Objects-Tests-Common-StringConstants-SUBFOLDER_OF_VS_DOTFOLDER 'MFR.Tests.Common.StringConstants.SUBFOLDER_OF_VS_DOTFOLDER')
+  - [WHITESPACE](#F-MFR-Objects-Tests-Common-StringConstants-WHITESPACE 'MFR.Tests.Common.StringConstants.WHITESPACE')
+  - [WINDOWS_SYSTEM_FOLDER](#F-MFR-Objects-Tests-Common-StringConstants-WINDOWS_SYSTEM_FOLDER 'MFR.Tests.Common.StringConstants.WINDOWS_SYSTEM_FOLDER')
 
 <a name='T-MFR-Objects-Tests-Common-ConfigurationBuilder'></a>
 ## ConfigurationBuilder `type`
 
 ##### Namespace
 
-MFR.Objects.Tests.Common
+MFR.Tests.Common
 
 ##### Summary
 
 Builds instances of fake
-[Configuration](#T-MFR-Objects-Configuration-Configuration 'MFR.Objects.Configuration.Configuration')
+[Configuration](#T-MFR-Objects-Configuration-Configuration 'MFR.Configuration.Configuration')
 objects in a fluent
 manner, initialized for unit tests.
 
@@ -110,7 +110,7 @@ a string value.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[ConfigurationBuilder](#T-MFR-Objects-Tests-Common-ConfigurationBuilder 'MFR.Objects.Tests.Common.ConfigurationBuilder').
+[ConfigurationBuilder](#T-MFR-Objects-Tests-Common-ConfigurationBuilder 'MFR.Tests.Common.ConfigurationBuilder').
 
 <a name='M-MFR-Objects-Tests-Common-ConfigurationBuilder-#cctor'></a>
 ### #cctor() `method`
@@ -129,7 +129,7 @@ This method has no parameters.
 ##### Summary
 
 Sets the value of the
-[_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord')
+[_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Tests.Common.ConfigurationBuilder._matchExactWord')
 field to the value of the `matchExactWord` parameter.
 
 ##### Returns
@@ -142,7 +142,7 @@ method, for fluent use.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | matchExactWord | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) New value for the
-[_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchExactWord')
+[_matchExactWord](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchExactWord 'MFR.Tests.Common.ConfigurationBuilder._matchExactWord')
 field. Default is `true`. |
 
 <a name='M-MFR-Objects-Tests-Common-ConfigurationBuilder-Build'></a>
@@ -151,14 +151,14 @@ field. Default is `true`. |
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface and returns a
 reference to it.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface.
 
 ##### Parameters
@@ -176,7 +176,7 @@ provided to this class' other methods.
 ##### Summary
 
 Provides an instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface with its
 `matchCase`
 and `matchExactWord` settings
@@ -185,11 +185,11 @@ configured as specified for the current use case.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface whose
-[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Configuration.Interfaces.IConfigurationMatchCase')
 and
-[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Objects.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Objects-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Configuration.Interfaces.IConfigurationMatchExactWord')
 properties are set to the same values as were passed for the
 `matchCase` and `matchExactWord`
 parameters.
@@ -208,7 +208,7 @@ word or pattern or can only be matched if it consists of a whole word. |
 ##### Summary
 
 Sets the value of the
-[_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase')
+[_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Tests.Common.ConfigurationBuilder._matchCase')
 field to the value of the `matchCase` parameter.
 
 ##### Returns
@@ -221,7 +221,7 @@ method, for fluent use.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | matchCase | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) New value for the
-[_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Objects.Tests.Common.ConfigurationBuilder._matchCase')
+[_matchCase](#F-MFR-Objects-Tests-Common-ConfigurationBuilder-_matchCase 'MFR.Tests.Common.ConfigurationBuilder._matchCase')
 field. Default is `true.` |
 
 <a name='T-MFR-Objects-Tests-Common-RegistryDataExchangeTestsBase'></a>
@@ -229,7 +229,7 @@ field. Default is `true.` |
 
 ##### Namespace
 
-MFR.Objects.Tests.Common
+MFR.Tests.Common
 
 ##### Summary
 
@@ -260,7 +260,7 @@ configuration file.
 ##### Remarks
 
 The master configuration file is defined to be that file, containing
-a JSON representation of an object that implements the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface, exists
+a JSON representation of an object that implements the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface, exists
 in the centralized location that is used by the application.
 
 
@@ -288,7 +288,7 @@ configuration file is to be stored.
 
 ##### Namespace
 
-MFR.Objects.Tests.Common.Properties
+MFR.Tests.Common.Properties
 
 ##### Summary
 
@@ -314,7 +314,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Tests.Common
+MFR.Tests.Common
 
 ##### Summary
 
@@ -362,7 +362,7 @@ randomly-created, zero-length temporary file.
 ##### Summary
 
 String consisting of the same value as the
-[EXISTING_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-EXISTING_TEMP_FILE 'MFR.Objects.Tests.Common.StringConstants.EXISTING_TEMP_FILE')
+[EXISTING_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-EXISTING_TEMP_FILE 'MFR.Tests.Common.StringConstants.EXISTING_TEMP_FILE')
 constant, but only containing the filename and extension of the file
 instead of the full path.
 
@@ -379,7 +379,7 @@ String that contains a fake project name.
 ##### Summary
 
 String containing a regex searching for the
-[FAKE_PROJECT_NAME_WITH_DOTS](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS 'MFR.Objects.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS')
+[FAKE_PROJECT_NAME_WITH_DOTS](#F-MFR-Objects-Tests-Common-StringConstants-FAKE_PROJECT_NAME_WITH_DOTS 'MFR.Tests.Common.StringConstants.FAKE_PROJECT_NAME_WITH_DOTS')
 constant's value as an exact-word match.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST'></a>
@@ -400,7 +400,7 @@ We started by making this constant equal to the path to NOTEPAD.EXE.
 ##### Summary
 
 String consisting of the same text as the
-[FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
+[FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
 constant, but with just a filename and extension.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION'></a>
@@ -409,7 +409,7 @@ constant, but with just a filename and extension.
 ##### Summary
 
 String consisting of the filename and extension only of the
-[FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Objects.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
+[FILE_GUARANTEED_TO_EXIST](#F-MFR-Objects-Tests-Common-StringConstants-FILE_GUARANTEED_TO_EXIST 'MFR.Tests.Common.StringConstants.FILE_GUARANTEED_TO_EXIST')
 constant.
 
 <a name='F-MFR-Objects-Tests-Common-StringConstants-FILE_MATCHING_OPERATIONAL_CRITERIA'></a>
@@ -481,7 +481,7 @@ file-rename operation test.
 ##### Summary
 
 String consisting of the same value as the
-[NEW_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE 'MFR.Objects.Tests.Common.StringConstants.NEW_TEMP_FILE')
+[NEW_TEMP_FILE](#F-MFR-Objects-Tests-Common-StringConstants-NEW_TEMP_FILE 'MFR.Tests.Common.StringConstants.NEW_TEMP_FILE')
 constant, but only containing the filename and extension of the file
 instead of the full path.
 

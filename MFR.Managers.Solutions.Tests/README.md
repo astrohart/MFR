@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Managers.Solutions.Tests
+# MFR.Managers.Solutions.Tests
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Managers-Solutions-Tests-Properties-Resources 'MFR.Objects.Managers.Solutions.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-Solutions-Tests-Properties-Resources-Culture 'MFR.Objects.Managers.Solutions.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-Solutions-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Managers.Solutions.Tests.Properties.Resources.ResourceManager')
-- [VisualStudioSolutionServiceTests](#T-MFR-Objects-Managers-Solutions-Tests-VisualStudioSolutionServiceTests 'MFR.Objects.Managers.Solutions.Tests.VisualStudioSolutionServiceTests')
-  - [Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue()](#M-MFR-Objects-Managers-Solutions-Tests-VisualStudioSolutionServiceTests-Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue 'MFR.Objects.Managers.Solutions.Tests.VisualStudioSolutionServiceTests.Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue')
+- [Resources](#T-MFR-Objects-Managers-Solutions-Tests-Properties-Resources 'MFR.Managers.Solutions.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Managers-Solutions-Tests-Properties-Resources-Culture 'MFR.Managers.Solutions.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Managers-Solutions-Tests-Properties-Resources-ResourceManager 'MFR.Managers.Solutions.Tests.Properties.Resources.ResourceManager')
+- [VisualStudioSolutionServiceTests](#T-MFR-Objects-Managers-Solutions-Tests-VisualStudioSolutionServiceTests 'MFR.Managers.Solutions.Tests.VisualStudioSolutionServiceTests')
+  - [Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue()](#M-MFR-Objects-Managers-Solutions-Tests-VisualStudioSolutionServiceTests-Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue 'MFR.Managers.Solutions.Tests.VisualStudioSolutionServiceTests.Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue')
 
 <a name='T-MFR-Objects-Managers-Solutions-Tests-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Managers.Solutions.Tests.Properties
+MFR.Managers.Solutions.Tests.Properties
 
 ##### Summary
 
@@ -40,12 +40,12 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Managers.Solutions.Tests
+MFR.Managers.Solutions.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[VisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-VisualStudioSolutionService 'MFR.Objects.Managers.Solutions.VisualStudioSolutionService')
+[VisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-VisualStudioSolutionService 'MFR.Managers.Solutions.VisualStudioSolutionService')
 class.
 
 <a name='M-MFR-Objects-Managers-Solutions-Tests-VisualStudioSolutionServiceTests-Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue'></a>
@@ -53,7 +53,7 @@ class.
 
 ##### Summary
 
-Asserts that the [ContainsLoadedSolutions](#M-MFR-Objects-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Objects.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions') method returns `true` when it's asked to scan for loaded solutions from the folder in which this solution is being executed.
+Asserts that the [ContainsLoadedSolutions](#M-MFR-Objects-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions') method returns `true` when it's asked to scan for loaded solutions from the folder in which this solution is being executed.
 
 ##### Parameters
 

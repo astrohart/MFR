@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Engines.Replacement.Intefaces
+# MFR.Engines.Replacement.Intefaces
 
 ## Contents
 
-- [ITextReplacementEngine](#T-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine')
-  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(System.String,System.String,System.String)')
-  - [Replace(expression)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Objects.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression)')
-- [Resources](#T-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources 'MFR.Objects.Engines.Replacement.Intefaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources-Culture 'MFR.Objects.Engines.Replacement.Intefaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Replacement.Intefaces.Properties.Resources.ResourceManager')
+- [ITextReplacementEngine](#T-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(System.String,System.String,System.String)')
+  - [Replace(expression)](#M-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine-Replace-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine.Replace(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
+- [Resources](#T-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources 'MFR.Engines.Replacement.Intefaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources-Culture 'MFR.Engines.Replacement.Intefaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Intefaces-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Intefaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Engines-Replacement-Intefaces-ITextReplacementEngine'></a>
 ## ITextReplacementEngine `type`
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Intefaces
+MFR.Engines.Replacement.Intefaces
 
 ##### Summary
 
@@ -75,8 +75,8 @@ String containing the new data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expression | [MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
-the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.Objects.IMatchExpression')
+| expression | [MFR.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
+the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
 interface that contains the replacement data. |
 
 ##### Exceptions
@@ -91,7 +91,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Intefaces.Properties
+MFR.Engines.Replacement.Intefaces.Properties
 
 ##### Summary
 

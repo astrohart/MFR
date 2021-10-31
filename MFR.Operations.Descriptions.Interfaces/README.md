@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations.Descriptions.Interfaces
+# MFR.Operations.Descriptions.Interfaces
 
 ## Contents
 
-- [IOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription 'MFR.Objects.Operations.Descriptions.Interfaces.IOperationTypeDescription')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text 'MFR.Objects.Operations.Descriptions.Interfaces.IOperationTypeDescription.Text')
-- [IOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription 'MFR.Objects.Operations.Descriptions.Interfaces.IOperationTypeStartedDescription')
-- [Resources](#T-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources 'MFR.Objects.Operations.Descriptions.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-Culture 'MFR.Objects.Operations.Descriptions.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Descriptions.Interfaces.Properties.Resources.ResourceManager')
+- [IOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription')
+  - [Text](#P-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription.Text')
+- [IOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeStartedDescription')
+- [Resources](#T-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources 'MFR.Operations.Descriptions.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-Culture 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription'></a>
 ## IOperationTypeDescription `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions.Interfaces
+MFR.Operations.Descriptions.Interfaces
 
 ##### Summary
 
@@ -39,7 +39,7 @@ It is up to the implementers of this interface to supply the proper text.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions.Interfaces
+MFR.Operations.Descriptions.Interfaces
 
 ##### Summary
 
@@ -56,7 +56,7 @@ It is up to the implementers of this interface to supply the proper text.
 
 ##### Namespace
 
-MFR.Objects.Operations.Descriptions.Interfaces.Properties
+MFR.Operations.Descriptions.Interfaces.Properties
 
 ##### Summary
 

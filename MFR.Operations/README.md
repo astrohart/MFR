@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations
+# MFR.Operations
 
 ## Contents
 
-- [OperationTypeSpecificObjectBase](#T-MFR-Objects-Operations-OperationTypeSpecificObjectBase 'MFR.Objects.Operations.OperationTypeSpecificObjectBase')
-  - [#ctor()](#M-MFR-Objects-Operations-OperationTypeSpecificObjectBase-#ctor 'MFR.Objects.Operations.OperationTypeSpecificObjectBase.#ctor')
-  - [OperationType](#P-MFR-Objects-Operations-OperationTypeSpecificObjectBase-OperationType 'MFR.Objects.Operations.OperationTypeSpecificObjectBase.OperationType')
-  - [AndOperationType(type)](#M-MFR-Objects-Operations-OperationTypeSpecificObjectBase-AndOperationType-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Operations.OperationTypeSpecificObjectBase.AndOperationType(MFR.Objects.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-Objects-Operations-Properties-Resources 'MFR.Objects.Operations.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Properties-Resources-Culture 'MFR.Objects.Operations.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Properties.Resources.ResourceManager')
+- [OperationTypeSpecificObjectBase](#T-MFR-Objects-Operations-OperationTypeSpecificObjectBase 'MFR.Operations.OperationTypeSpecificObjectBase')
+  - [#ctor()](#M-MFR-Objects-Operations-OperationTypeSpecificObjectBase-#ctor 'MFR.Operations.OperationTypeSpecificObjectBase.#ctor')
+  - [OperationType](#P-MFR-Objects-Operations-OperationTypeSpecificObjectBase-OperationType 'MFR.Operations.OperationTypeSpecificObjectBase.OperationType')
+  - [AndOperationType(type)](#M-MFR-Objects-Operations-OperationTypeSpecificObjectBase-AndOperationType-MFR-Objects-Operations-Constants-OperationType- 'MFR.Operations.OperationTypeSpecificObjectBase.AndOperationType(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-Objects-Operations-Properties-Resources 'MFR.Operations.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Properties-Resources-Culture 'MFR.Operations.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Operations-Properties-Resources-ResourceManager 'MFR.Operations.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-OperationTypeSpecificObjectBase'></a>
 ## OperationTypeSpecificObjectBase `type`
 
 ##### Namespace
 
-MFR.Objects.Operations
+MFR.Operations
 
 ##### Summary
 
@@ -28,7 +28,7 @@ objects.
 
 ##### Summary
 
-Constructs a new instance of [OperationSpecificObjectBase](#T-MFR-Objects-OperationSpecificObjectBase 'MFR.Objects.OperationSpecificObjectBase') and returns a reference to it.
+Constructs a new instance of [OperationSpecificObjectBase](#T-MFR-Objects-OperationSpecificObjectBase 'MFR.OperationSpecificObjectBase') and returns a reference to it.
 
 ##### Parameters
 
@@ -40,7 +40,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -50,9 +50,9 @@ corresponds to the type of operation being performed.
 ##### Summary
 
 Initializes the
-[OperationType](#P-MFR-Objects-IOperationSpecificObject-OperationType 'MFR.Objects.IOperationSpecificObject.OperationType')
+[OperationType](#P-MFR-Objects-IOperationSpecificObject-OperationType 'MFR.IOperationSpecificObject.OperationType')
 property with the specific
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 value that
 corresponds to the type of operation being performed.
 
@@ -65,8 +65,8 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 specifies the type of operation being performed. |
 
@@ -74,7 +74,7 @@ specifies the type of operation being performed. |
 
 This method is optional. If the objects in the bridge hierarchy
 implement the
-[OperationType](#P-MFR-Objects-IOperationSpecificObject-OperationType 'MFR.Objects.IOperationSpecificObject.OperationType')
+[OperationType](#P-MFR-Objects-IOperationSpecificObject-OperationType 'MFR.IOperationSpecificObject.OperationType')
 property themselves, then this method is not necessary to be called.
 
 
@@ -87,7 +87,7 @@ override its functionality.
 
 ##### Namespace
 
-MFR.Objects.Operations.Properties
+MFR.Operations.Properties
 
 ##### Summary
 

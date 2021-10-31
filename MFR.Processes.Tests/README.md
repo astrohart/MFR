@@ -1,37 +1,37 @@
 <a name='assembly'></a>
-# MFR.Objects.Processes.Tests
+# MFR.Processes.Tests
 
 ## Contents
 
-- [ProcessIdProviderTests](#T-MFR-Objects-Processes-Tests-ProcessIdProviderTests 'MFR.Objects.Processes.Tests.ProcessIdProviderTests')
-  - [_processIdProvider](#F-MFR-Objects-Processes-Tests-ProcessIdProviderTests-_processIdProvider 'MFR.Objects.Processes.Tests.ProcessIdProviderTests._processIdProvider')
-  - [EmptyIntegerCollection](#P-MFR-Objects-Processes-Tests-ProcessIdProviderTests-EmptyIntegerCollection 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.EmptyIntegerCollection')
-  - [Initialize()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Initialize 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Initialize')
-  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsBlank()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsBlank 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsBlank')
-  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish')
-  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull')
-  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace')
-  - [Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename')
-  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank')
-  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish')
-  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull')
-  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace')
-  - [Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename 'MFR.Objects.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename')
-- [Resources](#T-MFR-Objects-Processes-Tests-Properties-Resources 'MFR.Objects.Processes.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Processes-Tests-Properties-Resources-Culture 'MFR.Objects.Processes.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Processes-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Processes.Tests.Properties.Resources.ResourceManager')
+- [ProcessIdProviderTests](#T-MFR-Objects-Processes-Tests-ProcessIdProviderTests 'MFR.Processes.Tests.ProcessIdProviderTests')
+  - [_processIdProvider](#F-MFR-Objects-Processes-Tests-ProcessIdProviderTests-_processIdProvider 'MFR.Processes.Tests.ProcessIdProviderTests._processIdProvider')
+  - [EmptyIntegerCollection](#P-MFR-Objects-Processes-Tests-ProcessIdProviderTests-EmptyIntegerCollection 'MFR.Processes.Tests.ProcessIdProviderTests.EmptyIntegerCollection')
+  - [Initialize()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Initialize 'MFR.Processes.Tests.ProcessIdProviderTests.Initialize')
+  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsBlank()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsBlank 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsBlank')
+  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsGibberish')
+  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsNull')
+  - [Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsEmptySet_WhenInputIsWhitespace')
+  - [Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetAllProcessIDsOf_ReturnsNonEmptySet_WhenInputIsDevEnvFilename')
+  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsBlank')
+  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsGibberish')
+  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsNull')
+  - [Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsMinusOne_WhenInputIsWhiteSpace')
+  - [Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename()](#M-MFR-Objects-Processes-Tests-ProcessIdProviderTests-Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename 'MFR.Processes.Tests.ProcessIdProviderTests.Test_GetProcessIDOf_ReturnsPositiveInteger_WhenInputIsDevEnvFilename')
+- [Resources](#T-MFR-Objects-Processes-Tests-Properties-Resources 'MFR.Processes.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Processes-Tests-Properties-Resources-Culture 'MFR.Processes.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Processes-Tests-Properties-Resources-ResourceManager 'MFR.Processes.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Processes-Tests-ProcessIdProviderTests'></a>
 ## ProcessIdProviderTests `type`
 
 ##### Namespace
 
-MFR.Objects.Processes.Tests
+MFR.Processes.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[ProcessIdProvider](#T-MFR-Objects-ProcessIdProvider 'MFR.Objects.ProcessIdProvider')
+[ProcessIdProvider](#T-MFR-Objects-ProcessIdProvider 'MFR.ProcessIdProvider')
 class.
 
 <a name='F-MFR-Objects-Processes-Tests-ProcessIdProviderTests-_processIdProvider'></a>
@@ -40,7 +40,7 @@ class.
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.Objects.IProcessIdProvider')
+[IProcessIdProvider](#T-MFR-Objects-IProcessIdProvider 'MFR.IProcessIdProvider')
 interface.
 
 <a name='P-MFR-Objects-Processes-Tests-ProcessIdProviderTests-EmptyIntegerCollection'></a>
@@ -67,7 +67,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf')
+[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.IProcessIdProvider.GetAllProcessIDsOf')
 method returns the empty collection when it is passed the empty
 string as input.
 
@@ -81,7 +81,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf')
+[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.IProcessIdProvider.GetAllProcessIDsOf')
 method returns the empty collection when it is passed gibberish as input.
 
 ##### Parameters
@@ -94,7 +94,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf')
+[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.IProcessIdProvider.GetAllProcessIDsOf')
 method returns the empty collection when it is passed the
 `null` string as input.
 
@@ -108,7 +108,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf')
+[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.IProcessIdProvider.GetAllProcessIDsOf')
 method returns the empty collection when it is passed whitespace as input.
 
 ##### Parameters
@@ -121,7 +121,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.Objects.IProcessIdProvider.GetAllProcessIDsOf')
+[GetAllProcessIDsOf](#M-MFR-Objects-IProcessIdProvider-GetAllProcessIDsOf 'MFR.IProcessIdProvider.GetAllProcessIDsOf')
 method returns nonzero items when passed the filename of
 `devenv.exe` as input.
 
@@ -141,7 +141,7 @@ that at least one instance of `devenv.exe` must be running.
 ##### Summary
 
 Asserts that the
-[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.Objects.IProcessIdProvider.GetProcessIDOf')
+[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.IProcessIdProvider.GetProcessIDOf')
 method returns `-1` for the process ID when passed the empty
 string as input.
 
@@ -155,7 +155,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.Objects.IProcessIdProvider.GetProcessIDOf')
+[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.IProcessIdProvider.GetProcessIDOf')
 method returns `-1` for the process ID when passed gibberish
 for input.
 
@@ -169,7 +169,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.Objects.IProcessIdProvider.GetProcessIDOf')
+[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.IProcessIdProvider.GetProcessIDOf')
 method returns `-1` for the process ID when passed the
 `null` string as input.
 
@@ -183,7 +183,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.Objects.IProcessIdProvider.GetProcessIDOf')
+[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.IProcessIdProvider.GetProcessIDOf')
 method returns `-1` for the process ID when passed the empty
 string as input.
 
@@ -197,7 +197,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts the
-[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.Objects.IProcessIdProvider.GetProcessIDOf') method
+[GetProcessIDOf](#M-MFR-Objects-IProcessIdProvider-GetProcessIDOf 'MFR.IProcessIdProvider.GetProcessIDOf') method
 always returns a positive integer for the process ID when searching
 on `devenv.exe`.
 
@@ -216,7 +216,7 @@ Studio; therefore, Visual Studio must have at least one instance open.
 
 ##### Namespace
 
-MFR.Objects.Processes.Tests.Properties
+MFR.Processes.Tests.Properties
 
 ##### Summary
 

@@ -1,30 +1,30 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Registry.Validators
+# MFR.Expressions.Registry.Validators
 
 ## Contents
 
-- [RegQueryExpressionValidator\`1](#T-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1')
-  - [#ctor()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#ctor 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1.#ctor')
-  - [Expression](#P-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Expression 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1.Expression')
-  - [Instance](#P-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Instance 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1.Instance')
-  - [#cctor()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#cctor 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1.#cctor')
-  - [ForRegQueryExpression()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-ForRegQueryExpression-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression{`0}- 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1.ForRegQueryExpression(MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression{`0})')
-  - [Validate()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Validate 'MFR.Objects.Expressions.Registry.Validators.RegQueryExpressionValidator`1.Validate')
-- [Resources](#T-MFR-Objects-Expressions-Registry-Validators-Properties-Resources 'MFR.Objects.Expressions.Registry.Validators.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Registry-Validators-Properties-Resources-Culture 'MFR.Objects.Expressions.Registry.Validators.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Validators-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Registry.Validators.Properties.Resources.ResourceManager')
+- [RegQueryExpressionValidator\`1](#T-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1')
+  - [#ctor()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#ctor 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1.#ctor')
+  - [Expression](#P-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Expression 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1.Expression')
+  - [Instance](#P-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Instance 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1.Instance')
+  - [#cctor()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#cctor 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1.#cctor')
+  - [ForRegQueryExpression()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-ForRegQueryExpression-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression{`0}- 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1.ForRegQueryExpression(MFR.Expressions.Registry.Interfaces.IRegQueryExpression{`0})')
+  - [Validate()](#M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Validate 'MFR.Expressions.Registry.Validators.RegQueryExpressionValidator`1.Validate')
+- [Resources](#T-MFR-Objects-Expressions-Registry-Validators-Properties-Resources 'MFR.Expressions.Registry.Validators.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Registry-Validators-Properties-Resources-Culture 'MFR.Expressions.Registry.Validators.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Validators-Properties-Resources-ResourceManager 'MFR.Expressions.Registry.Validators.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1'></a>
 ## RegQueryExpressionValidator\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Validators
+MFR.Expressions.Registry.Validators
 
 ##### Summary
 
 Validates the data in the properties of instances of objects that
-implement the [IRegQueryExpression](#T-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression') interface.
+implement the [IRegQueryExpression](#T-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression') interface.
 
 ##### Generic Types
 
@@ -49,14 +49,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets the instance of the object that implements the [IRegQueryExpression](#T-MFR-Objects-IRegQueryExpression 'MFR.Objects.IRegQueryExpression') interface that is being validated.
+Gets the instance of the object that implements the [IRegQueryExpression](#T-MFR-Objects-IRegQueryExpression 'MFR.IRegQueryExpression') interface that is being validated.
 
 <a name='P-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of [RegQueryExpressionValidator](#T-MFR-Objects-RegQueryExpressionValidator 'MFR.Objects.RegQueryExpressionValidator').
+Gets a reference to the one and only instance of [RegQueryExpressionValidator](#T-MFR-Objects-RegQueryExpressionValidator 'MFR.RegQueryExpressionValidator').
 
 <a name='M-MFR-Objects-Expressions-Registry-Validators-RegQueryExpressionValidator`1-#cctor'></a>
 ### #cctor() `method`
@@ -74,7 +74,7 @@ This method has no parameters.
 
 ##### Summary
 
-Initializes the value of the [Expression](#P-MFR-Objects-IRegQueryExpressionValidator-Expression 'MFR.Objects.IRegQueryExpressionValidator.Expression')
+Initializes the value of the [Expression](#P-MFR-Objects-IRegQueryExpressionValidator-Expression 'MFR.IRegQueryExpressionValidator.Expression')
 property to refer to the data that is to be validated.
 
 ##### Returns
@@ -116,7 +116,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Validators.Properties
+MFR.Expressions.Registry.Validators.Properties
 
 ##### Summary
 

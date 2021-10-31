@@ -1,34 +1,34 @@
 <a name='assembly'></a>
-# MFR.Objects.Registry.Helpers.Tests
+# MFR.Registry.Helpers.Tests
 
 ## Contents
 
-- [RegistryHiveExtensionsTests](#T-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests')
-  - [CLASSES_ROOT_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CLASSES_ROOT_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.CLASSES_ROOT_HIVE_NAME')
-  - [CURRENT_CONFIG_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CURRENT_CONFIG_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.CURRENT_CONFIG_HIVE_NAME')
-  - [CURRENT_USER_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CURRENT_USER_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.CURRENT_USER_HIVE_NAME')
-  - [DYN_DATA_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-DYN_DATA_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.DYN_DATA_HIVE_NAME')
-  - [FAKE_KEY_PATH](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-FAKE_KEY_PATH 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.FAKE_KEY_PATH')
-  - [LOCAL_MACHINE_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-LOCAL_MACHINE_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.LOCAL_MACHINE_HIVE_NAME')
-  - [PERFORMANCE_DATA_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-PERFORMANCE_DATA_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.PERFORMANCE_DATA_HIVE_NAME')
-  - [USERS_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-USERS_HIVE_NAME 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.USERS_HIVE_NAME')
-  - [Test_RemoveRegistryHive_Method_Works()](#M-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-Test_RemoveRegistryHive_Method_Works 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.Test_RemoveRegistryHive_Method_Works')
-  - [Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs()](#M-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs 'MFR.Objects.Registry.Helpers.Tests.RegistryHiveExtensionsTests.Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs')
-- [Resources](#T-MFR-Objects-Registry-Helpers-Tests-Properties-Resources 'MFR.Objects.Registry.Helpers.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Registry-Helpers-Tests-Properties-Resources-Culture 'MFR.Objects.Registry.Helpers.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Registry-Helpers-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Registry.Helpers.Tests.Properties.Resources.ResourceManager')
+- [RegistryHiveExtensionsTests](#T-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests')
+  - [CLASSES_ROOT_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CLASSES_ROOT_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.CLASSES_ROOT_HIVE_NAME')
+  - [CURRENT_CONFIG_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CURRENT_CONFIG_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.CURRENT_CONFIG_HIVE_NAME')
+  - [CURRENT_USER_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CURRENT_USER_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.CURRENT_USER_HIVE_NAME')
+  - [DYN_DATA_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-DYN_DATA_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.DYN_DATA_HIVE_NAME')
+  - [FAKE_KEY_PATH](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-FAKE_KEY_PATH 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.FAKE_KEY_PATH')
+  - [LOCAL_MACHINE_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-LOCAL_MACHINE_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.LOCAL_MACHINE_HIVE_NAME')
+  - [PERFORMANCE_DATA_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-PERFORMANCE_DATA_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.PERFORMANCE_DATA_HIVE_NAME')
+  - [USERS_HIVE_NAME](#F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-USERS_HIVE_NAME 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.USERS_HIVE_NAME')
+  - [Test_RemoveRegistryHive_Method_Works()](#M-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-Test_RemoveRegistryHive_Method_Works 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.Test_RemoveRegistryHive_Method_Works')
+  - [Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs()](#M-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs 'MFR.Registry.Helpers.Tests.RegistryHiveExtensionsTests.Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs')
+- [Resources](#T-MFR-Objects-Registry-Helpers-Tests-Properties-Resources 'MFR.Registry.Helpers.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Registry-Helpers-Tests-Properties-Resources-Culture 'MFR.Registry.Helpers.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Registry-Helpers-Tests-Properties-Resources-ResourceManager 'MFR.Registry.Helpers.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests'></a>
 ## RegistryHiveExtensionsTests `type`
 
 ##### Namespace
 
-MFR.Objects.Registry.Helpers.Tests
+MFR.Registry.Helpers.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[RegistryHiveExtensions](#T-MFR-Objects-RegistryHiveExtensions 'MFR.Objects.RegistryHiveExtensions')
+[RegistryHiveExtensions](#T-MFR-Objects-RegistryHiveExtensions 'MFR.RegistryHiveExtensions')
 class.
 
 <a name='F-MFR-Objects-Registry-Helpers-Tests-RegistryHiveExtensionsTests-CLASSES_ROOT_HIVE_NAME'></a>
@@ -95,7 +95,7 @@ String containing the name of the `HKEY_USERS` Registry hive.
 ##### Summary
 
 Asserts that the
-[RemoveHiveName](#M-MFR-Objects-RegistryHiveExtensions-RemoveHiveName 'MFR.Objects.RegistryHiveExtensions.RemoveHiveName')
+[RemoveHiveName](#M-MFR-Objects-RegistryHiveExtensions-RemoveHiveName 'MFR.RegistryHiveExtensions.RemoveHiveName')
 method correctly strips the hive name from a fake path to a Registry
 key under HKEY_CURRENT_USER.
 
@@ -109,7 +109,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[ToRegistryHive](#M-MFR-Objects-RegistryHiveExtensions-ToRegistryHive 'MFR.Objects.RegistryHiveExtensions.ToRegistryHive')
+[ToRegistryHive](#M-MFR-Objects-RegistryHiveExtensions-ToRegistryHive 'MFR.RegistryHiveExtensions.ToRegistryHive')
 string extension method returns the correct
 [RegistryHive](#T-Microsoft-Win32-RegistryHive 'Microsoft.Win32.RegistryHive')
 enumeration value for the
@@ -124,7 +124,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Registry.Helpers.Tests.Properties
+MFR.Registry.Helpers.Tests.Properties
 
 ##### Summary
 

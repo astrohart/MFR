@@ -1,24 +1,24 @@
 <a name='assembly'></a>
-# MFR.Objects.Interop.Factories
+# MFR.Interop.Factories
 
 ## Contents
 
-- [GetRunningObjectTable](#T-MFR-Objects-Interop-Factories-GetRunningObjectTable 'MFR.Objects.Interop.Factories.GetRunningObjectTable')
-  - [FromBindContext(ctx)](#M-MFR-Objects-Interop-Factories-GetRunningObjectTable-FromBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Objects.Interop.Factories.GetRunningObjectTable.FromBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
-- [MakeNewBindContext](#T-MFR-Objects-Interop-Factories-MakeNewBindContext 'MFR.Objects.Interop.Factories.MakeNewBindContext')
-  - [FromScratch()](#M-MFR-Objects-Interop-Factories-MakeNewBindContext-FromScratch 'MFR.Objects.Interop.Factories.MakeNewBindContext.FromScratch')
-- [MakeNewEnumMoniker](#T-MFR-Objects-Interop-Factories-MakeNewEnumMoniker 'MFR.Objects.Interop.Factories.MakeNewEnumMoniker')
-  - [From(runningObjectTable)](#M-MFR-Objects-Interop-Factories-MakeNewEnumMoniker-From-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Objects.Interop.Factories.MakeNewEnumMoniker.From(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
-- [Resources](#T-MFR-Objects-Interop-Factories-Properties-Resources 'MFR.Objects.Interop.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Interop-Factories-Properties-Resources-Culture 'MFR.Objects.Interop.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Interop-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Interop.Factories.Properties.Resources.ResourceManager')
+- [GetRunningObjectTable](#T-MFR-Objects-Interop-Factories-GetRunningObjectTable 'MFR.Interop.Factories.GetRunningObjectTable')
+  - [FromBindContext(ctx)](#M-MFR-Objects-Interop-Factories-GetRunningObjectTable-FromBindContext-System-Runtime-InteropServices-ComTypes-IBindCtx- 'MFR.Interop.Factories.GetRunningObjectTable.FromBindContext(System.Runtime.InteropServices.ComTypes.IBindCtx)')
+- [MakeNewBindContext](#T-MFR-Objects-Interop-Factories-MakeNewBindContext 'MFR.Interop.Factories.MakeNewBindContext')
+  - [FromScratch()](#M-MFR-Objects-Interop-Factories-MakeNewBindContext-FromScratch 'MFR.Interop.Factories.MakeNewBindContext.FromScratch')
+- [MakeNewEnumMoniker](#T-MFR-Objects-Interop-Factories-MakeNewEnumMoniker 'MFR.Interop.Factories.MakeNewEnumMoniker')
+  - [From(runningObjectTable)](#M-MFR-Objects-Interop-Factories-MakeNewEnumMoniker-From-System-Runtime-InteropServices-ComTypes-IRunningObjectTable- 'MFR.Interop.Factories.MakeNewEnumMoniker.From(System.Runtime.InteropServices.ComTypes.IRunningObjectTable)')
+- [Resources](#T-MFR-Objects-Interop-Factories-Properties-Resources 'MFR.Interop.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Interop-Factories-Properties-Resources-Culture 'MFR.Interop.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Interop-Factories-Properties-Resources-ResourceManager 'MFR.Interop.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Interop-Factories-GetRunningObjectTable'></a>
 ## GetRunningObjectTable `type`
 
 ##### Namespace
 
-MFR.Objects.Interop.Factories
+MFR.Interop.Factories
 
 ##### Summary
 
@@ -77,7 +77,7 @@ Callers of this method validate the return value before proceeding.
 
 ##### Namespace
 
-MFR.Objects.Interop.Factories
+MFR.Interop.Factories
 
 ##### Summary
 
@@ -122,7 +122,7 @@ Callers of this method validate the return value before proceeding.
 
 ##### Namespace
 
-MFR.Objects.Interop.Factories
+MFR.Interop.Factories
 
 ##### Summary
 
@@ -185,7 +185,7 @@ result prior to proceeding.
 
 ##### Namespace
 
-MFR.Objects.Interop.Factories.Properties
+MFR.Interop.Factories.Properties
 
 ##### Summary
 

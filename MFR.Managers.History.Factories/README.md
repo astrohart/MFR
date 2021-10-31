@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Managers.History.Factories
+# MFR.Managers.History.Factories
 
 ## Contents
 
-- [MakeHistoryManager](#T-MFR-Objects-Managers-History-Factories-MakeHistoryManager 'MFR.Objects.Managers.History.Factories.MakeHistoryManager')
-  - [ForForm(form)](#M-MFR-Objects-Managers-History-Factories-MakeHistoryManager-ForForm-System-Windows-Forms-IWin32Window- 'MFR.Objects.Managers.History.Factories.MakeHistoryManager.ForForm(System.Windows.Forms.IWin32Window)')
-- [Resources](#T-MFR-Objects-Managers-History-Factories-Properties-Resources 'MFR.Objects.Managers.History.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-History-Factories-Properties-Resources-Culture 'MFR.Objects.Managers.History.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-History-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Managers.History.Factories.Properties.Resources.ResourceManager')
+- [MakeHistoryManager](#T-MFR-Objects-Managers-History-Factories-MakeHistoryManager 'MFR.Managers.History.Factories.MakeHistoryManager')
+  - [ForForm(form)](#M-MFR-Objects-Managers-History-Factories-MakeHistoryManager-ForForm-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.Factories.MakeHistoryManager.ForForm(System.Windows.Forms.IWin32Window)')
+- [Resources](#T-MFR-Objects-Managers-History-Factories-Properties-Resources 'MFR.Managers.History.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Managers-History-Factories-Properties-Resources-Culture 'MFR.Managers.History.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Managers-History-Factories-Properties-Resources-ResourceManager 'MFR.Managers.History.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Managers-History-Factories-MakeHistoryManager'></a>
 ## MakeHistoryManager `type`
 
 ##### Namespace
 
-MFR.Objects.Managers.History.Factories
+MFR.Managers.History.Factories
 
 ##### Summary
 
@@ -31,7 +31,7 @@ Manager object that is associated with the specified `form`.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.Objects.IHistoryManager')
+[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.IHistoryManager')
 interface and
 which is associated with the specified `form`.
 
@@ -52,7 +52,7 @@ which the returned History Manager object is managing input history. |
 
 ##### Namespace
 
-MFR.Objects.Managers.History.Factories.Properties
+MFR.Managers.History.Factories.Properties
 
 ##### Summary
 

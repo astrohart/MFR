@@ -1,18 +1,18 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Commands.Tests
+# MFR.Messages.Commands.Tests
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Messages-Commands-Tests-Properties-Resources 'MFR.Objects.Messages.Commands.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-Culture 'MFR.Objects.Messages.Commands.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Commands.Tests.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Objects-Messages-Commands-Tests-Properties-Resources 'MFR.Messages.Commands.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-Culture 'MFR.Messages.Commands.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Messages.Commands.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Commands-Tests-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands.Tests.Properties
+MFR.Messages.Commands.Tests.Properties
 
 ##### Summary
 

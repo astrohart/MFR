@@ -1,29 +1,29 @@
 <a name='assembly'></a>
-# MFR.Objects.Configuration.Providers
+# MFR.Configuration.Providers
 
 ## Contents
 
-- [ConfigurationProvider](#T-MFR-Objects-Configuration-Providers-ConfigurationProvider 'MFR.Objects.Configuration.Providers.ConfigurationProvider')
-  - [Configuration](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration')
-  - [ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
-  - [ConfigurationKeyName](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationKeyName 'MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationKeyName')
-  - [ConfigurationPathValueName](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationPathValueName 'MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationPathValueName')
-  - [DefaultConfigDir](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-DefaultConfigDir 'MFR.Objects.Configuration.Providers.ConfigurationProvider.DefaultConfigDir')
-  - [DefaultConfigFileName](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-DefaultConfigFileName 'MFR.Objects.Configuration.Providers.ConfigurationProvider.DefaultConfigFileName')
-  - [Export(exportFileName)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Export-System-String- 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Export(System.String)')
-  - [Import(sourceFilePath)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Import-System-String- 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Import(System.String)')
-  - [Load(pathname)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Load-System-String- 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Load(System.String)')
-  - [Save(pathname)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Save-System-String- 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Save(System.String)')
-- [Resources](#T-MFR-Objects-Configuration-Providers-Properties-Resources 'MFR.Objects.Configuration.Providers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Providers-Properties-Resources-Culture 'MFR.Objects.Configuration.Providers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Providers-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Providers.Properties.Resources.ResourceManager')
+- [ConfigurationProvider](#T-MFR-Objects-Configuration-Providers-ConfigurationProvider 'MFR.Configuration.Providers.ConfigurationProvider')
+  - [Configuration](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Configuration.Providers.ConfigurationProvider.Configuration')
+  - [ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+  - [ConfigurationKeyName](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationKeyName 'MFR.Configuration.Providers.ConfigurationProvider.ConfigurationKeyName')
+  - [ConfigurationPathValueName](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationPathValueName 'MFR.Configuration.Providers.ConfigurationProvider.ConfigurationPathValueName')
+  - [DefaultConfigDir](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-DefaultConfigDir 'MFR.Configuration.Providers.ConfigurationProvider.DefaultConfigDir')
+  - [DefaultConfigFileName](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-DefaultConfigFileName 'MFR.Configuration.Providers.ConfigurationProvider.DefaultConfigFileName')
+  - [Export(exportFileName)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Export-System-String- 'MFR.Configuration.Providers.ConfigurationProvider.Export(System.String)')
+  - [Import(sourceFilePath)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Import-System-String- 'MFR.Configuration.Providers.ConfigurationProvider.Import(System.String)')
+  - [Load(pathname)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Load-System-String- 'MFR.Configuration.Providers.ConfigurationProvider.Load(System.String)')
+  - [Save(pathname)](#M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Save-System-String- 'MFR.Configuration.Providers.ConfigurationProvider.Save(System.String)')
+- [Resources](#T-MFR-Objects-Configuration-Providers-Properties-Resources 'MFR.Configuration.Providers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Configuration-Providers-Properties-Resources-Culture 'MFR.Configuration.Providers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Configuration-Providers-Properties-Resources-ResourceManager 'MFR.Configuration.Providers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Configuration-Providers-ConfigurationProvider'></a>
 ## ConfigurationProvider `type`
 
 ##### Namespace
 
-MFR.Objects.Configuration.Providers
+MFR.Configuration.Providers
 
 ##### Summary
 
@@ -36,7 +36,7 @@ user's configuration file.
 ##### Summary
 
 Gets a reference to the instance of the object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface and
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface and
 which exposes settings changed by the user in order to modify the
 application's behavior.
 
@@ -111,7 +111,7 @@ settings out to the master configuration file.
 
 It goes without saying that an alternative to calling this method in
 the first place is to simply call the
-[Save](#M-MFR-Objects-ConfigurationProvider-Save 'MFR.Objects.ConfigurationProvider.Save')
+[Save](#M-MFR-Objects-ConfigurationProvider-Save 'MFR.ConfigurationProvider.Save')
 method
 with a value for its pathname parameter.
 
@@ -165,7 +165,7 @@ Loads the configuration from the disk.
 
 
 The
-[Configuration](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration')
+[Configuration](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Configuration.Providers.ConfigurationProvider.Configuration')
 property is then initialized to point to the data that has been loaded.
 
 ##### Parameters
@@ -178,13 +178,13 @@ from disk, that contains the configuration data in JSON format.
 
 
 If this value is blank, then the file whose path is stored in the
-[ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property is used instead. |
 
 ##### Remarks
 
 The value of the
-[Configuration](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Objects.Configuration.Providers.ConfigurationProvider.Configuration')
+[Configuration](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Configuration.Providers.ConfigurationProvider.Configuration')
 property is set to `null` if an error occurs during loading.
 
 <a name='M-MFR-Objects-Configuration-Providers-ConfigurationProvider-Save-System-String-'></a>
@@ -206,13 +206,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Objects.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Objects-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Objects-Configuration-Providers-Properties-Resources'></a>
@@ -220,7 +220,7 @@ property is blank, then this method does nothing.
 
 ##### Namespace
 
-MFR.Objects.Configuration.Providers.Properties
+MFR.Configuration.Providers.Properties
 
 ##### Summary
 

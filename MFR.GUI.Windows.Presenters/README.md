@@ -14,7 +14,7 @@
   - [FindWhat](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat')
   - [ReplaceWith](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWith 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith')
   - [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
-  - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AndHistoryManager-MFR-Objects-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.AndHistoryManager(MFR.Objects.Managers.History.Interfaces.IHistoryManager)')
+  - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AndHistoryManager-MFR-Objects-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ClearAllHistory')
   - [CloseProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CloseProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CloseProgressDialog')
   - [CommenceRenameOperation()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommenceRenameOperation 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommenceRenameOperation')
@@ -27,22 +27,22 @@
   - [InitializeFileRenamer()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeFileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeFileRenamer')
   - [InitializeOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeOperationSelections')
   - [OnAllHistoryCleared()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnAllHistoryCleared 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnAllHistoryCleared')
-  - [OnConfigurationExported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationExported(MFR.Objects.Configuration.Events.ConfigurationExportedEventArgs)')
-  - [OnConfigurationImported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationImported(MFR.Objects.Configuration.Events.ConfigurationImportedEventArgs)')
-  - [OnDataOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationError-MFR-Objects-Operations-Events-DataOperationErrorEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationError(MFR.Objects.Operations.Events.DataOperationErrorEventArgs)')
+  - [OnConfigurationExported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationExported(MFR.Configuration.Events.ConfigurationExportedEventArgs)')
+  - [OnConfigurationImported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationImported(MFR.Configuration.Events.ConfigurationImportedEventArgs)')
+  - [OnDataOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationError-MFR-Objects-Operations-Events-DataOperationErrorEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationError(MFR.Operations.Events.DataOperationErrorEventArgs)')
   - [OnDataOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationFinished')
-  - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Objects-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Objects.Operations.Events.DataOperationEventArgs)')
-  - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerExceptionRaised-System-Object,MFR-Objects-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerExceptionRaised(System.Object,MFR.Objects.Events.Common.ExceptionRaisedEventArgs)')
-  - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Objects.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Objects.Events.FilesOrFoldersCountedEventArgs)')
+  - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Objects-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Operations.Events.DataOperationEventArgs)')
+  - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerExceptionRaised-System-Object,MFR-Objects-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerExceptionRaised(System.Object,MFR.Events.Common.ExceptionRaisedEventArgs)')
+  - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
+  - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFileRenamerFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFinished')
-  - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationFinished-System-Object,MFR-Objects-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerOperationFinished(System.Object,MFR.Objects.Operations.Events.OperationFinishedEventArgs)')
-  - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationStarted-System-Object,MFR-Objects-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerOperationStarted(System.Object,MFR.Objects.Operations.Events.OperationStartedEventArgs)')
-  - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerProcessingOperation-System-Object,MFR-Objects-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerProcessingOperation(System.Object,MFR.Objects.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationFinished-System-Object,MFR-Objects-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
+  - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationStarted-System-Object,MFR-Objects-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
+  - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerProcessingOperation-System-Object,MFR-Objects-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
   - [OnFileRenamerStarted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerStarted(System.Object,System.EventArgs)')
-  - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Objects.Events.FilesOrFoldersCountedEventArgs)')
+  - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
-  - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Objects-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Objects.Events.Common.ExceptionRaisedEventArgs)')
+  - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Objects-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnProgressDialogRequestedCancel(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProgressDialogRequestedCancel-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnProgressDialogRequestedCancel(System.Object,System.EventArgs)')
   - [Process()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-Process 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Process')
   - [ReinitializeProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReinitializeProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReinitializeProgressDialog')
@@ -51,11 +51,11 @@
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
   - [ShowCalculatingProgressBar(text)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowCalculatingProgressBar-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowCalculatingProgressBar(System.String)')
   - [ShowProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog')
-  - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Objects.Configuration.Interfaces.IConfiguration)')
+  - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Configuration.Interfaces.IConfiguration)')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
   - [WindowReference(mainWindow)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
-  - [WithFileRenamer(fileRenamer)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithFileRenamer-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithFileRenamer(MFR.Objects.Renamers.Files.Interfaces.IFileRenamer)')
+  - [WithFileRenamer(fileRenamer)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithFileRenamer-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithFileRenamer(MFR.Renamers.Files.Interfaces.IFileRenamer)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Properties-Resources 'MFR.GUI.Windows.Presenters.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Properties.Resources.Culture')
   - [Error_FindWhatRequired](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Error_FindWhatRequired 'MFR.GUI.Windows.Presenters.Properties.Resources.Error_FindWhatRequired')
@@ -103,7 +103,7 @@ to choose where they want to export the configuration data.
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenamer')
+[IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.IFileRenamer')
 interface.
 
 ##### Remarks
@@ -116,7 +116,7 @@ THis object provides the core services that this application offers.
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.Objects.IHistoryManager')
+[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.IHistoryManager')
 interface.
 
 ##### Remarks
@@ -201,8 +201,8 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| historyManager | [MFR.Objects.Managers.History.Interfaces.IHistoryManager](#T-MFR-Objects-Managers-History-Interfaces-IHistoryManager 'MFR.Objects.Managers.History.Interfaces.IHistoryManager') | Reference to an instance of an object that implements the
-[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.Objects.IHistoryManager')
+| historyManager | [MFR.Managers.History.Interfaces.IHistoryManager](#T-MFR-Objects-Managers-History-Interfaces-IHistoryManager 'MFR.Managers.History.Interfaces.IHistoryManager') | Reference to an instance of an object that implements the
+[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.IHistoryManager')
 on which this Presenter
 should depend. |
 
@@ -418,7 +418,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Configuration.Events.ConfigurationExportedEventArgs](#T-MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs 'MFR.Objects.Configuration.Events.ConfigurationExportedEventArgs') | A [ConfigurationExportedEventArgs](#T-MFR-Objects-ConfigurationExportedEventArgs 'MFR.Objects.ConfigurationExportedEventArgs') that
+| e | [MFR.Configuration.Events.ConfigurationExportedEventArgs](#T-MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs 'MFR.Configuration.Events.ConfigurationExportedEventArgs') | A [ConfigurationExportedEventArgs](#T-MFR-Objects-ConfigurationExportedEventArgs 'MFR.ConfigurationExportedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs-'></a>
@@ -434,7 +434,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Objects.Configuration.Events.ConfigurationImportedEventArgs') | A [ConfigurationImportedEventArgs](#T-MFR-Objects-ConfigurationImportedEventArgs 'MFR.Objects.ConfigurationImportedEventArgs') that
+| e | [MFR.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Configuration.Events.ConfigurationImportedEventArgs') | A [ConfigurationImportedEventArgs](#T-MFR-Objects-ConfigurationImportedEventArgs 'MFR.ConfigurationImportedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationError-MFR-Objects-Operations-Events-DataOperationErrorEventArgs-'></a>
@@ -450,7 +450,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Operations.Events.DataOperationErrorEventArgs](#T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs 'MFR.Objects.Operations.Events.DataOperationErrorEventArgs') | A [DataOperationErrorEventArgs](#T-MFR-Objects-DataOperationErrorEventArgs 'MFR.Objects.DataOperationErrorEventArgs') that
+| e | [MFR.Operations.Events.DataOperationErrorEventArgs](#T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs 'MFR.Operations.Events.DataOperationErrorEventArgs') | A [DataOperationErrorEventArgs](#T-MFR-Objects-DataOperationErrorEventArgs 'MFR.DataOperationErrorEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished'></a>
@@ -488,7 +488,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Operations.Events.DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Objects.Operations.Events.DataOperationEventArgs') | (Required.) A [DataOperationEventArgs](#T-MFR-Objects-DataOperationEventArgs 'MFR.Objects.DataOperationEventArgs')
+| e | [MFR.Operations.Events.DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Operations.Events.DataOperationEventArgs') | (Required.) A [DataOperationEventArgs](#T-MFR-Objects-DataOperationEventArgs 'MFR.DataOperationEventArgs')
 that contains the event data. |
 
 ##### Remarks
@@ -505,14 +505,14 @@ nowhere near as involved as the file operations we would normally undertake.
 
 ##### Summary
 
-Handles the [](#E-MFR-Objects-IFileRenamer-ExceptionRaised 'MFR.Objects.IFileRenamer.ExceptionRaised') event.
+Handles the [](#E-MFR-Objects-IFileRenamer-ExceptionRaised 'MFR.IFileRenamer.ExceptionRaised') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Objects-Events-Common-ExceptionRaisedEventArgs 'MFR.Objects.Events.Common.ExceptionRaisedEventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Objects-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
 ##### Remarks
 
@@ -525,7 +525,7 @@ box, logging the error, and then aborting the operation.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-IFileRenamer-FilesToBeRenamedCounted 'MFR.Objects.IFileRenamer.FilesToBeRenamedCounted')
+[](#E-MFR-Objects-IFileRenamer-FilesToBeRenamedCounted 'MFR.IFileRenamer.FilesToBeRenamedCounted')
 event
 raised by the file renamer object when it's finished determining the
 set of file system entries upon which the current operation should act.
@@ -535,7 +535,7 @@ set of file system entries upon which the current operation should act.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Objects.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.Objects.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -552,7 +552,7 @@ the same value as the count of file system entries.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-IFileRenamer-FilesToHaveTextReplacedCounted 'MFR.Objects.IFileRenamer.FilesToHaveTextReplacedCounted')
+[](#E-MFR-Objects-IFileRenamer-FilesToHaveTextReplacedCounted 'MFR.IFileRenamer.FilesToHaveTextReplacedCounted')
 event raised by the File Renamer object.
 
 ##### Parameters
@@ -560,7 +560,7 @@ event raised by the File Renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Objects.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.Objects.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -576,7 +576,7 @@ the same value as the count of file system entries.
 
 ##### Summary
 
-Handles the [](#E-MFR-Objects-IFileRenamer-Finished 'MFR.Objects.IFileRenamer.Finished') event
+Handles the [](#E-MFR-Objects-IFileRenamer-Finished 'MFR.IFileRenamer.Finished') event
 raised by the File Renamer object. This event is raised when the
 rename operations are all completed.
 
@@ -596,7 +596,7 @@ event in turn.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-IFileRenamer-OperationFinished 'MFR.Objects.IFileRenamer.OperationFinished')
+[](#E-MFR-Objects-IFileRenamer-OperationFinished 'MFR.IFileRenamer.OperationFinished')
 event raised
 by the file renamer object.
 
@@ -605,7 +605,7 @@ by the file renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Operations.Events.OperationFinishedEventArgs](#T-MFR-Objects-Operations-Events-OperationFinishedEventArgs 'MFR.Objects.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-Objects-OperationFinishedEventArgs 'MFR.Objects.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Objects-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-Objects-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -619,7 +619,7 @@ reset the progress bar back to the starting point.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-IFileRenamer-OperationStarted 'MFR.Objects.IFileRenamer.OperationStarted')
+[](#E-MFR-Objects-IFileRenamer-OperationStarted 'MFR.IFileRenamer.OperationStarted')
 event raised by
 the file-renamer object.
 
@@ -628,7 +628,7 @@ the file-renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Operations.Events.OperationStartedEventArgs](#T-MFR-Objects-Operations-Events-OperationStartedEventArgs 'MFR.Objects.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Objects-OperationStartedEventArgs 'MFR.Objects.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Objects-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Objects-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -643,7 +643,7 @@ processing is now being started.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-IFileRenamer-ProcessingOperation 'MFR.Objects.IFileRenamer.ProcessingOperation')
+[](#E-MFR-Objects-IFileRenamer-ProcessingOperation 'MFR.IFileRenamer.ProcessingOperation')
 event raised
 by the File Renamer object when it moves on to processing the next
 file system entry in its list.
@@ -653,13 +653,13 @@ file system entry in its list.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs 'MFR.Objects.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.Objects.ProcessingOperationEventArgs') that
+| e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
 contains the event data. |
 
 ##### Remarks
 
 This method responds by first checking the values passed in the
-[ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.Objects.ProcessingOperationEventArgs')
+[ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs')
 for valid values.
 
 
@@ -678,7 +678,7 @@ currently being worked on.
 
 ##### Summary
 
-Handles the [](#E-MFR-Objects-IFileRenamer-Started 'MFR.Objects.IFileRenamer.Started') event
+Handles the [](#E-MFR-Objects-IFileRenamer-Started 'MFR.IFileRenamer.Started') event
 raised by the File Renamer object. This event is raised when the
 rename operations are all completed.
 
@@ -701,7 +701,7 @@ event, in turn.
 ##### Summary
 
 Handles the
-[](#E-MFR-Objects-IFileRenamer-SubfoldersToBeRenamedCounted 'MFR.Objects.IFileRenamer.SubfoldersToBeRenamedCounted')
+[](#E-MFR-Objects-IFileRenamer-SubfoldersToBeRenamedCounted 'MFR.IFileRenamer.SubfoldersToBeRenamedCounted')
 event raised by the File Renamer object when it has finished
 calculating how many subfolders are to be renamed.
 
@@ -710,7 +710,7 @@ calculating how many subfolders are to be renamed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Objects.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Objects.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.Objects.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -755,7 +755,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Objects-Events-Common-ExceptionRaisedEventArgs 'MFR.Objects.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Objects-ExceptionRaisedEventArgs 'MFR.Objects.ExceptionRaisedEventArgs') that contains
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Objects-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Objects-ExceptionRaisedEventArgs 'MFR.ExceptionRaisedEventArgs') that contains
 the event data. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProgressDialogRequestedCancel-System-Object,System-EventArgs-'></a>
@@ -839,7 +839,7 @@ passed a `null` value. |
 ##### Summary
 
 Saves the selections made in the Operations to Perform checked list
-box into the [Configuration](#T-MFR-Objects-Configuration-Configuration 'MFR.Objects.Configuration.Configuration') object.
+box into the [Configuration](#T-MFR-Objects-Configuration-Configuration 'MFR.Configuration.Configuration') object.
 
 ##### Parameters
 
@@ -889,8 +889,8 @@ Updates the configuration currently being used with a new value.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface which has
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface which has
 the new settings. |
 
 ##### Exceptions
@@ -1012,8 +1012,8 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fileRenamer | [MFR.Objects.Renamers.Files.Interfaces.IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer') | (Required.) Reference to an instance of an object that implements
-the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenamer') interface. |
+| fileRenamer | [MFR.Renamers.Files.Interfaces.IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') | (Required.) Reference to an instance of an object that implements
+the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.IFileRenamer') interface. |
 
 ##### Exceptions
 

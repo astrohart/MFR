@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Matchers.Factories.Interfaces
+# MFR.Matchers.Factories.Interfaces
 
 ## Contents
 
-- [IStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Objects.Matchers.Factories.Interfaces.IStringMatcherFactory')
-  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-Interfaces-IStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Objects.Matchers.Factories.Interfaces.IStringMatcherFactory.AndTextMatchingConfiguration(MFR.Objects.Configuration.Constants.TextMatchingConfiguration)')
-- [Resources](#T-MFR-Objects-Matchers-Factories-Interfaces-Properties-Resources 'MFR.Objects.Matchers.Factories.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Matchers-Factories-Interfaces-Properties-Resources-Culture 'MFR.Objects.Matchers.Factories.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Matchers-Factories-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Matchers.Factories.Interfaces.Properties.Resources.ResourceManager')
+- [IStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-Interfaces-IStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory.AndTextMatchingConfiguration(MFR.Configuration.Constants.TextMatchingConfiguration)')
+- [Resources](#T-MFR-Objects-Matchers-Factories-Interfaces-Properties-Resources 'MFR.Matchers.Factories.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Matchers-Factories-Interfaces-Properties-Resources-Culture 'MFR.Matchers.Factories.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Matchers-Factories-Interfaces-Properties-Resources-ResourceManager 'MFR.Matchers.Factories.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Matchers-Factories-Interfaces-IStringMatcherFactory'></a>
 ## IStringMatcherFactory `type`
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories.Interfaces
+MFR.Matchers.Factories.Interfaces
 
 ##### Summary
 
@@ -32,25 +32,25 @@ operation types (Rename File in Folder etc.).
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface and
 returns a reference to it for the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value
 that is specified by the `matchingConfig` parameter.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| matchingConfig | [MFR.Objects.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Objects.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+| matchingConfig | [MFR.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that specifies which type of matching is being done. |
 
@@ -59,7 +59,7 @@ that specifies which type of matching is being done. |
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories.Interfaces.Properties
+MFR.Matchers.Factories.Interfaces.Properties
 
 ##### Summary
 

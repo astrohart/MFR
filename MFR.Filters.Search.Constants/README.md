@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Filters.Search.Constants
+# MFR.Filters.Search.Constants
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Filters-Search-Constants-Properties-Resources 'MFR.Objects.Filters.Search.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Filters-Search-Constants-Properties-Resources-Culture 'MFR.Objects.Filters.Search.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Filters-Search-Constants-Properties-Resources-ResourceManager 'MFR.Objects.Filters.Search.Constants.Properties.Resources.ResourceManager')
-- [SearchFilterType](#T-MFR-Objects-Filters-Search-Constants-SearchFilterType 'MFR.Objects.Filters.Search.Constants.SearchFilterType')
-  - [File](#F-MFR-Objects-Filters-Search-Constants-SearchFilterType-File 'MFR.Objects.Filters.Search.Constants.SearchFilterType.File')
-  - [Folder](#F-MFR-Objects-Filters-Search-Constants-SearchFilterType-Folder 'MFR.Objects.Filters.Search.Constants.SearchFilterType.Folder')
-  - [Glob](#F-MFR-Objects-Filters-Search-Constants-SearchFilterType-Glob 'MFR.Objects.Filters.Search.Constants.SearchFilterType.Glob')
+- [Resources](#T-MFR-Objects-Filters-Search-Constants-Properties-Resources 'MFR.Filters.Search.Constants.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Filters-Search-Constants-Properties-Resources-Culture 'MFR.Filters.Search.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Filters-Search-Constants-Properties-Resources-ResourceManager 'MFR.Filters.Search.Constants.Properties.Resources.ResourceManager')
+- [SearchFilterType](#T-MFR-Objects-Filters-Search-Constants-SearchFilterType 'MFR.Filters.Search.Constants.SearchFilterType')
+  - [File](#F-MFR-Objects-Filters-Search-Constants-SearchFilterType-File 'MFR.Filters.Search.Constants.SearchFilterType.File')
+  - [Folder](#F-MFR-Objects-Filters-Search-Constants-SearchFilterType-Folder 'MFR.Filters.Search.Constants.SearchFilterType.Folder')
+  - [Glob](#F-MFR-Objects-Filters-Search-Constants-SearchFilterType-Glob 'MFR.Filters.Search.Constants.SearchFilterType.Glob')
 
 <a name='T-MFR-Objects-Filters-Search-Constants-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Filters.Search.Constants.Properties
+MFR.Filters.Search.Constants.Properties
 
 ##### Summary
 
@@ -42,7 +42,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Filters.Search.Constants
+MFR.Filters.Search.Constants
 
 ##### Summary
 

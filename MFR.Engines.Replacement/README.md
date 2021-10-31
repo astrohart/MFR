@@ -1,39 +1,39 @@
 <a name='assembly'></a>
-# MFR.Objects.Engines.Replacement
+# MFR.Engines.Replacement
 
 ## Contents
 
-- [FileNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine')
-  - [#ctor()](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.#ctor')
-  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [OperationType](#P-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-OperationType 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.OperationType')
-  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine.Replace(System.String,System.String,System.String)')
-- [FolderNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine')
-  - [#ctor()](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.#ctor')
-  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [OperationType](#P-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-OperationType 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.OperationType')
-  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine.Replace(System.String,System.String,System.String)')
-- [Resources](#T-MFR-Objects-Engines-Replacement-Properties-Resources 'MFR.Objects.Engines.Replacement.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Replacement-Properties-Resources-Culture 'MFR.Objects.Engines.Replacement.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Replacement.Properties.Resources.ResourceManager')
-- [TextInFileReplacementEngine](#T-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine')
-  - [#ctor()](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.#ctor')
-  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [OperationType](#P-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-OperationType 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.OperationType')
-  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine.Replace(System.String,System.String,System.String)')
-- [TextReplacementEngineBase](#T-MFR-Objects-Engines-Replacement-TextReplacementEngineBase 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase')
-  - [#ctor()](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.#ctor')
-  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Objects.Configuration.Interfaces.IConfiguration)')
-  - [OperationType](#P-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-OperationType 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.OperationType')
-  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
-  - [Replace(expression)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase.Replace(MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression)')
+- [FileNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine 'MFR.Engines.Replacement.FileNameReplacementEngine')
+  - [#ctor()](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor 'MFR.Engines.Replacement.FileNameReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.FileNameReplacementEngine.#ctor(MFR.Configuration.Interfaces.IConfiguration)')
+  - [OperationType](#P-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-OperationType 'MFR.Engines.Replacement.FileNameReplacementEngine.OperationType')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.FileNameReplacementEngine.Replace(System.String,System.String,System.String)')
+- [FolderNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine 'MFR.Engines.Replacement.FolderNameReplacementEngine')
+  - [#ctor()](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor 'MFR.Engines.Replacement.FolderNameReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.FolderNameReplacementEngine.#ctor(MFR.Configuration.Interfaces.IConfiguration)')
+  - [OperationType](#P-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-OperationType 'MFR.Engines.Replacement.FolderNameReplacementEngine.OperationType')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.FolderNameReplacementEngine.Replace(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Objects-Engines-Replacement-Properties-Resources 'MFR.Engines.Replacement.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Engines-Replacement-Properties-Resources-Culture 'MFR.Engines.Replacement.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Properties.Resources.ResourceManager')
+- [TextInFileReplacementEngine](#T-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine 'MFR.Engines.Replacement.TextInFileReplacementEngine')
+  - [#ctor()](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor(MFR.Configuration.Interfaces.IConfiguration)')
+  - [OperationType](#P-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-OperationType 'MFR.Engines.Replacement.TextInFileReplacementEngine.OperationType')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.TextInFileReplacementEngine.Replace(System.String,System.String,System.String)')
+- [TextReplacementEngineBase](#T-MFR-Objects-Engines-Replacement-TextReplacementEngineBase 'MFR.Engines.Replacement.TextReplacementEngineBase')
+  - [#ctor()](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor')
+  - [#ctor(configuration)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Configuration.Interfaces.IConfiguration)')
+  - [OperationType](#P-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-OperationType 'MFR.Engines.Replacement.TextReplacementEngineBase.OperationType')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
+  - [Replace(expression)](#M-MFR-Objects-Engines-Replacement-TextReplacementEngineBase-Replace-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
 
 <a name='T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine'></a>
 ## FileNameReplacementEngine `type`
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement
+MFR.Engines.Replacement
 
 ##### Summary
 
@@ -45,7 +45,7 @@ Replaces text in file names.
 ##### Summary
 
 Constructs a new instance of
-[FileNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine 'MFR.Objects.Engines.Replacement.FileNameReplacementEngine')
+[FileNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FileNameReplacementEngine 'MFR.Engines.Replacement.FileNameReplacementEngine')
 and returns a reference to it.
 
 ##### Parameters
@@ -58,7 +58,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.TextReplacementEngineBase')
 and returns a
 reference to it.
 
@@ -66,8 +66,8 @@ reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration') interface that holds
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration') interface that holds
 settings that are specified by the user. |
 
 ##### Exceptions
@@ -82,7 +82,7 @@ is passed a `null` value. |
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String-'></a>
@@ -124,7 +124,7 @@ for values. |
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement
+MFR.Engines.Replacement
 
 ##### Summary
 
@@ -136,7 +136,7 @@ Contains rules to replace text in the pathnames of folders.
 ##### Summary
 
 Constructs a new instance of
-[FolderNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine 'MFR.Objects.Engines.Replacement.FolderNameReplacementEngine')
+[FolderNameReplacementEngine](#T-MFR-Objects-Engines-Replacement-FolderNameReplacementEngine 'MFR.Engines.Replacement.FolderNameReplacementEngine')
 and
 returns a reference to it.
 
@@ -150,7 +150,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.TextReplacementEngineBase')
 and
 returns a reference to it.
 
@@ -158,9 +158,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
 instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface that
 holds settings that are specified by the user. |
 
@@ -179,7 +179,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -224,7 +224,7 @@ the fully-qualified, absolute pathname to a folder. |
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Properties
+MFR.Engines.Replacement.Properties
 
 ##### Summary
 
@@ -250,7 +250,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement
+MFR.Engines.Replacement
 
 ##### Summary
 
@@ -263,7 +263,7 @@ simply the source string of methods.
 ##### Summary
 
 Constructs a new instance of
-[TextInFileReplacementEngine](#T-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine 'MFR.Objects.Engines.Replacement.TextInFileReplacementEngine')
+[TextInFileReplacementEngine](#T-MFR-Objects-Engines-Replacement-TextInFileReplacementEngine 'MFR.Engines.Replacement.TextInFileReplacementEngine')
 and
 returns a reference to it.
 
@@ -277,7 +277,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.TextReplacementEngineBase')
 and
 returns a reference to it.
 
@@ -285,9 +285,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
 instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface that
 holds settings that are specified by the user. |
 
@@ -306,7 +306,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -369,7 +369,7 @@ just gets deleted, which is okay in this instance.
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement
+MFR.Engines.Replacement
 
 ##### Summary
 
@@ -382,7 +382,7 @@ text-replacement engine object implementations.
 ##### Summary
 
 Constructs a new instance of
-[TextReplacementEngineBase](#T-MFR-Objects-Engines-Replacement-TextReplacementEngineBase 'MFR.Objects.Engines.Replacement.TextReplacementEngineBase')
+[TextReplacementEngineBase](#T-MFR-Objects-Engines-Replacement-TextReplacementEngineBase 'MFR.Engines.Replacement.TextReplacementEngineBase')
 and
 returns a reference to it.
 
@@ -396,7 +396,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.Objects.TextReplacementEngineBase')
+[TextReplacementEngineBase](#T-MFR-Objects-TextReplacementEngineBase 'MFR.TextReplacementEngineBase')
 and
 returns a reference to it.
 
@@ -404,9 +404,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
 instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface that
 holds settings that are specified by the user. |
 
@@ -425,7 +425,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -478,8 +478,8 @@ String containing the new data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expression | [MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Objects.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) A
-[MatchExpression](#T-MFR-Objects-MatchExpression 'MFR.Objects.MatchExpression')
+| expression | [MFR.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) A
+[MatchExpression](#T-MFR-Objects-MatchExpression 'MFR.MatchExpression')
 that contains the
 replacement data. |
 

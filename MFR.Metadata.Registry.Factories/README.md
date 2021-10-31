@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Metadata.Registry.Factories
+# MFR.Metadata.Registry.Factories
 
 ## Contents
 
-- [MakeNewRegOperationMetadata](#T-MFR-Objects-Metadata-Registry-Factories-MakeNewRegOperationMetadata 'MFR.Objects.Metadata.Registry.Factories.MakeNewRegOperationMetadata')
-  - [FromScatch\`\`1()](#M-MFR-Objects-Metadata-Registry-Factories-MakeNewRegOperationMetadata-FromScatch``1 'MFR.Objects.Metadata.Registry.Factories.MakeNewRegOperationMetadata.FromScatch``1')
-- [Resources](#T-MFR-Objects-Metadata-Registry-Factories-Properties-Resources 'MFR.Objects.Metadata.Registry.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Metadata-Registry-Factories-Properties-Resources-Culture 'MFR.Objects.Metadata.Registry.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Metadata-Registry-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Metadata.Registry.Factories.Properties.Resources.ResourceManager')
+- [MakeNewRegOperationMetadata](#T-MFR-Objects-Metadata-Registry-Factories-MakeNewRegOperationMetadata 'MFR.Metadata.Registry.Factories.MakeNewRegOperationMetadata')
+  - [FromScatch\`\`1()](#M-MFR-Objects-Metadata-Registry-Factories-MakeNewRegOperationMetadata-FromScatch``1 'MFR.Metadata.Registry.Factories.MakeNewRegOperationMetadata.FromScatch``1')
+- [Resources](#T-MFR-Objects-Metadata-Registry-Factories-Properties-Resources 'MFR.Metadata.Registry.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Metadata-Registry-Factories-Properties-Resources-Culture 'MFR.Metadata.Registry.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Metadata-Registry-Factories-Properties-Resources-ResourceManager 'MFR.Metadata.Registry.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Metadata-Registry-Factories-MakeNewRegOperationMetadata'></a>
 ## MakeNewRegOperationMetadata `type`
 
 ##### Namespace
 
-MFR.Objects.Metadata.Registry.Factories
+MFR.Metadata.Registry.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IRegOperationMetadata{T}](#T-MFR-Objects-IRegOperationMetadata{T} 'MFR.Objects.IRegOperationMetadata{T}')
+[IRegOperationMetadata{T}](#T-MFR-Objects-IRegOperationMetadata{T} 'MFR.IRegOperationMetadata{T}')
 interface.
 
 <a name='M-MFR-Objects-Metadata-Registry-Factories-MakeNewRegOperationMetadata-FromScatch``1'></a>
@@ -28,7 +28,7 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IRegOperationMetadata{T}](#T-MFR-Objects-IRegOperationMetadata{T} 'MFR.Objects.IRegOperationMetadata{T}')
+[IRegOperationMetadata{T}](#T-MFR-Objects-IRegOperationMetadata{T} 'MFR.IRegOperationMetadata{T}')
 interface
 and returns a reference to it.
 
@@ -46,11 +46,11 @@ from the system Registry. |
 ##### Remarks
 
 Callers of this method must then invoke the fluent-builder methods
-[ForKeyPath](#M-MFR-Objects-IRegOperationMetadata-ForKeyPath 'MFR.Objects.IRegOperationMetadata.ForKeyPath')
+[ForKeyPath](#M-MFR-Objects-IRegOperationMetadata-ForKeyPath 'MFR.IRegOperationMetadata.ForKeyPath')
 ,
-[AndValueName](#M-MFR-Objects-IRegOperationMetadata-AndValueName 'MFR.Objects.IRegOperationMetadata.AndValueName')
+[AndValueName](#M-MFR-Objects-IRegOperationMetadata-AndValueName 'MFR.IRegOperationMetadata.AndValueName')
 , and, optionally, the
-[WithDefaultValue](#M-MFR-Objects-IRegOperationMetadata-WithDefaultValue 'MFR.Objects.IRegOperationMetadata.WithDefaultValue')
+[WithDefaultValue](#M-MFR-Objects-IRegOperationMetadata-WithDefaultValue 'MFR.IRegOperationMetadata.WithDefaultValue')
 (if needed), to set the properties of the resultant object.
 
 
@@ -67,7 +67,7 @@ Callers are free to pick whichever instantiation method they feel is best.
 
 ##### Namespace
 
-MFR.Objects.Metadata.Registry.Factories.Properties
+MFR.Metadata.Registry.Factories.Properties
 
 ##### Summary
 

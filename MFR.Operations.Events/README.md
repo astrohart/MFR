@@ -1,41 +1,41 @@
 <a name='assembly'></a>
-# MFR.Objects.Operations.Events
+# MFR.Operations.Events
 
 ## Contents
 
-- [DataOperationErrorEventArgs](#T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs 'MFR.Objects.Operations.Events.DataOperationErrorEventArgs')
-  - [#ctor(exception)](#M-MFR-Objects-Operations-Events-DataOperationErrorEventArgs-#ctor-System-Exception- 'MFR.Objects.Operations.Events.DataOperationErrorEventArgs.#ctor(System.Exception)')
-- [DataOperationErrorEventHandler](#T-MFR-Objects-Operations-Events-DataOperationErrorEventHandler 'MFR.Objects.Operations.Events.DataOperationErrorEventHandler')
-- [DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Objects.Operations.Events.DataOperationEventArgs')
-  - [#ctor(message)](#M-MFR-Objects-Operations-Events-DataOperationEventArgs-#ctor-System-String- 'MFR.Objects.Operations.Events.DataOperationEventArgs.#ctor(System.String)')
-  - [Message](#P-MFR-Objects-Operations-Events-DataOperationEventArgs-Message 'MFR.Objects.Operations.Events.DataOperationEventArgs.Message')
-- [DataOperationEventHandler](#T-MFR-Objects-Operations-Events-DataOperationEventHandler 'MFR.Objects.Operations.Events.DataOperationEventHandler')
-- [OperationCancelEventArgs](#T-MFR-Objects-Operations-Events-OperationCancelEventArgs 'MFR.Objects.Operations.Events.OperationCancelEventArgs')
-  - [#ctor(type)](#M-MFR-Objects-Operations-Events-OperationCancelEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Operations.Events.OperationCancelEventArgs.#ctor(MFR.Objects.Operations.Constants.OperationType)')
-  - [OperationType](#P-MFR-Objects-Operations-Events-OperationCancelEventArgs-OperationType 'MFR.Objects.Operations.Events.OperationCancelEventArgs.OperationType')
-- [OperationEventArgs](#T-MFR-Objects-Operations-Events-OperationEventArgs 'MFR.Objects.Operations.Events.OperationEventArgs')
-  - [#ctor(operationType)](#M-MFR-Objects-Operations-Events-OperationEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Operations.Events.OperationEventArgs.#ctor(MFR.Objects.Operations.Constants.OperationType)')
-  - [OperationType](#P-MFR-Objects-Operations-Events-OperationEventArgs-OperationType 'MFR.Objects.Operations.Events.OperationEventArgs.OperationType')
-- [OperationFinishedEventArgs](#T-MFR-Objects-Operations-Events-OperationFinishedEventArgs 'MFR.Objects.Operations.Events.OperationFinishedEventArgs')
-  - [#ctor(operationType)](#M-MFR-Objects-Operations-Events-OperationFinishedEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Operations.Events.OperationFinishedEventArgs.#ctor(MFR.Objects.Operations.Constants.OperationType)')
-- [OperationFinishedEventHandler](#T-MFR-Objects-Operations-Events-OperationFinishedEventHandler 'MFR.Objects.Operations.Events.OperationFinishedEventHandler')
-- [OperationStartedEventArgs](#T-MFR-Objects-Operations-Events-OperationStartedEventArgs 'MFR.Objects.Operations.Events.OperationStartedEventArgs')
-  - [#ctor(operationType)](#M-MFR-Objects-Operations-Events-OperationStartedEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Operations.Events.OperationStartedEventArgs.#ctor(MFR.Objects.Operations.Constants.OperationType)')
-- [OperationStartedEventHandler](#T-MFR-Objects-Operations-Events-OperationStartedEventHandler 'MFR.Objects.Operations.Events.OperationStartedEventHandler')
-- [ProcessingOperationEventArgs](#T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs 'MFR.Objects.Operations.Events.ProcessingOperationEventArgs')
-  - [#ctor(entry,type)](#M-MFR-Objects-Operations-Events-ProcessingOperationEventArgs-#ctor-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry,MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Operations.Events.ProcessingOperationEventArgs.#ctor(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry,MFR.Objects.Operations.Constants.OperationType)')
-  - [Entry](#P-MFR-Objects-Operations-Events-ProcessingOperationEventArgs-Entry 'MFR.Objects.Operations.Events.ProcessingOperationEventArgs.Entry')
-- [ProcessingOperationEventHandler](#T-MFR-Objects-Operations-Events-ProcessingOperationEventHandler 'MFR.Objects.Operations.Events.ProcessingOperationEventHandler')
-- [Resources](#T-MFR-Objects-Operations-Events-Properties-Resources 'MFR.Objects.Operations.Events.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Events-Properties-Resources-Culture 'MFR.Objects.Operations.Events.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Events-Properties-Resources-ResourceManager 'MFR.Objects.Operations.Events.Properties.Resources.ResourceManager')
+- [DataOperationErrorEventArgs](#T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs 'MFR.Operations.Events.DataOperationErrorEventArgs')
+  - [#ctor(exception)](#M-MFR-Objects-Operations-Events-DataOperationErrorEventArgs-#ctor-System-Exception- 'MFR.Operations.Events.DataOperationErrorEventArgs.#ctor(System.Exception)')
+- [DataOperationErrorEventHandler](#T-MFR-Objects-Operations-Events-DataOperationErrorEventHandler 'MFR.Operations.Events.DataOperationErrorEventHandler')
+- [DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Operations.Events.DataOperationEventArgs')
+  - [#ctor(message)](#M-MFR-Objects-Operations-Events-DataOperationEventArgs-#ctor-System-String- 'MFR.Operations.Events.DataOperationEventArgs.#ctor(System.String)')
+  - [Message](#P-MFR-Objects-Operations-Events-DataOperationEventArgs-Message 'MFR.Operations.Events.DataOperationEventArgs.Message')
+- [DataOperationEventHandler](#T-MFR-Objects-Operations-Events-DataOperationEventHandler 'MFR.Operations.Events.DataOperationEventHandler')
+- [OperationCancelEventArgs](#T-MFR-Objects-Operations-Events-OperationCancelEventArgs 'MFR.Operations.Events.OperationCancelEventArgs')
+  - [#ctor(type)](#M-MFR-Objects-Operations-Events-OperationCancelEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Operations.Events.OperationCancelEventArgs.#ctor(MFR.Operations.Constants.OperationType)')
+  - [OperationType](#P-MFR-Objects-Operations-Events-OperationCancelEventArgs-OperationType 'MFR.Operations.Events.OperationCancelEventArgs.OperationType')
+- [OperationEventArgs](#T-MFR-Objects-Operations-Events-OperationEventArgs 'MFR.Operations.Events.OperationEventArgs')
+  - [#ctor(operationType)](#M-MFR-Objects-Operations-Events-OperationEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Operations.Events.OperationEventArgs.#ctor(MFR.Operations.Constants.OperationType)')
+  - [OperationType](#P-MFR-Objects-Operations-Events-OperationEventArgs-OperationType 'MFR.Operations.Events.OperationEventArgs.OperationType')
+- [OperationFinishedEventArgs](#T-MFR-Objects-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs')
+  - [#ctor(operationType)](#M-MFR-Objects-Operations-Events-OperationFinishedEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Operations.Events.OperationFinishedEventArgs.#ctor(MFR.Operations.Constants.OperationType)')
+- [OperationFinishedEventHandler](#T-MFR-Objects-Operations-Events-OperationFinishedEventHandler 'MFR.Operations.Events.OperationFinishedEventHandler')
+- [OperationStartedEventArgs](#T-MFR-Objects-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs')
+  - [#ctor(operationType)](#M-MFR-Objects-Operations-Events-OperationStartedEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType- 'MFR.Operations.Events.OperationStartedEventArgs.#ctor(MFR.Operations.Constants.OperationType)')
+- [OperationStartedEventHandler](#T-MFR-Objects-Operations-Events-OperationStartedEventHandler 'MFR.Operations.Events.OperationStartedEventHandler')
+- [ProcessingOperationEventArgs](#T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs')
+  - [#ctor(entry,type)](#M-MFR-Objects-Operations-Events-ProcessingOperationEventArgs-#ctor-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry,MFR-Objects-Operations-Constants-OperationType- 'MFR.Operations.Events.ProcessingOperationEventArgs.#ctor(MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Operations.Constants.OperationType)')
+  - [Entry](#P-MFR-Objects-Operations-Events-ProcessingOperationEventArgs-Entry 'MFR.Operations.Events.ProcessingOperationEventArgs.Entry')
+- [ProcessingOperationEventHandler](#T-MFR-Objects-Operations-Events-ProcessingOperationEventHandler 'MFR.Operations.Events.ProcessingOperationEventHandler')
+- [Resources](#T-MFR-Objects-Operations-Events-Properties-Resources 'MFR.Operations.Events.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Operations-Events-Properties-Resources-Culture 'MFR.Operations.Events.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Operations-Events-Properties-Resources-ResourceManager 'MFR.Operations.Events.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs'></a>
 ## DataOperationErrorEventArgs `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -46,7 +46,7 @@ Provides information for DataOperationError event handlers.
 
 ##### Summary
 
-Constructs a new instance of [DataOperationErrorEventArgs](#T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs 'MFR.Objects.Operations.Events.DataOperationErrorEventArgs')
+Constructs a new instance of [DataOperationErrorEventArgs](#T-MFR-Objects-Operations-Events-DataOperationErrorEventArgs 'MFR.Operations.Events.DataOperationErrorEventArgs')
 and returns a reference to it.
 
 ##### Parameters
@@ -67,7 +67,7 @@ passed a `null` reference for a value. |
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -77,7 +77,7 @@ Represents a handler for a DataOperationError event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [T:MFR.Objects.Operations.Events.DataOperationErrorEventHandler](#T-T-MFR-Objects-Operations-Events-DataOperationErrorEventHandler 'T:MFR.Objects.Operations.Events.DataOperationErrorEventHandler') | Reference to the instance of the object that raised the event. |
+| sender | [T:MFR.Operations.Events.DataOperationErrorEventHandler](#T-T-MFR-Objects-Operations-Events-DataOperationErrorEventHandler 'T:MFR.Operations.Events.DataOperationErrorEventHandler') | Reference to the instance of the object that raised the event. |
 
 ##### Remarks
 
@@ -89,7 +89,7 @@ the DataOperationError event.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -100,7 +100,7 @@ Provides information for DataOperation event handlers.
 
 ##### Summary
 
-Constructs a new instance of [DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Objects.Operations.Events.DataOperationEventArgs') and
+Constructs a new instance of [DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Operations.Events.DataOperationEventArgs') and
 returns a reference to it.
 
 ##### Parameters
@@ -123,7 +123,7 @@ during a data update operation.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -133,7 +133,7 @@ Represents a handler for an DataOperation event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [T:MFR.Objects.Operations.Events.DataOperationEventHandler](#T-T-MFR-Objects-Operations-Events-DataOperationEventHandler 'T:MFR.Objects.Operations.Events.DataOperationEventHandler') | Reference to the instance of the object that raised the event. |
+| sender | [T:MFR.Operations.Events.DataOperationEventHandler](#T-T-MFR-Objects-Operations-Events-DataOperationEventHandler 'T:MFR.Operations.Events.DataOperationEventHandler') | Reference to the instance of the object that raised the event. |
 
 ##### Remarks
 
@@ -145,7 +145,7 @@ the DataOperation event.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -156,14 +156,14 @@ Contains data for an OperationCanceled event.
 
 ##### Summary
 
-Constructs a new instance of [OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.Objects.OperationEventArgs') and returns a
+Constructs a new instance of [OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.OperationEventArgs') and returns a
 reference to it.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 specifies the operation being performed. |
 
 <a name='P-MFR-Objects-Operations-Events-OperationCancelEventArgs-OperationType'></a>
@@ -178,7 +178,7 @@ Gets the type of operation being performed.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -191,7 +191,7 @@ a particular operation type.
 ##### Summary
 
 Constructs a new instance of
-[OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.Objects.OperationEventArgs')
+[OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.OperationEventArgs')
 and returns a
 reference to it.
 
@@ -199,8 +199,8 @@ reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationType | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 specifies the operation being performed. |
 
@@ -209,7 +209,7 @@ specifies the operation being performed. |
 | Name | Description |
 | ---- | ----------- |
 | [System.NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException') | Thrown if
-[Unknown](#T-MFR-Objects-OperationType-Unknown 'MFR.Objects.OperationType.Unknown')
+[Unknown](#T-MFR-Objects-OperationType-Unknown 'MFR.OperationType.Unknown')
 is passed
 for the `operationType` parameter. |
 
@@ -225,7 +225,7 @@ Gets the type of operation being performed.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -236,14 +236,14 @@ Contains the data for a OperationFinished event.
 
 ##### Summary
 
-Constructs a new instance of [OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.Objects.OperationEventArgs') and returns a
+Constructs a new instance of [OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.OperationEventArgs') and returns a
 reference to it.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationType | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 specifies the operation being performed. |
 
 <a name='T-MFR-Objects-Operations-Events-OperationFinishedEventHandler'></a>
@@ -251,7 +251,7 @@ specifies the operation being performed. |
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -261,7 +261,7 @@ Represents a handler for an OperationFinished event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [T:MFR.Objects.Operations.Events.OperationFinishedEventHandler](#T-T-MFR-Objects-Operations-Events-OperationFinishedEventHandler 'T:MFR.Objects.Operations.Events.OperationFinishedEventHandler') | Reference to the instance of the object that raised the event. |
+| sender | [T:MFR.Operations.Events.OperationFinishedEventHandler](#T-T-MFR-Objects-Operations-Events-OperationFinishedEventHandler 'T:MFR.Operations.Events.OperationFinishedEventHandler') | Reference to the instance of the object that raised the event. |
 
 ##### Remarks
 
@@ -273,25 +273,25 @@ the OperationFinished event.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
-Defines the data that is passed by all events of type [OperationStartedEventHandler](#T-MFR-Objects-Operations-Events-OperationStartedEventHandler 'MFR.Objects.Operations.Events.OperationStartedEventHandler').
+Defines the data that is passed by all events of type [OperationStartedEventHandler](#T-MFR-Objects-Operations-Events-OperationStartedEventHandler 'MFR.Operations.Events.OperationStartedEventHandler').
 
 <a name='M-MFR-Objects-Operations-Events-OperationStartedEventArgs-#ctor-MFR-Objects-Operations-Constants-OperationType-'></a>
 ### #ctor(operationType) `constructor`
 
 ##### Summary
 
-Constructs a new instance of [OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.Objects.OperationEventArgs') and returns a
+Constructs a new instance of [OperationEventArgs](#T-MFR-Objects-OperationEventArgs 'MFR.OperationEventArgs') and returns a
 reference to it.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationType | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 specifies the operation being performed. |
 
 <a name='T-MFR-Objects-Operations-Events-OperationStartedEventHandler'></a>
@@ -299,29 +299,29 @@ specifies the operation being performed. |
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
-Defines the method signature for the handlers of the [](#E-MFR-Objects-FileRenamer-OperationStarted 'MFR.Objects.FileRenamer.OperationStarted') event.
+Defines the method signature for the handlers of the [](#E-MFR-Objects-FileRenamer-OperationStarted 'MFR.FileRenamer.OperationStarted') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [T:MFR.Objects.Operations.Events.OperationStartedEventHandler](#T-T-MFR-Objects-Operations-Events-OperationStartedEventHandler 'T:MFR.Objects.Operations.Events.OperationStartedEventHandler') | Reference to the instance of the object that raised the event. |
+| sender | [T:MFR.Operations.Events.OperationStartedEventHandler](#T-T-MFR-Objects-Operations-Events-OperationStartedEventHandler 'T:MFR.Operations.Events.OperationStartedEventHandler') | Reference to the instance of the object that raised the event. |
 
 <a name='T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs'></a>
 ## ProcessingOperationEventArgs `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
 Defines the data that is passed by all events of type
-[ProcessingOperationEventHandler](#T-MFR-Objects-Operations-Events-ProcessingOperationEventHandler 'MFR.Objects.Operations.Events.ProcessingOperationEventHandler').
+[ProcessingOperationEventHandler](#T-MFR-Objects-Operations-Events-ProcessingOperationEventHandler 'MFR.Operations.Events.ProcessingOperationEventHandler').
 
 <a name='M-MFR-Objects-Operations-Events-ProcessingOperationEventArgs-#ctor-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry,MFR-Objects-Operations-Constants-OperationType-'></a>
 ### #ctor(entry,type) `constructor`
@@ -329,7 +329,7 @@ Defines the data that is passed by all events of type
 ##### Summary
 
 Creates a new instance of
-[ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.Objects.ProcessingOperationEventArgs')
+[ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs')
 and
 returns a reference to it.
 
@@ -337,10 +337,10 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 specifies the operation being performed. |
 
@@ -350,7 +350,7 @@ specifies the operation being performed. |
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface
 that represents information about which file or folder is about to
 be processed.
 
@@ -359,7 +359,7 @@ be processed.
 
 ##### Namespace
 
-MFR.Objects.Operations.Events
+MFR.Operations.Events
 
 ##### Summary
 
@@ -369,14 +369,14 @@ Defines the method signature for the handlers of a ProcessingOperation event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [T:MFR.Objects.Operations.Events.ProcessingOperationEventHandler](#T-T-MFR-Objects-Operations-Events-ProcessingOperationEventHandler 'T:MFR.Objects.Operations.Events.ProcessingOperationEventHandler') | Reference to the instance of the object that raised the event. |
+| sender | [T:MFR.Operations.Events.ProcessingOperationEventHandler](#T-T-MFR-Objects-Operations-Events-ProcessingOperationEventHandler 'T:MFR.Operations.Events.ProcessingOperationEventHandler') | Reference to the instance of the object that raised the event. |
 
 <a name='T-MFR-Objects-Operations-Events-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Operations.Events.Properties
+MFR.Operations.Events.Properties
 
 ##### Summary
 

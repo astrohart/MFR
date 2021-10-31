@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Interop.Monikers.Collections.Factories
+# MFR.Interop.Monikers.Collections.Factories
 
 ## Contents
 
-- [MakeNewMonikerCollection](#T-MFR-Objects-Interop-Monikers-Collections-Factories-MakeNewMonikerCollection 'MFR.Objects.Interop.Monikers.Collections.Factories.MakeNewMonikerCollection')
-  - [FromScratch()](#M-MFR-Objects-Interop-Monikers-Collections-Factories-MakeNewMonikerCollection-FromScratch 'MFR.Objects.Interop.Monikers.Collections.Factories.MakeNewMonikerCollection.FromScratch')
-- [Resources](#T-MFR-Objects-Interop-Monikers-Collections-Factories-Properties-Resources 'MFR.Objects.Interop.Monikers.Collections.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Interop-Monikers-Collections-Factories-Properties-Resources-Culture 'MFR.Objects.Interop.Monikers.Collections.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Collections-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Interop.Monikers.Collections.Factories.Properties.Resources.ResourceManager')
+- [MakeNewMonikerCollection](#T-MFR-Objects-Interop-Monikers-Collections-Factories-MakeNewMonikerCollection 'MFR.Interop.Monikers.Collections.Factories.MakeNewMonikerCollection')
+  - [FromScratch()](#M-MFR-Objects-Interop-Monikers-Collections-Factories-MakeNewMonikerCollection-FromScratch 'MFR.Interop.Monikers.Collections.Factories.MakeNewMonikerCollection.FromScratch')
+- [Resources](#T-MFR-Objects-Interop-Monikers-Collections-Factories-Properties-Resources 'MFR.Interop.Monikers.Collections.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Interop-Monikers-Collections-Factories-Properties-Resources-Culture 'MFR.Interop.Monikers.Collections.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Interop-Monikers-Collections-Factories-Properties-Resources-ResourceManager 'MFR.Interop.Monikers.Collections.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Interop-Monikers-Collections-Factories-MakeNewMonikerCollection'></a>
 ## MakeNewMonikerCollection `type`
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Collections.Factories
+MFR.Interop.Monikers.Collections.Factories
 
 ##### Summary
 
 Creates new instances of objects that implement the
-[IMonikerEnumerable](#T-MFR-Objects-IMonikerEnumerable 'MFR.Objects.IMonikerEnumerable')
+[IMonikerEnumerable](#T-MFR-Objects-IMonikerEnumerable 'MFR.IMonikerEnumerable')
 interface.
 
 <a name='M-MFR-Objects-Interop-Monikers-Collections-Factories-MakeNewMonikerCollection-FromScratch'></a>
@@ -28,13 +28,13 @@ interface.
 ##### Summary
 
 Creates a new, uninitialized instance of an object that implements
-the [IMonikerEnumerable](#T-MFR-Objects-IMonikerEnumerable 'MFR.Objects.IMonikerEnumerable')
+the [IMonikerEnumerable](#T-MFR-Objects-IMonikerEnumerable 'MFR.IMonikerEnumerable')
 interface and returns a reference to it.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IMonikerEnumerable](#T-MFR-Objects-IMonikerEnumerable 'MFR.Objects.IMonikerEnumerable')
+[IMonikerEnumerable](#T-MFR-Objects-IMonikerEnumerable 'MFR.IMonikerEnumerable')
 interface.
 
 ##### Parameters
@@ -46,7 +46,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Interop.Monikers.Collections.Factories.Properties
+MFR.Interop.Monikers.Collections.Factories.Properties
 
 ##### Summary
 

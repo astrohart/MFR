@@ -1,18 +1,18 @@
 <a name='assembly'></a>
-# MFR.Objects.Helpers
+# MFR.Helpers
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Helpers-Properties-Resources 'MFR.Objects.Helpers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Helpers-Properties-Resources-Culture 'MFR.Objects.Helpers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Helpers-Properties-Resources-ResourceManager 'MFR.Objects.Helpers.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Objects-Helpers-Properties-Resources 'MFR.Helpers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Helpers-Properties-Resources-Culture 'MFR.Helpers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Helpers-Properties-Resources-ResourceManager 'MFR.Helpers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Helpers-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.Helpers.Properties
+MFR.Helpers.Properties
 
 ##### Summary
 

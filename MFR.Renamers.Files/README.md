@@ -1,45 +1,45 @@
 <a name='assembly'></a>
-# MFR.Objects.Renamers.Files
+# MFR.Renamers.Files
 
 ## Contents
 
-- [FileRenamer](#T-MFR-Objects-Renamers-Files-FileRenamer 'MFR.Objects.Renamers.Files.FileRenamer')
-  - [#ctor()](#M-MFR-Objects-Renamers-Files-FileRenamer-#ctor 'MFR.Objects.Renamers.Files.FileRenamer.#ctor')
-  - [#ctor(rootDirectoryPath)](#M-MFR-Objects-Renamers-Files-FileRenamer-#ctor-System-String- 'MFR.Objects.Renamers.Files.FileRenamer.#ctor(System.String)')
-  - [AbortRequested](#P-MFR-Objects-Renamers-Files-FileRenamer-AbortRequested 'MFR.Objects.Renamers.Files.FileRenamer.AbortRequested')
-  - [EnabledOperations](#P-MFR-Objects-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Objects.Renamers.Files.FileRenamer.EnabledOperations')
-  - [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Objects.Renamers.Files.FileRenamer.RootDirectoryPath')
-  - [ShouldReOpenSolution](#P-MFR-Objects-Renamers-Files-FileRenamer-ShouldReOpenSolution 'MFR.Objects.Renamers.Files.FileRenamer.ShouldReOpenSolution')
-  - [EnableOperations(operations)](#M-MFR-Objects-Renamers-Files-FileRenamer-EnableOperations-MFR-Objects-Operations-Constants-OperationType[]- 'MFR.Objects.Renamers.Files.FileRenamer.EnableOperations(MFR.Objects.Operations.Constants.OperationType[])')
-  - [InvokeProcessing(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.InvokeProcessing(System.String,System.String,System.Predicate{System.String})')
-  - [OnExceptionRaised(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnExceptionRaised-MFR-Objects-Events-Common-ExceptionRaisedEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnExceptionRaised(MFR.Objects.Events.Common.ExceptionRaisedEventArgs)')
-  - [OnFilesToBeRenamedCounted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnFilesToBeRenamedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnFilesToBeRenamedCounted(MFR.Objects.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFilesToHaveTextReplacedCounted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnFilesToHaveTextReplacedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnFilesToHaveTextReplacedCounted(MFR.Objects.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFinished()](#M-MFR-Objects-Renamers-Files-FileRenamer-OnFinished 'MFR.Objects.Renamers.Files.FileRenamer.OnFinished')
-  - [OnOperationFinished(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Objects-Operations-Events-OperationFinishedEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnOperationFinished(MFR.Objects.Operations.Events.OperationFinishedEventArgs)')
-  - [OnOperationStarted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Objects-Operations-Events-OperationStartedEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Objects.Operations.Events.OperationStartedEventArgs)')
-  - [OnProcessingOperation(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Objects-Operations-Events-ProcessingOperationEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Objects.Operations.Events.ProcessingOperationEventArgs)')
-  - [OnStarted()](#M-MFR-Objects-Renamers-Files-FileRenamer-OnStarted 'MFR.Objects.Renamers.Files.FileRenamer.OnStarted')
-  - [OnStatusUpdate(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Objects-Events-Common-StatusUpdateEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Objects.Events.Common.StatusUpdateEventArgs)')
-  - [OnSubfoldersToBeRenamedCounted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.Objects.Renamers.Files.FileRenamer.OnSubfoldersToBeRenamedCounted(MFR.Objects.Events.FilesOrFoldersCountedEventArgs)')
-  - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
-  - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Objects.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RequestAbort()](#M-MFR-Objects-Renamers-Files-FileRenamer-RequestAbort 'MFR.Objects.Renamers.Files.FileRenamer.RequestAbort')
-  - [StartingFrom()](#M-MFR-Objects-Renamers-Files-FileRenamer-StartingFrom-System-String- 'MFR.Objects.Renamers.Files.FileRenamer.StartingFrom(System.String)')
-- [Resources](#T-MFR-Objects-Renamers-Files-Properties-Resources 'MFR.Objects.Renamers.Files.Properties.Resources')
-  - [Confirm_PerformRename](#P-MFR-Objects-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Objects.Renamers.Files.Properties.Resources.Confirm_PerformRename')
-  - [Culture](#P-MFR-Objects-Renamers-Files-Properties-Resources-Culture 'MFR.Objects.Renamers.Files.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Objects.Renamers.Files.Properties.Resources.ResourceManager')
+- [FileRenamer](#T-MFR-Objects-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
+  - [#ctor()](#M-MFR-Objects-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
+  - [#ctor(rootDirectoryPath)](#M-MFR-Objects-Renamers-Files-FileRenamer-#ctor-System-String- 'MFR.Renamers.Files.FileRenamer.#ctor(System.String)')
+  - [AbortRequested](#P-MFR-Objects-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
+  - [EnabledOperations](#P-MFR-Objects-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
+  - [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
+  - [ShouldReOpenSolution](#P-MFR-Objects-Renamers-Files-FileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolution')
+  - [EnableOperations(operations)](#M-MFR-Objects-Renamers-Files-FileRenamer-EnableOperations-MFR-Objects-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
+  - [InvokeProcessing(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.InvokeProcessing(System.String,System.String,System.Predicate{System.String})')
+  - [OnExceptionRaised(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnExceptionRaised-MFR-Objects-Events-Common-ExceptionRaisedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnExceptionRaised(MFR.Events.Common.ExceptionRaisedEventArgs)')
+  - [OnFilesToBeRenamedCounted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnFilesToBeRenamedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFilesToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
+  - [OnFilesToHaveTextReplacedCounted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnFilesToHaveTextReplacedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFilesToHaveTextReplacedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
+  - [OnFinished()](#M-MFR-Objects-Renamers-Files-FileRenamer-OnFinished 'MFR.Renamers.Files.FileRenamer.OnFinished')
+  - [OnOperationFinished(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Objects-Operations-Events-OperationFinishedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationFinished(MFR.Operations.Events.OperationFinishedEventArgs)')
+  - [OnOperationStarted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Objects-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
+  - [OnProcessingOperation(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Objects-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnStarted()](#M-MFR-Objects-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
+  - [OnStatusUpdate(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Objects-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
+  - [OnSubfoldersToBeRenamedCounted(e)](#M-MFR-Objects-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSubfoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
+  - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
+  - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RequestAbort()](#M-MFR-Objects-Renamers-Files-FileRenamer-RequestAbort 'MFR.Renamers.Files.FileRenamer.RequestAbort')
+  - [StartingFrom()](#M-MFR-Objects-Renamers-Files-FileRenamer-StartingFrom-System-String- 'MFR.Renamers.Files.FileRenamer.StartingFrom(System.String)')
+- [Resources](#T-MFR-Objects-Renamers-Files-Properties-Resources 'MFR.Renamers.Files.Properties.Resources')
+  - [Confirm_PerformRename](#P-MFR-Objects-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Renamers.Files.Properties.Resources.Confirm_PerformRename')
+  - [Culture](#P-MFR-Objects-Renamers-Files-Properties-Resources-Culture 'MFR.Renamers.Files.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Renamers-Files-FileRenamer'></a>
 ## FileRenamer `type`
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files
+MFR.Renamers.Files
 
 ##### Summary
 
@@ -48,7 +48,7 @@ Provides file- and folder-rename services.
 ##### Remarks
 
 NOTE: Instances of this class must be composed with an instance of an
-object that implements the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+object that implements the [IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface.
 
 
@@ -62,7 +62,7 @@ the user that change the behavior of this object.
 ##### Summary
 
 Constructs a new instance of
-[FileRenamer](#T-MFR-Objects-Renamers-Files-FileRenamer 'MFR.Objects.Renamers.Files.FileRenamer')
+[FileRenamer](#T-MFR-Objects-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
 and returns a
 reference to it.
 
@@ -76,7 +76,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[FileRenamer](#T-MFR-Objects-Renamers-Files-FileRenamer 'MFR.Objects.Renamers.Files.FileRenamer')
+[FileRenamer](#T-MFR-Objects-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
 and returns a
 reference to it.
 
@@ -100,7 +100,7 @@ operation has been requested.
 ##### Summary
 
 Gets a reference to a collection of of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values.
 
 ##### Remarks
@@ -115,7 +115,7 @@ This list should be cleared after every run.
 
 
 If the list is empty when the
-[ProcessAll](#M-MFR-Objects-FileRenamer-ProcessAll 'MFR.Objects.FileRenamer.ProcessAll')
+[ProcessAll](#M-MFR-Objects-FileRenamer-ProcessAll 'MFR.FileRenamer.ProcessAll')
 method is called, do
 nothing or throw an exception.
 
@@ -147,7 +147,7 @@ Enables this object to perform some or all of the operations specified.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operations | [MFR.Objects.Operations.Constants.OperationType[]](#T-MFR-Objects-Operations-Constants-OperationType[] 'MFR.Objects.Operations.Constants.OperationType[]') |  |
+| operations | [MFR.Operations.Constants.OperationType[]](#T-MFR-Objects-Operations-Constants-OperationType[] 'MFR.Operations.Constants.OperationType[]') |  |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}-'></a>
 ### InvokeProcessing(findWhat,replaceWith,pathFilter) `method`
@@ -185,13 +185,13 @@ filtering is done. |
 
 ##### Summary
 
-Raises the [](#E-MFR-Objects-FileRenamer-ExceptionRaised 'MFR.Objects.FileRenamer.ExceptionRaised') event.
+Raises the [](#E-MFR-Objects-FileRenamer-ExceptionRaised 'MFR.FileRenamer.ExceptionRaised') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Objects-Events-Common-ExceptionRaisedEventArgs 'MFR.Objects.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Objects-ExceptionRaisedEventArgs 'MFR.Objects.ExceptionRaisedEventArgs') that contains
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Objects-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Objects-ExceptionRaisedEventArgs 'MFR.ExceptionRaisedEventArgs') that contains
 the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnFilesToBeRenamedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs-'></a>
@@ -200,14 +200,14 @@ the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Objects-FileRenamer-FilesToBeRenamedCounted 'MFR.Objects.FileRenamer.FilesToBeRenamedCounted')
+[](#E-MFR-Objects-FileRenamer-FilesToBeRenamedCounted 'MFR.FileRenamer.FilesToBeRenamedCounted')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Objects.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.Objects.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnFilesToHaveTextReplacedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs-'></a>
@@ -216,14 +216,14 @@ contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Objects-FileRenamer-FilesToHaveTextReplacedCounted 'MFR.Objects.FileRenamer.FilesToHaveTextReplacedCounted')
+[](#E-MFR-Objects-FileRenamer-FilesToHaveTextReplacedCounted 'MFR.FileRenamer.FilesToHaveTextReplacedCounted')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Objects.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.Objects.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnFinished'></a>
@@ -232,7 +232,7 @@ contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Objects-Renamers-Files-FileRenamer-Finished 'MFR.Objects.Renamers.Files.FileRenamer.Finished')
+[](#E-MFR-Objects-Renamers-Files-FileRenamer-Finished 'MFR.Renamers.Files.FileRenamer.Finished')
 event.
 
 ##### Parameters
@@ -244,13 +244,13 @@ This method has no parameters.
 
 ##### Summary
 
-Raises the [](#E-MFR-Objects-FileRenamer-OperationFinished 'MFR.Objects.FileRenamer.OperationFinished') event.
+Raises the [](#E-MFR-Objects-FileRenamer-OperationFinished 'MFR.FileRenamer.OperationFinished') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Operations.Events.OperationFinishedEventArgs](#T-MFR-Objects-Operations-Events-OperationFinishedEventArgs 'MFR.Objects.Operations.Events.OperationFinishedEventArgs') | An [OperationFinishedEventArgs](#T-MFR-Objects-OperationFinishedEventArgs 'MFR.Objects.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Objects-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | An [OperationFinishedEventArgs](#T-MFR-Objects-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Objects-Operations-Events-OperationStartedEventArgs-'></a>
@@ -258,13 +258,13 @@ contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-Objects-FileRenamer-OperationStarted 'MFR.Objects.FileRenamer.OperationStarted') event.
+Raises the [](#E-MFR-Objects-FileRenamer-OperationStarted 'MFR.FileRenamer.OperationStarted') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Operations.Events.OperationStartedEventArgs](#T-MFR-Objects-Operations-Events-OperationStartedEventArgs 'MFR.Objects.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Objects-OperationStartedEventArgs 'MFR.Objects.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Objects-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Objects-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Objects-Operations-Events-ProcessingOperationEventArgs-'></a>
@@ -272,13 +272,13 @@ contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-Objects-ProcessingOperation 'MFR.Objects.ProcessingOperation') event.
+Raises the [](#E-MFR-Objects-ProcessingOperation 'MFR.ProcessingOperation') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs 'MFR.Objects.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.Objects.ProcessingOperationEventArgs') that
+| e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Objects-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-Objects-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnStarted'></a>
@@ -287,7 +287,7 @@ contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Objects-Renamers-Files-FileRenamer-Started 'MFR.Objects.Renamers.Files.FileRenamer.Started')
+[](#E-MFR-Objects-Renamers-Files-FileRenamer-Started 'MFR.Renamers.Files.FileRenamer.Started')
 event.
 
 ##### Parameters
@@ -299,13 +299,13 @@ This method has no parameters.
 
 ##### Summary
 
-Raises the [](#E-MFR-Objects-FileRenamer-StatusUpdate 'MFR.Objects.FileRenamer.StatusUpdate') event.
+Raises the [](#E-MFR-Objects-FileRenamer-StatusUpdate 'MFR.FileRenamer.StatusUpdate') event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Events.Common.StatusUpdateEventArgs](#T-MFR-Objects-Events-Common-StatusUpdateEventArgs 'MFR.Objects.Events.Common.StatusUpdateEventArgs') | A [StatusUpdateEventArgs](#T-MFR-Objects-StatusUpdateEventArgs 'MFR.Objects.StatusUpdateEventArgs') that contains
+| e | [MFR.Events.Common.StatusUpdateEventArgs](#T-MFR-Objects-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') | A [StatusUpdateEventArgs](#T-MFR-Objects-StatusUpdateEventArgs 'MFR.StatusUpdateEventArgs') that contains
 the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Objects-Events-FilesOrFoldersCountedEventArgs-'></a>
@@ -314,14 +314,14 @@ the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Objects-FileRenamer-SubfoldersToBeRenamedCounted 'MFR.Objects.FileRenamer.SubfoldersToBeRenamedCounted')
+[](#E-MFR-Objects-FileRenamer-SubfoldersToBeRenamedCounted 'MFR.FileRenamer.SubfoldersToBeRenamedCounted')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Objects.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Objects.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.Objects.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Objects-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Objects-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Objects-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}-'></a>
@@ -332,7 +332,7 @@ contains the event data. |
 Executes the Rename Subfolders, Rename Files, and Replace Text in
 Files operation on all the folders and files in the root folder with
 the pathname stored in the
-[RootDirectoryPath](#P-MFR-Objects-FileRenamer-RootDirectoryPath 'MFR.Objects.FileRenamer.RootDirectoryPath')
+[RootDirectoryPath](#P-MFR-Objects-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath')
 property.
 
 ##### Parameters
@@ -568,7 +568,7 @@ This method has no parameters.
 ##### Summary
 
 Initializes the value of the
-[RootDirectoryPath](#P-MFR-Objects-IFileRenamer-RootDirectoryPath 'MFR.Objects.IFileRenamer.RootDirectoryPath')
+[RootDirectoryPath](#P-MFR-Objects-IFileRenamer-RootDirectoryPath 'MFR.IFileRenamer.RootDirectoryPath')
 property to
 the value specified in the `rootDirectoryPath` parameter.
 
@@ -590,7 +590,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Properties
+MFR.Renamers.Files.Properties
 
 ##### Summary
 

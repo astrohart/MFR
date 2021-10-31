@@ -1,31 +1,31 @@
 <a name='assembly'></a>
-# MFR.Objects.Win32
+# MFR.Win32
 
 ## Contents
 
-- [IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Objects.Win32.IOleMessageFilter')
-  - [HandleInComingCall(dwCallType,hTaskCaller,dwTickCount,lpInterfaceInfo)](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall-System-Int32,System-IntPtr,System-Int32,System-IntPtr- 'MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall(System.Int32,System.IntPtr,System.Int32,System.IntPtr)')
-  - [MessagePending(hTaskCallee,dwTickCount,dwPendingType)](#M-MFR-Objects-Win32-IOleMessageFilter-MessagePending-System-IntPtr,System-Int32,System-Int32- 'MFR.Objects.Win32.IOleMessageFilter.MessagePending(System.IntPtr,System.Int32,System.Int32)')
-  - [RetryRejectedCall(hTaskCallee,dwTickCount,dwRejectType)](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall-System-IntPtr,System-Int32,System-Int32- 'MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall(System.IntPtr,System.Int32,System.Int32)')
-- [NativeMethods](#T-MFR-Objects-Win32-NativeMethods 'MFR.Objects.Win32.NativeMethods')
-  - [CreateBindCtx(reserved,ppbc)](#M-MFR-Objects-Win32-NativeMethods-CreateBindCtx-System-UInt32,System-Runtime-InteropServices-ComTypes-IBindCtx@- 'MFR.Objects.Win32.NativeMethods.CreateBindCtx(System.UInt32,System.Runtime.InteropServices.ComTypes.IBindCtx@)')
-- [Resources](#T-MFR-Objects-Win32-Properties-Resources 'MFR.Objects.Win32.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Win32-Properties-Resources-Culture 'MFR.Objects.Win32.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Win32-Properties-Resources-ResourceManager 'MFR.Objects.Win32.Properties.Resources.ResourceManager')
-- [WindowsMessageFilter](#T-MFR-Objects-Win32-WindowsMessageFilter 'MFR.Objects.Win32.WindowsMessageFilter')
-  - [CoRegisterMessageFilter(newFilter,oldFilter)](#M-MFR-Objects-Win32-WindowsMessageFilter-CoRegisterMessageFilter-MFR-Objects-Win32-IOleMessageFilter,MFR-Objects-Win32-IOleMessageFilter@- 'MFR.Objects.Win32.WindowsMessageFilter.CoRegisterMessageFilter(MFR.Objects.Win32.IOleMessageFilter,MFR.Objects.Win32.IOleMessageFilter@)')
-  - [MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall(dwCallType,hTaskCaller,dwTickCount,lpInterfaceInfo)](#M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall-System-Int32,System-IntPtr,System-Int32,System-IntPtr- 'MFR.Objects.Win32.WindowsMessageFilter.MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall(System.Int32,System.IntPtr,System.Int32,System.IntPtr)')
-  - [MFR#Objects#Win32#IOleMessageFilter#MessagePending(hTaskCallee,dwTickCount,dwPendingType)](#M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#MessagePending-System-IntPtr,System-Int32,System-Int32- 'MFR.Objects.Win32.WindowsMessageFilter.MFR#Objects#Win32#IOleMessageFilter#MessagePending(System.IntPtr,System.Int32,System.Int32)')
-  - [MFR#Objects#Win32#IOleMessageFilter#RetryRejectedCall(hTaskCallee,dwTickCount,dwRejectType)](#M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#RetryRejectedCall-System-IntPtr,System-Int32,System-Int32- 'MFR.Objects.Win32.WindowsMessageFilter.MFR#Objects#Win32#IOleMessageFilter#RetryRejectedCall(System.IntPtr,System.Int32,System.Int32)')
-  - [Register()](#M-MFR-Objects-Win32-WindowsMessageFilter-Register 'MFR.Objects.Win32.WindowsMessageFilter.Register')
-  - [Revoke()](#M-MFR-Objects-Win32-WindowsMessageFilter-Revoke 'MFR.Objects.Win32.WindowsMessageFilter.Revoke')
+- [IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Win32.IOleMessageFilter')
+  - [HandleInComingCall(dwCallType,hTaskCaller,dwTickCount,lpInterfaceInfo)](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall-System-Int32,System-IntPtr,System-Int32,System-IntPtr- 'MFR.Win32.IOleMessageFilter.HandleInComingCall(System.Int32,System.IntPtr,System.Int32,System.IntPtr)')
+  - [MessagePending(hTaskCallee,dwTickCount,dwPendingType)](#M-MFR-Objects-Win32-IOleMessageFilter-MessagePending-System-IntPtr,System-Int32,System-Int32- 'MFR.Win32.IOleMessageFilter.MessagePending(System.IntPtr,System.Int32,System.Int32)')
+  - [RetryRejectedCall(hTaskCallee,dwTickCount,dwRejectType)](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall-System-IntPtr,System-Int32,System-Int32- 'MFR.Win32.IOleMessageFilter.RetryRejectedCall(System.IntPtr,System.Int32,System.Int32)')
+- [NativeMethods](#T-MFR-Objects-Win32-NativeMethods 'MFR.Win32.NativeMethods')
+  - [CreateBindCtx(reserved,ppbc)](#M-MFR-Objects-Win32-NativeMethods-CreateBindCtx-System-UInt32,System-Runtime-InteropServices-ComTypes-IBindCtx@- 'MFR.Win32.NativeMethods.CreateBindCtx(System.UInt32,System.Runtime.InteropServices.ComTypes.IBindCtx@)')
+- [Resources](#T-MFR-Objects-Win32-Properties-Resources 'MFR.Win32.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Win32-Properties-Resources-Culture 'MFR.Win32.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Win32-Properties-Resources-ResourceManager 'MFR.Win32.Properties.Resources.ResourceManager')
+- [WindowsMessageFilter](#T-MFR-Objects-Win32-WindowsMessageFilter 'MFR.Win32.WindowsMessageFilter')
+  - [CoRegisterMessageFilter(newFilter,oldFilter)](#M-MFR-Objects-Win32-WindowsMessageFilter-CoRegisterMessageFilter-MFR-Objects-Win32-IOleMessageFilter,MFR-Objects-Win32-IOleMessageFilter@- 'MFR.Win32.WindowsMessageFilter.CoRegisterMessageFilter(MFR.Win32.IOleMessageFilter,MFR.Win32.IOleMessageFilter@)')
+  - [MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall(dwCallType,hTaskCaller,dwTickCount,lpInterfaceInfo)](#M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall-System-Int32,System-IntPtr,System-Int32,System-IntPtr- 'MFR.Win32.WindowsMessageFilter.MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall(System.Int32,System.IntPtr,System.Int32,System.IntPtr)')
+  - [MFR#Objects#Win32#IOleMessageFilter#MessagePending(hTaskCallee,dwTickCount,dwPendingType)](#M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#MessagePending-System-IntPtr,System-Int32,System-Int32- 'MFR.Win32.WindowsMessageFilter.MFR#Objects#Win32#IOleMessageFilter#MessagePending(System.IntPtr,System.Int32,System.Int32)')
+  - [MFR#Objects#Win32#IOleMessageFilter#RetryRejectedCall(hTaskCallee,dwTickCount,dwRejectType)](#M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#RetryRejectedCall-System-IntPtr,System-Int32,System-Int32- 'MFR.Win32.WindowsMessageFilter.MFR#Objects#Win32#IOleMessageFilter#RetryRejectedCall(System.IntPtr,System.Int32,System.Int32)')
+  - [Register()](#M-MFR-Objects-Win32-WindowsMessageFilter-Register 'MFR.Win32.WindowsMessageFilter.Register')
+  - [Revoke()](#M-MFR-Objects-Win32-WindowsMessageFilter-Revoke 'MFR.Win32.WindowsMessageFilter.Revoke')
 
 <a name='T-MFR-Objects-Win32-IOleMessageFilter'></a>
 ## IOleMessageFilter `type`
 
 ##### Namespace
 
-MFR.Objects.Win32
+MFR.Win32
 
 ##### Summary
 
@@ -74,7 +74,7 @@ This method is called prior to each method invocation originating
 outside the current process and provides the ability to filter or
 reject incoming calls (or callbacks) to an object or a process. If
 implemented,
-[HandleInComingCall](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall 'MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall')
+[HandleInComingCall](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall 'MFR.Win32.IOleMessageFilter.HandleInComingCall')
 is
 called by COM when an incoming COM message is received. Depending on
 an application's current state, a call is either accepted and
@@ -88,7 +88,7 @@ calls are dispatched even if the application returns
 HandleInComingCall should not be used to hold off updates to objects
 during operations such as band printing. For that purpose, use
 `IViewObject::Freeze`. You can also use
-[HandleInComingCall](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall 'MFR.Objects.Win32.IOleMessageFilter.HandleInComingCall')
+[HandleInComingCall](#M-MFR-Objects-Win32-IOleMessageFilter-HandleInComingCall 'MFR.Win32.IOleMessageFilter.HandleInComingCall')
 to
 set up the application's state so that the call can be processed in
 the future.
@@ -133,7 +133,7 @@ immediately after receiving SERVERCALL_RETRYLATER or
 If a called task rejects a call, the application is probably in a
 state where it cannot handle such calls, possibly only temporarily.
 When this occurs, COM returns to the caller and issues
-[RetryRejectedCall](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall 'MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall')
+[RetryRejectedCall](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall 'MFR.Win32.IOleMessageFilter.RetryRejectedCall')
 to
 determine whether it should retry the rejected call.
 
@@ -153,7 +153,7 @@ RetryRejectedCall returns -1 and the call will appear to fail with
 
 If a client implements IMessageFilter and calls a server method on a
 remote machine,
-[RetryRejectedCall](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall 'MFR.Objects.Win32.IOleMessageFilter.RetryRejectedCall')
+[RetryRejectedCall](#M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall 'MFR.Win32.IOleMessageFilter.RetryRejectedCall')
 will not be called.
 
 <a name='M-MFR-Objects-Win32-IOleMessageFilter-RetryRejectedCall-System-IntPtr,System-Int32,System-Int32-'></a>
@@ -228,7 +228,7 @@ applications not allow such calls to be canceled.
 
 ##### Namespace
 
-MFR.Objects.Win32
+MFR.Win32
 
 ##### Summary
 
@@ -263,7 +263,7 @@ When the function is successful, the caller is responsible for calling the [Rele
 
 ##### Namespace
 
-MFR.Objects.Win32.Properties
+MFR.Win32.Properties
 
 ##### Summary
 
@@ -289,7 +289,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.Win32
+MFR.Win32
 
 ##### Summary
 
@@ -299,7 +299,7 @@ behalf of a running COM object.
 ##### Remarks
 
 This class implements the
-[IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Objects.Win32.IOleMessageFilter')
+[IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Win32.IOleMessageFilter')
 interface.
 
 <a name='M-MFR-Objects-Win32-WindowsMessageFilter-CoRegisterMessageFilter-MFR-Objects-Win32-IOleMessageFilter,MFR-Objects-Win32-IOleMessageFilter@-'></a>
@@ -321,10 +321,10 @@ successfully, returns `S_OK`. Otherwise, `S_FALSE` is returned.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| newFilter | [MFR.Objects.Win32.IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Objects.Win32.IOleMessageFilter') | Pointer to the `IMessageFilter` interface on the message filter
+| newFilter | [MFR.Win32.IOleMessageFilter](#T-MFR-Objects-Win32-IOleMessageFilter 'MFR.Win32.IOleMessageFilter') | Pointer to the `IMessageFilter` interface on the message filter
 supplied by the application. Can be `NULL`, indicating that the
 current `IMessageFilter` registration should be revoked. |
-| oldFilter | [MFR.Objects.Win32.IOleMessageFilter@](#T-MFR-Objects-Win32-IOleMessageFilter@ 'MFR.Objects.Win32.IOleMessageFilter@') | Address of `IMessageFilter*` pointer variable that receives the
+| oldFilter | [MFR.Win32.IOleMessageFilter@](#T-MFR-Objects-Win32-IOleMessageFilter@ 'MFR.Win32.IOleMessageFilter@') | Address of `IMessageFilter*` pointer variable that receives the
 interface pointer to the previously registered message filter. |
 
 <a name='M-MFR-Objects-Win32-WindowsMessageFilter-MFR#Objects#Win32#IOleMessageFilter#HandleInComingCall-System-Int32,System-IntPtr,System-Int32,System-IntPtr-'></a>

@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Filters.Search.Interfaces
+# MFR.Filters.Search.Interfaces
 
 ## Contents
 
-- [ISearchFilterItem](#T-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem 'MFR.Objects.Filters.Search.Interfaces.ISearchFilterItem')
-  - [Descriptor](#P-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem-Descriptor 'MFR.Objects.Filters.Search.Interfaces.ISearchFilterItem.Descriptor')
-  - [IsExclusion](#P-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem-IsExclusion 'MFR.Objects.Filters.Search.Interfaces.ISearchFilterItem.IsExclusion')
-  - [Type](#P-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem-Type 'MFR.Objects.Filters.Search.Interfaces.ISearchFilterItem.Type')
-- [Resources](#T-MFR-Objects-Filters-Search-Interfaces-Properties-Resources 'MFR.Objects.Filters.Search.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Filters-Search-Interfaces-Properties-Resources-Culture 'MFR.Objects.Filters.Search.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Filters-Search-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Filters.Search.Interfaces.Properties.Resources.ResourceManager')
+- [ISearchFilterItem](#T-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem 'MFR.Filters.Search.Interfaces.ISearchFilterItem')
+  - [Descriptor](#P-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem-Descriptor 'MFR.Filters.Search.Interfaces.ISearchFilterItem.Descriptor')
+  - [IsExclusion](#P-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem-IsExclusion 'MFR.Filters.Search.Interfaces.ISearchFilterItem.IsExclusion')
+  - [Type](#P-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem-Type 'MFR.Filters.Search.Interfaces.ISearchFilterItem.Type')
+- [Resources](#T-MFR-Objects-Filters-Search-Interfaces-Properties-Resources 'MFR.Filters.Search.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Filters-Search-Interfaces-Properties-Resources-Culture 'MFR.Filters.Search.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Filters-Search-Interfaces-Properties-Resources-ResourceManager 'MFR.Filters.Search.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Filters-Search-Interfaces-ISearchFilterItem'></a>
 ## ISearchFilterItem `type`
 
 ##### Namespace
 
-MFR.Objects.Filters.Search.Interfaces
+MFR.Filters.Search.Interfaces
 
 ##### Summary
 
@@ -50,7 +50,7 @@ Gets the type of filter that this is
 
 ##### Namespace
 
-MFR.Objects.Filters.Search.Interfaces.Properties
+MFR.Filters.Search.Interfaces.Properties
 
 ##### Summary
 

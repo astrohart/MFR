@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Constants
+# MFR.Messages.Constants
 
 ## Contents
 
-- [ActionType](#T-MFR-Objects-Messages-Constants-ActionType 'MFR.Objects.Messages.Constants.ActionType')
-  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-ActionType-#ctor-System-Guid- 'MFR.Objects.Messages.Constants.ActionType.#ctor(System.Guid)')
-- [CommandType](#T-MFR-Objects-Messages-Constants-CommandType 'MFR.Objects.Messages.Constants.CommandType')
-  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-CommandType-#ctor-System-Guid- 'MFR.Objects.Messages.Constants.CommandType.#ctor(System.Guid)')
-- [MessageType](#T-MFR-Objects-Messages-Constants-MessageType 'MFR.Objects.Messages.Constants.MessageType')
-  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-MessageType-#ctor-System-Guid- 'MFR.Objects.Messages.Constants.MessageType.#ctor(System.Guid)')
-  - [_messageId](#F-MFR-Objects-Messages-Constants-MessageType-_messageId 'MFR.Objects.Messages.Constants.MessageType._messageId')
-- [Resources](#T-MFR-Objects-Messages-Constants-Properties-Resources 'MFR.Objects.Messages.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Constants-Properties-Resources-Culture 'MFR.Objects.Messages.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Constants-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Constants.Properties.Resources.ResourceManager')
+- [ActionType](#T-MFR-Objects-Messages-Constants-ActionType 'MFR.Messages.Constants.ActionType')
+  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-ActionType-#ctor-System-Guid- 'MFR.Messages.Constants.ActionType.#ctor(System.Guid)')
+- [CommandType](#T-MFR-Objects-Messages-Constants-CommandType 'MFR.Messages.Constants.CommandType')
+  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-CommandType-#ctor-System-Guid- 'MFR.Messages.Constants.CommandType.#ctor(System.Guid)')
+- [MessageType](#T-MFR-Objects-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
+  - [#ctor(messageId)](#M-MFR-Objects-Messages-Constants-MessageType-#ctor-System-Guid- 'MFR.Messages.Constants.MessageType.#ctor(System.Guid)')
+  - [_messageId](#F-MFR-Objects-Messages-Constants-MessageType-_messageId 'MFR.Messages.Constants.MessageType._messageId')
+- [Resources](#T-MFR-Objects-Messages-Constants-Properties-Resources 'MFR.Messages.Constants.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Constants-Properties-Resources-Culture 'MFR.Messages.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Constants-Properties-Resources-ResourceManager 'MFR.Messages.Constants.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Constants-ActionType'></a>
 ## ActionType `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Constants
+MFR.Messages.Constants
 
 ##### Summary
 
@@ -31,7 +31,7 @@ Base class for pseudo-enumerations of action types.
 ##### Summary
 
 Constructs a new instance of
-[ActionType](#T-MFR-Objects-Messages-Constants-ActionType 'MFR.Objects.Messages.Constants.ActionType')
+[ActionType](#T-MFR-Objects-Messages-Constants-ActionType 'MFR.Messages.Constants.ActionType')
 and returns a
 reference to it.
 
@@ -47,7 +47,7 @@ that provides a unique identifier to be associated with this instance. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Constants
+MFR.Messages.Constants
 
 ##### Summary
 
@@ -59,7 +59,7 @@ Base class for pseudo-enumerations of command types.
 ##### Summary
 
 Constructs a new instance of
-[CommandType](#T-MFR-Objects-Messages-Constants-CommandType 'MFR.Objects.Messages.Constants.CommandType')
+[CommandType](#T-MFR-Objects-Messages-Constants-CommandType 'MFR.Messages.Constants.CommandType')
 and returns a
 reference to it.
 
@@ -75,7 +75,7 @@ that provides a unique identifier to be associated with this instance. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Constants
+MFR.Messages.Constants
 
 ##### Summary
 
@@ -91,7 +91,7 @@ This object provides services that are common to all message-type objects.
 ##### Summary
 
 Constructs a new instance of
-[MessageType](#T-MFR-Objects-Messages-Constants-MessageType 'MFR.Objects.Messages.Constants.MessageType')
+[MessageType](#T-MFR-Objects-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
 and returns a
 reference to it.
 
@@ -115,7 +115,7 @@ the command referenced by this type.
 
 ##### Namespace
 
-MFR.Objects.Messages.Constants.Properties
+MFR.Messages.Constants.Properties
 
 ##### Summary
 

@@ -1,18 +1,18 @@
 <a name='assembly'></a>
-# MFR.Objects.RunningObjects
+# MFR.RunningObjects
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-RunningObjects-Properties-Resources 'MFR.Objects.RunningObjects.Properties.Resources')
-  - [Culture](#P-MFR-Objects-RunningObjects-Properties-Resources-Culture 'MFR.Objects.RunningObjects.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-RunningObjects-Properties-Resources-ResourceManager 'MFR.Objects.RunningObjects.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Objects-RunningObjects-Properties-Resources 'MFR.RunningObjects.Properties.Resources')
+  - [Culture](#P-MFR-Objects-RunningObjects-Properties-Resources-Culture 'MFR.RunningObjects.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-RunningObjects-Properties-Resources-ResourceManager 'MFR.RunningObjects.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-RunningObjects-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.RunningObjects.Properties
+MFR.RunningObjects.Properties
 
 ##### Summary
 

@@ -1,30 +1,30 @@
 <a name='assembly'></a>
-# MFR.Objects.Constants
+# MFR.Constants
 
 ## Contents
 
-- [FileRenamerMessages](#T-MFR-Objects-Constants-FileRenamerMessages 'MFR.Objects.Constants.FileRenamerMessages')
-  - [FRM_EXCEPTION_RAISED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_EXCEPTION_RAISED 'MFR.Objects.Constants.FileRenamerMessages.FRM_EXCEPTION_RAISED')
-  - [FRM_FILES_TO_BE_RENAMED_COUNTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FILES_TO_BE_RENAMED_COUNTED 'MFR.Objects.Constants.FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED')
-  - [FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED 'MFR.Objects.Constants.FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED')
-  - [FRM_FILE_SYSTEM_ENTRY_SKIPPED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FILE_SYSTEM_ENTRY_SKIPPED 'MFR.Objects.Constants.FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED')
-  - [FRM_FINISHED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FINISHED 'MFR.Objects.Constants.FileRenamerMessages.FRM_FINISHED')
-  - [FRM_OPERATION_FINISHED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_OPERATION_FINISHED 'MFR.Objects.Constants.FileRenamerMessages.FRM_OPERATION_FINISHED')
-  - [FRM_OPERATION_STARTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Objects.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
-  - [FRM_PROCESSING_OPERATION](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Objects.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
-  - [FRM_STARTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Objects.Constants.FileRenamerMessages.FRM_STARTED')
-  - [FRM_STATUS_UPDATE](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Objects.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
-  - [FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Objects.Constants.FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED')
-- [Resources](#T-MFR-Objects-Constants-Properties-Resources 'MFR.Objects.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Constants-Properties-Resources-Culture 'MFR.Objects.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Constants-Properties-Resources-ResourceManager 'MFR.Objects.Constants.Properties.Resources.ResourceManager')
+- [FileRenamerMessages](#T-MFR-Objects-Constants-FileRenamerMessages 'MFR.Constants.FileRenamerMessages')
+  - [FRM_EXCEPTION_RAISED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_EXCEPTION_RAISED 'MFR.Constants.FileRenamerMessages.FRM_EXCEPTION_RAISED')
+  - [FRM_FILES_TO_BE_RENAMED_COUNTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FILES_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED')
+  - [FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED')
+  - [FRM_FILE_SYSTEM_ENTRY_SKIPPED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FILE_SYSTEM_ENTRY_SKIPPED 'MFR.Constants.FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED')
+  - [FRM_FINISHED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_FINISHED 'MFR.Constants.FileRenamerMessages.FRM_FINISHED')
+  - [FRM_OPERATION_FINISHED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_OPERATION_FINISHED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_FINISHED')
+  - [FRM_OPERATION_STARTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
+  - [FRM_PROCESSING_OPERATION](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
+  - [FRM_STARTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Constants.FileRenamerMessages.FRM_STARTED')
+  - [FRM_STATUS_UPDATE](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
+  - [FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Objects-Constants-FileRenamerMessages-FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED')
+- [Resources](#T-MFR-Objects-Constants-Properties-Resources 'MFR.Constants.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Constants-Properties-Resources-Culture 'MFR.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Constants-Properties-Resources-ResourceManager 'MFR.Constants.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Constants-FileRenamerMessages'></a>
 ## FileRenamerMessages `type`
 
 ##### Namespace
 
-MFR.Objects.Constants
+MFR.Constants
 
 ##### Summary
 
@@ -126,7 +126,7 @@ operated on.
 
 ##### Namespace
 
-MFR.Objects.Constants.Properties
+MFR.Constants.Properties
 
 ##### Summary
 

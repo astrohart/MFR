@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Managers.Solutions.Factories
+# MFR.Managers.Solutions.Factories
 
 ## Contents
 
-- [GetVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Factories-GetVisualStudioSolutionService 'MFR.Objects.Managers.Solutions.Factories.GetVisualStudioSolutionService')
-  - [SoleInstance()](#M-MFR-Objects-Managers-Solutions-Factories-GetVisualStudioSolutionService-SoleInstance 'MFR.Objects.Managers.Solutions.Factories.GetVisualStudioSolutionService.SoleInstance')
-- [Resources](#T-MFR-Objects-Managers-Solutions-Factories-Properties-Resources 'MFR.Objects.Managers.Solutions.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-Solutions-Factories-Properties-Resources-Culture 'MFR.Objects.Managers.Solutions.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-Solutions-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Managers.Solutions.Factories.Properties.Resources.ResourceManager')
+- [GetVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Factories-GetVisualStudioSolutionService 'MFR.Managers.Solutions.Factories.GetVisualStudioSolutionService')
+  - [SoleInstance()](#M-MFR-Objects-Managers-Solutions-Factories-GetVisualStudioSolutionService-SoleInstance 'MFR.Managers.Solutions.Factories.GetVisualStudioSolutionService.SoleInstance')
+- [Resources](#T-MFR-Objects-Managers-Solutions-Factories-Properties-Resources 'MFR.Managers.Solutions.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Managers-Solutions-Factories-Properties-Resources-Culture 'MFR.Managers.Solutions.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Managers-Solutions-Factories-Properties-Resources-ResourceManager 'MFR.Managers.Solutions.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Managers-Solutions-Factories-GetVisualStudioSolutionService'></a>
 ## GetVisualStudioSolutionService `type`
 
 ##### Namespace
 
-MFR.Objects.Managers.Solutions.Factories
+MFR.Managers.Solutions.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+[IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
 interface.
 
 <a name='M-MFR-Objects-Managers-Solutions-Factories-GetVisualStudioSolutionService-SoleInstance'></a>
@@ -28,13 +28,13 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+[IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
 interface and returns a reference to it.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+[IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
 interface.
 
 ##### Parameters
@@ -52,7 +52,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Managers.Solutions.Factories.Properties
+MFR.Managers.Solutions.Factories.Properties
 
 ##### Summary
 

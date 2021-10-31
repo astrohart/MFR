@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Registry.Validators.Factories
+# MFR.Expressions.Registry.Validators.Factories
 
 ## Contents
 
-- [GetRegistryExpressionValidator\`1](#T-MFR-Objects-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1 'MFR.Objects.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1')
-  - [Instance()](#M-MFR-Objects-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1-Instance 'MFR.Objects.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1.Instance')
-- [Resources](#T-MFR-Objects-Expressions-Registry-Validators-Factories-Properties-Resources 'MFR.Objects.Expressions.Registry.Validators.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Registry-Validators-Factories-Properties-Resources-Culture 'MFR.Objects.Expressions.Registry.Validators.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Validators-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Registry.Validators.Factories.Properties.Resources.ResourceManager')
+- [GetRegistryExpressionValidator\`1](#T-MFR-Objects-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1 'MFR.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1')
+  - [Instance()](#M-MFR-Objects-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1-Instance 'MFR.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1.Instance')
+- [Resources](#T-MFR-Objects-Expressions-Registry-Validators-Factories-Properties-Resources 'MFR.Expressions.Registry.Validators.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Registry-Validators-Factories-Properties-Resources-Culture 'MFR.Expressions.Registry.Validators.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Validators-Factories-Properties-Resources-ResourceManager 'MFR.Expressions.Registry.Validators.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1'></a>
 ## GetRegistryExpressionValidator\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Validators.Factories
+MFR.Expressions.Registry.Validators.Factories
 
 ##### Summary
 
 Accesses the sole instance of an object that implements the
-[IRegQueryExpressionValidator](#T-MFR-Objects-IRegQueryExpressionValidator 'MFR.Objects.IRegQueryExpressionValidator')
+[IRegQueryExpressionValidator](#T-MFR-Objects-IRegQueryExpressionValidator 'MFR.IRegQueryExpressionValidator')
 interface.
 
 ##### Generic Types
@@ -35,13 +35,13 @@ interface.
 
 Fluently retrieves the single instance of the object that implements
 the
-[IRegQueryExpressionValidator](#T-MFR-Objects-IRegQueryExpressionValidator 'MFR.Objects.IRegQueryExpressionValidator')
+[IRegQueryExpressionValidator](#T-MFR-Objects-IRegQueryExpressionValidator 'MFR.IRegQueryExpressionValidator')
 interface.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IRegQueryExpressionValidator](#T-MFR-Objects-IRegQueryExpressionValidator 'MFR.Objects.IRegQueryExpressionValidator')
+[IRegQueryExpressionValidator](#T-MFR-Objects-IRegQueryExpressionValidator 'MFR.IRegQueryExpressionValidator')
 interface.
 
 ##### Parameters
@@ -53,7 +53,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Validators.Factories.Properties
+MFR.Expressions.Registry.Validators.Factories.Properties
 
 ##### Summary
 

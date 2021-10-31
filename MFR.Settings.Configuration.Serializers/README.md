@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Configuration.Serializers
+# MFR.Configuration.Serializers
 
 ## Contents
 
-- [ConfigurationSerializer](#T-MFR-Objects-Configuration-Serializers-ConfigurationSerializer 'MFR.Objects.Configuration.Serializers.ConfigurationSerializer')
-  - [Load(pathname)](#M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Load-System-String- 'MFR.Objects.Configuration.Serializers.ConfigurationSerializer.Load(System.String)')
-  - [Save(pathname,configuration)](#M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Objects.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Objects.Configuration.Interfaces.IConfiguration)')
-- [Resources](#T-MFR-Objects-Configuration-Serializers-Properties-Resources 'MFR.Objects.Configuration.Serializers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Serializers-Properties-Resources-Culture 'MFR.Objects.Configuration.Serializers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Serializers-Properties-Resources-ResourceManager 'MFR.Objects.Configuration.Serializers.Properties.Resources.ResourceManager')
+- [ConfigurationSerializer](#T-MFR-Objects-Configuration-Serializers-ConfigurationSerializer 'MFR.Configuration.Serializers.ConfigurationSerializer')
+  - [Load(pathname)](#M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Load-System-String- 'MFR.Configuration.Serializers.ConfigurationSerializer.Load(System.String)')
+  - [Save(pathname,configuration)](#M-MFR-Objects-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Objects-Configuration-Interfaces-IConfiguration- 'MFR.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Configuration.Interfaces.IConfiguration)')
+- [Resources](#T-MFR-Objects-Configuration-Serializers-Properties-Resources 'MFR.Configuration.Serializers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Configuration-Serializers-Properties-Resources-Culture 'MFR.Configuration.Serializers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Configuration-Serializers-Properties-Resources-ResourceManager 'MFR.Configuration.Serializers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Configuration-Serializers-ConfigurationSerializer'></a>
 ## ConfigurationSerializer `type`
 
 ##### Namespace
 
-MFR.Objects.Configuration.Serializers
+MFR.Configuration.Serializers
 
 ##### Summary
 
@@ -33,7 +33,7 @@ specified `pathname`.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.Objects.IConfiguration')
+[IConfiguration](#T-MFR-Objects-IConfiguration 'MFR.IConfiguration')
 interface that has been
 initialized with the data present in the file; or
 `null`
@@ -69,9 +69,9 @@ Saves configuration data to a file.
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of the file that the data
 is to be saved to. |
-| configuration | [MFR.Objects.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+| configuration | [MFR.Configuration.Interfaces.IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
 the
-[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Objects.Configuration.Interfaces.IConfiguration')
+[IConfiguration](#T-MFR-Objects-Configuration-Interfaces-IConfiguration 'MFR.Configuration.Interfaces.IConfiguration')
 interface. |
 
 <a name='T-MFR-Objects-Configuration-Serializers-Properties-Resources'></a>
@@ -79,7 +79,7 @@ interface. |
 
 ##### Namespace
 
-MFR.Objects.Configuration.Serializers.Properties
+MFR.Configuration.Serializers.Properties
 
 ##### Summary
 

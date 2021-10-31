@@ -1,26 +1,26 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Registry.Interfaces
+# MFR.Expressions.Registry.Interfaces
 
 ## Contents
 
-- [IRegQueryExpression\`1](#T-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1')
-  - [DefaultValue](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-DefaultValue 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.DefaultValue')
-  - [Hive](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-Hive 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.Hive')
-  - [KeyPath](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-KeyPath 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.KeyPath')
-  - [ValueName](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-ValueName 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.ValueName')
-  - [AndValueName(valueName)](#M-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-AndValueName-System-String- 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.AndValueName(System.String)')
-  - [ForKeyPath()](#M-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-ForKeyPath-System-String- 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.ForKeyPath(System.String)')
-  - [WithDefaultValue(defaultValue)](#M-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-WithDefaultValue-`0- 'MFR.Objects.Expressions.Registry.Interfaces.IRegQueryExpression`1.WithDefaultValue(`0)')
-- [Resources](#T-MFR-Objects-Expressions-Registry-Interfaces-Properties-Resources 'MFR.Objects.Expressions.Registry.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Registry-Interfaces-Properties-Resources-Culture 'MFR.Objects.Expressions.Registry.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Registry.Interfaces.Properties.Resources.ResourceManager')
+- [IRegQueryExpression\`1](#T-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1')
+  - [DefaultValue](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-DefaultValue 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.DefaultValue')
+  - [Hive](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-Hive 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.Hive')
+  - [KeyPath](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-KeyPath 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.KeyPath')
+  - [ValueName](#P-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-ValueName 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.ValueName')
+  - [AndValueName(valueName)](#M-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-AndValueName-System-String- 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.AndValueName(System.String)')
+  - [ForKeyPath()](#M-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-ForKeyPath-System-String- 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.ForKeyPath(System.String)')
+  - [WithDefaultValue(defaultValue)](#M-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1-WithDefaultValue-`0- 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression`1.WithDefaultValue(`0)')
+- [Resources](#T-MFR-Objects-Expressions-Registry-Interfaces-Properties-Resources 'MFR.Expressions.Registry.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Registry-Interfaces-Properties-Resources-Culture 'MFR.Expressions.Registry.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Registry-Interfaces-Properties-Resources-ResourceManager 'MFR.Expressions.Registry.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Registry-Interfaces-IRegQueryExpression`1'></a>
 ## IRegQueryExpression\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Interfaces
+MFR.Expressions.Registry.Interfaces
 
 ##### Summary
 
@@ -75,7 +75,7 @@ data to, the (Default) value under a particular registry key.
 ##### Summary
 
 Assigns a value to the
-[ValueName](#P-MFR-Objects-IRegQueryExpression-ValueName 'MFR.Objects.IRegQueryExpression.ValueName')
+[ValueName](#P-MFR-Objects-IRegQueryExpression-ValueName 'MFR.IRegQueryExpression.ValueName')
 property.
 
 ##### Returns
@@ -124,7 +124,7 @@ If the hive ( `HKEY_`) is not included, then
 ##### Summary
 
 Assigns a value to the
-[ValueName](#P-MFR-Objects-IRegQueryExpression-ValueName 'MFR.Objects.IRegQueryExpression.ValueName')
+[ValueName](#P-MFR-Objects-IRegQueryExpression-ValueName 'MFR.IRegQueryExpression.ValueName')
 property.
 
 ##### Returns
@@ -148,7 +148,7 @@ Calling this method is optional.
 
 ##### Namespace
 
-MFR.Objects.Expressions.Registry.Interfaces.Properties
+MFR.Expressions.Registry.Interfaces.Properties
 
 ##### Summary
 

@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Interfaces
+# MFR.FileSystem.Interfaces
 
 ## Contents
 
-- [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
-  - [ContainingFolder](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
-  - [Path](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.Path')
-  - [UserState](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.UserState')
-  - [AndHavingUserState(userState)](#M-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object- 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry.AndHavingUserState(System.Object)')
-- [Resources](#T-MFR-Objects-FileSystem-Interfaces-Properties-Resources 'MFR.Objects.FileSystem.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-Culture 'MFR.Objects.FileSystem.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Interfaces.Properties.Resources.ResourceManager')
+- [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+  - [ContainingFolder](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
+  - [Path](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
+  - [UserState](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.FileSystem.Interfaces.IFileSystemEntry.UserState')
+  - [AndHavingUserState(userState)](#M-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object- 'MFR.FileSystem.Interfaces.IFileSystemEntry.AndHavingUserState(System.Object)')
+- [Resources](#T-MFR-Objects-FileSystem-Interfaces-Properties-Resources 'MFR.FileSystem.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry'></a>
 ## IFileSystemEntry `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Interfaces
+MFR.FileSystem.Interfaces
 
 ##### Summary
 
@@ -83,7 +83,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Interfaces.Properties
+MFR.FileSystem.Interfaces.Properties
 
 ##### Summary
 

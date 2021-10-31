@@ -28,7 +28,7 @@ Contains information for a Folded event.
 
 ##### Summary
 
-Constructs a new instance of [FoldedEventArgs](#T-MFR-Objects-FoldedEventArgs 'MFR.Objects.FoldedEventArgs') and returns a
+Constructs a new instance of [FoldedEventArgs](#T-MFR-Objects-FoldedEventArgs 'MFR.FoldedEventArgs') and returns a
 reference to it.
 
 ##### Parameters

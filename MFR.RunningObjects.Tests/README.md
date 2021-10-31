@@ -1,26 +1,26 @@
 <a name='assembly'></a>
-# MFR.Objects.RunningObjects.Factories.Tests
+# MFR.RunningObjects.Factories.Tests
 
 ## Contents
 
-- [GetRunningObjectTests](#T-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests 'MFR.Objects.RunningObjects.Factories.Tests.GetRunningObjectTests')
-  - [Test_ByDisplayName_Method_Works()](#M-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests-Test_ByDisplayName_Method_Works 'MFR.Objects.RunningObjects.Factories.Tests.GetRunningObjectTests.Test_ByDisplayName_Method_Works')
-  - [Test_DisplayNames_Method_Works()](#M-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests-Test_DisplayNames_Method_Works 'MFR.Objects.RunningObjects.Factories.Tests.GetRunningObjectTests.Test_DisplayNames_Method_Works')
-- [Resources](#T-MFR-Objects-RunningObjects-Factories-Tests-Properties-Resources 'MFR.Objects.RunningObjects.Factories.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-RunningObjects-Factories-Tests-Properties-Resources-Culture 'MFR.Objects.RunningObjects.Factories.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-RunningObjects-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Objects.RunningObjects.Factories.Tests.Properties.Resources.ResourceManager')
+- [GetRunningObjectTests](#T-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests 'MFR.RunningObjects.Factories.Tests.GetRunningObjectTests')
+  - [Test_ByDisplayName_Method_Works()](#M-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests-Test_ByDisplayName_Method_Works 'MFR.RunningObjects.Factories.Tests.GetRunningObjectTests.Test_ByDisplayName_Method_Works')
+  - [Test_DisplayNames_Method_Works()](#M-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests-Test_DisplayNames_Method_Works 'MFR.RunningObjects.Factories.Tests.GetRunningObjectTests.Test_DisplayNames_Method_Works')
+- [Resources](#T-MFR-Objects-RunningObjects-Factories-Tests-Properties-Resources 'MFR.RunningObjects.Factories.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-RunningObjects-Factories-Tests-Properties-Resources-Culture 'MFR.RunningObjects.Factories.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-RunningObjects-Factories-Tests-Properties-Resources-ResourceManager 'MFR.RunningObjects.Factories.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests'></a>
 ## GetRunningObjectTests `type`
 
 ##### Namespace
 
-MFR.Objects.RunningObjects.Factories.Tests
+MFR.RunningObjects.Factories.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[GetRunningObject](#T-MFR-Objects-GetRunningObject 'MFR.Objects.GetRunningObject')
+[GetRunningObject](#T-MFR-Objects-GetRunningObject 'MFR.GetRunningObject')
 class.
 
 <a name='M-MFR-Objects-RunningObjects-Factories-Tests-GetRunningObjectTests-Test_ByDisplayName_Method_Works'></a>
@@ -50,7 +50,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.RunningObjects.Factories.Tests.Properties
+MFR.RunningObjects.Factories.Tests.Properties
 
 ##### Summary
 

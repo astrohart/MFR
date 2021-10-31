@@ -1,27 +1,27 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Retrievers.Tests
+# MFR.FileSystem.Retrievers.Tests
 
 ## Contents
 
-- [FolderToRenameRetrieverTests](#T-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests 'MFR.Objects.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests')
-  - [Retriever](#P-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Retriever 'MFR.Objects.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests.Retriever')
-  - [Initialize()](#M-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Initialize 'MFR.Objects.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests.Initialize')
-  - [Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch()](#M-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch 'MFR.Objects.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests.Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch')
-- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Tests-Properties-Resources 'MFR.Objects.FileSystem.Retrievers.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Tests-Properties-Resources-Culture 'MFR.Objects.FileSystem.Retrievers.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Tests-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Retrievers.Tests.Properties.Resources.ResourceManager')
+- [FolderToRenameRetrieverTests](#T-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests 'MFR.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests')
+  - [Retriever](#P-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Retriever 'MFR.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests.Retriever')
+  - [Initialize()](#M-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Initialize 'MFR.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests.Initialize')
+  - [Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch()](#M-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch 'MFR.FileSystem.Retrievers.Tests.FolderToRenameRetrieverTests.Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch')
+- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Tests-Properties-Resources 'MFR.FileSystem.Retrievers.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Tests-Properties-Resources-Culture 'MFR.FileSystem.Retrievers.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Tests-Properties-Resources-ResourceManager 'MFR.FileSystem.Retrievers.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests'></a>
 ## FolderToRenameRetrieverTests `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers.Tests
+MFR.FileSystem.Retrievers.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[FolderToRenameRetriever](#T-MFR-Objects-FolderToRenameRetriever 'MFR.Objects.FolderToRenameRetriever')
+[FolderToRenameRetriever](#T-MFR-Objects-FolderToRenameRetriever 'MFR.FolderToRenameRetriever')
 class.
 
 <a name='P-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Retriever'></a>
@@ -30,7 +30,7 @@ class.
 ##### Summary
 
 Gets a reference to an instance of the object that implements the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever')
 interface for renaming folders.
 
 <a name='M-MFR-Objects-FileSystem-Retrievers-Tests-FolderToRenameRetrieverTests-Initialize'></a>
@@ -60,7 +60,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers.Tests.Properties
+MFR.FileSystem.Retrievers.Tests.Properties
 
 ##### Summary
 

@@ -1,43 +1,43 @@
 <a name='assembly'></a>
-# MFR.Objects.Matchers.Factories
+# MFR.Matchers.Factories
 
 ## Contents
 
-- [GetStringMatcher](#T-MFR-Objects-Matchers-Factories-GetStringMatcher 'MFR.Objects.Matchers.Factories.GetStringMatcher')
-  - [For(type)](#M-MFR-Objects-Matchers-Factories-GetStringMatcher-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Matchers.Factories.GetStringMatcher.For(MFR.Objects.Operations.Constants.OperationType)')
-- [RenameFilesInFolderStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
-  - [#ctor()](#M-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-#ctor 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-Instance 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.Instance')
-  - [OperationType](#P-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-OperationType 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.OperationType')
-  - [#cctor()](#M-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-#cctor 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.#cctor')
-  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.AndTextMatchingConfiguration(MFR.Objects.Configuration.Constants.TextMatchingConfiguration)')
-- [RenameSubFoldersStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
-  - [#ctor()](#M-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-#ctor 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-Instance 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory.Instance')
-  - [OperationType](#P-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-OperationType 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory.OperationType')
-  - [#cctor()](#M-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-#cctor 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory.#cctor')
-  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory.AndTextMatchingConfiguration(MFR.Objects.Configuration.Constants.TextMatchingConfiguration)')
-- [ReplaceTextInFilesStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory')
-  - [#ctor()](#M-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-#ctor 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.#ctor')
-  - [Instance](#P-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-Instance 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.Instance')
-  - [OperationType](#P-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-OperationType 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.OperationType')
-  - [#cctor()](#M-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-#cctor 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.#cctor')
-  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.AndTextMatchingConfiguration(MFR.Objects.Configuration.Constants.TextMatchingConfiguration)')
-- [Resources](#T-MFR-Objects-Matchers-Factories-Properties-Resources 'MFR.Objects.Matchers.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Matchers-Factories-Properties-Resources-Culture 'MFR.Objects.Matchers.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Matchers-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Matchers.Factories.Properties.Resources.ResourceManager')
+- [GetStringMatcher](#T-MFR-Objects-Matchers-Factories-GetStringMatcher 'MFR.Matchers.Factories.GetStringMatcher')
+  - [For(type)](#M-MFR-Objects-Matchers-Factories-GetStringMatcher-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Matchers.Factories.GetStringMatcher.For(MFR.Operations.Constants.OperationType)')
+- [RenameFilesInFolderStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
+  - [#ctor()](#M-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-#ctor 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-Instance 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.Instance')
+  - [OperationType](#P-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-OperationType 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.OperationType')
+  - [#cctor()](#M-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-#cctor 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.#cctor')
+  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.AndTextMatchingConfiguration(MFR.Configuration.Constants.TextMatchingConfiguration)')
+- [RenameSubFoldersStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
+  - [#ctor()](#M-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-#ctor 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-Instance 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.Instance')
+  - [OperationType](#P-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-OperationType 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.OperationType')
+  - [#cctor()](#M-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-#cctor 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.#cctor')
+  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.AndTextMatchingConfiguration(MFR.Configuration.Constants.TextMatchingConfiguration)')
+- [ReplaceTextInFilesStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory')
+  - [#ctor()](#M-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-#ctor 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.#ctor')
+  - [Instance](#P-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-Instance 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.Instance')
+  - [OperationType](#P-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-OperationType 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.OperationType')
+  - [#cctor()](#M-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-#cctor 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.#cctor')
+  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-AndTextMatchingConfiguration-MFR-Objects-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.AndTextMatchingConfiguration(MFR.Configuration.Constants.TextMatchingConfiguration)')
+- [Resources](#T-MFR-Objects-Matchers-Factories-Properties-Resources 'MFR.Matchers.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Matchers-Factories-Properties-Resources-Culture 'MFR.Matchers.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Matchers-Factories-Properties-Resources-ResourceManager 'MFR.Matchers.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Matchers-Factories-GetStringMatcher'></a>
 ## GetStringMatcher `type`
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories
+MFR.Matchers.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface.
 
 <a name='M-MFR-Objects-Matchers-Factories-GetStringMatcher-For-MFR-Objects-Operations-Constants-OperationType-'></a>
@@ -46,24 +46,24 @@ interface.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface and
 returns a reference to it, for the given
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 value.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface that corresponds to the specified type of operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed. |
 
@@ -72,7 +72,7 @@ corresponds to the type of operation being performed. |
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories
+MFR.Matchers.Factories
 
 ##### Summary
 
@@ -97,7 +97,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[RenameFilesInFolderStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Objects.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
+[RenameFilesInFolderStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
 .
 
 <a name='P-MFR-Objects-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-OperationType'></a>
@@ -106,7 +106,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -127,25 +127,25 @@ This method has no parameters.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface and
 returns a reference to it for the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value
 that is specified by the `matchingConfig` parameter.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| matchingConfig | [MFR.Objects.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Objects.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+| matchingConfig | [MFR.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values
 that specifies which type of matching is being done. |
 
@@ -155,11 +155,11 @@ that specifies which type of matching is being done. |
 | ---- | ----------- |
 | [System.ComponentModel.InvalidEnumArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.InvalidEnumArgumentException 'System.ComponentModel.InvalidEnumArgumentException') | Thrown if the value passed in the `matchingConfig`
 is not one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values. |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if a string matcher object is not defined for the Rename
 Files in Folder operation type that supports the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value
 passed in the `matchingConfig` parameter. |
 
@@ -168,7 +168,7 @@ passed in the `matchingConfig` parameter. |
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories
+MFR.Matchers.Factories
 
 ##### Summary
 
@@ -193,7 +193,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[RenameSubFoldersStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Objects.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
+[RenameSubFoldersStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
 .
 
 <a name='P-MFR-Objects-Matchers-Factories-RenameSubFoldersStringMatcherFactory-OperationType'></a>
@@ -202,7 +202,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -223,25 +223,25 @@ This method has no parameters.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface and
 returns a reference to it for the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value that
 is specified by the `matchingConfig` parameter.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| matchingConfig | [MFR.Objects.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Objects.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+| matchingConfig | [MFR.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values that
 specifies which type of matching is being done. |
 
@@ -251,11 +251,11 @@ specifies which type of matching is being done. |
 | ---- | ----------- |
 | [System.ComponentModel.InvalidEnumArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.InvalidEnumArgumentException 'System.ComponentModel.InvalidEnumArgumentException') | Thrown if the value passed in the `matchingConfig`
 is not one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values. |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if a string matcher object is not defined for the Rename
 Files in Folder operation type that supports the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value
 passed in the `matchingConfig` parameter. |
 
@@ -264,7 +264,7 @@ passed in the `matchingConfig` parameter. |
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories
+MFR.Matchers.Factories
 
 ##### Summary
 
@@ -289,7 +289,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[ReplaceTextInFilesStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory 'MFR.Objects.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory')
+[ReplaceTextInFilesStringMatcherFactory](#T-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory')
 .
 
 <a name='P-MFR-Objects-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-OperationType'></a>
@@ -298,7 +298,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -319,25 +319,25 @@ This method has no parameters.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface and
 returns a reference to it for the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value that
 is specified by the `matchingConfig` parameter.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.Objects.IStringMatcher')
+[IStringMatcher](#T-MFR-Objects-IStringMatcher 'MFR.IStringMatcher')
 interface.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| matchingConfig | [MFR.Objects.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Objects.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+| matchingConfig | [MFR.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Objects-Configuration-Constants-TextMatchingConfiguration 'MFR.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values that
 specifies which type of matching is being done. |
 
@@ -347,11 +347,11 @@ specifies which type of matching is being done. |
 | ---- | ----------- |
 | [System.ComponentModel.InvalidEnumArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.InvalidEnumArgumentException 'System.ComponentModel.InvalidEnumArgumentException') | Thrown if the value passed in the `matchingConfig`
 is not one of the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 values. |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if a string matcher object is not defined for the Rename
 Files in Folder operation type that supports the
-[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.Objects.TextMatchingConfiguration')
+[TextMatchingConfiguration](#T-MFR-Objects-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value
 passed in the `matchingConfig` parameter. |
 
@@ -360,7 +360,7 @@ passed in the `matchingConfig` parameter. |
 
 ##### Namespace
 
-MFR.Objects.Matchers.Factories.Properties
+MFR.Matchers.Factories.Properties
 
 ##### Summary
 

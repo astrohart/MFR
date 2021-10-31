@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.Managers.Solutions.Interfaces
+# MFR.Managers.Solutions.Interfaces
 
 ## Contents
 
-- [IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
-  - [ContainsLoadedSolutions(folder)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
-  - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
-  - [LoadAll(solutions)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{MFR-Objects-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{MFR.Objects.Solutions.Interfaces.IVisualStudioSolution})')
-  - [UnloadAll(solutions)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{MFR-Objects-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Objects.Managers.Solutions.Interfaces.IVisualStudioSolutionService.UnloadAll(System.Collections.Generic.IReadOnlyList{MFR.Objects.Solutions.Interfaces.IVisualStudioSolution})')
-- [Resources](#T-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources 'MFR.Objects.Managers.Solutions.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources-Culture 'MFR.Objects.Managers.Solutions.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Managers.Solutions.Interfaces.Properties.Resources.ResourceManager')
+- [IVisualStudioSolutionService](#T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+  - [ContainsLoadedSolutions(folder)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
+  - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
+  - [LoadAll(solutions)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{MFR-Objects-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{MFR.Solutions.Interfaces.IVisualStudioSolution})')
+  - [UnloadAll(solutions)](#M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{MFR-Objects-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.UnloadAll(System.Collections.Generic.IReadOnlyList{MFR.Solutions.Interfaces.IVisualStudioSolution})')
+- [Resources](#T-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources 'MFR.Managers.Solutions.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources-Culture 'MFR.Managers.Solutions.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources-ResourceManager 'MFR.Managers.Solutions.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService'></a>
 ## IVisualStudioSolutionService `type`
 
 ##### Namespace
 
-MFR.Objects.Managers.Solutions.Interfaces
+MFR.Managers.Solutions.Interfaces
 
 ##### Summary
 
@@ -68,7 +68,7 @@ returned as an element of a collection of any other such solutions.
 ##### Returns
 
 Read-only list of references to instances of objects that implement
-the [IVisualStudioSolution](#T-MFR-Objects-Solutions-Interfaces-IVisualStudioSolution 'MFR.Objects.Solutions.Interfaces.IVisualStudioSolution')
+the [IVisualStudioSolution](#T-MFR-Objects-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface for each instance of Visual Studio that has that solution loaded.
 
 ##### Parameters
@@ -100,8 +100,8 @@ time, to load them again.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| solutions | [System.Collections.Generic.IReadOnlyList{MFR.Objects.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{MFR.Objects.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
-objects that implement the [IVisualStudioSolution](#T-MFR-Objects-Solutions-Interfaces-IVisualStudioSolution 'MFR.Objects.Solutions.Interfaces.IVisualStudioSolution')
+| solutions | [System.Collections.Generic.IReadOnlyList{MFR.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{MFR.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
+objects that implement the [IVisualStudioSolution](#T-MFR-Objects-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface that represent the solution(s) to be loaded. |
 
 <a name='M-MFR-Objects-Managers-Solutions-Interfaces-IVisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{MFR-Objects-Solutions-Interfaces-IVisualStudioSolution}-'></a>
@@ -117,8 +117,8 @@ one time, to unload them again.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| solutions | [System.Collections.Generic.IReadOnlyList{MFR.Objects.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{MFR.Objects.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
-objects that implement the [IVisualStudioSolution](#T-MFR-Objects-Solutions-Interfaces-IVisualStudioSolution 'MFR.Objects.Solutions.Interfaces.IVisualStudioSolution')
+| solutions | [System.Collections.Generic.IReadOnlyList{MFR.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{MFR.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
+objects that implement the [IVisualStudioSolution](#T-MFR-Objects-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface which represent the solution(s) to be unloaded. |
 
 <a name='T-MFR-Objects-Managers-Solutions-Interfaces-Properties-Resources'></a>
@@ -126,7 +126,7 @@ interface which represent the solution(s) to be unloaded. |
 
 ##### Namespace
 
-MFR.Objects.Managers.Solutions.Interfaces.Properties
+MFR.Managers.Solutions.Interfaces.Properties
 
 ##### Summary
 

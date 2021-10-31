@@ -1,37 +1,37 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Actions
+# MFR.Messages.Actions
 
 ## Contents
 
-- [ActionBase\`2](#T-MFR-Objects-Messages-Actions-ActionBase`2 'MFR.Objects.Messages.Actions.ActionBase`2')
-  - [#ctor()](#M-MFR-Objects-Messages-Actions-ActionBase`2-#ctor 'MFR.Objects.Messages.Actions.ActionBase`2.#ctor')
-  - [#ctor()](#M-MFR-Objects-Messages-Actions-ActionBase`2-#ctor-`0- 'MFR.Objects.Messages.Actions.ActionBase`2.#ctor(`0)')
-  - [_input](#F-MFR-Objects-Messages-Actions-ActionBase`2-_input 'MFR.Objects.Messages.Actions.ActionBase`2._input')
-  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-ActionBase`2-AsCachedResultAction 'MFR.Objects.Messages.Actions.ActionBase`2.AsCachedResultAction')
-  - [WithInput(input)](#M-MFR-Objects-Messages-Actions-ActionBase`2-WithInput-`0- 'MFR.Objects.Messages.Actions.ActionBase`2.WithInput(`0)')
-- [ActionCacheProvider\`2](#T-MFR-Objects-Messages-Actions-ActionCacheProvider`2 'MFR.Objects.Messages.Actions.ActionCacheProvider`2')
-  - [ResultCache](#P-MFR-Objects-Messages-Actions-ActionCacheProvider`2-ResultCache 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.ResultCache')
-  - [Add(input,result)](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Add-`0,`1- 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.Add(`0,`1)')
-  - [Clear(elementAction)](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Clear-System-Action{`0,`1}- 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.Clear(System.Action{`0,`1})')
-  - [IsNullOrEmpty()](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-IsNullOrEmpty 'MFR.Objects.Messages.Actions.ActionCacheProvider`2.IsNullOrEmpty')
-- [CachedResultActionBase\`2](#T-MFR-Objects-Messages-Actions-CachedResultActionBase`2 'MFR.Objects.Messages.Actions.CachedResultActionBase`2')
-  - [AddResultToCache(resultToAdd)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-AddResultToCache-`1- 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.AddResultToCache(`1)')
-  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-AsCachedResultAction 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.AsCachedResultAction')
-  - [ClearResultCache(elementAction)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.ClearResultCache(System.Action{`0,`1})')
-  - [CommonExecute()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-CommonExecute 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.CommonExecute')
-  - [ExecuteOperationIfNotCached()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ExecuteOperationIfNotCached 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.ExecuteOperationIfNotCached')
-  - [Finalize()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-Finalize 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.Finalize')
-  - [TryGetCachedResult(result)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-TryGetCachedResult-`1@- 'MFR.Objects.Messages.Actions.CachedResultActionBase`2.TryGetCachedResult(`1@)')
-- [Resources](#T-MFR-Objects-Messages-Actions-Properties-Resources 'MFR.Objects.Messages.Actions.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Actions-Properties-Resources-Culture 'MFR.Objects.Messages.Actions.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Actions-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Actions.Properties.Resources.ResourceManager')
+- [ActionBase\`2](#T-MFR-Objects-Messages-Actions-ActionBase`2 'MFR.Messages.Actions.ActionBase`2')
+  - [#ctor()](#M-MFR-Objects-Messages-Actions-ActionBase`2-#ctor 'MFR.Messages.Actions.ActionBase`2.#ctor')
+  - [#ctor()](#M-MFR-Objects-Messages-Actions-ActionBase`2-#ctor-`0- 'MFR.Messages.Actions.ActionBase`2.#ctor(`0)')
+  - [_input](#F-MFR-Objects-Messages-Actions-ActionBase`2-_input 'MFR.Messages.Actions.ActionBase`2._input')
+  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-ActionBase`2-AsCachedResultAction 'MFR.Messages.Actions.ActionBase`2.AsCachedResultAction')
+  - [WithInput(input)](#M-MFR-Objects-Messages-Actions-ActionBase`2-WithInput-`0- 'MFR.Messages.Actions.ActionBase`2.WithInput(`0)')
+- [ActionCacheProvider\`2](#T-MFR-Objects-Messages-Actions-ActionCacheProvider`2 'MFR.Messages.Actions.ActionCacheProvider`2')
+  - [ResultCache](#P-MFR-Objects-Messages-Actions-ActionCacheProvider`2-ResultCache 'MFR.Messages.Actions.ActionCacheProvider`2.ResultCache')
+  - [Add(input,result)](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Add-`0,`1- 'MFR.Messages.Actions.ActionCacheProvider`2.Add(`0,`1)')
+  - [Clear(elementAction)](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-Clear-System-Action{`0,`1}- 'MFR.Messages.Actions.ActionCacheProvider`2.Clear(System.Action{`0,`1})')
+  - [IsNullOrEmpty()](#M-MFR-Objects-Messages-Actions-ActionCacheProvider`2-IsNullOrEmpty 'MFR.Messages.Actions.ActionCacheProvider`2.IsNullOrEmpty')
+- [CachedResultActionBase\`2](#T-MFR-Objects-Messages-Actions-CachedResultActionBase`2 'MFR.Messages.Actions.CachedResultActionBase`2')
+  - [AddResultToCache(resultToAdd)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-AddResultToCache-`1- 'MFR.Messages.Actions.CachedResultActionBase`2.AddResultToCache(`1)')
+  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-AsCachedResultAction 'MFR.Messages.Actions.CachedResultActionBase`2.AsCachedResultAction')
+  - [ClearResultCache(elementAction)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Messages.Actions.CachedResultActionBase`2.ClearResultCache(System.Action{`0,`1})')
+  - [CommonExecute()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-CommonExecute 'MFR.Messages.Actions.CachedResultActionBase`2.CommonExecute')
+  - [ExecuteOperationIfNotCached()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-ExecuteOperationIfNotCached 'MFR.Messages.Actions.CachedResultActionBase`2.ExecuteOperationIfNotCached')
+  - [Finalize()](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-Finalize 'MFR.Messages.Actions.CachedResultActionBase`2.Finalize')
+  - [TryGetCachedResult(result)](#M-MFR-Objects-Messages-Actions-CachedResultActionBase`2-TryGetCachedResult-`1@- 'MFR.Messages.Actions.CachedResultActionBase`2.TryGetCachedResult(`1@)')
+- [Resources](#T-MFR-Objects-Messages-Actions-Properties-Resources 'MFR.Messages.Actions.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Actions-Properties-Resources-Culture 'MFR.Messages.Actions.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Actions-Properties-Resources-ResourceManager 'MFR.Messages.Actions.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Actions-ActionBase`2'></a>
 ## ActionBase\`2 `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions
+MFR.Messages.Actions
 
 ##### Summary
 
@@ -57,7 +57,7 @@ about the results of the message. |
 ##### Summary
 
 Constructs a new instance of
-[ActionBase](#T-MFR-Objects-ActionBase 'MFR.Objects.ActionBase')
+[ActionBase](#T-MFR-Objects-ActionBase 'MFR.ActionBase')
 and returns a
 reference to it.
 
@@ -71,7 +71,7 @@ This constructor has no parameters.
 ##### Summary
 
 Constructs a new instance of
-[ActionBase](#T-MFR-Objects-ActionBase 'MFR.Objects.ActionBase')
+[ActionBase](#T-MFR-Objects-ActionBase 'MFR.ActionBase')
 and returns a
 reference to it.
 
@@ -93,14 +93,14 @@ contains the input data.
 ##### Summary
 
 Returns a reference to this same object, but cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Returns
 
 Reference to the same object instance as that which invoked this
 method, cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Parameters
@@ -112,7 +112,7 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.InvalidCastException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidCastException 'System.InvalidCastException') | Thrown if the implementing object does not also implement the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface. |
 
 ##### Remarks
@@ -144,7 +144,7 @@ that contains data to be provided to the message. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions
+MFR.Messages.Actions
 
 ##### Summary
 
@@ -238,7 +238,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions
+MFR.Messages.Actions
 
 ##### Summary
 
@@ -274,7 +274,7 @@ non-negligible reduction in performance.
 
 Associates a reference to the `resultToAdd` to the
 current value of the
-[_input](#F-MFR-Objects-ActionBase-_input 'MFR.Objects.ActionBase._input')
+[_input](#F-MFR-Objects-ActionBase-_input 'MFR.ActionBase._input')
 field. using
 the internal result cache dictionary.
 
@@ -291,14 +291,14 @@ to be associated with the current input value. |
 ##### Summary
 
 Returns a reference to this same object, but cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Returns
 
 Reference to the same object instance as that which invoked this
 method, cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Parameters
@@ -310,7 +310,7 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.InvalidCastException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidCastException 'System.InvalidCastException') | Thrown if the implementing object does not also implement the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface. |
 
 ##### Remarks
@@ -377,7 +377,7 @@ of the request.
 
 This is a template method, the call to which is wrapped in a robust
 and fault-tolerant override of the
-[CommonExecute](#M-MFR-Objects-ActionBase-CommonExecute 'MFR.Objects.ActionBase.CommonExecute')
+[CommonExecute](#M-MFR-Objects-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute')
 method.
 
 
@@ -405,14 +405,14 @@ This method has no parameters.
 
 Attempts to access the result cache dictionary using the current
 value of the
-[_input](#F-MFR-Objects-ActionBase-_input 'MFR.Objects.ActionBase._input')
+[_input](#F-MFR-Objects-ActionBase-_input 'MFR.ActionBase._input')
 field, and asks
 whether it is present in the cache.
 
 ##### Returns
 
 If the current value of the
-[_input](#F-MFR-Objects-ActionBase-_input 'MFR.Objects.ActionBase._input')
+[_input](#F-MFR-Objects-ActionBase-_input 'MFR.ActionBase._input')
 field is
 present in the result cache dictionary and associated with a
 corresponding result, then the `result` parameter
@@ -445,7 +445,7 @@ override's code with a call to the base class.
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions.Properties
+MFR.Messages.Actions.Properties
 
 ##### Summary
 

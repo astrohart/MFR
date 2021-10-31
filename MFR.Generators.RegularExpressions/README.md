@@ -1,33 +1,33 @@
 <a name='assembly'></a>
-# MFR.Objects.Generators.RegularExpressions
+# MFR.Generators.RegularExpressions
 
 ## Contents
 
-- [MatchExactWordOnlyRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator')
-  - [#ctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-#ctor 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.#ctor')
-  - [Instance](#P-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-Instance 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.Instance')
-  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.RegularExpressionType')
-  - [#cctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-#cctor 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.#cctor')
-  - [Generate(value)](#M-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-Generate-System-String- 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.Generate(System.String)')
-- [MatchWholeLineRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator')
-  - [#ctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-#ctor 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.#ctor')
-  - [Instance](#P-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-Instance 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.Instance')
-  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.RegularExpressionType')
-  - [#cctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-#cctor 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.#cctor')
-  - [Generate(value)](#M-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-Generate-System-String- 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.Generate(System.String)')
-- [RegularExpressionGeneratorBase](#T-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase 'MFR.Objects.Generators.RegularExpressions.RegularExpressionGeneratorBase')
-  - [GeneratorType](#P-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase-GeneratorType 'MFR.Objects.Generators.RegularExpressions.RegularExpressionGeneratorBase.GeneratorType')
-  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.RegularExpressionGeneratorBase.RegularExpressionType')
-- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Properties-Resources 'MFR.Objects.Generators.RegularExpressions.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Properties-Resources-Culture 'MFR.Objects.Generators.RegularExpressions.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Properties-Resources-ResourceManager 'MFR.Objects.Generators.RegularExpressions.Properties.Resources.ResourceManager')
+- [MatchExactWordOnlyRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator')
+  - [#ctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-#ctor 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.#ctor')
+  - [Instance](#P-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-Instance 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.Instance')
+  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-RegularExpressionType 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.RegularExpressionType')
+  - [#cctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-#cctor 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.#cctor')
+  - [Generate(value)](#M-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-Generate-System-String- 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator.Generate(System.String)')
+- [MatchWholeLineRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator')
+  - [#ctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-#ctor 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.#ctor')
+  - [Instance](#P-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-Instance 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.Instance')
+  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-RegularExpressionType 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.RegularExpressionType')
+  - [#cctor()](#M-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-#cctor 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.#cctor')
+  - [Generate(value)](#M-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-Generate-System-String- 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator.Generate(System.String)')
+- [RegularExpressionGeneratorBase](#T-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase 'MFR.Generators.RegularExpressions.RegularExpressionGeneratorBase')
+  - [GeneratorType](#P-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase-GeneratorType 'MFR.Generators.RegularExpressions.RegularExpressionGeneratorBase.GeneratorType')
+  - [RegularExpressionType](#P-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase-RegularExpressionType 'MFR.Generators.RegularExpressions.RegularExpressionGeneratorBase.RegularExpressionType')
+- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Properties-Resources 'MFR.Generators.RegularExpressions.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Properties-Resources-Culture 'MFR.Generators.RegularExpressions.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Properties-Resources-ResourceManager 'MFR.Generators.RegularExpressions.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator'></a>
 ## MatchExactWordOnlyRegularExpressionGenerator `type`
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions
+MFR.Generators.RegularExpressions
 
 ##### Summary
 
@@ -49,14 +49,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [MatchExactWordOnlyRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator') .
+Gets a reference to the one and only instance of [MatchExactWordOnlyRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator 'MFR.Generators.RegularExpressions.MatchExactWordOnlyRegularExpressionGenerator') .
 
 <a name='P-MFR-Objects-Generators-RegularExpressions-MatchExactWordOnlyRegularExpressionGenerator-RegularExpressionType'></a>
 ### RegularExpressionType `property`
 
 ##### Summary
 
-Gets the [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType')
+Gets the [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
 value that uniquely identifies which type of regular expressions
 that this object handles.
 
@@ -100,7 +100,7 @@ passed a blank or `null` string for a value. |
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions
+MFR.Generators.RegularExpressions
 
 ##### Summary
 
@@ -122,14 +122,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [MatchWholeLineRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator 'MFR.Objects.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator') .
+Gets a reference to the one and only instance of [MatchWholeLineRegularExpressionGenerator](#T-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator 'MFR.Generators.RegularExpressions.MatchWholeLineRegularExpressionGenerator') .
 
 <a name='P-MFR-Objects-Generators-RegularExpressions-MatchWholeLineRegularExpressionGenerator-RegularExpressionType'></a>
 ### RegularExpressionType `property`
 
 ##### Summary
 
-Gets the [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType')
+Gets the [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
 value that uniquely identifies which type of regular expressions
 that this object handles.
 
@@ -173,7 +173,7 @@ passed a blank or `null` string for a value. |
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions
+MFR.Generators.RegularExpressions
 
 ##### Summary
 
@@ -185,7 +185,7 @@ implementations of
 
 ##### Summary
 
-A [GeneratorType](#T-MFR-Objects-Generators-Constants-GeneratorType 'MFR.Objects.Generators.Constants.GeneratorType')
+A [GeneratorType](#T-MFR-Objects-Generators-Constants-GeneratorType 'MFR.Generators.Constants.GeneratorType')
 value that specifies which type of generator this object is.
 
 <a name='P-MFR-Objects-Generators-RegularExpressions-RegularExpressionGeneratorBase-RegularExpressionType'></a>
@@ -194,7 +194,7 @@ value that specifies which type of generator this object is.
 ##### Summary
 
 Gets the
-[RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType')
+[RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
 value that uniquely identifies which type of regular expressions
 that this object handles.
 
@@ -203,7 +203,7 @@ that this object handles.
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Properties
+MFR.Generators.RegularExpressions.Properties
 
 ##### Summary
 

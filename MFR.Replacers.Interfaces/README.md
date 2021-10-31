@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Replacers.Interfaces
+# MFR.Replacers.Interfaces
 
 ## Contents
 
-- [IStringReplacer](#T-MFR-Objects-Replacers-Interfaces-IStringReplacer 'MFR.Objects.Replacers.Interfaces.IStringReplacer')
-  - [Replace(value,pattern,dest)](#M-MFR-Objects-Replacers-Interfaces-IStringReplacer-Replace-System-String,System-String,System-String- 'MFR.Objects.Replacers.Interfaces.IStringReplacer.Replace(System.String,System.String,System.String)')
-- [Resources](#T-MFR-Objects-Replacers-Interfaces-Properties-Resources 'MFR.Objects.Replacers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Replacers-Interfaces-Properties-Resources-Culture 'MFR.Objects.Replacers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Replacers-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Replacers.Interfaces.Properties.Resources.ResourceManager')
+- [IStringReplacer](#T-MFR-Objects-Replacers-Interfaces-IStringReplacer 'MFR.Replacers.Interfaces.IStringReplacer')
+  - [Replace(value,pattern,dest)](#M-MFR-Objects-Replacers-Interfaces-IStringReplacer-Replace-System-String,System-String,System-String- 'MFR.Replacers.Interfaces.IStringReplacer.Replace(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Objects-Replacers-Interfaces-Properties-Resources 'MFR.Replacers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Replacers-Interfaces-Properties-Resources-Culture 'MFR.Replacers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Replacers-Interfaces-Properties-Resources-ResourceManager 'MFR.Replacers.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Replacers-Interfaces-IStringReplacer'></a>
 ## IStringReplacer `type`
 
 ##### Namespace
 
-MFR.Objects.Replacers.Interfaces
+MFR.Replacers.Interfaces
 
 ##### Summary
 
@@ -62,7 +62,7 @@ for values. |
 
 ##### Namespace
 
-MFR.Objects.Replacers.Interfaces.Properties
+MFR.Replacers.Interfaces.Properties
 
 ##### Summary
 

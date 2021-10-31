@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Managers.History.Interfaces
+# MFR.Managers.History.Interfaces
 
 ## Contents
 
-- [IHistoryManager](#T-MFR-Objects-Managers-History-Interfaces-IHistoryManager 'MFR.Objects.Managers.History.Interfaces.IHistoryManager')
-  - [ClearAll()](#M-MFR-Objects-Managers-History-Interfaces-IHistoryManager-ClearAll 'MFR.Objects.Managers.History.Interfaces.IHistoryManager.ClearAll')
-- [Resources](#T-MFR-Objects-Managers-History-Interfaces-Properties-Resources 'MFR.Objects.Managers.History.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-History-Interfaces-Properties-Resources-Culture 'MFR.Objects.Managers.History.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-History-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Managers.History.Interfaces.Properties.Resources.ResourceManager')
+- [IHistoryManager](#T-MFR-Objects-Managers-History-Interfaces-IHistoryManager 'MFR.Managers.History.Interfaces.IHistoryManager')
+  - [ClearAll()](#M-MFR-Objects-Managers-History-Interfaces-IHistoryManager-ClearAll 'MFR.Managers.History.Interfaces.IHistoryManager.ClearAll')
+- [Resources](#T-MFR-Objects-Managers-History-Interfaces-Properties-Resources 'MFR.Managers.History.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Managers-History-Interfaces-Properties-Resources-Culture 'MFR.Managers.History.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Managers-History-Interfaces-Properties-Resources-ResourceManager 'MFR.Managers.History.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Managers-History-Interfaces-IHistoryManager'></a>
 ## IHistoryManager `type`
 
 ##### Namespace
 
-MFR.Objects.Managers.History.Interfaces
+MFR.Managers.History.Interfaces
 
 ##### Summary
 
@@ -42,7 +42,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Managers.History.Interfaces.Properties
+MFR.Managers.History.Interfaces.Properties
 
 ##### Summary
 

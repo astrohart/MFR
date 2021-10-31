@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem
+# MFR.FileSystem
 
 ## Contents
 
-- [FileSystemEntry](#T-MFR-Objects-FileSystem-FileSystemEntry 'MFR.Objects.FileSystem.FileSystemEntry')
-  - [#ctor(path)](#M-MFR-Objects-FileSystem-FileSystemEntry-#ctor-System-String- 'MFR.Objects.FileSystem.FileSystemEntry.#ctor(System.String)')
-  - [ContainingFolder](#P-MFR-Objects-FileSystem-FileSystemEntry-ContainingFolder 'MFR.Objects.FileSystem.FileSystemEntry.ContainingFolder')
-  - [OperationType](#P-MFR-Objects-FileSystem-FileSystemEntry-OperationType 'MFR.Objects.FileSystem.FileSystemEntry.OperationType')
-  - [Path](#P-MFR-Objects-FileSystem-FileSystemEntry-Path 'MFR.Objects.FileSystem.FileSystemEntry.Path')
-  - [UserState](#P-MFR-Objects-FileSystem-FileSystemEntry-UserState 'MFR.Objects.FileSystem.FileSystemEntry.UserState')
-  - [AndHavingUserState(userState)](#M-MFR-Objects-FileSystem-FileSystemEntry-AndHavingUserState-System-Object- 'MFR.Objects.FileSystem.FileSystemEntry.AndHavingUserState(System.Object)')
-- [Resources](#T-MFR-Objects-FileSystem-Properties-Resources 'MFR.Objects.FileSystem.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Properties-Resources-Culture 'MFR.Objects.FileSystem.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Properties.Resources.ResourceManager')
+- [FileSystemEntry](#T-MFR-Objects-FileSystem-FileSystemEntry 'MFR.FileSystem.FileSystemEntry')
+  - [#ctor(path)](#M-MFR-Objects-FileSystem-FileSystemEntry-#ctor-System-String- 'MFR.FileSystem.FileSystemEntry.#ctor(System.String)')
+  - [ContainingFolder](#P-MFR-Objects-FileSystem-FileSystemEntry-ContainingFolder 'MFR.FileSystem.FileSystemEntry.ContainingFolder')
+  - [OperationType](#P-MFR-Objects-FileSystem-FileSystemEntry-OperationType 'MFR.FileSystem.FileSystemEntry.OperationType')
+  - [Path](#P-MFR-Objects-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path')
+  - [UserState](#P-MFR-Objects-FileSystem-FileSystemEntry-UserState 'MFR.FileSystem.FileSystemEntry.UserState')
+  - [AndHavingUserState(userState)](#M-MFR-Objects-FileSystem-FileSystemEntry-AndHavingUserState-System-Object- 'MFR.FileSystem.FileSystemEntry.AndHavingUserState(System.Object)')
+- [Resources](#T-MFR-Objects-FileSystem-Properties-Resources 'MFR.FileSystem.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Properties-Resources-Culture 'MFR.FileSystem.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Properties-Resources-ResourceManager 'MFR.FileSystem.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-FileSystemEntry'></a>
 ## FileSystemEntry `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem
+MFR.FileSystem
 
 ##### Summary
 
@@ -32,7 +32,7 @@ or a folder.
 ##### Summary
 
 Constructs a new instance of
-[FileSystemEntry](#T-MFR-Objects-FileSystem-FileSystemEntry 'MFR.Objects.FileSystem.FileSystemEntry')
+[FileSystemEntry](#T-MFR-Objects-FileSystem-FileSystemEntry 'MFR.FileSystem.FileSystemEntry')
 and returns a
 reference to it.
 
@@ -62,7 +62,7 @@ Gets or sets the pathname of the parent folder of this file system entry.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -118,7 +118,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Properties
+MFR.FileSystem.Properties
 
 ##### Summary
 

@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.Managers.History
+# MFR.Managers.History
 
 ## Contents
 
-- [HistoryManager](#T-MFR-Objects-Managers-History-HistoryManager 'MFR.Objects.Managers.History.HistoryManager')
-  - [#ctor(messageBoxParentWindow)](#M-MFR-Objects-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Objects.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
-  - [_messageBoxParentWindow](#F-MFR-Objects-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Objects.Managers.History.HistoryManager._messageBoxParentWindow')
-  - [CanClearAll()](#M-MFR-Objects-Managers-History-HistoryManager-CanClearAll 'MFR.Objects.Managers.History.HistoryManager.CanClearAll')
-  - [ClearAll()](#M-MFR-Objects-Managers-History-HistoryManager-ClearAll 'MFR.Objects.Managers.History.HistoryManager.ClearAll')
-- [Resources](#T-MFR-Objects-Managers-History-Properties-Resources 'MFR.Objects.Managers.History.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-History-Properties-Resources-Culture 'MFR.Objects.Managers.History.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-History-Properties-Resources-ResourceManager 'MFR.Objects.Managers.History.Properties.Resources.ResourceManager')
+- [HistoryManager](#T-MFR-Objects-Managers-History-HistoryManager 'MFR.Managers.History.HistoryManager')
+  - [#ctor(messageBoxParentWindow)](#M-MFR-Objects-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
+  - [_messageBoxParentWindow](#F-MFR-Objects-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
+  - [CanClearAll()](#M-MFR-Objects-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
+  - [ClearAll()](#M-MFR-Objects-Managers-History-HistoryManager-ClearAll 'MFR.Managers.History.HistoryManager.ClearAll')
+- [Resources](#T-MFR-Objects-Managers-History-Properties-Resources 'MFR.Managers.History.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Managers-History-Properties-Resources-Culture 'MFR.Managers.History.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Managers-History-Properties-Resources-ResourceManager 'MFR.Managers.History.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Managers-History-HistoryManager'></a>
 ## HistoryManager `type`
 
 ##### Namespace
 
-MFR.Objects.Managers.History
+MFR.Managers.History
 
 ##### Summary
 
@@ -29,7 +29,7 @@ Manages the configuration history on behalf of the application.
 ##### Summary
 
 Constructs a new instance of
-[HistoryManager](#T-MFR-Objects-HistoryManager 'MFR.Objects.HistoryManager')
+[HistoryManager](#T-MFR-Objects-HistoryManager 'MFR.HistoryManager')
 and returns a
 reference to it.
 
@@ -108,7 +108,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Managers.History.Properties
+MFR.Managers.History.Properties
 
 ##### Summary
 

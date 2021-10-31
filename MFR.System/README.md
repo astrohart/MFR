@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.System
+# MFR.System
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-System-Properties-Resources 'MFR.Objects.System.Properties.Resources')
-  - [Culture](#P-MFR-Objects-System-Properties-Resources-Culture 'MFR.Objects.System.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-System-Properties-Resources-ResourceManager 'MFR.Objects.System.Properties.Resources.ResourceManager')
-- [SystemPreparer](#T-MFR-Objects-System-SystemPreparer 'MFR.Objects.System.SystemPreparer')
-  - [CreateOrOpenConfigFile(folderName,fileName)](#M-MFR-Objects-System-SystemPreparer-CreateOrOpenConfigFile-System-String,System-String- 'MFR.Objects.System.SystemPreparer.CreateOrOpenConfigFile(System.String,System.String)')
-  - [GetRegistryString(keyName,valueName,defaultValue)](#M-MFR-Objects-System-SystemPreparer-GetRegistryString-System-String,System-String,System-String- 'MFR.Objects.System.SystemPreparer.GetRegistryString(System.String,System.String,System.String)')
-  - [SetRegistryString(keyName,valueName,valueData)](#M-MFR-Objects-System-SystemPreparer-SetRegistryString-System-String,System-String,System-String- 'MFR.Objects.System.SystemPreparer.SetRegistryString(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Objects-System-Properties-Resources 'MFR.System.Properties.Resources')
+  - [Culture](#P-MFR-Objects-System-Properties-Resources-Culture 'MFR.System.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-System-Properties-Resources-ResourceManager 'MFR.System.Properties.Resources.ResourceManager')
+- [SystemPreparer](#T-MFR-Objects-System-SystemPreparer 'MFR.System.SystemPreparer')
+  - [CreateOrOpenConfigFile(folderName,fileName)](#M-MFR-Objects-System-SystemPreparer-CreateOrOpenConfigFile-System-String,System-String- 'MFR.System.SystemPreparer.CreateOrOpenConfigFile(System.String,System.String)')
+  - [GetRegistryString(keyName,valueName,defaultValue)](#M-MFR-Objects-System-SystemPreparer-GetRegistryString-System-String,System-String,System-String- 'MFR.System.SystemPreparer.GetRegistryString(System.String,System.String,System.String)')
+  - [SetRegistryString(keyName,valueName,valueData)](#M-MFR-Objects-System-SystemPreparer-SetRegistryString-System-String,System-String,System-String- 'MFR.System.SystemPreparer.SetRegistryString(System.String,System.String,System.String)')
 
 <a name='T-MFR-Objects-System-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Objects.System.Properties
+MFR.System.Properties
 
 ##### Summary
 
@@ -42,7 +42,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.System
+MFR.System
 
 ##### Summary
 

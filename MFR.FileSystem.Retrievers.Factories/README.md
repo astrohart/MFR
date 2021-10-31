@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Retrievers.Factories
+# MFR.FileSystem.Retrievers.Factories
 
 ## Contents
 
-- [GetFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Factories-GetFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Retrievers.Factories.GetFileSystemEntryListRetriever')
-  - [For(type)](#M-MFR-Objects-FileSystem-Retrievers-Factories-GetFileSystemEntryListRetriever-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.FileSystem.Retrievers.Factories.GetFileSystemEntryListRetriever.For(MFR.Objects.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Factories-Properties-Resources 'MFR.Objects.FileSystem.Retrievers.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Factories-Properties-Resources-Culture 'MFR.Objects.FileSystem.Retrievers.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Factories-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Retrievers.Factories.Properties.Resources.ResourceManager')
+- [GetFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Factories-GetFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Factories.GetFileSystemEntryListRetriever')
+  - [For(type)](#M-MFR-Objects-FileSystem-Retrievers-Factories-GetFileSystemEntryListRetriever-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.FileSystem.Retrievers.Factories.GetFileSystemEntryListRetriever.For(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Factories-Properties-Resources 'MFR.FileSystem.Retrievers.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Factories-Properties-Resources-Culture 'MFR.FileSystem.Retrievers.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Factories-Properties-Resources-ResourceManager 'MFR.FileSystem.Retrievers.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Retrievers-Factories-GetFileSystemEntryListRetriever'></a>
 ## GetFileSystemEntryListRetriever `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers.Factories
+MFR.FileSystem.Retrievers.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever')
 interface.
 
 ##### Remarks
@@ -33,13 +33,13 @@ criteria specified by the user.
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
 interface and returns a reference to it.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
 interface that corresponds to the specified `type`
 of operation.
 
@@ -47,8 +47,8 @@ of operation.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) A
-[OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) A
+[OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 value that
 corresponds to the type of operation currently being performed. |
 
@@ -57,7 +57,7 @@ corresponds to the type of operation currently being performed. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if there is no object that implements the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.Objects.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
 interface available that corresponds to the specified operation
 `type`. |
 
@@ -66,7 +66,7 @@ interface available that corresponds to the specified operation
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Retrievers.Factories.Properties
+MFR.FileSystem.Retrievers.Factories.Properties
 
 ##### Summary
 

@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Generators.RegularExpressions.Constants
+# MFR.Generators.RegularExpressions.Constants
 
 ## Contents
 
-- [RegexFormats](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats 'MFR.Objects.Generators.RegularExpressions.Constants.RegexFormats')
-  - [MatchExactWord](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchExactWord 'MFR.Objects.Generators.RegularExpressions.Constants.RegexFormats.MatchExactWord')
-  - [MatchWholeLine](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchWholeLine 'MFR.Objects.Generators.RegularExpressions.Constants.RegexFormats.MatchWholeLine')
-- [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType')
-  - [MatchExactWordOnly](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchExactWordOnly 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly')
-  - [MatchWholeLine](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchWholeLine 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType.MatchWholeLine')
-  - [Unknown](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-Unknown 'MFR.Objects.Generators.RegularExpressions.Constants.RegularExpressionType.Unknown')
-- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources 'MFR.Objects.Generators.RegularExpressions.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-Culture 'MFR.Objects.Generators.RegularExpressions.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-ResourceManager 'MFR.Objects.Generators.RegularExpressions.Constants.Properties.Resources.ResourceManager')
+- [RegexFormats](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats 'MFR.Generators.RegularExpressions.Constants.RegexFormats')
+  - [MatchExactWord](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchExactWord 'MFR.Generators.RegularExpressions.Constants.RegexFormats.MatchExactWord')
+  - [MatchWholeLine](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchWholeLine 'MFR.Generators.RegularExpressions.Constants.RegexFormats.MatchWholeLine')
+- [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
+  - [MatchExactWordOnly](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchExactWordOnly 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly')
+  - [MatchWholeLine](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchWholeLine 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchWholeLine')
+  - [Unknown](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-Unknown 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.Unknown')
+- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources 'MFR.Generators.RegularExpressions.Constants.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-Culture 'MFR.Generators.RegularExpressions.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-ResourceManager 'MFR.Generators.RegularExpressions.Constants.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats'></a>
 ## RegexFormats `type`
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Constants
+MFR.Generators.RegularExpressions.Constants
 
 ##### Summary
 
@@ -65,7 +65,7 @@ Regular expression that matches an entire line from beginning to end.
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Constants
+MFR.Generators.RegularExpressions.Constants
 
 ##### Summary
 
@@ -98,7 +98,7 @@ Unknown regular expression type.
 
 ##### Namespace
 
-MFR.Objects.Generators.RegularExpressions.Constants.Properties
+MFR.Generators.RegularExpressions.Constants.Properties
 
 ##### Summary
 

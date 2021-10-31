@@ -1,31 +1,31 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Validators.Factories.Tests
+# MFR.FileSystem.Validators.Factories.Tests
 
 ## Contents
 
-- [GetFileSystemEntryValidatorTests](#T-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests')
-  - [Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation')
-  - [Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation')
-  - [Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_Operaiton()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_Operaiton 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_Operaiton')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation 'MFR.Objects.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation')
-- [Resources](#T-MFR-Objects-FileSystem-Validators-Factories-Tests-Properties-Resources 'MFR.Objects.FileSystem.Validators.Factories.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Validators-Factories-Tests-Properties-Resources-Culture 'MFR.Objects.FileSystem.Validators.Factories.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Validators.Factories.Tests.Properties.Resources.ResourceManager')
+- [GetFileSystemEntryValidatorTests](#T-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests')
+  - [Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation')
+  - [Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation')
+  - [Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_Operaiton()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_Operaiton 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_Operaiton')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation()](#M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation')
+- [Resources](#T-MFR-Objects-FileSystem-Validators-Factories-Tests-Properties-Resources 'MFR.FileSystem.Validators.Factories.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Validators-Factories-Tests-Properties-Resources-Culture 'MFR.FileSystem.Validators.Factories.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Factories-Tests-Properties-Resources-ResourceManager 'MFR.FileSystem.Validators.Factories.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests'></a>
 ## GetFileSystemEntryValidatorTests `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Validators.Factories.Tests
+MFR.FileSystem.Validators.Factories.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[GetFileSystemEntryValidator](#T-MFR-Objects-GetFileSystemEntryValidator 'MFR.Objects.GetFileSystemEntryValidator')
+[GetFileSystemEntryValidator](#T-MFR-Objects-GetFileSystemEntryValidator 'MFR.GetFileSystemEntryValidator')
 class.
 
 <a name='M-MFR-Objects-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation'></a>
@@ -110,7 +110,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Validators.Factories.Tests.Properties
+MFR.FileSystem.Validators.Factories.Tests.Properties
 
 ##### Summary
 

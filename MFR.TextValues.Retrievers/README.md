@@ -1,39 +1,39 @@
 <a name='assembly'></a>
-# MFR.Objects.TextValues.Retrievers
+# MFR.TextValues.Retrievers
 
 ## Contents
 
-- [FileAndFolderTextValueRetrieverBase](#T-MFR-Objects-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase 'MFR.Objects.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase')
-  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase.GetTextValue(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-- [FilenameTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever')
-  - [#ctor()](#M-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-#ctor 'MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever.#ctor')
-  - [Instance](#P-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-Instance 'MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever.Instance')
-  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-OperationType 'MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever.OperationType')
-  - [#cctor()](#M-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-#cctor 'MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever.#cctor')
-- [FolderTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever')
-  - [#ctor()](#M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#ctor 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever.#ctor')
-  - [Instance](#P-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-Instance 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever.Instance')
-  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-OperationType 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever.OperationType')
-  - [#cctor()](#M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#cctor 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever.#cctor')
-- [Resources](#T-MFR-Objects-TextValues-Retrievers-Properties-Resources 'MFR.Objects.TextValues.Retrievers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-TextValues-Retrievers-Properties-Resources-Culture 'MFR.Objects.TextValues.Retrievers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-TextValues-Retrievers-Properties-Resources-ResourceManager 'MFR.Objects.TextValues.Retrievers.Properties.Resources.ResourceManager')
-- [TextInFileTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever')
-  - [#ctor()](#M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-#ctor 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever.#ctor')
-  - [Instance](#P-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-Instance 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever.Instance')
-  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-OperationType 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever.OperationType')
-  - [#cctor()](#M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-#cctor 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever.#cctor')
-  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValue(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-- [TextValueRetrieverBase](#T-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase 'MFR.Objects.TextValues.Retrievers.TextValueRetrieverBase')
-  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-OperationType 'MFR.Objects.TextValues.Retrievers.TextValueRetrieverBase.OperationType')
-  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
+- [FileAndFolderTextValueRetrieverBase](#T-MFR-Objects-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase')
+  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+- [FilenameTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.TextValues.Retrievers.FilenameTextValueRetriever')
+  - [#ctor()](#M-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.#ctor')
+  - [Instance](#P-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-Instance 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.Instance')
+  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-OperationType 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.OperationType')
+  - [#cctor()](#M-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.#cctor')
+- [FolderTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever 'MFR.TextValues.Retrievers.FolderTextValueRetriever')
+  - [#ctor()](#M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.FolderTextValueRetriever.#ctor')
+  - [Instance](#P-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-Instance 'MFR.TextValues.Retrievers.FolderTextValueRetriever.Instance')
+  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-OperationType 'MFR.TextValues.Retrievers.FolderTextValueRetriever.OperationType')
+  - [#cctor()](#M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.FolderTextValueRetriever.#cctor')
+- [Resources](#T-MFR-Objects-TextValues-Retrievers-Properties-Resources 'MFR.TextValues.Retrievers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-TextValues-Retrievers-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-TextValues-Retrievers-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Properties.Resources.ResourceManager')
+- [TextInFileTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever')
+  - [#ctor()](#M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.#ctor')
+  - [Instance](#P-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-Instance 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.Instance')
+  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-OperationType 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.OperationType')
+  - [#cctor()](#M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.#cctor')
+  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+- [TextValueRetrieverBase](#T-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase 'MFR.TextValues.Retrievers.TextValueRetrieverBase')
+  - [OperationType](#P-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-OperationType 'MFR.TextValues.Retrievers.TextValueRetrieverBase.OperationType')
+  - [GetTextValue(entry)](#M-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 
 <a name='T-MFR-Objects-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase'></a>
 ## FileAndFolderTextValueRetrieverBase `type`
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers
+MFR.TextValues.Retrievers
 
 ##### Summary
 
@@ -46,7 +46,7 @@ Implements functionality common to retrievers of data for both files and folders
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') now being processed.
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') now being processed.
 
 ##### Returns
 
@@ -57,7 +57,7 @@ operation type, or the empty string if the data source has no data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
@@ -71,7 +71,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers
+MFR.TextValues.Retrievers
 
 ##### Summary
 
@@ -93,14 +93,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [FilenameTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.Objects.TextValues.Retrievers.FilenameTextValueRetriever').
+Gets a reference to the one and only instance of [FilenameTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.TextValues.Retrievers.FilenameTextValueRetriever').
 
 <a name='P-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-FilenameTextValueRetriever-#cctor'></a>
@@ -119,7 +119,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers
+MFR.TextValues.Retrievers
 
 ##### Summary
 
@@ -143,14 +143,14 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[FolderTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever 'MFR.Objects.TextValues.Retrievers.FolderTextValueRetriever').
+[FolderTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever 'MFR.TextValues.Retrievers.FolderTextValueRetriever').
 
 <a name='P-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-FolderTextValueRetriever-#cctor'></a>
@@ -169,7 +169,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers.Properties
+MFR.TextValues.Retrievers.Properties
 
 ##### Summary
 
@@ -195,7 +195,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers
+MFR.TextValues.Retrievers
 
 ##### Summary
 
@@ -218,7 +218,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[TextInFileTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever 'MFR.Objects.TextValues.Retrievers.TextInFileTextValueRetriever').
+[TextInFileTextValueRetriever](#T-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever').
 
 <a name='P-MFR-Objects-TextValues-Retrievers-TextInFileTextValueRetriever-OperationType'></a>
 ### OperationType `property`
@@ -226,7 +226,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -248,7 +248,7 @@ This method has no parameters.
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#P-MFR-Objects-FileAndFolderTextValueRetriever-OperationType 'MFR.Objects.FileAndFolderTextValueRetriever.OperationType')
+[OperationType](#P-MFR-Objects-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
 .
 
 ##### Returns
@@ -260,8 +260,8 @@ operation type, or the empty string if the data source has no data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface. |
 
 ##### Exceptions
@@ -276,7 +276,7 @@ passed a `null` value. |
 
 ##### Namespace
 
-MFR.Objects.TextValues.Retrievers
+MFR.TextValues.Retrievers
 
 ##### Summary
 
@@ -288,7 +288,7 @@ Defines the events, methods, properties, and behaviors for all `Text
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType') values
+Gets one of the [OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Objects-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
@@ -298,7 +298,7 @@ that corresponds to the type of operation being performed.
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#P-MFR-Objects-FileAndFolderTextValueRetriever-OperationType 'MFR.Objects.FileAndFolderTextValueRetriever.OperationType') .
+[OperationType](#P-MFR-Objects-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
 
 ##### Returns
 
@@ -309,7 +309,7 @@ operation type, or the empty string if the data source has no data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 

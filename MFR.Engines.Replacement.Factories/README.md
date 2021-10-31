@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Engines.Replacement.Factories
+# MFR.Engines.Replacement.Factories
 
 ## Contents
 
-- [GetTextReplacementEngine](#T-MFR-Objects-Engines-Replacement-Factories-GetTextReplacementEngine 'MFR.Objects.Engines.Replacement.Factories.GetTextReplacementEngine')
-  - [For(type)](#M-MFR-Objects-Engines-Replacement-Factories-GetTextReplacementEngine-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Objects.Engines.Replacement.Factories.GetTextReplacementEngine.For(MFR.Objects.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-Objects-Engines-Replacement-Factories-Properties-Resources 'MFR.Objects.Engines.Replacement.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Replacement-Factories-Properties-Resources-Culture 'MFR.Objects.Engines.Replacement.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Engines.Replacement.Factories.Properties.Resources.ResourceManager')
+- [GetTextReplacementEngine](#T-MFR-Objects-Engines-Replacement-Factories-GetTextReplacementEngine 'MFR.Engines.Replacement.Factories.GetTextReplacementEngine')
+  - [For(type)](#M-MFR-Objects-Engines-Replacement-Factories-GetTextReplacementEngine-For-MFR-Objects-Operations-Constants-OperationType- 'MFR.Engines.Replacement.Factories.GetTextReplacementEngine.For(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-Objects-Engines-Replacement-Factories-Properties-Resources 'MFR.Engines.Replacement.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Engines-Replacement-Factories-Properties-Resources-Culture 'MFR.Engines.Replacement.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Engines-Replacement-Factories-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Engines-Replacement-Factories-GetTextReplacementEngine'></a>
 ## GetTextReplacementEngine `type`
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Factories
+MFR.Engines.Replacement.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
-[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
+[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.ITextReplacementEngine')
 interface.
 
 <a name='M-MFR-Objects-Engines-Replacement-Factories-GetTextReplacementEngine-For-MFR-Objects-Operations-Constants-OperationType-'></a>
@@ -28,16 +28,16 @@ interface.
 ##### Summary
 
 Gets an instance of the object that implements the
-[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
+[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.ITextReplacementEngine')
 interface
 corresponding to the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 specified.
 
 ##### Returns
 
 Reference to the instance of the object that implements the
-[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.Objects.ITextReplacementEngine')
+[ITextReplacementEngine](#T-MFR-Objects-ITextReplacementEngine 'MFR.ITextReplacementEngine')
 interface
 corresponding to the operation of the `type`
 specified, or `null` if no object supports the specified
@@ -47,8 +47,8 @@ specified, or `null` if no object supports the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Objects.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Objects.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Objects-OperationType 'MFR.Objects.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Objects-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
+[OperationType](#T-MFR-Objects-OperationType 'MFR.OperationType')
 values that
 specifies which operation is being performed. |
 
@@ -64,7 +64,7 @@ operation modality that is not supported. |
 
 ##### Namespace
 
-MFR.Objects.Engines.Replacement.Factories.Properties
+MFR.Engines.Replacement.Factories.Properties
 
 ##### Summary
 

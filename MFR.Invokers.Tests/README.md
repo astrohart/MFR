@@ -1,26 +1,26 @@
 <a name='assembly'></a>
-# MFR.Objects.Invokers.Tests
+# MFR.Invokers.Tests
 
 ## Contents
 
-- [PathFilterInvokerBaseTests](#T-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests 'MFR.Objects.Invokers.Tests.PathFilterInvokerBaseTests')
-  - [Invoker](#P-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests-Invoker 'MFR.Objects.Invokers.Tests.PathFilterInvokerBaseTests.Invoker')
-  - [Test_Pass_ReturnsTrue_ForNullPathFilter()](#M-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests-Test_Pass_ReturnsTrue_ForNullPathFilter 'MFR.Objects.Invokers.Tests.PathFilterInvokerBaseTests.Test_Pass_ReturnsTrue_ForNullPathFilter')
-- [Resources](#T-MFR-Objects-Invokers-Tests-Properties-Resources 'MFR.Objects.Invokers.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Invokers-Tests-Properties-Resources-Culture 'MFR.Objects.Invokers.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Invokers-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Invokers.Tests.Properties.Resources.ResourceManager')
+- [PathFilterInvokerBaseTests](#T-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests 'MFR.Invokers.Tests.PathFilterInvokerBaseTests')
+  - [Invoker](#P-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests-Invoker 'MFR.Invokers.Tests.PathFilterInvokerBaseTests.Invoker')
+  - [Test_Pass_ReturnsTrue_ForNullPathFilter()](#M-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests-Test_Pass_ReturnsTrue_ForNullPathFilter 'MFR.Invokers.Tests.PathFilterInvokerBaseTests.Test_Pass_ReturnsTrue_ForNullPathFilter')
+- [Resources](#T-MFR-Objects-Invokers-Tests-Properties-Resources 'MFR.Invokers.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Invokers-Tests-Properties-Resources-Culture 'MFR.Invokers.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Invokers-Tests-Properties-Resources-ResourceManager 'MFR.Invokers.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests'></a>
 ## PathFilterInvokerBaseTests `type`
 
 ##### Namespace
 
-MFR.Objects.Invokers.Tests
+MFR.Invokers.Tests
 
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[PathFilterInvokerBase](#T-MFR-Objects-PathFilterInvokerBase 'MFR.Objects.PathFilterInvokerBase')
+[PathFilterInvokerBase](#T-MFR-Objects-PathFilterInvokerBase 'MFR.PathFilterInvokerBase')
 class.
 
 <a name='P-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests-Invoker'></a>
@@ -28,7 +28,7 @@ class.
 
 ##### Summary
 
-Reference to an instance of an object that implements the [IPathFilterInvoker](#T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker 'MFR.Objects.Invokers.Interfaces.IPathFilterInvoker') interface.
+Reference to an instance of an object that implements the [IPathFilterInvoker](#T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker 'MFR.Invokers.Interfaces.IPathFilterInvoker') interface.
 
 <a name='M-MFR-Objects-Invokers-Tests-PathFilterInvokerBaseTests-Test_Pass_ReturnsTrue_ForNullPathFilter'></a>
 ### Test_Pass_ReturnsTrue_ForNullPathFilter() `method`
@@ -36,7 +36,7 @@ Reference to an instance of an object that implements the [IPathFilterInvoker](#
 ##### Summary
 
 Asserts that the
-[Passes](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-Passes 'MFR.Objects.Invokers.Interfaces.IPathFilterInvoker.Passes')
+[Passes](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-Passes 'MFR.Invokers.Interfaces.IPathFilterInvoker.Passes')
 method returns `true` when passed
 `null`
 for its parameter.
@@ -50,7 +50,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Invokers.Tests.Properties
+MFR.Invokers.Tests.Properties
 
 ##### Summary
 

@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.Objects.Processes.Interfaces
+# MFR.Processes.Interfaces
 
 ## Contents
 
-- [IProcessIdProvider](#T-MFR-Objects-Processes-Interfaces-IProcessIdProvider 'MFR.Objects.Processes.Interfaces.IProcessIdProvider')
-  - [GetAllProcessIDsOf(path)](#M-MFR-Objects-Processes-Interfaces-IProcessIdProvider-GetAllProcessIDsOf-System-String- 'MFR.Objects.Processes.Interfaces.IProcessIdProvider.GetAllProcessIDsOf(System.String)')
-  - [GetProcessIDOf(path)](#M-MFR-Objects-Processes-Interfaces-IProcessIdProvider-GetProcessIDOf-System-String- 'MFR.Objects.Processes.Interfaces.IProcessIdProvider.GetProcessIDOf(System.String)')
-- [Resources](#T-MFR-Objects-Processes-Interfaces-Properties-Resources 'MFR.Objects.Processes.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Processes-Interfaces-Properties-Resources-Culture 'MFR.Objects.Processes.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Processes-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Processes.Interfaces.Properties.Resources.ResourceManager')
+- [IProcessIdProvider](#T-MFR-Objects-Processes-Interfaces-IProcessIdProvider 'MFR.Processes.Interfaces.IProcessIdProvider')
+  - [GetAllProcessIDsOf(path)](#M-MFR-Objects-Processes-Interfaces-IProcessIdProvider-GetAllProcessIDsOf-System-String- 'MFR.Processes.Interfaces.IProcessIdProvider.GetAllProcessIDsOf(System.String)')
+  - [GetProcessIDOf(path)](#M-MFR-Objects-Processes-Interfaces-IProcessIdProvider-GetProcessIDOf-System-String- 'MFR.Processes.Interfaces.IProcessIdProvider.GetProcessIDOf(System.String)')
+- [Resources](#T-MFR-Objects-Processes-Interfaces-Properties-Resources 'MFR.Processes.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Processes-Interfaces-Properties-Resources-Culture 'MFR.Processes.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Processes-Interfaces-Properties-Resources-ResourceManager 'MFR.Processes.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Processes-Interfaces-IProcessIdProvider'></a>
 ## IProcessIdProvider `type`
 
 ##### Namespace
 
-MFR.Objects.Processes.Interfaces
+MFR.Processes.Interfaces
 
 ##### Summary
 
@@ -66,7 +66,7 @@ pathname, of hte .exe file that you think is currently a running process. |
 
 ##### Namespace
 
-MFR.Objects.Processes.Interfaces.Properties
+MFR.Processes.Interfaces.Properties
 
 ##### Summary
 

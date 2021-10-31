@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Invokers
+# MFR.Invokers
 
 ## Contents
 
-- [PathFilterInvokerBase](#T-MFR-Objects-Invokers-PathFilterInvokerBase 'MFR.Objects.Invokers.PathFilterInvokerBase')
-  - [#ctor()](#M-MFR-Objects-Invokers-PathFilterInvokerBase-#ctor 'MFR.Objects.Invokers.PathFilterInvokerBase.#ctor')
-  - [Instance](#P-MFR-Objects-Invokers-PathFilterInvokerBase-Instance 'MFR.Objects.Invokers.PathFilterInvokerBase.Instance')
-  - [Path](#P-MFR-Objects-Invokers-PathFilterInvokerBase-Path 'MFR.Objects.Invokers.PathFilterInvokerBase.Path')
-  - [#cctor()](#M-MFR-Objects-Invokers-PathFilterInvokerBase-#cctor 'MFR.Objects.Invokers.PathFilterInvokerBase.#cctor')
-  - [AndPath()](#M-MFR-Objects-Invokers-PathFilterInvokerBase-AndPath-System-String- 'MFR.Objects.Invokers.PathFilterInvokerBase.AndPath(System.String)')
-  - [Passes(pathFilter)](#M-MFR-Objects-Invokers-PathFilterInvokerBase-Passes-System-Predicate{System-String}- 'MFR.Objects.Invokers.PathFilterInvokerBase.Passes(System.Predicate{System.String})')
-- [Resources](#T-MFR-Objects-Invokers-Properties-Resources 'MFR.Objects.Invokers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Invokers-Properties-Resources-Culture 'MFR.Objects.Invokers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Invokers-Properties-Resources-ResourceManager 'MFR.Objects.Invokers.Properties.Resources.ResourceManager')
+- [PathFilterInvokerBase](#T-MFR-Objects-Invokers-PathFilterInvokerBase 'MFR.Invokers.PathFilterInvokerBase')
+  - [#ctor()](#M-MFR-Objects-Invokers-PathFilterInvokerBase-#ctor 'MFR.Invokers.PathFilterInvokerBase.#ctor')
+  - [Instance](#P-MFR-Objects-Invokers-PathFilterInvokerBase-Instance 'MFR.Invokers.PathFilterInvokerBase.Instance')
+  - [Path](#P-MFR-Objects-Invokers-PathFilterInvokerBase-Path 'MFR.Invokers.PathFilterInvokerBase.Path')
+  - [#cctor()](#M-MFR-Objects-Invokers-PathFilterInvokerBase-#cctor 'MFR.Invokers.PathFilterInvokerBase.#cctor')
+  - [AndPath()](#M-MFR-Objects-Invokers-PathFilterInvokerBase-AndPath-System-String- 'MFR.Invokers.PathFilterInvokerBase.AndPath(System.String)')
+  - [Passes(pathFilter)](#M-MFR-Objects-Invokers-PathFilterInvokerBase-Passes-System-Predicate{System-String}- 'MFR.Invokers.PathFilterInvokerBase.Passes(System.Predicate{System.String})')
+- [Resources](#T-MFR-Objects-Invokers-Properties-Resources 'MFR.Invokers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Invokers-Properties-Resources-Culture 'MFR.Invokers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Invokers-Properties-Resources-ResourceManager 'MFR.Invokers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Invokers-PathFilterInvokerBase'></a>
 ## PathFilterInvokerBase `type`
 
 ##### Namespace
 
-MFR.Objects.Invokers
+MFR.Invokers
 
 ##### Summary
 
@@ -41,7 +41,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [PathFilterInvokerBase](#T-MFR-Objects-Invokers-PathFilterInvokerBase 'MFR.Objects.Invokers.PathFilterInvokerBase').
+Gets a reference to the one and only instance of [PathFilterInvokerBase](#T-MFR-Objects-Invokers-PathFilterInvokerBase 'MFR.Invokers.PathFilterInvokerBase').
 
 <a name='P-MFR-Objects-Invokers-PathFilterInvokerBase-Path'></a>
 ### Path `property`
@@ -84,7 +84,7 @@ This method has no parameters.
 ##### Summary
 
 Gets the result of invoking the path-filtering predicate on the path
-specified by calling the [AndPath](#M-MFR-Objects-IPathFilterInvoker-AndPath 'MFR.Objects.IPathFilterInvoker.AndPath') method.
+specified by calling the [AndPath](#M-MFR-Objects-IPathFilterInvoker-AndPath 'MFR.IPathFilterInvoker.AndPath') method.
 
 ##### Returns
 
@@ -104,7 +104,7 @@ that decides whether the path should be allowed. |
 
 ##### Namespace
 
-MFR.Objects.Invokers.Properties
+MFR.Invokers.Properties
 
 ##### Summary
 

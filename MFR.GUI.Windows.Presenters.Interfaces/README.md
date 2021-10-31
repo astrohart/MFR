@@ -4,14 +4,14 @@
 ## Contents
 
 - [IMainWindowPresenter](#T-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter')
-  - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AndHistoryManager-MFR-Objects-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AndHistoryManager(MFR.Objects.Managers.History.Interfaces.IHistoryManager)')
+  - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AndHistoryManager-MFR-Objects-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ClearAllHistory')
   - [ExportConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ExportConfiguration')
   - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ImportConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ImportConfiguration')
   - [InitializeOperationSelections()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-InitializeOperationSelections 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.InitializeOperationSelections')
   - [Process()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-Process 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.Process')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
-  - [WithFileRenamer(fileRenamer)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithFileRenamer-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithFileRenamer(MFR.Objects.Renamers.Files.Interfaces.IFileRenamer)')
+  - [WithFileRenamer(fileRenamer)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithFileRenamer-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithFileRenamer(MFR.Renamers.Files.Interfaces.IFileRenamer)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.ResourceManager')
@@ -47,8 +47,8 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| historyManager | [MFR.Objects.Managers.History.Interfaces.IHistoryManager](#T-MFR-Objects-Managers-History-Interfaces-IHistoryManager 'MFR.Objects.Managers.History.Interfaces.IHistoryManager') | Reference to an instance of an object that implements the
-[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.Objects.IHistoryManager')
+| historyManager | [MFR.Managers.History.Interfaces.IHistoryManager](#T-MFR-Objects-Managers-History-Interfaces-IHistoryManager 'MFR.Managers.History.Interfaces.IHistoryManager') | Reference to an instance of an object that implements the
+[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.IHistoryManager')
 on which this Presenter
 should depend. |
 
@@ -151,8 +151,8 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fileRenamer | [MFR.Objects.Renamers.Files.Interfaces.IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Objects.Renamers.Files.Interfaces.IFileRenamer') | (Required.) Reference to an instance of an object that implements
-the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenamer') interface. |
+| fileRenamer | [MFR.Renamers.Files.Interfaces.IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') | (Required.) Reference to an instance of an object that implements
+the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.IFileRenamer') interface. |
 
 ##### Exceptions
 

@@ -1,31 +1,31 @@
 <a name='assembly'></a>
-# MFR.Objects.FileSystem.Helpers
+# MFR.FileSystem.Helpers
 
 ## Contents
 
-- [DirectoryInfoExtensions](#T-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions 'MFR.Objects.FileSystem.Helpers.DirectoryInfoExtensions')
-  - [RenameTo(folderToBeRenamed,newSubFolderPath,maxRetries)](#M-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String,System-Int32- 'MFR.Objects.FileSystem.Helpers.DirectoryInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String,System.Int32)')
-  - [TryRenameFolder(folderToBeRenamed,newSubFolderPath)](#M-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions-TryRenameFolder-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String- 'MFR.Objects.FileSystem.Helpers.DirectoryInfoExtensions.TryRenameFolder(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String)')
-- [FileHelpers](#T-MFR-Objects-FileSystem-Helpers-FileHelpers 'MFR.Objects.FileSystem.Helpers.FileHelpers')
-  - [FillWithJunk(path)](#M-MFR-Objects-FileSystem-Helpers-FileHelpers-FillWithJunk-System-String- 'MFR.Objects.FileSystem.Helpers.FileHelpers.FillWithJunk(System.String)')
-  - [GetContent(path,pathFilter)](#M-MFR-Objects-FileSystem-Helpers-FileHelpers-GetContent-System-String,System-Predicate{System-String}- 'MFR.Objects.FileSystem.Helpers.FileHelpers.GetContent(System.String,System.Predicate{System.String})')
-- [FileInfoExtensions](#T-MFR-Objects-FileSystem-Helpers-FileInfoExtensions 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions')
-  - [IsZeroLengthFile(file)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile(Alphaleonis.Win32.Filesystem.FileInfo)')
-  - [RenameTo(source,dest)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String)')
-  - [TryRenameTo(source,dest,maxRetries)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-TryRenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32- 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.TryRenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String,System.Int32)')
-- [FileSystemEntryExtensions](#T-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions')
-  - [ToDirectoryInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToDirectoryInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions.ToDirectoryInfo(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-  - [ToFileInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToFileInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Objects.FileSystem.Helpers.FileSystemEntryExtensions.ToFileInfo(MFR.Objects.FileSystem.Interfaces.IFileSystemEntry)')
-- [Resources](#T-MFR-Objects-FileSystem-Helpers-Properties-Resources 'MFR.Objects.FileSystem.Helpers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Helpers-Properties-Resources-Culture 'MFR.Objects.FileSystem.Helpers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Helpers-Properties-Resources-ResourceManager 'MFR.Objects.FileSystem.Helpers.Properties.Resources.ResourceManager')
+- [DirectoryInfoExtensions](#T-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions 'MFR.FileSystem.Helpers.DirectoryInfoExtensions')
+  - [RenameTo(folderToBeRenamed,newSubFolderPath,maxRetries)](#M-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String,System-Int32- 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String,System.Int32)')
+  - [TryRenameFolder(folderToBeRenamed,newSubFolderPath)](#M-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions-TryRenameFolder-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String- 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.TryRenameFolder(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String)')
+- [FileHelpers](#T-MFR-Objects-FileSystem-Helpers-FileHelpers 'MFR.FileSystem.Helpers.FileHelpers')
+  - [FillWithJunk(path)](#M-MFR-Objects-FileSystem-Helpers-FileHelpers-FillWithJunk-System-String- 'MFR.FileSystem.Helpers.FileHelpers.FillWithJunk(System.String)')
+  - [GetContent(path,pathFilter)](#M-MFR-Objects-FileSystem-Helpers-FileHelpers-GetContent-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Helpers.FileHelpers.GetContent(System.String,System.Predicate{System.String})')
+- [FileInfoExtensions](#T-MFR-Objects-FileSystem-Helpers-FileInfoExtensions 'MFR.FileSystem.Helpers.FileInfoExtensions')
+  - [IsZeroLengthFile(file)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo- 'MFR.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile(Alphaleonis.Win32.Filesystem.FileInfo)')
+  - [RenameTo(source,dest)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String- 'MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String)')
+  - [TryRenameTo(source,dest,maxRetries)](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-TryRenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String,System-Int32- 'MFR.FileSystem.Helpers.FileInfoExtensions.TryRenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String,System.Int32)')
+- [FileSystemEntryExtensions](#T-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions 'MFR.FileSystem.Helpers.FileSystemEntryExtensions')
+  - [ToDirectoryInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToDirectoryInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Helpers.FileSystemEntryExtensions.ToDirectoryInfo(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [ToFileInfo(entry)](#M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToFileInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Helpers.FileSystemEntryExtensions.ToFileInfo(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+- [Resources](#T-MFR-Objects-FileSystem-Helpers-Properties-Resources 'MFR.FileSystem.Helpers.Properties.Resources')
+  - [Culture](#P-MFR-Objects-FileSystem-Helpers-Properties-Resources-Culture 'MFR.FileSystem.Helpers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-FileSystem-Helpers-Properties-Resources-ResourceManager 'MFR.FileSystem.Helpers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-FileSystem-Helpers-DirectoryInfoExtensions'></a>
 ## DirectoryInfoExtensions `type`
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Helpers
+MFR.FileSystem.Helpers
 
 ##### Summary
 
@@ -81,7 +81,7 @@ Attempts to perform the folder rename operation.
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Helpers
+MFR.FileSystem.Helpers
 
 ##### Summary
 
@@ -144,7 +144,7 @@ is done. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Helpers
+MFR.FileSystem.Helpers
 
 ##### Summary
 
@@ -212,7 +212,7 @@ Makes multiple attempts to perform the file-rename operation.
 
 
 
-Called by the [RenameTo](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo 'MFR.Objects.FileSystem.Helpers.FileInfoExtensions.RenameTo') method.
+Called by the [RenameTo](#M-MFR-Objects-FileSystem-Helpers-FileInfoExtensions-RenameTo 'MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo') method.
 
 ##### Returns
 
@@ -233,12 +233,12 @@ file's new name. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Helpers
+MFR.FileSystem.Helpers
 
 ##### Summary
 
 Helper methods for objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface.
 
 <a name='M-MFR-Objects-FileSystem-Helpers-FileSystemEntryExtensions-ToDirectoryInfo-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
@@ -247,7 +247,7 @@ interface.
 ##### Summary
 
 Translates an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface into
 an instance of a [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') object.
 
@@ -255,22 +255,22 @@ an instance of a [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo '
 
 The [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo') object is initialized
 with the value of the
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property.
 
 ##### Returns
 
 Reference to an instance of [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo')
 that has been initialized with the value of the
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
@@ -279,7 +279,7 @@ the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MF
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required property,
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 , is passed
 a blank or `null` string for a value. |
 
@@ -289,7 +289,7 @@ a blank or `null` string for a value. |
 ##### Summary
 
 Translates an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface into
 an instance of a [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') object.
 
@@ -297,22 +297,22 @@ an instance of a [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleoni
 
 The [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') object is initialized with
 the value of the
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property.
 
 ##### Returns
 
 Reference to an instance of [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesystem.FileInfo') that
 has been initialized with the value of the
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.Objects.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.Objects.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
@@ -321,7 +321,7 @@ the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MF
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required property,
-[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.Objects.IFileSystemEntry.Path')
+[Path](#P-MFR-Objects-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 , is passed
 a blank or `null` string for a value. |
 
@@ -330,7 +330,7 @@ a blank or `null` string for a value. |
 
 ##### Namespace
 
-MFR.Objects.FileSystem.Helpers.Properties
+MFR.FileSystem.Helpers.Properties
 
 ##### Summary
 

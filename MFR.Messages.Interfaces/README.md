@@ -1,29 +1,29 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Interfaces
+# MFR.Messages.Interfaces
 
 ## Contents
 
-- [IFixedMessageTypeSpecificObject](#T-MFR-Objects-Messages-Interfaces-IFixedMessageTypeSpecificObject 'MFR.Objects.Messages.Interfaces.IFixedMessageTypeSpecificObject')
-  - [MessageType](#P-MFR-Objects-Messages-Interfaces-IFixedMessageTypeSpecificObject-MessageType 'MFR.Objects.Messages.Interfaces.IFixedMessageTypeSpecificObject.MessageType')
-- [IMacroMessage](#T-MFR-Objects-Messages-Interfaces-IMacroMessage 'MFR.Objects.Messages.Interfaces.IMacroMessage')
-- [IMessage](#T-MFR-Objects-Messages-Interfaces-IMessage 'MFR.Objects.Messages.Interfaces.IMessage')
-  - [Execute()](#M-MFR-Objects-Messages-Interfaces-IMessage-Execute 'MFR.Objects.Messages.Interfaces.IMessage.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-Interfaces-IMessage-ExecuteAsync 'MFR.Objects.Messages.Interfaces.IMessage.ExecuteAsync')
-- [Resources](#T-MFR-Objects-Messages-Interfaces-Properties-Resources 'MFR.Objects.Messages.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Interfaces-Properties-Resources-Culture 'MFR.Objects.Messages.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Interfaces.Properties.Resources.ResourceManager')
+- [IFixedMessageTypeSpecificObject](#T-MFR-Objects-Messages-Interfaces-IFixedMessageTypeSpecificObject 'MFR.Messages.Interfaces.IFixedMessageTypeSpecificObject')
+  - [MessageType](#P-MFR-Objects-Messages-Interfaces-IFixedMessageTypeSpecificObject-MessageType 'MFR.Messages.Interfaces.IFixedMessageTypeSpecificObject.MessageType')
+- [IMacroMessage](#T-MFR-Objects-Messages-Interfaces-IMacroMessage 'MFR.Messages.Interfaces.IMacroMessage')
+- [IMessage](#T-MFR-Objects-Messages-Interfaces-IMessage 'MFR.Messages.Interfaces.IMessage')
+  - [Execute()](#M-MFR-Objects-Messages-Interfaces-IMessage-Execute 'MFR.Messages.Interfaces.IMessage.Execute')
+  - [ExecuteAsync()](#M-MFR-Objects-Messages-Interfaces-IMessage-ExecuteAsync 'MFR.Messages.Interfaces.IMessage.ExecuteAsync')
+- [Resources](#T-MFR-Objects-Messages-Interfaces-Properties-Resources 'MFR.Messages.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Interfaces-Properties-Resources-Culture 'MFR.Messages.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Interfaces-Properties-Resources-ResourceManager 'MFR.Messages.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Interfaces-IFixedMessageTypeSpecificObject'></a>
 ## IFixedMessageTypeSpecificObject `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Interfaces
+MFR.Messages.Interfaces
 
 ##### Summary
 
 Defines the public-exposed methods and properties of an object that is
-tagged with one of the [MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType') enumeration values.
+tagged with one of the [MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType') enumeration values.
 
 ##### Remarks
 
@@ -35,7 +35,7 @@ message type as being immutable.
 
 ##### Summary
 
-Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.Objects.MessageType') that is
+Gets the [MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType') that is
 being used to identify which message this is.
 
 <a name='T-MFR-Objects-Messages-Interfaces-IMacroMessage'></a>
@@ -43,7 +43,7 @@ being used to identify which message this is.
 
 ##### Namespace
 
-MFR.Objects.Messages.Interfaces
+MFR.Messages.Interfaces
 
 ##### Summary
 
@@ -55,7 +55,7 @@ performs more than one message, command, action, or request at a time.
 
 ##### Namespace
 
-MFR.Objects.Messages.Interfaces
+MFR.Messages.Interfaces
 
 ##### Summary
 
@@ -93,7 +93,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Messages.Interfaces.Properties
+MFR.Messages.Interfaces.Properties
 
 ##### Summary
 

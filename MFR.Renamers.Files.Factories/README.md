@@ -1,25 +1,25 @@
 <a name='assembly'></a>
-# MFR.Objects.Renamers.Files.Factories
+# MFR.Renamers.Files.Factories
 
 ## Contents
 
-- [MakeNewFileRenamer](#T-MFR-Objects-Renamers-Files-Factories-MakeNewFileRenamer 'MFR.Objects.Renamers.Files.Factories.MakeNewFileRenamer')
-  - [FromScratch()](#M-MFR-Objects-Renamers-Files-Factories-MakeNewFileRenamer-FromScratch 'MFR.Objects.Renamers.Files.Factories.MakeNewFileRenamer.FromScratch')
-- [Resources](#T-MFR-Objects-Renamers-Files-Factories-Properties-Resources 'MFR.Objects.Renamers.Files.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Renamers-Files-Factories-Properties-Resources-Culture 'MFR.Objects.Renamers.Files.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Factories-Properties-Resources-ResourceManager 'MFR.Objects.Renamers.Files.Factories.Properties.Resources.ResourceManager')
+- [MakeNewFileRenamer](#T-MFR-Objects-Renamers-Files-Factories-MakeNewFileRenamer 'MFR.Renamers.Files.Factories.MakeNewFileRenamer')
+  - [FromScratch()](#M-MFR-Objects-Renamers-Files-Factories-MakeNewFileRenamer-FromScratch 'MFR.Renamers.Files.Factories.MakeNewFileRenamer.FromScratch')
+- [Resources](#T-MFR-Objects-Renamers-Files-Factories-Properties-Resources 'MFR.Renamers.Files.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Renamers-Files-Factories-Properties-Resources-Culture 'MFR.Renamers.Files.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Factories-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Renamers-Files-Factories-MakeNewFileRenamer'></a>
 ## MakeNewFileRenamer `type`
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Factories
+MFR.Renamers.Files.Factories
 
 ##### Summary
 
 Provides helper methods that create new instances of objects that
-implement the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenamer') interface.
+implement the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.IFileRenamer') interface.
 
 <a name='M-MFR-Objects-Renamers-Files-Factories-MakeNewFileRenamer-FromScratch'></a>
 ### FromScratch() `method`
@@ -27,14 +27,14 @@ implement the [IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenam
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenamer')
+[IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.IFileRenamer')
 interface using the
 default constructor.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.Objects.IFileRenamer')
+[IFileRenamer](#T-MFR-Objects-IFileRenamer 'MFR.IFileRenamer')
 interface.
 
 ##### Parameters
@@ -46,7 +46,7 @@ This method has no parameters.
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Factories.Properties
+MFR.Renamers.Files.Factories.Properties
 
 ##### Summary
 

@@ -1,19 +1,19 @@
 <a name='assembly'></a>
-# MFR.Objects.Renamers.Files.Tests
+# MFR.Renamers.Files.Tests
 
 ## Contents
 
-- [FileRenamerTests](#T-MFR-Objects-Renamers-Files-Tests-FileRenamerTests 'MFR.Objects.Renamers.Files.Tests.FileRenamerTests')
-- [Resources](#T-MFR-Objects-Renamers-Files-Tests-Properties-Resources 'MFR.Objects.Renamers.Files.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Renamers-Files-Tests-Properties-Resources-Culture 'MFR.Objects.Renamers.Files.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Tests-Properties-Resources-ResourceManager 'MFR.Objects.Renamers.Files.Tests.Properties.Resources.ResourceManager')
+- [FileRenamerTests](#T-MFR-Objects-Renamers-Files-Tests-FileRenamerTests 'MFR.Renamers.Files.Tests.FileRenamerTests')
+- [Resources](#T-MFR-Objects-Renamers-Files-Tests-Properties-Resources 'MFR.Renamers.Files.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Renamers-Files-Tests-Properties-Resources-Culture 'MFR.Renamers.Files.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Tests-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Tests.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Renamers-Files-Tests-FileRenamerTests'></a>
 ## FileRenamerTests `type`
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Tests
+MFR.Renamers.Files.Tests
 
 ##### Summary
 
@@ -24,7 +24,7 @@ Provides unit tests.
 
 ##### Namespace
 
-MFR.Objects.Renamers.Files.Tests.Properties
+MFR.Renamers.Files.Tests.Properties
 
 ##### Summary
 

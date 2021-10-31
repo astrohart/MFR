@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Commands.Interfaces
+# MFR.Messages.Commands.Interfaces
 
 ## Contents
 
-- [ICommand\`1](#T-MFR-Objects-Messages-Commands-Interfaces-ICommand`1 'MFR.Objects.Messages.Commands.Interfaces.ICommand`1')
-  - [WithInput(input)](#M-MFR-Objects-Messages-Commands-Interfaces-ICommand`1-WithInput-`0- 'MFR.Objects.Messages.Commands.Interfaces.ICommand`1.WithInput(`0)')
-- [Resources](#T-MFR-Objects-Messages-Commands-Interfaces-Properties-Resources 'MFR.Objects.Messages.Commands.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Commands-Interfaces-Properties-Resources-Culture 'MFR.Objects.Messages.Commands.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Commands.Interfaces.Properties.Resources.ResourceManager')
+- [ICommand\`1](#T-MFR-Objects-Messages-Commands-Interfaces-ICommand`1 'MFR.Messages.Commands.Interfaces.ICommand`1')
+  - [WithInput(input)](#M-MFR-Objects-Messages-Commands-Interfaces-ICommand`1-WithInput-`0- 'MFR.Messages.Commands.Interfaces.ICommand`1.WithInput(`0)')
+- [Resources](#T-MFR-Objects-Messages-Commands-Interfaces-Properties-Resources 'MFR.Messages.Commands.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Commands-Interfaces-Properties-Resources-Culture 'MFR.Messages.Commands.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Interfaces-Properties-Resources-ResourceManager 'MFR.Messages.Commands.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Commands-Interfaces-ICommand`1'></a>
 ## ICommand\`1 `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands.Interfaces
+MFR.Messages.Commands.Interfaces
 
 ##### Summary
 
@@ -50,7 +50,7 @@ that contains data to be provided to the message. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Commands.Interfaces.Properties
+MFR.Messages.Commands.Interfaces.Properties
 
 ##### Summary
 

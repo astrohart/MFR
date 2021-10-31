@@ -1,22 +1,22 @@
 <a name='assembly'></a>
-# MFR.Objects.Expressions.Matches
+# MFR.Expressions.Matches
 
 ## Contents
 
-- [MatchExpression](#T-MFR-Objects-Expressions-Matches-MatchExpression 'MFR.Objects.Expressions.Matches.MatchExpression')
-  - [FindWhat](#P-MFR-Objects-Expressions-Matches-MatchExpression-FindWhat 'MFR.Objects.Expressions.Matches.MatchExpression.FindWhat')
-  - [ReplaceWith](#P-MFR-Objects-Expressions-Matches-MatchExpression-ReplaceWith 'MFR.Objects.Expressions.Matches.MatchExpression.ReplaceWith')
-  - [Value](#P-MFR-Objects-Expressions-Matches-MatchExpression-Value 'MFR.Objects.Expressions.Matches.MatchExpression.Value')
-- [Resources](#T-MFR-Objects-Expressions-Matches-Properties-Resources 'MFR.Objects.Expressions.Matches.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Expressions-Matches-Properties-Resources-Culture 'MFR.Objects.Expressions.Matches.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Expressions-Matches-Properties-Resources-ResourceManager 'MFR.Objects.Expressions.Matches.Properties.Resources.ResourceManager')
+- [MatchExpression](#T-MFR-Objects-Expressions-Matches-MatchExpression 'MFR.Expressions.Matches.MatchExpression')
+  - [FindWhat](#P-MFR-Objects-Expressions-Matches-MatchExpression-FindWhat 'MFR.Expressions.Matches.MatchExpression.FindWhat')
+  - [ReplaceWith](#P-MFR-Objects-Expressions-Matches-MatchExpression-ReplaceWith 'MFR.Expressions.Matches.MatchExpression.ReplaceWith')
+  - [Value](#P-MFR-Objects-Expressions-Matches-MatchExpression-Value 'MFR.Expressions.Matches.MatchExpression.Value')
+- [Resources](#T-MFR-Objects-Expressions-Matches-Properties-Resources 'MFR.Expressions.Matches.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Expressions-Matches-Properties-Resources-Culture 'MFR.Expressions.Matches.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Expressions-Matches-Properties-Resources-ResourceManager 'MFR.Expressions.Matches.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Expressions-Matches-MatchExpression'></a>
 ## MatchExpression `type`
 
 ##### Namespace
 
-MFR.Objects.Expressions.Matches
+MFR.Expressions.Matches
 
 ##### Summary
 
@@ -24,8 +24,8 @@ POCO that models a match expression.
 
 ##### Remarks
 
-Match expressions consist of two strings: a [Source](#P-MFR-Objects-MatchExpression-Source 'MFR.Objects.MatchExpression.Source') and a [Pattern](#P-MFR-Objects-MatchExpression-Pattern 'MFR.Objects.MatchExpression.Pattern') . The [Source](#P-MFR-Objects-MatchExpression-Source 'MFR.Objects.MatchExpression.Source') is the string
-containing data to be searched for the pattern contained in the [Pattern](#P-MFR-Objects-MatchExpression-Pattern 'MFR.Objects.MatchExpression.Pattern') property.
+Match expressions consist of two strings: a [Source](#P-MFR-Objects-MatchExpression-Source 'MFR.MatchExpression.Source') and a [Pattern](#P-MFR-Objects-MatchExpression-Pattern 'MFR.MatchExpression.Pattern') . The [Source](#P-MFR-Objects-MatchExpression-Source 'MFR.MatchExpression.Source') is the string
+containing data to be searched for the pattern contained in the [Pattern](#P-MFR-Objects-MatchExpression-Pattern 'MFR.MatchExpression.Pattern') property.
 
 <a name='P-MFR-Objects-Expressions-Matches-MatchExpression-FindWhat'></a>
 ### FindWhat `property`
@@ -39,8 +39,8 @@ Gets or sets a string containing the pattern that is to be used as textual-expre
 
 ##### Summary
 
-Gets or sets the data that each of the occurrences of [FindWhat](#P-MFR-Objects-Expressions-Matches-MatchExpression-FindWhat 'MFR.Objects.Expressions.Matches.MatchExpression.FindWhat') in the
-[Value](#P-MFR-Objects-Expressions-Matches-MatchExpression-Value 'MFR.Objects.Expressions.Matches.MatchExpression.Value') are
+Gets or sets the data that each of the occurrences of [FindWhat](#P-MFR-Objects-Expressions-Matches-MatchExpression-FindWhat 'MFR.Expressions.Matches.MatchExpression.FindWhat') in the
+[Value](#P-MFR-Objects-Expressions-Matches-MatchExpression-Value 'MFR.Expressions.Matches.MatchExpression.Value') are
 to be replaced with.
 
 <a name='P-MFR-Objects-Expressions-Matches-MatchExpression-Value'></a>
@@ -55,7 +55,7 @@ Gets or sets a string containing a pattern to be matched against.
 
 ##### Namespace
 
-MFR.Objects.Expressions.Matches.Properties
+MFR.Expressions.Matches.Properties
 
 ##### Summary
 

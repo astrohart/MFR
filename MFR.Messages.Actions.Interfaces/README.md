@@ -1,23 +1,23 @@
 <a name='assembly'></a>
-# MFR.Objects.Messages.Actions.Interfaces
+# MFR.Messages.Actions.Interfaces
 
 ## Contents
 
-- [IAction\`2](#T-MFR-Objects-Messages-Actions-Interfaces-IAction`2 'MFR.Objects.Messages.Actions.Interfaces.IAction`2')
-  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-AsCachedResultAction 'MFR.Objects.Messages.Actions.Interfaces.IAction`2.AsCachedResultAction')
-  - [WithInput(input)](#M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-WithInput-`0- 'MFR.Objects.Messages.Actions.Interfaces.IAction`2.WithInput(`0)')
-- [ICachedResultAction\`2](#T-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2 'MFR.Objects.Messages.Actions.Interfaces.ICachedResultAction`2')
-  - [ClearResultCache(elementAction)](#M-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Objects.Messages.Actions.Interfaces.ICachedResultAction`2.ClearResultCache(System.Action{`0,`1})')
-- [Resources](#T-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources 'MFR.Objects.Messages.Actions.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-Culture 'MFR.Objects.Messages.Actions.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-ResourceManager 'MFR.Objects.Messages.Actions.Interfaces.Properties.Resources.ResourceManager')
+- [IAction\`2](#T-MFR-Objects-Messages-Actions-Interfaces-IAction`2 'MFR.Messages.Actions.Interfaces.IAction`2')
+  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-AsCachedResultAction 'MFR.Messages.Actions.Interfaces.IAction`2.AsCachedResultAction')
+  - [WithInput(input)](#M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-WithInput-`0- 'MFR.Messages.Actions.Interfaces.IAction`2.WithInput(`0)')
+- [ICachedResultAction\`2](#T-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2 'MFR.Messages.Actions.Interfaces.ICachedResultAction`2')
+  - [ClearResultCache(elementAction)](#M-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Messages.Actions.Interfaces.ICachedResultAction`2.ClearResultCache(System.Action{`0,`1})')
+- [Resources](#T-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources 'MFR.Messages.Actions.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-Culture 'MFR.Messages.Actions.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-ResourceManager 'MFR.Messages.Actions.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-Messages-Actions-Interfaces-IAction`2'></a>
 ## IAction\`2 `type`
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions.Interfaces
+MFR.Messages.Actions.Interfaces
 
 ##### Summary
 
@@ -47,14 +47,14 @@ The messages that can be performed on the application's configuration are:
 ##### Summary
 
 Returns a reference to this same object, but cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Returns
 
 Reference to the same object instance as that which invoked this
 method, cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Parameters
@@ -66,7 +66,7 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.InvalidCastException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidCastException 'System.InvalidCastException') | Thrown if the implementing object does not also implement the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.Objects.ICachedResultAction')
+[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
 interface. |
 
 <a name='M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-WithInput-`0-'></a>
@@ -94,7 +94,7 @@ that contains data to be provided to the message. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions.Interfaces
+MFR.Messages.Actions.Interfaces
 
 ##### Summary
 
@@ -139,7 +139,7 @@ elements of the cache, prior to the cache itself being emptied. |
 
 ##### Namespace
 
-MFR.Objects.Messages.Actions.Interfaces.Properties
+MFR.Messages.Actions.Interfaces.Properties
 
 ##### Summary
 
