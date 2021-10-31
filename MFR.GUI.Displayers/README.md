@@ -9,6 +9,8 @@
   - [HelpProfileExplainerDialog(owner)](#M-MFR-GUI-Displayers-Display-HelpProfileExplainerDialog-System-Windows-Forms-IWin32Window- 'MFR.GUI.Displayers.Display.HelpProfileExplainerDialog(System.Windows.Forms.IWin32Window)')
   - [HelpProfileExplainerDialog()](#M-MFR-GUI-Displayers-Display-HelpProfileExplainerDialog 'MFR.GUI.Displayers.Display.HelpProfileExplainerDialog')
   - [OnViewErrorReportRequested(sender,e)](#M-MFR-GUI-Displayers-Display-OnViewErrorReportRequested-System-Object,MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs- 'MFR.GUI.Displayers.Display.OnViewErrorReportRequested(System.Object,MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs)')
+  - [ProfileNameDialogBox(type)](#M-MFR-GUI-Displayers-Display-ProfileNameDialogBox-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType- 'MFR.GUI.Displayers.Display.ProfileNameDialogBox(MFR.GUI.Dialogs.Constants.ProfileCreateOperationType)')
+  - [ProfileNameDialogBox(type,owner)](#M-MFR-GUI-Displayers-Display-ProfileNameDialogBox-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType,System-Windows-Forms-IWin32Window- 'MFR.GUI.Displayers.Display.ProfileNameDialogBox(MFR.GUI.Dialogs.Constants.ProfileCreateOperationType,System.Windows.Forms.IWin32Window)')
 - [Resources](#T-MFR-GUI-Displayers-Properties-Resources 'MFR.GUI.Displayers.Properties.Resources')
   - [Culture](#P-MFR-GUI-Displayers-Properties-Resources-Culture 'MFR.GUI.Displayers.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Displayers-Properties-Resources-ResourceManager 'MFR.GUI.Displayers.Properties.Resources.ResourceManager')
@@ -140,6 +142,56 @@ contains the event data. |
 ##### Remarks
 
 This method responds by launching Notepad to view the detailed report.
+
+<a name='M-MFR-GUI-Displayers-Display-ProfileNameDialogBox-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType-'></a>
+### ProfileNameDialogBox(type) `method`
+
+##### Summary
+
+Launches a dialog box to display a report that an error occurred.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+interface whose properties are set to the results of the user's selections in
+the dialog box.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| type | [MFR.GUI.Dialogs.Constants.ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') | A [ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') that
+specifies whether the dialog should be launched to create a new profile, or
+save an existing profile with a new name. |
+
+<a name='M-MFR-GUI-Displayers-Display-ProfileNameDialogBox-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType,System-Windows-Forms-IWin32Window-'></a>
+### ProfileNameDialogBox(type,owner) `method`
+
+##### Summary
+
+Launches a dialog box to display a report that an error occurred.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+interface whose properties are set to the results of the user's selections in
+the dialog box.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| type | [MFR.GUI.Dialogs.Constants.ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') | A [ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') that
+specifies whether the dialog should be launched to create a new profile, or
+save an existing profile with a new name. |
+| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface.
+
+
+
+This object plays the role of the parent window of the dialog box. |
 
 <a name='T-MFR-GUI-Displayers-Properties-Resources'></a>
 ## Resources `type`
