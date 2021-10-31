@@ -142,10 +142,6 @@
       <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
       <Name>MFR.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Solutions\MFR.Solutions.csproj">
-      <Project>{E4D3B201-8D47-4299-9B4A-209BA3220823}</Project>
-      <Name>MFR.Solutions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

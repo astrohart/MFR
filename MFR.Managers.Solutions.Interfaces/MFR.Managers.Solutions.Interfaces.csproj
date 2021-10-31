@@ -123,12 +123,6 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Solutions.Interfaces\MFR.Solutions.Interfaces.csproj">
-      <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
-      <Name>MFR.Solutions.Interfaces</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

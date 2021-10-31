@@ -147,18 +147,6 @@
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Solutions.Factories\MFR.Solutions.Factories.csproj">
-      <Project>{7AF7B9E8-D94A-45FD-A517-90BE6A06ECFA}</Project>
-      <Name>MFR.Solutions.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Solutions.Interfaces\MFR.Solutions.Interfaces.csproj">
-      <Project>{0790F0A1-7955-46A8-B703-848F6FAC70D3}</Project>
-      <Name>MFR.Solutions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.VisualStudio\MFR.VisualStudio.csproj">
-      <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
-      <Name>MFR.VisualStudio</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

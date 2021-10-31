@@ -144,10 +144,6 @@
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Tests.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.VisualStudio\MFR.VisualStudio.csproj">
-      <Project>{6555BA48-C2BD-421B-90DE-EAFE92A2C51A}</Project>
-      <Name>MFR.VisualStudio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
