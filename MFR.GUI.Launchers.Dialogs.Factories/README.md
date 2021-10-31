@@ -7,6 +7,8 @@
   - [SoleInstance()](#M-MFR-GUI-Launchers-Dialogs-Factories-GetErrorReportDialogLauncher-SoleInstance 'MFR.GUI.Launchers.Dialogs.Factories.GetErrorReportDialogLauncher.SoleInstance')
 - [GetHelpProfileExplainerDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Factories-GetHelpProfileExplainerDialogLauncher 'MFR.GUI.Launchers.Dialogs.Factories.GetHelpProfileExplainerDialogLauncher')
   - [SoleInstance()](#M-MFR-GUI-Launchers-Dialogs-Factories-GetHelpProfileExplainerDialogLauncher-SoleInstance 'MFR.GUI.Launchers.Dialogs.Factories.GetHelpProfileExplainerDialogLauncher.SoleInstance')
+- [GetProfileNameDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Factories-GetProfileNameDialogLauncher 'MFR.GUI.Launchers.Dialogs.Factories.GetProfileNameDialogLauncher')
+  - [SoleInstance()](#M-MFR-GUI-Launchers-Dialogs-Factories-GetProfileNameDialogLauncher-SoleInstance 'MFR.GUI.Launchers.Dialogs.Factories.GetProfileNameDialogLauncher.SoleInstance')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Factories-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Factories-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Factories.Properties.Resources.ResourceManager')
@@ -86,6 +88,38 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the object type requested is not supported. |
+
+<a name='T-MFR-GUI-Launchers-Dialogs-Factories-GetProfileNameDialogLauncher'></a>
+## GetProfileNameDialogLauncher `type`
+
+##### Namespace
+
+MFR.GUI.Launchers.Dialogs.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IProfileNameDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher 'MFR.GUI.Launchers.Dialogs.Interfaces.IProfileNameDialogLauncher')
+interface.
+
+<a name='M-MFR-GUI-Launchers-Dialogs-Factories-GetProfileNameDialogLauncher-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IProfileNameDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher 'MFR.GUI.Launchers.Dialogs.Interfaces.IProfileNameDialogLauncher')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IProfileNameDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher 'MFR.GUI.Launchers.Dialogs.Interfaces.IProfileNameDialogLauncher')
+interface.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Launchers-Dialogs-Factories-Properties-Resources'></a>
 ## Resources `type`
