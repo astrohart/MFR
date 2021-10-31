@@ -9,15 +9,16 @@ namespace MFR.GUI.Windows.Presenters.Constants
     public static class MainWindowPresenterMessages
     {
         /// <summary>
+        /// Unique identifier for the message that is sent by the Presenter when the
+        /// operation of creating a new Profile has failed.
+        /// </summary>
+        public static readonly Guid MWP_ADD_NEW_PROFILE_FAILED = Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for the message that is sent by the Presenter for
         /// the main application window when the history has just been cleared.
         /// </summary>
         public static readonly Guid MWP_ALL_HISTORY_CLEARED = Guid.NewGuid();
-
-        /// <summary>
-        /// Unique identifier for the message that is sent by the Presenter for the main application window when the user has clicked the Add New Profile button.
-        /// </summary>
-        public static readonly Guid MWP_ADD_NEW_PROFILE = Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for the message that is sent by the Presenter of
@@ -32,6 +33,13 @@ namespace MFR.GUI.Windows.Presenters.Constants
         /// imported from a file.
         /// </summary>
         public static readonly Guid MWP_CONFIGURATION_IMPORTED = Guid.NewGuid();
+
+        /// <summary>
+        /// Unique identifier for the message that is sent by the Presenter for the main
+        /// application window when the user has clicked the Add New Profile button.
+        /// </summary>
+        public static readonly Guid MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED =
+            Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for the message that is sent by the Presenter for

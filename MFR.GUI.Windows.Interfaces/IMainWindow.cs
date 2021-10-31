@@ -17,19 +17,17 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
-        /// Gets a reference to the <see cref="T:MFR.GUI.Controls.FoldUnfoldButton"/>
+        /// Gets a reference to the <see cref="T:MFR.GUI.Controls.FoldUnfoldButton" />
         /// that controls whether the form is the folded (smaller) size or
         /// unfolded (larger, with more options visible) size.
         /// </summary>
         FoldUnfoldButton FoldButton
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
@@ -45,8 +43,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         bool IsFolded
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -55,7 +52,8 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         bool MatchCase
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -63,16 +61,27 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         bool MatchExactWord
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
-        /// Gets a reference to the <see
-        /// cref="T:System.Windows.Forms.CheckedListBox"/> that has the list of operations.
+        /// Gets a reference to the
+        /// <see
+        ///     cref="T:System.Windows.Forms.CheckedListBox" />
+        /// that has the list of operations.
         /// </summary>
         CheckedListBox OperationsCheckedListBox
         {
-            [DebuggerStepThrough]
+            [DebuggerStepThrough] get;
+        }
+
+        /// <summary>
+        /// Gets a reference to a <see cref="T:System.Windows.Forms.ToolStripComboBox" />
+        /// that has a drop-down list of the profiles that the user has created.
+        /// </summary>
+        ToolStripComboBox ProfileListComboBox
+        {
             get;
         }
 
@@ -82,8 +91,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         IEntryRespectingComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
@@ -91,8 +99,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         bool SelectAll
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -102,8 +109,8 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         int SelectedOptionTab
         {
-            [DebuggerStepThrough]
-            get; set;
+            [DebuggerStepThrough] get;
+            set;
         }
 
         /// <summary>
@@ -112,22 +119,26 @@ namespace MFR.GUI.Windows.Interfaces
         /// </summary>
         IEntryRespectingComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
         /// Gets a string containing this application's version.
         /// </summary>
         /// <remarks>
-        /// Thanks to <a href="
+        /// Thanks to
+        /// <a
+        ///     href="
         /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
-        /// ">Kiran Suthar</a> 's answer on the Microsoft forums.
+        /// ">
+        /// Kiran
+        /// Suthar
+        /// </a>
+        /// 's answer on the Microsoft forums.
         /// </remarks>
         string Version
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
         }
     }
 }

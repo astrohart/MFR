@@ -11,17 +11,8 @@ namespace MFR.GUI.Launchers.Dialogs.Results.Interfaces
     /// Such an object describes the output of the choices made by the user when the
     /// <c>Error Report</c> dialog box is shown.
     /// </remarks>
-    public interface IErrorReportDialogLaunchResults
+    public interface IErrorReportDialogLaunchResults : IDialogBoxResults
     {
-        /// <summary>
-        /// Gets a <see cref="T:System.Windows.Forms.DialogResult" /> value that describes
-        /// the action that the user chose in order to dismiss the dialog box.
-        /// </summary>
-        DialogResult DialogResult
-        {
-            get;
-        }
-
         /// <summary>
         /// Gets a reference to an instance of an <see cref="T:System.Exception" /> object
         /// that describes, in detail, the error which occurred.

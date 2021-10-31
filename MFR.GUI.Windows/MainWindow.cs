@@ -5,11 +5,13 @@ using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Helpers;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs;
+using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Displayers;
 using MFR.GUI.Presenters.Associators;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
+using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
 using MFR.Managers.History.Factories;
@@ -18,6 +20,9 @@ using MFR.Renamers.Files.Factories;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.Settings.Profiles.Actions.Constants;
+using MFR.Settings.Profiles.Actions.Factories;
+using MFR.Settings.Profiles.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
@@ -39,17 +44,10 @@ namespace MFR.GUI.Windows
     public partial class MainWindow : Form, IMainWindow
     {
         /// <summary>
-        /// Reference to the presenter for this form.
-        /// </summary>
-        private IMainWindowPresenter _presenter;
-
-        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MainWindow()
-        {
-        }
+        static MainWindow() { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -78,14 +76,65 @@ namespace MFR.GUI.Windows
         } = new MainWindow();
 
         /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        [Log(AttributeExclude = true)] // do not log this method
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
+               Directory.Exists(StartingFolderComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object plays the role of the Presenter for this form, which determines the
+        /// behavior of this form.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        public IMainWindowPresenter Presenter
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a value that indicates whether the history is free of all
+        /// previous entries.
+        /// </summary>
+        private bool IsHistoryClear
+            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
+               ReplaceWithComboBox.IsClear();
+
+        [Log(AttributeExclude = true)] // do not log this method
+        private bool OnlyReplaceInFilesOperationIsEnabled
+            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
+               OperationsCheckedListBox.GetItemChecked(2);
+
+        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough]
-            get => findWhatcomboBox;
+            [DebuggerStepThrough] get => findWhatcomboBox;
         }
 
         /// <summary>
@@ -99,8 +148,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public FoldUnfoldButton FoldButton
         {
-            [DebuggerStepThrough]
-            get => foldButton;
+            [DebuggerStepThrough] get => foldButton;
         }
 
         /// <summary>
@@ -109,16 +157,6 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public string FullApplicationName
             => $"{ProgramText.MainWindowTitle} {Version}";
-
-        /// <summary>
-        /// Gets a value indicating whether the data entered on this form is valid.
-        /// </summary>
-        [Log(AttributeExclude = true)] // do not log this method
-        public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
-               Directory.Exists(StartingFolderComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
 
         /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
@@ -159,9 +197,16 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public CheckedListBox OperationsCheckedListBox
         {
-            [DebuggerStepThrough]
-            get => operationsCheckedListBox;
+            [DebuggerStepThrough] get => operationsCheckedListBox;
         }
+
+        /// <summary>
+        /// Gets a reference to a <see cref="T:System.Windows.Forms.ToolStripComboBox" />
+        /// that has a drop-down list of the profiles that the user has created.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public ToolStripComboBox ProfileListComboBox
+            => profileListComboBox;
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -170,8 +215,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough]
-            get => replaceWithComboBox;
+            [DebuggerStepThrough] get => replaceWithComboBox;
         }
 
         /// <summary>
@@ -191,8 +235,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public int SelectedOptionTab
         {
-            [DebuggerStepThrough]
-            get => optionsTabControl.SelectedIndex;
+            [DebuggerStepThrough] get => optionsTabControl.SelectedIndex;
             set => optionsTabControl.SelectedIndex = value;
         }
 
@@ -203,8 +246,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough]
-            get => startingFolderComboBox;
+            [DebuggerStepThrough] get => startingFolderComboBox;
         }
 
         /// <summary>
@@ -230,32 +272,6 @@ namespace MFR.GUI.Windows
                     .Version.ToString();
 
         /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the actions
-        /// associated with it.
-        /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a value that indicates whether the history is free of all
-        /// previous entries.
-        /// </summary>
-        private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
-
-        [Log(AttributeExclude = true)] // do not log this method
-        private bool OnlyReplaceInFilesOperationIsEnabled
-            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
-               OperationsCheckedListBox.GetItemChecked(2);
-
-        /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
         /// </summary>
         /// <param name="e">
@@ -266,7 +282,7 @@ namespace MFR.GUI.Windows
         {
             base.OnFormClosing(e);
 
-            _presenter.UpdateData();
+            Presenter.UpdateData();
 
             ConfigurationProvider.Save();
         }
@@ -283,7 +299,7 @@ namespace MFR.GUI.Windows
 
             Text = FullApplicationName;
 
-            _presenter.UpdateData(false);
+            Presenter.UpdateData(false);
 
             UpdateSize(
                 IsFolded
@@ -295,9 +311,22 @@ namespace MFR.GUI.Windows
 
             MakeButtonBitmapTransparent(switchButton);
 
-            FillProfileDropDownList();
+            Presenter.FillProfileDropDownList();
         }
 
+        /// <summary>
+        /// Determines whether the folder having the specified <paramref name="path" />
+        /// contains a Visual Studio Solution (*.sln) file.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the path of the folder to
+        /// check.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the folder with the specified
+        /// <paramref name="path" /> exists and contains at least one file with the
+        /// <c>.sln</c> file.
+        /// </returns>
         private static bool DoesDirectoryContainSolutionFile(string path)
         {
             if (string.IsNullOrWhiteSpace(path)) return false;
@@ -310,18 +339,60 @@ namespace MFR.GUI.Windows
                             .Any();
         }
 
-        private void FillProfileDropDownList()
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AddProfileFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This handler is called when the operation of creating a new profile fails.
+        /// <para />
+        /// This method responds by showing the user an error message box explaining what
+        /// happened.
+        /// </remarks>
+        private static void OnPresenterAddNewProfileFailed(object sender,
+            AddProfileFailedEventArgs e)
+            => xyLOGIX.Win32.Interact.Messages.ShowStopError(e.Message);
+
+        private static IProfile OnPresenterCreateNewBlankProfileRequested(
+            object sender, CreateNewBlankProfileRequestedEventArgs e)
         {
-            var profileCollection = _presenter.GetProfiles();
-            if (profileCollection == null)
-                return;
+            if (string.IsNullOrWhiteSpace(e.Name))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(e.Name)
+                );
 
-            if (profileCollection.Count == 0)
-                return;
+            IProfile result;
 
-            profileListComboBox.Items.AddRange(
-                profileCollection.ToArray<object>()
-            );
+            try
+            {
+                result = GetProfileListAction
+                         .For<string, IProfile>(
+                             ProfileListAction.CreateNewNamedProfile
+                         )
+                         .WithInput(e.Name)
+                         .Execute();
+
+                ConfigurationProvider.Configuration =
+                    result; // set the newly-created profile as the new configuration.
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = null;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -334,7 +405,7 @@ namespace MFR.GUI.Windows
                 "*** INFO: Attempting to obtain new Presenter object..."
             );
 
-            _presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
+            Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
                 .HavingWindowReference(this)
                 .WithFileRenamer(
                     MakeNewFileRenamer.FromScratch()
@@ -362,9 +433,9 @@ namespace MFR.GUI.Windows
                                             .Configuration
                 );
 
-            _presenter.UpdateData(false);
+            Presenter.UpdateData(false);
 
-            if (_presenter == null)
+            if (Presenter == null)
                 throw new InvalidOperationException(
                     "Failed to initialize the main application window."
                 );
@@ -379,6 +450,11 @@ namespace MFR.GUI.Windows
                                      .MWP_ALL_HISTORY_CLEARED
                              )
                              .AndEventHandler(OnPresenterAllHistoryCleared);
+            NewMessageMapping<AddProfileFailedEventArgs>.Associate
+                .WithMessageId(
+                    MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE_FAILED
+                )
+                .AndEventHandler(OnPresenterAddNewProfileFailed);
             NewMessageMapping<ConfigurationExportedEventArgs>.Associate
                 .WithMessageId(
                     MainWindowPresenterMessages.MWP_CONFIGURATION_EXPORTED
@@ -389,6 +465,12 @@ namespace MFR.GUI.Windows
                     MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
                 )
                 .AndEventHandler(OnPresenterConfigurationImported);
+            NewMessageMapping<CreateNewBlankProfileRequestedEventArgs, IProfile>
+                .Associate.WithMessageId(
+                    MainWindowPresenterMessages
+                        .MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED
+                )
+                .AndEventHandler(OnPresenterCreateNewBlankProfileRequested);
             NewMessageMapping.Associate.WithMessageId(
                                  MainWindowPresenterMessages
                                      .MWP_DATA_OPERATION_FINISHED
@@ -509,7 +591,7 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnClickPerformOperation(object sender, EventArgs e)
         {
-            _presenter.UpdateData();
+            Presenter.UpdateData();
 
             if (!ValidateData()) return;
 
@@ -529,7 +611,7 @@ namespace MFR.GUI.Windows
 
             try
             {
-                _presenter.DoSelectedOperations();
+                Presenter.DoSelectedOperations();
             }
             catch (Exception ex)
             {
@@ -566,9 +648,8 @@ namespace MFR.GUI.Windows
                 string.IsNullOrWhiteSpace(ReplaceWithComboBox.Text))
                 return; // nothing to do
 
-            var replaceWith = ReplaceWithComboBox.EnteredText;
-            ReplaceWithComboBox.EnteredText = FindWhatComboBox.EnteredText;
-            FindWhatComboBox.EnteredText = replaceWith;
+            (ReplaceWithComboBox.EnteredText, FindWhatComboBox.EnteredText) = (
+                FindWhatComboBox.EnteredText, ReplaceWithComboBox.EnteredText);
         }
 
         /// <summary>
@@ -702,7 +783,7 @@ namespace MFR.GUI.Windows
             var dialog = (OptionsDialog)sender;
             if (dialog == null) return;
 
-            _presenter.SaveConfigurationDataFrom(dialog);
+            Presenter.SaveConfigurationDataFrom(dialog);
 
             e.Handled =
                 true; // instruct the Options dialog box to re-gray out the Apply button
@@ -785,7 +866,7 @@ namespace MFR.GUI.Windows
         private void OnPresenterConfigurationImported(object sender,
             ConfigurationImportedEventArgs e)
         {
-            _presenter.UpdateData(false);
+            Presenter.UpdateData(false);
 
             MessageBox.Show(
                 this,
@@ -888,7 +969,7 @@ namespace MFR.GUI.Windows
                     UseWaitCursor = false;
                     Enabled = true;
 
-                    _presenter.CloseProgressDialog();
+                    Presenter.CloseProgressDialog();
                 }
             );
 
@@ -927,7 +1008,7 @@ namespace MFR.GUI.Windows
                     Enabled = false;
                     UseWaitCursor = true;
 
-                    _presenter.ShowProgressDialog();
+                    Presenter.ShowProgressDialog();
                 }
             );
 
@@ -971,7 +1052,7 @@ namespace MFR.GUI.Windows
         /// import, and then calls the presenter to perform the import operation.
         /// </remarks>
         private void OnToolsConfigImport(object sender, EventArgs e)
-            => _presenter.ImportConfiguration();
+            => Presenter.ImportConfiguration();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
@@ -993,9 +1074,26 @@ namespace MFR.GUI.Windows
         /// The goal is to prompt the user for the name of their new profile, create it,
         /// then add it to the list of profiles and then set it as the current profile.
         /// </remarks>
-        private void
-            OnToolsConfigurationNewProfile(object sender, EventArgs e)
+        private void OnToolsConfigurationNewProfile(object sender, EventArgs e)
         {
+            // Creating a new profile will blank out the application screen.
+            // Save the current configuration settings.
+            ConfigurationProvider.Save();
+
+            var results =
+                Display.ProfileNameDialogBox(ProfileCreateOperationType.New);
+            if (DialogResult.Cancel == results.DialogResult)
+                return;
+
+            if (string.IsNullOrWhiteSpace(results.ProfileName))
+            {
+                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                    "You cannot specify a blank value for the profile name."
+                );
+                return;
+            }
+
+            Presenter.AddProfile(results.ProfileName);
         }
 
         /// <summary>
@@ -1017,7 +1115,7 @@ namespace MFR.GUI.Windows
         /// that the user wants the configuration data to be exported to.
         /// </remarks>
         private void OnToolsExportConfig(object sender, EventArgs e)
-            => _presenter.ExportConfiguration();
+            => Presenter.ExportConfiguration();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
@@ -1036,7 +1134,7 @@ namespace MFR.GUI.Windows
         /// data source, and then reloading the screen from the configuration.
         /// </remarks>
         private void OnToolsHistoryClearAll(object sender, EventArgs e)
-            => _presenter.ClearAllHistory();
+            => Presenter.ClearAllHistory();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
@@ -1065,7 +1163,7 @@ namespace MFR.GUI.Windows
                 if (dialog.ShowDialog(this) != DialogResult.OK)
                     return;
 
-                _presenter.SaveConfigurationDataFrom(dialog);
+                Presenter.SaveConfigurationDataFrom(dialog);
             }
         }
 

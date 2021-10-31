@@ -119,18 +119,6 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void ExportConfiguration();
 
         /// <summary>
-        /// Loads the list of profiles that the user has created, for example,
-        /// to load into a combobox.
-        /// </summary>
-        /// <returns>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// interface.
-        /// </returns>
-        IProfileCollection GetProfiles();
-
-        /// <summary>
         /// Imports the configuration data for this application.
         /// </summary>
         /// <remarks>
@@ -187,5 +175,10 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// </summary>
         event CreateNewBlankProfileRequestedEventHandler
             CreateNewBlankProfileRequested;
+
+        /// <summary>
+        /// This method is called to populate the Profiles combo box.
+        /// </summary>
+        void FillProfileDropDownList();
     }
 }

@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="GetErrorReportDialogLauncher.cs" />
     <Compile Include="GetHelpProfileExplainerDialogLauncher.cs" />
+    <Compile Include="GetProfileNameDialogLauncher.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

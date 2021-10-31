@@ -11,7 +11,7 @@ namespace MFR.GUI.Launchers.Dialogs.Results
     /// </summary>
     [Log(AttributeExclude = true)]
     public class
-        ErrorReportDialogLaunchResults : IErrorReportDialogLaunchResults
+        ErrorReportDialogLaunchResults : DialogBoxResultsBase, IErrorReportDialogLaunchResults
     {
         /// <summary>
         /// Constructs a new instance of
@@ -35,19 +35,17 @@ namespace MFR.GUI.Launchers.Dialogs.Results
         /// </param>
         public ErrorReportDialogLaunchResults(DialogResult dialogResult,
             Exception exception, string errorReportContents,
-            string reproductionSteps)
+            string reproductionSteps) : base(dialogResult)
         {
-            DialogResult = dialogResult;
             Exception = exception;
             ErrorReportContents = errorReportContents;
             ReproductionSteps = reproductionSteps;
         }
 
         /// <summary>
-        /// Gets a <see cref="T:System.Windows.Forms.DialogResult" /> value that describes
-        /// the action that the user chose in order to dismiss the dialog box.
+        /// Gets a string tht contains the detailed error report.
         /// </summary>
-        public DialogResult DialogResult
+        public string ErrorReportContents
         {
             get;
         }
@@ -57,14 +55,6 @@ namespace MFR.GUI.Launchers.Dialogs.Results
         /// that describes, in detail, the error which occurred.
         /// </summary>
         public Exception Exception
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string tht contains the detailed error report.
-        /// </summary>
-        public string ErrorReportContents
         {
             get;
         }

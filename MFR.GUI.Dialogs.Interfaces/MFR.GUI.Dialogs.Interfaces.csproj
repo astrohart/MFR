@@ -108,7 +108,7 @@
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IErrorReportDialog.cs" />
     <Compile Include="IHelpProfileExplainerDialog.cs" />
-    <Compile Include="INewProfileNameDialog.cs" />
+    <Compile Include="IProfileNameDialog.cs" />
     <Compile Include="IOptionsDialog.cs" />
     <Compile Include="IProgressDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

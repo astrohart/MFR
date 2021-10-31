@@ -1,7 +1,7 @@
-﻿
+
 namespace MFR.GUI.Dialogs
 {
-    partial class NewProfileNameDialog
+    partial class ProfileNameDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProfileNameDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileNameDialog));
             this.profileNameLabel = new System.Windows.Forms.Label();
             this.profileNameTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -87,7 +87,7 @@ namespace MFR.GUI.Dialogs
             this.readMoreAboutProfilesLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.readMoreAboutProfilesLinkLabel.Click += new System.EventHandler(this.OnClickReadMoreAboutProfilesLinkLabel);
             // 
-            // NewProfileNameDialog
+            // ProfileNameDialog
             // 
             this.AcceptButton = this.createButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -104,7 +104,7 @@ namespace MFR.GUI.Dialogs
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "NewProfileNameDialog";
+            this.Name = "ProfileNameDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

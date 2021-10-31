@@ -133,7 +133,7 @@ namespace MFR.Settings.Profiles.Providers
         /// The object to which a reference is returned by this properties
         /// allows access to the set of profiles defined by the user.
         /// </remarks>
-        public IProfileCollection ProfileCollection
+        public IProfileCollection Profiles
         {
             get;
             protected set;  // to enable to be set by members of this class only
@@ -164,12 +164,12 @@ namespace MFR.Settings.Profiles.Providers
                 DebugLevel.Debug, "In ProfileProvider.Load"
             );
 
-            if (!File.Exists(pathname)) // oops! just use the default value of the ProfileCollection property
+            if (!File.Exists(pathname)) // oops! just use the default value of the Profiles property
                 return;
 
             try
             {
-                ProfileCollection = GetProfileListAction
+                Profiles = GetProfileListAction
                                 .For<IFileSystemEntry, IProfileCollection>(
                                     ProfileListAction.LoadProfileListFromFile)
                                 .WithInput(
@@ -185,10 +185,10 @@ namespace MFR.Settings.Profiles.Providers
                 DebugUtils.LogException(ex);
 
                 // just make a new, blank profile collection in case an error occurs.
-                ProfileCollection = new ProfileCollection();
+                Profiles = new ProfileCollection();
             }
 
-            if (ProfileCollection != null)
+            if (Profiles != null)
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info, "*** SUCCESS *** Profile list loaded."

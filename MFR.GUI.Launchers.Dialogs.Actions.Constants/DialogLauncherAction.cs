@@ -11,15 +11,21 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Constants
     public class DialogLauncherAction : ActionType
     {
         /// <summary>
-        /// Launches the error report dialog box.
+        /// Launches the Profile Name dialog box.
         /// </summary>
         public static readonly DialogLauncherAction LaunchErrorReportDialog =
             new DialogLauncherAction(Guid.NewGuid());
 
         /// <summary>
-        /// Launches the Help dialog tghat explains what Profiles are.
+        /// Launches the Help dialog that explains what Profiles are.
         /// </summary>
         public static readonly DialogLauncherAction LaunchHelpExplainerDialog =
+            new DialogLauncherAction(Guid.NewGuid());
+
+        /// <summary>
+        /// Launches the Profile Name dialog box.
+        /// </summary>
+        public static readonly DialogLauncherAction LaunchProfileNameDialog =
             new DialogLauncherAction(Guid.NewGuid());
 
         /// <summary>

@@ -68,7 +68,7 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// If this property is read prior to any profiles being loaded, it
         /// should return a reference the empty collection.
         /// </remarks>
-        IProfileCollection ProfileCollection
+        IProfileCollection Profiles
         {
             get;
         }

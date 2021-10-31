@@ -120,7 +120,7 @@ namespace MFR.GUI.Dialogs.Factories
         /// for fluent use.
         /// </returns>
         public static IErrorReportDialog
-            AttachSemdErrorReportRequestedEventHandler(
+            AttachSendErrorReportRequestedEventHandler(
                 this IErrorReportDialog self,
                 SendErrorReportRequestedEventHandler handler)
         {

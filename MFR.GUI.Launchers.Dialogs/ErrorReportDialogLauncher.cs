@@ -74,7 +74,7 @@ namespace MFR.GUI.Launchers.Dialogs
                             parms.ViewHandler
                         );
                     if (parms.SendHandler != null)
-                        dialog.AttachSemdErrorReportRequestedEventHandler(
+                        dialog.AttachSendErrorReportRequestedEventHandler(
                             parms.SendHandler
                         );
 

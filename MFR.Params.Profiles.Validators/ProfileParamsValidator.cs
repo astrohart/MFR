@@ -53,7 +53,7 @@ namespace MFR.Params.Profiles.Validators
             // If so, then the user must be shown an error message to inform the user that the
             // name cannot be reused.
             if (GetProfileProvider.SoleInstance()
-                                  .ProfileCollection
+                                  .Profiles
                                   .HasProfileNamed(ObjectToValidate.Name))
             {
                 OnValidationFailed(

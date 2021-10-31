@@ -9,33 +9,33 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.GUI.Launchers.Dialogs.Actions
 {
     /// <summary>
-    /// Launches the Error Report dialog box and collects the results.
+    /// Launches the Profile Name dialog box and collects the results.
     /// </summary>
-    public class LaunchErrorReportDialogAction : ActionBase<
-        IErrorReportDialogLaunchParams, IErrorReportDialogLaunchResults>
+    public class LaunchProfileNameDialogAction : ActionBase<
+        IProfileNameDialogLaunchParams, IProfileNameDialogLaunchResults>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static LaunchErrorReportDialogAction() { }
+        static LaunchProfileNameDialogAction() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LaunchErrorReportDialogAction() { }
+        protected LaunchProfileNameDialogAction() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.GUI.Launchers.Dialogs.Actions.LaunchErrorReportDialogAction" />
+        /// <see cref="T:MFR.GUI.Launchers.Dialogs.Actions.LaunchProfileNameDialogAction" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LaunchErrorReportDialogAction Instance
+        public static LaunchProfileNameDialogAction Instance
         {
             get;
-        } = new LaunchErrorReportDialogAction();
+        } = new LaunchProfileNameDialogAction();
 
         /// <summary>
         /// Gets the
@@ -48,7 +48,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         public override MessageType MessageType
         {
             get;
-        } = DialogLauncherAction.LaunchErrorReportDialog;
+        } = DialogLauncherAction.LaunchProfileNameDialog;
 
         /// <summary>
         /// Executes this message.
@@ -56,7 +56,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults" />
+        ///     cref="T:MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults" />
         /// interface.
         /// <para />
         /// This object's properties are initialized with the results of the user's choices
@@ -66,8 +66,8 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         /// Implementers shall override this method to provide the functionality
         /// of the request.
         /// </remarks>
-        protected override IErrorReportDialogLaunchResults CommonExecute()
-            => GetErrorReportDialogLauncher.SoleInstance()
+        protected override IProfileNameDialogLaunchResults CommonExecute()
+            => GetProfileNameDialogLauncher.SoleInstance()
                                            .Launch(Input);
     }
 }

@@ -8,10 +8,10 @@ namespace MFR.GUI.Dialogs.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
-    /// <see cref="T:MFR.GUI.Dialogs.NewProfileNameDialog" /> class.
+    /// <see cref="T:MFR.GUI.Dialogs.ProfileNameDialog" /> class.
     /// </summary>
     [TestFixture]
-    public class NewProfileNameDialogTests : DialogTestBase
+    public class ProfileNameDialogTests : DialogTestBase
     {
         /// <summary>
         /// Tests that the New Profile Name dialog works when the operation that the user
@@ -20,7 +20,7 @@ namespace MFR.GUI.Dialogs.Tests
         [Test]
         public void Test_AddNewProfile_Dialog_Works()
         {
-            using (var dialog = MakeNewNewProfileNameDialog.FromScratch())
+            using (var dialog = MakeNewProfileNameDialog.FromScratch())
             {
                 dialog.StartPosition = FormStartPosition.CenterScreen;
                 dialog.OperationType = ProfileCreateOperationType.New;
@@ -41,7 +41,7 @@ namespace MFR.GUI.Dialogs.Tests
         [Test]
         public void Test_SaveProfileAs_Dialog_Works()
         {
-            using (var dialog = MakeNewNewProfileNameDialog.FromScratch())
+            using (var dialog = MakeNewProfileNameDialog.FromScratch())
             {
                 dialog.StartPosition = FormStartPosition.CenterScreen;
                 dialog.OperationType = ProfileCreateOperationType.SaveAs;

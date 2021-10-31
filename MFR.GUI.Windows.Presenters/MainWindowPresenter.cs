@@ -1,11 +1,9 @@
 using MFR.Constants;
-using MFR.Errors.Reports.Commands.Constants;
-using MFR.Errors.Reports.Commands.Factories;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
-using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Initializers;
@@ -25,12 +23,14 @@ using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
-using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
+using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -94,17 +94,6 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.GUI.IMainWindow" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object provides the functionality of the main window of the application.
-        /// </remarks>
-        private IMainWindow _mainWindow;
-
-        /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
         ///     cref="T:MFR.GUI.IProgressDialog" />
         /// interface.
         /// </summary>
@@ -133,19 +122,59 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets the text to be searched for during the operations.
         /// </summary>
         private string FindWhat
-            => _mainWindow.FindWhatComboBox.EnteredText;
+            => FindWhatComboBox.EnteredText;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that plays the role of the Find What combo box.
+        /// </summary>
+        private IEntryRespectingComboBox FindWhatComboBox
+            => View.FindWhatComboBox;
 
         /// <summary>
         /// Gets the replacement text to be used during the operations.
         /// </summary>
         private string ReplaceWith
-            => _mainWindow.ReplaceWithComboBox.EnteredText;
+            => ReplaceWithComboBox.EnteredText;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that plays the role of the Replace With combo box on the main user interface.
+        /// </summary>
+        private IEntryRespectingComboBox ReplaceWithComboBox
+            => View.ReplaceWithComboBox;
 
         /// <summary>
         /// Gets the path to the starting folder of the search.
         /// </summary>
         private string StartingFolder
-            => _mainWindow.StartingFolderComboBox.EnteredText;
+            => StartingFolderComboBox.EnteredText;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that plays the role of the Starting Folder combo box on the main user
+        /// interface.
+        /// </summary>
+        private IEntryRespectingComboBox StartingFolderComboBox
+            => View.StartingFolderComboBox;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.IMainWindow" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides the functionality of the main window of the application.
+        /// </remarks>
+        public IMainWindow View
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -161,57 +190,18 @@ namespace MFR.GUI.Windows.Presenters
             => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
-        /// Occurs when the user issues a request to create a new, blank Profile.
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
         /// </summary>
-        public event CreateNewBlankProfileRequestedEventHandler
-            CreateNewBlankProfileRequested;
+        private IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Failed to add the requested profile. Parameter is a string containing the
         /// error message to display.
         /// </summary>
         public event AddProfileFailedEventHandler AddProfileFailed;
-
-        /// <summary>
-        /// Creates a 'profile' (really a way of saving a group of configuration
-        /// settings) and then adds it to the collection of profiles that the user has.
-        /// </summary>
-        /// <param name="name">
-        /// (Required.) A descriptive name for the profile.
-        /// <para />
-        /// The name of the profile can't be reused.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <paramref name="name" /> parameter has a
-        /// <see langref="null" /> reference, or is the blank or whitespace string.
-        /// <para />
-        /// The <paramref name="name" /> parameter is required.
-        /// </exception>
-        public void AddProfile(string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name)
-                );
-
-            // Check whether there is an existing profile with the name we are wanting to use.
-            // If so, then the user must be shown an error message to inform the user that the
-            // name cannot be reused.
-            if (GetProfileProvider.SoleInstance()
-                                  .ProfileCollection.HasProfileNamed(name))
-            {
-                OnAddProfileFailed(
-                    new AddProfileFailedEventArgs(
-                        string.Format(
-                            Resources.Error_ProfileWithNameAlreadyExists, name
-                        )
-                    )
-                );
-                return;
-            }
-
-            // TODO: Add code here to generate a new Profile object from the existing configuration and add it to the profile collection.
-        }
 
         /// <summary>
         /// Occurs when all the history has been cleared.
@@ -227,6 +217,12 @@ namespace MFR.GUI.Windows.Presenters
         /// Occurs when the configuration has been updated, say, by an import process.
         /// </summary>
         public event ConfigurationImportedEventHandler ConfigurationImported;
+
+        /// <summary>
+        /// Occurs when the user issues a request to create a new, blank Profile.
+        /// </summary>
+        public event CreateNewBlankProfileRequestedEventHandler
+            CreateNewBlankProfileRequested;
 
         /// <summary>
         /// Occurs when an error happens during a data operation.
@@ -259,6 +255,55 @@ namespace MFR.GUI.Windows.Presenters
         /// Occurs when the processing has started.
         /// </summary>
         public event EventHandler Started;
+
+        /// <summary>
+        /// Creates a 'profile' (really a way of saving a group of configuration
+        /// settings) and then adds it to the collection of profiles that the user has.
+        /// </summary>
+        /// <param name="name">
+        /// (Required.) A descriptive name for the profile.
+        /// <para />
+        /// The name of the profile can't be reused.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the <paramref name="name" /> parameter has a
+        /// <see langref="null" /> reference, or is the blank or whitespace string.
+        /// <para />
+        /// The <paramref name="name" /> parameter is required.
+        /// </exception>
+        public void AddProfile(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name)
+                );
+
+            // Check whether there is an existing profile with the name we are wanting to use.
+            // If so, then the user must be shown an error message to inform the user that the
+            // name cannot be reused.
+            if (GetProfileProvider.SoleInstance()
+                                  .Profiles.HasProfileNamed(name))
+            {
+                OnAddProfileFailed(
+                    new AddProfileFailedEventArgs(
+                        string.Format(
+                            Resources.Error_ProfileWithNameAlreadyExists, name
+                        )
+                    )
+                );
+                return;
+            }
+
+            GetProfileProvider.SoleInstance()
+                              .Profiles.Add(
+                                  OnCreateNewBlankProfileRequested(
+                                      new
+                                          CreateNewBlankProfileRequestedEventArgs(
+                                              name
+                                          )
+                                  )
+                              );
+        }
 
         /// <summary>
         /// Fluent-builder method for initializing the history manager
@@ -321,6 +366,36 @@ namespace MFR.GUI.Windows.Presenters
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
 
         /// <summary>
+        /// Begins the rename operation.
+        /// </summary>
+        public void DoSelectedOperations()
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In MainWindowPresenter.DoSelectedOperations"
+            );
+
+            if (View == null || _fileRenamer == null)
+                return;
+
+            // just in case, have the file renamer object update its
+            // configuration to match that which we have access to
+            _fileRenamer.UpdateConfiguration(Configuration);
+
+            ReinitializeProgressDialog();
+
+            ValidateInputs();
+
+            CommenceRenameOperation();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.DoSelectedOperations: Done."
+            );
+        }
+
+        /// <summary>
         /// Exports the current configuration data to a file on the user's hard drive.
         /// </summary>
         public void ExportConfiguration()
@@ -328,7 +403,7 @@ namespace MFR.GUI.Windows.Presenters
             _exportConfigDialog.InitialDirectory =
                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            if (_exportConfigDialog.ShowDialog(_mainWindow) != DialogResult.OK)
+            if (_exportConfigDialog.ShowDialog(View) != DialogResult.OK)
                 return;
 
             GetConfigurationProvider.SoleInstance()
@@ -340,18 +415,20 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Loads the list of profiles that the user has created, for example,
-        /// to load into a combobox.
+        /// This method is called to populate the Profiles combo box.
         /// </summary>
-        /// <returns>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// interface.
-        /// </returns>
-        public IProfileCollection GetProfiles()
-            => GetProfileProvider.SoleInstance()
-                                 .ProfileCollection;
+        public void FillProfileDropDownList()
+        {
+            if (ProfileProvider.Profiles == null)
+                return;
+
+            if (ProfileProvider.Profiles.Count == 0)
+                return;
+
+            View.ProfileListComboBox.Items.AddRange(
+                ProfileProvider.Profiles.ToArray<object>()
+            );
+        }
 
         /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.
@@ -372,7 +449,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </exception>
         public IMainWindowPresenter HavingWindowReference(IMainWindow view)
         {
-            _mainWindow = view ?? throw new ArgumentNullException(nameof(view));
+            View = view ?? throw new ArgumentNullException(nameof(view));
 
             UpdateData(
                 false
@@ -393,7 +470,7 @@ namespace MFR.GUI.Windows.Presenters
             _importConfigDialog.InitialDirectory =
                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            if (_importConfigDialog.ShowDialog(_mainWindow) != DialogResult.OK)
+            if (_importConfigDialog.ShowDialog(View) != DialogResult.OK)
                 return;
 
             GetConfigurationProvider.SoleInstance()
@@ -415,44 +492,14 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public void InitializeOperationSelections()
         {
-            _mainWindow.OperationsCheckedListBox.CheckByName(
+            View.OperationsCheckedListBox.CheckByName(
                 "Rename Files", Configuration.RenameFiles
             );
-            _mainWindow.OperationsCheckedListBox.CheckByName(
+            View.OperationsCheckedListBox.CheckByName(
                 "Rename Subfolders", Configuration.RenameSubfolders
             );
-            _mainWindow.OperationsCheckedListBox.CheckByName(
+            View.OperationsCheckedListBox.CheckByName(
                 "Replace in Files", Configuration.ReplaceInFiles
-            );
-        }
-
-        /// <summary>
-        /// Begins the rename operation.
-        /// </summary>
-        public void DoSelectedOperations()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.DoSelectedOperations"
-            );
-
-            if (_mainWindow == null || _fileRenamer == null)
-                return;
-
-            // just in case, have the file renamer object update its
-            // configuration to match that which we have access to
-            _fileRenamer.UpdateConfiguration(Configuration);
-
-            ReinitializeProgressDialog();
-
-            ValidateInputs();
-
-            CommenceRenameOperation();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.DoSelectedOperations: Done."
             );
         }
 
@@ -604,24 +651,24 @@ namespace MFR.GUI.Windows.Presenters
             if (bSavingAndValidating)
             {
                 Configuration.SaveCurrentStartingFolderAndHistory(
-                    _mainWindow.StartingFolderComboBox
+                    View.StartingFolderComboBox
                 );
 
                 Configuration.SaveCurrentFindWhatAndHistory(
-                    _mainWindow.FindWhatComboBox
+                    View.FindWhatComboBox
                 );
 
                 Configuration.SaveCurrentReplaceWithAndHistory(
-                    _mainWindow.ReplaceWithComboBox
+                    View.ReplaceWithComboBox
                 );
 
-                Configuration.IsFolded = _mainWindow.IsFolded;
+                Configuration.IsFolded = View.IsFolded;
 
-                Configuration.MatchCase = _mainWindow.MatchCase;
+                Configuration.MatchCase = View.MatchCase;
 
-                Configuration.MatchExactWord = _mainWindow.MatchExactWord;
+                Configuration.MatchExactWord = View.MatchExactWord;
 
-                Configuration.SelectedOptionTab = _mainWindow.SelectedOptionTab;
+                Configuration.SelectedOptionTab = View.SelectedOptionTab;
 
                 SaveOperationSelections();
             }
@@ -629,30 +676,29 @@ namespace MFR.GUI.Windows.Presenters
             {
                 InitializeOperationSelections();
 
-                _mainWindow.SelectedOptionTab = ConfigurationProvider
-                                                .Configuration
-                                                .SelectedOptionTab;
+                View.SelectedOptionTab = ConfigurationProvider.Configuration
+                    .SelectedOptionTab;
 
-                _mainWindow.MatchExactWord = Configuration.MatchExactWord;
+                View.MatchExactWord = Configuration.MatchExactWord;
 
-                _mainWindow.MatchCase = Configuration.MatchCase;
+                View.MatchCase = Configuration.MatchCase;
 
-                _mainWindow.IsFolded = Configuration.IsFolded;
+                View.IsFolded = Configuration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.StartingFolderComboBox,
+                    View.StartingFolderComboBox,
                     Configuration.StartingFolderHistory,
                     Configuration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.FindWhatComboBox, Configuration.FindWhatHistory,
+                    View.FindWhatComboBox, Configuration.FindWhatHistory,
                     Configuration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    _mainWindow.ReplaceWithComboBox,
-                    Configuration.ReplaceWithHistory, Configuration.ReplaceWith
+                    View.ReplaceWithComboBox, Configuration.ReplaceWithHistory,
+                    Configuration.ReplaceWith
                 );
             }
 
@@ -719,40 +765,6 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.EVENTNAME" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see
-        ///     cref="T:MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        protected virtual IProfile OnCreateNewBlankProfileRequested(
-            CreateNewBlankProfileRequestedEventArgs e)
-        {
-            var result = CreateNewBlankProfileRequested?.Invoke(this, e);
-            SendMessage<CreateNewBlankProfileRequestedEventArgs>.Having
-                .Args(this, e)
-                .ForMessageId(MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE);
-            return result;
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfileFailed" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        protected virtual void OnAddProfileFailed(AddProfileFailedEventArgs e)
-            => AddProfileFailed?.Invoke(this, e);
-
-        /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
         /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
         /// </summary>
@@ -766,15 +778,13 @@ namespace MFR.GUI.Windows.Presenters
             );
 
             Configuration.RenameFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Files"
-                );
+                View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
             Configuration.RenameSubfolders =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                View.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Subfolders"
                 );
             Configuration.ReplaceInFiles =
-                _mainWindow.OperationsCheckedListBox.GetCheckedByName(
+                View.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
 
@@ -813,8 +823,8 @@ namespace MFR.GUI.Windows.Presenters
                 "*** INFO: Attempting to associate the Main Window to its Presenter..."
             );
 
-            _mainWindow = mainWindow ??
-                          throw new ArgumentNullException(nameof(mainWindow));
+            View = mainWindow ??
+                   throw new ArgumentNullException(nameof(mainWindow));
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -827,6 +837,26 @@ namespace MFR.GUI.Windows.Presenters
             );
 
             return this;
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfileFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) Reference to an instance of
+        /// <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnAddProfileFailed(AddProfileFailedEventArgs e)
+        {
+            AddProfileFailed?.Invoke(this, e);
+            SendMessage<AddProfileFailedEventArgs>.Having.Args(this, e)
+                                                  .ForMessageId(
+                                                      MainWindowPresenterMessages
+                                                          .MWP_ADD_NEW_PROFILE_FAILED
+                                                  );
         }
 
         /// <summary>
@@ -886,6 +916,31 @@ namespace MFR.GUI.Windows.Presenters
                 .ForMessageId(
                     MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
                 );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.CreateNewBlankProfileRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual IProfile OnCreateNewBlankProfileRequested(
+            CreateNewBlankProfileRequestedEventArgs e)
+        {
+            var result = CreateNewBlankProfileRequested?.Invoke(this, e);
+            SendMessage<CreateNewBlankProfileRequestedEventArgs>.Having
+                .Args(this, e)
+                .ForMessageId(
+                    MainWindowPresenterMessages
+                        .MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED
+                );
+            return result;
         }
 
         /// <summary>

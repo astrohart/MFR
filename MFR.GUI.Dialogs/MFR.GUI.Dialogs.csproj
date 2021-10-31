@@ -128,11 +128,11 @@
     <Compile Include="HelpProfileExplainerDialog.Designer.cs">
       <DependentUpon>HelpProfileExplainerDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewProfileNameDialog.cs">
+    <Compile Include="ProfileNameDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewProfileNameDialog.Designer.cs">
-      <DependentUpon>NewProfileNameDialog.cs</DependentUpon>
+    <Compile Include="ProfileNameDialog.Designer.cs">
+      <DependentUpon>ProfileNameDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="OptionsDialog.cs">
       <SubType>Form</SubType>
@@ -163,8 +163,8 @@
     <EmbeddedResource Include="HelpProfileExplainerDialog.resx">
       <DependentUpon>HelpProfileExplainerDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewProfileNameDialog.resx">
-      <DependentUpon>NewProfileNameDialog.cs</DependentUpon>
+    <EmbeddedResource Include="ProfileNameDialog.resx">
+      <DependentUpon>ProfileNameDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
@@ -209,6 +209,10 @@
     <ProjectReference Include="..\MFR.GUI.Dialogs.Text.Retrievers.Factories\MFR.GUI.Dialogs.Text.Retrievers.Factories.csproj">
       <Project>{49002D48-38C0-49CF-A6CC-6314218AC468}</Project>
       <Name>MFR.GUI.Dialogs.Text.Retrievers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Interfaces\MFR.GUI.Launchers.Dialogs.Interfaces.csproj">
+      <Project>{405D44E5-B6A4-456C-9EA7-96EE44DAB6F8}</Project>
+      <Name>MFR.GUI.Launchers.Dialogs.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>

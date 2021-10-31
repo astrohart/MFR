@@ -4,9 +4,9 @@ using xyLOGIX.Core.Extensions;
 namespace MFR.GUI.Dialogs.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of the New Profile Name dialog's interface.
+    /// Defines the methods and properties of a New Profile Name dialog box.
     /// </summary>
-    public interface INewProfileNameDialog : IForm
+    public interface IProfileNameDialog : IForm
     {
         /// <summary>
         /// Gets or sets the
@@ -14,11 +14,19 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// that controls what type of profile-creation operation (e.g., New, Save As etc.)
         /// is being done.
         /// </summary>
-        ProfileCreateOperationType OperationType { get; set; }
+        ProfileCreateOperationType OperationType
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the value of the Profile Name text box.
         /// </summary>
-        string ProfileName { get; set; }
+        string ProfileName
+        {
+            get;
+            set;
+        }
     }
 }

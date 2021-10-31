@@ -56,6 +56,13 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
                         LaunchErrorReportDialogAction.Instance;
                     break;
 
+                case var _ when actionType ==
+                                DialogLauncherAction.LaunchProfileNameDialog:
+                    action =
+                        (IAction<TInput, TResult>)
+                        LaunchProfileNameDialogAction.Instance;
+                    break;
+
                         default:
                     throw new ArgumentOutOfRangeException(
                         nameof(actionType), actionType,
