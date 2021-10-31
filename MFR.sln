@@ -286,8 +286,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Registry.Helpers.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Messages.Commands.Tests", "MFR.Messages.Commands.Tests\MFR.Messages.Commands.Tests.csproj", "{9324A812-35AF-4C1A-A68D-83BA1BCBCB4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.VisualStudio.Tests", "MFR.VisualStudio.Tests\MFR.VisualStudio.Tests.csproj", "{288B6144-3857-4870-88D8-06B0DC081A02}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Events.Common", "MFR.Events.Common\MFR.Events.Common.csproj", "{84C1F71A-AAA4-4A08-9728-19E710965E4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.RunningObjects", "MFR.RunningObjects\MFR.RunningObjects.csproj", "{70756424-E38C-409C-89CD-B1C6839A9B10}"
@@ -1618,14 +1616,6 @@ Global
 		{9324A812-35AF-4C1A-A68D-83BA1BCBCB4B}.Release|x64.Build.0 = Release|x64
 		{9324A812-35AF-4C1A-A68D-83BA1BCBCB4B}.Release|x86.ActiveCfg = Release|x86
 		{9324A812-35AF-4C1A-A68D-83BA1BCBCB4B}.Release|x86.Build.0 = Release|x86
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Debug|x64.ActiveCfg = Debug|x64
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Debug|x64.Build.0 = Debug|x64
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Debug|x86.ActiveCfg = Debug|x86
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Debug|x86.Build.0 = Debug|x86
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x64.ActiveCfg = Release|x64
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x64.Build.0 = Release|x64
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x86.ActiveCfg = Release|x86
-		{288B6144-3857-4870-88D8-06B0DC081A02}.Release|x86.Build.0 = Release|x86
 		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x64.ActiveCfg = Debug|x64
 		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x64.Build.0 = Debug|x64
 		{84C1F71A-AAA4-4A08-9728-19E710965E4D}.Debug|x86.ActiveCfg = Debug|x86
