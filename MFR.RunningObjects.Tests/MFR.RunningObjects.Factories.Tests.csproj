@@ -140,14 +140,6 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Processes.Factories\MFR.Processes.Factories.csproj">
-      <Project>{4479E3F8-455F-47FD-BA84-9582F6DAC41F}</Project>
-      <Name>MFR.Processes.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Processes.Interfaces\MFR.Processes.Interfaces.csproj">
-      <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
-      <Name>MFR.Processes.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.RunningObjects.Factories\MFR.RunningObjects.Factories.csproj">
       <Project>{20A0420F-4A26-4A40-A43F-F27C40DB35BD}</Project>
       <Name>MFR.RunningObjects.Factories</Name>

@@ -123,10 +123,6 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Processes\MFR.Processes.csproj">
-      <Project>{74549559-E893-4D6E-8CFF-06A54B9FB2DC}</Project>
-      <Name>MFR.Processes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Processes.Interfaces\MFR.Processes.Interfaces.csproj">
       <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
       <Name>MFR.Processes.Interfaces</Name>
