@@ -1,15 +1,13 @@
-﻿using MFR.FileSystem.Retrievers.Factories;
-using MFR.Managers.Solutions.Interfaces;
-using MFR.Operations.Constants;
-using MFR.Solutions.Factories;
-using MFR.Solutions.Interfaces;
-using MFR.VisualStudio;
+﻿using MFR.Managers.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.VisualStudio;
+using xyLOGIX.VisualStudio.Solutions.Factories;
+using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.Managers.Solutions
@@ -21,6 +19,22 @@ namespace MFR.Managers.Solutions
     public class VisualStudioSolutionService : IVisualStudioSolutionService
     {
         /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        static VisualStudioSolutionService()
+        {
+        }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected VisualStudioSolutionService()
+        {
+        }
+
+        /// <summary>
         /// Gets a reference to the one and only instance of <see cref="T:MFR.Managers.Solutions.VisualStudioSolutionService"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -30,31 +44,19 @@ namespace MFR.Managers.Solutions
         } = new VisualStudioSolutionService();
 
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        static VisualStudioSolutionService() { }
-
-        /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this class.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        protected VisualStudioSolutionService() { }
-
-        /// <summary>
         /// Determines whether the folder having path passed in the
         /// <paramref
         ///     name="folder" />
-        /// parameter contains any *.sln files that represent
+        /// parameter contains any <c>*.sln</c> files that represent
         /// solutions currently loaded by running instances of Visual Studio.
         /// </summary>
         /// <param name="folder">
         /// (Required.) String containing the fully-qualified pathname of a
-        /// folder that should be scanned for *.sln files.
+        /// folder that should be scanned for <c>*.sln</c> files.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified <paramref name="folder" />
-        /// contains *.sln files that are currently loaded by running instances
+        /// contains <c>*.sln</c> files that are currently loaded by running instances
         /// of Visual Studio; <see langword="false" /> otherwise.
         /// </returns>
         public bool ContainsLoadedSolutions(string folder)
@@ -82,7 +84,7 @@ namespace MFR.Managers.Solutions
         /// Scans the folder whose path is provided in the
         /// <paramref
         ///     name="folder" />
-        /// parameter for *.sln files, and, for each file
+        /// parameter for <c>*.sln</c> files, and, for each file
         /// located, determines whether a running instance of Visual Studio has
         /// it loaded.
         /// <para />
@@ -91,7 +93,7 @@ namespace MFR.Managers.Solutions
         /// </summary>
         /// <param name="folder">
         /// (Required.) String containing the fully-qualified pathname of a
-        /// folder that should be scanned for *.sln files.
+        /// folder that should be scanned for <c>*.sln</c> files.
         /// </param>
         /// <returns>
         /// Read-only list of references to instances of objects that implement
@@ -123,7 +125,7 @@ namespace MFR.Managers.Solutions
                                          folder, "*.sln",
                                          SearchOption.AllDirectories
                                      )
-                                     .Where(f=>!ShouldSkipFile(f))
+                                     .Where(f => !ShouldSkipFile(f))
                                      .ToList();
 
                 if (!files.Any())

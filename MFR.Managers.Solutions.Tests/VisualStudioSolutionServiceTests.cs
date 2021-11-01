@@ -27,7 +27,7 @@ namespace MFR.Managers.Solutions.Tests
                     )
                 );
 
-            // If we are running this test, in all likelihood it's being done in the 
+            // If we are running this test, in all likelihood it's being done in the
             // Visual Studio instance that has the MFR project solution already loaded.
             // So we scan the .sln files in the MFR project folder to test that the method
             // works.

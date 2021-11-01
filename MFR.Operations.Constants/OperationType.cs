@@ -6,13 +6,13 @@ namespace MFR.Operations.Constants
     public enum OperationType
     {
         /// <summary>
-        /// Loads all the *.sln files in a given folder, each in its own Visual
+        /// Loads all the <c>*.sln</c> files in a given folder, each in its own Visual
         /// Studio instance.
         /// </summary>
         LoadAllSolutionsInFolder = 3,
 
         /// <summary>
-        /// Unloads all *.sln files in a given folder, that are currently loaded
+        /// Unloads all <c>*.sln</c> files in a given folder, that are currently loaded
         /// in running instances of Visual Studio.
         /// </summary>
         UnloadAllSolutionsInFolder = 4,

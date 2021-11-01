@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
 namespace MFR.Managers.Solutions.Interfaces
 {
@@ -15,23 +16,23 @@ namespace MFR.Managers.Solutions.Interfaces
     {
         /// <summary>
         /// Determines whether the folder having path passed in the <paramref
-        /// name="folder"/> parameter contains any *.sln files that represent
+        /// name="folder"/> parameter contains any <c>*.sln</c> files that represent
         /// solutions currently loaded by running instances of Visual Studio.
         /// </summary>
         /// <param name="folder">
         /// (Required.) String containing the fully-qualified pathname of a
-        /// folder that should be scanned for *.sln files.
+        /// folder that should be scanned for <c>*.sln</c> files.
         /// </param>
         /// <returns>
         /// <see langword="true"/> if the specified <paramref name="folder"/>
-        /// contains *.sln files that are currently loaded by running instances
+        /// contains <c>*.sln</c> files that are currently loaded by running instances
         /// of Visual Studio; <see langword="false"/> otherwise.
         /// </returns>
         bool ContainsLoadedSolutions(string folder);
 
         /// <summary>
         /// Scans the folder whose path is provided in the <paramref
-        /// name="folder"/> parameter for *.sln files, and, for each file
+        /// name="folder"/> parameter for <c>*.sln</c> files, and, for each file
         /// located, determines whether a running instance of Visual Studio has
         /// it loaded.
         /// <para/>
@@ -40,7 +41,7 @@ namespace MFR.Managers.Solutions.Interfaces
         /// </summary>
         /// <param name="folder">
         /// (Required.) String containing the fully-qualified pathname of a
-        /// folder that should be scanned for *.sln files.
+        /// folder that should be scanned for <c>*.sln</c> files.
         /// </param>
         /// <returns>
         /// Read-only list of references to instances of objects that implement

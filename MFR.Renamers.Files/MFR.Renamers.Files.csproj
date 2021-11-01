@@ -150,6 +150,14 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj">
+      <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
+      <Name>xyLOGIX.VisualStudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters.csproj">
+      <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
+      <Name>xyLOGIX.Win32.Messages.Filters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>

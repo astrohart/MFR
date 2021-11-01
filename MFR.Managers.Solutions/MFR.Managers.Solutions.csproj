@@ -135,6 +135,18 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Factories\xyLOGIX.VisualStudio.Solutions.Factories.csproj">
+      <Project>{39CCB01B-E522-4F6F-87CD-0FC7C48E818B}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
+      <Project>{1A47DA0E-D8A0-44D4-BE58-8ED1044E9138}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj">
+      <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
+      <Name>xyLOGIX.VisualStudio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
       <Name>MFR.FileSystem.Retrievers.Factories</Name>

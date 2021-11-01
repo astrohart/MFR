@@ -72,7 +72,7 @@ namespace MFR.CommandLine.Validators.Constants.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The specified starting directory, &apos;{0}&apos;, exists on disk but does not contain a Visual Studio Solution (*.sln) file.
         ///
-        ///Provide the pathname of a folder that contains a *.sln file in its topmost level, and then try to run this application again..
+        ///Provide the pathname of a folder that contains a <c>*.sln</c> file in its topmost level, and then try to run this application again..
         /// </summary>
         internal static string RootDirectoryDoesntContainSolution {
             get {

@@ -12,7 +12,7 @@ namespace MFR.Managers.Solutions.Actions.Constants
     public class VisualStudioSolutionServiceAction : ActionType
     {
         /// <summary>
-        /// Loads all the *.sln files in a given folder into separate instances
+        /// Loads all the <c>*.sln</c> files in a given folder into separate instances
         /// of Visual Studio.
         /// </summary>
         public static readonly VisualStudioSolutionServiceAction
@@ -26,7 +26,7 @@ namespace MFR.Managers.Solutions.Actions.Constants
             new VisualStudioSolutionServiceAction(Guid.Empty);
 
         /// <summary>
-        /// Unloads all the *.sln files in a given folder that also happen to be
+        /// Unloads all the <c>*.sln</c> files in a given folder that also happen to be
         /// loaded in instances of Visual Studio.
         /// </summary>
         public static readonly VisualStudioSolutionServiceAction
