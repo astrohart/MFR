@@ -129,10 +129,6 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Win32\MFR.Win32.csproj">
-      <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
-      <Name>MFR.Win32</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

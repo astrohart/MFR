@@ -234,10 +234,6 @@
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
       <Name>MFR.TextValues.Retrievers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Win32\MFR.Win32.csproj">
-      <Project>{2a5fb43f-6e4a-48d8-905a-914a95a94792}</Project>
-      <Name>MFR.Win32</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
