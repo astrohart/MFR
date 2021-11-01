@@ -116,6 +116,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SolutionFilePathRetriever.cs" />
     <Compile Include="TextInFilesRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
