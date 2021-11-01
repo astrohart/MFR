@@ -394,9 +394,12 @@ namespace MFR.Renamers.Files
             // .sln extension.  If any of them are open in Visual Studio, mark
             // them all for reloading, and then reload them.
 
-            var solutionPath = Path.Combine(
-                RootDirectoryPath, Path.GetFileName(RootDirectoryPath) + ".sln"
-            );
+            var solutionPath = Directory.EnumerateFiles(
+                                            RootDirectoryPath, "*.sln",
+                                            SearchOption.TopDirectoryOnly
+                                        )
+                                        .First();
+
             if (File.Exists(solutionPath))
             {
                 // determine if the solution whose path has been determined
