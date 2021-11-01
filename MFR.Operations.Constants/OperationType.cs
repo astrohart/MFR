@@ -6,8 +6,11 @@ namespace MFR.Operations.Constants
     public enum OperationType
     {
         /// <summary>
-        /// Loads all the <c>*.sln</c> files in a given folder, each in its own Visual
-        /// Studio instance.
+        /// Searches a specified folder for the paths of all the <c>*.sln</c> files within
+        /// it.
+        /// <para />
+        /// For each <c>*.sln</c> file found, opens it in its own separate instance of
+        /// Visual Studio.
         /// </summary>
         LoadAllSolutionsInFolder = 3,
 
