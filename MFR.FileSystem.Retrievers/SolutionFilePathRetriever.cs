@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MFR.FileSystem.Retrievers
 {
-    public class SolutionFilePathRetriever
+    public class SolutionFilePathRetriever : FileAndFolderNameFileSystemEntryListRetrieverBase
     {
         // TODO: Add methods and properties for this class here.
     }

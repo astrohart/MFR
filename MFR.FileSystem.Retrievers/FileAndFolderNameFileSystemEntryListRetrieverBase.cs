@@ -30,7 +30,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="replaceWith" />, is
         /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public override IFileSystemEntryListRetriever AndReplaceItWith(
+        public sealed override IFileSystemEntryListRetriever AndReplaceItWith(
             string replaceWith)
         {
             if (string.IsNullOrWhiteSpace(replaceWith))

@@ -1,6 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
