@@ -8,10 +8,10 @@
   - [DefaultProfileListDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileListDir')
   - [DefaultProfileListPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileListPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
-  - [ProfileCollection](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollection 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollection')
   - [ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListFilePath')
   - [ProfileListPathKeyName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathKeyName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathKeyName')
   - [ProfileListPathValueName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathValueName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathValueName')
+  - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Load(System.String)')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Save(System.String)')
@@ -68,20 +68,6 @@ Gets the default filename for the profile list file.
 Gets a reference to the one and only instance of
 [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider').
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollection'></a>
-### ProfileCollection `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-interface.
-
-##### Remarks
-
-The object to which a reference is returned by this properties
-allows access to the set of profiles defined by the user.
-
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListFilePath'></a>
 ### ProfileListFilePath `property`
 
@@ -104,6 +90,20 @@ in which Profile settings are stored.
 
 Gets a string whose value is the Registry value under which we store
 the path to the profile list file.
+
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles'></a>
+### Profiles `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface.
+
+##### Remarks
+
+The object to which a reference is returned by this properties
+allows access to the set of profiles defined by the user.
 
 <a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor'></a>
 ### #cctor() `method`
