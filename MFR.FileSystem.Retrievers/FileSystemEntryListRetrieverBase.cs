@@ -287,7 +287,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="searchPattern" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public IFileSystemEntryListRetriever UsingSearchPattern(
+        public virtual IFileSystemEntryListRetriever UsingSearchPattern(
             string searchPattern)
         {
             if (string.IsNullOrWhiteSpace(searchPattern))
