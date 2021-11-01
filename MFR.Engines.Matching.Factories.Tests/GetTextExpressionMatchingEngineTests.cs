@@ -14,40 +14,69 @@ namespace MFR.Engines.Matching.Factories.Tests
     public class GetTextExpressionMatchingEngineTests
     {
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method, when passed the
+        /// <see cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
+        /// value, returns an instance of
+        /// <see cref="T:MFR.Engines.Matching.FileNameMatchingEngine" />.
         /// </summary>
         [Test]
         public void
             Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType()
             => Assert.IsTrue(
-                GetTextExpressionMatchingEngine.For(OperationType.RenameFilesInFolder)
-                    is FileNameMatchingEngine
+                GetTextExpressionMatchingEngine.For(
+                    OperationType.RenameFilesInFolder
+                ) is FileNameMatchingEngine
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method, when passed the
+        /// <see cref="T:MFR.Operations.Constants.OperationType.RenameSubFolders" />
+        /// value, returns an instance of
+        /// <see cref="T:MFR.Engines.Matching.FolderNameMatchingEngine" />.
         /// </summary>
         [Test]
         public void
             Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType()
             => Assert.IsTrue(
-                GetTextExpressionMatchingEngine.For(OperationType.RenameSubFolders) is
-                    FolderNameMatchingEngine
+                GetTextExpressionMatchingEngine.For(
+                    OperationType.RenameSubFolders
+                ) is FolderNameMatchingEngine
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method, when passed the
+        /// <see cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
+        /// value, returns an instance of
+        /// <see cref="T:MFR.Engines.Matching.TextInFilesMatchingEngine" />.
         /// </summary>
         [Test]
         public void
             Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType()
             => Assert.IsTrue(
-                GetTextExpressionMatchingEngine.For(OperationType.ReplaceTextInFiles)
-                    is TextInFilesMatchingEngine
+                GetTextExpressionMatchingEngine.For(
+                    OperationType.ReplaceTextInFiles
+                ) is TextInFilesMatchingEngine
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
+        /// with the
+        /// <see cref="T:MFR.Operations.Constants.OperationType.CloseActiveSolution" />
+        /// value,
+        /// as this is not one of the values that a text-expression matcher object is
+        /// available for.
         /// </summary>
         [Test]
         public void
@@ -59,7 +88,14 @@ namespace MFR.Engines.Matching.Factories.Tests
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
+        /// with the
+        /// <see cref="T:MFR.Operations.Constants.OperationType.FindVisualStudio" /> value,
+        /// as this is not one of the values that a text-expression matcher object is
+        /// available for.
         /// </summary>
         [Test]
         public void
@@ -71,7 +107,16 @@ namespace MFR.Engines.Matching.Factories.Tests
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
+        /// with the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType.GettingListOfFilesToBeRenamed" />
+        /// value,
+        /// as this is not one of the values that a text-expression matcher object is
+        /// available for.
         /// </summary>
         [Test]
         public void
@@ -83,7 +128,15 @@ namespace MFR.Engines.Matching.Factories.Tests
             );
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
+        /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
+        /// with the
+        /// <see cref="T:MFR.Operations.Constants.OperationType.OpenActiveSolution" />
+        /// value,
+        /// as this is not one of the values that a text-expression matcher object is
+        /// available for.
         /// </summary>
         [Test]
         public void
