@@ -5,10 +5,10 @@
 
 - [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
   - [DefaultProfileListDir](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileListDir 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileListDir')
-  - [ProfileCollection](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollection 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollection')
   - [ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
   - [ProfileListPathKeyName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathKeyName')
   - [ProfileListPathValueName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathValueName')
+  - [Profiles](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Profiles')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Load(System.String)')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Save(System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources 'MFR.Settings.Profiles.Providers.Interfaces.Properties.Resources')
@@ -48,25 +48,6 @@ Gets the default folder for the configuration file.
 We store the profile configuration file, by default, in a folder
 under the current user's AppData folder.
 
-<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollection'></a>
-### ProfileCollection `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-interface.
-
-##### Remarks
-
-The object to which a reference is returned by this properties
-allows access to the set of profiles defined by the user.
-
-
-
-If this property is read prior to any profiles being loaded, it
-should return a reference the empty collection.
-
 <a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath'></a>
 ### ProfileListFilePath `property`
 
@@ -89,6 +70,25 @@ in which Profile settings are stored.
 
 Gets a string whose value is the Registry value under which we store
 the path to the profile list file.
+
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Profiles'></a>
+### Profiles `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface.
+
+##### Remarks
+
+The object to which a reference is returned by this properties
+allows access to the set of profiles defined by the user.
+
+
+
+If this property is read prior to any profiles being loaded, it
+should return a reference the empty collection.
 
 <a name='M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
