@@ -133,14 +133,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Managers.Solutions.Factories\MFR.Managers.Solutions.Factories.csproj">
-      <Project>{DE593641-0BE4-447B-B779-CF7D1CD9DD60}</Project>
-      <Name>MFR.Managers.Solutions.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
-      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
-      <Name>MFR.Managers.Solutions.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Tests.Common</Name>

@@ -1,5 +1,4 @@
-﻿using MFR.Solutions.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MFR.Managers.Solutions.Interfaces
 {

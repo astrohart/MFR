@@ -136,10 +136,6 @@
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Managers.Solutions.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.Solutions\MFR.Managers.Solutions.csproj">
-      <Project>{E1078BC5-24EB-44E8-81BD-09310D81FBD9}</Project>
-      <Name>MFR.Managers.Solutions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
