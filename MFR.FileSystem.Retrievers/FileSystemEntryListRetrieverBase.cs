@@ -280,6 +280,8 @@ namespace MFR.FileSystem.Retrievers
         /// The default value is nominally an asterisk; however, classes that
         /// implement this interface may specify something different.
         /// <para />
+        /// Child classes can override this method, e.g., to hard-code the search pattern value.
+        /// <para/>
         /// NOTE: Calling this method is optional. If this method is not called,
         /// then the default value will be utilized.
         /// </remarks>
