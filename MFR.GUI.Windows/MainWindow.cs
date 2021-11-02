@@ -591,26 +591,26 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnClickPerformOperation(object sender, EventArgs e)
         {
-            Presenter.UpdateData();
-
-            if (!ValidateData()) return;
-
-            //MessageBox.Show(
-            //    this,
-            //    "For debugging purposes, the operation(s) selected have been canceled.",
-            //    Application.ProductName, MessageBoxButtons.OK,
-            //    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
-            //);
-            //return;
-
-            UseWaitCursor = true;
-            Enabled = false;
-
-            GetConfigurationProvider.SoleInstance()
-                                    .Save(); // save the configuration to disk
-
             try
             {
+                Presenter.UpdateData();
+
+                if (!ValidateData()) return;
+
+                //MessageBox.Show(
+                //    this,
+                //    "For debugging purposes, the operation(s) selected have been canceled.",
+                //    Application.ProductName, MessageBoxButtons.OK,
+                //    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                //);
+                //return;
+
+                UseWaitCursor = true;
+                Enabled = false;
+
+                GetConfigurationProvider.SoleInstance()
+                                        .Save(); // save the configuration to disk
+
                 Presenter.DoSelectedOperations();
             }
             catch (Exception ex)
