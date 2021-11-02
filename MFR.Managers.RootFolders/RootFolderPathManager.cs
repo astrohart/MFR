@@ -1,5 +1,4 @@
-﻿using MFR.FileSystem.Interfaces;
-using MFR.Managers.RootFolders.Interfaces;
+﻿using MFR.Managers.RootFolders.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System.Collections.Generic;
 

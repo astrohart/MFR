@@ -1,5 +1,4 @@
-﻿using MFR.FileSystem.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MFR.Managers.RootFolders.Interfaces
 {
