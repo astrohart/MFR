@@ -103,6 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetRootFileManager.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
+      <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
+      <Name>MFR.Managers.RootFolders.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.RootFolders\MFR.Managers.RootFolders.csproj">
+      <Project>{D97B0B2A-192E-49F0-97F9-023286234559}</Project>
+      <Name>MFR.Managers.RootFolders</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

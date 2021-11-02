@@ -1,4 +1,7 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using MFR.FileSystem.Interfaces;
+using MFR.Managers.RootFolders.Interfaces;
+using PostSharp.Patterns.Diagnostics;
+using System.Collections.Generic;
 
 namespace MFR.Managers.RootFolders
 {
@@ -6,7 +9,7 @@ namespace MFR.Managers.RootFolders
     /// Class to manage a collection of root folder paths to iterate over, processing
     /// the find/replace operations for all folders listed in the collection.
     /// </summary>
-    public class RootFolderPathManager
+    public class RootFolderPathManager : IRootFolderPathManager
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -29,5 +32,17 @@ namespace MFR.Managers.RootFolders
         {
             get;
         } = new RootFolderPathManager();
+
+        /// <summary>
+        /// Gets a reference to a collection of instances of objects that implement the
+        /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// <para />
+        /// Each object plays the role of a folder from which the operation(s) that are
+        /// selected by the user start processing from.
+        /// </summary>
+        public ICollection<IFileSystemEntry> RootFolders
+        {
+            get;
+        } = new List<IFileSystemEntry>();
     }
 }
