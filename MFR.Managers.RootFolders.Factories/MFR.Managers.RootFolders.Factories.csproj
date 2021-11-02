@@ -103,7 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetRootFileManager.cs" />
+    <Compile Include="GetRootFolderPathManager.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

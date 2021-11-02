@@ -7,7 +7,7 @@ namespace MFR.Managers.RootFolders.Factories
     /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
     /// interface.
     /// </summary>
-    public static class GetRootFileManager
+    public static class GetRootFolderPathManager
     {
         /// <summary>
         /// Obtains access to the sole instance of the object that implements the
