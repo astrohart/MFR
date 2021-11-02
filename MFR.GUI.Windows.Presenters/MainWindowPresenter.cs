@@ -13,6 +13,7 @@ using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Managers.History.Interfaces;
+using MFR.Managers.RootFolders.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
@@ -364,6 +365,13 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public void CloseProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private IRootFolderPathManager RootFolderPathManager
+            => GetRootFolderPathManager.SoleInstance();
+
 
         /// <summary>
         /// Begins the rename operation.
