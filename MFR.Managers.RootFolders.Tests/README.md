@@ -8,9 +8,14 @@
   - [ResourceManager](#P-MFR-Managers-RootFolders-Tests-Properties-Resources-ResourceManager 'MFR.Managers.RootFolders.Tests.Properties.Resources.ResourceManager')
 - [RootFolderPathManagerTests](#T-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests')
   - [DUMMY_FOLDER](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER')
+  - [DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS')
+  - [RootDirectoryValidator](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootDirectoryValidator 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.RootDirectoryValidator')
   - [RootFolderPathManager](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootFolderPathManager 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.RootFolderPathManager')
+  - [GetAllSubFoldersThatContainSolutionsIn(path)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetAllSubFoldersThatContainSolutionsIn-System-String- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.GetAllSubFoldersThatContainSolutionsIn(System.String)')
+  - [GetSubFoldersOf(path)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetSubFoldersOf-System-String- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.GetSubFoldersOf(System.String)')
   - [Initialize()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Initialize 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Initialize')
   - [OnRootFolderPathManagerRootFolderAdded(sender,e)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-OnRootFolderPathManagerRootFolderAdded-System-Object,MFR-Managers-RootFolders-Events-RootFolderAddedEventArgs- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.OnRootFolderPathManagerRootFolderAdded(System.Object,MFR.Managers.RootFolders.Events.RootFolderAddedEventArgs)')
+  - [Test_AddSolutionSubFoldersOf_Method_Works()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSolutionSubFoldersOf_Method_Works 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Test_AddSolutionSubFoldersOf_Method_Works')
   - [Test_AddSubFoldersOf_Method_Works()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSubFoldersOf_Method_Works 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Test_AddSubFoldersOf_Method_Works')
 
 <a name='T-MFR-Managers-RootFolders-Tests-Properties-Resources'></a>
@@ -58,6 +63,22 @@ Provides unit tests for the methods, properties, and events of the
 
 String containing the path to a dummy folder.
 
+<a name='F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS'></a>
+### DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS `constants`
+
+##### Summary
+
+String containing the path to a dummy folder.
+
+<a name='P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootDirectoryValidator'></a>
+### RootDirectoryValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
+interface.
+
 <a name='P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootFolderPathManager'></a>
 ### RootFolderPathManager `property`
 
@@ -66,6 +87,59 @@ String containing the path to a dummy folder.
 Gets a reference to an instance of an object that implements the
 [IRootFolderPathManager](#T-MFR-Managers-RootFolders-Interfaces-IRootFolderPathManager 'MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager')
 interface.
+
+<a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetAllSubFoldersThatContainSolutionsIn-System-String-'></a>
+### GetAllSubFoldersThatContainSolutionsIn(path) `method`
+
+##### Summary
+
+Retrieves a list of the top-level folders of the folder having the specified
+`path`, the criteria for being in the set of returned strings
+being that the folder must contain a file whose name ends with the `.sln`
+extension.
+
+##### Returns
+
+Collection of strings containing the fully-qualified pathnames of all
+top-level subfolders of the folder having the specified
+`path` that contain at least one file whose name has the
+extension `.sln`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) (Required.) String containing the
+fully-qualified pathname of the folder whose subfolers are to be enumerated. |
+
+<a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetSubFoldersOf-System-String-'></a>
+### GetSubFoldersOf(path) `method`
+
+##### Summary
+
+Obtains a reference to a collection of strings that are the fully-qualified
+pathnames of the subfolders of the folder having the specified
+`path`, to the first level down only.
+
+##### Returns
+
+Collection of strings; this collection is the empty set if an error
+occurs or the `path` parameter is blank, or whose value
+refers to a folder that does not exist on the disk; otherwise, a collection of
+strings containing the pathnames of all of the top-level subfolders of the
+folder having the specified `path` is returned.
+
+
+
+The empty collection is also returned if an I/O or other operating-system error
+occurs during the execution of the search.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) (Required.) String containing the
+fully-qualified pathname of the folder to start searching in. |
 
 <a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Initialize'></a>
 ### Initialize() `method`
@@ -101,6 +175,19 @@ contains the event data. |
 
 This method responds by writing the pathname of the folder that has
 been added to the manager's collection, to the console output.
+
+<a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSolutionSubFoldersOf_Method_Works'></a>
+### Test_AddSolutionSubFoldersOf_Method_Works() `method`
+
+##### Summary
+
+Asserts that the
+[AddSolutionSubFoldersOf](#M-MFR-Managers-RootFolders-Interfaces-IRootFolderPathManager-AddSolutionSubFoldersOf 'MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager.AddSolutionSubFoldersOf')
+method works properly.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSubFoldersOf_Method_Works'></a>
 ### Test_AddSubFoldersOf_Method_Works() `method`
