@@ -9,6 +9,8 @@
 - [RootFolderPathManagerTests](#T-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests')
   - [DUMMY_FOLDER](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER')
   - [RootFolderPathManager](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootFolderPathManager 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.RootFolderPathManager')
+  - [Initialize()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Initialize 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Initialize')
+  - [OnRootFolderPathManagerRootFolderAdded(sender,e)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-OnRootFolderPathManagerRootFolderAdded-System-Object,MFR-Managers-RootFolders-Events-RootFolderAddedEventArgs- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.OnRootFolderPathManagerRootFolderAdded(System.Object,MFR.Managers.RootFolders.Events.RootFolderAddedEventArgs)')
   - [Test_AddSubFoldersOf_Method_Works()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSubFoldersOf_Method_Works 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Test_AddSubFoldersOf_Method_Works')
 
 <a name='T-MFR-Managers-RootFolders-Tests-Properties-Resources'></a>
@@ -64,6 +66,41 @@ String containing the path to a dummy folder.
 Gets a reference to an instance of an object that implements the
 [IRootFolderPathManager](#T-MFR-Managers-RootFolders-Interfaces-IRootFolderPathManager 'MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager')
 interface.
+
+<a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Initialize'></a>
+### Initialize() `method`
+
+##### Summary
+
+Initializes the state of this fixture for every unit test session.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-OnRootFolderPathManagerRootFolderAdded-System-Object,MFR-Managers-RootFolders-Events-RootFolderAddedEventArgs-'></a>
+### OnRootFolderPathManagerRootFolderAdded(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Managers-RootFolders-Interfaces-IRootFolderPathManager-RootFolderAdded 'MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager.RootFolderAdded')
+event raised by the Root Folder Path Manager object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.Managers.RootFolders.Events.RootFolderAddedEventArgs](#T-MFR-Managers-RootFolders-Events-RootFolderAddedEventArgs 'MFR.Managers.RootFolders.Events.RootFolderAddedEventArgs') | A
+[RootFolderAddedEventArgs](#T-MFR-Managers-RootFolders-Events-RootFolderAddedEventArgs 'MFR.Managers.RootFolders.Events.RootFolderAddedEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+This method responds by writing the pathname of the folder that has
+been added to the manager's collection, to the console output.
 
 <a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSubFoldersOf_Method_Works'></a>
 ### Test_AddSubFoldersOf_Method_Works() `method`
