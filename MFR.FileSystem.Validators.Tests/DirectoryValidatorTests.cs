@@ -12,7 +12,7 @@ namespace MFR.FileSystem.Validators.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.FileValidator" />
+    ///     cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />
     /// class.
     /// </summary>
     [TestFixture]

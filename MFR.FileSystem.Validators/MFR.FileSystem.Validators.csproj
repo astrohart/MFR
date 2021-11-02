@@ -108,13 +108,14 @@
     <Compile Include="DirectoryValidator.cs" />
     <Compile Include="FileSystemEntryValidator.cs" />
     <Compile Include="FileSystemEntryValidatorBase.cs" />
-    <Compile Include="FileValidator.cs" />
+    <Compile Include="ProjectFileValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SolutionFileValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

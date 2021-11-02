@@ -49,6 +49,10 @@ namespace MFR.FileSystem.Retrievers.Factories
 
             switch (type)
             {
+                case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
+                    retriever = SolutionFilePathRetriever.Instance;
+                    break;
+
                 case OperationType.RenameFilesInFolder:
                     retriever = FilesToRenameRetriever.Instance;
                     break;

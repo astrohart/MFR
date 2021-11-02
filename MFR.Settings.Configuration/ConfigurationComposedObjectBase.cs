@@ -131,15 +131,19 @@ namespace MFR.Settings.Configuration
         /// Verifies that configuration has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// If no configuration is attached to this object, then a new
+        /// If no configuration is attached to this object, then
         /// <see
-        ///     cref="T:MFR.Settings.ConfigurationNotAttachedException" />
-        /// exception is thrown.
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException" />
+        /// is thrown.
+        /// <para />
+        /// <strong>NOTE:</strong> Child classes may override this method, e.g., to make
+        /// attaching a configuration object optional.
         /// </remarks>
-        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
-        public void VerifyConfigurationAttached()
+        public virtual void VerifyConfigurationAttached()
         {
             if (IsConfigurationAttached)
                 return;

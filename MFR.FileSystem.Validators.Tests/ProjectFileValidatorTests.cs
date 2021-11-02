@@ -8,27 +8,27 @@ namespace MFR.FileSystem.Validators.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.FileValidator" />
+    ///     cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />
     /// class.
     /// </summary>
     [TestFixture]
     [Log(AttributeExclude = true)]
-    public class FileValidatorTests
+    public class ProjectFileValidatorTests
     {
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Validators.FileValidator" />.
+        /// <see cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />.
         /// </summary>
         /// <remarks>
         /// This property is meant for fluent use.
         /// </remarks>
-        private static FileValidator ThatTheFileValidatorSays
-            => FileValidator.Instance;
+        private static ProjectFileValidator ThatTheProjectFileValidatorSays
+            => ProjectFileValidator.Instance;
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="false" /> in the event that it's passed
         /// the pathname of a file that matches the operational criteria.
         /// </summary>
@@ -39,7 +39,7 @@ namespace MFR.FileSystem.Validators.Tests
                 File.Exists(StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA)
             );
             Assert.IsFalse(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA
                 )
             );
@@ -48,18 +48,18 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> in the case that it's passed
         /// the blank/empty string as an argument.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForBlankPath()
-            => Assert.IsTrue(ThatTheFileValidatorSays.ShouldSkip(string.Empty));
+            => Assert.IsTrue(ThatTheProjectFileValidatorSays.ShouldSkip(string.Empty));
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the fully
         /// qualified pathname of a dotfile.
         /// <para />
@@ -70,7 +70,7 @@ namespace MFR.FileSystem.Validators.Tests
         {
             Assert.IsTrue(File.Exists(StringConstants.PATHNAME_OF_DOTFILE));
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_DOTFILE
                 )
             );
@@ -79,7 +79,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the
         /// fully-qualified pathname of a file that is found in the <c>bin\</c>
         /// subfolder of a given project's directory.
@@ -93,7 +93,7 @@ namespace MFR.FileSystem.Validators.Tests
                 )
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER
                 )
             );
@@ -102,7 +102,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that exists within the <c>.git</c> dotfolder of a Git repository.
         /// </summary>
@@ -115,7 +115,7 @@ namespace MFR.FileSystem.Validators.Tests
                 )
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER
                 )
             );
@@ -124,7 +124,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when the pathname of a file
         /// that is inside the <c>obj\</c> subfolder of a project is passed to it.
         /// </summary>
@@ -138,7 +138,7 @@ namespace MFR.FileSystem.Validators.Tests
                 )
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants
                         .PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER
                 )
@@ -148,7 +148,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when provided the pathname of
         /// a file under the <c>packages\</c> folder of a solution as its input.
         /// </summary>
@@ -162,7 +162,7 @@ namespace MFR.FileSystem.Validators.Tests
                 )
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants
                         .PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER
                 )
@@ -172,7 +172,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file located under the <c>.vs\</c> subfolder of a solution.
         /// </summary>
@@ -185,7 +185,7 @@ namespace MFR.FileSystem.Validators.Tests
                 )
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER
                 )
             );
@@ -194,7 +194,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the
         /// <see
         ///     langword="null" />
@@ -202,12 +202,12 @@ namespace MFR.FileSystem.Validators.Tests
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForNullInput()
-            => Assert.IsTrue(ThatTheFileValidatorSays.ShouldSkip(null));
+            => Assert.IsTrue(ThatTheProjectFileValidatorSays.ShouldSkip(null));
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that is guaranteed not to exist on the disk.
         /// </summary>
@@ -216,7 +216,7 @@ namespace MFR.FileSystem.Validators.Tests
         {
             Assert.IsFalse(File.Exists(StringConstants.NONEXISTENT_FILE));
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.NONEXISTENT_FILE
                 )
             );
@@ -225,7 +225,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that has no extension.
         /// </summary>
@@ -238,7 +238,7 @@ namespace MFR.FileSystem.Validators.Tests
                 )
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_HAVING_NO_EXTENSION
                 )
             );
@@ -247,20 +247,20 @@ namespace MFR.FileSystem.Validators.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that has zero length.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForZeroLengthFile()
             => Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(Path.GetTempFileName())
+                ThatTheProjectFileValidatorSays.ShouldSkip(Path.GetTempFileName())
             );
 
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.FileSystem.Validators.FileValidator.ShouldSkip" />
+        ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
         /// file that has zero length.
         /// </summary>
@@ -271,7 +271,7 @@ namespace MFR.FileSystem.Validators.Tests
                 File.Exists(StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE)
             );
             Assert.IsTrue(
-                ThatTheFileValidatorSays.ShouldSkip(
+                ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE
                 )
             );

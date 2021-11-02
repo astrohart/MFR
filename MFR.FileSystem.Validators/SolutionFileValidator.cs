@@ -6,80 +6,41 @@ using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.FileSystem.Validators
 {
     /// <summary>
-    /// Defines an object that validates the paths of files.
+    /// Defines an object that validates the paths of Visual Studio Solution (those
+    /// whose names have the extension <c>.sln</c>) files.
     /// </summary>
-    public class FileValidator : FileSystemEntryValidatorBase
+    public class SolutionFileValidator : FileSystemEntryValidatorBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FileValidator() { }
+        static SolutionFileValidator()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected FileValidator() { }
+        protected SolutionFileValidator()
+        {
+        }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Validators.FileValidator" />.
+        /// <see cref="T:MFR.FileSystem.Validators.SolutionFileValidator" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static FileValidator Instance
+        public static SolutionFileValidator Instance
         {
             get;
-        } = new FileValidator();
-
-        /// <summary>
-        /// Determines whether the specified file-system
-        /// <paramref
-        ///     name="entry" />
-        /// exists on the disk.
-        /// </summary>
-        /// <param name="entry">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the file-system <paramref name="entry" />
-        /// exists on the disk; <see langword="false" /> otherwise.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        [Log(AttributeExclude = true)]
-        public override bool DoesExist(IFileSystemEntry entry)
-        {
-            if (entry == null) throw new ArgumentNullException(nameof(entry));
-
-            if (string.IsNullOrWhiteSpace(entry.Path))
-                return false;
-
-            var result = false;
-
-            try
-            {
-                result = File.Exists(entry.Path);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
+        } = new SolutionFileValidator();
 
         /// <summary>
         /// Determines whether a file system <paramref name="entry" /> exists on
@@ -144,21 +105,21 @@ namespace MFR.FileSystem.Validators
         /// </returns>
         public override bool ShouldSkip(string path)
         {
-            var result = false;
+            var result = true;
+
+            if (string.IsNullOrWhiteSpace(path)) return result;
+
+            if (!Path.GetExtension(path)
+                     .IsAnyOf(".sln")) return result;
 
             try
             {
-                result = string.IsNullOrWhiteSpace(path) ||
+                result = base.ShouldSkip(path) ||
                          string.IsNullOrWhiteSpace(Path.GetExtension(path)) ||
-                         !File.Exists(path) || path.Contains("packages") ||
-                         path.Contains(".git") || path.Contains(".vs") ||
-                         path.Contains(@"\bin") || path.Contains(@"\obj") ||
-                         Path.GetFileName(path)
-                             .StartsWith(".") || MakeNewFileInfo.ForPath(path)
-                             .IsZeroLengthFile() || Path.GetExtension(path)
-                             .IsAnyOf(
-                                 ".exe", ".bat", ".com", ".pif", ".rar", ".zip"
-                             );
+                         MakeNewFileInfo.ForPath(path)
+                                        .IsZeroLengthFile() || !Path
+                             .GetExtension(path)
+                             .IsAnyOf(".sln");
             }
             catch (Exception ex)
             {

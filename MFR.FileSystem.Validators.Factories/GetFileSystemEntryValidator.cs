@@ -45,9 +45,13 @@ namespace MFR.FileSystem.Validators.Factories
 
             switch (type)
             {
+                case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
+                    validator = SolutionFileValidator.Instance;
+                    break;
+
                 case OperationType.ReplaceTextInFiles:
                 case OperationType.RenameFilesInFolder:
-                    validator = FileValidator.Instance;
+                    validator = ProjectFileValidator.Instance;
                     break;
 
                 case OperationType.RenameSubFolders:

@@ -67,11 +67,11 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <remarks>
         /// If no configuration is attached to this object, then a new
         /// <see
-        ///     cref="T:MFR.Settings.ConfigurationNotAttachedException" />
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException" />
         /// exception is thrown.
         /// </remarks>
         /// <exception
-        ///     cref="T:MFR.Settings.ConfigurationNotAttachedException">
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         void VerifyConfigurationAttached();

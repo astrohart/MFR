@@ -1,4 +1,3 @@
-using MFR.Settings.Configuration;
 using MFR.Engines.Matching.Factories;
 using MFR.Engines.Matching.Interfaces;
 using MFR.Expressions.Matches;
@@ -12,11 +11,13 @@ using MFR.FileSystem.Validators.Factories;
 using MFR.FileSystem.Validators.Interfaces;
 using MFR.Invokers.Factories;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -91,7 +92,7 @@ namespace MFR.FileSystem.Retrievers
         /// default value of this property is nominally an asterisk; however,
         /// classes that implement this interface may specify something different.
         /// </remarks>
-        protected string SearchPattern
+        protected virtual string SearchPattern
         {
             get;
             set;
@@ -127,7 +128,9 @@ namespace MFR.FileSystem.Retrievers
         [Log(AttributeExclude = true)]
         private ITextExpressionMatchingEngine TextExpressionMatchingEngineSays
             => GetTextExpressionMatchingEngine.For(OperationType)
-                                       .AndAttachConfiguration(Configuration);
+                                              .AndAttachConfiguration(
+                                                  Configuration
+                                              );
 
         /// <summary>
         /// Gets one of the
@@ -190,7 +193,8 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
@@ -280,8 +284,9 @@ namespace MFR.FileSystem.Retrievers
         /// The default value is nominally an asterisk; however, classes that
         /// implement this interface may specify something different.
         /// <para />
-        /// Child classes can override this method, e.g., to hard-code the search pattern value.
-        /// <para/>
+        /// Child classes can override this method, e.g., to hard-code the search pattern
+        /// value.
+        /// <para />
         /// NOTE: Calling this method is optional. If this method is not called,
         /// then the default value will be utilized.
         /// </remarks>
@@ -363,8 +368,15 @@ namespace MFR.FileSystem.Retrievers
         /// <paramref
         ///     name="entry" />
         /// provided passes the additional path-filtering
-        /// crtieria specified by the <paramref name="pathFilter" /> predicate.
+        /// criteria specified by the <paramref name="pathFilter" /> predicate.
         /// </summary>
+        /// <param name="entry">
+        /// (Optional.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
+        /// interface that has the data to run decision-making upon. If this
+        /// parameter is <see langword="null" />, then this method returns
+        /// <see langword="false" />.
+        /// </param>
         /// <param name="pathFilter">
         /// (Optional.) A <see cref="T:System.Predicate" /> that points to the
         /// logic to be executed to determine a match to the file-system
@@ -373,23 +385,25 @@ namespace MFR.FileSystem.Retrievers
         ///     langword="null" />
         /// , then this method returns <see langword="true" />.
         /// </param>
-        /// <param name="entry">
-        /// (Optional.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
-        /// interface that has the data to run decision-making upon. If this
-        /// parameter is <see langword="null" />, then this method returns
-        /// <see langword="false" />.
-        /// </param>
         /// <returns>
         /// <see langword="true" /> if the file-system <paramref name="entry" />
         /// passed the path-filtering criteria in <paramref name="pathFilter" />,
         /// or if <paramref name="pathFilter" /> is <see langword="null" />;
         /// otherwise, <see langword="false" /> is returned.
         /// </returns>
-        protected static bool PassesPathFilter(Predicate<string> pathFilter,
-            IFileSystemEntry entry)
-            => MakeNewPathFilterInvoker.For(entry)
-                                    .Passes(pathFilter);
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if any of the required
+        /// parameters, <paramref name="entry" />, or <paramref name="pathFilter" />, are
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        protected static bool PassesPathFilter(IFileSystemEntry entry,
+            Predicate<string> pathFilter)
+        {
+            if (entry == null) throw new ArgumentNullException(nameof(entry));
+
+            return pathFilter == null || MakeNewPathFilterInvoker.For(entry)
+                                           .Passes(pathFilter);
+        }
 
         /// <summary>
         /// Provides the implementation of the
@@ -436,7 +450,8 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.Configuration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
-        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
@@ -468,7 +483,8 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
@@ -488,7 +504,9 @@ namespace MFR.FileSystem.Retrievers
             return (MatchExpression)GetMatchExpressionFactory.For(OperationType)
                 .AndAttachConfiguration(Configuration)
                 .ForTextValue(
-                    OperationType == OperationType.ReplaceTextInFiles ? entry.UserState as string : entry.Path
+                    OperationType == OperationType.ReplaceTextInFiles
+                        ? entry.UserState as string
+                        : entry.Path
                 )
                 .ToFindWhat(FindWhat)
                 .AndReplaceItWith(ReplaceWith);
@@ -516,17 +534,40 @@ namespace MFR.FileSystem.Retrievers
         protected bool SearchCriteriaMatch(IFileSystemEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));
-            return TextExpressionMatchingEngineSays.IsMatch(ForFileSystemEntry(entry));
+            return TextExpressionMatchingEngineSays.IsMatch(
+                ForFileSystemEntry(entry)
+            );
         }
 
         /// <summary>
-        /// Gets a value determining whether the file system entry having the specified <paramref name="path"/> should be not be skipped.
+        /// Gets a value determining whether the file system entry having the specified
+        /// <paramref name="path" /> should be not be skipped.
         /// </summary>
         /// <param name="path">
-        /// (Required.) String containing the fully-qualified pathname of a folder or a file.
+        /// (Required.) String containing the fully-qualified pathname of a folder or a
+        /// file.
         /// </param>
-        /// <returns><see langword="true" /> if the file or folder specified should not be skipped during the current operation; <see langword="false" /> otherwise.</returns>
+        /// <returns>
+        /// <see langword="true" /> if the file or folder specified should not be
+        /// skipped during the current operation; <see langword="false" /> otherwise.
+        /// </returns>
         protected bool ShouldNotSkipFileSystemEntry(string path)
-            => !FileSystemEntryValidatorSays.ShouldSkip(path);
+        {
+            bool result;
+
+            try
+            {
+                result = !FileSystemEntryValidatorSays.ShouldSkip(path);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

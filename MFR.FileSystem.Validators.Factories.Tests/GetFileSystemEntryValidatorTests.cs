@@ -33,7 +33,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(
                     OperationType.ReplaceTextInFiles
-                ) is FileValidator
+                ) is ProjectFileValidator
             );
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(
                     OperationType.RenameFilesInFolder
-                ) is FileValidator
+                ) is ProjectFileValidator
             );
 
         /// <summary>

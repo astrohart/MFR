@@ -67,6 +67,12 @@ namespace MFR.Operations.Constants
         RenameSubFolders = 1,
 
         /// <summary>
+        /// We are searching for ALL files with the extension *.sln in a specific directory
+        /// tree.
+        /// </summary>
+        GetListOfAllSolutionFilesInDirectoryTree = 9,
+
+        /// <summary>
         /// Unknown operation type.
         /// </summary>
         Unknown = -1

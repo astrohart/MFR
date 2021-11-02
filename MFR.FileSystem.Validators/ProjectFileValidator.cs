@@ -1,80 +1,42 @@
+using MFR.FileSystem.Factories;
+using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
-using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using xyLOGIX.Core.Extensions;
+using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.FileSystem.Validators
 {
     /// <summary>
-    /// Defines an object that validates the paths of folders.
+    /// Defines an object that validates the paths of files.
     /// </summary>
-    public class DirectoryValidator : FileSystemEntryValidatorBase
+    public class ProjectFileValidator : FileSystemEntryValidatorBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static DirectoryValidator() { }
+        static ProjectFileValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected DirectoryValidator() { }
+        protected ProjectFileValidator() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Validators.DirectoryValidator" />.
+        /// <see cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static DirectoryValidator Instance
+        public static ProjectFileValidator Instance
         {
             get;
-        } = new DirectoryValidator();
-
-        /// <summary>
-        /// Determines whether the specified file-system
-        /// <paramref
-        ///     name="entry" />
-        /// exists on the disk.
-        /// </summary>
-        /// <param name="entry">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the file-system <paramref name="entry" />
-        /// exists on the disk; <see langword="false" /> otherwise.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        [Log(AttributeExclude = true)]
-        public override bool DoesExist(IFileSystemEntry entry)
-        {
-            if (entry == null) throw new ArgumentNullException(nameof(entry));
-            if (string.IsNullOrWhiteSpace(entry.Path)) return false;
-
-            var result = false;
-
-            try
-            {
-                result = Directory.Exists(entry.Path);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
+        } = new ProjectFileValidator();
 
         /// <summary>
         /// Determines whether a file system <paramref name="entry" /> exists on
@@ -119,47 +81,46 @@ namespace MFR.FileSystem.Validators
                 throw new ArgumentNullException(nameof(entry));
 
             if (!DoesExist(entry))
-                throw new DirectoryNotFoundException(
-                    $"The system cannot find the folder with path '{entry.Path}' on the disk."
+                throw new FileNotFoundException(
+                    "The system cannot find the file specified.", entry.Path
                 );
         }
 
         /// <summary>
-        /// Determines whether the file system entry at the specified
-        /// <paramref name="path" />, be it a file or a folder, exists.
-        /// <para />
-        /// Since a different API is used to determine whether files or directories exist,
-        /// this method must be overriden by child classes.
+        /// Determines whether the file-system entry with the specified
+        /// <paramref name="path" /> should be skipped during an operation.
         /// </summary>
         /// <param name="path">
-        /// (Required.) String containing the fully-qualified pathname
-        /// of the resource whose existence must be checked.
+        /// (Required.) String containing the pathname on the disk of the
+        /// file-system entry that is to potentially be skipped.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the resource exists at the path specified;
-        /// <see langword="false" /> otherwise.
+        /// <see langword="true" /> is returned by this method if the file-system
+        /// entry with the specified <paramref name="path" /> is to be skipped by
+        /// the operation; otherwise, <see langword="false" />.
         /// </returns>
-        /// <remarks>
-        /// The purpose of this method is really to provide resource-existence detection
-        /// services to the public overload of this method, and so it can be used in the
-        /// body of, e.g., the
-        /// <see cref="M:MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldSkip" />
-        /// method.
-        /// </remarks>
-        protected override bool DoesExist(string path)
+        public override bool ShouldSkip(string path)
         {
-            var result = false;
+            var result = true;
 
             if (string.IsNullOrWhiteSpace(path)) return result;
 
             try
             {
-                result = Directory.Exists(path);
+                result = base.ShouldSkip(path)
+                         || string.IsNullOrWhiteSpace(Path.GetExtension(path)) 
+                         || MakeNewFileInfo.ForPath(path)
+                             .IsZeroLengthFile() || Path.GetExtension(path)
+                             .IsAnyOf(
+                                 ".exe", ".bat", ".com", ".pif", ".rar", ".zip"
+                             );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = true; // skip the file if an error occurred
             }
 
             return result;

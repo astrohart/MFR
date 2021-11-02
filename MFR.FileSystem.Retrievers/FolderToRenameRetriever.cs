@@ -92,7 +92,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Settings.ConfigurationNotAttachedException">
+        /// <exception cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
@@ -111,7 +111,7 @@ namespace MFR.FileSystem.Retrievers
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
                                       fse => SearchCriteriaMatch(fse) &&
-                                             PassesPathFilter(pathFilter, fse)
+                                             PassesPathFilter(fse, pathFilter)
                                   );
             }
             catch (Exception ex)
