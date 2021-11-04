@@ -144,6 +144,10 @@
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.CommandLine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
+      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
+      <Name>MFR.FileSystem.Enumerators</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
