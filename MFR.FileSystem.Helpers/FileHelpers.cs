@@ -18,7 +18,7 @@ namespace MFR.FileSystem.Helpers
         /// created.
         /// </summary>
         /// <param name="text">
-        /// (Required.) String containing the text to be writren to the file.
+        /// (Required.) String containing the text to be written to the file.
         /// </param>
         /// <returns>
         /// String containing the fully-qualified pathname to the file where the
@@ -255,7 +255,7 @@ namespace MFR.FileSystem.Helpers
             if (Directory.Exists(containingFolderName))
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** SUCCESS *** Folder with path '{containingFolderName}' created."
+                    $"*** SUCCESS *** DoesFolder with path '{containingFolderName}' created."
                 );
             else
                 throw new InvalidOperationException(
