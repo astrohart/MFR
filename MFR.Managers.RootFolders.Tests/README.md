@@ -8,6 +8,7 @@
   - [ResourceManager](#P-MFR-Managers-RootFolders-Tests-Properties-Resources-ResourceManager 'MFR.Managers.RootFolders.Tests.Properties.Resources.ResourceManager')
 - [RootFolderPathManagerTests](#T-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests')
   - [DUMMY_FOLDER](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER')
+  - [DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION')
   - [DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS')
   - [RootFolderPathManager](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootFolderPathManager 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.RootFolderPathManager')
   - [GetAllSubFoldersThatContainSolutionsIn(path)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetAllSubFoldersThatContainSolutionsIn-System-String- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.GetAllSubFoldersThatContainSolutionsIn(System.String)')
@@ -61,6 +62,14 @@ Provides unit tests for the methods, properties, and events of the
 ##### Summary
 
 String containing the path to a dummy folder.
+
+<a name='F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION'></a>
+### DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION `constants`
+
+##### Summary
+
+String containing the path to a dummy folder that is guaranteed to contain only
+a single solution.
 
 <a name='F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS'></a>
 ### DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS `constants`
