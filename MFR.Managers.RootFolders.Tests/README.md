@@ -15,6 +15,7 @@
   - [GetSubFoldersOf(path)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetSubFoldersOf-System-String- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.GetSubFoldersOf(System.String)')
   - [Initialize()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Initialize 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Initialize')
   - [OnRootFolderPathManagerRootFolderAdded(sender,e)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-OnRootFolderPathManagerRootFolderAdded-System-Object,MFR-Managers-RootFolders-Events-RootFolderAddedEventArgs- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.OnRootFolderPathManagerRootFolderAdded(System.Object,MFR.Managers.RootFolders.Events.RootFolderAddedEventArgs)')
+  - [Test_AddFolderIfItContainsASolution_Method_Works()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddFolderIfItContainsASolution_Method_Works 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Test_AddFolderIfItContainsASolution_Method_Works')
   - [Test_AddSolutionSubFoldersOf_Method_Works()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSolutionSubFoldersOf_Method_Works 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Test_AddSolutionSubFoldersOf_Method_Works')
   - [Test_AddSubFoldersOf_Method_Works()](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSubFoldersOf_Method_Works 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Test_AddSubFoldersOf_Method_Works')
 
@@ -174,6 +175,17 @@ contains the event data. |
 
 This method responds by writing the pathname of the folder that has
 been added to the manager's collection, to the console output.
+
+<a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddFolderIfItContainsASolution_Method_Works'></a>
+### Test_AddFolderIfItContainsASolution_Method_Works() `method`
+
+##### Summary
+
+TODO: Add unit test documentation here
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Test_AddSolutionSubFoldersOf_Method_Works'></a>
 ### Test_AddSolutionSubFoldersOf_Method_Works() `method`
