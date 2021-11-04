@@ -157,6 +157,10 @@
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.RootFolders.Factories\MFR.Managers.RootFolders.Factories.csproj">
+      <Project>{ABF085F2-3E87-46AB-AF16-7B779EFE6C1A}</Project>
+      <Name>MFR.Managers.RootFolders.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
       <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
       <Name>MFR.Managers.RootFolders.Interfaces</Name>

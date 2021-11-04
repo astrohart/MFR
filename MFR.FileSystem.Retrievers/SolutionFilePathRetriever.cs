@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
@@ -216,7 +217,7 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
-                result = Directory.EnumerateFiles(
+                result = Enumerate.Files(
                                       rootFolderPath, SearchPattern,
                                       SearchOption
                                   )
@@ -227,7 +228,7 @@ namespace MFR.FileSystem.Retrievers
                                       )
                                   );
                 /*
-                .Where(ShouldNotSkipFileSystemEntry)
+                .Where(ShouldNotSkip)
                 .ToList() // narrow down list of elements to process
                 .Select(MakeNewFileSystemEntry.ForPath)
                 /*

@@ -1,7 +1,8 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -23,13 +24,17 @@ namespace MFR.FileSystem.Retrievers
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FilesToRenameRetriever() { }
+        static FilesToRenameRetriever()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected FilesToRenameRetriever() { }
+        protected FilesToRenameRetriever()
+        {
+        }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -101,14 +106,13 @@ namespace MFR.FileSystem.Retrievers
         {
             var result = Enumerable.Empty<IFileSystemEntry>();
 
-            try
+            try 
             {
-                result = Directory.EnumerateFiles(
+                result = Enumerate.Files(
                                       rootFolderPath, SearchPattern,
                                       SearchOption
                                   )
-                                  .Where(ShouldNotSkipFileSystemEntry)
-                                  .ToList() // narrow down list of elements to process
+                                  .Where(GetFileSystemEntryValidator.For(OperationType).ShouldNotSkip)
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
                                       fse => SearchCriteriaMatch(fse) &&

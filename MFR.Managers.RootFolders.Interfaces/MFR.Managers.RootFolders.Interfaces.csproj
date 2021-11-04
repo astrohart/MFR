@@ -127,6 +127,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.RootFolders.Events\MFR.Managers.RootFolders.Events.csproj">
+      <Project>{C6FD9F83-485E-4E33-9FA3-C361EB684287}</Project>
+      <Name>MFR.Managers.RootFolders.Events</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

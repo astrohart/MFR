@@ -1,4 +1,5 @@
 using MFR.Events.Common;
+using MFR.FileSystem.Enumerators;
 using MFR.GUI.Constants;
 using MFR.GUI.Controls;
 using MFR.GUI.Controls.Events;
@@ -333,7 +334,7 @@ namespace MFR.GUI.Windows
             if (!path.IsAbsolutePath()) return false;
             if (!Directory.Exists(path)) return false;
 
-            return Directory.EnumerateFiles(
+            return Enumerate.Files(
                                 path, "*.sln", SearchOption.TopDirectoryOnly
                             )
                             .Any();

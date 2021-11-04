@@ -5,6 +5,8 @@ namespace MFR.Operations.Constants
     /// </summary>
     public enum OperationType
     {
+        GetTopLevelSubFolders = 10,
+
         /// <summary>
         /// Searches a specified folder for the paths of all the <c>*.sln</c> files within
         /// it.

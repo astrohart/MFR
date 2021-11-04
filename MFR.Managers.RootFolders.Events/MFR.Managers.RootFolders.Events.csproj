@@ -104,6 +104,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="RootFolderAddedEventArgs.cs" />
+    <Compile Include="RootFolderAddedEventHandler.cs" />
+    <Compile Include="RootFolderEventArgsBase.cs" />
+    <Compile Include="RootFolderRemovedEventHandler.cs" />
+    <Compile Include="RootFolderRemovedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,6 +5,7 @@ using MFR.Events;
 using MFR.Events.Common;
 using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Interfaces;
+using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -394,7 +395,7 @@ namespace MFR.Renamers.Files
             // .sln extension.  If any of them are open in Visual Studio, mark
             // them all for reloading, and then reload them.
 
-            var solutionPath = Directory.EnumerateFiles(
+            var solutionPath = Enumerate.Files(
                                             RootDirectoryPath, "*.sln",
                                             SearchOption.TopDirectoryOnly
                                         )

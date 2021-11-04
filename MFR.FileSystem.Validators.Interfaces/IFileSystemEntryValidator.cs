@@ -86,5 +86,19 @@ namespace MFR.FileSystem.Validators.Interfaces
         /// the operation; otherwise, <see langword="false" />.
         /// </returns>
         bool ShouldSkip(string path);
+
+        /// <summary>
+        /// Gets a value determining whether the file system entry having the specified
+        /// <paramref name="path" /> should be not be skipped.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of a folder or a
+        /// file.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the file or folder specified should not be
+        /// skipped during the current operation; <see langword="false" /> otherwise.
+        /// </returns>
+        bool ShouldNotSkip(string path);
     }
 }

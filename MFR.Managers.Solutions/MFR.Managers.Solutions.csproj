@@ -147,6 +147,10 @@
       <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
       <Name>xyLOGIX.VisualStudio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
+      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
+      <Name>MFR.FileSystem.Enumerators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
       <Name>MFR.FileSystem.Retrievers.Factories</Name>

@@ -1,5 +1,4 @@
 using MFR.CommandLine.Validators.Events;
-using System;
 
 namespace MFR.CommandLine.Validators.Interfaces
 {

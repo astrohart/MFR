@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Enumerators;
 using MFR.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -307,7 +308,7 @@ namespace MFR.Tests.Common
             PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER =
                 !Directory.Exists(GITREPOS_OBJ_FOLDER_PATH)
                     ? string.Empty
-                    : Directory.EnumerateFiles(
+                    : Enumerate.Files(
                                    GITREPOS_OBJ_FOLDER_PATH, "*",
                                    SearchOption.AllDirectories
                                )
@@ -319,7 +320,7 @@ namespace MFR.Tests.Common
         public static readonly string PATHNAME_OF_FILE_HAVING_NO_EXTENSION =
             !Directory.Exists(PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateFiles(
+                : Enumerate.Files(
                                PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH, "*",
                                SearchOption.AllDirectories
                            )
@@ -335,7 +336,7 @@ namespace MFR.Tests.Common
         public static readonly string PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER =
             !Directory.Exists(MFR_TESTS_PROJECT_BIN_FOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateFiles(
+                : Enumerate.Files(
                                MFR_TESTS_PROJECT_BIN_FOLDER_PATH, "*",
                                SearchOption.AllDirectories
                            )
@@ -349,7 +350,7 @@ namespace MFR.Tests.Common
             PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER =
                 !Directory.Exists(GITREPOS_GIT_DIR_PATH)
                     ? string.Empty
-                    : Directory.EnumerateFiles(
+                    : Enumerate.Files(
                                    GITREPOS_GIT_DIR_PATH, "*",
                                    SearchOption.AllDirectories
                                )
@@ -362,7 +363,7 @@ namespace MFR.Tests.Common
         public static readonly string PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER =
             !Directory.Exists(PORTRFOLIO_MONITOR_VS_FOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateFiles(
+                : Enumerate.Files(
                                PORTRFOLIO_MONITOR_VS_FOLDER_PATH, "*",
                                SearchOption.AllDirectories
                            )
@@ -376,7 +377,7 @@ namespace MFR.Tests.Common
             PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER =
                 !Directory.Exists(GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH)
                     ? string.Empty
-                    : Directory.EnumerateFiles(
+                    : Enumerate.Files(
                                    GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH, "*",
                                    SearchOption.AllDirectories
                                )
@@ -388,13 +389,10 @@ namespace MFR.Tests.Common
         [Obsolete] public static readonly string SUBFOLDER_OF_BIN_DIR =
             !Directory.Exists(MFR_TESTS_PROJECT_BIN_FOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateDirectories(
+                : Enumerate.Directories(
                                MFR_TESTS_PROJECT_BIN_FOLDER_PATH, "*",
-                               DirectoryEnumerationOptions.Folders |
-                               DirectoryEnumerationOptions.AsLongPath |
-                               DirectoryEnumerationOptions.Recursive |
-                               DirectoryEnumerationOptions.SkipReparsePoints
-                           )
+                               SearchOption.AllDirectories
+                               )
                            .FirstOrDefault();
 
         /// <summary>
@@ -404,12 +402,9 @@ namespace MFR.Tests.Common
         [Obsolete] public static readonly string SUBFOLDER_OF_GIT_FOLDER =
             !Directory.Exists(GITREPOS_GIT_DIR_PATH)
                 ? string.Empty
-                : Directory.EnumerateDirectories(
+                : Enumerate.Directories(
                                GITREPOS_GIT_DIR_PATH, "*",
-                               DirectoryEnumerationOptions.Folders |
-                               DirectoryEnumerationOptions.AsLongPath |
-                               DirectoryEnumerationOptions.Recursive |
-                               DirectoryEnumerationOptions.SkipReparsePoints
+                               SearchOption.AllDirectories
                            )
                            .FirstOrDefault();
 
@@ -420,12 +415,9 @@ namespace MFR.Tests.Common
         [Obsolete] public static readonly string SUBFOLDER_OF_OBJ_FOLDER =
             !Directory.Exists(MFR_TESTS_PROJECT_OBJ_FOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateDirectories(
+                : Enumerate.Directories(
                                MFR_TESTS_PROJECT_OBJ_FOLDER_PATH, "*",
-                               DirectoryEnumerationOptions.Folders |
-                               DirectoryEnumerationOptions.AsLongPath |
-                               DirectoryEnumerationOptions.Recursive |
-                               DirectoryEnumerationOptions.SkipReparsePoints
+                               SearchOption.AllDirectories
                            )
                            .FirstOrDefault();
 
@@ -437,12 +429,9 @@ namespace MFR.Tests.Common
         public static readonly string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER =
             !Directory.Exists(GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateDirectories(
+                : Enumerate.Directories(
                                GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH, "*",
-                               DirectoryEnumerationOptions.Folders |
-                               DirectoryEnumerationOptions.AsLongPath |
-                               DirectoryEnumerationOptions.Recursive |
-                               DirectoryEnumerationOptions.SkipReparsePoints
+                               SearchOption.AllDirectories
                            )
                            .FirstOrDefault();
 
@@ -452,12 +441,9 @@ namespace MFR.Tests.Common
         [Obsolete] public static readonly string SUBFOLDER_OF_VS_DOTFOLDER =
             !Directory.Exists(GITREPOS_SOLUTION_VS_DOTFOLDER_PATH)
                 ? string.Empty
-                : Directory.EnumerateDirectories(
+                : Enumerate.Directories(
                                GITREPOS_SOLUTION_VS_DOTFOLDER_PATH, "*",
-                               DirectoryEnumerationOptions.Folders |
-                               DirectoryEnumerationOptions.AsLongPath |
-                               DirectoryEnumerationOptions.Recursive |
-                               DirectoryEnumerationOptions.SkipReparsePoints
+                               SearchOption.AllDirectories
                            )
                            .FirstOrDefault();
 

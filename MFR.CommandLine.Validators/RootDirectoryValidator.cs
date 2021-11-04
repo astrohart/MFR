@@ -2,6 +2,7 @@ using MFR.CommandLine.Constants;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Interfaces;
+using MFR.FileSystem.Enumerators;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -119,7 +120,7 @@ namespace MFR.CommandLine.Validators
                 }
 
                 if (Directory.Exists(rootDirectory)
-                    && !Directory.EnumerateFiles(
+                    && !Enumerate.Files(
                                   rootDirectory, "*.sln",
                                   SearchOption.TopDirectoryOnly
                               )

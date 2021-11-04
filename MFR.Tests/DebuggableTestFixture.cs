@@ -17,17 +17,6 @@ namespace MFR.Tests
         /// set-up logic.
         /// </summary>
         public virtual void Initialize()
-        {
-            LogFileManager.SetUpDebugUtils(false, true, true);
-
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In DebuggableTestFixture.Initialize"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "DebuggableTestFixture.Initialize: Done."
-            );
-        }
+            => LogFileManager.SetUpDebugUtils(false, true, true);
     }
 }

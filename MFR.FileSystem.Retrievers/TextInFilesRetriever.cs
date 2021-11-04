@@ -1,8 +1,10 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -136,11 +138,11 @@ namespace MFR.FileSystem.Retrievers
                  * call ToList etc.
                  */
 
-                result = Directory.EnumerateFiles(
+                result = Enumerate.Files(
                                       rootFolderPath, SearchPattern,
                                       SearchOption
                                   )
-                                  .Where(ShouldNotSkipFileSystemEntry)
+                                  .Where(GetFileSystemEntryValidator.For(OperationType).ShouldNotSkip)
                                   .Select(
                                       path => MakeNewFileSystemEntry
                                               .ForPath(path)

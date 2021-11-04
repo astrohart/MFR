@@ -41,6 +41,19 @@ namespace MFR.FileSystem.Retrievers
         }
 
         /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public abstract OperationType OperationType
+        {
+            get;
+        }
+
+        /// <summary>
         /// Gets or sets a string containing the pattern to be found in the name
         /// and/or contents of a file or folder.
         /// </summary>
@@ -133,19 +146,6 @@ namespace MFR.FileSystem.Retrievers
                                               );
 
         /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public abstract OperationType OperationType
-        {
-            get;
-        }
-
-        /// <summary>
         /// Specifies a string that should be utilized in order to replace a
         /// textual pattern in the name of a file or folder or the contents thereof.
         /// </summary>
@@ -236,6 +236,18 @@ namespace MFR.FileSystem.Retrievers
              */
 
             return DoGetMatchingFileSystemPaths(rootFolderPath, pathFilter);
+        }
+
+        /// <summary>
+        /// Sets the values of this class' properties to their default values.
+        /// </summary>
+        /// <remarks>
+        /// This method typically is called from a class constructor.
+        /// </remarks>
+        public virtual void Reset()
+        {
+            SearchOption = SearchOption.AllDirectories;
+            SearchPattern = "*";
         }
 
         /// <summary>
@@ -349,18 +361,6 @@ namespace MFR.FileSystem.Retrievers
             SearchOption = option;
 
             return this;
-        }
-
-        /// <summary>
-        /// Sets the values of this class' properties to their default values.
-        /// </summary>
-        /// <remarks>
-        /// This method typically is called from a class constructor.
-        /// </remarks>
-        public virtual void Reset()
-        {
-            SearchOption = SearchOption.AllDirectories;
-            SearchPattern = "*";
         }
 
         /// <summary>
@@ -537,37 +537,6 @@ namespace MFR.FileSystem.Retrievers
             return TextExpressionMatchingEngineSays.IsMatch(
                 ForFileSystemEntry(entry)
             );
-        }
-
-        /// <summary>
-        /// Gets a value determining whether the file system entry having the specified
-        /// <paramref name="path" /> should be not be skipped.
-        /// </summary>
-        /// <param name="path">
-        /// (Required.) String containing the fully-qualified pathname of a folder or a
-        /// file.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the file or folder specified should not be
-        /// skipped during the current operation; <see langword="false" /> otherwise.
-        /// </returns>
-        protected bool ShouldNotSkipFileSystemEntry(string path)
-        {
-            bool result;
-
-            try
-            {
-                result = !FileSystemEntryValidatorSays.ShouldSkip(path);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MFR.Managers.Solutions.Interfaces;
+﻿using MFR.FileSystem.Enumerators;
+using MFR.Managers.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -121,7 +122,7 @@ namespace MFR.Managers.Solutions
 
             try
             {
-                var files = Directory.EnumerateFiles(
+                var files = Enumerate.Files(
                                          folder, "*.sln",
                                          SearchOption.AllDirectories
                                      )

@@ -13,6 +13,7 @@ using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Managers.History.Interfaces;
+using MFR.Managers.RootFolders.Factories;
 using MFR.Managers.RootFolders.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Factories;
@@ -24,7 +25,6 @@ using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
-using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -199,6 +199,14 @@ namespace MFR.GUI.Windows.Presenters
             => GetProfileProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
+        /// interface.
+        /// </summary>
+        private IRootFolderPathManager RootFolderPathManager
+            => GetRootFolderPathManager.SoleInstance();
+
+        /// <summary>
         /// Failed to add the requested profile. Parameter is a string containing the
         /// error message to display.
         /// </summary>
@@ -365,13 +373,6 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public void CloseProgressDialog()
             => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private IRootFolderPathManager RootFolderPathManager
-            => GetRootFolderPathManager.SoleInstance();
-
 
         /// <summary>
         /// Begins the rename operation.

@@ -128,9 +128,49 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Validators.Factories\MFR.CommandLine.Validators.Factories.csproj">
+      <Project>{DE6E68D8-6601-47FD-BB7E-21A46B6F56A9}</Project>
+      <Name>MFR.CommandLine.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Validators.Interfaces\MFR.CommandLine.Validators.Interfaces.csproj">
+      <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
+      <Name>MFR.CommandLine.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
+      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
+      <Name>MFR.FileSystem.Enumerators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.FileSystem.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
+      <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
+      <Name>MFR.FileSystem.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
+      <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
+      <Name>MFR.FileSystem.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.RootFolders.Events\MFR.Managers.RootFolders.Events.csproj">
+      <Project>{C6FD9F83-485E-4E33-9FA3-C361EB684287}</Project>
+      <Name>MFR.Managers.RootFolders.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
       <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
       <Name>MFR.Managers.RootFolders.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
