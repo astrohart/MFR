@@ -41,6 +41,16 @@ namespace MFR.Managers.RootFolders.Tests
             Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents");
 
         /// <summary>
+        /// String containing the path to a dummy folder that is guaranteed to contain only
+        /// a single solution.
+        /// </summary>
+        public static readonly string
+            DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION =
+                Environment.ExpandEnvironmentVariables(
+                    @"%USERPROFILE%\source\repos\astrohart\xyLOGIXCheckedListBoxTester"
+                );
+
+        /// <summary>
         /// String containing the path to a dummy folder.
         /// </summary>
         public static readonly string
@@ -54,8 +64,42 @@ namespace MFR.Managers.RootFolders.Tests
         /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
         /// interface.
         /// </summary>
-        private IRootFolderPathManager RootFolderPathManager
+        private static IRootFolderPathManager RootFolderPathManager
             => GetRootFolderPathManager.SoleInstance();
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager.AddFolderIfItContainsASolution" />
+        /// method correctly adds the folder having the path
+        /// <see
+        ///     cref="F:MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION" />
+        /// because it is known to contain a <c>.sln</c> file.
+        /// </summary>
+        [Test]
+        public void Test_AddFolderIfItContainsASolution_Method_Works()
+        {
+            var expectedCount = 1;
+
+            Assert.That(expectedCount, Is.EqualTo(1));
+            Assert.That(
+                Directory.Exists(DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION)
+            );
+
+            var actualCount = 0;
+
+            Assert.DoesNotThrow(
+                () => actualCount =
+                    RootFolderPathManager.AddFolderIfItContainsASolution(
+                        DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION
+                    )
+            );
+
+            Assert.That(actualCount, Is.EqualTo(expectedCount));
+            Assert.That(RootFolderPathManager.Count, Is.EqualTo(actualCount));
+
+            RootFolderPathManager.Clear();
+        }
 
         /// <summary>
         /// Asserts that the
