@@ -11,6 +11,7 @@
   - [Test_Files_Method_ThrowsArgumentException_WhenWhitespaceIsPassed()](#M-MFR-FileSystem-Enumerators-Tests-EnumerateTests-Test_Files_Method_ThrowsArgumentException_WhenWhitespaceIsPassed 'MFR.FileSystem.Enumerators.Tests.EnumerateTests.Test_Files_Method_ThrowsArgumentException_WhenWhitespaceIsPassed')
   - [Test_Files_Method_ThrowsArgumentException_WithBlankInput()](#M-MFR-FileSystem-Enumerators-Tests-EnumerateTests-Test_Files_Method_ThrowsArgumentException_WithBlankInput 'MFR.FileSystem.Enumerators.Tests.EnumerateTests.Test_Files_Method_ThrowsArgumentException_WithBlankInput')
   - [Test_Files_Method_ThrowsArgumentException_WithNullInput()](#M-MFR-FileSystem-Enumerators-Tests-EnumerateTests-Test_Files_Method_ThrowsArgumentException_WithNullInput 'MFR.FileSystem.Enumerators.Tests.EnumerateTests.Test_Files_Method_ThrowsArgumentException_WithNullInput')
+  - [Test_Files_Method_Works_TopDirectoryOnly()](#M-MFR-FileSystem-Enumerators-Tests-EnumerateTests-Test_Files_Method_Works_TopDirectoryOnly 'MFR.FileSystem.Enumerators.Tests.EnumerateTests.Test_Files_Method_Works_TopDirectoryOnly')
 - [Resources](#T-MFR-FileSystem-Enumerators-Tests-Properties-Resources 'MFR.FileSystem.Enumerators.Tests.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Enumerators-Tests-Properties-Resources-Culture 'MFR.FileSystem.Enumerators.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Enumerators-Tests-Properties-Resources-ResourceManager 'MFR.FileSystem.Enumerators.Tests.Properties.Resources.ResourceManager')
@@ -119,6 +120,19 @@ Asserts that the
 [Files](#M-MFR-FileSystem-Enumerators-Enumerate-Files 'MFR.FileSystem.Enumerators.Enumerate.Files') method
 returns the empty collection when passed `null` as input for
 them  root folder.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-FileSystem-Enumerators-Tests-EnumerateTests-Test_Files_Method_Works_TopDirectoryOnly'></a>
+### Test_Files_Method_Works_TopDirectoryOnly() `method`
+
+##### Summary
+
+Asserts that the
+[Files](#M-MFR-FileSystem-Enumerators-Enumerate-Files 'MFR.FileSystem.Enumerators.Enumerate.Files') method works
+and lists all the top level subfolders of the testing directory.
 
 ##### Parameters
 
