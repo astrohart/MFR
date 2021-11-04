@@ -540,6 +540,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Enumerators.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Enumerators.Tests.Constants", "MFR.FileSystem.Enumerators.Tests.Constants\MFR.FileSystem.Enumerators.Tests.Constants.csproj", "{A83F7693-0801-4591-8F48-28B27FBAD561}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.RootFolders.Tests.Constants", "MFR.Managers.RootFolders.Tests.Constants\MFR.Managers.RootFolders.Tests.Constants.csproj", "{4626A828-3CB7-4FA4-A249-C5F0B3C44784}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2676,6 +2678,14 @@ Global
 		{A83F7693-0801-4591-8F48-28B27FBAD561}.Release|x64.Build.0 = Release|x64
 		{A83F7693-0801-4591-8F48-28B27FBAD561}.Release|x86.ActiveCfg = Release|x86
 		{A83F7693-0801-4591-8F48-28B27FBAD561}.Release|x86.Build.0 = Release|x86
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Debug|x64.ActiveCfg = Debug|x64
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Debug|x64.Build.0 = Debug|x64
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Debug|x86.ActiveCfg = Debug|x86
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Debug|x86.Build.0 = Debug|x86
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Release|x64.ActiveCfg = Release|x64
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Release|x64.Build.0 = Release|x64
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Release|x86.ActiveCfg = Release|x86
+		{4626A828-3CB7-4FA4-A249-C5F0B3C44784}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
