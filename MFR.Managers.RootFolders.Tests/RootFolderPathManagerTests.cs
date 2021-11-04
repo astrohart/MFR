@@ -1,7 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
-using MFR.CommandLine.Validators.Factories;
-using MFR.CommandLine.Validators.Interfaces;
-using MFR.FileSystem.Enumerators;
+﻿using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Validators.Factories;
 using MFR.Managers.RootFolders.Events;
 using MFR.Managers.RootFolders.Factories;
@@ -51,25 +48,6 @@ namespace MFR.Managers.RootFolders.Tests
                 Environment.ExpandEnvironmentVariables(
                     @"%USERPROFILE%\source\repos\astrohart"
                 );
-
-        /// <summary>
-        /// Gets a
-        /// <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryEnumerationFilters" /> that
-        /// specifies that we ignore any exceptions/errors thrown during the process of
-        /// enumerating files or folders.
-        /// </summary>
-        private static DirectoryEnumerationFilters Filters
-        {
-            get;
-        } = new DirectoryEnumerationFilters { ErrorFilter = ErrorFilter };
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
-        /// interface.
-        /// </summary>
-        private static IRootDirectoryValidator RootDirectoryValidator
-            => GetRootDirectoryValidator.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -165,10 +143,6 @@ namespace MFR.Managers.RootFolders.Tests
             Assert.That(actualCount, Is.EqualTo(expectedCount));
             Assert.That(RootFolderPathManager.Count, Is.EqualTo(expectedCount));
         }
-
-        private static bool ErrorFilter(int errorcode, string errormessage,
-            string pathprocessed)
-            => true;
 
         /// <summary>
         /// Retrieves a list of the top-level folders of the folder having the specified
