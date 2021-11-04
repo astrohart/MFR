@@ -181,7 +181,11 @@ been added to the manager's collection, to the console output.
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[AddFolderIfItContainsASolution](#M-MFR-Managers-RootFolders-Interfaces-IRootFolderPathManager-AddFolderIfItContainsASolution 'MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager.AddFolderIfItContainsASolution')
+method correctly adds the folder having the path
+[DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER_THAT_CONTAINS_A_SINGLE_SOLUTION')
+because it is known to contain a `.sln` file.
 
 ##### Parameters
 
