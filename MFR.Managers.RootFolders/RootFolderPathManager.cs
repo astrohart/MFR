@@ -1,6 +1,4 @@
-﻿using MFR.CommandLine.Validators.Factories;
-using MFR.CommandLine.Validators.Interfaces;
-using MFR.FileSystem.Enumerators;
+﻿using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Validators.Factories;
 using MFR.Managers.RootFolders.Events;
 using MFR.Managers.RootFolders.Interfaces;
@@ -88,6 +86,48 @@ namespace MFR.Managers.RootFolders
         /// fully-qualified pathname to the folder whose subfolders should be added.
         /// </param>
         /// <returns>Number of entries added successfully.</returns>
+        public int AddFolderIfItContainsASolution(string path)
+        {
+            // Default return value of this method
+            var result = 0;
+
+            if (string.IsNullOrWhiteSpace(path))
+                return result;
+
+            try
+            {
+                if (!Directory.Exists(path))
+                    return result;
+
+                result = RootFolders.Count;
+
+                if (Enumerate.Files(
+                                 path, "*.sln", SearchOption.TopDirectoryOnly
+                             )
+                             .Any())
+                    RootFolders.Add(path);
+
+                result = RootFolders.Count - result;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Adds a root folder path to this object's collection if, and only if, the folder
+        /// in question contains a file whose name ends with the <c>.sln</c> extension,
+        /// among the subfolders of the folder whose <paramref name="path" /> is specified.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) (Required.) String containing the
+        /// fully-qualified pathname to the folder whose subfolders should be added.
+        /// </param>
+        /// <returns>Number of entries added successfully.</returns>
         public int AddSolutionSubFoldersOf(string path)
         {
             // Default return value of this method
@@ -157,6 +197,12 @@ namespace MFR.Managers.RootFolders
 
             return result;
         }
+
+        /// <summary>
+        /// Clears all elements from the internal collection that this object manages.
+        /// </summary>
+        public void Clear()
+            => RootFolders.Clear();
 
         /// <summary>
         /// Removes a root folder path from this object's collection if, and only if, the
@@ -257,10 +303,15 @@ namespace MFR.Managers.RootFolders
         }
 
         /// <summary>
-        /// Clears all elements from the internal collection that this object manages.
+        /// Obtains a reference to an enumerable collection of all the root folders that
+        /// this object manages.
         /// </summary>
-        public void Clear()
-            => RootFolders.Clear();
+        /// <returns>
+        /// Enumerable collection of <see cref="T:System.String" />s, all of which
+        /// are the pathname to a folder that exists and is where processing is to begin.
+        /// </returns>
+        public IEnumerable<string> GetAll()
+            => RootFolders;
 
         /// <summary>
         /// Raises the
@@ -305,8 +356,8 @@ namespace MFR.Managers.RootFolders
         /// <paramref name="path" /> that contain at least one file whose name has the
         /// extension <c>.sln</c>.
         /// </returns>
-        private static IEnumerable<string> GetAllSubFoldersThatContainSolutionsIn(
-            string path)
+        private static IEnumerable<string>
+            GetAllSubFoldersThatContainSolutionsIn(string path)
         {
             var result = Enumerable.Empty<string>();
 
