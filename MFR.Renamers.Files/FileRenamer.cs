@@ -1,4 +1,6 @@
 using EnvDTE;
+using MFR.CommandLine.Validators.Factories;
+using MFR.CommandLine.Validators.Interfaces;
 using MFR.Constants;
 using MFR.Engines.Replacement.Factories;
 using MFR.Events;
@@ -9,6 +11,8 @@ using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
+using MFR.Managers.RootFolders.Factories;
+using MFR.Managers.RootFolders.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
@@ -82,6 +86,78 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
+        /// method is called, do
+        /// nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object runs validation rules to ensure, among other things, that the
+        /// pathname passed to it is that of a folder that exists on disk, and that
+        /// contains a <c>.sln</c> file.
+        /// </remarks>
+        private IRootDirectoryValidator RootDirectoryValidator
+            => GetRootDirectoryValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object manages a collection of strings.
+        /// <para />
+        /// Individually, the strings are all taken to be the root folder of where our
+        /// search should start for the operation(s) that the user wants us to process.
+        /// </remarks>
+        private IRootFolderPathManager RootFolderPathManager
+            => GetRootFolderPathManager.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        private bool ShouldReOpenSolution
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Occurs when an exception is thrown from an operation.
         /// </summary>
         public event ExceptionRaisedEventHandler ExceptionRaised;
@@ -134,16 +210,6 @@ namespace MFR.Renamers.Files
             SubfoldersToBeRenamedCounted;
 
         /// <summary>
-        /// Gets a value that indicates whether an abort of the current
-        /// operation has been requested.
-        /// </summary>
-        public bool AbortRequested
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// Gets a string containing the full pathname of the folder where all
         /// operations start.
         /// </summary>
@@ -151,73 +217,6 @@ namespace MFR.Renamers.Files
         {
             get;
             private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to a collection of of the
-        /// <see
-        ///     cref="T:MFR.OperationType" />
-        /// values.
-        /// </summary>
-        /// <remarks>
-        /// All the values in this collection identify operations that the user
-        /// wishes to perform.
-        /// <para />
-        /// This list should be cleared after every run.
-        /// <para />
-        /// If the list is empty when the
-        /// <see
-        ///     cref="M:MFR.FileRenamer.ProcessAll" />
-        /// method is called, do
-        /// nothing or throw an exception.
-        /// </remarks>
-        protected IList<OperationType> EnabledOperations
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        private bool ShouldReOpenSolution
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
         }
 
         /// <summary>
@@ -330,7 +329,7 @@ namespace MFR.Renamers.Files
         /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
         /// </summary>
         /// <param name="rootDirectoryPath">
-        /// Path to the recursion root.
+        /// (Required.) Path to the recursion root.
         /// </param>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
@@ -373,145 +372,43 @@ namespace MFR.Renamers.Files
 
             WindowsMessageFilter.Register();
 
-            RootDirectoryPath = rootDirectoryPath;
+            /*
+             * OKAY, so the rootDirectoryPath parameter is understood to contain
+             * the pathname of the folder that is filled in by the user in the
+             * Starting DoesFolder text box.
+             *
+             * In prior versions of this app, that folder was where we would simply
+             * start our file and folder enumerations.  The primary use case of
+             * this software is to be installed into the 'Tools' menu of Visual
+             * Studio as an External Tool and to be configured to have the
+             * folder containing the currently-opened solution inside of its
+             * Starting DoesFolder text box.  The thinking is that the user wants
+             * to call up this tool from within Visual Studio in order to do
+             * project-renaming on the currently open solution.
+             *
+             * However, this is a secondary use case; that of launching the tool
+             * from the Start menu, with the option to specify whatever folder
+             * we like in the Starting DoesFolder text box.  Such a folder may, or
+             * may not, contain a single .sln file.  It may be the root of a
+             * whole directory TREE of solutions, that ALL need name changes.
+             * Say, for instance, we have a whole bunch of projects with the name
+             * of the company, XYZCorp, in them.  Say XYZCorp now goes through
+             * a re-brand and becomes ABCorp.  So, perhaps the user may want
+             * to launch this tool in their main dev folder, and specify that
+             * the rename XYZCorp -> ABCorp has to happen for ALL the solutions
+             * in ALL the subfolders of the folder specified.
+             */
 
-            OnStarted();
+            RootFolderPathManager.Clear();
 
-            OnOperationStarted(
-                new OperationStartedEventArgs(OperationType.FindVisualStudio)
+            RootFolderPathManager.AddFolderIfItContainsASolution(
+                rootDirectoryPath
             );
 
-            DTE dte = null;
+            RootFolderPathManager.AddSolutionSubFoldersOf(rootDirectoryPath);
 
-            // This tool can potentially be run from Visual Studio (e.g.,
-            // configured via the Tools menu as an external tool, for instance).
-
-            // If the tool has been launched from an open instance of Visual
-            // Studio, and if there exists an open instance of Visual Studio
-            // that currently has the solution containing the items to be
-            // renamed open, then close the solution automatically for the user.
-
-            // Scan the folder in which we are starting for files ending with the
-            // .sln extension.  If any of them are open in Visual Studio, mark
-            // them all for reloading, and then reload them.
-
-            var solutionPath = Enumerate.Files(
-                                            RootDirectoryPath, "*.sln",
-                                            SearchOption.TopDirectoryOnly
-                                        )
-                                        .First();
-
-            if (File.Exists(solutionPath))
-            {
-                // determine if the solution whose path has been determined
-                // above is currently open in an instance of Visual Studio. If
-                // it is, set the ShouldReOpenSolution property to TRUE and then
-                // attempt to form an automation connection to the instance of
-                // Visual Studio, if any, that is (a) currently open and (b)
-                // currently has the solution open
-                dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
-                    solutionPath
-                );
-                ShouldReOpenSolution = dte != null;
-
-                // Prior to beginning the operation(s) selected by the user,
-                // we'll then tell the instance of Visual Studio that has the
-                // solution containing the item(s) to be renamed open to close
-                // the solution and then we will instruct VS to re-open the
-                // solution once we're done processing the user's requested operation(s).
-            }
-            else if (Process.GetProcessesByName("devenv")
-                            .Any())
-            {
-                ShouldReOpenSolution = false;
-
-                // One or more copies of VS are open, but it would seem unlikely
-                // that any of them have the solution open (unless its name
-                // differs from the convention). In this event, prompt the user
-                // that if the file(s) they are renaming are part of a solution
-                // that is currently open in Visual Studio, that the user will
-                // need to re-load the solution by hand after the operation has
-                // been completed.
-
-                MessageBox.Show(
-                    Resources.Confirm_PerformRename, Application.ProductName,
-                    MessageBoxButtons.OK, MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1
-                );
-            }
-
-            OnOperationFinished(
-                new OperationFinishedEventArgs(OperationType.FindVisualStudio)
-            );
-
-            try
-            {
-                // If Visual Studio is open and it currently has the solution
-                // open, then close the solution before we perform the rename operation.
-                if (ShouldReOpenSolution && dte != null)
-                {
-                    OnOperationStarted(
-                        new OperationStartedEventArgs(
-                            OperationType.CloseActiveSolution
-                        )
-                    );
-
-                    OnStatusUpdate(
-                        new StatusUpdateEventArgs(
-                            "Closing solution containing item(s) to be processed..."
-                        )
-                    );
-
-                    dte.Solution.Close();
-
-                    /* Wait for the solution to be closed. */
-                    while (dte.Solution.IsOpen) Thread.Sleep(50);
-
-                    OnOperationFinished(
-                        new OperationFinishedEventArgs(
-                            OperationType.CloseActiveSolution
-                        )
-                    );
-                }
-
-                InvokeProcessing(findWhat, replaceWith, pathFilter);
-
-                // If Visual Studio is open and it currently has the solution
-                // open, then close the solution before we perform the rename operation.
-                if (ShouldReOpenSolution && dte != null)
-                {
-                    OnOperationStarted(
-                        new OperationStartedEventArgs(
-                            OperationType.OpenActiveSolution
-                        )
-                    );
-
-                    OnStatusUpdate(
-                        new StatusUpdateEventArgs(
-                            "Instructing Visual Studio to reload the solution..."
-                        )
-                    );
-
-                    dte.Solution.Open(solutionPath);
-
-                    /* Wait for the solution to be opened/loaded. */
-                    while (!dte.Solution.IsOpen) Thread.Sleep(50);
-
-                    OnOperationFinished(
-                        new OperationFinishedEventArgs(
-                            OperationType.OpenActiveSolution
-                        )
-                    );
-                }
-            }
-            catch (OperationAbortedException)
-            {
-                AbortRequested = false;
-            }
-            finally
-            {
-                OnFinished();
-            }
+            foreach(var folder in RootFolderPathManager.GetAll())
+                DoProcessAll(folder, findWhat, replaceWith, pathFilter);
 
             WindowsMessageFilter.Revoke();
         }
@@ -690,7 +587,7 @@ namespace MFR.Renamers.Files
                                       * absolute pathname, we do the combination with the
                                       * ContainingFolder property of the current
                                       * FileSystemEntry we are processing.  (The Containing
-                                      * Folder property is filled during its construction.)
+                                      * DoesFolder property is filled during its construction.)
                                       */
                                      (string)GetTextReplacementEngine.For(
                                              OperationType.RenameFilesInFolder
@@ -1177,6 +1074,233 @@ namespace MFR.Renamers.Files
             RootDirectoryPath = rootDirectoryPath;
 
             return this;
+        }
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
+        }
+
+        /// <summary>
+        /// Provides the rename-processing services for just one out of potentially several
+        /// root directories.
+        /// </summary>
+        /// <param name="rootDirectoryPath">
+        /// (Required.) Path to the recursion root.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="rootDirectoryPath" />
+        /// , is passed a blank or
+        /// <see
+        ///     langword="null" />
+        /// string for a value.
+        /// </exception>
+        private void DoProcessAll(string rootDirectoryPath, string findWhat,
+            string replaceWith, Predicate<string> pathFilter)
+        {
+            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootDirectoryPath)
+                );
+
+            /*
+             * Set the RootDirectoryPath property to the
+             * value that is passed in.
+             */
+
+            RootDirectoryPath = rootDirectoryPath;
+
+            if (!RootDirectoryValidator.IsValid(rootDirectoryPath))
+                return;
+
+            OnStarted();
+
+            OnOperationStarted(
+                new OperationStartedEventArgs(OperationType.FindVisualStudio)
+            );
+
+            DTE dte = null;
+
+            // This tool can potentially be run from Visual Studio (e.g.,
+            // configured via the Tools menu as an external tool, for instance).
+
+            // If the tool has been launched from an open instance of Visual
+            // Studio, and if there exists an open instance of Visual Studio
+            // that currently has the solution containing the items to be
+            // renamed open, then close the solution automatically for the user.
+
+            // Scan the folder in which we are starting for files ending with the
+            // .sln extension.  If any of them are open in Visual Studio, mark
+            // them all for reloading, and then reload them.
+
+            var solutionPath = Enumerate.Files(
+                                            RootDirectoryPath, "*.sln",
+                                            SearchOption.TopDirectoryOnly
+                                        )
+                                        .First();
+
+            if (File.Exists(solutionPath))
+            {
+                // determine if the solution whose path has been determined
+                // above is currently open in an instance of Visual Studio. If
+                // it is, set the ShouldReOpenSolution property to TRUE and then
+                // attempt to form an automation connection to the instance of
+                // Visual Studio, if any, that is (a) currently open and (b)
+                // currently has the solution open
+                dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
+                    solutionPath
+                );
+                ShouldReOpenSolution = dte != null;
+
+                // Prior to beginning the operation(s) selected by the user,
+                // we'll then tell the instance of Visual Studio that has the
+                // solution containing the item(s) to be renamed open to close
+                // the solution and then we will instruct VS to re-open the
+                // solution once we're done processing the user's requested operation(s).
+            }
+            else if (Process.GetProcessesByName("devenv")
+                            .Any())
+            {
+                ShouldReOpenSolution = false;
+
+                // One or more copies of VS are open, but it would seem unlikely
+                // that any of them have the solution open (unless its name
+                // differs from the convention). In this event, prompt the user
+                // that if the file(s) they are renaming are part of a solution
+                // that is currently open in Visual Studio, that the user will
+                // need to re-load the solution by hand after the operation has
+                // been completed.
+
+                MessageBox.Show(
+                    Resources.Confirm_PerformRename, Application.ProductName,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1
+                );
+            }
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(OperationType.FindVisualStudio)
+            );
+
+            try
+            {
+                // If Visual Studio is open and it currently has the solution
+                // open, then close the solution before we perform the rename operation.
+                if (ShouldReOpenSolution && dte != null)
+                {
+                    OnOperationStarted(
+                        new OperationStartedEventArgs(
+                            OperationType.CloseActiveSolution
+                        )
+                    );
+
+                    OnStatusUpdate(
+                        new StatusUpdateEventArgs(
+                            "Closing solution containing item(s) to be processed..."
+                        )
+                    );
+
+                    dte.Solution.Close();
+
+                    /* Wait for the solution to be closed. */
+                    while (dte.Solution.IsOpen) Thread.Sleep(50);
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.CloseActiveSolution
+                        )
+                    );
+                }
+
+                InvokeProcessing(findWhat, replaceWith, pathFilter);
+
+                // If Visual Studio is open and it currently has the solution
+                // open, then close the solution before we perform the rename operation.
+                if (ShouldReOpenSolution && dte != null)
+                {
+                    OnOperationStarted(
+                        new OperationStartedEventArgs(
+                            OperationType.OpenActiveSolution
+                        )
+                    );
+
+                    OnStatusUpdate(
+                        new StatusUpdateEventArgs(
+                            "Instructing Visual Studio to reload the solution..."
+                        )
+                    );
+
+                    dte.Solution.Open(solutionPath);
+
+                    /* Wait for the solution to be opened/loaded. */
+                    while (!dte.Solution.IsOpen) Thread.Sleep(50);
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.OpenActiveSolution
+                        )
+                    );
+                }
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = false;
+            }
+            finally
+            {
+                OnFinished();
+            }
         }
 
         /// <summary>
