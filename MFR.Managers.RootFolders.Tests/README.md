@@ -9,8 +9,6 @@
 - [RootFolderPathManagerTests](#T-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests')
   - [DUMMY_FOLDER](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER')
   - [DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS](#F-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.DUMMY_FOLDER_THAT_CONTAINS_SOLUTION_FOLDERS')
-  - [Filters](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Filters 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.Filters')
-  - [RootDirectoryValidator](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootDirectoryValidator 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.RootDirectoryValidator')
   - [RootFolderPathManager](#P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootFolderPathManager 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.RootFolderPathManager')
   - [GetAllSubFoldersThatContainSolutionsIn(path)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetAllSubFoldersThatContainSolutionsIn-System-String- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.GetAllSubFoldersThatContainSolutionsIn(System.String)')
   - [GetSubFoldersOf(path)](#M-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-GetSubFoldersOf-System-String- 'MFR.Managers.RootFolders.Tests.RootFolderPathManagerTests.GetSubFoldersOf(System.String)')
@@ -70,25 +68,6 @@ String containing the path to a dummy folder.
 ##### Summary
 
 String containing the path to a dummy folder.
-
-<a name='P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-Filters'></a>
-### Filters `property`
-
-##### Summary
-
-Gets a
-[DirectoryEnumerationFilters](#T-Alphaleonis-Win32-Filesystem-DirectoryEnumerationFilters 'Alphaleonis.Win32.Filesystem.DirectoryEnumerationFilters') that
-specifies that we ignore any exceptions/errors thrown during the process of
-enumerating files or folders.
-
-<a name='P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
-interface.
 
 <a name='P-MFR-Managers-RootFolders-Tests-RootFolderPathManagerTests-RootFolderPathManager'></a>
 ### RootFolderPathManager `property`
