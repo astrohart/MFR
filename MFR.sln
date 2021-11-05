@@ -556,8 +556,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Registry.Loaders.Factor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Registry.Loaders.Interfaces", "MFR.Registry.Loaders.Interfaces\MFR.Registry.Loaders.Interfaces.csproj", "{71026AB7-58DF-4CB8-A201-C703C1D25F9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Profiles.Helpers", "MFR.Profiles.Helpers\MFR.Profiles.Helpers.csproj", "{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2758,14 +2756,6 @@ Global
 		{71026AB7-58DF-4CB8-A201-C703C1D25F9B}.Release|x64.Build.0 = Release|x64
 		{71026AB7-58DF-4CB8-A201-C703C1D25F9B}.Release|x86.ActiveCfg = Release|x86
 		{71026AB7-58DF-4CB8-A201-C703C1D25F9B}.Release|x86.Build.0 = Release|x86
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Debug|x64.ActiveCfg = Debug|x64
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Debug|x64.Build.0 = Debug|x64
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Debug|x86.ActiveCfg = Debug|x86
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Debug|x86.Build.0 = Debug|x86
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Release|x64.ActiveCfg = Release|x64
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Release|x64.Build.0 = Release|x64
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Release|x86.ActiveCfg = Release|x86
-		{F77D3BDE-B342-4EF5-8497-98B8AF8FCF8E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
