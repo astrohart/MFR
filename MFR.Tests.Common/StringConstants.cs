@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Enumerators;
 using MFR.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
@@ -20,123 +19,7 @@ namespace MFR.Tests.Common
         /// <summary>
         /// The executable filename of the DevEnv (Visual Studio) application.
         /// </summary>
-        public const string DEVENV_FILENAME = "devenv.exe";
-
-        /// <summary>
-        /// String that contains a fake project name.
-        /// </summary>
-        public const string FAKE_PROJECT_NAME_WITH_DOTS = "Foo.Bar.Baz.Blarg";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of a file that
-        /// matches the criteria for operating upon.
-        /// </summary>
-        /// <remarks>
-        /// This constant must always be set to the path of a project (*.csproj)
-        /// file that actually exists.
-        /// </remarks>
-        public const string FILE_MATCHING_OPERATIONAL_CRITERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos.csproj";
-
-        /// <summary>
-        /// String containing the path of a folder that the RenameSubFolder
-        /// operation would consider fair game for acting upon.
-        /// </summary>
-        /// <remarks>
-        /// This constant must always be set to the path of a project folder
-        /// that exists.
-        /// </remarks>
-        public const string FOLDER_MATCHING_OPERATIONAL_CRITIERIA =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos";
-
-        /// <summary>
-        /// String consisting of complete gibberish.
-        /// </summary>
-        public const string GIBBERISH = "kjfsadjlksdfajlksdfkjldf";
-
-        /// <summary>
-        /// String containing the path to a .csproj file in the Junk Solution
-        /// that has factory objects.
-        /// </summary>
-        public const string
-            JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH =
-                @"C:\Users\Administrator\source\junk\MyJunkSolution\MyJunkSolution.Processors.Factories\MyJunkSolution.Processors.Factories.csproj";
-
-        /// <summary>
-        /// String containing the path to the .sln file for the Mass File
-        /// Renamer project.
-        /// </summary>
-        public const string MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.sln";
-
-        /// <summary>
-        /// String containing the path to the file <c>x.udl</c> under the
-        /// Portfolio Monitor solution folder.
-        /// </summary>
-        public const string PORTFOLIO_MONITOR_X_UDL_FILE =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\x.udl";
-
-        /// <summary>
-        /// Constant containing whitespace (three spaces and a tab character).
-        /// </summary>
-        public const string WHITESPACE = "   \t";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of a <c>bin\</c>
-        /// folder in a project.
-        /// </summary>
-        private const string MFR_TESTS_PROJECT_BIN_FOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Tests\bin";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of a <c>obj\</c>
-        /// folder in the <c>MFR.Tests</c> project.
-        /// </summary>
-        private const string MFR_TESTS_PROJECT_OBJ_FOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\MFR\MFR.Tests\obj";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of a <c>obj</c> folder in the
-        /// <c>xyLOGIX.Interop.GitRepos</c> project.
-        /// </summary>
-        private const string GITREPOS_OBJ_FOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\obj";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of the solution folder for the
-        /// <c>PortfolioMonitor</c> solution.
-        /// </summary>
-        private const string PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of the <c>.git</c> dotfolder
-        /// under the <c>xyLOGIX.Interop.GitRepos</c> solution folder.
-        /// </summary>
-        private const string GITREPOS_GIT_DIR_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of the <c>.vs</c> dotfolder for
-        /// the <c>PortfolioMonitor</c> solution.
-        /// </summary>
-        private const string PORTRFOLIO_MONITOR_VS_FOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\.vs";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of the <c>packages</c> folder
-        /// for the <c>xyLOGIX.Interop.GitRepos</c>
-        /// solution.
-        /// </summary>
-        private const string GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages";
-
-        /// <summary>
-        /// String containing the fully-qualified pathname of the <c>.vs</c> dotfolder of
-        /// the <c>xyLOGIX.Interop.GitRepos</c> solution.
-        /// </summary>
-        private const string GITREPOS_SOLUTION_VS_DOTFOLDER_PATH =
-            @"C:\Users\Administrator\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.vs";
+        public static readonly string DEVENV_FILENAME = "devenv.exe";
 
         /// <summary>
         /// String containing the path to a 'dotfolder' -- i.e., a folder whose
@@ -175,6 +58,12 @@ namespace MFR.Tests.Common
         /// </summary>
         public static readonly string EXISTING_TEMP_FILE_FILENAME_ONLY =
             Path.GetFileName(EXISTING_TEMP_FILE);
+
+        /// <summary>
+        /// String that contains a fake project name.
+        /// </summary>
+        public static readonly string FAKE_PROJECT_NAME_WITH_DOTS =
+            "Foo.Bar.Baz.Blarg";
 
         /// <summary>
         /// String containing a regex searching for the
@@ -221,10 +110,45 @@ namespace MFR.Tests.Common
                 Path.GetFileNameWithoutExtension(FILE_GUARANTEED_TO_EXIST);
 
         /// <summary>
+        /// String containing the fully-qualified pathname of a file that
+        /// matches the criteria for operating upon.
+        /// </summary>
+        /// <remarks>
+        /// This constant must always be set to the path of a project (*.csproj)
+        /// file that actually exists.
+        /// </remarks>
+        public static readonly string FILE_MATCHING_OPERATIONAL_CRITERIA =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos.csproj";
+
+        /// <summary>
+        /// String containing the path of a folder that the RenameSubFolder
+        /// operation would consider fair game for acting upon.
+        /// </summary>
+        /// <remarks>
+        /// This constant must always be set to the path of a project folder
+        /// that exists.
+        /// </remarks>
+        public static readonly string FOLDER_MATCHING_OPERATIONAL_CRITIERIA =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos";
+
+        /// <summary>
         /// String containing the path to a folder that is guaranteed to exist.
         /// </summary>
         public static readonly string FOLDER_THAT_IS_GUARANTEED_TO_EXIST =
             Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+
+        /// <summary>
+        /// String consisting of complete gibberish.
+        /// </summary>
+        public static readonly string GIBBERISH = "kjfsadjlksdfajlksdfkjldf";
+
+        /// <summary>
+        /// String containing the path to a .csproj file in the Junk Solution
+        /// that has factory objects.
+        /// </summary>
+        public static readonly string
+            JUNK_SOLUTION_PROCESSORS_FACTORIES_CSPROJ_FILE_PATH =
+                $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\junk\MyJunkSolution\MyJunkSolution.Processors.Factories\MyJunkSolution.Processors.Factories.csproj";
 
         /// <summary>
         /// String containing the path of the folder in which the MFR project
@@ -235,6 +159,14 @@ namespace MFR.Tests.Common
                 Path.GetDirectoryName(
                     MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH
                 );
+
+        /// <summary>
+        /// String containing the path to the .sln file for the Mass File
+        /// Renamer project.
+        /// </summary>
+        public static string
+            MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_PATH =>
+                $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\MFR\MFR.sln";
 
         /// <summary>
         /// String consisting of the fully-qualified pathname of a
@@ -384,6 +316,13 @@ namespace MFR.Tests.Common
                                .FirstOrDefault();
 
         /// <summary>
+        /// String containing the path to the file <c>x.udl</c> under the
+        /// Portfolio Monitor solution folder.
+        /// </summary>
+        public static readonly string PORTFOLIO_MONITOR_X_UDL_FILE =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\PortfolioMonitor\x.udl";
+
+        /// <summary>
         /// String consisting of the path to a subfolder of a project's \bin folder.
         /// </summary>
         [Obsolete] public static readonly string SUBFOLDER_OF_BIN_DIR =
@@ -392,7 +331,7 @@ namespace MFR.Tests.Common
                 : Enumerate.Directories(
                                MFR_TESTS_PROJECT_BIN_FOLDER_PATH, "*",
                                SearchOption.AllDirectories
-                               )
+                           )
                            .FirstOrDefault();
 
         /// <summary>
@@ -448,9 +387,71 @@ namespace MFR.Tests.Common
                            .FirstOrDefault();
 
         /// <summary>
+        /// Constant containing whitespace (three spaces and a tab character).
+        /// </summary>
+        public static readonly string WHITESPACE = "   \t";
+
+        /// <summary>
         /// String consisting of the path to the Windows System32 folder.
         /// </summary>
         public static readonly string WINDOWS_SYSTEM_FOLDER =
             Environment.GetFolderPath(Environment.SpecialFolder.System);
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>.git</c> dotfolder
+        /// under the <c>xyLOGIX.Interop.GitRepos</c> solution folder.
+        /// </summary>
+        private static readonly string GITREPOS_GIT_DIR_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.git";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a <c>obj</c> folder in the
+        /// <c>xyLOGIX.Interop.GitRepos</c> project.
+        /// </summary>
+        private static readonly string GITREPOS_OBJ_FOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\xyLOGIX.Interop.GitRepos\xyLOGIX.Interop.GitRepos\obj";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>packages</c> folder
+        /// for the <c>xyLOGIX.Interop.GitRepos</c>
+        /// solution.
+        /// </summary>
+        private static readonly string GITREPOS_SOLUTION_PACKAGES_FOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\xyLOGIX.Interop.GitRepos\packages";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>.vs</c> dotfolder of
+        /// the <c>xyLOGIX.Interop.GitRepos</c> solution.
+        /// </summary>
+        private static readonly string GITREPOS_SOLUTION_VS_DOTFOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\xyLOGIX.Interop.GitRepos\.vs";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a <c>bin\</c>
+        /// folder in a project.
+        /// </summary>
+        private static readonly string MFR_TESTS_PROJECT_BIN_FOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\MFR\MFR.Tests\bin";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of a <c>obj\</c>
+        /// folder in the <c>MFR.Tests</c> project.
+        /// </summary>
+        private static readonly string MFR_TESTS_PROJECT_OBJ_FOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\MFR\MFR.Tests\obj";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the solution folder for the
+        /// <c>PortfolioMonitor</c> solution.
+        /// </summary>
+        private static readonly string PORTFOLIO_MONITOR_SOLUTION_FOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\PortfolioMonitor";
+
+        /// <summary>
+        /// String containing the fully-qualified pathname of the <c>.vs</c> dotfolder for
+        /// the <c>PortfolioMonitor</c> solution.
+        /// </summary>
+        private static readonly string PORTRFOLIO_MONITOR_VS_FOLDER_PATH =
+            $@"{Environment.ExpandEnvironmentVariables("%USERPROFILE%")}\source\repos\astrohart\PortfolioMonitor\.vs";
     }
 }

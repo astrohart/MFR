@@ -1,9 +1,12 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Expressions.Registry.Factories;
+using MFR.Expressions.Registry.Interfaces;
 using MFR.Settings.Configuration.Actions.Constants;
 using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.Settings.Configuration.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;
 
@@ -30,9 +33,27 @@ namespace MFR.Settings.Configuration.Actions.Tests
         [Test]
         public void Test_ConfigurationFileLoadedSuccessfully_GivenValidPath()
         {
-            var configurationFilePath = Path.Combine(
-                CONFIG_FILE_DIR, CONFIG_FILE_NAME
-            );
+            var configurationFilePath = GetConfigurationAction
+                                        .For<IRegQueryExpression<string>,
+                                            IFileSystemEntry>(
+                                            ConfigurationAction
+                                                .LoadStringFromRegistry
+                                        )
+                                        .AsCachedResultAction()
+                                        .WithInput(
+                                            MakeNewRegQueryExpression
+                                                .FromScatch<string>()
+                                                .ForKeyPath(
+                                                    ConfigurationPathRegistry
+                                                        .KeyName
+                                                )
+                                                .AndValueName(
+                                                    ConfigurationPathRegistry
+                                                        .ValueName
+                                                )
+                                        )
+                                        .Execute()
+                                        .Path;
 
             Assert.IsTrue(File.Exists(configurationFilePath));
 

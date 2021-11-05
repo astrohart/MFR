@@ -194,6 +194,14 @@
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Loaders.Factories\MFR.Registry.Loaders.Factories.csproj">
+      <Project>{6BCAC1C3-7109-4E18-AFA1-BE6617397F1D}</Project>
+      <Name>MFR.Registry.Loaders.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Loaders.Interfaces\MFR.Registry.Loaders.Interfaces.csproj">
+      <Project>{71026AB7-58DF-4CB8-A201-C703C1D25F9B}</Project>
+      <Name>MFR.Registry.Loaders.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>

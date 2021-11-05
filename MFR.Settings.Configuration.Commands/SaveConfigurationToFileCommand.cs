@@ -1,9 +1,9 @@
-using MFR.Settings.Configuration.Commands.Constants;
-using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Serializers;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Commands;
 using MFR.Messages.Constants;
+using MFR.Settings.Configuration.Commands.Constants;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Serializers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -81,13 +81,6 @@ namespace MFR.Settings.Configuration.Commands
         /// </remarks>
         protected override void CommonExecute()
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In SaveConfigurationToFileCommand.CommonExecute"
-            );
-
             /*
              * OKAY, so here, the _input field is of type IFileSystemEntry.  We assume
              * that it is referencing a valid object (not null) and that its Path property
@@ -96,79 +89,16 @@ namespace MFR.Settings.Configuration.Commands
              * with a reference to the configuration data that is to be saved.
              */
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the '_input' field has a null reference for a value..."
-            );
-
-            // Check to see if the required field, _input, is null. If it is, send an 
+            // Check to see if the required field, _input, is null. If it is, send an
             // error to the log file and quit.
-            if (Input == null)
-            {
-                // the field _input is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _input field has a null reference.  This field is required."
-                );
+            if (Input == null) return;
 
-                DebugUtils.WriteLine(DebugLevel.Debug, "SaveConfigurationToFileCommand.CommonExecute: Done.");
+            if (string.IsNullOrWhiteSpace(Input.Path)) return;
 
-                // stop.
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _input field has a valid object reference for its value."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the value of the '_input.Path' property is blank..."
-            );
-
-            if (string.IsNullOrWhiteSpace(Input.Path))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "SaveConfigurationToFileCommand.CommonExecute: Blank value passed for the '_input.Path' property. This property is required."
-                );
-
-                DebugUtils.WriteLine(DebugLevel.Debug, "SaveConfigurationToFileCommand.CommonExecute: Done.");
-
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The property '_input.Path' is not blank.  Continuing..."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the _input.UserState property has a null reference for a value..."
-            );
-
-            // Check to see if the required property, _input.UserState, is null. If it is, send an 
-            // error to the log file and quit.
-            if (Input.UserState == null)
-            {
-                // the property _input.UserState is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _input.UserState property has a null reference.  This property is required."
-                );
-
-                DebugUtils.WriteLine(DebugLevel.Debug, "SaveConfigurationToFileCommand.CommonExecute: Done.");
-
-                // stop.
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _input.UserState property has a valid object reference for its value."
-            );
+            // Check to see if the required property, _input.UserState, is null. If it is, send an
+            // error to the log file and quit.  This is because the UserState has to contain a reference
+            // to the configuration data that needs saving.
+            if (Input.UserState == null) return;
 
             try
             {
@@ -181,11 +111,6 @@ namespace MFR.Settings.Configuration.Commands
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "SaveConfigurationToFileCommand.CommonExecute: Done."
-            );
         }
     }
 }

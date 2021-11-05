@@ -1,8 +1,6 @@
-using MFR.FileSystem.Exceptions;
 using MFR.Registry.Helpers;
 using Microsoft.Win32;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.System
@@ -28,40 +26,24 @@ namespace MFR.System
         /// This parameter is blank by default.
         /// </param>
         /// <returns>
-        /// String containing the value data, or the value of the <paramref
-        /// name="defaultValue"/> parameter if the value was not found or a
+        /// String containing the value data, or the value of the
+        /// <paramref
+        ///     name="defaultValue" />
+        /// parameter if the value was not found or a
         /// problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
+        /// Thrown if the required parameter, <paramref name="keyName" />, is blank.
         /// </exception>
         public static string GetRegistryString(string keyName, string valueName,
             string defaultValue = "")
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In SystemPreparer.GetRegistryString"
-            );
-
             var result = string.Empty;
-
-            // Dump the variable keyName to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SystemPreparer.GetRegistryString: keyName = '{keyName}'"
-            );
 
             if (string.IsNullOrWhiteSpace(keyName))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(keyName)
                 );
-
-            // Dump the variable defaultValue to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SystemPreparer.GetRegistryString: defaultValue = '{defaultValue}'"
-            );
 
             using (var baseKey = RegistryKey.OpenBaseKey(
                 keyName.ToRegistryHive(), RegistryView.Default
@@ -75,14 +57,13 @@ namespace MFR.System
                         return defaultValue;
 
                     result = key.GetValue(
-                        valueName, defaultValue, RegistryValueOptions.None
-                    ).ToString();
+                                    valueName, defaultValue,
+                                    RegistryValueOptions.None
+                                )
+                                .ToString();
                 }
-                catch (Exception ex)
+                catch
                 {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
                     result = defaultValue;
                 }
                 finally
@@ -90,15 +71,6 @@ namespace MFR.System
                     key?.Close();
                     baseKey.Close();
                 }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SystemPreparer.GetRegistryString: Result = '{result}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "SystemPreparer.GetRegistryString: Done."
-            );
 
             return result;
         }
@@ -119,11 +91,13 @@ namespace MFR.System
         /// blank if you want to set the value's new data to be blank.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="keyName"/>, is blank.
+        /// Thrown if the required parameter, <paramref name="keyName" />, is blank.
         /// </exception>
-        public static void SetRegistryString(string keyName,  /* mandatory */
-            string valueName = "",  /* setting this to blank sets the (Default) entry */
-            string valueData = "" /* setting this to blank clears the value's data */)
+        public static void SetRegistryString(string keyName, /* mandatory */
+            string valueName =
+                "", /* setting this to blank sets the (Default) entry */
+            string valueData =
+                "" /* setting this to blank clears the value's data */)
         {
             // write the name of the current class and method we are now
             // entering, into the log
@@ -173,8 +147,9 @@ namespace MFR.System
                     key.SetValue(valueName, valueData);
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Info, $@"*** SUCCESS *** Value data written to the '{key.Name}\{valueName} value'."
-                        );
+                        DebugLevel.Info,
+                        $@"*** SUCCESS *** Value data written to the '{key.Name}\{valueName} value'."
+                    );
                 }
                 catch (Exception ex)
                 {

@@ -5,6 +5,7 @@ using MFR.Messages.Factories;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Registry.Helpers;
+using MFR.Registry.Loaders.Factories;
 using MFR.System;
 using MFR.Tests.Common;
 using NUnit.Framework;
@@ -48,7 +49,7 @@ namespace MFR.Replacers.Factories.Tests
             Assert.That(
                 CONFIG_FILE_PATH,
                 Is.EqualTo(
-                    SystemPreparer.GetRegistryString(KEY_PATH, VALUE_NAME)
+                    Load.String.FromRegistry(KEY_PATH, VALUE_NAME, CONFIG_FILE_PATH)
                 )
             );
         }

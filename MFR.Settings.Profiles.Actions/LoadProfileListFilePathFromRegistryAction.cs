@@ -4,6 +4,7 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
 using MFR.Messages.Constants;
+using MFR.Registry.Loaders.Factories;
 using MFR.System;
 using MFR.Settings.Profiles.Actions.Constants;
 using PostSharp.Patterns.Diagnostics;
@@ -81,7 +82,7 @@ namespace MFR.Settings.Profiles.Actions
                                                   .Validate();
 
             return MakeNewFileSystemEntry.ForPath(
-                SystemPreparer.GetRegistryString(
+                Load.String.FromRegistry(
                                   Input.KeyPath, Input.ValueName,
                                   Input.DefaultValue
                               )

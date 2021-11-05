@@ -132,6 +132,7 @@ namespace MFR.Settings.Configuration
         /// Gets or sets a value that indicates whether we should rename files
         /// in the folders encountered.
         /// </summary>
+        [JsonIgnore]
         public bool RenameFiles
         {
             get
@@ -145,6 +146,7 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.
         /// </summary>
+        [JsonIgnore]
         public bool RenameSubfolders
         {
             get
@@ -177,6 +179,7 @@ namespace MFR.Settings.Configuration
         /// Gets or sets a value that indicates whether we should replace text
         /// in files.
         /// </summary>
+        [JsonIgnore]
         public bool ReplaceInFiles
         {
             get
