@@ -103,6 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Folder.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
