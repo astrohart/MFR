@@ -7,6 +7,8 @@
   - [Launch(parms)](#M-MFR-GUI-Launchers-Dialogs-Interfaces-IErrorReportDialogLauncher-Launch-MFR-GUI-Launchers-Dialogs-Params-Interfaces-IErrorReportDialogLaunchParams- 'MFR.GUI.Launchers.Dialogs.Interfaces.IErrorReportDialogLauncher.Launch(MFR.GUI.Launchers.Dialogs.Params.Interfaces.IErrorReportDialogLaunchParams)')
 - [IHelpProfileExplainerDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Interfaces-IHelpProfileExplainerDialogLauncher 'MFR.GUI.Launchers.Dialogs.Interfaces.IHelpProfileExplainerDialogLauncher')
   - [Launch(owner)](#M-MFR-GUI-Launchers-Dialogs-Interfaces-IHelpProfileExplainerDialogLauncher-Launch-System-Windows-Forms-IWin32Window- 'MFR.GUI.Launchers.Dialogs.Interfaces.IHelpProfileExplainerDialogLauncher.Launch(System.Windows.Forms.IWin32Window)')
+- [IProfileNameDialogLauncher](#T-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher 'MFR.GUI.Launchers.Dialogs.Interfaces.IProfileNameDialogLauncher')
+  - [Launch(parms)](#M-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher-Launch-MFR-GUI-Launchers-Dialogs-Params-Interfaces-IProfileNameDialogLaunchParams- 'MFR.GUI.Launchers.Dialogs.Interfaces.IProfileNameDialogLauncher.Launch(MFR.GUI.Launchers.Dialogs.Params.Interfaces.IProfileNameDialogLaunchParams)')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Interfaces-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Interfaces-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Interfaces.Properties.Resources.ResourceManager')
@@ -82,6 +84,58 @@ corresponds to the means used by the user to dismiss the dialog.
 | owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements
 the [IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface.
 This object acts as the parent window of the dialog box. |
+
+<a name='T-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher'></a>
+## IProfileNameDialogLauncher `type`
+
+##### Namespace
+
+MFR.GUI.Launchers.Dialogs.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of a Profile Name dialog launcher.
+
+<a name='M-MFR-GUI-Launchers-Dialogs-Interfaces-IProfileNameDialogLauncher-Launch-MFR-GUI-Launchers-Dialogs-Params-Interfaces-IProfileNameDialogLaunchParams-'></a>
+### Launch(parms) `method`
+
+##### Summary
+
+Displays a user-friendly dialog box that assists the user with selecting a new
+name for a new or existing profile.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+interface.
+
+
+
+This object's properties' values contain the values chosen by the user,
+including the [DialogResult](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.DialogResult 'System.Windows.Forms.DialogResult') value that
+corresponds to the button the user clicked in order to dismiss the dialog box.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parms | [MFR.GUI.Launchers.Dialogs.Params.Interfaces.IProfileNameDialogLaunchParams](#T-MFR-GUI-Launchers-Dialogs-Params-Interfaces-IProfileNameDialogLaunchParams 'MFR.GUI.Launchers.Dialogs.Params.Interfaces.IProfileNameDialogLaunchParams') | (Required.) Reference to an instance of an object that implements the
+[IProfileNameDialogLaunchParams](#T-MFR-GUI-Launchers-Dialogs-Params-Interfaces-IProfileNameDialogLaunchParams 'MFR.GUI.Launchers.Dialogs.Params.Interfaces.IProfileNameDialogLaunchParams')
+interface.
+
+
+
+This object contains the input parameter variables for the Profile Name dialog
+box. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `parms`, is passed a `null`
+value. |
 
 <a name='T-MFR-GUI-Launchers-Dialogs-Interfaces-Properties-Resources'></a>
 ## Resources `type`
