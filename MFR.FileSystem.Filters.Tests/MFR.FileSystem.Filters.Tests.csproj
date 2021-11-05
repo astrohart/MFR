@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.9.11\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.11\build\PostSharp.props')" />
+  <Import Project="..\packages\NUnit.3.13.2\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.2\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{7B9D0273-B68F-4FE6-8D54-7CA4EEB4D390}</ProjectGuid>
+    <ProjectGuid>{F255106E-370D-4715-9141-D9CB4BBA0664}</ProjectGuid>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -21,7 +22,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.FileSystem.Filters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.FileSystem.Filters.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -34,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.FileSystem.Filters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.FileSystem.Filters.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.FileSystem.Filters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.FileSystem.Filters.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -59,8 +60,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.FileSystem.Filters.Factories.xml</DocumentationFile>
+    <SkipPostSharp>True</SkipPostSharp>
+    <DocumentationFile>bin\x86\Release\MFR.FileSystem.Filters.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -69,10 +70,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.FileSystem.Filters.Factories</AssemblyName>
+    <AssemblyName>MFR.FileSystem.Filters.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.FileSystem.Filters.Factories</RootNamespace>
+    <RootNamespace>MFR.FileSystem.Filters.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -81,8 +82,8 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.2\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="PostSharp, Version=6.9.11.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.6.9.11\lib\net45\PostSharp.dll</HintPath>
@@ -103,7 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Folder.cs" />
+    <Compile Include="FolderFilterTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,29 +129,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.FileSystem.Filters.Factories\MFR.FileSystem.Filters.Factories.csproj">
+      <Project>{7B9D0273-B68F-4FE6-8D54-7CA4EEB4D390}</Project>
+      <Name>MFR.FileSystem.Filters.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Filters.Interfaces\MFR.FileSystem.Filters.Interfaces.csproj">
       <Project>{4EB4A71B-94C7-4453-A604-F7D2A6A7AFC5}</Project>
       <Name>MFR.FileSystem.Filters.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Filters\MFR.FileSystem.Filters.csproj">
-      <Project>{FFC606CE-F1BE-44FD-849D-1E8DFF3D38A2}</Project>
-      <Name>MFR.FileSystem.Filters</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\PostSharp.6.9.11\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.11\build\PostSharp.props'))" />
-    <Error Condition="!Exists('..\packages\PostSharp.6.9.11\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.9.11\build\PostSharp.targets'))" />
-    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
-  </Target>
   <Import Project="..\packages\PostSharp.6.9.11\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.11\build\PostSharp.targets')" />
   <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>exit /b 0
-if exist "$(TargetDir)$(ProjectName).md" (
+    <PreBuildEvent>if exist "$(TargetDir)$(ProjectName).md" (
     if exist "$(ProjectDir)README.md" (
         erase /F /Q "$(ProjectDir)README.md"
     )
@@ -162,8 +154,7 @@ if exist "$(TargetDir)$(ProjectName).md" (
 exit /b 0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>exit /b 0
-if "$(ConfigurationName)"=="Release" (
+    <PostBuildEvent>if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.pdb"
     erase /F /S /Q "$(TargetDir)*.pspdb"
     erase /F /S /Q "$(TargetDir)*.vshost.exe"

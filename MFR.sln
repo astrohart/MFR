@@ -548,6 +548,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Filters.Fact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Filters.Interfaces", "MFR.FileSystem.Filters.Interfaces\MFR.FileSystem.Filters.Interfaces.csproj", "{4EB4A71B-94C7-4453-A604-F7D2A6A7AFC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Filters.Tests", "MFR.FileSystem.Filters.Tests\MFR.FileSystem.Filters.Tests.csproj", "{F255106E-370D-4715-9141-D9CB4BBA0664}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2716,6 +2718,14 @@ Global
 		{4EB4A71B-94C7-4453-A604-F7D2A6A7AFC5}.Release|x64.Build.0 = Release|x64
 		{4EB4A71B-94C7-4453-A604-F7D2A6A7AFC5}.Release|x86.ActiveCfg = Release|x86
 		{4EB4A71B-94C7-4453-A604-F7D2A6A7AFC5}.Release|x86.Build.0 = Release|x86
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Debug|x64.ActiveCfg = Debug|x64
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Debug|x64.Build.0 = Debug|x64
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Debug|x86.ActiveCfg = Debug|x86
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Debug|x86.Build.0 = Debug|x86
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Release|x64.ActiveCfg = Release|x64
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Release|x64.Build.0 = Release|x64
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Release|x86.ActiveCfg = Release|x86
+		{F255106E-370D-4715-9141-D9CB4BBA0664}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
