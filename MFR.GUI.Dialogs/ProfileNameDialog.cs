@@ -1,8 +1,8 @@
 ﻿using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Dialogs.Text.Retrievers.Factories;
-using MFR.GUI.Launchers.Dialogs.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
+using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
@@ -97,7 +97,7 @@ namespace MFR.GUI.Dialogs
                 return false;
             }
 
-            if (!GetProfileProvider.SoleInstance()
+            if (!ProfileProvider
                                    .Profiles
                                    .HasProfileNamed(ProfileName)) return true;
 
@@ -112,6 +112,13 @@ namespace MFR.GUI.Dialogs
              * If we made it here, than all the input is valid.
              */
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" /> interface.
+        /// </summary>
+        private IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
+
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
         /// <param name="e">
