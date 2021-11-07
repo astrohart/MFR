@@ -2,6 +2,7 @@ using MFR.CommandLine;
 using MFR.CommandLine.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
+using MFR.Common;
 using MFR.GUI.Displayers;
 using MFR.GUI.Windows;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -58,6 +59,8 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
+            Register.WindowsMessageFilter();
+
             SetDisplayParameters();
 
             SetUpExceptionHandling();
@@ -76,6 +79,8 @@ namespace MFR.GUI
             // Save changes in the configuration back out to the disk.
             // Also writes the path to the config file to the Registry.
             ConfigurationProvider.Save();
+
+            Revoke.WindowsMessageFilter();
         }
 
         /// <summary>
@@ -201,8 +206,7 @@ namespace MFR.GUI
             if (!Directories.MyDocuments.Equals(
                 CommandLineInfo.RootDirectory
             )) // we do not need any more checks here due to the command-line validation that occurs
-                GetConfigurationProvider.SoleInstance()
-                                        .Configuration.StartingFolder =
+                ConfigurationProvider.Configuration.StartingFolder =
                     CommandLineInfo.RootDirectory;
 
             Application.Run(MainWindow.Instance);

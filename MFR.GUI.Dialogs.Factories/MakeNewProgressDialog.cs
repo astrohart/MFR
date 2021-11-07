@@ -5,7 +5,7 @@ namespace MFR.GUI.Dialogs.Factories
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.GUI.Dialogs.Interfaces.IProgressDialog" />
+    ///     cref="T:MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog" />
     /// interface, and
     /// returns references to them.
     /// </summary>
@@ -14,11 +14,11 @@ namespace MFR.GUI.Dialogs.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.GUI.Dialogs.Interfaces.IProgressDialog" />
+        ///     cref="T:MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog" />
         /// interface and
         /// returns a reference to it.
         /// </summary>
-        public static IProgressDialog FromScratch()
-            => new ProgressDialog();
+        public static ICancellableProgressDialog FromScratch()
+            => new CancellableProgressDialog();
     }
 }

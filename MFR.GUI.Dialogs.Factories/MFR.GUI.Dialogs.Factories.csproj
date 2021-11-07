@@ -107,7 +107,9 @@
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="MakeNewErrorReportDialog.cs" />
+    <Compile Include="MakeNewFolderSelectDialog.cs" />
     <Compile Include="MakeNewHelpProfileExplainerDialog.cs" />
+    <Compile Include="MakeNewOperationDrivenProgressDialog.cs" />
     <Compile Include="MakeNewProfileNameDialog.cs" />
     <Compile Include="MakeNewProgressDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

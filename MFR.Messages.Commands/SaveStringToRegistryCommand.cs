@@ -1,7 +1,7 @@
 using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Messages.Constants;
 using MFR.Metadata.Registry.Interfaces;
-using MFR.System;
+using MFR.Registry.Writers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -126,7 +126,7 @@ namespace MFR.Messages.Commands
 
             try
             {
-                SystemPreparer.SetRegistryString(
+                Write.String.ToRegistry(
                     Input.KeyPath, Input.ValueName, Input.Value
                 );
             }

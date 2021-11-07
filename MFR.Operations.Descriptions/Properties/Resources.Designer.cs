@@ -106,6 +106,15 @@ namespace MFR.Operations.Descriptions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chekcing whether the folder you selected (or its subfolders) contains a Visual Studio Solution (*.sln) file....
+        /// </summary>
+        internal static string OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closing solution containing the item(s) to be processed....
         /// </summary>
         internal static string OperationStartedDescription_CloseActiveSolution {
@@ -120,6 +129,15 @@ namespace MFR.Operations.Descriptions.Properties {
         internal static string OperationStartedDescription_FindVisualStudio {
             get {
                 return ResourceManager.GetString("OperationStartedDescription_FindVisualStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanning directory tree for Visual Studio Solution (*.sln) files....
+        /// </summary>
+        internal static string OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree", resourceCulture);
             }
         }
         

@@ -3,6 +3,7 @@ using MFR.Events;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
+using MFR.GUI.Controls.Extensions;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
@@ -13,8 +14,6 @@ using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Managers.History.Interfaces;
-using MFR.Managers.RootFolders.Factories;
-using MFR.Managers.RootFolders.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
@@ -25,6 +24,7 @@ using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -32,6 +32,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -47,6 +48,14 @@ namespace MFR.GUI.Windows.Presenters
     public class MainWindowPresenter : ConfigurationComposedObjectBase,
         IMainWindowPresenter
     {
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.ICancellableProgressDialog" />
+        /// interface.
+        /// </summary>
+        private ICancellableProgressDialog _cancellableProgressDialog;
+
         /// <summary>
         /// Reference to an instance of a
         /// <see
@@ -93,14 +102,6 @@ namespace MFR.GUI.Windows.Presenters
         private OpenFileDialog _importConfigDialog;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.GUI.IProgressDialog" />
-        /// interface.
-        /// </summary>
-        private IProgressDialog _progressDialog;
-
-        /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.GUI.MainWindowPresenter" />
@@ -120,6 +121,74 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Failed to add the requested profile. Parameter is a string containing the
+        /// error message to display.
+        /// </summary>
+        public event AddProfileFailedEventHandler AddProfileFailed;
+
+        /// <summary>
+        /// Occurs when all the history has been cleared.
+        /// </summary>
+        public event EventHandler AllHistoryCleared;
+
+        /// <summary>
+        /// Occurs when the configuration has been exported to a file.
+        /// </summary>
+        public event ConfigurationExportedEventHandler ConfigurationExported;
+
+        /// <summary>
+        /// Occurs when the configuration has been updated, say, by an import process.
+        /// </summary>
+        public event ConfigurationImportedEventHandler ConfigurationImported;
+
+        /// <summary>
+        /// Occurs when the user issues a request to create a new, blank Profile.
+        /// </summary>
+        public event CreateNewBlankProfileRequestedEventHandler
+            CreateNewBlankProfileRequested;
+
+        /// <summary>
+        /// Occurs when an error happens during a data operation.
+        /// </summary>
+        public event DataOperationErrorEventHandler DataOperationError;
+
+        /// <summary>
+        /// Occurs when data is finished being moved to and fro between the
+        /// screen and the configuration data source.
+        /// </summary>
+        public event EventHandler DataOperationFinished;
+
+        /// <summary>
+        /// Occurs when data is about to be moved to and fro between the screen
+        /// and the configuration data source.
+        /// </summary>
+        public event DataOperationEventHandler DataOperationStarted;
+
+        /// <summary>
+        /// Occurs when the processing is done.
+        /// </summary>
+        public event EventHandler Finished;
+
+        /// <summary>
+        /// Occurs when an exception is thrown during a file operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler OperationError;
+
+        /// <summary>
+        /// Occurs when the processing has started.
+        /// </summary>
+        public event EventHandler Started;
+
+        /// <summary>
+        /// Gets a reference to this object instance.
+        /// </summary>
+        /// <remarks>
+        /// This property is here to maintain method call semantics.
+        /// </remarks>
+        public IMainWindowPresenter Does
+            => this;
+
+        /// <summary>
         /// Gets the text to be searched for during the operations.
         /// </summary>
         private string FindWhat
@@ -132,6 +201,12 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private IEntryRespectingComboBox FindWhatComboBox
             => View.FindWhatComboBox;
+
+        /// <summary>
+        /// Gets a value that indicates whether a Profile is currently loaded.
+        /// </summary>
+        public bool IsProfileLoaded
+            => !ConfigurationProvider.Configuration.IsTransientProfile();
 
         /// <summary>
         /// Gets the replacement text to be used during the operations.
@@ -195,75 +270,14 @@ namespace MFR.GUI.Windows.Presenters
         /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
         /// interface.
         /// </summary>
-        private IProfileProvider ProfileProvider
+        private static IProfileProvider ProfileProvider
             => GetProfileProvider.SoleInstance();
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
-        /// interface.
+        /// Gets the name of the currently-selected profile.
         /// </summary>
-        private IRootFolderPathManager RootFolderPathManager
-            => GetRootFolderPathManager.SoleInstance();
-
-        /// <summary>
-        /// Failed to add the requested profile. Parameter is a string containing the
-        /// error message to display.
-        /// </summary>
-        public event AddProfileFailedEventHandler AddProfileFailed;
-
-        /// <summary>
-        /// Occurs when all the history has been cleared.
-        /// </summary>
-        public event EventHandler AllHistoryCleared;
-
-        /// <summary>
-        /// Occurs when the configuration has been exported to a file.
-        /// </summary>
-        public event ConfigurationExportedEventHandler ConfigurationExported;
-
-        /// <summary>
-        /// Occurs when the configuration has been updated, say, by an import process.
-        /// </summary>
-        public event ConfigurationImportedEventHandler ConfigurationImported;
-
-        /// <summary>
-        /// Occurs when the user issues a request to create a new, blank Profile.
-        /// </summary>
-        public event CreateNewBlankProfileRequestedEventHandler
-            CreateNewBlankProfileRequested;
-
-        /// <summary>
-        /// Occurs when an error happens during a data operation.
-        /// </summary>
-        public event DataOperationErrorEventHandler DataOperationError;
-
-        /// <summary>
-        /// Occurs when data is finished being moved to and fro between the
-        /// screen and the configuration data source.
-        /// </summary>
-        public event EventHandler DataOperationFinished;
-
-        /// <summary>
-        /// Occurs when data is about to be moved to and fro between the screen
-        /// and the configuration data source.
-        /// </summary>
-        public event DataOperationEventHandler DataOperationStarted;
-
-        /// <summary>
-        /// Occurs when the processing is done.
-        /// </summary>
-        public event EventHandler Finished;
-
-        /// <summary>
-        /// Occurs when an exception is thrown during a file operation.
-        /// </summary>
-        public event ExceptionRaisedEventHandler OperationError;
-
-        /// <summary>
-        /// Occurs when the processing has started.
-        /// </summary>
-        public event EventHandler Started;
+        private string CurrentProfileName
+            => ((IProfile)Configuration).Name;
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of configuration
@@ -303,15 +317,11 @@ namespace MFR.GUI.Windows.Presenters
                 return;
             }
 
-            GetProfileProvider.SoleInstance()
-                              .Profiles.Add(
-                                  OnCreateNewBlankProfileRequested(
-                                      new
-                                          CreateNewBlankProfileRequestedEventArgs(
-                                              name
-                                          )
-                                  )
-                              );
+            ProfileProvider.Profiles.Add(
+                OnCreateNewBlankProfileRequested(
+                    new CreateNewBlankProfileRequestedEventArgs(name)
+                )
+            );
         }
 
         /// <summary>
@@ -372,7 +382,9 @@ namespace MFR.GUI.Windows.Presenters
         /// Dismisses the progress dialog.
         /// </summary>
         public void CloseProgressDialog()
-            => _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Close()
+            );
 
         /// <summary>
         /// Begins the rename operation.
@@ -409,14 +421,17 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public void ExportConfiguration()
         {
+            // Bring data from the screen down into the Configuration
+            // object
+            UpdateData();
+
             _exportConfigDialog.InitialDirectory =
                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             if (_exportConfigDialog.ShowDialog(View) != DialogResult.OK)
                 return;
 
-            GetConfigurationProvider.SoleInstance()
-                                    .Export(_exportConfigDialog.FileName);
+            ConfigurationProvider.Export(_exportConfigDialog.FileName);
 
             OnConfigurationExported(
                 new ConfigurationExportedEventArgs(_exportConfigDialog.FileName)
@@ -428,15 +443,33 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public void FillProfileDropDownList()
         {
+            View.ResetProfileListComboBox();
+
             if (ProfileProvider.Profiles == null)
                 return;
 
-            if (ProfileProvider.Profiles.Count == 0)
+            if (ProfileProvider.Profiles.Count(
+                p => !p.Name.StartsWith("tmp_")
+            ) == 0)
                 return;
 
+            /*
+             * Load the Profiles into the combo box,
+             * except ones whose name begin with tmp_.
+             */
+
             View.ProfileListComboBox.Items.AddRange(
-                ProfileProvider.Profiles.ToArray<object>()
+                ProfileProvider.Profiles.Where(p => !p.Name.StartsWith("tmp_"))
+                               .ToArray<object>()
             );
+
+            if (string.IsNullOrWhiteSpace(CurrentProfileName) ||
+                CurrentProfileName.StartsWith("tmp_"))
+                View.ProfileListComboBox.SelectFirstItem();
+            else
+                View.ProfileListComboBox.SelectFirstItemNamed(
+                    CurrentProfileName
+                );
         }
 
         /// <summary>
@@ -482,13 +515,11 @@ namespace MFR.GUI.Windows.Presenters
             if (_importConfigDialog.ShowDialog(View) != DialogResult.OK)
                 return;
 
-            GetConfigurationProvider.SoleInstance()
-                                    .Import(_importConfigDialog.FileName);
+            ConfigurationProvider.Import(_importConfigDialog.FileName);
 
-            UpdateConfiguration(
-                GetConfigurationProvider.SoleInstance()
-                                        .Configuration
-            );
+            UpdateConfiguration(ConfigurationProvider.Configuration);
+
+            UpdateData(false);
 
             OnConfigurationImported(
                 new ConfigurationImportedEventArgs(_importConfigDialog.FileName)
@@ -513,6 +544,39 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Determines whether a Profile having the specified
+        /// <paramref name="profileName" /> is already defined.
+        /// <para />
+        /// The match that is done is case-insensitive.
+        /// </summary>
+        /// <param name="profileName">
+        /// (Required.) String containing the name of the Profile
+        /// to search for.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if a Profile having the specified
+        /// <paramref name="profileName" /> is defined; <see langword="false" /> otherwise.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref name="profileName" />, is passed a blank or <see langword="null" />
+        /// string for a value.
+        /// </exception>
+        public bool ProfileAlreadyExist(string profileName)
+            => !string.IsNullOrWhiteSpace(profileName) &&
+               ProfileProvider.Profiles.HasProfileNamed(profileName);
+
+        /// <summary>
+        /// Saves data from the screen control and then saves the configuration to the
+        /// persistence location.
+        /// </summary>
+        public void SaveConfiguration()
+        {
+            UpdateData();
+            ConfigurationProvider.Save();
+        }
+
+        /// <summary>
         /// Runs code that should execute when either the OK or Apply buttons
         /// are clicked on the Tools -&gt; Options dialog box.
         /// </summary>
@@ -528,39 +592,183 @@ namespace MFR.GUI.Windows.Presenters
         {
             if (dialog == null) throw new ArgumentNullException(nameof(dialog));
 
-            if (GetConfigurationProvider.SoleInstance()
-                                        .ConfigurationFilePath !=
+            if (ConfigurationProvider.ConfigurationFilePath !=
                 dialog.ConfigPathname)
                 MakeNewFileInfo.ForPath(
-                                   GetConfigurationProvider.SoleInstance()
-                                       .ConfigurationFilePath
+                                   ConfigurationProvider.ConfigurationFilePath
                                )
                                .RenameTo(dialog.ConfigPathname);
 
-            GetConfigurationProvider.SoleInstance()
-                                    .ConfigurationFilePath =
-                dialog.ConfigPathname;
-            GetConfigurationProvider.SoleInstance()
-                                    .Configuration.ReOpenSolution =
+            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+            ConfigurationProvider.Configuration.ReOpenSolution =
                 dialog.ShouldReOpenVisualStudioSolution;
-            UpdateConfiguration(
-                GetConfigurationProvider.SoleInstance()
-                                        .Configuration
+            UpdateConfiguration(ConfigurationProvider.Configuration);
+        }
+
+        /// <summary>
+        /// Transforms the current value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration" />
+        /// property into a Profile with the <paramref name="profileName" /> specified.
+        /// <para />
+        /// If a Profile with the same name is already defined, then this method does
+        /// nothing.
+        /// </summary>
+        /// <param name="profileName">
+        /// (Required.) String containing the name to give the
+        /// new Profile.
+        /// </param>
+        public void SaveCurrentConfigurationAsProfile(string profileName)
+        {
+            if (string.IsNullOrWhiteSpace(profileName)) return;
+
+            if (Does.ProfileAlreadyExist(profileName)) return;
+
+            ProfileProvider.Profiles.Add(
+                ConfigurationProvider.Configuration.ToProfile(profileName)
+            );
+            ProfileProvider.Save();
+        }
+
+        /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            // write the name of the current class and method we are now
+            // entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.SaveOperationSelections"
+            );
+
+            Configuration.RenameFiles =
+                View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
+            Configuration.RenameSubfolders =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Subfolders"
+                );
+            Configuration.ReplaceInFiles =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    "Replace in Files"
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "MainWindowPresenter.SaveOperationSelections: Done."
+            );
+        }
+
+        /// <summary>
+        /// Shows a marquee progress bar that indicates the application is
+        /// performing work but of an indeterminate length, such as calculating
+        /// the amount of files to process.
+        /// </summary>
+        /// ///
+        /// <param name="text">
+        /// (Required.) String containing the text to display in the progress dialog.
+        /// </param>
+        /// <param name="canCancel">
+        /// (Required.) <see langword="true" /> to show a <strong>Cancel</strong> button in
+        /// the progress dialog; <see langword="false" /> to hide it.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="text" />, is passed
+        /// a blank or <see langword="null" /> string for a value.
+        /// </exception>
+        [Log(AttributeExclude = true)]
+        public void ShowCalculatingProgressBar(string text,
+            bool canCancel = true)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(text)
+                );
+            ResetProgressBar();
+
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.ProgressBarStyle =
+                    ProgressBarStyle.Marquee
+            );
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Status = text
             );
         }
 
         /// <summary>
         /// Shows the progress window.
         /// </summary>
+        /// <param name="canCancel">
+        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
+        /// <strong>Cancel</strong> button is displayed by the dialog box.
+        /// <para />
+        /// Set this parameter to <see langword="true" /> to display the button;
+        /// <see langword="false" /> to hide it.
+        /// </param>
+        public void ShowProgressDialog(bool canCancel)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    _cancellableProgressDialog.CanCancel = canCancel;
+                    _cancellableProgressDialog.Show();
+                }
+            );
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
+        /// <para />
+        /// This object plays the role of the parent window of the dialog box.
+        /// </param>
+        public void ShowProgressDialog(IWin32Window owner)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Show(owner)
+            );
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
+        /// <para />
+        /// This object plays the role of the parent window of the dialog box.
+        /// </param>
+        /// <param name="canCancel">
+        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
+        /// <strong>Cancel</strong> button is displayed by the dialog box.
+        /// <para />
+        /// Set this parameter to <see langword="true" /> to display the button;
+        /// <see langword="false" /> to hide it.
+        /// </param>
+        public void ShowProgressDialog(IWin32Window owner, bool canCancel)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    _cancellableProgressDialog.CanCancel = canCancel;
+                    _cancellableProgressDialog.Show(owner);
+                }
+            );
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
         public void ShowProgressDialog()
-            => _progressDialog.DoIfNotDisposed(() => _progressDialog.Show());
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Show()
+            );
 
         /// <summary>
         /// Updates the configuration currently being used with a new value.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration" /> interface which has
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface which has
         /// the new settings.
         /// </param>
         /// <remarks>
@@ -719,91 +927,6 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this presenter.
-        /// </summary>
-        /// <param name="fileRenamer">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IFileRenamer" /> interface.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.WithFileRenamer"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to associate the File Renamer object with this Presenter..."
-            );
-
-            _fileRenamer = fileRenamer ??
-                           throw new ArgumentNullException(nameof(fileRenamer));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The File Renamer object has been attached."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Initializing the File Renamer object supplied..."
-            );
-
-            InitializeFileRenamer();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The File Renamer object has been initialized."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.WithFileRenamer: Done."
-            );
-
-            return this;
-        }
-
-        /// <summary>
-        /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
-        /// </summary>
-        public void SaveOperationSelections()
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.SaveOperationSelections"
-            );
-
-            Configuration.RenameFiles =
-                View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
-            Configuration.RenameSubfolders =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Subfolders"
-                );
-            Configuration.ReplaceInFiles =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    "Replace in Files"
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.SaveOperationSelections: Done."
-            );
-        }
-
-        /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.
         /// </summary>
         /// <param name="mainWindow">
@@ -844,6 +967,31 @@ namespace MFR.GUI.Windows.Presenters
                 DebugLevel.Debug,
                 "MainWindowPresenter.MainWindowReference: Done."
             );
+
+            return this;
+        }
+
+        /// <summary>
+        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// </summary>
+        /// <param name="fileRenamer">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.IFileRenamer" /> interface.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
+        {
+            _fileRenamer = fileRenamer ??
+                           throw new ArgumentNullException(nameof(fileRenamer));
+
+            InitializeFileRenamer();
 
             return this;
         }
@@ -1099,8 +1247,7 @@ namespace MFR.GUI.Windows.Presenters
             => Task.Run(
                 () => _fileRenamer.ProcessAll(
                     StartingFolder, FindWhat, ReplaceWith
-                )
-            );
+                ));
 
         /// <summary>
         /// Called when the count of files to be processed in a given operation
@@ -1126,8 +1273,8 @@ namespace MFR.GUI.Windows.Presenters
                 throw new ArgumentOutOfRangeException(nameof(count));
             ResetProgressBar();
 
-            _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.ProgressBarMaximum = count
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.ProgressBarMaximum = count
             );
         }
 
@@ -1166,14 +1313,15 @@ namespace MFR.GUI.Windows.Presenters
                     Resources.Error_ValueCannotBeNullOrWhiteSpace,
                     nameof(currentFileLabelText)
                 );
-            _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.Status = statusLabelText
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Status = statusLabelText
             );
-            _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.CurrentFile = currentFileLabelText
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.CurrentFile =
+                    currentFileLabelText
             );
-            _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.ProgressBarValue++
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.ProgressBarValue++
             );
         }
 
@@ -1185,7 +1333,8 @@ namespace MFR.GUI.Windows.Presenters
 
         {
             // exportConfigDialog
-            _exportConfigDialog = new SaveFileDialog {
+            _exportConfigDialog = new SaveFileDialog
+            {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1195,7 +1344,8 @@ namespace MFR.GUI.Windows.Presenters
             };
 
             // importConfigDialog
-            _importConfigDialog = new OpenFileDialog {
+            _importConfigDialog = new OpenFileDialog
+            {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1336,6 +1486,26 @@ namespace MFR.GUI.Windows.Presenters
                 "MainWindowPresenter.InitializeFileRenamer: Done."
             );
         }
+
+        /// <summary>
+        /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method handles the situation in which the user has clicked the
+        /// Cancel button on the progress dialog. The message taken by this
+        /// method is to tell the File Renamer Object to attempt to abort.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private void OnCancellableProgressDialogRequestedCancel(object sender,
+            EventArgs e)
+            => _fileRenamer.RequestAbort();
 
         /// <summary>
         /// Handles the <see cref="E:MFR.IFileRenamer.ExceptionRaised" /> event.
@@ -1559,51 +1729,29 @@ namespace MFR.GUI.Windows.Presenters
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.GUI.IProgressDialog.CancelRequested" /> event.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method handles the situation in which the user has clicked the
-        /// Cancel button on the progress dialog. The message taken by this
-        /// method is to tell the File Renamer Object to attempt to abort.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnProgressDialogRequestedCancel(object sender, EventArgs e)
-            => _fileRenamer.RequestAbort();
-
-        /// <summary>
         /// Sets the progress dialog and/or reinitializes it from prior use.
         /// </summary>
         [Log(AttributeExclude = true)]
         private void ReinitializeProgressDialog()
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.ReinitializeProgressDialog"
-            );
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    if (_cancellableProgressDialog != null)
+                    {
+                        _cancellableProgressDialog.Close();
+                        _cancellableProgressDialog.Dispose();
+                    }
 
-            _progressDialog.DoIfNotDisposed(() => _progressDialog.Close());
-            _progressDialog.DoIfDisposed(
-                () => _progressDialog = MakeNewProgressDialog.FromScratch()
+                    _cancellableProgressDialog = null;
+                }
             );
-            _progressDialog.CancelRequested += OnProgressDialogRequestedCancel;
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The progress dialog has been reinitialized."
+            _cancellableProgressDialog.DoIfDisposed(
+                () => _cancellableProgressDialog =
+                    MakeNewProgressDialog.FromScratch()
             );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.ReinitializeProgressDialog: Done."
-            );
+            _cancellableProgressDialog.CancelRequested +=
+                OnCancellableProgressDialogRequestedCancel;
         }
 
         /// <summary>
@@ -1611,56 +1759,9 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         [Log(AttributeExclude = true)]
         private void ResetProgressBar()
-            => _progressDialog.DoIfNotDisposed(_progressDialog.Reset);
-
-        /// <summary>
-        /// Shows a marquee progress bar that indicates the application is
-        /// performing work but of an indeterminate length, such as calculating
-        /// the amount of files to process.
-        /// </summary>
-        /// ///
-        /// <param name="text">
-        /// (Required.) String containing the text to display in the progress dialog.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="text" />, is passed
-        /// a blank or <see langword="null" /> string for a value.
-        /// </exception>
-        [Log(AttributeExclude = true)]
-        private void ShowCalculatingProgressBar(string text)
-        {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.ShowCalculatingProgressBar"
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                _cancellableProgressDialog.Reset
             );
-
-            // Dump the parameter text to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.ShowCalculatingProgressBar: text = '{text}'"
-            );
-
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(text)
-                );
-            ResetProgressBar();
-
-            _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.ProgressBarStyle =
-                    ProgressBarStyle.Marquee
-            );
-            _progressDialog.DoIfNotDisposed(
-                () => _progressDialog.Status = text
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.ShowCalculatingProgressBar: Done."
-            );
-        }
 
         /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are

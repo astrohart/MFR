@@ -1,32 +1,75 @@
 using MFR.GUI.Controls.Interfaces;
 using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Profiles.Factories;
+using MFR.Settings.Profiles.Interfaces;
 using System;
 using System.Linq;
 
 namespace MFR.Settings.Configuration.Helpers
 {
     /// <summary>
-    /// Extension methods for objects implementing the <see
-    /// cref="T:MFR.GUI.IConfiguration"/> interface.
+    /// Extension methods for objects implementing the
+    /// <see
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+    /// interface.
     /// </summary>
     public static class ConfigurationExtensions
     {
         /// <summary>
-        /// Gets the <see cref="T:MFR.TextMatchingConfiguration"/> value
-        /// that corresponds to the values set in the configuration object, a
-        /// reference to which is passed by the <paramref name="config"/> parameter.
+        /// Allows us to work with the specified <paramref name="configuration" /> object
+        /// as if it were a Profile.
         /// </summary>
-        /// <param name="config">
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.IConfiguration"/> interface.
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object
+        /// that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
         /// </param>
         /// <returns>
-        /// The <see cref="T:MFR.TextMatchingConfiguration"/> value that
-        /// corresponds to the values of the <see
-        /// cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase"/>
-        /// and <see
-        /// cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord"/> properties.
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Interfaces.IProfile" /> interface that
+        /// represents the specified <paramref name="configuration" />.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="configuration" />, is passed a
+        /// <see langword="null" /> value.
+        /// </exception>
+        public static IProfile AsProfile(this IConfiguration configuration)
+        {
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
+            return configuration is IProfile profile
+                ? profile
+                : configuration.ToProfile(
+                    "tmp_" + Guid.NewGuid()
+                                 .ToString("B")
+                                 .ToUpperInvariant()
+                );
+        }
+
+        /// <summary>
+        /// Gets the <see cref="T:MFR.TextMatchingConfiguration" /> value
+        /// that corresponds to the values set in the configuration object, a
+        /// reference to which is passed by the <paramref name="config" /> parameter.
+        /// </summary>
+        /// <param name="config">
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </param>
+        /// <returns>
+        /// The <see cref="T:MFR.TextMatchingConfiguration" /> value that
+        /// corresponds to the values of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
+        /// and
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        /// properties.
         /// </returns>
         public static TextMatchingConfiguration GetTextMatchingConfiguration(
             this IConfiguration config)
@@ -48,11 +91,38 @@ namespace MFR.Settings.Configuration.Helpers
                     break;
 
                 default:
-                    result = TextMatchingConfiguration.NeitherMatchCaseNorExactWord;
+                    result = TextMatchingConfiguration
+                        .NeitherMatchCaseNorExactWord;
                     break;
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Determines whether the specified <paramref name="configuration" /> actually
+        /// refers to a bona fide <c>Profile</c> or whether it was simply transformed into
+        /// a transient <c>Profile</c> object (having a name beginning with <c>_tmp</c>).
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object
+        /// that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified
+        /// <paramref name="configuration" /> is merely a transient <c>Profile</c> object;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public static bool IsTransientProfile(this IConfiguration configuration)
+        {
+            if (configuration == null) return true;
+
+            var correspondingProfile = configuration.AsProfile();
+
+            return string.IsNullOrWhiteSpace(correspondingProfile.Name) ||
+                   correspondingProfile.Name.StartsWith("tmp_");
         }
 
         /// <summary>
@@ -61,18 +131,23 @@ namespace MFR.Settings.Configuration.Helpers
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration"/> interface and which
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface and which
         /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox"/>
+        /// the <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" />
         /// interface that is the control displaying the Find What content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="config"/> or <paramref name="comboBox"/>, are passed a <see
-        /// langword="null"/> value.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="config" />
+        /// or <paramref name="comboBox" />, are passed a
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public static void SaveCurrentFindWhatAndHistory(
             this IConfiguration config, IEntryRespectingComboBox comboBox)
@@ -94,18 +169,23 @@ namespace MFR.Settings.Configuration.Helpers
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration"/> interface and which
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface and which
         /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox"/>
+        /// the <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" />
         /// interface that is the control displaying the Replace With content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="config"/> or <paramref name="comboBox"/>, are passed a <see
-        /// langword="null"/> value.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="config" />
+        /// or <paramref name="comboBox" />, are passed a
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public static void SaveCurrentReplaceWithAndHistory(
             this IConfiguration config, IEntryRespectingComboBox comboBox)
@@ -129,19 +209,24 @@ namespace MFR.Settings.Configuration.Helpers
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration"/> interface and which
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface and which
         /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox"/>
+        /// the <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" />
         /// interface that is the control displaying the Starting Folder
         /// content to the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if either of the required parameters, <paramref
-        /// name="config"/> or <paramref name="comboBox"/>, are passed a <see
-        /// langword="null"/> value.
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="config" />
+        /// or <paramref name="comboBox" />, are passed a
+        /// <see
+        ///     langword="null" />
+        /// value.
         /// </exception>
         public static void SaveCurrentStartingFolderAndHistory(
             this IConfiguration config, IEntryRespectingComboBox comboBox)

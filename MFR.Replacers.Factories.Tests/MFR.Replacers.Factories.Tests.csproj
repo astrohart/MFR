@@ -229,10 +229,6 @@
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Settings.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.System\MFR.System.csproj">
-      <Project>{B44D03E4-64EE-4C69-AC4D-8ED8F8B52B6C}</Project>
-      <Name>MFR.System</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
       <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
       <Name>MFR.Tests.Common</Name>

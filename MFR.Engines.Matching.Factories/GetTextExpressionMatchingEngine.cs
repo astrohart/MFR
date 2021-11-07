@@ -43,7 +43,7 @@ namespace MFR.Engines.Matching.Factories
         /// method on the result of this method in order to attach an object
         /// that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
         /// interface to the
         /// new object instance.
         /// </remarks>

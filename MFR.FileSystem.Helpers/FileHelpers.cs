@@ -2,6 +2,7 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Exceptions;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers.Properties;
+using MFR.FileSystem.Creators;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -196,71 +197,19 @@ namespace MFR.FileSystem.Helpers
             );
 
             if (!Directory.Exists(containingFolderName))
-                Directory.CreateDirectory(containingFolderName);
+                Create.Folder(containingFolderName);
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "FileHelpers.MakeSureContainingFolderExists: Checking whether the operation succeeded..."
             );
 
-            VerifyFolderCreated(containingFolderName);
+            Verify.FolderCreated(containingFolderName);
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
                 "FileHelpers.MakeSureContainingFolderExists: Done."
             );
-        }
-
-        /// <summary>
-        /// Insists that the folder whose path is provided in the parameter
-        /// <paramref name="containingFolderName" /> exists.
-        /// </summary>
-        /// <param name="containingFolderName">
-        /// (Required.) String containing the path to the folder whose existence on the
-        /// disk is to be verified.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter,
-        /// <paramref name="containingFolderName" />, is passed a blank or
-        /// <see langword="null" /> string for a value.
-        /// </exception>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the folder whose path is <paramref name="containingFolderName" />
-        /// does not exist on the disk when it is supposed to.
-        /// </exception>
-        private static void VerifyFolderCreated(string containingFolderName)
-        {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileHelpers.VerifyFolderCreated"
-            );
-
-            // Dump the variable containingFolderName to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileHelpers.VerifyFolderCreated: containingFolderName = '{containingFolderName}'"
-            );
-
-            if (string.IsNullOrWhiteSpace(containingFolderName))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
-                    nameof(containingFolderName)
-                );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileHelpers.VerifyFolderCreated: Verifying that the folder having path '{containingFolderName}' exists on the disk..."
-            );
-
-            if (Directory.Exists(containingFolderName))
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** SUCCESS *** DoesFolder with path '{containingFolderName}' created."
-                );
-            else
-                throw new InvalidOperationException(
-                    $"Failed to create folder '{containingFolderName}'."
-                );
         }
 
         /// <summary>

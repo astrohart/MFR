@@ -32,7 +32,7 @@ namespace MFR.Engines.Replacement
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration" /> interface that holds
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">

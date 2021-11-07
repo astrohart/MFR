@@ -25,7 +25,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
         /// <summary>
         /// Asserts that a valid instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
         /// interface will be loaded from
         /// the configuration file for the application, provided that a valid
         /// path has been supplied as input to the loading action.

@@ -2,6 +2,9 @@
 
 namespace MFR.Registry.Loaders.Factories
 {
+    /// <summary>
+    /// Loads data from the system Registry.
+    /// </summary>
     public static class Load
     {
         /// <summary>

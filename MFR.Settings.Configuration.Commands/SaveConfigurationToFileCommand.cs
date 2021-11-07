@@ -13,7 +13,7 @@ namespace MFR.Settings.Configuration.Commands
     /// <summary>
     /// Saves a configuration object, i.e., one that implements the
     /// <see
-    ///     cref="T:MFR.IConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
     /// interface, to a JSON file.
     /// </summary>
     /// <remarks>

@@ -9,7 +9,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
     {
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.IConfiguration" /> interface and which
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>

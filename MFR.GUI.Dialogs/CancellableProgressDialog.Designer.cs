@@ -4,7 +4,7 @@ using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs
 {
-    partial class ProgressDialog
+    partial class CancellableProgressDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CancellableProgressDialog));
             this.currentFileLabel = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@ namespace MFR.GUI.Dialogs
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.OnCancel);
             // 
-            // ProgressDialog
+            // CancellableProgressDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -89,7 +89,7 @@ namespace MFR.GUI.Dialogs
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ProgressDialog";
+            this.Name = "CancellableProgressDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

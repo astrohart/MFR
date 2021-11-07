@@ -162,6 +162,7 @@ namespace MFR.GUI.Windows
             this.statusBar.Location = new System.Drawing.Point(0, 483);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(596, 22);
+            this.statusBar.SizingGrip = false;
             this.statusBar.TabIndex = 9;
             this.statusBar.Text = "statusStrip1";
             // 
@@ -597,6 +598,7 @@ namespace MFR.GUI.Windows
             this.saveProfileButton.Name = "saveProfileButton";
             this.saveProfileButton.Size = new System.Drawing.Size(23, 22);
             this.saveProfileButton.Text = "Save Profile As";
+            this.saveProfileButton.Click += new System.EventHandler(this.OnToolsConfigurationSaveProfile);
             // 
             // manageProfilesButton
             // 
@@ -610,6 +612,8 @@ namespace MFR.GUI.Windows
             // profileListComboBox
             // 
             this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.profileListComboBox.Items.AddRange(new object[] {
+            "<No profile selected>"});
             this.profileListComboBox.Name = "profileListComboBox";
             this.profileListComboBox.Size = new System.Drawing.Size(200, 25);
             this.profileListComboBox.ToolTipText = "Profiles";

@@ -38,7 +38,7 @@ namespace MFR.Engines.Replacement
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
         /// interface that
         /// holds settings that are specified by the user.
         /// </param>

@@ -7,6 +7,7 @@ using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Creators;
 using MFR.Operations.Constants;
 using MFR.Tests.Common;
 using MFR.TextValues.Retrievers.Factories;
@@ -600,7 +601,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.IsFalse(Directory.Exists(destFolder));
 
             if (!Directory.Exists(destFolder))
-                Directory.CreateDirectory(destFolder);
+                Create.Folder(destFolder);
 
             DoFileRename(source, dest);
 

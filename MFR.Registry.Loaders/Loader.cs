@@ -1,5 +1,9 @@
 ﻿namespace MFR.Registry.Loaders
 {
+    /// <summary>
+    /// Defines the events, methods, properties, and behaviors for all loaders of data
+    /// from the system Registry.
+    /// </summary>
     public abstract class Loader<T> where T : class
     {
         /// <summary>

@@ -27,7 +27,7 @@ namespace MFR.Settings.Configuration.Serializers
         /// <returns>
         ///     Reference to an instance of an object that implements the
         ///     <see
-        ///         cref="T:MFR.IConfiguration" />
+        ///         cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         ///     interface that has been
         ///     initialized with the data present in the file; or
         ///     <see

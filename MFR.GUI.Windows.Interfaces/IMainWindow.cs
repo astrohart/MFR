@@ -140,5 +140,15 @@ namespace MFR.GUI.Windows.Interfaces
         {
             [DebuggerStepThrough] get;
         }
+
+        /// <summary>
+        /// Clears all the items from the Profile List combo box and then adds the
+        /// <c>
+        /// &lt;No profile selected&gt;
+        /// </c>
+        /// item and then selects the first element in the
+        /// <see cref="P:System.Windows.Forms.ToolStripComboBox.Items" /> list.
+        /// </summary>
+        void ResetProfileListComboBox();
     }
 }

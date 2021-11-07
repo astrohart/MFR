@@ -10,14 +10,17 @@ namespace MFR.GUI.Dialogs
     /// <summary>
     /// Window that displays progress of an operation.
     /// </summary>
-    public partial class ProgressDialog : Form, IProgressDialog
+    public partial class CancellableProgressDialog : Form,
+        ICancellableProgressDialog
     {
         /// <summary>
-        /// Constructs a new instance of <see
-        /// cref="T:MFR.GUI.Dialogs.ProgressDialog"/> and returns a
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.GUI.Dialogs.CancellableProgressDialog" />
+        /// and returns a
         /// reference to it.
         /// </summary>
-        public ProgressDialog()
+        public CancellableProgressDialog()
         {
             InitializeComponent();
         }
@@ -29,19 +32,30 @@ namespace MFR.GUI.Dialogs
         public event EventHandler CancelRequested;
 
         /// <summary>
+        /// Gets or sets a value indicating whether the operation can be cancelled.
+        /// </summary>
+        public bool CanCancel
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a string containing the new detailed status.
         /// </summary>
         public string CurrentFile
         {
-            [DebuggerStepThrough]
-            get => currentFileLabel.Text;
-            set => currentFileLabel.InvokeIfRequired(
-                () =>
-                {
-                    currentFileLabel.Text = value;
-                    DebugUtils.WriteLine(DebugLevel.Info, $"*** CURRENT FILE: {value}");
-                }
-            );
+            [DebuggerStepThrough] get => currentFileLabel.Text;
+            set
+                => currentFileLabel.InvokeIfRequired(
+                    () =>
+                    {
+                        currentFileLabel.Text = value;
+                        DebugUtils.WriteLine(
+                            DebugLevel.Info, $"*** CURRENT FILE: {value}"
+                        );
+                    }
+                );
         }
 
         /// <summary>
@@ -49,8 +63,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public ProgressBar ProgressBar
         {
-            [DebuggerStepThrough]
-            get => progressBar;
+            [DebuggerStepThrough] get => progressBar;
         }
 
         /// <summary>
@@ -58,8 +71,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarMaximum
         {
-            [DebuggerStepThrough]
-            get => progressBar.Maximum;
+            [DebuggerStepThrough] get => progressBar.Maximum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Maximum = value
@@ -71,8 +83,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarMinimum
         {
-            [DebuggerStepThrough]
-            get => progressBar.Minimum;
+            [DebuggerStepThrough] get => progressBar.Minimum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Minimum = value
@@ -84,11 +95,11 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public ProgressBarStyle ProgressBarStyle
         {
-            [DebuggerStepThrough]
-            get => progressBar.Style;
+            [DebuggerStepThrough] get => progressBar.Style;
             set
-                => progressBar.InvokeIfRequired(() => progressBar.Style = value)
-            ;
+                => progressBar.InvokeIfRequired(
+                    () => progressBar.Style = value
+                );
         }
 
         /// <summary>
@@ -96,11 +107,11 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarValue
         {
-            [DebuggerStepThrough]
-            get => progressBar.Value;
+            [DebuggerStepThrough] get => progressBar.Value;
             set
-                => progressBar.InvokeIfRequired(() => progressBar.Value = value)
-            ;
+                => progressBar.InvokeIfRequired(
+                    () => progressBar.Value = value
+                );
         }
 
         /// <summary>
@@ -108,8 +119,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string Status
         {
-            [DebuggerStepThrough]
-            get => statusLabel.Text;
+            [DebuggerStepThrough] get => statusLabel.Text;
             set => statusLabel.InvokeIfRequired(() => statusLabel.Text = value);
         }
 
@@ -123,23 +133,25 @@ namespace MFR.GUI.Dialogs
             ProgressBarMaximum = 100;
             ProgressBarValue = 0;
 
-            Status = CurrentFile = string.Empty;
+            Status = string.Empty;
 
             this.InvokeIfRequired(RedrawDisplay);
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.GUI.Dialogs.ProgressDialog.CancelRequested"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Dialogs.CancellableProgressDialog.CancelRequested" />
+        /// event.
         /// </summary>
         protected virtual void OnCancelRequested()
             => CancelRequested?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
+        /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method sets the title of the dialog to match the application's name.
@@ -152,22 +164,38 @@ namespace MFR.GUI.Dialogs
             ProgressBar.MarqueeAnimationSpeed = 30;
             ProgressBar.Style = ProgressBarStyle.Marquee;
             Text = Application.ProductName;
+
+            cancelButton.Enabled = CanCancel;
+            cancelButton.Visible = CanCancel;
+            CancelButton = CanCancel ? cancelButton : null;
+        }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            RedrawDisplay();
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Control.Click"/> event
+        /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
         /// for the Cancel button.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs"/> that contains the event data.
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method is called when the user chooses the Cancel button or
         /// presses the ESCAPE key. This method responds merely by raising the
-        /// <see cref="E:MFR.GUI.ProgressDialog.CancelRequested"/>
+        /// <see cref="E:MFR.GUI.CancellableProgressDialog.CancelRequested" />
         /// event. This event directs the caller of this dialog box to attempt
         /// to abort the operation and close down this dialog box from its GUI thread.
         /// </remarks>

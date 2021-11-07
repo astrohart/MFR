@@ -1,3 +1,4 @@
+using MFR.Common;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Constants;
@@ -15,10 +16,13 @@ namespace MFR.Console
         /// <summary>
         /// Application entry point.
         /// </summary>
+        [STAThread]
         public static void Main()
         {
             try
             {
+                Register.WindowsMessageFilter();
+
                 const string rootDir =
                     @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
 
@@ -32,6 +36,9 @@ namespace MFR.Console
                 renamer.ProcessAll(
                     @"MassFileRenamer", @"PortfolioMonitor.Products"
                 );
+
+                Revoke.WindowsMessageFilter();
+
                 System.Console.ReadKey();
             }
             catch (Exception e)

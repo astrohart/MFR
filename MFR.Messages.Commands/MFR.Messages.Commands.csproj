@@ -129,6 +129,14 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Writers.Factories\MFR.Registry.Writers.Factories.csproj">
+      <Project>{D45DAAA1-30AA-4EF9-A2B3-9068E439615E}</Project>
+      <Name>MFR.Registry.Writers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Writers.Interfaces\MFR.Registry.Writers.Interfaces.csproj">
+      <Project>{F926FE55-A7FA-4FFD-B5F7-8575DE2B5A85}</Project>
+      <Name>MFR.Registry.Writers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Constants\MFR.Settings.Configuration.Commands.Constants.csproj">
       <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
       <Name>MFR.Settings.Configuration.Commands.Constants</Name>
@@ -168,10 +176,6 @@
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.System\MFR.System.csproj">
-      <Project>{B44D03E4-64EE-4C69-AC4D-8ED8F8B52B6C}</Project>
-      <Name>MFR.System</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

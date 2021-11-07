@@ -181,6 +181,10 @@
       <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
       <Name>MFR.GUI.Dialogs.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Factories\MFR.GUI.Dialogs.Factories.csproj">
+      <Project>{58F401C9-2722-4D62-8962-EDE93E43F5F7}</Project>
+      <Name>MFR.GUI.Dialogs.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Displayers\MFR.GUI.Displayers.csproj">
       <Project>{88EE1339-FB88-453E-9517-81D51B9C1D9D}</Project>
       <Name>MFR.GUI.Displayers</Name>
@@ -220,6 +224,14 @@
     <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
       <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
       <Name>MFR.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Descriptions.Factories\MFR.Operations.Descriptions.Factories.csproj">
+      <Project>{0FF66CA2-92B5-4A11-AB1A-7B4A51A3981A}</Project>
+      <Name>MFR.Operations.Descriptions.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>

@@ -46,7 +46,7 @@ namespace MFR.Tests.Common
         /// <summary>
         /// Provides an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         /// interface with its
         /// <paramref
         ///     name="matchCase" />
@@ -63,7 +63,7 @@ namespace MFR.Tests.Common
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         /// interface whose
         /// <see
         ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
@@ -115,14 +115,14 @@ namespace MFR.Tests.Common
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         /// interface and returns a
         /// reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         /// interface.
         /// </returns>
         /// <remarks>

@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
@@ -6,24 +5,16 @@ using xyLOGIX.Core.Extensions;
 namespace MFR.GUI.Dialogs.Interfaces
 {
     /// <summary>
-    /// Defines the public-exposed methods and properties of a progress window..
+    /// Defines the publicly-exposed methods and properties of a Progress Dialog.
     /// </summary>
     public interface IProgressDialog : IForm
     {
         /// <summary>
-        /// Raised when the user clicks the Cancel button in order to request
-        /// that the operation be aborted.
+        /// Gets a reference to the progress bar control.
         /// </summary>
-        event EventHandler CancelRequested;
-
-        /// <summary>
-        /// Gets or sets a string containing the new detailed status.
-        /// </summary>
-        string CurrentFile
+        ProgressBar ProgressBar
         {
-            [DebuggerStepThrough]
-            get;
-            set;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
@@ -31,8 +22,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// </summary>
         int ProgressBarMaximum
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -41,8 +31,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// </summary>
         int ProgressBarMinimum
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -51,8 +40,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// </summary>
         ProgressBarStyle ProgressBarStyle
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -61,8 +49,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// </summary>
         int ProgressBarValue
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 
@@ -71,8 +58,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// </summary>
         string Status
         {
-            [DebuggerStepThrough]
-            get;
+            [DebuggerStepThrough] get;
             set;
         }
 

@@ -5,7 +5,6 @@ using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
 using MFR.Messages.Constants;
 using MFR.Registry.Loaders.Factories;
-using MFR.System;
 using MFR.Settings.Profiles.Actions.Constants;
 using PostSharp.Patterns.Diagnostics;
 

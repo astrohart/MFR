@@ -13,7 +13,7 @@ namespace MFR.Settings.Profiles.Commands
     /// <summary>
     /// Saves a profile list object, i.e., one that implements the
     /// <see
-    ///     cref="T:MFR.IConfiguration" />
+    ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
     /// interface, to a JSON file.
     /// </summary>
     /// <remarks>

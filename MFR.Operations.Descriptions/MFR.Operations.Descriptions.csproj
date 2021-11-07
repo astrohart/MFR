@@ -104,6 +104,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription.cs" />
+    <Compile Include="GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="CloseActiveSolutionOperationTypeStartedDescription.cs" />
     <Compile Include="FindVisualStudioOperationTypeStartedDescription.cs" />

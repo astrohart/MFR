@@ -1,5 +1,9 @@
 ﻿namespace MFR.Registry.Loaders.Interfaces
 {
+    /// <summary>
+    /// Defines the publicly-exposed methods and properties of an object that loads
+    /// textual data from the system Registry.
+    /// </summary>
     public interface IStringLoader
     {
         /// <summary>

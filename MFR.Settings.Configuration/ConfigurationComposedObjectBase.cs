@@ -9,7 +9,7 @@ namespace MFR.Settings.Configuration
     /// Provides common functionality for all those objects that get composed
     /// with another object that implements the
     /// <see
-    ///     cref="T:MFR.IConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
     /// interface.
     /// </summary>
     [Log(AttributeExclude = true)]
@@ -22,7 +22,9 @@ namespace MFR.Settings.Configuration
         ///     cref="T:MFR.Settings.ConfigurationComposedObjectBase" />
         /// and returns a reference to it.
         /// </summary>
-        protected ConfigurationComposedObjectBase() { }
+        protected ConfigurationComposedObjectBase()
+        {
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -33,7 +35,7 @@ namespace MFR.Settings.Configuration
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration" /> interface
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
         /// that holds settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
@@ -49,16 +51,8 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this object has been
-        /// properly composed with an instance of an object that implements the
-        /// <see cref="T:MFR.IConfiguration" /> interface.
-        /// </summary>
-        protected bool IsConfigurationAttached
-            => Configuration != null;
-
-        /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration" /> interface.
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface.
         /// </summary>
         /// <remarks>
         /// This object's properties give us access to the settings configured
@@ -69,6 +63,14 @@ namespace MFR.Settings.Configuration
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this object has been
+        /// properly composed with an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface.
+        /// </summary>
+        protected bool IsConfigurationAttached
+            => Configuration != null;
 
         /// <summary>
         /// Associates user settings, in the form of an instance of an object
@@ -106,7 +108,7 @@ namespace MFR.Settings.Configuration
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration" /> interface
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
         /// which has the new settings.
         /// </param>
         /// <remarks>

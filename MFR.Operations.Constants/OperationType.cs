@@ -5,6 +5,15 @@ namespace MFR.Operations.Constants
     /// </summary>
     public enum OperationType
     {
+        /// <summary>
+        /// Checking the starting folder that has been selected to ensure that it or one or
+        /// more of its subfolders contain Visual Studio Solution (*.sln) files.
+        /// </summary>
+        CheckingWhetherChosenFolderContainsSolutions = 11,
+
+        /// <summary>
+        /// Gathering a list of the top-level subfolders of the current folder.
+        /// </summary>
         GetTopLevelSubFolders = 10,
 
         /// <summary>

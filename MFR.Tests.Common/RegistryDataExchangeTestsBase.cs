@@ -12,7 +12,7 @@ namespace MFR.Tests.Common
         /// <remarks>
         /// The master configuration file is defined to be that file, containing
         /// a JSON representation of an object that implements the <see
-        /// cref="T:MFR.IConfiguration"/> interface, exists
+        /// cref="T:MFR.Settings.Profiles.Interfaces.IProfile"/> interface, exists
         /// in the centralized location that is used by the application.
         /// <para/>
         /// (Other such files may exist, but these are exports/imports.)

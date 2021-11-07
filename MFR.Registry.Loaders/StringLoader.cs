@@ -6,6 +6,9 @@ using System;
 
 namespace MFR.Registry.Loaders
 {
+    /// <summary>
+    /// Obtains string data from the system Registry.
+    /// </summary>
     public class StringLoader : Loader<string>, IStringLoader
     {
         /// <summary>

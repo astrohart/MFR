@@ -11,6 +11,8 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Configuration.Factories;
+using MFR.Settings.Profiles.Factories;
+using MFR.Settings.Profiles.Interfaces;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -73,7 +75,7 @@ namespace MFR.Settings.Configuration.Providers
 
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.IConfiguration" /> interface and which
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
@@ -164,7 +166,7 @@ namespace MFR.Settings.Configuration.Providers
                 );
 
             Save(); /* save the user's latest settings to the master config file */
-            Save(
+            SaveCopyAs(
                 exportFileName
             ); /* save the latest settings out to the export file */
         }
@@ -330,82 +332,43 @@ namespace MFR.Settings.Configuration.Providers
         ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </param>
+        public void Save(string pathname = "")
+        {
+            if (string.IsNullOrWhiteSpace(pathname))
+                pathname = ConfigurationFilePath;
+
+            SaveCopyAs(pathname);
+
+            ConfigurationFilePath = pathname;
+        }
+
+        /// <summary>
+        /// Saves configuration data to a file on the disk having path
+        /// <paramref name="pathname" />.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Optional.) String containing the path to where the data should be
+        /// saved in JSON format.
+        /// <para />
+        /// If this parameter is blank, then the data is saved to the path that
+        /// is stored in the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        /// property.
+        /// </param>
         /// <remarks>
         /// If the
         /// <see
         ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
-        public void Save(string pathname = "")
+        public void SaveCopyAs(string pathname)
         {
-            // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In ConfigurationProvider.Save"
-            );
-
-            if (string.IsNullOrWhiteSpace(pathname))
-                pathname = ConfigurationFilePath;
-
-            // do not proceed if either the ConfigurationFilePath property is
-            // blank, or if the Configuration property has a null reference.
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ConfigurationProvider.Save: Checking whether the value of the 'pathname' parameter is blank..."
-            );
-
-            if (string.IsNullOrWhiteSpace(pathname))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "ConfigurationProvider.Save: Blank value passed for the 'pathname' parameter. This parameter is required."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "ConfigurationProvider.Save: Done."
-                );
-
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ConfigurationProvider.Save: *** SUCCESS *** The parameter 'pathname' is not blank.  Continuing..."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the 'Configuration' property has a null reference for a value..."
-            );
-
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+            
             // Check to see if the required property, Configuration, is null. If
             // it is, send an error to the log file and quit, returning from the method.
-            if (Configuration == null)
-            {
-                // the property Configuration is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The 'Configuration' property has a null reference."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: This property is required to be set to a valid object reference before we can proceed."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "ConfigurationProvider.Save: Done."
-                );
-
-                // stop.
-                return;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ConfigurationProvider.Save: The 'Configuration' property is not a null reference.  There is data to be saved."
-            );
+            if (Configuration == null) return;
 
             try
             {
@@ -421,8 +384,6 @@ namespace MFR.Settings.Configuration.Providers
                                                )
                                        )
                                        .Execute();
-
-                ConfigurationFilePath = pathname;
             }
             catch (Exception ex)
             {

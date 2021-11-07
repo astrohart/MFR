@@ -6,7 +6,6 @@ using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
 using MFR.Messages.Constants;
-using MFR.System;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;

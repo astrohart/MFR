@@ -8,6 +8,7 @@ using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs;
 using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Displayers;
 using MFR.GUI.Presenters.Associators;
 using MFR.GUI.Windows.Interfaces;
@@ -16,6 +17,8 @@ using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Properties;
 using MFR.Managers.History.Factories;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Factories;
 using MFR.Settings.Configuration.Events;
@@ -48,7 +51,9 @@ namespace MFR.GUI.Windows
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MainWindow() { }
+        static MainWindow()
+        {
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -77,65 +82,14 @@ namespace MFR.GUI.Windows
         } = new MainWindow();
 
         /// <summary>
-        /// Gets a value indicating whether the data entered on this form is valid.
-        /// </summary>
-        [Log(AttributeExclude = true)] // do not log this method
-        public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
-               Directory.Exists(StartingFolderComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object plays the role of the Presenter for this form, which determines the
-        /// behavior of this form.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        public IMainWindowPresenter Presenter
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the actions
-        /// associated with it.
-        /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a value that indicates whether the history is free of all
-        /// previous entries.
-        /// </summary>
-        private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
-
-        [Log(AttributeExclude = true)] // do not log this method
-        private bool OnlyReplaceInFilesOperationIsEnabled
-            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
-               OperationsCheckedListBox.GetItemChecked(2);
-
-        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough] get => findWhatcomboBox;
+            [DebuggerStepThrough]
+            get => findWhatcomboBox;
         }
 
         /// <summary>
@@ -149,7 +103,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public FoldUnfoldButton FoldButton
         {
-            [DebuggerStepThrough] get => foldButton;
+            [DebuggerStepThrough]
+            get => foldButton;
         }
 
         /// <summary>
@@ -158,6 +113,16 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public string FullApplicationName
             => $"{ProgramText.MainWindowTitle} {Version}";
+
+        /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        [Log(AttributeExclude = true)] // do not log this method
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
+               Directory.Exists(StartingFolderComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
 
         /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
@@ -198,7 +163,24 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public CheckedListBox OperationsCheckedListBox
         {
-            [DebuggerStepThrough] get => operationsCheckedListBox;
+            [DebuggerStepThrough]
+            get => operationsCheckedListBox;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object plays the role of the Presenter for this form, which determines the
+        /// behavior of this form.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        public IMainWindowPresenter Presenter
+        {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -216,7 +198,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough] get => replaceWithComboBox;
+            [DebuggerStepThrough]
+            get => replaceWithComboBox;
         }
 
         /// <summary>
@@ -236,7 +219,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public int SelectedOptionTab
         {
-            [DebuggerStepThrough] get => optionsTabControl.SelectedIndex;
+            [DebuggerStepThrough]
+            get => optionsTabControl.SelectedIndex;
             set => optionsTabControl.SelectedIndex = value;
         }
 
@@ -247,7 +231,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough] get => startingFolderComboBox;
+            [DebuggerStepThrough]
+            get => startingFolderComboBox;
         }
 
         /// <summary>
@@ -271,6 +256,47 @@ namespace MFR.GUI.Windows
         } = Assembly.GetEntryAssembly()
                     .GetName()
                     .Version.ToString();
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a value that indicates whether the history is free of all
+        /// previous entries.
+        /// </summary>
+        private bool IsHistoryClear
+            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
+               ReplaceWithComboBox.IsClear();
+
+        [Log(AttributeExclude = true)] // do not log this method
+        private bool OnlyReplaceInFilesOperationIsEnabled
+            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
+               OperationsCheckedListBox.GetItemChecked(2);
+
+        /// <summary>
+        /// Clears all the items from the Profile List combo box and then adds the
+        /// <c>
+        /// &lt;No profile selected&gt;
+        /// </c>
+        /// item and then selects the first element in the
+        /// <see cref="P:System.Windows.Forms.ToolStripComboBox.Items" /> list.
+        /// </summary>
+        public void ResetProfileListComboBox()
+        {
+            ProfileListComboBox.Items.Clear();
+            ProfileListComboBox.Items.Add("<No profile selected>");
+            ProfileListComboBox.SelectedIndex = 0;
+        }
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
@@ -313,31 +339,6 @@ namespace MFR.GUI.Windows
             MakeButtonBitmapTransparent(switchButton);
 
             Presenter.FillProfileDropDownList();
-        }
-
-        /// <summary>
-        /// Determines whether the folder having the specified <paramref name="path" />
-        /// contains a Visual Studio Solution (*.sln) file.
-        /// </summary>
-        /// <param name="path">
-        /// (Required.) String containing the path of the folder to
-        /// check.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the folder with the specified
-        /// <paramref name="path" /> exists and contains at least one file with the
-        /// <c>.sln</c> file.
-        /// </returns>
-        private static bool DoesDirectoryContainSolutionFile(string path)
-        {
-            if (string.IsNullOrWhiteSpace(path)) return false;
-            if (!path.IsAbsolutePath()) return false;
-            if (!Directory.Exists(path)) return false;
-
-            return Enumerate.Files(
-                                path, "*.sln", SearchOption.TopDirectoryOnly
-                            )
-                            .Any();
         }
 
         /// <summary>
@@ -391,6 +392,70 @@ namespace MFR.GUI.Windows
                 DebugUtils.LogException(ex);
 
                 result = null;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether the folder having the specified <paramref name="path" />
+        /// contains a Visual Studio Solution (*.sln) file.
+        /// <para />
+        /// NEW: Also searches subfolders.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the path of the folder to
+        /// check.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the folder with the specified
+        /// <paramref name="path" /> exists and contains at least one file with the
+        /// <c>.sln</c> file.
+        /// </returns>
+        private bool DoesDirectoryContainSolutionFile(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path)) return false;
+            if (!path.IsAbsolutePath()) return false;
+            if (!Directory.Exists(path)) return false;
+
+            var result = false;
+
+            try
+            {
+                using (var dialogBox = MakeNewOperationDrivenProgressDialog
+                                       .FromScratch()
+                                       .HavingProc(
+                                           arg => Enumerate.Files(
+                                                   arg.ToString(), "*.sln",
+                                                   SearchOption.AllDirectories
+                                               )
+                                               .Any()
+                                       )
+                                       .AndArgument(path)
+                                       .AndStatusText(
+                                           GetOperationStartedDescription.For(
+                                               OperationType
+                                                   .CheckingWhetherChosenFolderContainsSolutions
+                                           )
+                                       ))
+                {
+                    Enabled = false;
+                    UseWaitCursor = true;
+
+                    dialogBox.ShowDialog(this);
+
+                    Enabled = true;
+                    UseWaitCursor = false;
+
+                    result = (bool)dialogBox.Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                xyLOGIX.Win32.Interact.Messages.ShowStopError(this, ex.Message);
             }
 
             return result;
@@ -549,11 +614,11 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnClickBrowseForStartingFolder(object sender, EventArgs e)
         {
-            using (var fsd = new FolderSelectDialog())
+            using (var fsd = MakeNewFolderSelectDialog.FromScratch()
+                .HavingTitle("Browse")
+                .AndInitialDirectory(StartingFolderComboBox.EnteredText))
             {
-                fsd.InitialDirectory = StartingFolderComboBox.EnteredText;
-                fsd.Title = "Browse";
-                if (!fsd.ShowDialog(Handle))
+                if (DialogResult.Cancel == fsd.ShowDialog(this))
                     return;
 
                 /*
@@ -866,16 +931,12 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnPresenterConfigurationImported(object sender,
             ConfigurationImportedEventArgs e)
-        {
-            Presenter.UpdateData(false);
-
-            MessageBox.Show(
+            => MessageBox.Show(
                 this,
                 $"Successfully imported the configuration from the file with path '{e.Path}'.",
                 Application.ProductName, MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
             );
-        }
 
         /// <summary>
         /// Handles the
@@ -1079,7 +1140,7 @@ namespace MFR.GUI.Windows
         {
             // Creating a new profile will blank out the application screen.
             // Save the current configuration settings.
-            ConfigurationProvider.Save();
+            Presenter.SaveConfiguration();
 
             var results =
                 Display.ProfileNameDialogBox(ProfileCreateOperationType.New);
@@ -1095,6 +1156,45 @@ namespace MFR.GUI.Windows
             }
 
             Presenter.AddProfile(results.ProfileName);
+        }
+
+        private void OnToolsConfigurationSaveProfile(object sender, EventArgs e)
+        {
+            Presenter.SaveConfiguration();
+
+            /*
+             * Determine whether there is a profile already loaded.
+             */
+
+            if (Presenter.IsProfileLoaded)
+                return;
+
+            /*
+             * If we are here, there is not a profile loaded, and
+             * we should then prompt the user to pick a name for
+             * the new profile and then save it.
+             */
+
+            // Prompt the user to create a new name for the new
+            // Profile
+            var results = Display.ProfileNameDialogBox(
+                ProfileCreateOperationType.SaveAs, this
+            );
+            if (DialogResult.Cancel == results.DialogResult)
+                return;
+
+            if (string.IsNullOrWhiteSpace(results.ProfileName))
+            {
+                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                    "You cannot specify a blank value for the profile name."
+                );
+                return;
+            }
+
+            // First, save data from the screen
+            Presenter.UpdateData();
+
+            Presenter.SaveCurrentConfigurationAsProfile(results.ProfileName);
         }
 
         /// <summary>

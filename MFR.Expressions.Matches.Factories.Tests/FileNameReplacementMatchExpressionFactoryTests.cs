@@ -287,7 +287,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IConfiguration" /> interface.
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the

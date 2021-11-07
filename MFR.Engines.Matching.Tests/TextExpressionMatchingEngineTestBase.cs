@@ -19,7 +19,7 @@ namespace MFR.Engines.Matching.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
         /// interface.
         /// </summary>
         protected IConfiguration _configuration;

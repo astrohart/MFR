@@ -84,6 +84,18 @@ namespace MFR.Operations.Descriptions.Factories
                             .Text;
                     break;
 
+                case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
+                    description =
+                        GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription
+                            .Instance.Text;
+                    break;
+
+                case OperationType.CheckingWhetherChosenFolderContainsSolutions:
+                    description =
+                        CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription
+                            .Instance.Text;
+                    break;
+
                 default:
                     description = string.Empty;
                     break;

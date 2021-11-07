@@ -137,6 +137,10 @@
       <Project>{71026AB7-58DF-4CB8-A201-C703C1D25F9B}</Project>
       <Name>MFR.Registry.Loaders.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Writers.Interfaces\MFR.Registry.Writers.Interfaces.csproj">
+      <Project>{F926FE55-A7FA-4FFD-B5F7-8575DE2B5A85}</Project>
+      <Name>MFR.Registry.Writers.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,6 +1,7 @@
+using MFR.Common;
+using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Dialogs.Properties;
 using MFR.GUI.Windows.Wrappers.Factories;
-using MFR.Common;
 using System;
 using System.Windows.Forms;
 
@@ -10,13 +11,14 @@ namespace MFR.GUI.Dialogs
     /// Wraps System.Windows.Forms.OpenFileDialog to make it present a
     /// vista-style Folder Select dialog.
     /// </summary>
-    public class FolderSelectDialog : IDisposable
+    public class FolderSelectDialog : IFolderSelectDialog
     {
         // Wrapped dialog
         private OpenFileDialog _ofd;
 
         /// <summary>
-        /// Constructs an instance of <see cref="T:FolderSelectDialog" /> and returns a
+        /// Constructs an instance of <see cref="T:MFR.GUI.Dialogs.FolderSelectDialog" />
+        /// and returns a
         /// reference to the new instance.
         /// </summary>
         public FolderSelectDialog()
@@ -67,24 +69,74 @@ namespace MFR.GUI.Dialogs
         /// </filterpriority>
         public void Dispose()
         {
-            if (_ofd != null)
-            {
-                _ofd.Dispose();
-                _ofd = null;
-            }
+            if (_ofd == null)
+                return;
+
+            _ofd.Dispose();
+            _ofd = null;
         }
 
         /// <summary>
-        /// Shows the dialog
+        /// Shows the form as a modal dialog box.
         /// </summary>
         /// <returns>
-        /// True if the user presses OK else false
+        /// One of the <see cref="T:System.Windows.Forms.DialogResult" /> values.
         /// </returns>
-        public bool ShowDialog()
-            => ShowDialog(IntPtr.Zero);
+        /// <exception cref="T:System.InvalidOperationException">
+        /// The form being shown is already visible.
+        /// -or- The form being shown is disabled.
+        /// -or- The form being shown is not a top-level window.
+        /// -or- The form being shown as a dialog box is already a modal form.
+        /// -or- The current process is not running in user interactive mode (for
+        /// more information, see
+        /// <see cref="P:System.Windows.Forms.SystemInformation.UserInteractive" />).
+        /// </exception>
+        public DialogResult ShowDialog()
+            => InternalShowDialog() ? DialogResult.OK : DialogResult.Cancel;
 
         /// <summary>
-        /// Shows this <see cref="T:FolderSelectDialog" /> to the user to allow
+        /// Shows the form as a modal dialog box with the specified owner.
+        /// </summary>
+        /// <param name="owner">
+        /// Any object that implements
+        /// <see
+        ///     cref="T:System.Windows.Forms.IWin32Window" />
+        /// that represents the
+        /// top-level window that will own the modal dialog box.
+        /// </param>
+        /// <returns>
+        /// One of the <see cref="T:System.Windows.Forms.DialogResult" /> values.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// The form specified in the <paramref name="owner" /> parameter is the same
+        /// as the form being shown.
+        /// </exception>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// The form being shown is already visible.
+        /// -or- The form being shown is disabled.
+        /// -or- The form being shown is not a top-level window.
+        /// -or- The form being shown as a dialog box is already a modal form.
+        /// -or- The current process is not running in user interactive mode (for
+        /// more information, see
+        /// <see cref="P:System.Windows.Forms.SystemInformation.UserInteractive" />).
+        /// </exception>
+        public DialogResult ShowDialog(IWin32Window owner)
+            => InternalShowDialog(owner.Handle)
+                ? DialogResult.OK
+                : DialogResult.Cancel;
+
+        /// <summary>
+        /// Shows the dialog.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the user presses OK else <see langword="false" />.
+        /// </returns>
+        private bool InternalShowDialog()
+            => InternalShowDialog(IntPtr.Zero);
+
+        /// <summary>
+        /// Shows this <see cref="T:MFR.GUI.Dialogs.FolderSelectDialog" /> to the user to
+        /// allow
         /// the user to select a folder on their computer. Returns a value
         /// indicating whether the dialog ended with the OK or Cancel button
         /// being clicked.
@@ -93,9 +145,9 @@ namespace MFR.GUI.Dialogs
         /// Handle of the control to be parent
         /// </param>
         /// <returns>
-        /// True if the user presses OK else false
+        /// <see langword="true" /> if the user presses OK else <see langword="false" />.
         /// </returns>
-        public bool ShowDialog(IntPtr hWndOwner)
+        private bool InternalShowDialog(IntPtr hWndOwner)
         {
             var flag = false;
 
@@ -119,7 +171,7 @@ namespace MFR.GUI.Dialogs
                 );
 
                 var pfde = r.New("FileDialog.VistaDialogEvents", _ofd);
-                var parameters = new[] {pfde, num};
+                var parameters = new[] { pfde, num };
                 Reflector.CallAs2(
                     typeIFileDialog, dialog, "Advise", parameters
                 );
