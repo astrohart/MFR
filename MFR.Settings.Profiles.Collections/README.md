@@ -21,12 +21,12 @@ MFR.Settings.Profiles.Collections
 ##### Summary
 
 Implements the methods and properties of a `Profile Collection`
-    object.
+object.
 
 ##### Remarks
 
 A `Profile Collection` object is just that -- a container for
-    `Profile` s.
+`Profile` s.
 
 <a name='P-MFR-Settings-Profiles-Collections-ProfileCollection-ActiveProfile'></a>
 ### ActiveProfile `property`
@@ -34,7 +34,7 @@ A `Profile Collection` object is just that -- a container for
 ##### Summary
 
 A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that delineates which profile is
-    currently "active" i.e., is in use.
+currently "active" i.e., is in use.
 
 <a name='M-MFR-Settings-Profiles-Collections-ProfileCollection-HasProfileNamed-System-String-'></a>
 ### HasProfileNamed(name) `method`
@@ -42,7 +42,7 @@ A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 ##### Summary
 
 Determines whether the profile collection already has a profile with the
-    name provided.
+name provided.
 
 
 
@@ -51,7 +51,7 @@ There can only be one profile with a given name, case-insensitive.
 ##### Returns
 
 `true` if a profile having the given name is found;
-    `false` otherwise.
+`false` otherwise.
 
 ##### Parameters
 
