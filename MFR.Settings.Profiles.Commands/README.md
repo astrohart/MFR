@@ -49,7 +49,7 @@ MFR.Settings.Profiles.Commands
 ##### Summary
 
 Saves a profile list object, i.e., one that implements the
-[IConfiguration](#T-MFR-IConfiguration 'MFR.IConfiguration')
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
 interface, to a JSON file.
 
 ##### Remarks
