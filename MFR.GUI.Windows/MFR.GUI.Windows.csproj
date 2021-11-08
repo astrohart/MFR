@@ -177,6 +177,10 @@
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
       <Name>MFR.FileSystem.Helpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Controls.Extensions\MFR.GUI.Controls.Extensions.csproj">
+      <Project>{C4A81E50-729F-40B8-84B6-A339C1247DBA}</Project>
+      <Name>MFR.GUI.Controls.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Constants\MFR.GUI.Dialogs.Constants.csproj">
       <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
       <Name>MFR.GUI.Dialogs.Constants</Name>

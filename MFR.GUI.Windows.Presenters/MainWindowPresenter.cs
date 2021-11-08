@@ -624,10 +624,19 @@ namespace MFR.GUI.Windows.Presenters
 
             if (Does.ProfileAlreadyExist(profileName)) return;
 
+            var newProfile = ConfigurationProvider.Configuration.ToProfile(profileName);
             ProfileProvider.Profiles.Add(
-                ConfigurationProvider.Configuration.ToProfile(profileName)
+                newProfile
             );
             ProfileProvider.Save();
+
+            /*
+             * Make the new Profile the same as the currently-
+             * loaded configuration.
+             */
+
+            ConfigurationProvider.Configuration = newProfile;
+            ConfigurationProvider.Save();
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using MFR.FileSystem.Enumerators;
 using MFR.GUI.Constants;
 using MFR.GUI.Controls;
 using MFR.GUI.Controls.Events;
+using MFR.GUI.Controls.Extensions;
 using MFR.GUI.Controls.Helpers;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs;
@@ -51,9 +52,7 @@ namespace MFR.GUI.Windows
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MainWindow()
-        {
-        }
+        static MainWindow() { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -72,14 +71,68 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.GUI.Windows.MainWindow" />.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static MainWindow Instance
+        public static IMainWindow Instance
         {
             get;
         } = new MainWindow();
+
+        /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        [Log(AttributeExclude = true)] // do not log this method
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
+               Directory.Exists(StartingFolderComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object plays the role of the Presenter for this form, which determines the
+        /// behavior of this form.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        public IMainWindowPresenter Presenter
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a value that indicates whether the history is free of all
+        /// previous entries.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        private bool IsHistoryClear
+            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
+               ReplaceWithComboBox.IsClear();
+
+        [Log(AttributeExclude = true)] // do not log this method
+        private bool OnlyReplaceInFilesOperationIsEnabled
+            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
+               OperationsCheckedListBox.GetItemChecked(2);
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -88,8 +141,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough]
-            get => findWhatcomboBox;
+            [DebuggerStepThrough] get => findWhatcomboBox;
         }
 
         /// <summary>
@@ -103,8 +155,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public FoldUnfoldButton FoldButton
         {
-            [DebuggerStepThrough]
-            get => foldButton;
+            [DebuggerStepThrough] get => foldButton;
         }
 
         /// <summary>
@@ -113,16 +164,6 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public string FullApplicationName
             => $"{ProgramText.MainWindowTitle} {Version}";
-
-        /// <summary>
-        /// Gets a value indicating whether the data entered on this form is valid.
-        /// </summary>
-        [Log(AttributeExclude = true)] // do not log this method
-        public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
-               Directory.Exists(StartingFolderComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
 
         /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
@@ -163,24 +204,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public CheckedListBox OperationsCheckedListBox
         {
-            [DebuggerStepThrough]
-            get => operationsCheckedListBox;
-        }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object plays the role of the Presenter for this form, which determines the
-        /// behavior of this form.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        public IMainWindowPresenter Presenter
-        {
-            get;
-            private set;
+            [DebuggerStepThrough] get => operationsCheckedListBox;
         }
 
         /// <summary>
@@ -198,8 +222,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough]
-            get => replaceWithComboBox;
+            [DebuggerStepThrough] get => replaceWithComboBox;
         }
 
         /// <summary>
@@ -219,8 +242,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public int SelectedOptionTab
         {
-            [DebuggerStepThrough]
-            get => optionsTabControl.SelectedIndex;
+            [DebuggerStepThrough] get => optionsTabControl.SelectedIndex;
             set => optionsTabControl.SelectedIndex = value;
         }
 
@@ -231,8 +253,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough]
-            get => startingFolderComboBox;
+            [DebuggerStepThrough] get => startingFolderComboBox;
         }
 
         /// <summary>
@@ -256,32 +277,6 @@ namespace MFR.GUI.Windows
         } = Assembly.GetEntryAssembly()
                     .GetName()
                     .Version.ToString();
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the actions
-        /// associated with it.
-        /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a value that indicates whether the history is free of all
-        /// previous entries.
-        /// </summary>
-        private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
-
-        [Log(AttributeExclude = true)] // do not log this method
-        private bool OnlyReplaceInFilesOperationIsEnabled
-            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
-               OperationsCheckedListBox.GetItemChecked(2);
 
         /// <summary>
         /// Clears all the items from the Profile List combo box and then adds the
@@ -1160,20 +1155,12 @@ namespace MFR.GUI.Windows
 
         private void OnToolsConfigurationSaveProfile(object sender, EventArgs e)
         {
+            /*
+             * First step, save whatever settings are on the screen
+             * to the configuration.
+             */
+
             Presenter.SaveConfiguration();
-
-            /*
-             * Determine whether there is a profile already loaded.
-             */
-
-            if (Presenter.IsProfileLoaded)
-                return;
-
-            /*
-             * If we are here, there is not a profile loaded, and
-             * we should then prompt the user to pick a name for
-             * the new profile and then save it.
-             */
 
             // Prompt the user to create a new name for the new
             // Profile
@@ -1195,6 +1182,18 @@ namespace MFR.GUI.Windows
             Presenter.UpdateData();
 
             Presenter.SaveCurrentConfigurationAsProfile(results.ProfileName);
+
+            /*
+             * Update the contents of the Profiles dropdown on the toolbar.
+             */
+            Presenter.FillProfileDropDownList();
+
+            /*
+             * Move the selection of the dropdown to be the profile with
+             * the name of the profile the user has saved; this is now
+             * the current profile.
+             */
+            ProfileListComboBox.SelectFirstItemNamed(results.ProfileName);
         }
 
         /// <summary>
