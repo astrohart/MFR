@@ -71,11 +71,11 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface.
+        /// Gets a reference to the one and only
+        /// <see cref="T:MFR.GUI.Windows.MainWindow" /> object in this application.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static IMainWindow Instance
+        public static MainWindow Instance
         {
             get;
         } = new MainWindow();
