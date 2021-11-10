@@ -574,6 +574,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Dialogs.Tests", "MF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Providers.Tests", "MFR.Settings.Profiles.Providers.Tests\MFR.Settings.Profiles.Providers.Tests.csproj", "{B6C40C40-1F8A-4F83-A80C-C6B98D058C3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Collections.Factories", "MFR.Settings.Profiles.Collections.Factories\MFR.Settings.Profiles.Collections.Factories.csproj", "{C3257EAD-696D-4CB4-9896-3FAB3E69433C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2846,6 +2848,14 @@ Global
 		{B6C40C40-1F8A-4F83-A80C-C6B98D058C3F}.Release|x64.Build.0 = Release|x64
 		{B6C40C40-1F8A-4F83-A80C-C6B98D058C3F}.Release|x86.ActiveCfg = Release|x86
 		{B6C40C40-1F8A-4F83-A80C-C6B98D058C3F}.Release|x86.Build.0 = Release|x86
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Debug|x64.ActiveCfg = Debug|x64
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Debug|x64.Build.0 = Debug|x64
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Debug|x86.ActiveCfg = Debug|x86
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Debug|x86.Build.0 = Debug|x86
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Release|x64.ActiveCfg = Release|x64
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Release|x64.Build.0 = Release|x64
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Release|x86.ActiveCfg = Release|x86
+		{C3257EAD-696D-4CB4-9896-3FAB3E69433C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
