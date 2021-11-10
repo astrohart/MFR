@@ -24,17 +24,17 @@ namespace MFR.FileSystem.Creators
         /// Thrown if the folder whose path is <paramref name="containingFolderName" />
         /// does not exist on the disk when it is supposed to.
         /// </exception>
-        public static void FolderCreated(string containingFolderName)
+        public static void FolderWasCreated(string containingFolderName)
         {
             // write the name of the current class and method we are now entering, into the log
             DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileHelpers.FolderCreated"
+                DebugLevel.Debug, "In FileHelpers.FolderWasCreated"
             );
 
             // Dump the variable containingFolderName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"FileHelpers.FolderCreated: containingFolderName = '{containingFolderName}'"
+                $"FileHelpers.FolderWasCreated: containingFolderName = '{containingFolderName}'"
             );
 
             if (string.IsNullOrWhiteSpace(containingFolderName))
@@ -45,13 +45,13 @@ namespace MFR.FileSystem.Creators
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"FileHelpers.FolderCreated: Verifying that the folder having path '{containingFolderName}' exists on the disk..."
+                $"FileHelpers.FolderWasCreated: Verifying that the folder having path '{containingFolderName}' exists on the disk..."
             );
 
             if (Directory.Exists(containingFolderName))
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"*** SUCCESS *** DoesFolder with path '{containingFolderName}' created."
+                    $"*** SUCCESS *** Folder with path '{containingFolderName}' created."
                 );
             else
                 throw new InvalidOperationException(
