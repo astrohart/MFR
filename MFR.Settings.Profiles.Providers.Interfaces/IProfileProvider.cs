@@ -29,6 +29,11 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         }
 
         /// <summary>
+        /// Gets the default fully-qualified pathname of the profile list file.
+        /// </summary>
+        string DefaultProfileListPath { get; }
+
+        /// <summary>
         /// Gets a string whose value is the pathname of the profile list file.
         /// </summary>
         string ProfileListFilePath
