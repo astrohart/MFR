@@ -1,6 +1,6 @@
-﻿using MFR.GUI.Dialogs.Interfaces;
+﻿using MFR.GUI.Dialogs.Profiles.Help.Interfaces;
 
-namespace MFR.GUI.Dialogs.Factories
+namespace MFR.GUI.Dialogs.Profiles.Help.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the

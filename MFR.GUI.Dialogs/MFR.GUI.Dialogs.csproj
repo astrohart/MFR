@@ -119,12 +119,6 @@
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="FolderSelectDialog.cs" />
-    <Compile Include="HelpProfileExplainerDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HelpProfileExplainerDialog.Designer.cs">
-      <DependentUpon>HelpProfileExplainerDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="OperationDrivenProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,9 +156,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorReportDialog.resx">
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HelpProfileExplainerDialog.resx">
-      <DependentUpon>HelpProfileExplainerDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperationDrivenProgressDialog.resx">
       <DependentUpon>OperationDrivenProgressDialog.cs</DependentUpon>
@@ -207,6 +198,14 @@
     <ProjectReference Include="..\MFR.GUI.Dialogs.Constants\MFR.GUI.Dialogs.Constants.csproj">
       <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
       <Name>MFR.GUI.Dialogs.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Profiles.Help.Factories\MFR.GUI.Dialogs.Profiles.Help.Factories.csproj">
+      <Project>{9AAD9674-D7D9-4558-BABD-6A8171815767}</Project>
+      <Name>MFR.GUI.Dialogs.Profiles.Help.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Profiles.Help.Interfaces\MFR.GUI.Dialogs.Profiles.Help.Interfaces.csproj">
+      <Project>{3D51D5A8-6CA0-4A74-AEA1-7363C18C38A6}</Project>
+      <Name>MFR.GUI.Dialogs.Profiles.Help.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Text.Retrievers.Factories\MFR.GUI.Dialogs.Text.Retrievers.Factories.csproj">
       <Project>{49002D48-38C0-49CF-A6CC-6314218AC468}</Project>

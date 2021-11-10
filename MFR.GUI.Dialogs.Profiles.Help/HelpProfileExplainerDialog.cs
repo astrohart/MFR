@@ -1,7 +1,7 @@
-﻿using MFR.GUI.Dialogs.Interfaces;
+﻿using MFR.GUI.Dialogs.Profiles.Help.Interfaces;
 using System.Windows.Forms;
 
-namespace MFR.GUI.Dialogs
+namespace MFR.GUI.Dialogs.Profiles.Help
 {
     /// <summary>
     /// Dialog box that launches when the user requests more information about
@@ -16,7 +16,7 @@ namespace MFR.GUI.Dialogs
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.GUI.Dialogs.HelpProfileExplainerDialog" /> and returns a
+        /// <see cref="T:MFR.GUI.Dialogs.Profiles.Help.HelpProfileExplainerDialog" /> and returns a
         /// reference to it.
         /// </summary>
         public HelpProfileExplainerDialog()

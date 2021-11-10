@@ -8,9 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
-namespace xyLOGIXModule.Interfaces.Properties
+namespace MFR.GUI.Models.Interfaces.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.

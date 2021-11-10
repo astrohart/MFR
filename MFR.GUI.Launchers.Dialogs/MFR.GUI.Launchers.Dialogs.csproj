@@ -155,6 +155,14 @@
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
       <Name>MFR.GUI.Dialogs.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Profiles.Help.Factories\MFR.GUI.Dialogs.Profiles.Help.Factories.csproj">
+      <Project>{9AAD9674-D7D9-4558-BABD-6A8171815767}</Project>
+      <Name>MFR.GUI.Dialogs.Profiles.Help.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Profiles.Help.Interfaces\MFR.GUI.Dialogs.Profiles.Help.Interfaces.csproj">
+      <Project>{3D51D5A8-6CA0-4A74-AEA1-7363C18C38A6}</Project>
+      <Name>MFR.GUI.Dialogs.Profiles.Help.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs\MFR.GUI.Dialogs.csproj">
       <Project>{39F88DD4-65A6-4625-A672-4B8638D500E0}</Project>
       <Name>MFR.GUI.Dialogs</Name>

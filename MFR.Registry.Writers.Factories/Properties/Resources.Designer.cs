@@ -8,9 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
-namespace xyLOGIXModule.Factories.Properties
+namespace MFR.Registry.Writers.Factories.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.

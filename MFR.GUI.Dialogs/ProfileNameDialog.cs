@@ -1,5 +1,6 @@
 ﻿using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Interfaces;
+using MFR.GUI.Dialogs.Profiles.Help.Factories;
 using MFR.GUI.Dialogs.Text.Retrievers.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -26,6 +27,14 @@ namespace MFR.GUI.Dialogs
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
+        /// </summary>
+        private IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets or sets the
@@ -63,6 +72,31 @@ namespace MFR.GUI.Dialogs
             e.Cancel = !CanClose();
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            /*
+             * Set the title bar text of the dialog box differently
+             * depending on whether this dialog box was summoned by
+             * means of the Add New Profile command or the Save Profile As
+             * command.
+             */
+
+            Text = GetProfileCreateOperationTypeDialogText.By.EnumerationValue(
+                OperationType
+            );
+            createButton.Text =
+                GetProfileCreateOperationTypeButtonText.By.EnumerationValue(
+                    OperationType
+                );
+        }
+
         /// <summary>
         /// Determines whether this dialog can be closed.
         /// <para />
@@ -97,52 +131,19 @@ namespace MFR.GUI.Dialogs
                 return false;
             }
 
-            if (!ProfileProvider
-                                   .Profiles
-                                   .HasProfileNamed(ProfileName)) return true;
+            if (!ProfileProvider.Profiles.HasProfileNamed(ProfileName))
+                return true;
 
             Messages.ShowStopError(
                 this,
                 $"A profile named '{ProfileName}' already exists.\n\nPlease use another name."
             );
-            
+
             return false;
 
             /*
              * If we made it here, than all the input is valid.
              */
-        }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" /> interface.
-        /// </summary>
-        private IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
-
-
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            /*
-             * Set the title bar text of the dialog box differently
-             * depending on whether this dialog box was summoned by
-             * means of the Add New Profile command or the Save Profile As
-             * command.
-             */
-
-            Text = GetProfileCreateOperationTypeDialogText.By.EnumerationValue(
-                OperationType
-            );
-            createButton.Text =
-                GetProfileCreateOperationTypeButtonText.By.EnumerationValue(
-                    OperationType
-                );
         }
 
         /// <summary>
@@ -165,6 +166,8 @@ namespace MFR.GUI.Dialogs
         /// what can be done with them.
         /// </remarks>
         private void OnClickReadMoreAboutProfilesLinkLabel(object sender,
-            EventArgs e) { }
+            EventArgs e)
+            => MakeNewHelpProfileExplainerDialog.FromScratch()
+                                                .ShowDialog(this);
     }
 }

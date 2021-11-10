@@ -47,6 +47,7 @@ namespace MFR.Settings.Configuration
             IsFolded = source.IsFolded;
             MatchCase = source.MatchCase;
             MatchExactWord = source.MatchExactWord;
+            OperationsToPerform = source.OperationsToPerform;
             ReOpenSolution = source.ReOpenSolution;
             RenameFiles = source.RenameFiles;
             RenameSubfolders = source.RenameSubfolders;

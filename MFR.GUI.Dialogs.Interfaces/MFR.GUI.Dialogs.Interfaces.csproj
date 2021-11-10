@@ -108,7 +108,6 @@
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IErrorReportDialog.cs" />
     <Compile Include="IFolderSelectDialog.cs" />
-    <Compile Include="IHelpProfileExplainerDialog.cs" />
     <Compile Include="IOperationDrivenProgressDialog.cs" />
     <Compile Include="IProfileNameDialog.cs" />
     <Compile Include="IOptionsDialog.cs" />

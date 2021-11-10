@@ -8,6 +8,7 @@ using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
 using MFR.Settings.Profiles.Collections;
 using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
 using MFR.Settings.Profiles.Constants;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -224,6 +225,45 @@ namespace MFR.Settings.Profiles.Providers
         /// property is blank, then this method does nothing.
         /// </remarks>
         public void Save(string pathname = "")
-            => throw new NotImplementedException();
+        {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(DebugLevel.Debug, "In ProfileProvider.Save");
+
+            /*
+             * If the pathname parameter is blank, then use the
+             * default profile list file path.
+             */
+
+            // Dump the variable pathname to the log
+            DebugUtils.WriteLine(DebugLevel.Debug, $"ProfileProvider.Save: pathname = '{pathname}'");
+
+            if (string.IsNullOrWhiteSpace(pathname))
+                pathname = DefaultProfileListPath;
+            
+            // Check to see if the required property, Configuration, is null. If
+            // it is, send an error to the log file and quit, returning from the method.
+            if (Profiles == null) return;
+
+            try
+            {
+                GetProfileListCommand.For<IFileSystemEntry>(
+                                           ProfileListCommand
+                                               .SaveProfileListToFile
+                                       )
+                                       .WithInput(
+                                           MakeNewFileSystemEntry
+                                               .ForPath(pathname)
+                                               .AndHavingUserState(
+                                                   Profiles
+                                               )
+                                       )
+                                       .Execute();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
     }
 }

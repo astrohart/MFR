@@ -1,6 +1,6 @@
 ﻿using xyLOGIX.Core.Extensions;
 
-namespace MFR.GUI.Dialogs.Interfaces
+namespace MFR.GUI.Dialogs.Profiles.Help.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Help window that

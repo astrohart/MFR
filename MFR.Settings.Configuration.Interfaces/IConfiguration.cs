@@ -1,3 +1,4 @@
+using MFR.GUI.Models;
 using System.Collections.Generic;
 
 namespace MFR.Settings.Configuration.Interfaces
@@ -58,6 +59,16 @@ namespace MFR.Settings.Configuration.Interfaces
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Gets or sets a reference to a collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
+        /// operations to be performed on or off.
+        /// </summary>
+        List<OperationTypeInfo> OperationsToPerform
+        {
+            get; set;
         }
 
         /// <summary>

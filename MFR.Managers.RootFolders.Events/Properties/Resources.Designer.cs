@@ -8,9 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
-namespace xyLOGIXModule.Events.Properties
+namespace MFR.Managers.RootFolders.Events.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.

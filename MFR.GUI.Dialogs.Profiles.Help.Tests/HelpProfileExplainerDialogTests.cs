@@ -1,10 +1,10 @@
-﻿using MFR.GUI.Dialogs.Factories;
+﻿using MFR.GUI.Dialogs.Profiles.Help.Factories;
+using MFR.GUI.Dialogs.Tests;
 using NUnit.Framework;
-using System.Net.Mime;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MFR.GUI.Dialogs.Tests
+namespace MFR.GUI.Dialogs.Profiles.Help.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
