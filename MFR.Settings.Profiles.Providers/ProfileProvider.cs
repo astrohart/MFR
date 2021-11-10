@@ -31,9 +31,7 @@ namespace MFR.Settings.Profiles.Providers
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected ProfileProvider()
-        {
-        }
+        protected ProfileProvider() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -43,46 +41,6 @@ namespace MFR.Settings.Profiles.Providers
         {
             get;
         } = new ProfileProvider();
-
-        /// <summary>
-        /// Gets the default folder for the profile list file.
-        /// </summary>
-        /// <remarks>
-        /// We store the profile list file, by default, in a folder
-        /// under the current user's AppData folder.
-        /// </remarks>
-        public string DefaultProfileListDir
-        {
-            get;
-        } = Path.Combine(
-        Path.Combine(
-        Environment.GetFolderPath(
-            Environment.SpecialFolder.LocalApplicationData
-            ), Application.CompanyName
-        ), $@"{Application.ProductName}\Config"
-        );
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the profile list file.
-        /// </summary>
-        public string ProfileListFilePath
-        {
-            get
-                => LoadProfileListPathAction.Execute()
-                                            .Path;
-            set {
-                GetSaveProfileListPathCommand.ForPath(
-                                            ProfileListPathKeyName,
-                                            ProfileListPathValueName, value
-                                        )
-                                        .Execute();
-
-                /* Clear out the cache of previously-loaded paths
-                 for this same operation. */
-                LoadProfileListPathAction.AsCachedResultAction()
-                                         .ClearResultCache();
-            }
-        }
 
         /// <summary>
         /// Gets the default filename for the profile list file.
@@ -111,6 +69,46 @@ namespace MFR.Settings.Profiles.Providers
                );
 
         /// <summary>
+        /// Gets the default folder for the profile list file.
+        /// </summary>
+        /// <remarks>
+        /// We store the profile list file, by default, in a folder
+        /// under the current user's AppData folder.
+        /// </remarks>
+        public string DefaultProfileListDir
+        {
+            get;
+        } = Path.Combine(
+            Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.LocalApplicationData
+                ), Application.CompanyName
+            ), $@"{Application.ProductName}\Config"
+        );
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the profile list file.
+        /// </summary>
+        public string ProfileListFilePath
+        {
+            get
+                => LoadProfileListPathAction.Execute()
+                                            .Path;
+            set {
+                GetSaveProfileListPathCommand.ForPath(
+                                                 ProfileListPathKeyName,
+                                                 ProfileListPathValueName, value
+                                             )
+                                             .Execute();
+
+                /* Clear out the cache of previously-loaded paths
+                 for this same operation. */
+                LoadProfileListPathAction.AsCachedResultAction()
+                                         .ClearResultCache();
+            }
+        }
+
+        /// <summary>
         /// Gets a string whose value is the pathname of the system Registry key
         /// in which Profile settings are stored.
         /// </summary>
@@ -137,7 +135,7 @@ namespace MFR.Settings.Profiles.Providers
         public IProfileCollection Profiles
         {
             get;
-            protected set;  // to enable to be set by members of this class only
+            protected set; // to enable to be set by members of this class only
         } = new ProfileCollection();
 
         /// <summary>
@@ -161,24 +159,22 @@ namespace MFR.Settings.Profiles.Providers
         {
             // write the name of the current class and method we are now
             // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In ProfileProvider.Load"
-            );
+            DebugUtils.WriteLine(DebugLevel.Debug, "In ProfileProvider.Load");
 
-            if (!File.Exists(pathname)) // oops! just use the default value of the Profiles property
+            if (
+                !File.Exists(
+                    pathname
+                )) // oops! just use the default value of the Profiles property
                 return;
 
             try
             {
                 Profiles = GetProfileListAction
-                                .For<IFileSystemEntry, IProfileCollection>(
-                                    ProfileListAction.LoadProfileListFromFile)
-                                .WithInput(
-                                    MakeNewFileSystemEntry.ForPath(
-                                        pathname
-                                    )
-                                )
-                                .Execute();
+                           .For<IFileSystemEntry, IProfileCollection>(
+                               ProfileListAction.LoadProfileListFromFile
+                           )
+                           .WithInput(MakeNewFileSystemEntry.ForPath(pathname))
+                           .Execute();
             }
             catch (Exception ex)
             {
@@ -235,35 +231,102 @@ namespace MFR.Settings.Profiles.Providers
              */
 
             // Dump the variable pathname to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"ProfileProvider.Save: pathname = '{pathname}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ProfileProvider.Save: pathname = '{pathname}'"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ProfileProvider.Save: Checking whether the 'pathname' parameter is blank..."
+            );
 
             if (string.IsNullOrWhiteSpace(pathname))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'DefaultProfileListPath' property..."
+                );
+
+                // Dump the variable DefaultProfileListPath to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ProfileProvider.Save: DefaultProfileListPath = '{DefaultProfileListPath}'"
+                );
+
                 pathname = DefaultProfileListPath;
-            
-            // Check to see if the required property, Configuration, is null. If
+
+                // Dump the variable pathname to the log
+                DebugUtils.WriteLine(DebugLevel.Debug, $"ProfileProvider.Save: pathname = '{pathname}'");
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ProfileProvider.Save: Checking whether the Profiles property is null..."
+            );
+
+            // Check to see if the required property, Profiles, is null. If
             // it is, send an error to the log file and quit, returning from the method.
-            if (Profiles == null) return;
+            if (Profiles == null)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"ProfileProvider.Save: The Profiles property is null.  Stopping."
+                );
+
+                DebugUtils.WriteLine(DebugLevel.Debug, "ProfileProvider.Save: Done.");
+
+                return;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ProfileProvider.Save: The Profiles property is not null.  Continuing..."
+            );
 
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ProfileProvider.Save: Attempting to save the profiles collection to the file having the pathname '{pathname}'..."
+                );
+
                 GetProfileListCommand.For<IFileSystemEntry>(
-                                           ProfileListCommand
-                                               .SaveProfileListToFile
-                                       )
-                                       .WithInput(
-                                           MakeNewFileSystemEntry
-                                               .ForPath(pathname)
-                                               .AndHavingUserState(
-                                                   Profiles
-                                               )
-                                       )
-                                       .Execute();
+                                         ProfileListCommand
+                                             .SaveProfileListToFile
+                                     )
+                                     .WithInput(
+                                         MakeNewFileSystemEntry.ForPath(
+                                                 /*
+                                                  * Path to the file that
+                                                  * is to be written to the
+                                                  * disk.
+                                                  */
+                                                 pathname
+                                             )
+                                             .AndHavingUserState(
+                                                 /*
+                                                  * What needs to be saved?
+                                                  * The list of profiles, which
+                                                  * is the Profiles property.
+                                                  */
+                                                 Profiles
+                                             )
+                                     )
+                                     .Execute();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** SUCCESS *** Profiles saved to file '{pathname}'."
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+
+            DebugUtils.WriteLine(DebugLevel.Debug, "ProfileProvider.Save: Done.");
         }
     }
 }
