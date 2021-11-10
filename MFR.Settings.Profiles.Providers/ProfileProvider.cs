@@ -6,12 +6,13 @@ using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
-using MFR.Settings.Profiles.Collections;
+using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
 using MFR.Settings.Profiles.Constants;
 using MFR.Settings.Profiles.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -24,30 +25,40 @@ namespace MFR.Settings.Profiles.Providers
     public class ProfileProvider : IProfileProvider
     {
         /// <summary>
+        /// Gets the default JSON file name of the profile list path.
+        /// </summary>
+        public const string DEFAULT_PROFILE_LIST_FILENAME = "profiles.json";
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static ProfileProvider() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected ProfileProvider() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.Settings.Profiles.Providers.ProfileProvider" />.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public static ProfileProvider Instance
         {
             get;
         } = new ProfileProvider();
 
         /// <summary>
-        /// Gets the default filename for the profile list file.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Messages.Actions.Interfaces.IAction" /> interface.
+        /// <para />
+        /// This object is an <c>Action</c> object whose job it is to access the system
+        /// Registry and read from the data stored therein, the path to the profile list
+        /// file.
         /// </summary>
-        public string DefaultProfileListPath
-            => "profiles.json";
-
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadProfileListPathAction
             => GetProfileListAction
@@ -61,12 +72,23 @@ namespace MFR.Settings.Profiles.Providers
                                                 ProfileListPathValueName
                                             )
                                             .WithDefaultValue(
-                                                Path.Combine(
-                                                    DefaultProfileListDir,
-                                                    DefaultProfileListPath
-                                                )
+                                                /*
+                                                 * This is the default fully-qualified pathname
+                                                 * of the file that is to be utilized if the value
+                                                 * that is supposed to be stored in the system
+                                                 * Registry cannot be found.
+                                                 */
+                                                DefaultProfileListPath
                                             )
                );
+
+        /// <summary>
+        /// Gets the default fully-qualified pathname of the profile list file.
+        /// </summary>
+        public string DefaultProfileListPath
+            => Path.Combine(
+                DefaultProfileListDir, DEFAULT_PROFILE_LIST_FILENAME
+            );
 
         /// <summary>
         /// Gets the default folder for the profile list file.
@@ -87,7 +109,8 @@ namespace MFR.Settings.Profiles.Providers
         );
 
         /// <summary>
-        /// Gets a string whose value is the pathname of the profile list file.
+        /// Gets a string whose value is the fully-qualified pathname of the profile list
+        /// file.
         /// </summary>
         public string ProfileListFilePath
         {
@@ -136,7 +159,7 @@ namespace MFR.Settings.Profiles.Providers
         {
             get;
             protected set; // to enable to be set by members of this class only
-        } = new ProfileCollection();
+        } = MakeNewProfileCollection.FromScratch();
 
         /// <summary>
         /// Loads the profiles from the profile list file.
@@ -161,13 +184,44 @@ namespace MFR.Settings.Profiles.Providers
             // entering, into the log
             DebugUtils.WriteLine(DebugLevel.Debug, "In ProfileProvider.Load");
 
-            if (
+            if (string.IsNullOrWhiteSpace(pathname) ||
                 !File.Exists(
                     pathname
                 )) // oops! just use the default value of the Profiles property
-                return;
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ProfileProvider.Load: The file '{pathname}' could not be found."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ProfileProvider.Load: Using the file located at '{ProfileListFilePath}'..."
+                );
+
+                pathname = ProfileListFilePath;
+
+                if (!File.Exists(ProfileListFilePath))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"ProfileProvider.Load: The file located at '{ProfileListFilePath}' does not exist.  Loading the empty profile collection."
+                    );
+
+                    /*
+                     * If we just cannot locate a file anywhere on the disk
+                     * from which to read the profile list, then just create a new,
+                     * blank list and then stop the load process here.
+                     */
+
+                    Profiles = MakeNewProfileCollection.FromScratch();
+
+                    return;
+                }
+            }
 
             try
+
             {
                 Profiles = GetProfileListAction
                            .For<IFileSystemEntry, IProfileCollection>(
@@ -182,7 +236,7 @@ namespace MFR.Settings.Profiles.Providers
                 DebugUtils.LogException(ex);
 
                 // just make a new, blank profile collection in case an error occurs.
-                Profiles = new ProfileCollection();
+                Profiles = MakeNewProfileCollection.FromScratch();
             }
 
             if (Profiles != null)
@@ -238,31 +292,34 @@ namespace MFR.Settings.Profiles.Providers
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"ProfileProvider.Save: Checking whether the 'pathname' parameter is blank..."
+                "ProfileProvider.Save: Checking whether the 'pathname' parameter is blank..."
             );
 
             if (string.IsNullOrWhiteSpace(pathname))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'DefaultProfileListPath' property..."
+                    "ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'ProfileListFilePath' property..."
                 );
 
-                // Dump the variable DefaultProfileListPath to the log
+                // Dump the variable ProfileListFilePath to the log
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"ProfileProvider.Save: DefaultProfileListPath = '{DefaultProfileListPath}'"
+                    $"ProfileProvider.Save: ProfileListFilePath = '{ProfileListFilePath}'"
                 );
 
-                pathname = DefaultProfileListPath;
+                pathname = ProfileListFilePath;
 
                 // Dump the variable pathname to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"ProfileProvider.Save: pathname = '{pathname}'");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ProfileProvider.Save: pathname = '{pathname}'"
+                );
             }
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"ProfileProvider.Save: Checking whether the Profiles property is null..."
+                "ProfileProvider.Save: Checking whether the Profiles property is null..."
             );
 
             // Check to see if the required property, Profiles, is null. If
@@ -271,17 +328,19 @@ namespace MFR.Settings.Profiles.Providers
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    $"ProfileProvider.Save: The Profiles property is null.  Stopping."
+                    "ProfileProvider.Save: The Profiles property is null.  Stopping."
                 );
 
-                DebugUtils.WriteLine(DebugLevel.Debug, "ProfileProvider.Save: Done.");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, "ProfileProvider.Save: Done."
+                );
 
                 return;
             }
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"ProfileProvider.Save: The Profiles property is not null.  Continuing..."
+                "ProfileProvider.Save: The Profiles property is not null.  Continuing..."
             );
 
             try
@@ -326,7 +385,9 @@ namespace MFR.Settings.Profiles.Providers
                 DebugUtils.LogException(ex);
             }
 
-            DebugUtils.WriteLine(DebugLevel.Debug, "ProfileProvider.Save: Done.");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "ProfileProvider.Save: Done."
+            );
         }
     }
 }
