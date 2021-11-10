@@ -204,7 +204,7 @@ namespace MFR.FileSystem.Helpers
                 "FileHelpers.MakeSureContainingFolderExists: Checking whether the operation succeeded..."
             );
 
-            Verify.FolderCreated(containingFolderName);
+            Verify.FolderWasCreated(containingFolderName);
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
