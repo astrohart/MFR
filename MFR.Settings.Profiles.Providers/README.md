@@ -5,9 +5,11 @@
 
 - [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#ctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#ctor')
+  - [DEFAULT_PROFILE_LIST_FILENAME](#F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME 'MFR.Settings.Profiles.Providers.ProfileProvider.DEFAULT_PROFILE_LIST_FILENAME')
   - [DefaultProfileListDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileListDir')
   - [DefaultProfileListPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileListPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
+  - [LoadProfileListPathAction](#P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileListPathAction 'MFR.Settings.Profiles.Providers.ProfileProvider.LoadProfileListPathAction')
   - [ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListFilePath')
   - [ProfileListPathKeyName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathKeyName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathKeyName')
   - [ProfileListPathValueName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathValueName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathValueName')
@@ -41,6 +43,13 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
+<a name='F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME'></a>
+### DEFAULT_PROFILE_LIST_FILENAME `constants`
+
+##### Summary
+
+Gets the default JSON file name of the profile list path.
+
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListDir'></a>
 ### DefaultProfileListDir `property`
 
@@ -58,7 +67,7 @@ under the current user's AppData folder.
 
 ##### Summary
 
-Gets the default filename for the profile list file.
+Gets the default fully-qualified pathname of the profile list file.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance'></a>
 ### Instance `property`
@@ -68,12 +77,27 @@ Gets the default filename for the profile list file.
 Gets a reference to the one and only instance of
 [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider').
 
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileListPathAction'></a>
+### LoadProfileListPathAction `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IAction](#T-MFR-Messages-Actions-Interfaces-IAction 'MFR.Messages.Actions.Interfaces.IAction') interface.
+
+
+
+This object is an `Action` object whose job it is to access the system
+Registry and read from the data stored therein, the path to the profile list
+file.
+
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListFilePath'></a>
 ### ProfileListFilePath `property`
 
 ##### Summary
 
-Gets a string whose value is the pathname of the profile list file.
+Gets a string whose value is the fully-qualified pathname of the profile list
+file.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathKeyName'></a>
 ### ProfileListPathKeyName `property`
