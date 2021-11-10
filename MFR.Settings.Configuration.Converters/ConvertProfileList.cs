@@ -1,4 +1,5 @@
 using MFR.Settings.Profiles.Collections;
+using MFR.Settings.Profiles.Collections.Converters;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -29,7 +30,8 @@ namespace MFR.Settings.Configuration.Converters
                 Converters = {
                     new IsoDateTimeConverter {
                         DateTimeStyles = DateTimeStyles.AssumeUniversal
-                    }
+                    },
+                    new ProfileCollectionConverter<ProfileCollection>()
                 }
             };
 

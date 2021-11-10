@@ -1,7 +1,10 @@
 ﻿using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Collections.Properties;
 using MFR.Settings.Profiles.Interfaces;
+using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -17,6 +20,31 @@ namespace MFR.Settings.Profiles.Collections
     /// </remarks>
     public class ProfileCollection : Collection<IProfile>, IProfileCollection
     {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Settings.Profiles.Collections.ProfileCollection" /> and
+        /// returns a reference to it.
+        /// </summary>
+        public ProfileCollection()
+        {
+            // Default constructor
+        }
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Settings.Profiles.Collections.ProfileCollection" /> and
+        /// returns a reference to it.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        [JsonConstructor]
+        public ProfileCollection(IEnumerable<IProfile> profiles)
+        {
+            if (profiles == null) return;
+
+            foreach (var profile in profiles)
+                Add(profile);
+        }
+
         /// <summary>
         /// A <see cref="T:System.Guid" /> that delineates which profile is
         /// currently "active" i.e., is in use.
