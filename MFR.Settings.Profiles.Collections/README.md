@@ -4,6 +4,7 @@
 ## Contents
 
 - [ProfileCollection](#T-MFR-Settings-Profiles-Collections-ProfileCollection 'MFR.Settings.Profiles.Collections.ProfileCollection')
+  - [#ctor()](#M-MFR-Settings-Profiles-Collections-ProfileCollection-#ctor-System-Collections-Generic-IEnumerable{MFR-Settings-Profiles-Interfaces-IProfile}- 'MFR.Settings.Profiles.Collections.ProfileCollection.#ctor(System.Collections.Generic.IEnumerable{MFR.Settings.Profiles.Interfaces.IProfile})')
   - [ActiveProfile](#P-MFR-Settings-Profiles-Collections-ProfileCollection-ActiveProfile 'MFR.Settings.Profiles.Collections.ProfileCollection.ActiveProfile')
   - [HasProfileNamed(name)](#M-MFR-Settings-Profiles-Collections-ProfileCollection-HasProfileNamed-System-String- 'MFR.Settings.Profiles.Collections.ProfileCollection.HasProfileNamed(System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Collections-Properties-Resources 'MFR.Settings.Profiles.Collections.Properties.Resources')
@@ -27,6 +28,19 @@ object.
 
 A `Profile Collection` object is just that -- a container for
 `Profile` s.
+
+<a name='M-MFR-Settings-Profiles-Collections-ProfileCollection-#ctor-System-Collections-Generic-IEnumerable{MFR-Settings-Profiles-Interfaces-IProfile}-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ProfileCollection](#T-MFR-Settings-Profiles-Collections-ProfileCollection 'MFR.Settings.Profiles.Collections.ProfileCollection') and
+returns a reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='P-MFR-Settings-Profiles-Collections-ProfileCollection-ActiveProfile'></a>
 ### ActiveProfile `property`
