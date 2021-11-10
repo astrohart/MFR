@@ -6,6 +6,7 @@
 - [ProfileProviderTests](#T-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests')
   - [ProfileProvider](#P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileProvider 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.ProfileProvider')
   - [Initialize()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Initialize 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Initialize')
+  - [Test_Load_Add_And_Save_Workflow()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Add_And_Save_Workflow')
   - [Test_Load_Method_Works_When_PassedStringEmpty()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Method_Works_When_PassedStringEmpty 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Tests-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Tests.Properties.Resources.Culture')
@@ -44,6 +45,17 @@ fixture.
 
 Child classes may override this method to run additional
 set-up logic.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow'></a>
+### Test_Load_Add_And_Save_Workflow() `method`
+
+##### Summary
+
+Asserts that the workflow of Profiles, i.e., loading them from disk, adding new fake profiles to the list, and then saving the results to disk, works.
 
 ##### Parameters
 
