@@ -55,7 +55,8 @@ This method has no parameters.
 
 ##### Summary
 
-Asserts that the workflow of Profiles, i.e., loading them from disk, adding new fake profiles to the list, and then saving the results to disk, works.
+Asserts that the workflow of Profiles, i.e., loading them from disk, adding new
+fake profiles to the list, and then saving the results to disk, works.
 
 ##### Parameters
 
