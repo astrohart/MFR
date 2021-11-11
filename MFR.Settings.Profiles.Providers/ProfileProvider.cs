@@ -14,6 +14,7 @@ using MFR.Settings.Profiles.Constants;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
@@ -343,6 +344,19 @@ namespace MFR.Settings.Profiles.Providers
                 "ProfileProvider.Save: The Profiles property is not null.  Continuing..."
             );
 
+            /*
+             * Scan the Profiles collection for any elements with a Name property
+             * starting with 'tmp_'.  If such entries are found, remove them from
+             * the collection first.  NOTE: We check whether the collection has ANY
+             * elements first; it's not worth the bother otherwise.
+             */
+
+            if (Profiles.Any())
+                for(var i = Profiles.Count - 1;i >= 0;i--)
+                    if (Profiles[i]
+                        .Name.StartsWith("tmp_"))
+                        Profiles.Remove(Profiles[i]);
+;
             try
             {
                 DebugUtils.WriteLine(
