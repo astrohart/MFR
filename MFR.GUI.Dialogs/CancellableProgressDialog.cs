@@ -141,6 +141,8 @@ namespace MFR.GUI.Dialogs
 
             cancelButton.Visible = cancelButton.Enabled = true;
 
+            currentFileLabel.Text = statusLabel.Text = string.Empty;
+
             this.InvokeIfRequired(RedrawDisplay);
         }
 
