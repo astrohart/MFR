@@ -2,6 +2,7 @@
 using MFR.Settings.Profiles.Interfaces;
 using MFR.Settings.Profiles.Properties;
 using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Settings.Profiles
@@ -25,6 +26,7 @@ namespace MFR.Settings.Profiles
         /// setting the <see cref="P:MFR.Settings.Profiles.Profile.Name" /> property to
         /// <see cref="P:System.String.Empty" />.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         public Profile()
         {
             Name = string.Empty;
@@ -41,6 +43,7 @@ namespace MFR.Settings.Profiles
         /// Thrown if the required parameter, <paramref name="name" />, is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public Profile(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -64,6 +67,7 @@ namespace MFR.Settings.Profiles
         /// (Required.) String containing the descriptive name that the user wants to use
         /// for this profile.
         /// </param>
+        [Log(AttributeExclude = true)]
         public Profile(IConfiguration source, string name) : base(source)
         {
             if (string.IsNullOrWhiteSpace(name))
