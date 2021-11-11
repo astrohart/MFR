@@ -70,6 +70,17 @@ namespace MFR.GUI.Windows.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.
+        ///
+        ///Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  Don&apos;t say we did not warn you..
+        /// </summary>
+        internal static string Error_StartingFolderMustContainSolutionFile {
+            get {
+                return ResourceManager.GetString("Error_StartingFolderMustContainSolutionFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap SwitchUpDown_16x {

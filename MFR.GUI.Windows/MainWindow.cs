@@ -1392,13 +1392,12 @@ namespace MFR.GUI.Windows
                 StartingFolderComboBox.EnteredText
             ))
             {
-                MessageBox.Show(
+                return DialogResult.Yes == MessageBox.Show(
                     this,
-                    "Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                    Resources.Error_StartingFolderMustContainSolutionFile,
+                    Application.ProductName, MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2
                 );
-                return false;
             }
 
             if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
