@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{39F88DD4-65A6-4625-A672-4B8638D500E0}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -124,6 +125,12 @@
     <Compile Include="OperationDrivenProgressDialog.Designer.cs">
       <DependentUpon>OperationDrivenProgressDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileManagementDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileManagementDialogBox.Designer.cs">
+      <DependentUpon>ProfileManagementDialogBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProfileNameDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OperationDrivenProgressDialog.resx">
       <DependentUpon>OperationDrivenProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileManagementDialogBox.resx">
+      <DependentUpon>ProfileManagementDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileNameDialog.resx">
       <DependentUpon>ProfileNameDialog.cs</DependentUpon>
