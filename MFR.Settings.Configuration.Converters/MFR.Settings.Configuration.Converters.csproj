@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{EB94927D-3E4C-4167-BFF4-440DEDE945A6}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -146,6 +147,18 @@
       <Project>{C19C0DED-C7E0-432B-AC57-194E65048B02}</Project>
       <Name>MFR.Settings.Profiles.Collections</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Converters\MFR.Settings.Profiles.Converters.csproj">
+      <Project>{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}</Project>
+      <Name>MFR.Settings.Profiles.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
+      <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
+      <Name>MFR.Settings.Profiles.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles\MFR.Settings.Profiles.csproj">
+      <Project>{5E70A79D-D257-4443-8530-892C76A972CC}</Project>
+      <Name>MFR.Settings.Profiles</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -168,7 +181,6 @@ exit /b 0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>exit /b 0
-exit /b 0
 if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.pdb"
     erase /F /S /Q "$(TargetDir)*.pspdb"
