@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction')
-  - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction)')
+- [GetProfileListAction](#T-MFR-Settings-Profiles-Actions-Factories-GetProfileListAction 'MFR.Settings.Profiles.Actions.Factories.GetProfileListAction')
+  - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileListAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileListAction- 'MFR.Settings.Profiles.Actions.Factories.GetProfileListAction.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileListAction)')
 - [Resources](#T-MFR-Settings-Profiles-Actions-Factories-Properties-Resources 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction'></a>
-## GetProfileCollectionAction `type`
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileListAction'></a>
+## GetProfileListAction `type`
 
 ##### Namespace
 
@@ -26,7 +26,7 @@ interface, in order to perform actions on the list of profiles.
 
 In our parlance, an Action is a process that has both an input and an output.
 
-<a name='M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-'></a>
+<a name='M-MFR-Settings-Profiles-Actions-Factories-GetProfileListAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileListAction-'></a>
 ### For\`\`2(actionType) `method`
 
 ##### Summary
@@ -47,7 +47,7 @@ that corresponds to the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| actionType | [MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction') | (Required.) A
+| actionType | [MFR.Settings.Profiles.Actions.Constants.ProfileListAction](#T-MFR-Settings-Profiles-Actions-Constants-ProfileListAction 'MFR.Settings.Profiles.Actions.Constants.ProfileListAction') | (Required.) A
 [MessageType](#T-MFR-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
 value that
 indicates what action to execute. |
