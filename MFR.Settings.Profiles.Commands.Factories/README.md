@@ -3,16 +3,16 @@
 
 ## Contents
 
-- [GetProfileCollectionCommand](#T-MFR-Settings-Profiles-Commands-Factories-GetProfileCollectionCommand 'MFR.Settings.Profiles.Commands.Factories.GetProfileCollectionCommand')
-  - [For\`\`1()](#M-MFR-Settings-Profiles-Commands-Factories-GetProfileCollectionCommand-For``1-MFR-Messages-Constants-MessageType- 'MFR.Settings.Profiles.Commands.Factories.GetProfileCollectionCommand.For``1(MFR.Messages.Constants.MessageType)')
-- [GetSaveProfileCollectionPathCommand](#T-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileCollectionPathCommand 'MFR.Settings.Profiles.Commands.Factories.GetSaveProfileCollectionPathCommand')
-  - [ForPath(keyPath,valueName,value)](#M-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileCollectionPathCommand-ForPath-System-String,System-String,System-String- 'MFR.Settings.Profiles.Commands.Factories.GetSaveProfileCollectionPathCommand.ForPath(System.String,System.String,System.String)')
+- [GetProfileListCommand](#T-MFR-Settings-Profiles-Commands-Factories-GetProfileListCommand 'MFR.Settings.Profiles.Commands.Factories.GetProfileListCommand')
+  - [For\`\`1()](#M-MFR-Settings-Profiles-Commands-Factories-GetProfileListCommand-For``1-MFR-Messages-Constants-MessageType- 'MFR.Settings.Profiles.Commands.Factories.GetProfileListCommand.For``1(MFR.Messages.Constants.MessageType)')
+- [GetSaveProfileListPathCommand](#T-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileListPathCommand 'MFR.Settings.Profiles.Commands.Factories.GetSaveProfileListPathCommand')
+  - [ForPath(keyPath,valueName,value)](#M-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileListPathCommand-ForPath-System-String,System-String,System-String- 'MFR.Settings.Profiles.Commands.Factories.GetSaveProfileListPathCommand.ForPath(System.String,System.String,System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Commands-Factories-Properties-Resources 'MFR.Settings.Profiles.Commands.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Commands-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Commands.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Commands-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Commands.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Commands-Factories-GetProfileCollectionCommand'></a>
-## GetProfileCollectionCommand `type`
+<a name='T-MFR-Settings-Profiles-Commands-Factories-GetProfileListCommand'></a>
+## GetProfileListCommand `type`
 
 ##### Namespace
 
@@ -27,7 +27,7 @@ Creates instances of objects that implement the [ICommand](#T-MFR-ICommand 'MFR.
 In our vernacular, a `command` object is an object that performs an
 operation that accepts input, but has no output.
 
-<a name='M-MFR-Settings-Profiles-Commands-Factories-GetProfileCollectionCommand-For``1-MFR-Messages-Constants-MessageType-'></a>
+<a name='M-MFR-Settings-Profiles-Commands-Factories-GetProfileListCommand-For``1-MFR-Messages-Constants-MessageType-'></a>
 ### For\`\`1() `method`
 
 ##### Summary
@@ -38,8 +38,8 @@ Creates a new instance of an object that implements the [ICommand](#T-MFR-IComma
 
 This method has no parameters.
 
-<a name='T-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileCollectionPathCommand'></a>
-## GetSaveProfileCollectionPathCommand `type`
+<a name='T-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileListPathCommand'></a>
+## GetSaveProfileListPathCommand `type`
 
 ##### Namespace
 
@@ -52,13 +52,13 @@ Gets a reference to an instance of an object that implements the
 interface and provides access to the
 operation of saving the path of a profile list file to the system Registry.
 
-<a name='M-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileCollectionPathCommand-ForPath-System-String,System-String,System-String-'></a>
+<a name='M-MFR-Settings-Profiles-Commands-Factories-GetSaveProfileListPathCommand-ForPath-System-String,System-String,System-String-'></a>
 ### ForPath(keyPath,valueName,value) `method`
 
 ##### Summary
 
 Provides access to the [ICommand](#T-MFR-ICommand 'MFR.ICommand')
--derived object that allows saving the pathname of a ProfileCollection
+-derived object that allows saving the pathname of a ProfileList
 file to the system Registry.
 
 ##### Returns
