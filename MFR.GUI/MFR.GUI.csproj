@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{F1AA54DD-684F-45CC-A5B7-766AE9E75634}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -183,6 +184,14 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
       <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
       <Name>MFR.Settings.Profiles.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Factories\MFR.Settings.Profiles.Providers.Factories.csproj">
+      <Project>{61494E63-AE7D-4D4A-967B-D3B50E68858A}</Project>
+      <Name>MFR.Settings.Profiles.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
+      <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
+      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

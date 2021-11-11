@@ -7,6 +7,8 @@ using MFR.GUI.Displayers;
 using MFR.GUI.Windows;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.Settings.Profiles.Providers.Factories;
+using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -50,6 +52,14 @@ namespace MFR.GUI
             => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
+        /// </summary>
+        private static IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         /// <param name="args">
@@ -70,6 +80,8 @@ namespace MFR.GUI
             SetUpCommandLineValidation();
 
             // Load the configuration from the disk.
+            ProfileProvider.Load();
+
             ConfigurationProvider.Load();
 
             ParseCommandLine(args);
@@ -79,6 +91,8 @@ namespace MFR.GUI
             // Save changes in the configuration back out to the disk.
             // Also writes the path to the config file to the Registry.
             ConfigurationProvider.Save();
+
+            ProfileProvider.Save();
 
             Revoke.WindowsMessageFilter();
         }
