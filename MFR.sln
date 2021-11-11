@@ -578,6 +578,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Colle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Collections.Converters", "MFR.Settings.Profiles.Collections.Converters\MFR.Settings.Profiles.Collections.Converters.csproj", "{A7202A86-870A-47A2-9FD2-F51D4677A999}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Converters", "MFR.Settings.Profiles.Converters\MFR.Settings.Profiles.Converters.csproj", "{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2866,6 +2868,14 @@ Global
 		{A7202A86-870A-47A2-9FD2-F51D4677A999}.Release|x64.Build.0 = Release|x64
 		{A7202A86-870A-47A2-9FD2-F51D4677A999}.Release|x86.ActiveCfg = Release|x86
 		{A7202A86-870A-47A2-9FD2-F51D4677A999}.Release|x86.Build.0 = Release|x86
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Debug|x64.ActiveCfg = Debug|x64
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Debug|x64.Build.0 = Debug|x64
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Debug|x86.ActiveCfg = Debug|x86
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Debug|x86.Build.0 = Debug|x86
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x64.ActiveCfg = Release|x64
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x64.Build.0 = Release|x64
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x86.ActiveCfg = Release|x86
+		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
