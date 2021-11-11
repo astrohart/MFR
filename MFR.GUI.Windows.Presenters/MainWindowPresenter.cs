@@ -32,7 +32,6 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -277,7 +276,9 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
-            => ((IProfile)Configuration).Name;
+            => Configuration is IProfile profile
+                ? profile.Name
+                : string.Empty;
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of configuration
