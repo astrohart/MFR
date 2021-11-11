@@ -17,14 +17,14 @@ namespace MFR.Settings.Profiles.Actions
     /// the master configuration file.
     /// </summary>
     public class
-        LoadProfileListFromFileAction : ActionBase<IFileSystemEntry,
+        LoadProfileCollectionFromFileAction : ActionBase<IFileSystemEntry,
             IProfileCollection>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static LoadProfileListFromFileAction()
+        static LoadProfileCollectionFromFileAction()
         {
         }
 
@@ -32,19 +32,19 @@ namespace MFR.Settings.Profiles.Actions
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LoadProfileListFromFileAction()
+        protected LoadProfileCollectionFromFileAction()
         {
         }
 
         /// <summary>
         /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Settings.Profiles.Actions.LoadProfileListFromFileAction"/> .
+        /// cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadProfileListFromFileAction Instance
+        public static LoadProfileCollectionFromFileAction Instance
         {
             get;
-        } = new LoadProfileListFromFileAction();
+        } = new LoadProfileCollectionFromFileAction();
 
         /// <summary>
         /// Gets the <see cref="T:MFR.MessageType"/> that is being used
@@ -52,7 +52,7 @@ namespace MFR.Settings.Profiles.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileListAction.LoadProfileListFromFile;
+            => ProfileCollectionAction.LoadProfileCollectionFromFile;
 
         /// <summary>
         /// Executes this message.
@@ -75,7 +75,7 @@ namespace MFR.Settings.Profiles.Actions
         {
             // write the name of the current class and method we are now
             // entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In LoadProfileListFromFileAction.CommonExecute");
+            DebugUtils.WriteLine(DebugLevel.Debug, "In LoadProfileCollectionFromFileAction.CommonExecute");
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -121,7 +121,7 @@ namespace MFR.Settings.Profiles.Actions
                     Path.GetFileName(Input.Path)
                 );
 
-                result = ProfileListSerializer.Load(Input.Path);
+                result = ProfileCollectionSerializer.Load(Input.Path);
             }
             catch (Exception ex)
             {

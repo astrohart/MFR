@@ -1,4 +1,4 @@
-﻿using MFR.Messages.Constants;
+using MFR.Messages.Constants;
 using MFR.Messages.Requests;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Interfaces;
@@ -49,7 +49,7 @@ namespace MFR.Settings.Profiles.Requests
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileListRequest.CreateNewBlankProfile;
+            => ProfileCollectionRequest.CreateNewBlankProfile;
 
         /// <summary>
         /// Executes this message.

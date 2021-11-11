@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetProfileListRequest](#T-MFR-Settings-Profiles-Requests-Factories-GetProfileListRequest 'MFR.Settings.Profiles.Requests.Factories.GetProfileListRequest')
-  - [For\`\`1(requestType)](#M-MFR-Settings-Profiles-Requests-Factories-GetProfileListRequest-For``1-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest- 'MFR.Settings.Profiles.Requests.Factories.GetProfileListRequest.For``1(MFR.Settings.Profiles.Requests.Constants.ProfileListRequest)')
+- [GetProfileCollectionRequest](#T-MFR-Settings-Profiles-Requests-Factories-GetProfileCollectionRequest 'MFR.Settings.Profiles.Requests.Factories.GetProfileCollectionRequest')
+  - [For\`\`1(requestType)](#M-MFR-Settings-Profiles-Requests-Factories-GetProfileCollectionRequest-For``1-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest- 'MFR.Settings.Profiles.Requests.Factories.GetProfileCollectionRequest.For``1(MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest)')
 - [Resources](#T-MFR-Settings-Profiles-Requests-Factories-Properties-Resources 'MFR.Settings.Profiles.Requests.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Requests-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Requests.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Requests-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Requests.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Requests-Factories-GetProfileListRequest'></a>
-## GetProfileListRequest `type`
+<a name='T-MFR-Settings-Profiles-Requests-Factories-GetProfileCollectionRequest'></a>
+## GetProfileCollectionRequest `type`
 
 ##### Namespace
 
@@ -26,7 +26,7 @@ interface, in order to carry out requests on the list of profiles.
 
 In our parlance, an Request is a process that has both an input and an output.
 
-<a name='M-MFR-Settings-Profiles-Requests-Factories-GetProfileListRequest-For``1-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-'></a>
+<a name='M-MFR-Settings-Profiles-Requests-Factories-GetProfileCollectionRequest-For``1-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-'></a>
 ### For\`\`1(requestType) `method`
 
 ##### Summary
@@ -47,7 +47,7 @@ that corresponds to the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| requestType | [MFR.Settings.Profiles.Requests.Constants.ProfileListRequest](#T-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest 'MFR.Settings.Profiles.Requests.Constants.ProfileListRequest') | (Required.) A
+| requestType | [MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest](#T-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest 'MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest') | (Required.) A
 [MessageType](#T-MFR-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
 value that
 indicates what request to carry out. |

@@ -6,13 +6,13 @@
 - [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#ctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#ctor')
   - [DEFAULT_PROFILE_LIST_FILENAME](#F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME 'MFR.Settings.Profiles.Providers.ProfileProvider.DEFAULT_PROFILE_LIST_FILENAME')
-  - [DefaultProfileListDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileListDir')
-  - [DefaultProfileListPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileListPath')
+  - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionDir')
+  - [DefaultProfileCollectionPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
-  - [LoadProfileListPathAction](#P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileListPathAction 'MFR.Settings.Profiles.Providers.ProfileProvider.LoadProfileListPathAction')
-  - [ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListFilePath')
-  - [ProfileListPathKeyName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathKeyName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathKeyName')
-  - [ProfileListPathValueName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathValueName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathValueName')
+  - [LoadProfileCollectionPathAction](#P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileCollectionPathAction 'MFR.Settings.Profiles.Providers.ProfileProvider.LoadProfileCollectionPathAction')
+  - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath')
+  - [ProfileCollectionPathKeyName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathKeyName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionPathKeyName')
+  - [ProfileCollectionPathValueName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathValueName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionPathValueName')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Load(System.String)')
@@ -50,8 +50,8 @@ This constructor has no parameters.
 
 Gets the default JSON file name of the profile list path.
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListDir'></a>
-### DefaultProfileListDir `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir'></a>
+### DefaultProfileCollectionDir `property`
 
 ##### Summary
 
@@ -62,8 +62,8 @@ Gets the default folder for the profile list file.
 We store the profile list file, by default, in a folder
 under the current user's AppData folder.
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileListPath'></a>
-### DefaultProfileListPath `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath'></a>
+### DefaultProfileCollectionPath `property`
 
 ##### Summary
 
@@ -77,8 +77,8 @@ Gets the default fully-qualified pathname of the profile list file.
 Gets a reference to the one and only instance of
 [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider').
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileListPathAction'></a>
-### LoadProfileListPathAction `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileCollectionPathAction'></a>
+### LoadProfileCollectionPathAction `property`
 
 ##### Summary
 
@@ -91,24 +91,24 @@ This object is an `Action` object whose job it is to access the system
 Registry and read from the data stored therein, the path to the profile list
 file.
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListFilePath'></a>
-### ProfileListFilePath `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath'></a>
+### ProfileCollectionFilePath `property`
 
 ##### Summary
 
 Gets a string whose value is the fully-qualified pathname of the profile list
 file.
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathKeyName'></a>
-### ProfileListPathKeyName `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathKeyName'></a>
+### ProfileCollectionPathKeyName `property`
 
 ##### Summary
 
 Gets a string whose value is the pathname of the system Registry key
 in which Profile settings are stored.
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathValueName'></a>
-### ProfileListPathValueName `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathValueName'></a>
+### ProfileCollectionPathValueName `property`
 
 ##### Summary
 
@@ -186,13 +186,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+[ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+[ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Settings-Profiles-Providers-Properties-Resources'></a>

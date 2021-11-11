@@ -80,7 +80,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// Gets a reference to a <see cref="T:System.Windows.Forms.ToolStripComboBox" />
         /// that has a drop-down list of the profiles that the user has created.
         /// </summary>
-        ToolStripComboBox ProfileListComboBox
+        ToolStripComboBox ProfileCollectionComboBox
         {
             get;
         }
@@ -149,6 +149,6 @@ namespace MFR.GUI.Windows.Interfaces
         /// item and then selects the first element in the
         /// <see cref="P:System.Windows.Forms.ToolStripComboBox.Items" /> list.
         /// </summary>
-        void ResetProfileListComboBox();
+        void ResetProfileCollectionComboBox();
     }
 }

@@ -212,7 +212,7 @@ namespace MFR.GUI.Windows
         /// that has a drop-down list of the profiles that the user has created.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public ToolStripComboBox ProfileListComboBox
+        public ToolStripComboBox ProfileCollectionComboBox
             => profileListComboBox;
 
         /// <summary>
@@ -286,11 +286,11 @@ namespace MFR.GUI.Windows
         /// item and then selects the first element in the
         /// <see cref="P:System.Windows.Forms.ToolStripComboBox.Items" /> list.
         /// </summary>
-        public void ResetProfileListComboBox()
+        public void ResetProfileCollectionComboBox()
         {
-            ProfileListComboBox.Items.Clear();
-            ProfileListComboBox.Items.Add("<No profile selected>");
-            ProfileListComboBox.SelectedIndex = 0;
+            ProfileCollectionComboBox.Items.Clear();
+            ProfileCollectionComboBox.Items.Add("<No profile selected>");
+            ProfileCollectionComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -371,9 +371,9 @@ namespace MFR.GUI.Windows
 
             try
             {
-                result = GetProfileListAction
+                result = GetProfileCollectionAction
                          .For<string, IProfile>(
-                             ProfileListAction.CreateNewNamedProfile
+                             ProfileCollectionAction.CreateNewNamedProfile
                          )
                          .WithInput(e.Name)
                          .Execute();
@@ -1193,7 +1193,7 @@ namespace MFR.GUI.Windows
              * the name of the profile the user has saved; this is now
              * the current profile.
              */
-            ProfileListComboBox.SelectFirstItemNamed(results.ProfileName);
+            ProfileCollectionComboBox.SelectFirstItemNamed(results.ProfileName);
         }
 
         /// <summary>

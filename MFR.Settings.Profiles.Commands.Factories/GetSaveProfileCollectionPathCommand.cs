@@ -1,4 +1,4 @@
-﻿using MFR.Messages.Commands.Interfaces;
+using MFR.Messages.Commands.Interfaces;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Settings.Profiles.Commands.Constants;
@@ -13,11 +13,11 @@ namespace MFR.Settings.Profiles.Commands.Factories
     /// interface and provides access to the
     /// operation of saving the path of a profile list file to the system Registry.
     /// </summary>
-    public static class GetSaveProfileListPathCommand
+    public static class GetSaveProfileCollectionPathCommand
     {
         /// <summary>
         /// Provides access to the <see cref="T:MFR.ICommand" />
-        /// -derived object that allows saving the pathname of a ProfileList
+        /// -derived object that allows saving the pathname of a ProfileCollection
         /// file to the system Registry.
         /// </summary>
         /// <param name="keyPath">
@@ -56,9 +56,9 @@ namespace MFR.Settings.Profiles.Commands.Factories
                     "Value cannot be null or whitespace.", nameof(value)
                 );
 
-            return GetProfileListCommand
+            return GetProfileCollectionCommand
                    .For<IRegOperationMetadata<string>>(
-                       ProfileListCommand.SaveProfileListPathToRegistry
+                       ProfileCollectionCommand.SaveProfileCollectionPathToRegistry
                    )
                    .WithInput(
                        MakeNewRegOperationMetadata.FromScatch<string>()

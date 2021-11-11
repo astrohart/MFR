@@ -35,19 +35,19 @@ namespace MFR.Settings.Profiles.Commands
     /// be initialized to a reference to the profile list object containing the
     /// data that is to be saved.
     /// </remarks>
-    public class SaveProfileListToFileCommand : CommandBase<IFileSystemEntry>
+    public class SaveProfileCollectionToFileCommand : CommandBase<IFileSystemEntry>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static SaveProfileListToFileCommand() { }
+        static SaveProfileCollectionToFileCommand() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected SaveProfileListToFileCommand() { }
+        protected SaveProfileCollectionToFileCommand() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -56,10 +56,10 @@ namespace MFR.Settings.Profiles.Commands
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static SaveProfileListToFileCommand Instance
+        public static SaveProfileCollectionToFileCommand Instance
         {
             get;
-        } = new SaveProfileListToFileCommand();
+        } = new SaveProfileCollectionToFileCommand();
 
         /// <summary>
         /// Gets the <see cref="T:MFR.MessageType" /> that is
@@ -67,7 +67,7 @@ namespace MFR.Settings.Profiles.Commands
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileListCommand.SaveProfileListToFile;
+            => ProfileCollectionCommand.SaveProfileCollectionToFile;
 
         /// <summary>
         /// Executes this command and does not return anything.
@@ -172,7 +172,7 @@ namespace MFR.Settings.Profiles.Commands
 
             try
             {
-                ProfileListSerializer.Save(
+                ProfileCollectionSerializer.Save(
                     Input.Path, Input.UserState as IProfileCollection
                 );
             }

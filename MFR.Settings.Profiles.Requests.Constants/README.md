@@ -3,16 +3,16 @@
 
 ## Contents
 
-- [ProfileListRequest](#T-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest 'MFR.Settings.Profiles.Requests.Constants.ProfileListRequest')
-  - [#ctor(messageId)](#M-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-#ctor-System-Guid- 'MFR.Settings.Profiles.Requests.Constants.ProfileListRequest.#ctor(System.Guid)')
-  - [CreateNewBlankProfile](#F-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-CreateNewBlankProfile 'MFR.Settings.Profiles.Requests.Constants.ProfileListRequest.CreateNewBlankProfile')
-  - [Unknown](#F-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-Unknown 'MFR.Settings.Profiles.Requests.Constants.ProfileListRequest.Unknown')
+- [ProfileCollectionRequest](#T-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest 'MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest')
+  - [#ctor(messageId)](#M-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-#ctor-System-Guid- 'MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest.#ctor(System.Guid)')
+  - [CreateNewBlankProfile](#F-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-CreateNewBlankProfile 'MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest.CreateNewBlankProfile')
+  - [Unknown](#F-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-Unknown 'MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest.Unknown')
 - [Resources](#T-MFR-Settings-Profiles-Requests-Constants-Properties-Resources 'MFR.Settings.Profiles.Requests.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Requests-Constants-Properties-Resources-Culture 'MFR.Settings.Profiles.Requests.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Requests-Constants-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Requests.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest'></a>
-## ProfileListRequest `type`
+<a name='T-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest'></a>
+## ProfileCollectionRequest `type`
 
 ##### Namespace
 
@@ -22,13 +22,13 @@ MFR.Settings.Profiles.Requests.Constants
 
 Available requests for use when working with `Profile` objects.
 
-<a name='M-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-#ctor-System-Guid-'></a>
+<a name='M-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-#ctor-System-Guid-'></a>
 ### #ctor(messageId) `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[ProfileListRequest](#T-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest 'MFR.Settings.Profiles.Requests.Constants.ProfileListRequest')
+[ProfileCollectionRequest](#T-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest 'MFR.Settings.Profiles.Requests.Constants.ProfileCollectionRequest')
 and returns a reference to it.
 
 ##### Parameters
@@ -38,14 +38,14 @@ and returns a reference to it.
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
 that provides a unique identifier to be associated with this instance. |
 
-<a name='F-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-CreateNewBlankProfile'></a>
+<a name='F-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-CreateNewBlankProfile'></a>
 ### CreateNewBlankProfile `constants`
 
 ##### Summary
 
 Creates a new (blank) profile.
 
-<a name='F-MFR-Settings-Profiles-Requests-Constants-ProfileListRequest-Unknown'></a>
+<a name='F-MFR-Settings-Profiles-Requests-Constants-ProfileCollectionRequest-Unknown'></a>
 ### Unknown `constants`
 
 ##### Summary

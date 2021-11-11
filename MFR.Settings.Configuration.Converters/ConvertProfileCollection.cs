@@ -13,7 +13,7 @@ namespace MFR.Settings.Configuration.Converters
     /// implement the <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" />
     /// interface.
     /// </summary>
-    public static class ConvertProfileList
+    public static class ConvertProfileCollection
     {
         /// <summary>
         /// Obtains a reference to an instance of

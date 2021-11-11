@@ -13,7 +13,7 @@ namespace MFR.Settings.Profiles.Actions.Factories
     /// <remarks>
     /// In our parlance, an Action is a process that has both an input and an output.
     /// </remarks>
-    public static class GetProfileListAction
+    public static class GetProfileCollectionAction
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -44,7 +44,7 @@ namespace MFR.Settings.Profiles.Actions.Factories
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>
         public static IAction<TInput, TResult>
-            For<TInput, TResult>(ProfileListAction actionType)
+            For<TInput, TResult>(ProfileCollectionAction actionType)
             where TInput : class where TResult : class
         {
             IAction<TInput, TResult> action;
@@ -52,23 +52,23 @@ namespace MFR.Settings.Profiles.Actions.Factories
             switch (actionType)
             {
                 case var _ when actionType ==
-                                ProfileListAction.LoadStringFromRegistry:
+                                ProfileCollectionAction.LoadStringFromRegistry:
                     action =
                         (IAction<TInput, TResult>)
-                        LoadProfileListFilePathFromRegistryAction.Instance;
+                        LoadProfileCollectionFilePathFromRegistryAction.Instance;
                     break;
 
                 case var _ when actionType ==
-                                ProfileListAction.CreateNewNamedProfile:
+                                ProfileCollectionAction.CreateNewNamedProfile:
                     action =
                         (IAction<TInput, TResult>)CreateNewNamedProfileAction
                             .Instance;
                     break;
 
                 case var _ when actionType ==
-                                ProfileListAction.LoadProfileListFromFile:
+                                ProfileCollectionAction.LoadProfileCollectionFromFile:
                     action =
-                        (IAction<TInput, TResult>)LoadProfileListFromFileAction
+                        (IAction<TInput, TResult>)LoadProfileCollectionFromFileAction
                             .Instance;
                     break;
 

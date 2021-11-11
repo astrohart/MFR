@@ -6,12 +6,12 @@
 - [Resources](#T-MFR-Settings-Profiles-Commands-Properties-Resources 'MFR.Settings.Profiles.Commands.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Commands-Properties-Resources-Culture 'MFR.Settings.Profiles.Commands.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Commands-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Commands.Properties.Resources.ResourceManager')
-- [SaveProfileListToFileCommand](#T-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand 'MFR.Settings.Profiles.Commands.SaveProfileListToFileCommand')
-  - [#ctor()](#M-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-#ctor 'MFR.Settings.Profiles.Commands.SaveProfileListToFileCommand.#ctor')
-  - [Instance](#P-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-Instance 'MFR.Settings.Profiles.Commands.SaveProfileListToFileCommand.Instance')
-  - [MessageType](#P-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-MessageType 'MFR.Settings.Profiles.Commands.SaveProfileListToFileCommand.MessageType')
-  - [#cctor()](#M-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-#cctor 'MFR.Settings.Profiles.Commands.SaveProfileListToFileCommand.#cctor')
-  - [CommonExecute()](#M-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-CommonExecute 'MFR.Settings.Profiles.Commands.SaveProfileListToFileCommand.CommonExecute')
+- [SaveProfileCollectionToFileCommand](#T-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand 'MFR.Settings.Profiles.Commands.SaveProfileCollectionToFileCommand')
+  - [#ctor()](#M-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-#ctor 'MFR.Settings.Profiles.Commands.SaveProfileCollectionToFileCommand.#ctor')
+  - [Instance](#P-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-Instance 'MFR.Settings.Profiles.Commands.SaveProfileCollectionToFileCommand.Instance')
+  - [MessageType](#P-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-MessageType 'MFR.Settings.Profiles.Commands.SaveProfileCollectionToFileCommand.MessageType')
+  - [#cctor()](#M-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-#cctor 'MFR.Settings.Profiles.Commands.SaveProfileCollectionToFileCommand.#cctor')
+  - [CommonExecute()](#M-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-CommonExecute 'MFR.Settings.Profiles.Commands.SaveProfileCollectionToFileCommand.CommonExecute')
 
 <a name='T-MFR-Settings-Profiles-Commands-Properties-Resources'></a>
 ## Resources `type`
@@ -39,8 +39,8 @@ Overrides the current thread's CurrentUICulture property for all
 
 Returns the cached ResourceManager instance used by this class.
 
-<a name='T-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand'></a>
-## SaveProfileListToFileCommand `type`
+<a name='T-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand'></a>
+## SaveProfileCollectionToFileCommand `type`
 
 ##### Namespace
 
@@ -74,7 +74,7 @@ property
 be initialized to a reference to the profile list object containing the
 data that is to be saved.
 
-<a name='M-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-#ctor'></a>
+<a name='M-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -85,7 +85,7 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='P-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-Instance'></a>
+<a name='P-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-Instance'></a>
 ### Instance `property`
 
 ##### Summary
@@ -94,7 +94,7 @@ Gets a reference to the one and only instance of
 [SavePathToRegistryAction](#T-MFR-SavePathToRegistryAction 'MFR.SavePathToRegistryAction')
 .
 
-<a name='P-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-MessageType'></a>
+<a name='P-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-MessageType'></a>
 ### MessageType `property`
 
 ##### Summary
@@ -102,7 +102,7 @@ Gets a reference to the one and only instance of
 Gets the [MessageType](#T-MFR-MessageType 'MFR.MessageType') that is
 being used to identify which message this is.
 
-<a name='M-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-#cctor'></a>
+<a name='M-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -113,7 +113,7 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Profiles-Commands-SaveProfileListToFileCommand-CommonExecute'></a>
+<a name='M-MFR-Settings-Profiles-Commands-SaveProfileCollectionToFileCommand-CommonExecute'></a>
 ### CommonExecute() `method`
 
 ##### Summary

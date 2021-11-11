@@ -1,4 +1,4 @@
-﻿using MFR.Messages.Actions;
+using MFR.Messages.Actions;
 using MFR.Messages.Constants;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Factories;
@@ -39,7 +39,7 @@ namespace MFR.Settings.Profiles.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileListAction.CreateNewNamedProfile;
+            => ProfileCollectionAction.CreateNewNamedProfile;
 
         /// <summary>
         /// Gets a reference to the one and only instance of

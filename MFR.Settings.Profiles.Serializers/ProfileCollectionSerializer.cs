@@ -16,7 +16,7 @@ namespace MFR.Settings.Profiles.Serializers
     /// The profile information is used in code via the <see
     /// cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection"/> interface.
     /// </remarks>
-    public static class ProfileListSerializer
+    public static class ProfileCollectionSerializer
     {
         /// <summary>
         /// Loads data about the list of profiles from the file with the path specified by the <paramref name="pathname"/> parameter.
@@ -61,7 +61,7 @@ namespace MFR.Settings.Profiles.Serializers
                 // with its properties all set to default values.
                 return string.IsNullOrWhiteSpace(content)
                     ? new ProfileCollection()
-                    : ConvertProfileList.FromJson(content);
+                    : ConvertProfileCollection.FromJson(content);
             }
             catch (Exception ex)
             {
@@ -98,7 +98,7 @@ namespace MFR.Settings.Profiles.Serializers
 
             try
             {
-                var content = ConvertProfileList.ToJson(profileList);
+                var content = ConvertProfileCollection.ToJson(profileList);
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;

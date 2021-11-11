@@ -135,6 +135,12 @@ namespace MFR.GUI.Dialogs
 
             Status = string.Empty;
 
+            /*
+             * By default, show and enable the Cancel button.
+             */
+
+            cancelButton.Visible = cancelButton.Enabled = true;
+
             this.InvokeIfRequired(RedrawDisplay);
         }
 

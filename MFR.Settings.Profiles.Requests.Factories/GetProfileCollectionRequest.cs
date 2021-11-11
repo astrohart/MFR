@@ -13,7 +13,7 @@ namespace MFR.Settings.Profiles.Requests.Factories
     /// <remarks>
     /// In our parlance, an Request is a process that has both an input and an output.
     /// </remarks>
-    public static class GetProfileListRequest
+    public static class GetProfileCollectionRequest
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -44,7 +44,7 @@ namespace MFR.Settings.Profiles.Requests.Factories
         /// in the <paramref name="requestType" /> parameter.
         /// </exception>
         public static IRequest<TResult>
-            For<TResult>(ProfileListRequest requestType)
+            For<TResult>(ProfileCollectionRequest requestType)
             where TResult : class
         {
             IRequest<TResult> request;
@@ -52,7 +52,7 @@ namespace MFR.Settings.Profiles.Requests.Factories
             switch (requestType)
             {
                 case var _ when requestType ==
-                                ProfileListRequest.CreateNewBlankProfile:
+                                ProfileCollectionRequest.CreateNewBlankProfile:
                     request =
                         (IRequest<TResult>)
                         CreateNewBlankProfileRequest.Instance;

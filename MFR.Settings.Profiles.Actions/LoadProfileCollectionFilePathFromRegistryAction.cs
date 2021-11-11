@@ -14,14 +14,14 @@ namespace MFR.Settings.Profiles.Actions
     /// Accesses a key and value in the system Registry to load the pathname of
     /// the master configuration file.
     /// </summary>
-    public class LoadProfileListFilePathFromRegistryAction : CachedResultActionBase<
+    public class LoadProfileCollectionFilePathFromRegistryAction : CachedResultActionBase<
         IRegQueryExpression<string>, IFileSystemEntry>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static LoadProfileListFilePathFromRegistryAction()
+        static LoadProfileCollectionFilePathFromRegistryAction()
         {
         }
 
@@ -29,19 +29,19 @@ namespace MFR.Settings.Profiles.Actions
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LoadProfileListFilePathFromRegistryAction()
+        protected LoadProfileCollectionFilePathFromRegistryAction()
         {
         }
 
         /// <summary>
         /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Settings.Profiles.Actions.LoadProfileListFilePathFromRegistryAction"/> .
+        /// cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadProfileListFilePathFromRegistryAction Instance
+        public static LoadProfileCollectionFilePathFromRegistryAction Instance
         {
             get;
-        } = new LoadProfileListFilePathFromRegistryAction();
+        } = new LoadProfileCollectionFilePathFromRegistryAction();
 
         /// <summary>
         /// Gets the <see cref="T:MFR.MessageType"/> that is being used
@@ -49,7 +49,7 @@ namespace MFR.Settings.Profiles.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileListAction.LoadStringFromRegistry;
+            => ProfileCollectionAction.LoadStringFromRegistry;
 
         /// <summary>
         /// Performs this action's operation if the result could not located in

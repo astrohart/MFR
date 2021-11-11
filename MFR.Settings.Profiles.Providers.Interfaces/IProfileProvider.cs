@@ -1,4 +1,4 @@
-﻿ using MFR.Settings.Profiles.Collections.Interfaces;
+ using MFR.Settings.Profiles.Collections.Interfaces;
 
 namespace MFR.Settings.Profiles.Providers.Interfaces
 {
@@ -23,7 +23,7 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// We store the profile configuration file, by default, in a folder
         /// under the current user's AppData folder.
         /// </remarks>
-        string DefaultProfileListDir
+        string DefaultProfileCollectionDir
         {
             get;
         }
@@ -31,12 +31,12 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// <summary>
         /// Gets the default fully-qualified pathname of the profile list file.
         /// </summary>
-        string DefaultProfileListPath { get; }
+        string DefaultProfileCollectionPath { get; }
 
         /// <summary>
         /// Gets a string whose value is the pathname of the profile list file.
         /// </summary>
-        string ProfileListFilePath
+        string ProfileCollectionFilePath
         {
             get;
             set;
@@ -46,7 +46,7 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// Gets a string whose value is the pathname of the system Registry key
         /// in which Profile settings are stored.
         /// </summary>
-        string ProfileListPathKeyName
+        string ProfileCollectionPathKeyName
         {
             get;
         }
@@ -55,7 +55,7 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// Gets a string whose value is the Registry value under which we store
         /// the path to the profile list file.
         /// </summary>
-        string ProfileListPathValueName
+        string ProfileCollectionPathValueName
         {
             get;
         }
@@ -108,13 +108,13 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath" />
+        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath" />
+        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");

@@ -4,10 +4,10 @@
 ## Contents
 
 - [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
-  - [DefaultProfileListDir](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileListDir 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileListDir')
-  - [ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
-  - [ProfileListPathKeyName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathKeyName')
-  - [ProfileListPathValueName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListPathValueName')
+  - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileCollectionDir')
+  - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
+  - [ProfileCollectionPathKeyName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathKeyName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionPathKeyName')
+  - [ProfileCollectionPathValueName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathValueName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionPathValueName')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Profiles')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Load(System.String)')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Save(System.String)')
@@ -36,8 +36,8 @@ object.
 A `Profile Provider` object maintains a collection of the profiles
 defined by the user.
 
-<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileListDir'></a>
-### DefaultProfileListDir `property`
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileCollectionDir'></a>
+### DefaultProfileCollectionDir `property`
 
 ##### Summary
 
@@ -48,23 +48,23 @@ Gets the default folder for the configuration file.
 We store the profile configuration file, by default, in a folder
 under the current user's AppData folder.
 
-<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath'></a>
-### ProfileListFilePath `property`
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath'></a>
+### ProfileCollectionFilePath `property`
 
 ##### Summary
 
 Gets a string whose value is the pathname of the profile list file.
 
-<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathKeyName'></a>
-### ProfileListPathKeyName `property`
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathKeyName'></a>
+### ProfileCollectionPathKeyName `property`
 
 ##### Summary
 
 Gets a string whose value is the pathname of the system Registry key
 in which Profile settings are stored.
 
-<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListPathValueName'></a>
-### ProfileListPathValueName `property`
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathValueName'></a>
+### ProfileCollectionPathValueName `property`
 
 ##### Summary
 
@@ -136,13 +136,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+[ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ProfileListFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileListFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileListFilePath')
+[ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Settings-Profiles-Providers-Interfaces-Properties-Resources'></a>

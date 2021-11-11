@@ -1,4 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
+using Alphaleonis.Win32.Filesystem;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -49,7 +49,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
              */
 
             Assert.That(
-                File.Exists(ProfileProvider.ProfileListFilePath)
+                File.Exists(ProfileProvider.ProfileCollectionFilePath)
                     ? currentProfileCount > 0
                     : currentProfileCount == 0
             );
@@ -104,7 +104,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
              * path is present.
              */
 
-            Assert.That(File.Exists(ProfileProvider.ProfileListFilePath));
+            Assert.That(File.Exists(ProfileProvider.ProfileCollectionFilePath));
         }
 
         /// <summary>
@@ -134,18 +134,18 @@ namespace MFR.Settings.Profiles.Providers.Tests
                 "In ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty"
             );
 
-            // Dump the variable ProfileProvider.DefaultProfileListPath to the log
+            // Dump the variable ProfileProvider.DefaultProfileCollectionPath to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: ProfileProvider.DefaultProfileListPath = '{ProfileProvider.DefaultProfileListPath}'"
+                $"ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: ProfileProvider.DefaultProfileCollectionPath = '{ProfileProvider.DefaultProfileCollectionPath}'"
             );
 
-            // Dump the variable ProfileProvider.ProfileListFilePath to the log. 
+            // Dump the variable ProfileProvider.ProfileCollectionFilePath to the log. 
             // This is the value that the Load method will utilize because we 
             // pass in the empty string.
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: ProfileProvider.DefaultProfileListPath = '{ProfileProvider.ProfileListFilePath}'"
+                $"ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: ProfileProvider.DefaultProfileCollectionPath = '{ProfileProvider.ProfileCollectionFilePath}'"
             );
 
             Assert.DoesNotThrow(

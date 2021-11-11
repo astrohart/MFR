@@ -443,7 +443,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public void FillProfileDropDownList()
         {
-            View.ResetProfileListComboBox();
+            View.ResetProfileCollectionComboBox();
 
             if (ProfileProvider.Profiles == null)
                 return;
@@ -458,16 +458,16 @@ namespace MFR.GUI.Windows.Presenters
              * except ones whose name begin with tmp_.
              */
 
-            View.ProfileListComboBox.Items.AddRange(
+            View.ProfileCollectionComboBox.Items.AddRange(
                 ProfileProvider.Profiles.Where(p => !p.Name.StartsWith("tmp_"))
                                .ToArray<object>()
             );
 
             if (string.IsNullOrWhiteSpace(CurrentProfileName) ||
                 CurrentProfileName.StartsWith("tmp_"))
-                View.ProfileListComboBox.SelectFirstItem();
+                View.ProfileCollectionComboBox.SelectFirstItem();
             else
-                View.ProfileListComboBox.SelectFirstItemNamed(
+                View.ProfileCollectionComboBox.SelectFirstItemNamed(
                     CurrentProfileName
                 );
         }

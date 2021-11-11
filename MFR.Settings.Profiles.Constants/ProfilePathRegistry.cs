@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace MFR.Settings.Profiles.Constants
@@ -20,7 +20,7 @@ namespace MFR.Settings.Profiles.Constants
         /// Gets the name of the Registry value that holds the path to the
         /// profile list file.
         /// </summary>
-        public const string ValueName = "ProfileListFile";
+        public const string ValueName = "ProfileCollectionFile";
 
         /// <summary>
         /// Gets the path to the Registry subkey that stores information about
