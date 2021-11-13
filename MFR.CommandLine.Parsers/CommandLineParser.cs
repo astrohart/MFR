@@ -12,5 +12,25 @@ namespace MFR.CommandLine.Parsers
     /// </summary>
     public class CommandLineParser
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.CommandLine.Parsers.CommandLineParser"/>.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static CommandLineParser Instance
+        {
+            get;
+        } = new CommandLineParser();
+
+        /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        static CommandLineParser() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected CommandLineParser() { }
     }
 }
