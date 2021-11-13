@@ -1,21 +1,21 @@
 <a name='assembly'></a>
-# MFR.CommandLine
+# MFR.CommandLine.Models
 
 ## Contents
 
 - [CommandLineInfo](#T-MFR-Objects-CommandLine-CommandLineInfo 'MFR.CommandLine.CommandLineInfo')
   - [RootDirectory](#P-MFR-Objects-CommandLine-CommandLineInfo-RootDirectory 'MFR.CommandLine.CommandLineInfo.RootDirectory')
   - [ParseCommandLine(args)](#M-MFR-Objects-CommandLine-CommandLineInfo-ParseCommandLine-System-String[]- 'MFR.CommandLine.CommandLineInfo.ParseCommandLine(System.String[])')
-- [Resources](#T-MFR-Objects-CommandLine-Properties-Resources 'MFR.CommandLine.Properties.Resources')
-  - [Culture](#P-MFR-Objects-CommandLine-Properties-Resources-Culture 'MFR.CommandLine.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-CommandLine-Properties-Resources-ResourceManager 'MFR.CommandLine.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Objects-CommandLine-Properties-Resources 'MFR.CommandLine.Models.Properties.Resources')
+  - [Culture](#P-MFR-Objects-CommandLine-Properties-Resources-Culture 'MFR.CommandLine.Models.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Objects-CommandLine-Properties-Resources-ResourceManager 'MFR.CommandLine.Models.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Objects-CommandLine-CommandLineInfo'></a>
 ## CommandLineInfo `type`
 
 ##### Namespace
 
-MFR.CommandLine
+MFR.CommandLine.Models
 
 ##### Summary
 
@@ -52,7 +52,7 @@ accordingly.
 
 ##### Namespace
 
-MFR.CommandLine.Properties
+MFR.CommandLine.Models.Properties
 
 ##### Summary
 

@@ -3,7 +3,7 @@ using MFR.CommandLine.Constants;
 using System;
 using System.Linq;
 
-namespace MFR.CommandLine
+namespace MFR.CommandLine.Models
 {
     public interface ICommandLineInfo
     {
