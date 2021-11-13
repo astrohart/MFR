@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{0649C1E8-7AD0-403A-8275-8E74F33CB11C}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -139,6 +140,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
+      <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
+      <Name>MFR.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Errors.Reports.Commands.Constants\MFR.Errors.Reports.Commands.Constants.csproj">
       <Project>{12421A60-E923-47AB-84B5-B8D556594C7A}</Project>

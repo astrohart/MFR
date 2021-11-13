@@ -1,3 +1,4 @@
+using MFR.Common;
 using MFR.Constants;
 using MFR.Events;
 using MFR.Events.Common;
@@ -1819,10 +1820,21 @@ namespace MFR.GUI.Windows.Presenters
                 throw new InvalidOperationException(
                     Resources.Error_FindWhatRequired
                 );
+            /*
+             * NOTE: It is okay for the ReplaceWith
+             * value to be blank in certain circumstances,
+             * such as when replacing text in a file.  So,
+             * do not do this blanket rule check here.
+             */
+
+            /*
             if (string.IsNullOrWhiteSpace(ReplaceWith))
                 throw new InvalidOperationException(
                     Resources.Error_ReplaceWithBlank
                 );
+            */
+
+            ProgramFlowHelper.StartDebugger();
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
