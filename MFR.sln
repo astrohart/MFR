@@ -294,7 +294,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Generators.Interfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Generators.RegularExpressions.Factories.Tests", "MFR.Generators.RegularExpressions.Factories.Tests\MFR.Generators.RegularExpressions.Factories.Tests.csproj", "{5F160308-21A2-417C-8EDC-238CD789D7F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine", "MFR.CommandLine\MFR.CommandLine.csproj", "{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models", "MFR.CommandLine.Models\MFR.CommandLine.Models.csproj", "{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Constants", "MFR.CommandLine.Constants\MFR.CommandLine.Constants.csproj", "{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}"
 EndProject
@@ -579,6 +579,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Collections.Converters", "MFR.Settings.Profiles.Collections.Converters\MFR.Settings.Profiles.Collections.Converters.csproj", "{A7202A86-870A-47A2-9FD2-F51D4677A999}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Profiles.Converters", "MFR.Settings.Profiles.Converters\MFR.Settings.Profiles.Converters.csproj", "{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Parsers", "MFR.CommandLine.Parsers\MFR.CommandLine.Parsers.csproj", "{C819D4B2-2537-4549-BEFE-6C81D061F8A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Parsers.Factories", "MFR.CommandLine.Parsers.Factories\MFR.CommandLine.Parsers.Factories.csproj", "{79EEADFD-A387-4488-9E3A-92AC3316A2FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Parsers.Interfaces", "MFR.CommandLine.Parsers.Interfaces\MFR.CommandLine.Parsers.Interfaces.csproj", "{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models.Interfaces", "MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj", "{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -2876,6 +2884,38 @@ Global
 		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x64.Build.0 = Release|x64
 		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x86.ActiveCfg = Release|x86
 		{B919F3C7-9D56-40B1-8FA2-2ABA54AA60D5}.Release|x86.Build.0 = Release|x86
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Debug|x64.ActiveCfg = Debug|x64
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Debug|x64.Build.0 = Debug|x64
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Debug|x86.ActiveCfg = Debug|x86
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Debug|x86.Build.0 = Debug|x86
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Release|x64.ActiveCfg = Release|x64
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Release|x64.Build.0 = Release|x64
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Release|x86.ActiveCfg = Release|x86
+		{C819D4B2-2537-4549-BEFE-6C81D061F8A7}.Release|x86.Build.0 = Release|x86
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Debug|x64.ActiveCfg = Debug|x64
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Debug|x64.Build.0 = Debug|x64
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Debug|x86.ActiveCfg = Debug|x86
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Debug|x86.Build.0 = Debug|x86
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Release|x64.ActiveCfg = Release|x64
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Release|x64.Build.0 = Release|x64
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Release|x86.ActiveCfg = Release|x86
+		{79EEADFD-A387-4488-9E3A-92AC3316A2FB}.Release|x86.Build.0 = Release|x86
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Debug|x64.ActiveCfg = Debug|x64
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Debug|x64.Build.0 = Debug|x64
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Debug|x86.ActiveCfg = Debug|x86
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Debug|x86.Build.0 = Debug|x86
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Release|x64.ActiveCfg = Release|x64
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Release|x64.Build.0 = Release|x64
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Release|x86.ActiveCfg = Release|x86
+		{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}.Release|x86.Build.0 = Release|x86
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Debug|x64.ActiveCfg = Debug|x64
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Debug|x64.Build.0 = Debug|x64
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Debug|x86.ActiveCfg = Debug|x86
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Debug|x86.Build.0 = Debug|x86
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Release|x64.ActiveCfg = Release|x64
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Release|x64.Build.0 = Release|x64
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Release|x86.ActiveCfg = Release|x86
+		{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

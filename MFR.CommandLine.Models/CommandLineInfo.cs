@@ -1,26 +1,11 @@
 using Fclp;
 using MFR.CommandLine.Constants;
+using MFR.CommandLine.Models.Interfaces;
 using System;
 using System.Linq;
 
 namespace MFR.CommandLine.Models
 {
-    /// <summary>
-    /// Defines the publicly-exposed methods and properties of an object that stores
-    /// the information supplied by the user on the application's command line.
-    /// </summary>
-    public interface ICommandLineInfo
-    {
-        /// <summary>
-        /// Gets or sets a string that contains the starting folder.
-        /// </summary>
-        string RootDirectory
-        {
-            get;
-            set;
-        }
-    }
-
     /// <summary>
     /// Encapsulates this application's command line arguments.
     /// </summary>
