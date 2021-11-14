@@ -34,7 +34,6 @@ using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 using Process = System.Diagnostics.Process;
-using Thread = System.Threading.Thread;
 
 namespace MFR.Renamers.Files
 {
@@ -53,37 +52,29 @@ namespace MFR.Renamers.Files
     public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.Renamers.Files.FileRenamer" />
-        /// and returns a
-        /// reference to it.
+        /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        public FileRenamer()
+        [Log(AttributeExclude = true)]
+        static FileRenamer() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected FileRenamer()
         {
             RootDirectoryPath = string.Empty;
         }
 
         /// <summary>
-        /// Constructs a new instance of
-        /// <see
-        ///     cref="T:MFR.Renamers.Files.FileRenamer" />
-        /// and returns a
-        /// reference to it.
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.Renamers.Files.FileRenamer" />.
         /// </summary>
-        /// <param name="rootDirectoryPath">
-        /// Path to the recursion root.
-        /// </param>
-        public FileRenamer(string rootDirectoryPath)
+        [Log(AttributeExclude = true)]
+        public static FileRenamer Instance
         {
-            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(rootDirectoryPath)
-                );
-
-            RootDirectoryPath = rootDirectoryPath;
-        }
+            get;
+        } = new FileRenamer();
 
         /// <summary>
         /// Gets a value that indicates whether an abort of the current
@@ -373,7 +364,7 @@ namespace MFR.Renamers.Files
             try
             {
                 /*
-                 * OKAY, so the rootDirectoryPath parameter is understood to contain
+                 * OKAY, so the path parameter is understood to contain
                  * the pathname of the folder that is filled in by the user in the
                  * Starting DoesFolder text box.
                  *
@@ -1062,22 +1053,44 @@ namespace MFR.Renamers.Files
             => AbortRequested = true;
 
         /// <summary>
-        /// Initializes the value of the
-        /// <see
-        ///     cref="P:MFR.IFileRenamer.RootDirectoryPath" />
-        /// property to
-        /// the value specified in the <paramref name="rootDirectoryPath" /> parameter.
-        /// <para />
-        /// The value is the starting location of the search operations.
+        /// Sets the new root directory path from which searches should be started.
         /// </summary>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of the folder from
+        /// which searches should be started.
+        /// <para />
+        /// The fully-qualified pathname passed must reference a folder that currently
+        /// exists on the disk; otherwise,
+        /// <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref name="path" />, is passed a blank or <see langword="null" /> string
+        /// for a value.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder whose fully-qualified pathname is passed in the
+        /// <paramref name="path" /> parameter cannot be located on the disk.
+        /// </exception>
+        /// <remarks>
+        /// Upon successful validation of the fully-qualified folder pathname that is
+        /// specified as the value of the <paramref name="path" /> parameter, assigns the
+        /// value to the <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" />
+        /// property.
+        /// </remarks>
         [Log(AttributeExclude = true)]
-        public IFileRenamer StartingFrom(string rootDirectoryPath)
+        public IFileRenamer StartingFrom(string path)
         {
-            RootDirectoryPath = rootDirectoryPath;
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(path)
+                );
+            if (!Directory.Exists(path))
+                throw new DirectoryNotFoundException(
+                    $"The folder with path '{path}' could not be located.\n\nIt cannot be used as the new value of the FileRenamer.RootDirectoryPath property."
+                );
+
+            RootDirectoryPath = path;
 
             return this;
         }
@@ -1159,10 +1172,10 @@ namespace MFR.Renamers.Files
                 DebugLevel.Debug, "In FileRenamer.DoProcessAll"
             );
 
-            // Dump the variable rootDirectoryPath to the log
+            // Dump the variable path to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"FileRenamer.DoProcessAll: rootDirectoryPath = '{rootDirectoryPath}'"
+                $"FileRenamer.DoProcessAll: path = '{rootDirectoryPath}'"
             );
 
             // Dump the variable findWhat to the log
