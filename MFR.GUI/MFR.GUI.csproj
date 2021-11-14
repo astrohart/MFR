@@ -231,9 +231,9 @@ if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.xml"
     attrib -r "$(TargetDir)$(ProjectName).xml"
     attrib -r "$(TargetDir)$(ProjectName).md"
+	rd /S /Q "%25ProgramFiles(x86)%25\xyLOGIX, LLC\Project File Renamer"
+	xcopy "$(TargetDir)*.*" "%25ProgramFiles(x86)%25\xyLOGIX, LLC\Project File Renamer\*.*" /E /C /R /Y /H /D /J
 )
-rd /S /Q "%25ProgramFiles(x86)%25\xyLOGIX, LLC\Project File Renamer"
-xcopy "$(TargetDir)*.*" "%25ProgramFiles(x86)%25\xyLOGIX, LLC\Project File Renamer\*.*" /E /C /R /Y /H /D /J
 exit /b 0</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
