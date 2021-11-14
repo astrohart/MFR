@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Constants.Generators;
 using System;
@@ -16,11 +17,10 @@ namespace MFR.CommandLine.Validators.Events
         /// and returns a reference to it.
         /// </summary>
         /// <param name="cmdInfo">
-        /// (Required.) Reference to that instance of
-        /// <see
-        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-        /// whose properties
-        /// were found to contain invalid data.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that represents the command-line data object whose properties were found to
+        /// contain invalid data.
         /// </param>
         /// <param name="reason">
         /// (Required.) A
@@ -28,7 +28,7 @@ namespace MFR.CommandLine.Validators.Events
         ///     cref="T:MFR.CommandLine.Validators.Constants.CommandLineInvalidReason" />
         /// value that explains why the validation failed.
         /// </param>
-        public CommandLineInfoInvalidEventArgs(CommandLineInfo cmdInfo,
+        public CommandLineInfoInvalidEventArgs(ICommandLineInfo cmdInfo,
             CommandLineInvalidReason reason)
         {
             CmdInfo = cmdInfo;
@@ -43,11 +43,10 @@ namespace MFR.CommandLine.Validators.Events
         /// and returns a reference to it.
         /// </summary>
         /// <param name="cmdInfo">
-        /// (Required.) Reference to that instance of
-        /// <see
-        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-        /// whose properties
-        /// were found to contain invalid data.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that represents the command-line data object whose properties were found to
+        /// contain invalid data.
         /// </param>
         /// <param name="reason">
         /// (Required.) A
@@ -61,7 +60,7 @@ namespace MFR.CommandLine.Validators.Events
         ///     cref="T:System.Exception" />
         /// that contains detailed error information.
         /// </param>
-        public CommandLineInfoInvalidEventArgs(CommandLineInfo cmdInfo,
+        public CommandLineInfoInvalidEventArgs(ICommandLineInfo cmdInfo,
             CommandLineInvalidReason reason, Exception exception)
         {
             CmdInfo = cmdInfo;
@@ -70,13 +69,11 @@ namespace MFR.CommandLine.Validators.Events
         }
 
         /// <summary>
-        /// Gets a reference to the instance of
-        /// <see
-        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-        /// whose properties
-        /// were found to have invalid values.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// whose properties were found to contain invalid data.
         /// </summary>
-        public CommandLineInfo CmdInfo
+        public ICommandLineInfo CmdInfo
         {
             get;
         }
@@ -99,8 +96,8 @@ namespace MFR.CommandLine.Validators.Events
         public string Message
         {
             get {
-                var result = GetCommandLineValidationFailedMessage.For
-                    .ForReason(Reason);
+                var result =
+                    GetCommandLineValidationFailedMessage.For.ForReason(Reason);
 
                 if (!string.IsNullOrWhiteSpace(result) &&
                     CommandLineInvalidReason.Unknown == Reason &&

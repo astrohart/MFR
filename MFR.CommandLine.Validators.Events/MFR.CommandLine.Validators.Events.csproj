@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{9614BE5B-0E77-460B-A7BC-0539C27A2511}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -125,6 +126,10 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Validators.Constants.Generators\MFR.CommandLine.Validators.Constants.Generators.csproj">
       <Project>{44C2B3C4-EAE9-4150-9B92-78389BE7BFDD}</Project>
       <Name>MFR.CommandLine.Validators.Constants.Generators</Name>
@@ -133,9 +138,9 @@
       <Project>{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}</Project>
       <Name>MFR.CommandLine.Validators.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine\MFR.CommandLine.csproj">
+    <ProjectReference Include="..\MFR.CommandLine.Models\MFR.CommandLine.Models.csproj">
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
-      <Name>MFR.CommandLine</Name>
+      <Name>MFR.CommandLine.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
