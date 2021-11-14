@@ -5,12 +5,20 @@ using System.Linq;
 
 namespace MFR.CommandLine.Models
 {
+    /// <summary>
+    /// Defines the publicly-exposed methods and properties of an object that stores
+    /// the information supplied by the user on the application's command line.
+    /// </summary>
     public interface ICommandLineInfo
     {
         /// <summary>
         /// Gets or sets a string that contains the starting folder.
         /// </summary>
-        string RootDirectory { get; set; }
+        string RootDirectory
+        {
+            get;
+            set;
+        }
     }
 
     /// <summary>
@@ -32,11 +40,12 @@ namespace MFR.CommandLine.Models
 
         /// <summary>
         /// Parses the application's command-line arguments and sets the properties
-        /// of a new instance of <see cref="T:UserQuery.CommandLineInfo" /> 
+        /// of a new instance of <see cref="T:UserQuery.CommandLineInfo" />
         /// accordingly.
         /// </summary>
         /// <param name="args">
-        /// (Required.) Array containing the command-line arguments passed to this application.
+        /// (Required.) Array containing the command-line arguments passed to this
+        /// application.
         /// </param>
         public static CommandLineInfo ParseCommandLine(string[] args)
         {
@@ -50,7 +59,9 @@ namespace MFR.CommandLine.Models
             {
                 p.Setup(arg => arg.RootDirectory)
                  .As('r', "root")
-                 .WithDescription($"Sets the directory that this application begins in.")
+                 .WithDescription(
+                     "Sets the directory that this application begins in."
+                 )
                  .SetDefault(Directories.MyDocuments);
 
                 p.SetupHelp("?", "help")
@@ -58,13 +69,16 @@ namespace MFR.CommandLine.Models
 
                 var parsingResult = p.Parse(args);
                 if (parsingResult.HasErrors)
-                    throw new InvalidOperationException("ERROR: Failed to parse command line.");
+                    throw new InvalidOperationException(
+                        "ERROR: Failed to parse command line."
+                    );
 
                 result = p.Object;
             }
             catch
             {
-                if (p != null && p.Options.Any()) p.HelpOption.ShowHelp(p.Options);
+                if (p != null && p.Options.Any())
+                    p.HelpOption.ShowHelp(p.Options);
 
                 Environment.Exit(-1);
             }
