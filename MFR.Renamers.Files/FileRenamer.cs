@@ -71,7 +71,7 @@ namespace MFR.Renamers.Files
         /// <see cref="T:MFR.Renamers.Files.FileRenamer" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static FileRenamer Instance
+        public static IFileRenamer Instance
         {
             get;
         } = new FileRenamer();
