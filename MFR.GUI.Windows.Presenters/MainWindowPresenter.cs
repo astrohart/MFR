@@ -1834,8 +1834,6 @@ namespace MFR.GUI.Windows.Presenters
                 );
             */
 
-            ProgramFlowHelper.StartDebugger();
-
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "*** SUCCESS *** All inputs have been successfully validated."
