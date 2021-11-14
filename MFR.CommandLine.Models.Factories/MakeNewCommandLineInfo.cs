@@ -1,6 +1,6 @@
-﻿using MFR.CommandLine.Models.Interfaces;
+using MFR.CommandLine.Models.Interfaces;
 
-namespace MFR.CommandLine.Models.Factroies
+namespace MFR.CommandLine.Models.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the

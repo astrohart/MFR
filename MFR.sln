@@ -588,7 +588,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Parsers.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models.Interfaces", "MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj", "{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models.Factroies", "MFR.CommandLine.Models.Factroies\MFR.CommandLine.Models.Factroies.csproj", "{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models.Factories", "MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj", "{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

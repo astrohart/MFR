@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.9.11\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.9.11\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -134,9 +134,9 @@
       <Project>{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}</Project>
       <Name>MFR.CommandLine.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Models.Factroies\MFR.CommandLine.Models.Factroies.csproj">
+    <ProjectReference Include="..\MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj">
       <Project>{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}</Project>
-      <Name>MFR.CommandLine.Models.Factroies</Name>
+      <Name>MFR.CommandLine.Models.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>

@@ -1,7 +1,7 @@
-﻿using Fclp;
+using Fclp;
 using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models;
-using MFR.CommandLine.Models.Factroies;
+using MFR.CommandLine.Models.Factories;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
