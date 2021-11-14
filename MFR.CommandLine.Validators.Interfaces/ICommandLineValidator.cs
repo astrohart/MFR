@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Events;
 
 namespace MFR.CommandLine.Validators.Interfaces
@@ -34,7 +35,8 @@ namespace MFR.CommandLine.Validators.Interfaces
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="rootDirectoryValidator" />, is
+        /// Thrown if the required parameter, <paramref name="rootDirectoryValidator" />,
+        /// is
         /// passed a <see langword="null" /> value.
         /// </exception>
         ICommandLineValidator AssociateWithRootDirectoryValidator(
@@ -47,16 +49,14 @@ namespace MFR.CommandLine.Validators.Interfaces
         /// refers to a valid set of command-line argument values.
         /// </summary>
         /// <param name="cmdInfo">
-        /// (Required.) Reference to an instance of
-        /// <see
-        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-        /// that is the
-        /// object to be validated.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that represents the object whose properties are to be validated.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the <paramref name="cmdInfo" /> object's
         /// properties contain valid values.
         /// </returns>
-        bool IsValid(CommandLineInfo cmdInfo);
+        bool IsValid(ICommandLineInfo cmdInfo);
     }
 }
