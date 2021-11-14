@@ -1,7 +1,11 @@
-using MFR.CommandLine;
 using MFR.CommandLine.Constants;
+using MFR.CommandLine.Models;
+using MFR.CommandLine.Models.Interfaces;
+using MFR.CommandLine.Parsers.Factories;
+using MFR.CommandLine.Parsers.Interfaces;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
+using MFR.CommandLine.Validators.Interfaces;
 using MFR.Common;
 using MFR.GUI.Displayers;
 using MFR.GUI.Windows;
@@ -25,18 +29,29 @@ namespace MFR.GUI
     public static class Program
     {
         /// <summary>
-        /// Gets a reference to an instance of a
-        /// <see
-        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-        /// object that is
-        /// initialized with the values specified (if any) by the user on this
-        /// application's command line.
+        /// Gets a reference to an instance of an object that implements the <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
         /// </summary>
-        public static CommandLineInfo CommandLineInfo
+        public static ICommandLineInfo CommandLineInfo
         {
             get;
             private set;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Parsers.Interfaces.ICommandLineParser" />
+        /// interface.
+        /// </summary>
+        private static ICommandLineParser CommandLineParser
+            => GetCommandLineParser.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Validators.Interfaces.ICommandLineValidator" />
+        /// interface.
+        /// </summary>
+        private static ICommandLineValidator CommandLineValidator
+            => GetCommandLineValidator.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -199,12 +214,9 @@ namespace MFR.GUI
         /// </remarks>
         private static void ParseCommandLine(string[] args)
         {
-            CommandLineInfo = !args.Any()
-                ? new CommandLineInfo()
-                : CommandLineInfo.ParseCommandLine(args);
+            CommandLineInfo = CommandLineParser.Parse(args);
 
-            if (!GetCommandLineValidator.SoleInstance()
-                                        .IsValid(CommandLineInfo))
+            if (!CommandLineValidator.IsValid(CommandLineInfo))
                 Environment.Exit(-1); // kill this app
         }
 

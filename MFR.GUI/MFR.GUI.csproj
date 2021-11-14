@@ -133,6 +133,18 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Factories\MFR.CommandLine.Parsers.Factories.csproj">
+      <Project>{79EEADFD-A387-4488-9E3A-92AC3316A2FB}</Project>
+      <Name>MFR.CommandLine.Parsers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Interfaces\MFR.CommandLine.Parsers.Interfaces.csproj">
+      <Project>{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}</Project>
+      <Name>MFR.CommandLine.Parsers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
@@ -165,9 +177,9 @@
       <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
       <Name>MFR.CommandLine.Validators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine\MFR.CommandLine.csproj">
+    <ProjectReference Include="..\MFR.CommandLine.Models\MFR.CommandLine.Models.csproj">
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
-      <Name>MFR.CommandLine</Name>
+      <Name>MFR.CommandLine.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
