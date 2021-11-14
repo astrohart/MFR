@@ -103,6 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetCommandLineParser.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Interfaces\MFR.CommandLine.Parsers.Interfaces.csproj">
+      <Project>{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}</Project>
+      <Name>MFR.CommandLine.Parsers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers\MFR.CommandLine.Parsers.csproj">
+      <Project>{C819D4B2-2537-4549-BEFE-6C81D061F8A7}</Project>
+      <Name>MFR.CommandLine.Parsers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
