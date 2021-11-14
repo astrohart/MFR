@@ -276,17 +276,30 @@ namespace MFR.Renamers.Files.Interfaces
         void RequestAbort();
 
         /// <summary>
-        /// Initializes the value of the <see
-        /// cref="P:MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath"/>
-        /// property to the value specified in the <paramref
-        /// name="rootDirectoryPath"/> parameter.
-        /// <para/>
-        /// The value is the starting location of the search operations.
+        /// Sets the new root directory path from which searches should be started.
         /// </summary>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        IFileRenamer StartingFrom(string rootDirectoryPath);
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of the folder from
+        /// which searches should be started.
+        /// <para />
+        /// The fully-qualified pathname passed must reference a folder that currently
+        /// exists on the disk; otherwise, <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref name="path" />, is passed a blank or <see langword="null" /> string
+        /// for a value.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder whose fully-qualified pathname is passed in the
+        /// <paramref name="path" /> parameter cannot be located on the disk.
+        /// </exception>
+        /// <remarks>
+        /// Upon successful validation of the fully-qualified folder pathname that is
+        /// specified as the value of the <paramref name="path" /> parameter, assigns the
+        /// value to the <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" />
+        /// property.
+        /// </remarks>
+        IFileRenamer StartingFrom(string path);
     }
 }
