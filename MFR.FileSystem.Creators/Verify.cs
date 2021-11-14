@@ -5,6 +5,9 @@ using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Creators
 {
+    /// <summary>
+    /// Methods to assert that file system entries satisfy certain conditions, or else.
+    /// </summary>
     public static class Verify
     {
         /// <summary>
