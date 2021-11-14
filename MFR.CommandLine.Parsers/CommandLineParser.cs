@@ -107,7 +107,7 @@ namespace MFR.CommandLine.Parsers
                  .Callback(text => Console.WriteLine(text));
 
                 var parsingResult = p.Parse(args);
-                if (parsingResult.HasErrors)
+                if (parsingResult != null && parsingResult.HasErrors)
                     throw new InvalidOperationException(
                         "ERROR: Failed to parse command line."
                     );
