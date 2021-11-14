@@ -9,15 +9,19 @@ using xyLOGIX.Core.Debug;
 namespace MFR.CommandLine.Validators
 {
     /// <summary>
-    /// Validates instances of <see
-    /// cref="T:MFR.CommandLine.CommandLineInfo"/> to ensure they
+    /// Validates instances of
+    /// <see
+    ///     cref="T:MFR.CommandLine.CommandLineInfo" />
+    /// to ensure they
     /// contain values that the application can work with.
     /// </summary>
     public class CommandLineValidator : ICommandLineValidator
     {
         /// <summary>
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator"/> interface.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
         /// </summary>
         private IRootDirectoryValidator _rootDirectoryValidator;
 
@@ -25,25 +29,17 @@ namespace MFR.CommandLine.Validators
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static CommandLineValidator()
-        {
-        }
+        static CommandLineValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected CommandLineValidator()
-        {
-        }
+        protected CommandLineValidator() { }
 
         /// <summary>
-        /// Occurs once for each validation failure.
-        /// </summary>
-        public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.CommandLine.Validators.CommandLineValidator"/>.
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.CommandLine.Validators.CommandLineValidator" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static CommandLineValidator Instance
@@ -52,9 +48,14 @@ namespace MFR.CommandLine.Validators
         } = new CommandLineValidator();
 
         /// <summary>
+        /// Occurs once for each validation failure.
+        /// </summary>
+        public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
+
+        /// <summary>
         /// Gets a count of validation failures that occurred the last time the
         /// <see
-        /// cref="M:MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid"/>
+        ///     cref="M:MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid" />
         /// method was called.
         /// </summary>
         public int ValidationFailures
@@ -64,22 +65,27 @@ namespace MFR.CommandLine.Validators
         }
 
         /// <summary>
-        /// Associates an instance of an object that implements the <see
-        /// cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator"/>
+        /// Associates an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface with this validator object.
         /// </summary>
         /// <param name="rootDirectoryValidator">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see
-        /// cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator"/> interface.
+        /// the
+        /// <see
+        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref
-        /// name="rootDirectoryValidator"/> , is passed a <see langword="null"/> value.
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="rootDirectoryValidator" />
+        /// , is passed a <see langword="null" /> value.
         /// </exception>
         public ICommandLineValidator AssociateWithRootDirectoryValidator(
             IRootDirectoryValidator rootDirectoryValidator)
@@ -99,16 +105,35 @@ namespace MFR.CommandLine.Validators
         /// refers to a valid set of command-line argument values.
         /// </summary>
         /// <param name="cmdInfo">
-        /// (Required.) Reference to an instance of
-        /// <see
-        ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-        /// that is the
-        /// object to be validated.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that represents the object whose properties' values are to be validated.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the <paramref name="cmdInfo" /> object's
-        /// properties contain valid values.
+        /// properties contain valid values, according to the current validation rules.
         /// </returns>
+        /// <remarks>
+        /// If the <paramref name="cmdInfo" /> parameter is passed a
+        /// <see langword="null" /> reference, this method raises the
+        /// <see
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.CommandLineInfoInvalid" />
+        /// event and then increments the value of the
+        /// <see
+        ///     cref="P:MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures" />
+        /// property, and then this method does no further processing.
+        /// <para />
+        /// Otherwise, the object whose reference is passed in the
+        /// <paramref name="cmdInfo" /> parameter is validated.  The
+        /// <see
+        ///     cref="P:MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures" />
+        /// property is used to keep track of the number of validation failures that occur.
+        /// <para />
+        /// At the beginning of this method's execution, the
+        /// <see
+        ///     cref="P:MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures" />
+        /// property's value is set to zero.
+        /// </remarks>
         public bool IsValid(ICommandLineInfo cmdInfo)
         {
             ValidationFailures = 0;
@@ -156,12 +181,15 @@ namespace MFR.CommandLine.Validators
         }
 
         /// <summary>
-        /// Raises the <see
-        /// cref="E:MFR.CommandLine.Validators.CommandLineValidator.CommandLineInfoInvalid"/> event.
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.CommandLine.Validators.CommandLineValidator.CommandLineInfoInvalid" />
+        /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see
-        /// cref="T:MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs"/>
+        /// A
+        /// <see
+        ///     cref="T:MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs" />
         /// that contains the event data.
         /// </param>
         protected virtual void OnCommandLineInfoInvalid(
