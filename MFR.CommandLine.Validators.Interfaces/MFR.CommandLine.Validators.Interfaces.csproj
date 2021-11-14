@@ -7,8 +7,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</ProjectGuid>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -144,7 +143,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>exit /b 0
+    <PreBuildEvent>REM exit /b 0
 if exist "$(TargetDir)$(ProjectName).md" (
     if exist "$(ProjectDir)README.md" (
         erase /F /Q "$(ProjectDir)README.md"
@@ -157,7 +156,7 @@ if exist "$(TargetDir)$(ProjectName).md" (
 exit /b 0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>exit /b 0
+    <PostBuildEvent>REM exit /b 0
 if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.pdb"
     erase /F /S /Q "$(TargetDir)*.pspdb"

@@ -7,8 +7,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{C819D4B2-2537-4549-BEFE-6C81D061F8A7}</ProjectGuid>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -164,7 +163,7 @@
   <Import Project="..\packages\PostSharp.6.9.11\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.9.11\build\PostSharp.targets')" />
   <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>exit /b 0
+    <PreBuildEvent>REM exit /b 0
 if exist "$(TargetDir)$(ProjectName).md" (
     if exist "$(ProjectDir)README.md" (
         erase /F /Q "$(ProjectDir)README.md"
@@ -177,7 +176,7 @@ if exist "$(TargetDir)$(ProjectName).md" (
 exit /b 0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>exit /b 0
+    <PostBuildEvent>REM exit /b 0
 if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.pdb"
     erase /F /S /Q "$(TargetDir)*.pspdb"
