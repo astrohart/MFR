@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Interfaces;
@@ -108,7 +109,7 @@ namespace MFR.CommandLine.Validators
         /// <see langword="true" /> if the <paramref name="cmdInfo" /> object's
         /// properties contain valid values.
         /// </returns>
-        public bool IsValid(CommandLineInfo cmdInfo)
+        public bool IsValid(ICommandLineInfo cmdInfo)
         {
             ValidationFailures = 0;
 

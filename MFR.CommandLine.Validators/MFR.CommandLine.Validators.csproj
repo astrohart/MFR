@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{EA1DC6C8-5108-494A-8699-E05910A5E234}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -127,6 +128,10 @@
       <Project>{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}</Project>
       <Name>MFR.CommandLine.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Validators.Constants\MFR.CommandLine.Validators.Constants.csproj">
       <Project>{EC1CBA1E-8609-43F2-965A-9BD2B13AEB78}</Project>
       <Name>MFR.CommandLine.Validators.Constants</Name>
@@ -139,9 +144,9 @@
       <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
       <Name>MFR.CommandLine.Validators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine\MFR.CommandLine.csproj">
+    <ProjectReference Include="..\MFR.CommandLine.Models\MFR.CommandLine.Models.csproj">
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
-      <Name>MFR.CommandLine</Name>
+      <Name>MFR.CommandLine.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
