@@ -3,7 +3,11 @@ using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
-using MFR.Renamers.Files;
+using MFR.Renamers.Files.Factories;
+using MFR.Renamers.Files.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 
 namespace MFR.Console
@@ -14,6 +18,30 @@ namespace MFR.Console
     public static class Program
     {
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </summary>
+        private static IConfiguration Configuration
+            => ConfigurationProvider.Configuration;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
+        /// </summary>
+        private static IFileRenamer FileRenamer
+            => GetFileRenamer.SoleInstance();
+
+        /// <summary>
         /// Application entry point.
         /// </summary>
         [STAThread]
@@ -23,19 +51,25 @@ namespace MFR.Console
             {
                 Register.WindowsMessageFilter();
 
-                const string rootDir =
-                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor";
+                ConfigurationProvider.Load();
 
-                var renamer = new FileRenamer(rootDir);
+                FileRenamer.UpdateConfiguration(Configuration);
 
-                renamer.FilesToHaveTextReplacedCounted +=
-                    OnFilesToHaveTextReplacedCounted;
-                renamer.ProcessingOperation += OnFileRenamerProcessingOperation;
-                renamer.StatusUpdate += OnFileRenamerStatusUpdated;
-
-                renamer.ProcessAll(
-                    @"MassFileRenamer", @"PortfolioMonitor.Products"
+                FileRenamer.StartingFrom(
+                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor"
                 );
+
+                FileRenamer.FilesToHaveTextReplacedCounted +=
+                    OnFilesToHaveTextReplacedCounted;
+                FileRenamer.ProcessingOperation +=
+                    OnFileRenamerProcessingOperation;
+                FileRenamer.StatusUpdate += OnFileRenamerStatusUpdated;
+
+                FileRenamer.ProcessAll(
+                    Configuration.FindWhat, Configuration.ReplaceWith
+                );
+
+                ConfigurationProvider.Save();
 
                 Revoke.WindowsMessageFilter();
 
