@@ -23,6 +23,7 @@ using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Factories;
 using MFR.Settings.Configuration.Events;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
@@ -105,6 +106,15 @@ namespace MFR.GUI.Windows
             get;
             private set;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// that represents the currently-loaded configuration.
+        /// </summary>
+        private static IConfiguration Configuration
+            => GetConfigurationProvider.SoleInstance()
+                                       .Configuration;
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -469,30 +479,15 @@ namespace MFR.GUI.Windows
             Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
                 .HavingWindowReference(this)
                 .WithFileRenamer(
-                    MakeNewFileRenamer.FromScratch()
-                                      .StartingFrom(
-                                          GetConfigurationProvider
-                                              .SoleInstance()
-                                              .Configuration.StartingFolder
-                                      )
-                                      .AndAttachConfiguration(
-                                          GetConfigurationProvider
-                                              .SoleInstance()
-                                              .Configuration
-                                      )
+                    GetFileRenamer.SoleInstance()
+                                  .StartingFrom(Configuration.StartingFolder)
+                                  .AndAttachConfiguration(Configuration)
                 )
                 .AndHistoryManager(
                     MakeHistoryManager.ForForm(this)
-                                      .AndAttachConfiguration(
-                                          GetConfigurationProvider
-                                              .SoleInstance()
-                                              .Configuration
-                                      )
+                                      .AndAttachConfiguration(Configuration)
                 )
-                .AndAttachConfiguration(
-                    GetConfigurationProvider.SoleInstance()
-                                            .Configuration
-                );
+                .AndAttachConfiguration(Configuration);
 
             Presenter.UpdateData(false);
 
@@ -1391,14 +1386,11 @@ namespace MFR.GUI.Windows
             if (!DoesDirectoryContainSolutionFile(
                 StartingFolderComboBox.EnteredText
             ))
-            {
                 return DialogResult.Yes == MessageBox.Show(
-                    this,
-                    Resources.Error_StartingFolderMustContainSolutionFile,
+                    this, Resources.Error_StartingFolderMustContainSolutionFile,
                     Application.ProductName, MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2
                 );
-            }
 
             if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
             {
