@@ -10,7 +10,7 @@
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-FileSystem-Creators-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.FileSystem.Creators.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
   - [ResourceManager](#P-MFR-FileSystem-Creators-Properties-Resources-ResourceManager 'MFR.FileSystem.Creators.Properties.Resources.ResourceManager')
 - [Verify](#T-MFR-FileSystem-Creators-Verify 'MFR.FileSystem.Creators.Verify')
-  - [FolderCreated(containingFolderName)](#M-MFR-FileSystem-Creators-Verify-FolderCreated-System-String- 'MFR.FileSystem.Creators.Verify.FolderCreated(System.String)')
+  - [FolderWasCreated(containingFolderName)](#M-MFR-FileSystem-Creators-Verify-FolderWasCreated-System-String- 'MFR.FileSystem.Creators.Verify.FolderWasCreated(System.String)')
 
 <a name='T-MFR-FileSystem-Creators-Create'></a>
 ## Create `type`
@@ -87,8 +87,12 @@ Returns the cached ResourceManager instance used by this class.
 
 MFR.FileSystem.Creators
 
-<a name='M-MFR-FileSystem-Creators-Verify-FolderCreated-System-String-'></a>
-### FolderCreated(containingFolderName) `method`
+##### Summary
+
+Methods to assert that file system entries satisfy certain conditions, or else.
+
+<a name='M-MFR-FileSystem-Creators-Verify-FolderWasCreated-System-String-'></a>
+### FolderWasCreated(containingFolderName) `method`
 
 ##### Summary
 
