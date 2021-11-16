@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [ITextExpressionMatchingEngine](#T-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(System.String,System.String,System.String)')
-  - [IsMatch(expression)](#M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
-- [Resources](#T-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources 'MFR.Engines.Matching.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-Culture 'MFR.Engines.Matching.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Interfaces.Properties.Resources.ResourceManager')
+- [ITextExpressionMatchingEngine](#T-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(System.String,System.String,System.String)')
+  - [IsMatch(expression)](#M-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
+- [Resources](#T-MFR-Engines-Matching-Interfaces-Properties-Resources 'MFR.Engines.Matching.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Engines-Matching-Interfaces-Properties-Resources-Culture 'MFR.Engines.Matching.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Engines-Matching-Interfaces-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine'></a>
+<a name='T-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine'></a>
 ## ITextExpressionMatchingEngine `type`
 
 ##### Namespace
@@ -21,7 +21,7 @@ MFR.Engines.Matching.Interfaces
 
 Defines the public-exposed methods and properties of a filename-matcher object.
 
-<a name='M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
+<a name='M-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
 ### IsMatch(value,findWhat,replaceWith) `method`
 
 ##### Summary
@@ -56,7 +56,7 @@ replaced with. |
 or `findWhat`, are passed blank or
 `null` string for values. |
 
-<a name='M-MFR-Objects-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression-'></a>
+<a name='M-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression-'></a>
 ### IsMatch(expression) `method`
 
 ##### Summary
@@ -65,7 +65,7 @@ Determines whether data and a search patterned, bound up together in
 the form of the `expression` provided, contain a
 data match according to rules specified by the user in the object, a
 reference to which is specified in the
-[Configuration](#P-MFR-Objects-ITextExpressionMatchingEngine-Configuration 'MFR.ITextExpressionMatchingEngine.Configuration')
+[Configuration](#P-MFR-ITextExpressionMatchingEngine-Configuration 'MFR.ITextExpressionMatchingEngine.Configuration')
 property.
 
 ##### Returns
@@ -78,8 +78,8 @@ otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expression | [MFR.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Objects-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
-the [IMatchExpression](#T-MFR-Objects-IMatchExpression 'MFR.IMatchExpression')
+| expression | [MFR.Expressions.Matches.Interfaces.IMatchExpression](#T-MFR-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression') | (Required.) Reference to an instance of an object that implements
+the [IMatchExpression](#T-MFR-IMatchExpression 'MFR.IMatchExpression')
 interface and whose properties contain the match and pattern data. |
 
 ##### Exceptions
@@ -89,7 +89,7 @@ interface and whose properties contain the match and pattern data. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `expression`, is
 passed a `null` value. |
 
-<a name='T-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Engines-Matching-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -100,7 +100,7 @@ MFR.Engines.Matching.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Engines-Matching-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -108,7 +108,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Engines-Matching-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Engines-Matching-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
