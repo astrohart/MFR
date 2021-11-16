@@ -3,16 +3,16 @@
 
 ## Contents
 
-- [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
-  - [ContainingFolder](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
-  - [Path](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
-  - [UserState](#P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.FileSystem.Interfaces.IFileSystemEntry.UserState')
-  - [AndHavingUserState(userState)](#M-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object- 'MFR.FileSystem.Interfaces.IFileSystemEntry.AndHavingUserState(System.Object)')
-- [Resources](#T-MFR-Objects-FileSystem-Interfaces-Properties-Resources 'MFR.FileSystem.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Interfaces.Properties.Resources.ResourceManager')
+- [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+  - [ContainingFolder](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
+  - [Path](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
+  - [UserState](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.FileSystem.Interfaces.IFileSystemEntry.UserState')
+  - [AndHavingUserState(userState)](#M-MFR-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object- 'MFR.FileSystem.Interfaces.IFileSystemEntry.AndHavingUserState(System.Object)')
+- [Resources](#T-MFR-FileSystem-Interfaces-Properties-Resources 'MFR.FileSystem.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-FileSystem-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-FileSystem-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry'></a>
+<a name='T-MFR-FileSystem-Interfaces-IFileSystemEntry'></a>
 ## IFileSystemEntry `type`
 
 ##### Namespace
@@ -24,21 +24,21 @@ MFR.FileSystem.Interfaces
 Defines the public-exposed methods and properties of a POCO that
 encapsulates data about a file-system entry.
 
-<a name='P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder'></a>
+<a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder'></a>
 ### ContainingFolder `property`
 
 ##### Summary
 
 Gets or sets the pathname of the parent folder of this file system entry.
 
-<a name='P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-Path'></a>
+<a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path'></a>
 ### Path `property`
 
 ##### Summary
 
 Gets or sets the pathname of the file-system entry.
 
-<a name='P-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-UserState'></a>
+<a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-UserState'></a>
 ### UserState `property`
 
 ##### Summary
@@ -51,7 +51,7 @@ For example, if the file-system entry is representing a text file,
 then this property might contain the file's contents from them
 having been previously read in.
 
-<a name='M-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object-'></a>
+<a name='M-MFR-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object-'></a>
 ### AndHavingUserState(userState) `method`
 
 ##### Summary
@@ -78,7 +78,7 @@ user state information. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `userState`, is
 passed a `null` value. |
 
-<a name='T-MFR-Objects-FileSystem-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-FileSystem-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -89,7 +89,7 @@ MFR.FileSystem.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-FileSystem-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -97,7 +97,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-FileSystem-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-FileSystem-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
