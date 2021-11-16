@@ -3,15 +3,16 @@
 
 ## Contents
 
-- [IFileSystemEntryValidator](#T-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-  - [DoesExist(entry)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-DoesExist-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [IsValid(entry)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-IsValid-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [ShouldSkip(path)](#M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldSkip-System-String- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.ShouldSkip(System.String)')
-- [Resources](#T-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources 'MFR.FileSystem.Validators.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Validators.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Validators.Interfaces.Properties.Resources.ResourceManager')
+- [IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
+  - [DoesExist(entry)](#M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [IsValid(entry)](#M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [ShouldNotSkip(path)](#M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldNotSkip-System-String- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.ShouldNotSkip(System.String)')
+  - [ShouldSkip(path)](#M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldSkip-System-String- 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator.ShouldSkip(System.String)')
+- [Resources](#T-MFR-FileSystem-Validators-Interfaces-Properties-Resources 'MFR.FileSystem.Validators.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-FileSystem-Validators-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Validators.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-FileSystem-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Validators.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator'></a>
+<a name='T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator'></a>
 ## IFileSystemEntryValidator `type`
 
 ##### Namespace
@@ -29,7 +30,7 @@ Such an object is one that uses information about the type of operation
 being performed, as well as a pathname to a file or a folder, in order
 to determine whether the pathname is valid.
 
-<a name='M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-DoesExist-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
+<a name='M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### DoesExist(entry) `method`
 
 ##### Summary
@@ -47,8 +48,8 @@ exists on the disk; `false` otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
@@ -57,7 +58,7 @@ the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MF
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
 
-<a name='M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-IsValid-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry-'></a>
+<a name='M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### IsValid(entry) `method`
 
 ##### Summary
@@ -69,8 +70,8 @@ the disk at the pathname indicated.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface containing information about the entry to be checked. |
 
 ##### Exceptions
@@ -100,7 +101,27 @@ reference, or if the path stored in the entry
 refers to a file-system object that does not exist on the disk, then
 an exception is thrown.
 
-<a name='M-MFR-Objects-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldSkip-System-String-'></a>
+<a name='M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldNotSkip-System-String-'></a>
+### ShouldNotSkip(path) `method`
+
+##### Summary
+
+Gets a value determining whether the file system entry having the specified
+`path` should be not be skipped.
+
+##### Returns
+
+`true` if the file or folder specified should not be
+skipped during the current operation; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a folder or a
+file. |
+
+<a name='M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldSkip-System-String-'></a>
 ### ShouldSkip(path) `method`
 
 ##### Summary
@@ -121,7 +142,7 @@ the operation; otherwise, `false`.
 | path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the disk of the
 file-system entry that is to potentially be skipped. |
 
-<a name='T-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-FileSystem-Validators-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -132,7 +153,7 @@ MFR.FileSystem.Validators.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-FileSystem-Validators-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -140,7 +161,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-FileSystem-Validators-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-FileSystem-Validators-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
