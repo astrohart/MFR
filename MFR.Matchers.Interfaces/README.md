@@ -3,13 +3,13 @@
 
 ## Contents
 
-- [IStringMatcher](#T-MFR-Objects-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher')
-  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Objects-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.Interfaces.IStringMatcher.IsMatch(System.String,System.String,System.String)')
-- [Resources](#T-MFR-Objects-Matchers-Interfaces-Properties-Resources 'MFR.Matchers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Matchers-Interfaces-Properties-Resources-Culture 'MFR.Matchers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Matchers-Interfaces-Properties-Resources-ResourceManager 'MFR.Matchers.Interfaces.Properties.Resources.ResourceManager')
+- [IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String- 'MFR.Matchers.Interfaces.IStringMatcher.IsMatch(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Matchers-Interfaces-Properties-Resources 'MFR.Matchers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Matchers-Interfaces-Properties-Resources-Culture 'MFR.Matchers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Matchers-Interfaces-Properties-Resources-ResourceManager 'MFR.Matchers.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Matchers-Interfaces-IStringMatcher'></a>
+<a name='T-MFR-Matchers-Interfaces-IStringMatcher'></a>
 ## IStringMatcher `type`
 
 ##### Namespace
@@ -27,7 +27,7 @@ The type of matching performed varies by file- and folder-renaming
 operation type, as well as the specific configuration of matching (Match
 Case, Match Exact Word etc.).
 
-<a name='M-MFR-Objects-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String-'></a>
+<a name='M-MFR-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String-'></a>
 ### IsMatch(value,findWhat,replaceWith) `method`
 
 ##### Summary
@@ -62,7 +62,7 @@ replaced with. |
 or `findWhat`, are passed blank or
 `null` string for values. |
 
-<a name='T-MFR-Objects-Matchers-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Matchers-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -73,7 +73,7 @@ MFR.Matchers.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Matchers-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Matchers-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -81,7 +81,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Matchers-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Matchers-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
