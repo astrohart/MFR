@@ -3,17 +3,17 @@
 
 ## Contents
 
-- [IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
-  - [AndReplaceItWith()](#M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-AndReplaceItWith-System-String- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.AndReplaceItWith(System.String)')
-  - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-  - [ToFindWhat()](#M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-ToFindWhat-System-String- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.ToFindWhat(System.String)')
-  - [UsingSearchPattern(searchPattern)](#M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.UsingSearchPattern(System.String)')
-  - [WithSearchOption(option)](#M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-WithSearchOption-System-IO-SearchOption- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.WithSearchOption(System.IO.SearchOption)')
-- [Resources](#T-MFR-Objects-FileSystem-Retrievers-Interfaces-Properties-Resources 'MFR.FileSystem.Retrievers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-FileSystem-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Retrievers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-FileSystem-Retrievers-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Retrievers.Interfaces.Properties.Resources.ResourceManager')
+- [IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+  - [AndReplaceItWith()](#M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-AndReplaceItWith-System-String- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.AndReplaceItWith(System.String)')
+  - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+  - [ToFindWhat()](#M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-ToFindWhat-System-String- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.ToFindWhat(System.String)')
+  - [UsingSearchPattern(searchPattern)](#M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.UsingSearchPattern(System.String)')
+  - [WithSearchOption(option)](#M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-WithSearchOption-System-IO-SearchOption- 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever.WithSearchOption(System.IO.SearchOption)')
+- [Resources](#T-MFR-FileSystem-Retrievers-Interfaces-Properties-Resources 'MFR.FileSystem.Retrievers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-FileSystem-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Retrievers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-FileSystem-Retrievers-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Retrievers.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever'></a>
+<a name='T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever'></a>
 ## IFileSystemEntryListRetriever `type`
 
 ##### Namespace
@@ -34,7 +34,7 @@ operation that is being performed.
 
 The results of the searching and filtering is then returned.
 
-<a name='M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-AndReplaceItWith-System-String-'></a>
+<a name='M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-AndReplaceItWith-System-String-'></a>
 ### AndReplaceItWith() `method`
 
 ##### Summary
@@ -56,7 +56,7 @@ This method has no parameters.
 The value of the `replaceWith` parameter may be
 allowed by some implementations to be blank.
 
-<a name='M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}-'></a>
 ### GetMatchingFileSystemPaths(rootFolderPath,pathFilter) `method`
 
 ##### Summary
@@ -67,7 +67,7 @@ object and that correspond to the type of operation being performed.
 ##### Returns
 
 Collection of instances of objects that implement the
-[IFileSystemEntry](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that
 correspond to the file system entries that match the criteria specified.
 
@@ -104,7 +104,7 @@ is passed a blank or `null` string for a value. |
 `rootFolderPath`
 ' parameter cannot be located on the disk. |
 
-<a name='M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-ToFindWhat-System-String-'></a>
+<a name='M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-ToFindWhat-System-String-'></a>
 ### ToFindWhat() `method`
 
 ##### Summary
@@ -121,7 +121,7 @@ method, for fluent use.
 
 This method has no parameters.
 
-<a name='M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-UsingSearchPattern-System-String-'></a>
+<a name='M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-UsingSearchPattern-System-String-'></a>
 ### UsingSearchPattern(searchPattern) `method`
 
 ##### Summary
@@ -158,7 +158,7 @@ interface may specify something different.
 NOTE: Calling this method is optional. If this method is not called,
 then the default value will be utilized.
 
-<a name='M-MFR-Objects-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-WithSearchOption-System-IO-SearchOption-'></a>
+<a name='M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-WithSearchOption-System-IO-SearchOption-'></a>
 ### WithSearchOption(option) `method`
 
 ##### Summary
@@ -187,10 +187,10 @@ to the file-system enumeration method that is called. |
 
 Calling this method is optional. If this method is not called, the
 type that implements the
-[IFileSystemEntryListRetriever](#T-MFR-Objects-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever')
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Interfaces.IFileSystemEntryListRetriever')
 interface will decide what is the default value to be utilized.
 
-<a name='T-MFR-Objects-FileSystem-Retrievers-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-FileSystem-Retrievers-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -201,7 +201,7 @@ MFR.FileSystem.Retrievers.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-FileSystem-Retrievers-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-FileSystem-Retrievers-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -209,7 +209,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-FileSystem-Retrievers-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-FileSystem-Retrievers-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
