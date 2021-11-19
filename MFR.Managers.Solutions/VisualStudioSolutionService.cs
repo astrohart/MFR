@@ -77,6 +77,12 @@ namespace MFR.Managers.Solutions
         {
             var result = false;
 
+            // Dump the variable folder to the log
+            DebugUtils.WriteLine(DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: folder = '{folder}'");
+
+            // Dump the variable FolderToSearch to the log
+            DebugUtils.WriteLine(DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: FolderToSearch = '{FolderToSearch}'");
+
             /*
              * If the value of the folder parameter is blank, or it
              * contains a value that is not the fully-qualified pathname
@@ -88,12 +94,58 @@ namespace MFR.Managers.Solutions
              * on the disk, then unfortunately, we are screwed.
              */
 
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"VisualStudioSolutionService.ContainsLoadedSolutions: Checking whether the folder '{folder}' exists..."
+            );
+
             if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Warning,
+                    $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' could not be found.  Falling back on the value of the FolderToSearch property..."
+                );
+
                 folder = FolderToSearch;
+
+                // Dump the variable folder to the log
+                DebugUtils.WriteLine(DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: folder = '{folder}'");
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"VisualStudioSolutionService.ContainsLoadedSolutions: Checking whether the folder '{folder}' exists..."
+                );
+
                 if (string.IsNullOrWhiteSpace(folder) ||
                     !Directory.Exists(folder))
-                    return false;
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' cannot be located on the disk."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: Result = {result}"
+                    );
+
+                    DebugUtils.WriteLine(DebugLevel.Debug, "VisualStudioSolutionService.ContainsLoadedSolutions: Done.");
+
+                    return result;
+                }
+                else
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "VisualStudioSolutionService.ContainsLoadedSolutions: The folder having the path contained in the FolderToSearch property shall be used."
+                    );
+                }
+            }
+            else
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    "VisualStudioSolutionService.ContainsLoadedSolutions: The folder whose path was passed in the 'folder' parameter shall be used for the search."
+                );
             }
 
             try
