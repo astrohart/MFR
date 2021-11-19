@@ -5,8 +5,9 @@
 
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
-  - [_presenter](#F-MFR-GUI-Windows-MainWindow-_presenter 'MFR.GUI.Windows.MainWindow._presenter')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
+  - [Configuration](#P-MFR-GUI-Windows-MainWindow-Configuration 'MFR.GUI.Windows.MainWindow.Configuration')
+  - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-MainWindow-FullApplicationName 'MFR.GUI.Windows.MainWindow.FullApplicationName')
@@ -17,6 +18,8 @@
   - [MatchCase](#P-MFR-GUI-Windows-MainWindow-MatchCase 'MFR.GUI.Windows.MainWindow.MatchCase')
   - [MatchExactWord](#P-MFR-GUI-Windows-MainWindow-MatchExactWord 'MFR.GUI.Windows.MainWindow.MatchExactWord')
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.MainWindow.OperationsCheckedListBox')
+  - [Presenter](#P-MFR-GUI-Windows-MainWindow-Presenter 'MFR.GUI.Windows.MainWindow.Presenter')
+  - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ProfileCollectionComboBox')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.MainWindow.ReplaceWithComboBox')
   - [SelectAll](#P-MFR-GUI-Windows-MainWindow-SelectAll 'MFR.GUI.Windows.MainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-MainWindow-SelectedOptionTab 'MFR.GUI.Windows.MainWindow.SelectedOptionTab')
@@ -24,6 +27,7 @@
   - [Version](#P-MFR-GUI-Windows-MainWindow-Version 'MFR.GUI.Windows.MainWindow.Version')
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
   - [Dispose(disposing)](#M-MFR-GUI-Windows-MainWindow-Dispose-System-Boolean- 'MFR.GUI.Windows.MainWindow.Dispose(System.Boolean)')
+  - [DoesDirectoryContainSolutionFile(path)](#M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String- 'MFR.GUI.Windows.MainWindow.DoesDirectoryContainSolutionFile(System.String)')
   - [InitializeComponent()](#M-MFR-GUI-Windows-MainWindow-InitializeComponent 'MFR.GUI.Windows.MainWindow.InitializeComponent')
   - [InitializePresenter()](#M-MFR-GUI-Windows-MainWindow-InitializePresenter 'MFR.GUI.Windows.MainWindow.InitializePresenter')
   - [OnCheckedChangedSelectDeselectAllCheckBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnCheckedChangedSelectDeselectAllCheckBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnCheckedChangedSelectDeselectAllCheckBox(System.Object,System.EventArgs)')
@@ -38,26 +42,30 @@
   - [OnLoad(e)](#M-MFR-GUI-Windows-MainWindow-OnLoad-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnLoad(System.EventArgs)')
   - [OnOperationsPerform(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationsPerform-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationsPerform(System.Object,System.EventArgs)')
   - [OnOptionsModified(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOptionsModified-System-Object,MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Windows.MainWindow.OnOptionsModified(System.Object,MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
+  - [OnPresenterAddNewProfileFailed(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterAddNewProfileFailed-System-Object,MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterAddNewProfileFailed(System.Object,MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs)')
   - [OnPresenterAllHistoryCleared(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterAllHistoryCleared-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterAllHistoryCleared(System.Object,System.EventArgs)')
-  - [OnPresenterConfigurationExported(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationExported-System-Object,MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterConfigurationExported(System.Object,MFR.Configuration.Events.ConfigurationExportedEventArgs)')
-  - [OnPresenterConfigurationImported(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationImported-System-Object,MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterConfigurationImported(System.Object,MFR.Configuration.Events.ConfigurationImportedEventArgs)')
+  - [OnPresenterConfigurationExported(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationExported-System-Object,MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterConfigurationExported(System.Object,MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs)')
+  - [OnPresenterConfigurationImported(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationImported-System-Object,MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterConfigurationImported(System.Object,MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs)')
   - [OnPresenterDataOperationFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationFinished(System.Object,System.EventArgs)')
-  - [OnPresenterDataOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Objects-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationStarted(System.Object,MFR.Operations.Events.DataOperationEventArgs)')
+  - [OnPresenterDataOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationStarted(System.Object,MFR.Operations.Events.DataOperationEventArgs)')
   - [OnPresenterFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterFinished(System.Object,System.EventArgs)')
   - [OnPresenterStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterStarted(System.Object,System.EventArgs)')
   - [OnSelChangeComboBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnSelChangeComboBox(System.Object,System.EventArgs)')
   - [OnToolsConfigImport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigImport(System.Object,System.EventArgs)')
+  - [OnToolsConfigurationNewProfile(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigurationNewProfile-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigurationNewProfile(System.Object,System.EventArgs)')
   - [OnToolsExportConfig(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsExportConfig(System.Object,System.EventArgs)')
   - [OnToolsHistoryClearAll(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsHistoryClearAll(System.Object,System.EventArgs)')
   - [OnToolsOptions(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsOptions-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsOptions(System.Object,System.EventArgs)')
   - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnUpdateCmdUI(System.Object,System.EventArgs)')
   - [OnViewStatusBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewStatusBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewStatusBar(System.Object,System.EventArgs)')
   - [OnViewToolBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewToolBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewToolBar(System.Object,System.EventArgs)')
+  - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ResetProfileCollectionComboBox')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
 - [Resources](#T-MFR-GUI-Windows-Properties-Resources 'MFR.GUI.Windows.Properties.Resources')
   - [AppIdle](#P-MFR-GUI-Windows-Properties-Resources-AppIdle 'MFR.GUI.Windows.Properties.Resources.AppIdle')
   - [Culture](#P-MFR-GUI-Windows-Properties-Resources-Culture 'MFR.GUI.Windows.Properties.Resources.Culture')
+  - [Error_StartingFolderMustContainSolutionFile](#P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile 'MFR.GUI.Windows.Properties.Resources.Error_StartingFolderMustContainSolutionFile')
   - [ResourceManager](#P-MFR-GUI-Windows-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Properties.Resources.ResourceManager')
   - [SwitchUpDown_16x](#P-MFR-GUI-Windows-Properties-Resources-SwitchUpDown_16x 'MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x')
 - [TestBedForm](#T-MFR-GUI-Windows-TestBedForm 'MFR.GUI.Windows.TestBedForm')
@@ -93,19 +101,35 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='F-MFR-GUI-Windows-MainWindow-_presenter'></a>
-### _presenter `constants`
-
-##### Summary
-
-Reference to the presenter for this form.
-
 <a name='F-MFR-GUI-Windows-MainWindow-components'></a>
 ### components `constants`
 
 ##### Summary
 
 Required designer variable.
+
+<a name='P-MFR-GUI-Windows-MainWindow-Configuration'></a>
+### Configuration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
+that represents the currently-loaded configuration.
+
+<a name='P-MFR-GUI-Windows-MainWindow-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user configuration and the actions
+associated with it.
 
 <a name='P-MFR-GUI-Windows-MainWindow-FindWhatComboBox'></a>
 ### FindWhatComboBox `property`
@@ -122,9 +146,9 @@ specify the text to be found.
 
 Gets a reference to the
 [FoldUnfoldButton](#T-MFR-GUI-Controls-FoldUnfoldButton 'MFR.GUI.Controls.FoldUnfoldButton')
-that controls
-whether the form is the folded (smaller) size or unfolded (larger,
-with more options visible) size.
+that controls whether
+the form is the folded (smaller) size or unfolded (larger, with more
+options visible) size.
 
 <a name='P-MFR-GUI-Windows-MainWindow-FullApplicationName'></a>
 ### FullApplicationName `property`
@@ -138,8 +162,8 @@ Gets the full name of this application, including the current version.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow').
+Gets a reference to the one and only
+[MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow') object in this application.
 
 <a name='P-MFR-GUI-Windows-MainWindow-IsDataValid'></a>
 ### IsDataValid `property`
@@ -185,6 +209,28 @@ Gets or sets the value of the Match Exact Word checkbox.
 Gets a reference to the
 [CheckedListBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CheckedListBox 'System.Windows.Forms.CheckedListBox')
 that has the list of operations.
+
+<a name='P-MFR-GUI-Windows-MainWindow-Presenter'></a>
+### Presenter `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IMainWindowPresenter](#T-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter')
+interface.
+
+##### Remarks
+
+This object plays the role of the Presenter for this form, which determines the
+behavior of this form.
+
+<a name='P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox'></a>
+### ProfileCollectionComboBox `property`
+
+##### Summary
+
+Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
+that has a drop-down list of the profiles that the user has created.
 
 <a name='P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`
@@ -253,6 +299,31 @@ Clean up any resources being used.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+
+<a name='M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String-'></a>
+### DoesDirectoryContainSolutionFile(path) `method`
+
+##### Summary
+
+Determines whether the folder having the specified `path`
+contains a Visual Studio Solution (*.sln) file.
+
+
+
+NEW: Also searches subfolders.
+
+##### Returns
+
+`true` if the folder with the specified
+`path` exists and contains at least one file with the
+`.sln` file.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the path of the folder to
+check. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-InitializeComponent'></a>
 ### InitializeComponent() `method`
@@ -412,8 +483,8 @@ event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.GUI.Controls.Events.FormFoldedEventArgs](#T-MFR-GUI-Controls-Events-FormFoldedEventArgs 'MFR.GUI.Controls.Events.FormFoldedEventArgs') | A [FormFoldedEventArgs](#T-MFR-Objects-FormFoldedEventArgs 'MFR.FormFoldedEventArgs') that
-contains the event data. |
+| e | [MFR.GUI.Controls.Events.FormFoldedEventArgs](#T-MFR-GUI-Controls-Events-FormFoldedEventArgs 'MFR.GUI.Controls.Events.FormFoldedEventArgs') | A [FormFoldedEventArgs](#T-MFR-FormFoldedEventArgs 'MFR.FormFoldedEventArgs') that contains the
+event data. |
 
 ##### Remarks
 
@@ -425,7 +496,8 @@ contains the event data. |
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event raised by the user clicking on the About command on the Help menu.
+event raised by the user clicking on the About command on the
+HelpProfileExplainerDialog menu.
 
 ##### Parameters
 
@@ -445,7 +517,8 @@ This method responds to the event by displaying the About dialog box.
 
 Handles the
 [](#E-System-Windows-Forms-ToolStripDropDownItem-DropDownOpening 'System.Windows.Forms.ToolStripDropDownItem.DropDownOpening')
-event raised by the message of the user clicking on the Help menu to
+event raised by the message of the user clicking on the
+HelpProfileExplainerDialog menu to
 open it.
 
 ##### Parameters
@@ -458,7 +531,8 @@ open it.
 ##### Remarks
 
 This method responds to the event by ensuring that the text of the
-Help menu's About command contains the full name of this application.
+HelpProfileExplainerDialog menu's About command contains the full name of this
+application.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnLoad-System-EventArgs-'></a>
 ### OnLoad(e) `method`
@@ -499,9 +573,7 @@ is delegated to the Perform Operation button.
 
 ##### Summary
 
-Handles the
-[](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified')
-event.
+Handles the [](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified') event.
 
 ##### Parameters
 
@@ -515,6 +587,32 @@ event.
 This method responds to the Apply button being clicked in the
 property sheet displayed by the Tools -> Options menu command.
 
+<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterAddNewProfileFailed-System-Object,MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs-'></a>
+### OnPresenterAddNewProfileFailed(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AddProfileFailed 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AddProfileFailed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
+| e | [MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs](#T-MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs 'MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs') | A [AddProfileFailedEventArgs](#T-MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs 'MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs')
+that contains the event data. |
+
+##### Remarks
+
+This handler is called when the operation of creating a new profile fails.
+
+
+
+This method responds by showing the user an error message box explaining what
+happened.
+
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterAllHistoryCleared-System-Object,System-EventArgs-'></a>
 ### OnPresenterAllHistoryCleared(sender,e) `method`
 
@@ -522,7 +620,8 @@ property sheet displayed by the Tools -> Options menu command.
 
 Handles the
 [](#E-MFR-GUI-IMainWindowPresenter-AllHistoryCleared 'MFR.GUI.IMainWindowPresenter.AllHistoryCleared')
-event raised by the presenter object.
+event
+raised by the presenter object.
 
 ##### Parameters
 
@@ -536,7 +635,7 @@ event raised by the presenter object.
 This method responds to the event by clearing out all the text in
 the combo boxes on this form.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationExported-System-Object,MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs-'></a>
+<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationExported-System-Object,MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs-'></a>
 ### OnPresenterConfigurationExported(sender,e) `method`
 
 ##### Summary
@@ -550,9 +649,8 @@ event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Configuration.Events.ConfigurationExportedEventArgs](#T-MFR-Objects-Configuration-Events-ConfigurationExportedEventArgs 'MFR.Configuration.Events.ConfigurationExportedEventArgs') | An
-[ConfigurationExportedEventArgs](#T-MFR-Objects-ConfigurationExportedEventArgs 'MFR.ConfigurationExportedEventArgs')
-that contains the event data. |
+| e | [MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs](#T-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs 'MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs') | An [ConfigurationExportedEventArgs](#T-MFR-Settings-ConfigurationExportedEventArgs 'MFR.Settings.ConfigurationExportedEventArgs') that
+contains the event data. |
 
 ##### Remarks
 
@@ -560,7 +658,7 @@ This method is called when an export of the configuration has been
 successfully completed. This method responds to the event by
 informing the user that the operation has completed successfully.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationImported-System-Object,MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs-'></a>
+<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterConfigurationImported-System-Object,MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs-'></a>
 ### OnPresenterConfigurationImported(sender,e) `method`
 
 ##### Summary
@@ -574,15 +672,16 @@ event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Objects-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Configuration.Events.ConfigurationImportedEventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| e | [MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
 ##### Remarks
 
 This method responds to the event by triggering an update of the
 screen from values stored in the configuration object in the
 [Configuration](#P-MFR-GUI-MainWindowPresenter-Configuration 'MFR.GUI.MainWindowPresenter.Configuration')
-property. This happens most often as a the result of the Import
-Configuration command on the Tools menu.
+property. This
+happens most often as a the result of the Import Configuration
+command on the Tools menu.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs-'></a>
 ### OnPresenterDataOperationFinished(sender,e) `method`
@@ -591,40 +690,37 @@ Configuration command on the Tools menu.
 
 Handles the
 [](#E-MFR-GUI-IMainWindowPresenter-DataOperationFinished 'MFR.GUI.IMainWindowPresenter.DataOperationFinished')
-event raised by the presenter object when a data operation is
-finished.
+event
+raised by the presenter object when a data operation is finished.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance
-of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A
-[EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
 ##### Remarks
 
-This method responds to the event by removing the
-progress bar from the status bar and setting the text of its message
-label back to the idle text. We use the Invoke If Required
-methodology just in case it's not the GUI thread that raised the
-event.
+This method responds to the event by removing the progress bar from
+the status bar and setting the text of its message label back to the
+idle text. We use the Invoke If Required methodology just in case
+it's not the GUI thread that raised the event.
 
 
 
-If the status bar is not presently visible, then
-this method does nothing.
+If the status bar is not presently visible, then this method does nothing.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Objects-Operations-Events-DataOperationEventArgs-'></a>
+<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Operations-Events-DataOperationEventArgs-'></a>
 ### OnPresenterDataOperationStarted(sender,e) `method`
 
 ##### Summary
 
 Handles the
 [](#E-MFR-GUI-IMainWindowPresenter-DataOperationStarted 'MFR.GUI.IMainWindowPresenter.DataOperationStarted')
-event raised by the presenter object when it's about to start an
-operation that involves interaction with a data source.
+event
+raised by the presenter object when it's about to start an operation
+that involves interaction with a data source.
 
 
 
@@ -637,15 +733,15 @@ update the user interface in order to tell the user what is going on.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.DataOperationEventArgs](#T-MFR-Objects-Operations-Events-DataOperationEventArgs 'MFR.Operations.Events.DataOperationEventArgs') | A [DataOperationEventArgs](#T-MFR-Objects-DataOperationEventArgs 'MFR.DataOperationEventArgs')
-that contains the event data. |
+| e | [MFR.Operations.Events.DataOperationEventArgs](#T-MFR-Operations-Events-DataOperationEventArgs 'MFR.Operations.Events.DataOperationEventArgs') | A [DataOperationEventArgs](#T-MFR-DataOperationEventArgs 'MFR.DataOperationEventArgs') that contains
+the event data. |
 
 ##### Remarks
 
 This method responds to the event by displaying the marquee progress
 control in the status bar and updating the status bar's Message
 indicator to display the text that is passed in the
-[Message](#P-MFR-Objects-DataOperationEventArgs-Message 'MFR.DataOperationEventArgs.Message')
+[Message](#P-MFR-DataOperationEventArgs-Message 'MFR.DataOperationEventArgs.Message')
 property.
 
 
@@ -657,9 +753,7 @@ If the status bar is not presently visible, then this method does nothing.
 
 ##### Summary
 
-Handles the
-[](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPresenter.Finished')
-event.
+Handles the [](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPresenter.Finished') event.
 
 ##### Parameters
 
@@ -677,9 +771,7 @@ This method toggles UI state and dismisses the progress dialog.
 
 ##### Summary
 
-Handles the
-[](#E-MFR-GUI-IMainWindowPresenter-Started 'MFR.GUI.IMainWindowPresenter.Started')
-event.
+Handles the [](#E-MFR-GUI-IMainWindowPresenter-Started 'MFR.GUI.IMainWindowPresenter.Started') event.
 
 ##### Parameters
 
@@ -691,9 +783,9 @@ event.
 ##### Remarks
 
 This handler is called when the
-[ProcessAll](#M-MFR-Objects-FileRenamer-ProcessAll 'MFR.FileRenamer.ProcessAll')
-begins its
-execution. This method responds by showing the progress dialog.
+[ProcessAll](#M-MFR-FileRenamer-ProcessAll 'MFR.FileRenamer.ProcessAll')
+begins its execution.
+This method responds by showing the progress dialog.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs-'></a>
 ### OnSelChangeComboBox(sender,e) `method`
@@ -741,6 +833,34 @@ menu command from the Import and Export Configuration submenu of the
 Tools menu. This method responds to the event by showing the user a
 dialog that the user can utilize to select the file they want to
 import, and then calls the presenter to perform the import operation.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigurationNewProfile-System-Object,System-EventArgs-'></a>
+### OnToolsConfigurationNewProfile(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
+raised by the New Profile toolbar button and/or Tools -> Configuration -> New
+Profile menu command.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method is called when the user click the New Profile toolbar
+button or menu item.
+
+
+
+The goal is to prompt the user for the name of their new profile, create it,
+then add it to the list of profiles and then set it as the current profile.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs-'></a>
 ### OnToolsExportConfig(sender,e) `method`
@@ -874,6 +994,22 @@ This method is called when the user clicks the Toolbar command on
 the View menu. This method responds by toggling the value of the
 Visible property of the Standard toolbar.
 
+<a name='M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox'></a>
+### ResetProfileCollectionComboBox() `method`
+
+##### Summary
+
+Clears all the items from the Profile List combo box and then adds the
+`
+            <No profile selected>
+            `
+item and then selects the first element in the
+[Items](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox.Items 'System.Windows.Forms.ToolStripComboBox.Items') list.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size-'></a>
 ### UpdateSize(newSize) `method`
 
@@ -940,6 +1076,15 @@ Looks up a localized string similar to Ready.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile'></a>
+### Error_StartingFolderMustContainSolutionFile `property`
+
+##### Summary
+
+Looks up a localized string similar to Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.
+
+Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  Don't say we did not warn you..
 
 <a name='P-MFR-GUI-Windows-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
