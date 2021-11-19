@@ -5,6 +5,8 @@
 
 - [MakeNewErrorReportDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Factories-MakeNewErrorReportDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Factories.MakeNewErrorReportDialogLaunchResults')
   - [WithPropertyValues(dialogResult,exception,errorReportContents,reproductionSteps)](#M-MFR-GUI-Launchers-Dialogs-Results-Factories-MakeNewErrorReportDialogLaunchResults-WithPropertyValues-System-Windows-Forms-DialogResult,System-Exception,System-String,System-String- 'MFR.GUI.Launchers.Dialogs.Results.Factories.MakeNewErrorReportDialogLaunchResults.WithPropertyValues(System.Windows.Forms.DialogResult,System.Exception,System.String,System.String)')
+- [MakeNewProfileNameDialogResults](#T-MFR-GUI-Launchers-Dialogs-Results-Factories-MakeNewProfileNameDialogResults 'MFR.GUI.Launchers.Dialogs.Results.Factories.MakeNewProfileNameDialogResults')
+  - [WithPropertyValues(profileName,type,dialogResult)](#M-MFR-GUI-Launchers-Dialogs-Results-Factories-MakeNewProfileNameDialogResults-WithPropertyValues-System-String,MFR-GUI-Dialogs-Constants-ProfileCreateOperationType,System-Windows-Forms-DialogResult- 'MFR.GUI.Launchers.Dialogs.Results.Factories.MakeNewProfileNameDialogResults.WithPropertyValues(System.String,MFR.GUI.Dialogs.Constants.ProfileCreateOperationType,System.Windows.Forms.DialogResult)')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Results-Factories-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Results.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Results-Factories-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Results.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Results-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Results.Factories.Properties.Resources.ResourceManager')
@@ -48,6 +50,45 @@ object that describes the error that occurred. |
 | errorReportContents | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the contents of the detailed error report. |
 | reproductionSteps | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the user's description of the steps that led up
 to the error. |
+
+<a name='T-MFR-GUI-Launchers-Dialogs-Results-Factories-MakeNewProfileNameDialogResults'></a>
+## MakeNewProfileNameDialogResults `type`
+
+##### Namespace
+
+MFR.GUI.Launchers.Dialogs.Results.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+interface, and returns references to them.
+
+<a name='M-MFR-GUI-Launchers-Dialogs-Results-Factories-MakeNewProfileNameDialogResults-WithPropertyValues-System-String,MFR-GUI-Dialogs-Constants-ProfileCreateOperationType,System-Windows-Forms-DialogResult-'></a>
+### WithPropertyValues(profileName,type,dialogResult) `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+interface and returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+interface.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| profileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the name to give the Profile. |
+| type | [MFR.GUI.Dialogs.Constants.ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') | (Required.) A
+[ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') that
+describes for what operation the dialog box is being summoned. |
+| dialogResult | [System.Windows.Forms.DialogResult](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.DialogResult 'System.Windows.Forms.DialogResult') | (Required.) A [DialogResult](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.DialogResult 'System.Windows.Forms.DialogResult') that indicates
+how the user dismissed the dialog box. |
 
 <a name='T-MFR-GUI-Launchers-Dialogs-Results-Factories-Properties-Resources'></a>
 ## Resources `type`
