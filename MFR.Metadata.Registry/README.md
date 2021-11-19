@@ -3,22 +3,22 @@
 
 ## Contents
 
-- [RegMetadataBase](#T-MFR-Objects-Metadata-Registry-RegMetadataBase 'MFR.Metadata.Registry.RegMetadataBase')
-  - [_keyPath](#F-MFR-Objects-Metadata-Registry-RegMetadataBase-_keyPath 'MFR.Metadata.Registry.RegMetadataBase._keyPath')
-  - [Hive](#P-MFR-Objects-Metadata-Registry-RegMetadataBase-Hive 'MFR.Metadata.Registry.RegMetadataBase.Hive')
-  - [KeyPath](#P-MFR-Objects-Metadata-Registry-RegMetadataBase-KeyPath 'MFR.Metadata.Registry.RegMetadataBase.KeyPath')
-  - [DetermineRegistryHiveFromKeyPath(keyPath)](#M-MFR-Objects-Metadata-Registry-RegMetadataBase-DetermineRegistryHiveFromKeyPath-System-String- 'MFR.Metadata.Registry.RegMetadataBase.DetermineRegistryHiveFromKeyPath(System.String)')
-- [RegOperationMetadata\`1](#T-MFR-Objects-Metadata-Registry-RegOperationMetadata`1 'MFR.Metadata.Registry.RegOperationMetadata`1')
-  - [Value](#P-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-Value 'MFR.Metadata.Registry.RegOperationMetadata`1.Value')
-  - [ValueName](#P-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-ValueName 'MFR.Metadata.Registry.RegOperationMetadata`1.ValueName')
-  - [AndValueName(valueName)](#M-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-AndValueName-System-String- 'MFR.Metadata.Registry.RegOperationMetadata`1.AndValueName(System.String)')
-  - [ForKeyPath()](#M-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-ForKeyPath-System-String- 'MFR.Metadata.Registry.RegOperationMetadata`1.ForKeyPath(System.String)')
-  - [WithValue(value)](#M-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-WithValue-`0- 'MFR.Metadata.Registry.RegOperationMetadata`1.WithValue(`0)')
-- [Resources](#T-MFR-Objects-Metadata-Registry-Properties-Resources 'MFR.Metadata.Registry.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Metadata-Registry-Properties-Resources-Culture 'MFR.Metadata.Registry.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Metadata-Registry-Properties-Resources-ResourceManager 'MFR.Metadata.Registry.Properties.Resources.ResourceManager')
+- [RegMetadataBase](#T-MFR-Metadata-Registry-RegMetadataBase 'MFR.Metadata.Registry.RegMetadataBase')
+  - [_keyPath](#F-MFR-Metadata-Registry-RegMetadataBase-_keyPath 'MFR.Metadata.Registry.RegMetadataBase._keyPath')
+  - [Hive](#P-MFR-Metadata-Registry-RegMetadataBase-Hive 'MFR.Metadata.Registry.RegMetadataBase.Hive')
+  - [KeyPath](#P-MFR-Metadata-Registry-RegMetadataBase-KeyPath 'MFR.Metadata.Registry.RegMetadataBase.KeyPath')
+  - [DetermineRegistryHiveFromKeyPath(keyPath)](#M-MFR-Metadata-Registry-RegMetadataBase-DetermineRegistryHiveFromKeyPath-System-String- 'MFR.Metadata.Registry.RegMetadataBase.DetermineRegistryHiveFromKeyPath(System.String)')
+- [RegOperationMetadata\`1](#T-MFR-Metadata-Registry-RegOperationMetadata`1 'MFR.Metadata.Registry.RegOperationMetadata`1')
+  - [Value](#P-MFR-Metadata-Registry-RegOperationMetadata`1-Value 'MFR.Metadata.Registry.RegOperationMetadata`1.Value')
+  - [ValueName](#P-MFR-Metadata-Registry-RegOperationMetadata`1-ValueName 'MFR.Metadata.Registry.RegOperationMetadata`1.ValueName')
+  - [AndValueName(valueName)](#M-MFR-Metadata-Registry-RegOperationMetadata`1-AndValueName-System-String- 'MFR.Metadata.Registry.RegOperationMetadata`1.AndValueName(System.String)')
+  - [ForKeyPath()](#M-MFR-Metadata-Registry-RegOperationMetadata`1-ForKeyPath-System-String- 'MFR.Metadata.Registry.RegOperationMetadata`1.ForKeyPath(System.String)')
+  - [WithValue(value)](#M-MFR-Metadata-Registry-RegOperationMetadata`1-WithValue-`0- 'MFR.Metadata.Registry.RegOperationMetadata`1.WithValue(`0)')
+- [Resources](#T-MFR-Metadata-Registry-Properties-Resources 'MFR.Metadata.Registry.Properties.Resources')
+  - [Culture](#P-MFR-Metadata-Registry-Properties-Resources-Culture 'MFR.Metadata.Registry.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Metadata-Registry-Properties-Resources-ResourceManager 'MFR.Metadata.Registry.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Metadata-Registry-RegMetadataBase'></a>
+<a name='T-MFR-Metadata-Registry-RegMetadataBase'></a>
 ## RegMetadataBase `type`
 
 ##### Namespace
@@ -29,18 +29,18 @@ MFR.Metadata.Registry
 
 Base class for the common methods, properties, fields, and events
 between implementers of the
-[IRegQueryExpression](#T-MFR-Objects-IRegQueryExpression 'MFR.IRegQueryExpression')
+[IRegQueryExpression](#T-MFR-IRegQueryExpression 'MFR.IRegQueryExpression')
 interface and the
-[IRegOperationMetadata](#T-MFR-Objects-IRegOperationMetadata 'MFR.IRegOperationMetadata') interface.
+[IRegOperationMetadata](#T-MFR-IRegOperationMetadata 'MFR.IRegOperationMetadata') interface.
 
-<a name='F-MFR-Objects-Metadata-Registry-RegMetadataBase-_keyPath'></a>
+<a name='F-MFR-Metadata-Registry-RegMetadataBase-_keyPath'></a>
 ### _keyPath `constants`
 
 ##### Summary
 
 String containing the fully-qualified pathname of a Registry key.
 
-<a name='P-MFR-Objects-Metadata-Registry-RegMetadataBase-Hive'></a>
+<a name='P-MFR-Metadata-Registry-RegMetadataBase-Hive'></a>
 ### Hive `property`
 
 ##### Summary
@@ -48,7 +48,7 @@ String containing the fully-qualified pathname of a Registry key.
 Gets the [RegistryHive](#T-Microsoft-Win32-RegistryHive 'Microsoft.Win32.RegistryHive') value that
 corresponds to the hive specified by the user, either by default or explicitly.
 
-<a name='P-MFR-Objects-Metadata-Registry-RegMetadataBase-KeyPath'></a>
+<a name='P-MFR-Metadata-Registry-RegMetadataBase-KeyPath'></a>
 ### KeyPath `property`
 
 ##### Summary
@@ -59,10 +59,10 @@ data is stored.
 ##### Remarks
 
 Whenever the value of this property is updated, the value of the
-[Hive](#P-MFR-Objects-IRegOperationMetadata-Hive 'MFR.IRegOperationMetadata.Hive')
+[Hive](#P-MFR-IRegOperationMetadata-Hive 'MFR.IRegOperationMetadata.Hive')
 property is updated to match.
 
-<a name='M-MFR-Objects-Metadata-Registry-RegMetadataBase-DetermineRegistryHiveFromKeyPath-System-String-'></a>
+<a name='M-MFR-Metadata-Registry-RegMetadataBase-DetermineRegistryHiveFromKeyPath-System-String-'></a>
 ### DetermineRegistryHiveFromKeyPath(keyPath) `method`
 
 ##### Summary
@@ -75,7 +75,7 @@ enumeration value from the
 
 
 Sets the value of the
-[Hive](#P-MFR-Objects-RegQueryExpression-Hive 'MFR.RegQueryExpression.Hive')
+[Hive](#P-MFR-RegQueryExpression-Hive 'MFR.RegQueryExpression.Hive')
 property
 to the result.
 
@@ -96,13 +96,13 @@ the system Registry. |
 
 If the hive name cannot be parsed from `keyPath`,
 then the
-[Hive](#P-MFR-Objects-RegQueryExpression-Hive 'MFR.RegQueryExpression.Hive')
+[Hive](#P-MFR-RegQueryExpression-Hive 'MFR.RegQueryExpression.Hive')
 property
 is set to [CurrentUser](#T-Microsoft-Win32-RegistryHive-CurrentUser 'Microsoft.Win32.RegistryHive.CurrentUser'),
 except in the case where `keyPath` is blank; if
 this is the case, then this method does nothing.
 
-<a name='T-MFR-Objects-Metadata-Registry-RegOperationMetadata`1'></a>
+<a name='T-MFR-Metadata-Registry-RegOperationMetadata`1'></a>
 ## RegOperationMetadata\`1 `type`
 
 ##### Namespace
@@ -120,7 +120,7 @@ within a key in the Windows system Registry database.
 | ---- | ----------- |
 | T | Type of the data to be accessed. |
 
-<a name='P-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-Value'></a>
+<a name='P-MFR-Metadata-Registry-RegOperationMetadata`1-Value'></a>
 ### Value `property`
 
 ##### Summary
@@ -128,7 +128,7 @@ within a key in the Windows system Registry database.
 Gets or sets the instance of `T` that is used
 as the data to be written to the system Registry.
 
-<a name='P-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-ValueName'></a>
+<a name='P-MFR-Metadata-Registry-RegOperationMetadata`1-ValueName'></a>
 ### ValueName `property`
 
 ##### Summary
@@ -141,13 +141,13 @@ or from which data is to be retrieved.
 Set this property to `null` to retrieve data from, or store
 data to, the (Default) value under a particular registry key.
 
-<a name='M-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-AndValueName-System-String-'></a>
+<a name='M-MFR-Metadata-Registry-RegOperationMetadata`1-AndValueName-System-String-'></a>
 ### AndValueName(valueName) `method`
 
 ##### Summary
 
 Assigns a value to the
-[ValueName](#P-MFR-Objects-IRegOperationMetadata-ValueName 'MFR.IRegOperationMetadata.ValueName')
+[ValueName](#P-MFR-IRegOperationMetadata-ValueName 'MFR.IRegOperationMetadata.ValueName')
 property.
 
 ##### Returns
@@ -161,7 +161,7 @@ method, for fluent use.
 | ---- | ---- | ----------- |
 | valueName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the new value for the property. |
 
-<a name='M-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-ForKeyPath-System-String-'></a>
+<a name='M-MFR-Metadata-Registry-RegOperationMetadata`1-ForKeyPath-System-String-'></a>
 ### ForKeyPath() `method`
 
 ##### Summary
@@ -190,13 +190,13 @@ passed a blank or `null` string for a value. |
 If the hive ( `HKEY_`) is not included, then
 `HKEY_CURRENT_USER` is assumed.
 
-<a name='M-MFR-Objects-Metadata-Registry-RegOperationMetadata`1-WithValue-`0-'></a>
+<a name='M-MFR-Metadata-Registry-RegOperationMetadata`1-WithValue-`0-'></a>
 ### WithValue(value) `method`
 
 ##### Summary
 
 Assigns data to be written to the system Registry to the
-[Value](#P-MFR-Objects-IRegOperationMetadata-Value 'MFR.IRegOperationMetadata.Value')
+[Value](#P-MFR-IRegOperationMetadata-Value 'MFR.IRegOperationMetadata.Value')
 property.
 
 ##### Returns
@@ -215,7 +215,7 @@ data to be written to the system Registry. |
 
 Calling this method is optional.
 
-<a name='T-MFR-Objects-Metadata-Registry-Properties-Resources'></a>
+<a name='T-MFR-Metadata-Registry-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -226,7 +226,7 @@ MFR.Metadata.Registry.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Metadata-Registry-Properties-Resources-Culture'></a>
+<a name='P-MFR-Metadata-Registry-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -234,7 +234,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Metadata-Registry-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Metadata-Registry-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
