@@ -3,13 +3,13 @@
 
 ## Contents
 
-- [MakeHistoryManager](#T-MFR-Objects-Managers-History-Factories-MakeHistoryManager 'MFR.Managers.History.Factories.MakeHistoryManager')
-  - [ForForm(form)](#M-MFR-Objects-Managers-History-Factories-MakeHistoryManager-ForForm-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.Factories.MakeHistoryManager.ForForm(System.Windows.Forms.IWin32Window)')
-- [Resources](#T-MFR-Objects-Managers-History-Factories-Properties-Resources 'MFR.Managers.History.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-History-Factories-Properties-Resources-Culture 'MFR.Managers.History.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-History-Factories-Properties-Resources-ResourceManager 'MFR.Managers.History.Factories.Properties.Resources.ResourceManager')
+- [MakeHistoryManager](#T-MFR-Managers-History-Factories-MakeHistoryManager 'MFR.Managers.History.Factories.MakeHistoryManager')
+  - [ForForm(form)](#M-MFR-Managers-History-Factories-MakeHistoryManager-ForForm-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.Factories.MakeHistoryManager.ForForm(System.Windows.Forms.IWin32Window)')
+- [Resources](#T-MFR-Managers-History-Factories-Properties-Resources 'MFR.Managers.History.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Managers-History-Factories-Properties-Resources-Culture 'MFR.Managers.History.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Managers-History-Factories-Properties-Resources-ResourceManager 'MFR.Managers.History.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Managers-History-Factories-MakeHistoryManager'></a>
+<a name='T-MFR-Managers-History-Factories-MakeHistoryManager'></a>
 ## MakeHistoryManager `type`
 
 ##### Namespace
@@ -20,7 +20,7 @@ MFR.Managers.History.Factories
 
 Creates new instances of History Manager objects.
 
-<a name='M-MFR-Objects-Managers-History-Factories-MakeHistoryManager-ForForm-System-Windows-Forms-IWin32Window-'></a>
+<a name='M-MFR-Managers-History-Factories-MakeHistoryManager-ForForm-System-Windows-Forms-IWin32Window-'></a>
 ### ForForm(form) `method`
 
 ##### Summary
@@ -31,7 +31,7 @@ Manager object that is associated with the specified `form`.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IHistoryManager](#T-MFR-Objects-IHistoryManager 'MFR.IHistoryManager')
+[IHistoryManager](#T-MFR-IHistoryManager 'MFR.IHistoryManager')
 interface and
 which is associated with the specified `form`.
 
@@ -47,7 +47,7 @@ the [IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&
 This object should represent the parent form of the controls for
 which the returned History Manager object is managing input history. |
 
-<a name='T-MFR-Objects-Managers-History-Factories-Properties-Resources'></a>
+<a name='T-MFR-Managers-History-Factories-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -58,7 +58,7 @@ MFR.Managers.History.Factories.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Managers-History-Factories-Properties-Resources-Culture'></a>
+<a name='P-MFR-Managers-History-Factories-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -66,7 +66,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Managers-History-Factories-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Managers-History-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
