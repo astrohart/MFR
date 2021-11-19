@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [IRequest\`1](#T-MFR-Objects-Messages-Requests-Intefaces-IRequest`1 'MFR.Messages.Requests.Intefaces.IRequest`1')
-  - [Execute()](#M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-Execute 'MFR.Messages.Requests.Intefaces.IRequest`1.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-ExecuteAsync 'MFR.Messages.Requests.Intefaces.IRequest`1.ExecuteAsync')
-- [Resources](#T-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources 'MFR.Messages.Requests.Intefaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-Culture 'MFR.Messages.Requests.Intefaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-ResourceManager 'MFR.Messages.Requests.Intefaces.Properties.Resources.ResourceManager')
+- [IRequest\`1](#T-MFR-Messages-Requests-Intefaces-IRequest`1 'MFR.Messages.Requests.Intefaces.IRequest`1')
+  - [Execute()](#M-MFR-Messages-Requests-Intefaces-IRequest`1-Execute 'MFR.Messages.Requests.Intefaces.IRequest`1.Execute')
+  - [ExecuteAsync()](#M-MFR-Messages-Requests-Intefaces-IRequest`1-ExecuteAsync 'MFR.Messages.Requests.Intefaces.IRequest`1.ExecuteAsync')
+- [Resources](#T-MFR-Messages-Requests-Intefaces-Properties-Resources 'MFR.Messages.Requests.Intefaces.Properties.Resources')
+  - [Culture](#P-MFR-Messages-Requests-Intefaces-Properties-Resources-Culture 'MFR.Messages.Requests.Intefaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Messages-Requests-Intefaces-Properties-Resources-ResourceManager 'MFR.Messages.Requests.Intefaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Messages-Requests-Intefaces-IRequest`1'></a>
+<a name='T-MFR-Messages-Requests-Intefaces-IRequest`1'></a>
 ## IRequest\`1 `type`
 
 ##### Namespace
@@ -43,7 +43,7 @@ have any input parameters.
 To make a request that does not return an output, compose this object
 with [Void](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Void 'System.Void').
 
-<a name='M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-Execute'></a>
+<a name='M-MFR-Messages-Requests-Intefaces-IRequest`1-Execute'></a>
 ### Execute() `method`
 
 ##### Summary
@@ -59,7 +59,7 @@ result of executing the message.
 
 This method has no parameters.
 
-<a name='M-MFR-Objects-Messages-Requests-Intefaces-IRequest`1-ExecuteAsync'></a>
+<a name='M-MFR-Messages-Requests-Intefaces-IRequest`1-ExecuteAsync'></a>
 ### ExecuteAsync() `method`
 
 ##### Summary
@@ -75,7 +75,7 @@ result of executing the message.
 
 This method has no parameters.
 
-<a name='T-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources'></a>
+<a name='T-MFR-Messages-Requests-Intefaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -86,7 +86,7 @@ MFR.Messages.Requests.Intefaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Messages-Requests-Intefaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -94,7 +94,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Messages-Requests-Intefaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Messages-Requests-Intefaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
