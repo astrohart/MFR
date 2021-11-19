@@ -7,6 +7,7 @@
   - [#ctor(messageId)](#M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-#ctor-System-Guid- 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.#ctor(System.Guid)')
   - [LaunchErrorReportDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchErrorReportDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.LaunchErrorReportDialog')
   - [LaunchHelpExplainerDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchHelpExplainerDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.LaunchHelpExplainerDialog')
+  - [LaunchProfileNameDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchProfileNameDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.LaunchProfileNameDialog')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Actions.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Actions.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Actions.Constants.Properties.Resources.ResourceManager')
@@ -44,14 +45,21 @@ that provides a unique identifier to be associated with this instance. |
 
 ##### Summary
 
-Launches the error report dialog box.
+Launches the Profile Name dialog box.
 
 <a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchHelpExplainerDialog'></a>
 ### LaunchHelpExplainerDialog `constants`
 
 ##### Summary
 
-Launches the Help dialog tghat explains what Profiles are.
+Launches the Help dialog that explains what Profiles are.
+
+<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchProfileNameDialog'></a>
+### LaunchProfileNameDialog `constants`
+
+##### Summary
+
+Launches the Profile Name dialog box.
 
 <a name='T-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources'></a>
 ## Resources `type`
