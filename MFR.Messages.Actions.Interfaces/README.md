@@ -3,16 +3,17 @@
 
 ## Contents
 
-- [IAction\`2](#T-MFR-Objects-Messages-Actions-Interfaces-IAction`2 'MFR.Messages.Actions.Interfaces.IAction`2')
-  - [AsCachedResultAction()](#M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-AsCachedResultAction 'MFR.Messages.Actions.Interfaces.IAction`2.AsCachedResultAction')
-  - [WithInput(input)](#M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-WithInput-`0- 'MFR.Messages.Actions.Interfaces.IAction`2.WithInput(`0)')
-- [ICachedResultAction\`2](#T-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2 'MFR.Messages.Actions.Interfaces.ICachedResultAction`2')
-  - [ClearResultCache(elementAction)](#M-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Messages.Actions.Interfaces.ICachedResultAction`2.ClearResultCache(System.Action{`0,`1})')
-- [Resources](#T-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources 'MFR.Messages.Actions.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-Culture 'MFR.Messages.Actions.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-ResourceManager 'MFR.Messages.Actions.Interfaces.Properties.Resources.ResourceManager')
+- [IAction\`2](#T-MFR-Messages-Actions-Interfaces-IAction`2 'MFR.Messages.Actions.Interfaces.IAction`2')
+  - [Input](#P-MFR-Messages-Actions-Interfaces-IAction`2-Input 'MFR.Messages.Actions.Interfaces.IAction`2.Input')
+  - [AsCachedResultAction()](#M-MFR-Messages-Actions-Interfaces-IAction`2-AsCachedResultAction 'MFR.Messages.Actions.Interfaces.IAction`2.AsCachedResultAction')
+  - [WithInput(input)](#M-MFR-Messages-Actions-Interfaces-IAction`2-WithInput-`0- 'MFR.Messages.Actions.Interfaces.IAction`2.WithInput(`0)')
+- [ICachedResultAction\`2](#T-MFR-Messages-Actions-Interfaces-ICachedResultAction`2 'MFR.Messages.Actions.Interfaces.ICachedResultAction`2')
+  - [ClearResultCache(elementAction)](#M-MFR-Messages-Actions-Interfaces-ICachedResultAction`2-ClearResultCache-System-Action{`0,`1}- 'MFR.Messages.Actions.Interfaces.ICachedResultAction`2.ClearResultCache(System.Action{`0,`1})')
+- [Resources](#T-MFR-Messages-Actions-Interfaces-Properties-Resources 'MFR.Messages.Actions.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Messages-Actions-Interfaces-Properties-Resources-Culture 'MFR.Messages.Actions.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Messages-Actions-Interfaces-Properties-Resources-ResourceManager 'MFR.Messages.Actions.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Messages-Actions-Interfaces-IAction`2'></a>
+<a name='T-MFR-Messages-Actions-Interfaces-IAction`2'></a>
 ## IAction\`2 `type`
 
 ##### Namespace
@@ -41,20 +42,29 @@ about the results of the operation. |
 
 The messages that can be performed on the application's configuration are:
 
-<a name='M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-AsCachedResultAction'></a>
+<a name='P-MFR-Messages-Actions-Interfaces-IAction`2-Input'></a>
+### Input `property`
+
+##### Summary
+
+Gets a reference to an instance of an object of type
+`TInput` that
+contains the input data for this `Action`.
+
+<a name='M-MFR-Messages-Actions-Interfaces-IAction`2-AsCachedResultAction'></a>
 ### AsCachedResultAction() `method`
 
 ##### Summary
 
 Returns a reference to this same object, but cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
+[ICachedResultAction](#T-MFR-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Returns
 
 Reference to the same object instance as that which invoked this
 method, cast to the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
+[ICachedResultAction](#T-MFR-ICachedResultAction 'MFR.ICachedResultAction')
 interface.
 
 ##### Parameters
@@ -66,10 +76,10 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.InvalidCastException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidCastException 'System.InvalidCastException') | Thrown if the implementing object does not also implement the
-[ICachedResultAction](#T-MFR-Objects-ICachedResultAction 'MFR.ICachedResultAction')
+[ICachedResultAction](#T-MFR-ICachedResultAction 'MFR.ICachedResultAction')
 interface. |
 
-<a name='M-MFR-Objects-Messages-Actions-Interfaces-IAction`2-WithInput-`0-'></a>
+<a name='M-MFR-Messages-Actions-Interfaces-IAction`2-WithInput-`0-'></a>
 ### WithInput(input) `method`
 
 ##### Summary
@@ -89,7 +99,7 @@ method, for fluent use.
 `TInput`
 that contains data to be provided to the message. |
 
-<a name='T-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2'></a>
+<a name='T-MFR-Messages-Actions-Interfaces-ICachedResultAction`2'></a>
 ## ICachedResultAction\`2 `type`
 
 ##### Namespace
@@ -102,7 +112,7 @@ Defines the publicly-exposed methods and properties of an `action`
 object that caches the results from the prior times that its operation
 has been invoked for the same input..
 
-<a name='M-MFR-Objects-Messages-Actions-Interfaces-ICachedResultAction`2-ClearResultCache-System-Action{`0,`1}-'></a>
+<a name='M-MFR-Messages-Actions-Interfaces-ICachedResultAction`2-ClearResultCache-System-Action{`0,`1}-'></a>
 ### ClearResultCache(elementAction) `method`
 
 ##### Summary
@@ -134,7 +144,7 @@ This parameter can be useful should callers, say, need to run
 cleanup code to properly release system resources consumed by
 elements of the cache, prior to the cache itself being emptied. |
 
-<a name='T-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Messages-Actions-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -145,7 +155,7 @@ MFR.Messages.Actions.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Messages-Actions-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -153,7 +163,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Messages-Actions-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Messages-Actions-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
