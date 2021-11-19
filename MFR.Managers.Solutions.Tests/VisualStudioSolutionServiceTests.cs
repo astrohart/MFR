@@ -2,7 +2,7 @@
 using MFR.Managers.Solutions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
-using System;
+using Does = MFR.Managers.Solutions.Factories.Does;
 
 namespace MFR.Managers.Solutions.Tests
 {
@@ -26,7 +26,7 @@ namespace MFR.Managers.Solutions.Tests
         public void Test_ContainsLoadedSolutions_ForMFRFolder_ReturnsTrue()
 
         {
-             Assert.That(
+            Assert.That(
                 Directory.Exists(
                     StringConstants
                         .MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER
@@ -44,6 +44,33 @@ namespace MFR.Managers.Solutions.Tests
                                                   StringConstants
                                                       .MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER
                                               )
+            );
+        }
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainLoadedSolutions" />
+        /// method returns <see langword="true" /> when passed the path of a folder that is
+        /// known to exist and contain <c>.sln</c> files.
+        /// </summary>
+        [Test]
+        public void
+            Test_ContainsLoadedSolutions_Works_If_FolderToSearch_Property_IsSet()
+        {
+            Assert.That(
+                Directory.Exists(
+                    StringConstants
+                        .MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER
+                )
+            );
+
+            Assert.That(
+                Does.Folder(
+                        StringConstants
+                            .MASS_FILE_RENAMER_VISUAL_STUDIO_SOLUTION_FOLDER
+                    )
+                    .ContainLoadedSolutions()
             );
         }
     }
