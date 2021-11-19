@@ -3,15 +3,15 @@
 
 ## Contents
 
-- [ProfileListSerializer](#T-MFR-Settings-Profiles-Serializers-ProfileListSerializer 'MFR.Settings.Profiles.Serializers.ProfileListSerializer')
-  - [Load(pathname)](#M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Load-System-String- 'MFR.Settings.Profiles.Serializers.ProfileListSerializer.Load(System.String)')
-  - [Save(pathname,profileList)](#M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection- 'MFR.Settings.Profiles.Serializers.ProfileListSerializer.Save(System.String,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection)')
+- [ProfileCollectionSerializer](#T-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer 'MFR.Settings.Profiles.Serializers.ProfileCollectionSerializer')
+  - [Load(pathname)](#M-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer-Load-System-String- 'MFR.Settings.Profiles.Serializers.ProfileCollectionSerializer.Load(System.String)')
+  - [Save(pathname,profileList)](#M-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection- 'MFR.Settings.Profiles.Serializers.ProfileCollectionSerializer.Save(System.String,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection)')
 - [Resources](#T-MFR-Settings-Profiles-Serializers-Properties-Resources 'MFR.Settings.Profiles.Serializers.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Serializers-Properties-Resources-Culture 'MFR.Settings.Profiles.Serializers.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Serializers-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Serializers.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Serializers-ProfileListSerializer'></a>
-## ProfileListSerializer `type`
+<a name='T-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer'></a>
+## ProfileCollectionSerializer `type`
 
 ##### Namespace
 
@@ -25,7 +25,7 @@ Loads and stores profile list information to/from a file.
 
 The profile information is used in code via the [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') interface.
 
-<a name='M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Load-System-String-'></a>
+<a name='M-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer-Load-System-String-'></a>
 ### Load(pathname) `method`
 
 ##### Summary
@@ -60,7 +60,7 @@ passed a blank or `null` string for a value. |
 `pathname`
 parameter, cannot be located on the disk. |
 
-<a name='M-MFR-Settings-Profiles-Serializers-ProfileListSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
+<a name='M-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
 ### Save(pathname,profileList) `method`
 
 ##### Summary
