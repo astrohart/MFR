@@ -3,17 +3,17 @@
 
 ## Contents
 
-- [FixedMessageTypeSpecificObjectBase](#T-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase 'MFR.Messages.FixedMessageTypeSpecificObjectBase')
-  - [MessageType](#P-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase-MessageType 'MFR.Messages.FixedMessageTypeSpecificObjectBase.MessageType')
-- [MessageBase](#T-MFR-Objects-Messages-MessageBase 'MFR.Messages.MessageBase')
-  - [CommonExecute()](#M-MFR-Objects-Messages-MessageBase-CommonExecute 'MFR.Messages.MessageBase.CommonExecute')
-  - [Execute()](#M-MFR-Objects-Messages-MessageBase-Execute 'MFR.Messages.MessageBase.Execute')
-  - [ExecuteAsync()](#M-MFR-Objects-Messages-MessageBase-ExecuteAsync 'MFR.Messages.MessageBase.ExecuteAsync')
-- [Resources](#T-MFR-Objects-Messages-Properties-Resources 'MFR.Messages.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Properties-Resources-Culture 'MFR.Messages.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Properties-Resources-ResourceManager 'MFR.Messages.Properties.Resources.ResourceManager')
+- [FixedMessageTypeSpecificObjectBase](#T-MFR-Messages-FixedMessageTypeSpecificObjectBase 'MFR.Messages.FixedMessageTypeSpecificObjectBase')
+  - [MessageType](#P-MFR-Messages-FixedMessageTypeSpecificObjectBase-MessageType 'MFR.Messages.FixedMessageTypeSpecificObjectBase.MessageType')
+- [MessageBase](#T-MFR-Messages-MessageBase 'MFR.Messages.MessageBase')
+  - [CommonExecute()](#M-MFR-Messages-MessageBase-CommonExecute 'MFR.Messages.MessageBase.CommonExecute')
+  - [Execute()](#M-MFR-Messages-MessageBase-Execute 'MFR.Messages.MessageBase.Execute')
+  - [ExecuteAsync()](#M-MFR-Messages-MessageBase-ExecuteAsync 'MFR.Messages.MessageBase.ExecuteAsync')
+- [Resources](#T-MFR-Messages-Properties-Resources 'MFR.Messages.Properties.Resources')
+  - [Culture](#P-MFR-Messages-Properties-Resources-Culture 'MFR.Messages.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Messages-Properties-Resources-ResourceManager 'MFR.Messages.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase'></a>
+<a name='T-MFR-Messages-FixedMessageTypeSpecificObjectBase'></a>
 ## FixedMessageTypeSpecificObjectBase `type`
 
 ##### Namespace
@@ -24,20 +24,20 @@ MFR.Messages
 
 Defines the methods, properties, and other functionality that are common
 to all objects that are tagged with a
-[MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType')
+[MessageType](#T-MFR-MessageType 'MFR.MessageType')
 enumeration value.
 
-<a name='P-MFR-Objects-Messages-FixedMessageTypeSpecificObjectBase-MessageType'></a>
+<a name='P-MFR-Messages-FixedMessageTypeSpecificObjectBase-MessageType'></a>
 ### MessageType `property`
 
 ##### Summary
 
 Gets the
-[MessageType](#T-MFR-Objects-MessageType 'MFR.MessageType')
+[MessageType](#T-MFR-MessageType 'MFR.MessageType')
 that is
 being used to identify which message this is.
 
-<a name='T-MFR-Objects-Messages-MessageBase'></a>
+<a name='T-MFR-Messages-MessageBase'></a>
 ## MessageBase `type`
 
 ##### Namespace
@@ -53,15 +53,15 @@ messages have in common.
 
 All message objects perform operations that do not require any input or output.
 
-<a name='M-MFR-Objects-Messages-MessageBase-CommonExecute'></a>
+<a name='M-MFR-Messages-MessageBase-CommonExecute'></a>
 ### CommonExecute() `method`
 
 ##### Summary
 
 Provides the functionality of both the
-[Execute](#M-MFR-Objects-IMessage-Execute 'MFR.IMessage.Execute')
+[Execute](#M-MFR-IMessage-Execute 'MFR.IMessage.Execute')
 and
-[ExecuteAsync](#M-MFR-Objects-IMessage-ExecuteAsync 'MFR.IMessage.ExecuteAsync')
+[ExecuteAsync](#M-MFR-IMessage-ExecuteAsync 'MFR.IMessage.ExecuteAsync')
 methods.
 
 ##### Parameters
@@ -73,7 +73,7 @@ This method has no parameters.
 Implementers must override this method in order to provide this
 message's functionality.
 
-<a name='M-MFR-Objects-Messages-MessageBase-Execute'></a>
+<a name='M-MFR-Messages-MessageBase-Execute'></a>
 ### Execute() `method`
 
 ##### Summary
@@ -84,7 +84,7 @@ Executes this command and does not return anything.
 
 This method has no parameters.
 
-<a name='M-MFR-Objects-Messages-MessageBase-ExecuteAsync'></a>
+<a name='M-MFR-Messages-MessageBase-ExecuteAsync'></a>
 ### ExecuteAsync() `method`
 
 ##### Summary
@@ -95,7 +95,7 @@ Executes this command and does not return anything.
 
 This method has no parameters.
 
-<a name='T-MFR-Objects-Messages-Properties-Resources'></a>
+<a name='T-MFR-Messages-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -106,7 +106,7 @@ MFR.Messages.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Messages-Properties-Resources-Culture'></a>
+<a name='P-MFR-Messages-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -114,7 +114,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Messages-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Messages-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
