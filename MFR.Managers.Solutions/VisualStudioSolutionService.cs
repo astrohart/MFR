@@ -23,26 +23,34 @@ namespace MFR.Managers.Solutions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static VisualStudioSolutionService()
-        {
-        }
+        static VisualStudioSolutionService() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected VisualStudioSolutionService()
-        {
-        }
+        protected VisualStudioSolutionService() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.Managers.Solutions.VisualStudioSolutionService"/>.
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.Managers.Solutions.VisualStudioSolutionService" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static VisualStudioSolutionService Instance
         {
             get;
         } = new VisualStudioSolutionService();
+
+        /// <summary>
+        /// Gets or sets the fully-qualified pathname of the folder that is to be searched
+        /// for <c>.sln</c> files.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public string FolderToSearch
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Determines whether the folder having path passed in the
@@ -54,18 +62,39 @@ namespace MFR.Managers.Solutions
         /// <param name="folder">
         /// (Required.) String containing the fully-qualified pathname of a
         /// folder that should be scanned for <c>*.sln</c> files.
+        /// <para />
+        /// If this parameter is passed a blank value, then the method tries to utilize the
+        /// value of the
+        /// <see cref="P:MFR.Managers.Solutions.VisualStudioSolutionService.FolderToSearch" />
+        /// property.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified <paramref name="folder" />
         /// contains <c>*.sln</c> files that are currently loaded by running instances
         /// of Visual Studio; <see langword="false" /> otherwise.
         /// </returns>
-        public bool ContainsLoadedSolutions(string folder)
+        public bool ContainsLoadedSolutions(string folder = "")
         {
             var result = false;
 
+            /*
+             * If the value of the folder parameter is blank, or it
+             * contains a value that is not the fully-qualified pathname
+             * of a folder that exists on the disk, attempt to utilize
+             * the value of the FolderToSearch property.
+             *
+             * If THAT property is blank or contains a value that is
+             * not the fully-qualified pathname of a folder that exists
+             * on the disk, then unfortunately, we are screwed.
+             */
+
             if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
-                return result;
+            {
+                folder = FolderToSearch;
+                if (string.IsNullOrWhiteSpace(folder) ||
+                    !Directory.Exists(folder))
+                    return false;
+            }
 
             try
             {
@@ -192,7 +221,8 @@ namespace MFR.Managers.Solutions
 
             try
             {
-                foreach (var solution in solutions.Where(solt => !solt.IsLoaded))
+                foreach (var solution in
+                    solutions.Where(solt => !solt.IsLoaded))
                     solution.Load();
             }
             catch (Exception ex)
@@ -230,6 +260,23 @@ namespace MFR.Managers.Solutions
                 DebugUtils.LogException(ex);
             }
         }
+
+        /// <summary>
+        /// Alias for the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions" />
+        /// method.
+        /// <para />
+        /// This serves to make this class more fluent.
+        /// </summary>
+        /// <returns>
+        /// This method returns the same value as the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions" />
+        /// method does when a blank value is passed for its input.
+        /// </returns>
+        public bool ContainLoadedSolutions()
+            => ContainsLoadedSolutions();
 
         /// <summary>
         /// Determines whether a file with the <paramref name="path" /> should be
