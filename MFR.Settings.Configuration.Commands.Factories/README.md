@@ -1,70 +1,70 @@
 <a name='assembly'></a>
-# MFR.Configuration.Commands.Factories
+# MFR.Settings.Configuration.Commands.Factories
 
 ## Contents
 
-- [GetConfigurationCommand](#T-MFR-Objects-Configuration-Commands-Factories-GetConfigurationCommand 'MFR.Configuration.Commands.Factories.GetConfigurationCommand')
-  - [For\`\`1()](#M-MFR-Objects-Configuration-Commands-Factories-GetConfigurationCommand-For``1-MFR-Objects-Messages-Constants-MessageType- 'MFR.Configuration.Commands.Factories.GetConfigurationCommand.For``1(MFR.Messages.Constants.MessageType)')
-- [GetSaveConfigPathCommand](#T-MFR-Objects-Configuration-Commands-Factories-GetSaveConfigPathCommand 'MFR.Configuration.Commands.Factories.GetSaveConfigPathCommand')
-  - [ForPath(keyPath,valueName,value)](#M-MFR-Objects-Configuration-Commands-Factories-GetSaveConfigPathCommand-ForPath-System-String,System-String,System-String- 'MFR.Configuration.Commands.Factories.GetSaveConfigPathCommand.ForPath(System.String,System.String,System.String)')
-- [Resources](#T-MFR-Objects-Configuration-Commands-Factories-Properties-Resources 'MFR.Configuration.Commands.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Configuration-Commands-Factories-Properties-Resources-Culture 'MFR.Configuration.Commands.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Configuration-Commands-Factories-Properties-Resources-ResourceManager 'MFR.Configuration.Commands.Factories.Properties.Resources.ResourceManager')
+- [GetConfigurationCommand](#T-MFR-Settings-Configuration-Commands-Factories-GetConfigurationCommand 'MFR.Settings.Configuration.Commands.Factories.GetConfigurationCommand')
+  - [For\`\`1()](#M-MFR-Settings-Configuration-Commands-Factories-GetConfigurationCommand-For``1-MFR-Messages-Constants-MessageType- 'MFR.Settings.Configuration.Commands.Factories.GetConfigurationCommand.For``1(MFR.Messages.Constants.MessageType)')
+- [GetSaveConfigPathCommand](#T-MFR-Settings-Configuration-Commands-Factories-GetSaveConfigPathCommand 'MFR.Settings.Configuration.Commands.Factories.GetSaveConfigPathCommand')
+  - [ForPath(keyPath,valueName,value)](#M-MFR-Settings-Configuration-Commands-Factories-GetSaveConfigPathCommand-ForPath-System-String,System-String,System-String- 'MFR.Settings.Configuration.Commands.Factories.GetSaveConfigPathCommand.ForPath(System.String,System.String,System.String)')
+- [Resources](#T-MFR-Settings-Configuration-Commands-Factories-Properties-Resources 'MFR.Settings.Configuration.Commands.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Settings-Configuration-Commands-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Commands.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Settings-Configuration-Commands-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Commands.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Configuration-Commands-Factories-GetConfigurationCommand'></a>
+<a name='T-MFR-Settings-Configuration-Commands-Factories-GetConfigurationCommand'></a>
 ## GetConfigurationCommand `type`
 
 ##### Namespace
 
-MFR.Configuration.Commands.Factories
+MFR.Settings.Configuration.Commands.Factories
 
 ##### Summary
 
-Creates instances of objects that implement the [ICommand](#T-MFR-Objects-ICommand 'MFR.ICommand') interface.
+Creates instances of objects that implement the [ICommand](#T-MFR-ICommand 'MFR.ICommand') interface, that define operations on the configuration file and its data.
 
 ##### Remarks
 
 In our vernacular, a `command` object is an object that performs an
 operation that accepts input, but has no output.
 
-<a name='M-MFR-Objects-Configuration-Commands-Factories-GetConfigurationCommand-For``1-MFR-Objects-Messages-Constants-MessageType-'></a>
+<a name='M-MFR-Settings-Configuration-Commands-Factories-GetConfigurationCommand-For``1-MFR-Messages-Constants-MessageType-'></a>
 ### For\`\`1() `method`
 
 ##### Summary
 
-Creates a new instance of an object that implements the [ICommand](#T-MFR-Objects-ICommand 'MFR.ICommand') interface and returns a reference to it.
+Creates a new instance of an object that implements the [ICommand](#T-MFR-ICommand 'MFR.ICommand') interface and returns a reference to it.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='T-MFR-Objects-Configuration-Commands-Factories-GetSaveConfigPathCommand'></a>
+<a name='T-MFR-Settings-Configuration-Commands-Factories-GetSaveConfigPathCommand'></a>
 ## GetSaveConfigPathCommand `type`
 
 ##### Namespace
 
-MFR.Configuration.Commands.Factories
+MFR.Settings.Configuration.Commands.Factories
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[ICommand](#T-MFR-Objects-ICommand 'MFR.ICommand')
+[ICommand](#T-MFR-ICommand 'MFR.ICommand')
 interface and provides access to the
 operation of saving the path of a configuration file to the system Registry.
 
-<a name='M-MFR-Objects-Configuration-Commands-Factories-GetSaveConfigPathCommand-ForPath-System-String,System-String,System-String-'></a>
+<a name='M-MFR-Settings-Configuration-Commands-Factories-GetSaveConfigPathCommand-ForPath-System-String,System-String,System-String-'></a>
 ### ForPath(keyPath,valueName,value) `method`
 
 ##### Summary
 
-Provides access to the [ICommand](#T-MFR-Objects-ICommand 'MFR.ICommand')
+Provides access to the [ICommand](#T-MFR-ICommand 'MFR.ICommand')
 -derived object that allows saving the pathname of a configuration
 file to the system Registry.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[ICommand](#T-MFR-Objects-Messages-Commands-Interfaces-ICommand 'MFR.Messages.Commands.Interfaces.ICommand')
+[ICommand](#T-MFR-Messages-Commands-Interfaces-ICommand 'MFR.Messages.Commands.Interfaces.ICommand')
 interface.
 
 ##### Parameters
@@ -80,18 +80,18 @@ system Registry. This value can, optionally, be surrounded by double
 quotation marks, which become mandatory in the case that the path
 contains spaces. |
 
-<a name='T-MFR-Objects-Configuration-Commands-Factories-Properties-Resources'></a>
+<a name='T-MFR-Settings-Configuration-Commands-Factories-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Configuration.Commands.Factories.Properties
+MFR.Settings.Configuration.Commands.Factories.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Configuration-Commands-Factories-Properties-Resources-Culture'></a>
+<a name='P-MFR-Settings-Configuration-Commands-Factories-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -99,7 +99,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Configuration-Commands-Factories-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Settings-Configuration-Commands-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
