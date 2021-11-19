@@ -4,8 +4,7 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 namespace MFR.Managers.Solutions.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a <c> Solution
-    /// Service </c> object.
+    /// Defines the publicly-exposed methods and properties of a <c>Solution Service</c> object.
     /// </summary>
     /// <remarks>
     /// <c>Solution Service</c> objects allow management of Visual Studio Solution
@@ -15,8 +14,20 @@ namespace MFR.Managers.Solutions.Interfaces
     public interface IVisualStudioSolutionService
     {
         /// <summary>
-        /// Determines whether the folder having path passed in the <paramref
-        /// name="folder"/> parameter contains any <c>*.sln</c> files that represent
+        /// Gets or sets the fully-qualified pathname of the folder that is to be searched
+        /// for <c>.sln</c> files.
+        /// </summary>
+        string FolderToSearch
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Determines whether the folder having path passed in the
+        /// <paramref
+        ///     name="folder" />
+        /// parameter contains any <c>*.sln</c> files that represent
         /// solutions currently loaded by running instances of Visual Studio.
         /// </summary>
         /// <param name="folder">
@@ -24,18 +35,20 @@ namespace MFR.Managers.Solutions.Interfaces
         /// folder that should be scanned for <c>*.sln</c> files.
         /// </param>
         /// <returns>
-        /// <see langword="true"/> if the specified <paramref name="folder"/>
+        /// <see langword="true" /> if the specified <paramref name="folder" />
         /// contains <c>*.sln</c> files that are currently loaded by running instances
-        /// of Visual Studio; <see langword="false"/> otherwise.
+        /// of Visual Studio; <see langword="false" /> otherwise.
         /// </returns>
         bool ContainsLoadedSolutions(string folder);
 
         /// <summary>
-        /// Scans the folder whose path is provided in the <paramref
-        /// name="folder"/> parameter for <c>*.sln</c> files, and, for each file
+        /// Scans the folder whose path is provided in the
+        /// <paramref
+        ///     name="folder" />
+        /// parameter for <c>*.sln</c> files, and, for each file
         /// located, determines whether a running instance of Visual Studio has
         /// it loaded.
-        /// <para/>
+        /// <para />
         /// If this is so, then information about the loaded solution is
         /// returned as an element of a collection of any other such solutions.
         /// </summary>
@@ -45,17 +58,18 @@ namespace MFR.Managers.Solutions.Interfaces
         /// </param>
         /// <returns>
         /// Read-only list of references to instances of objects that implement
-        /// the <see
-        /// cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution"/>
+        /// the
+        /// <see
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface for each instance of Visual Studio that has that solution loaded.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="folder"/>, is
-        /// passed a blank or <see langword="null"/> string for a value.
+        /// Thrown if the required parameter, <paramref name="folder" />, is
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:DirectoryNotFoundException">
         /// Thrown if the directory whose fully-qualified path is passed in the
-        /// <paramref name="folder"/> parameter cannot be found on the disk.
+        /// <paramref name="folder" /> parameter cannot be found on the disk.
         /// </exception>
         IReadOnlyList<IVisualStudioSolution> GetLoadedSolutionsInFolder(
             string folder);
@@ -67,8 +81,9 @@ namespace MFR.Managers.Solutions.Interfaces
         /// </summary>
         /// <param name="solutions">
         /// (Required.) Reference to a collection of references to instances of
-        /// objects that implement the <see
-        /// cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution"/>
+        /// objects that implement the
+        /// <see
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface that represent the solution(s) to be loaded.
         /// </param>
         void LoadAll(IReadOnlyList<IVisualStudioSolution> solutions);
@@ -80,10 +95,27 @@ namespace MFR.Managers.Solutions.Interfaces
         /// </summary>
         /// <param name="solutions">
         /// (Required.) Reference to a collection of references to instances of
-        /// objects that implement the <see
-        /// cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution"/>
+        /// objects that implement the
+        /// <see
+        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface which represent the solution(s) to be unloaded.
         /// </param>
         void UnloadAll(IReadOnlyList<IVisualStudioSolution> solutions);
+
+        /// <summary>
+        /// Alias for the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions" />
+        /// method.
+        /// <para />
+        /// This serves to make this class more fluent.
+        /// </summary>
+        /// <returns>
+        /// This method returns the same value as the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions" />
+        /// method does when a blank value is passed for its input.
+        /// </returns>
+        bool ContainLoadedSolutions();
     }
 }
