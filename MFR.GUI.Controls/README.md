@@ -4,7 +4,6 @@
 ## Contents
 
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
-  - [#ctor()](#M-MFR-GUI-Controls-EntryRespectingComboBox-#ctor 'MFR.GUI.Controls.EntryRespectingComboBox.#ctor')
   - [_enteredText](#F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText 'MFR.GUI.Controls.EntryRespectingComboBox._enteredText')
   - [EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText')
   - [ClearSelection()](#M-MFR-GUI-Controls-EntryRespectingComboBox-ClearSelection 'MFR.GUI.Controls.EntryRespectingComboBox.ClearSelection')
@@ -46,20 +45,6 @@ entry from the auto-suggest list, when the input focus leaves the
 control," which seems to be the default behavior. This is detrimental to
 the software meeting certain requirements.  Therefore, this object was
 engineered in the hopes of making that behavior go away.
-
-<a name='M-MFR-GUI-Controls-EntryRespectingComboBox-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
-and returns a
-reference to it.
-
-##### Parameters
-
-This constructor has no parameters.
 
 <a name='F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText'></a>
 ### _enteredText `constants`
