@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [IOperationTypeDescription](#T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription')
-  - [Text](#P-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription.Text')
-- [IOperationTypeStartedDescription](#T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeStartedDescription')
-- [Resources](#T-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources 'MFR.Operations.Descriptions.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-Culture 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.ResourceManager')
+- [IOperationTypeDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription')
+  - [Text](#P-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription.Text')
+- [IOperationTypeStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeStartedDescription')
+- [Resources](#T-MFR-Operations-Descriptions-Interfaces-Properties-Resources 'MFR.Operations.Descriptions.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Operations-Descriptions-Interfaces-Properties-Resources-Culture 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription'></a>
+<a name='T-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription'></a>
 ## IOperationTypeDescription `type`
 
 ##### Namespace
@@ -22,7 +22,7 @@ MFR.Operations.Descriptions.Interfaces
 Defines the publicly-exposed methods and properties of an operation
 description object.
 
-<a name='P-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text'></a>
+<a name='P-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text'></a>
 ### Text `property`
 
 ##### Summary
@@ -34,7 +34,7 @@ current type of operation that is currently being performed.
 
 It is up to the implementers of this interface to supply the proper text.
 
-<a name='T-MFR-Objects-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription'></a>
+<a name='T-MFR-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription'></a>
 ## IOperationTypeStartedDescription `type`
 
 ##### Namespace
@@ -51,7 +51,7 @@ just being commenced.
 
 It is up to the implementers of this interface to supply the proper text.
 
-<a name='T-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Operations-Descriptions-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -62,7 +62,7 @@ MFR.Operations.Descriptions.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Operations-Descriptions-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -70,7 +70,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
