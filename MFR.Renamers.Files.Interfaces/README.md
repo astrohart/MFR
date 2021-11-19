@@ -3,20 +3,20 @@
 
 ## Contents
 
-- [IFileRenamer](#T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
-  - [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
-  - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
-  - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RequestAbort()](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RequestAbort 'MFR.Renamers.Files.Interfaces.IFileRenamer.RequestAbort')
-  - [StartingFrom()](#M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-StartingFrom-System-String- 'MFR.Renamers.Files.Interfaces.IFileRenamer.StartingFrom(System.String)')
-- [Resources](#T-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources 'MFR.Renamers.Files.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-Culture 'MFR.Renamers.Files.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Interfaces.Properties.Resources.ResourceManager')
+- [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
+  - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
+  - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
+  - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RequestAbort()](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RequestAbort 'MFR.Renamers.Files.Interfaces.IFileRenamer.RequestAbort')
+  - [StartingFrom(path)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-StartingFrom-System-String- 'MFR.Renamers.Files.Interfaces.IFileRenamer.StartingFrom(System.String)')
+- [Resources](#T-MFR-Renamers-Files-Interfaces-Properties-Resources 'MFR.Renamers.Files.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Renamers-Files-Interfaces-Properties-Resources-Culture 'MFR.Renamers.Files.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Renamers-Files-Interfaces-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer'></a>
+<a name='T-MFR-Renamers-Files-Interfaces-IFileRenamer'></a>
 ## IFileRenamer `type`
 
 ##### Namespace
@@ -29,7 +29,7 @@ Defines the publicly-exposed methods and properties of a `File
             Renamer` object. Such an object is directly responsible for
 processing the file operations of this application.
 
-<a name='P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath'></a>
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
 
 ##### Summary
@@ -37,14 +37,14 @@ processing the file operations of this application.
 Gets a string containing the full pathname of the folder where all
 operations start.
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}-'></a>
 ### ProcessAll(findWhat,replaceWith,pathFilter) `method`
 
 ##### Summary
 
 Executes the Rename Subfolders, Rename Files, and Replace Text in
 Files operation on all the folders and files in the root folder with
-the pathname stored in the [RootDirectoryPath](#P-MFR-Objects-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath') property.
+the pathname stored in the [RootDirectoryPath](#P-MFR-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath') property.
 
 ##### Parameters
 
@@ -70,7 +70,7 @@ barring other inclusion/exclusion criteria.
 In the event that this parameter is `null`, no path
 filtering is done. |
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter) `method`
 
 ##### Summary
@@ -104,7 +104,7 @@ barring other inclusion/exclusion criteria.
 In the event that this parameter is `null`, no path
 filtering is done. |
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
 
 ##### Summary
@@ -146,7 +146,7 @@ filtering is done. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the `rootFolderPath` does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
 
 ##### Summary
@@ -190,7 +190,7 @@ filtering is done. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the `rootFolderPath` does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
 
 ##### Summary
@@ -234,7 +234,7 @@ filtering is done. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the `rootFolderPath` does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RequestAbort'></a>
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RequestAbort'></a>
 ### RequestAbort() `method`
 
 ##### Summary
@@ -245,28 +245,43 @@ Called to ask the `File Renamer` object to stop operations.
 
 This method has no parameters.
 
-<a name='M-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-StartingFrom-System-String-'></a>
-### StartingFrom() `method`
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-StartingFrom-System-String-'></a>
+### StartingFrom(path) `method`
 
 ##### Summary
 
-Initializes the value of the [RootDirectoryPath](#P-MFR-Objects-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
-property to the value specified in the `rootDirectoryPath` parameter.
-
-
-
-The value is the starting location of the search operations.
-
-##### Returns
-
-Reference to the same instance of the object that called this
-method, for fluent use.
+Sets the new root directory path from which searches should be started.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of the folder from
+which searches should be started.
 
-<a name='T-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources'></a>
+
+
+The fully-qualified pathname passed must reference a folder that currently
+exists on the disk; otherwise, [DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') is thrown. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
+`path`, is passed a blank or `null` string
+for a value. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose fully-qualified pathname is passed in the
+`path` parameter cannot be located on the disk. |
+
+##### Remarks
+
+Upon successful validation of the fully-qualified folder pathname that is
+specified as the value of the `path` parameter, assigns the
+value to the [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
+property.
+
+<a name='T-MFR-Renamers-Files-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -277,7 +292,7 @@ MFR.Renamers.Files.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Renamers-Files-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -285,7 +300,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Renamers-Files-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Renamers-Files-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
