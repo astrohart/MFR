@@ -11,11 +11,13 @@
   - [MatchCase](#P-MFR-GUI-Windows-Interfaces-IMainWindow-MatchCase 'MFR.GUI.Windows.Interfaces.IMainWindow.MatchCase')
   - [MatchExactWord](#P-MFR-GUI-Windows-Interfaces-IMainWindow-MatchExactWord 'MFR.GUI.Windows.Interfaces.IMainWindow.MatchExactWord')
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.Interfaces.IMainWindow.OperationsCheckedListBox')
+  - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ProfileCollectionComboBox')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ReplaceWithComboBox')
   - [SelectAll](#P-MFR-GUI-Windows-Interfaces-IMainWindow-SelectAll 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-Interfaces-IMainWindow-SelectedOptionTab 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectedOptionTab')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-StartingFolderComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.StartingFolderComboBox')
   - [Version](#P-MFR-GUI-Windows-Interfaces-IMainWindow-Version 'MFR.GUI.Windows.Interfaces.IMainWindow.Version')
+  - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-Interfaces-IMainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ResetProfileCollectionComboBox')
 - [Resources](#T-MFR-GUI-Windows-Interfaces-Properties-Resources 'MFR.GUI.Windows.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Interfaces-Properties-Resources-Culture 'MFR.GUI.Windows.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Interfaces.Properties.Resources.ResourceManager')
@@ -82,7 +84,17 @@ Gets or sets the value of the Match Exact Word checkbox
 
 ##### Summary
 
-Gets a reference to the [CheckedListBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CheckedListBox 'System.Windows.Forms.CheckedListBox') that has the list of operations.
+Gets a reference to the
+[CheckedListBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CheckedListBox 'System.Windows.Forms.CheckedListBox')
+that has the list of operations.
+
+<a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-ProfileCollectionComboBox'></a>
+### ProfileCollectionComboBox `property`
+
+##### Summary
+
+Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
+that has a drop-down list of the profiles that the user has created.
 
 <a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`
@@ -124,7 +136,25 @@ Gets a string containing this application's version.
 
 ##### Remarks
 
-Thanks to 's answer on the Microsoft forums.
+Thanks to
+
+'s answer on the Microsoft forums.
+
+<a name='M-MFR-GUI-Windows-Interfaces-IMainWindow-ResetProfileCollectionComboBox'></a>
+### ResetProfileCollectionComboBox() `method`
+
+##### Summary
+
+Clears all the items from the Profile List combo box and then adds the
+`
+            <No profile selected>
+            `
+item and then selects the first element in the
+[Items](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox.Items 'System.Windows.Forms.ToolStripComboBox.Items') list.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Windows-Interfaces-Properties-Resources'></a>
 ## Resources `type`
