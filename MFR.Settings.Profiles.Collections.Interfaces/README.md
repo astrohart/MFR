@@ -4,6 +4,7 @@
 ## Contents
 
 - [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+  - [Item](#P-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-Item-System-Int32- 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection.Item(System.Int32)')
   - [HasProfileNamed(name)](#M-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String- 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection.HasProfileNamed(System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources 'MFR.Settings.Profiles.Collections.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Collections-Interfaces-Properties-Resources-Culture 'MFR.Settings.Profiles.Collections.Interfaces.Properties.Resources.Culture')
@@ -18,11 +19,35 @@ MFR.Settings.Profiles.Collections.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a `Profile Collection` object.
+Defines the publicly-exposed methods and properties of a
+`Profile Collection` object.
 
 ##### Remarks
 
-A `Profile Collection` object is what it sounds like -- a container of profiles.
+A `Profile Collection` object is what it sounds like -- a
+container of profiles.
+
+<a name='P-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-Item-System-Int32-'></a>
+### Item `property`
+
+##### Summary
+
+Gets the object implementing the
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface at the
+position `i` in the collection.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface that
+exists at the specified index.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| i | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) Integer, that is zero or greater, referring to the
+index of the desired element. |
 
 <a name='M-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-HasProfileNamed-System-String-'></a>
 ### HasProfileNamed(name) `method`
@@ -30,7 +55,7 @@ A `Profile Collection` object is what it sounds like -- a container of profiles.
 ##### Summary
 
 Determines whether the profile collection already has a profile with the
-    name provided.
+name provided.
 
 
 
@@ -39,7 +64,7 @@ There can only be one profile with a given name, case-insensitive.
 ##### Returns
 
 `true` if a profile having the given name is found;
-    `false` otherwise.
+`false` otherwise.
 
 ##### Parameters
 
