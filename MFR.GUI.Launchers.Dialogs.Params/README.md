@@ -9,6 +9,8 @@
   - [Exception](#P-MFR-GUI-Launchers-Dialogs-Params-ErrorReportDialogLaunchParams-Exception 'MFR.GUI.Launchers.Dialogs.Params.ErrorReportDialogLaunchParams.Exception')
   - [SendHandler](#P-MFR-GUI-Launchers-Dialogs-Params-ErrorReportDialogLaunchParams-SendHandler 'MFR.GUI.Launchers.Dialogs.Params.ErrorReportDialogLaunchParams.SendHandler')
   - [ViewHandler](#P-MFR-GUI-Launchers-Dialogs-Params-ErrorReportDialogLaunchParams-ViewHandler 'MFR.GUI.Launchers.Dialogs.Params.ErrorReportDialogLaunchParams.ViewHandler')
+- [ProfileNameDialogLaunchParams](#T-MFR-GUI-Launchers-Dialogs-Params-ProfileNameDialogLaunchParams 'MFR.GUI.Launchers.Dialogs.Params.ProfileNameDialogLaunchParams')
+  - [OperationType](#P-MFR-GUI-Launchers-Dialogs-Params-ProfileNameDialogLaunchParams-OperationType 'MFR.GUI.Launchers.Dialogs.Params.ProfileNameDialogLaunchParams.OperationType')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Params-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Params.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Params-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Params.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Params-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Params.Properties.Resources.ResourceManager')
@@ -71,6 +73,26 @@ Gets or sets a reference to the
 [ViewHandler](#T-MFR-GUI-Dialogs-Events-ViewHandler 'MFR.GUI.Dialogs.Events.ViewHandler')
 -typed delegate that will be called when the user requests to view the detailed
 error report.
+
+<a name='T-MFR-GUI-Launchers-Dialogs-Params-ProfileNameDialogLaunchParams'></a>
+## ProfileNameDialogLaunchParams `type`
+
+##### Namespace
+
+MFR.GUI.Launchers.Dialogs.Params
+
+##### Summary
+
+Parameters for launching a Profile Name dialog box.
+
+<a name='P-MFR-GUI-Launchers-Dialogs-Params-ProfileNameDialogLaunchParams-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets or sets the
+[ProfileCreateOperationType](#T-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType 'MFR.GUI.Dialogs.Constants.ProfileCreateOperationType') value
+that indicates how the dialog box is being used.
 
 <a name='T-MFR-GUI-Launchers-Dialogs-Params-Properties-Resources'></a>
 ## Resources `type`
