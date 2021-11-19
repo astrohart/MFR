@@ -51,16 +51,16 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| view | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of an object that is of the type
-`TView`, and which represents the form that
-is to be associated with this presenter. |
+| view | [\`0](#T-`0 '`0') | (Required.) Reference to an instance of an object that is of the
+type `TView`, and which represents the form
+that is to be associated with this presenter. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `view`, is
-passed a `null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `view`, is passed
+a `null` value. |
 
 <a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-ShowProgressDialog'></a>
 ### ShowProgressDialog() `method`
