@@ -3,16 +3,16 @@
 
 ## Contents
 
-- [HistoryManager](#T-MFR-Objects-Managers-History-HistoryManager 'MFR.Managers.History.HistoryManager')
-  - [#ctor(messageBoxParentWindow)](#M-MFR-Objects-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
-  - [_messageBoxParentWindow](#F-MFR-Objects-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
-  - [CanClearAll()](#M-MFR-Objects-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
-  - [ClearAll()](#M-MFR-Objects-Managers-History-HistoryManager-ClearAll 'MFR.Managers.History.HistoryManager.ClearAll')
-- [Resources](#T-MFR-Objects-Managers-History-Properties-Resources 'MFR.Managers.History.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Managers-History-Properties-Resources-Culture 'MFR.Managers.History.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Managers-History-Properties-Resources-ResourceManager 'MFR.Managers.History.Properties.Resources.ResourceManager')
+- [HistoryManager](#T-MFR-Managers-History-HistoryManager 'MFR.Managers.History.HistoryManager')
+  - [#ctor(messageBoxParentWindow)](#M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
+  - [_messageBoxParentWindow](#F-MFR-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
+  - [CanClearAll()](#M-MFR-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
+  - [ClearAll()](#M-MFR-Managers-History-HistoryManager-ClearAll 'MFR.Managers.History.HistoryManager.ClearAll')
+- [Resources](#T-MFR-Managers-History-Properties-Resources 'MFR.Managers.History.Properties.Resources')
+  - [Culture](#P-MFR-Managers-History-Properties-Resources-Culture 'MFR.Managers.History.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Managers-History-Properties-Resources-ResourceManager 'MFR.Managers.History.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Managers-History-HistoryManager'></a>
+<a name='T-MFR-Managers-History-HistoryManager'></a>
 ## HistoryManager `type`
 
 ##### Namespace
@@ -23,13 +23,13 @@ MFR.Managers.History
 
 Manages the configuration history on behalf of the application.
 
-<a name='M-MFR-Objects-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window-'></a>
+<a name='M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window-'></a>
 ### #ctor(messageBoxParentWindow) `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[HistoryManager](#T-MFR-Objects-HistoryManager 'MFR.HistoryManager')
+[HistoryManager](#T-MFR-HistoryManager 'MFR.HistoryManager')
 and returns a
 reference to it.
 
@@ -50,7 +50,7 @@ displayed by this object. |
 `messageBoxParentWindow`
 , is passed a `null` value. |
 
-<a name='F-MFR-Objects-Managers-History-HistoryManager-_messageBoxParentWindow'></a>
+<a name='F-MFR-Managers-History-HistoryManager-_messageBoxParentWindow'></a>
 ### _messageBoxParentWindow `constants`
 
 ##### Summary
@@ -64,7 +64,7 @@ interface.
 This field is supposed to be filled with a reference to an object
 that represents the main window of the application.
 
-<a name='M-MFR-Objects-Managers-History-HistoryManager-CanClearAll'></a>
+<a name='M-MFR-Managers-History-HistoryManager-CanClearAll'></a>
 ### CanClearAll() `method`
 
 ##### Summary
@@ -87,7 +87,7 @@ This method does nothing but return `false` if all
 the history lists are already clear, since, in that event, this
 means that there is nothing to do.
 
-<a name='M-MFR-Objects-Managers-History-HistoryManager-ClearAll'></a>
+<a name='M-MFR-Managers-History-HistoryManager-ClearAll'></a>
 ### ClearAll() `method`
 
 ##### Summary
@@ -103,7 +103,7 @@ successfully; `false` otherwise.
 
 This method has no parameters.
 
-<a name='T-MFR-Objects-Managers-History-Properties-Resources'></a>
+<a name='T-MFR-Managers-History-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -114,7 +114,7 @@ MFR.Managers.History.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Managers-History-Properties-Resources-Culture'></a>
+<a name='P-MFR-Managers-History-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -122,7 +122,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Managers-History-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Managers-History-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
