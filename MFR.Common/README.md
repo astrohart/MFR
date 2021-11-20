@@ -3,27 +3,27 @@
 
 ## Contents
 
-- [ProgramFlowHelper](#T-MFR-Objects-ProgramFlowHelper 'MFR.ProgramFlowHelper')
-  - [StartDebugger()](#M-MFR-Objects-ProgramFlowHelper-StartDebugger 'MFR.ProgramFlowHelper.StartDebugger')
-- [Reflector](#T-MFR-Objects-Reflector 'MFR.Reflector')
-  - [#ctor(targetNamespace)](#M-MFR-Objects-Reflector-#ctor-System-String- 'MFR.Reflector.#ctor(System.String)')
-  - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Objects-Reflector-#ctor-System-String,System-String- 'MFR.Reflector.#ctor(System.String,System.String)')
-  - [_targetAssembly](#F-MFR-Objects-Reflector-_targetAssembly 'MFR.Reflector._targetAssembly')
-  - [_targetNamespace](#F-MFR-Objects-Reflector-_targetNamespace 'MFR.Reflector._targetNamespace')
-  - [Call(obj,func,parameters)](#M-MFR-Objects-Reflector-Call-System-Object,System-String,System-Object[]- 'MFR.Reflector.Call(System.Object,System.String,System.Object[])')
-  - [Call2(obj,func,parameters)](#M-MFR-Objects-Reflector-Call2-System-Object,System-String,System-Object[]- 'MFR.Reflector.Call2(System.Object,System.String,System.Object[])')
-  - [CallAs(type,obj,func,parameters)](#M-MFR-Objects-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'MFR.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
-  - [CallAs2(type,obj,func,parameters)](#M-MFR-Objects-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]- 'MFR.Reflector.CallAs2(System.Type,System.Object,System.String,System.Object[])')
-  - [Get(obj,propertyName)](#M-MFR-Objects-Reflector-Get-System-Object,System-String- 'MFR.Reflector.Get(System.Object,System.String)')
-  - [GetAs(type,obj,propertyName)](#M-MFR-Objects-Reflector-GetAs-System-Type,System-Object,System-String- 'MFR.Reflector.GetAs(System.Type,System.Object,System.String)')
-  - [GetEnum(typeName,name)](#M-MFR-Objects-Reflector-GetEnum-System-String,System-String- 'MFR.Reflector.GetEnum(System.String,System.String)')
-  - [GetType(typeName)](#M-MFR-Objects-Reflector-GetType-System-String- 'MFR.Reflector.GetType(System.String)')
-  - [New(typeName,parameters)](#M-MFR-Objects-Reflector-New-System-String,System-Object[]- 'MFR.Reflector.New(System.String,System.Object[])')
-- [Resources](#T-MFR-Objects-Properties-Resources 'MFR.Common.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
+- [ProgramFlowHelper](#T-MFR-Common-ProgramFlowHelper 'MFR.Common.ProgramFlowHelper')
+  - [StartDebugger()](#M-MFR-Common-ProgramFlowHelper-StartDebugger 'MFR.Common.ProgramFlowHelper.StartDebugger')
+- [Reflector](#T-MFR-Common-Reflector 'MFR.Common.Reflector')
+  - [#ctor(targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String- 'MFR.Common.Reflector.#ctor(System.String)')
+  - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String,System-String- 'MFR.Common.Reflector.#ctor(System.String,System.String)')
+  - [_targetAssembly](#F-MFR-Common-Reflector-_targetAssembly 'MFR.Common.Reflector._targetAssembly')
+  - [_targetNamespace](#F-MFR-Common-Reflector-_targetNamespace 'MFR.Common.Reflector._targetNamespace')
+  - [Call(obj,func,parameters)](#M-MFR-Common-Reflector-Call-System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.Call(System.Object,System.String,System.Object[])')
+  - [Call2(obj,func,parameters)](#M-MFR-Common-Reflector-Call2-System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.Call2(System.Object,System.String,System.Object[])')
+  - [CallAs(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
+  - [CallAs2(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.CallAs2(System.Type,System.Object,System.String,System.Object[])')
+  - [Get(obj,propertyName)](#M-MFR-Common-Reflector-Get-System-Object,System-String- 'MFR.Common.Reflector.Get(System.Object,System.String)')
+  - [GetAs(type,obj,propertyName)](#M-MFR-Common-Reflector-GetAs-System-Type,System-Object,System-String- 'MFR.Common.Reflector.GetAs(System.Type,System.Object,System.String)')
+  - [GetEnum(typeName,name)](#M-MFR-Common-Reflector-GetEnum-System-String,System-String- 'MFR.Common.Reflector.GetEnum(System.String,System.String)')
+  - [GetType(typeName)](#M-MFR-Common-Reflector-GetType-System-String- 'MFR.Common.Reflector.GetType(System.String)')
+  - [New(typeName,parameters)](#M-MFR-Common-Reflector-New-System-String,System-Object[]- 'MFR.Common.Reflector.New(System.String,System.Object[])')
+- [Resources](#T-MFR-Common-Properties-Resources 'MFR.Common.Properties.Resources')
+  - [Culture](#P-MFR-Common-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-ProgramFlowHelper'></a>
+<a name='T-MFR-Common-ProgramFlowHelper'></a>
 ## ProgramFlowHelper `type`
 
 ##### Namespace
@@ -34,7 +34,7 @@ MFR.Common
 
 Defines methods and properties to aid in controlling the flow of the program.
 
-<a name='M-MFR-Objects-ProgramFlowHelper-StartDebugger'></a>
+<a name='M-MFR-Common-ProgramFlowHelper-StartDebugger'></a>
 ### StartDebugger() `method`
 
 ##### Summary
@@ -55,7 +55,7 @@ process instance.
 
 Such calls should be commented out or deleted when no longer needed.
 
-<a name='T-MFR-Objects-Reflector'></a>
+<a name='T-MFR-Common-Reflector'></a>
 ## Reflector `type`
 
 ##### Namespace
@@ -70,12 +70,12 @@ dialog box to select folders is much better then using the shell folder
 browser. http://code.google.com/p/fed/ Example: var r = new
 Reflector("System.Windows.Forms");
 
-<a name='M-MFR-Objects-Reflector-#ctor-System-String-'></a>
+<a name='M-MFR-Common-Reflector-#ctor-System-String-'></a>
 ### #ctor(targetNamespace) `constructor`
 
 ##### Summary
 
-Constructs a new instance of [Reflector](#T-MFR-Objects-Reflector 'MFR.Reflector')
+Constructs a new instance of [Reflector](#T-MFR-Reflector 'MFR.Reflector')
 and returns a reference to it.
 
 ##### Parameters
@@ -96,12 +96,12 @@ contains the target object. |
 string for a value. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if no referenced assemblies can be found. |
 
-<a name='M-MFR-Objects-Reflector-#ctor-System-String,System-String-'></a>
+<a name='M-MFR-Common-Reflector-#ctor-System-String,System-String-'></a>
 ### #ctor(targetAssembly,targetNamespace) `constructor`
 
 ##### Summary
 
-Constructs a new instance of [Reflector](#T-MFR-Objects-Reflector 'MFR.Reflector')
+Constructs a new instance of [Reflector](#T-MFR-Reflector 'MFR.Reflector')
 and returns a reference to it.
 
 ##### Parameters
@@ -123,7 +123,7 @@ or `targetNamespace`, are
 passed blank or `null` strings for values. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if no referenced assemblies can be found. |
 
-<a name='F-MFR-Objects-Reflector-_targetAssembly'></a>
+<a name='F-MFR-Common-Reflector-_targetAssembly'></a>
 ### _targetAssembly `constants`
 
 ##### Summary
@@ -132,14 +132,14 @@ Reference to an instance of
 [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
 that corresponds to the target assembly.
 
-<a name='F-MFR-Objects-Reflector-_targetNamespace'></a>
+<a name='F-MFR-Common-Reflector-_targetNamespace'></a>
 ### _targetNamespace `constants`
 
 ##### Summary
 
 String containing the C# namespace that contains the target object.
 
-<a name='M-MFR-Objects-Reflector-Call-System-Object,System-String,System-Object[]-'></a>
+<a name='M-MFR-Common-Reflector-Call-System-Object,System-String,System-Object[]-'></a>
 ### Call(obj,func,parameters) `method`
 
 ##### Summary
@@ -161,7 +161,7 @@ the target object. |
 | parameters | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Required.) Zero or more parameter values to be passed to the target
 method as arguments. |
 
-<a name='M-MFR-Objects-Reflector-Call2-System-Object,System-String,System-Object[]-'></a>
+<a name='M-MFR-Common-Reflector-Call2-System-Object,System-String,System-Object[]-'></a>
 ### Call2(obj,func,parameters) `method`
 
 ##### Summary
@@ -183,7 +183,7 @@ the target object. |
 | parameters | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Required.) Zero or more parameter values to be passed to the target
 method as arguments. |
 
-<a name='M-MFR-Objects-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]-'></a>
+<a name='M-MFR-Common-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]-'></a>
 ### CallAs(type,obj,func,parameters) `method`
 
 ##### Summary
@@ -210,7 +210,7 @@ the target object. |
 | parameters | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Required.) Zero or more parameter values to be passed to the target
 method as arguments. |
 
-<a name='M-MFR-Objects-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]-'></a>
+<a name='M-MFR-Common-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]-'></a>
 ### CallAs2(type,obj,func,parameters) `method`
 
 ##### Summary
@@ -237,7 +237,7 @@ the target object. |
 | parameters | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | (Required.) Zero or more parameter values to be passed to the target
 method as arguments. |
 
-<a name='M-MFR-Objects-Reflector-Get-System-Object,System-String-'></a>
+<a name='M-MFR-Common-Reflector-Get-System-Object,System-String-'></a>
 ### Get(obj,propertyName) `method`
 
 ##### Summary
@@ -270,7 +270,7 @@ a `null` value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `propertyName`,
 is passed a blank or `null` string for a value. |
 
-<a name='M-MFR-Objects-Reflector-GetAs-System-Type,System-Object,System-String-'></a>
+<a name='M-MFR-Common-Reflector-GetAs-System-Type,System-Object,System-String-'></a>
 ### GetAs(type,obj,propertyName) `method`
 
 ##### Summary
@@ -307,7 +307,7 @@ a `null` value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `propertyName`,
 is passed a blank or `null` string for a value. |
 
-<a name='M-MFR-Objects-Reflector-GetEnum-System-String,System-String-'></a>
+<a name='M-MFR-Common-Reflector-GetEnum-System-String,System-String-'></a>
 ### GetEnum(typeName,name) `method`
 
 ##### Summary
@@ -342,7 +342,7 @@ passed a blank or `null` string for a value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `name`, is passed
 a blank or `null` string for a value. |
 
-<a name='M-MFR-Objects-Reflector-GetType-System-String-'></a>
+<a name='M-MFR-Common-Reflector-GetType-System-String-'></a>
 ### GetType(typeName) `method`
 
 ##### Summary
@@ -377,7 +377,7 @@ Framework type. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `typeName`, is
 passed a blank or `null` string for a value. |
 
-<a name='M-MFR-Objects-Reflector-New-System-String,System-Object[]-'></a>
+<a name='M-MFR-Common-Reflector-New-System-String,System-Object[]-'></a>
 ### New(typeName,parameters) `method`
 
 ##### Summary
@@ -413,7 +413,7 @@ the target object as arguments. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `typeName`, is
 passed a blank or `null` string for a value. |
 
-<a name='T-MFR-Objects-Properties-Resources'></a>
+<a name='T-MFR-Common-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -424,7 +424,7 @@ MFR.Common.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Properties-Resources-Culture'></a>
+<a name='P-MFR-Common-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -432,7 +432,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Common-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
