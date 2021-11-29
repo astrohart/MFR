@@ -8,8 +8,10 @@
   - [ResourceManager](#P-MFR-Managers-Solutions-Properties-Resources-ResourceManager 'MFR.Managers.Solutions.Properties.Resources.ResourceManager')
 - [VisualStudioSolutionService](#T-MFR-Managers-Solutions-VisualStudioSolutionService 'MFR.Managers.Solutions.VisualStudioSolutionService')
   - [#ctor()](#M-MFR-Managers-Solutions-VisualStudioSolutionService-#ctor 'MFR.Managers.Solutions.VisualStudioSolutionService.#ctor')
+  - [FolderToSearch](#P-MFR-Managers-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Managers.Solutions.VisualStudioSolutionService.FolderToSearch')
   - [Instance](#P-MFR-Managers-Solutions-VisualStudioSolutionService-Instance 'MFR.Managers.Solutions.VisualStudioSolutionService.Instance')
   - [#cctor()](#M-MFR-Managers-Solutions-VisualStudioSolutionService-#cctor 'MFR.Managers.Solutions.VisualStudioSolutionService.#cctor')
+  - [ContainLoadedSolutions()](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainLoadedSolutions 'MFR.Managers.Solutions.VisualStudioSolutionService.ContainLoadedSolutions')
   - [ContainsLoadedSolutions(folder)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
   - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Managers.Solutions.VisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
   - [LoadAll(solutions)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Managers.Solutions.VisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
@@ -65,12 +67,21 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
+<a name='P-MFR-Managers-Solutions-VisualStudioSolutionService-FolderToSearch'></a>
+### FolderToSearch `property`
+
+##### Summary
+
+Gets or sets the fully-qualified pathname of the folder that is to be searched
+for `.sln` files.
+
 <a name='P-MFR-Managers-Solutions-VisualStudioSolutionService-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of [VisualStudioSolutionService](#T-MFR-Managers-Solutions-VisualStudioSolutionService 'MFR.Managers.Solutions.VisualStudioSolutionService').
+Gets a reference to the one and only instance of
+[VisualStudioSolutionService](#T-MFR-Managers-Solutions-VisualStudioSolutionService 'MFR.Managers.Solutions.VisualStudioSolutionService').
 
 <a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-#cctor'></a>
 ### #cctor() `method`
@@ -78,6 +89,29 @@ Gets a reference to the one and only instance of [VisualStudioSolutionService](#
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainLoadedSolutions'></a>
+### ContainLoadedSolutions() `method`
+
+##### Summary
+
+Alias for the
+[ContainsLoadedSolutions](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions')
+method.
+
+
+
+This serves to make this class more fluent.
+
+##### Returns
+
+This method returns the same value as the
+[ContainsLoadedSolutions](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions')
+method does when a blank value is passed for its input.
 
 ##### Parameters
 
@@ -104,7 +138,14 @@ of Visual Studio; `false` otherwise.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | folder | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a
-folder that should be scanned for `*.sln` files. |
+folder that should be scanned for `*.sln` files.
+
+
+
+If this parameter is passed a blank value, then the method tries to utilize the
+value of the
+[FolderToSearch](#P-MFR-Managers-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Managers.Solutions.VisualStudioSolutionService.FolderToSearch')
+property. |
 
 <a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String-'></a>
 ### GetLoadedSolutionsInFolder(folder) `method`
