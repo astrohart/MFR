@@ -3,11 +3,11 @@
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Messages-Commands-Tests-Properties-Resources 'MFR.Messages.Commands.Tests.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-Culture 'MFR.Messages.Commands.Tests.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Messages.Commands.Tests.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Messages-Commands-Tests-Properties-Resources 'MFR.Messages.Commands.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Messages-Commands-Tests-Properties-Resources-Culture 'MFR.Messages.Commands.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Messages-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Messages.Commands.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Messages-Commands-Tests-Properties-Resources'></a>
+<a name='T-MFR-Messages-Commands-Tests-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -18,7 +18,7 @@ MFR.Messages.Commands.Tests.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-Culture'></a>
+<a name='P-MFR-Messages-Commands-Tests-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -26,7 +26,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Messages-Commands-Tests-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Messages-Commands-Tests-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
