@@ -3,18 +3,18 @@
 
 ## Contents
 
-- [RegexFormats](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats 'MFR.Generators.RegularExpressions.Constants.RegexFormats')
-  - [MatchExactWord](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchExactWord 'MFR.Generators.RegularExpressions.Constants.RegexFormats.MatchExactWord')
-  - [MatchWholeLine](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchWholeLine 'MFR.Generators.RegularExpressions.Constants.RegexFormats.MatchWholeLine')
-- [RegularExpressionType](#T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
-  - [MatchExactWordOnly](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchExactWordOnly 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly')
-  - [MatchWholeLine](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchWholeLine 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchWholeLine')
-  - [Unknown](#F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-Unknown 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.Unknown')
-- [Resources](#T-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources 'MFR.Generators.RegularExpressions.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-Culture 'MFR.Generators.RegularExpressions.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-ResourceManager 'MFR.Generators.RegularExpressions.Constants.Properties.Resources.ResourceManager')
+- [RegexFormats](#T-MFR-Generators-RegularExpressions-Constants-RegexFormats 'MFR.Generators.RegularExpressions.Constants.RegexFormats')
+  - [MatchExactWord](#F-MFR-Generators-RegularExpressions-Constants-RegexFormats-MatchExactWord 'MFR.Generators.RegularExpressions.Constants.RegexFormats.MatchExactWord')
+  - [MatchWholeLine](#F-MFR-Generators-RegularExpressions-Constants-RegexFormats-MatchWholeLine 'MFR.Generators.RegularExpressions.Constants.RegexFormats.MatchWholeLine')
+- [RegularExpressionType](#T-MFR-Generators-RegularExpressions-Constants-RegularExpressionType 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType')
+  - [MatchExactWordOnly](#F-MFR-Generators-RegularExpressions-Constants-RegularExpressionType-MatchExactWordOnly 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchExactWordOnly')
+  - [MatchWholeLine](#F-MFR-Generators-RegularExpressions-Constants-RegularExpressionType-MatchWholeLine 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.MatchWholeLine')
+  - [Unknown](#F-MFR-Generators-RegularExpressions-Constants-RegularExpressionType-Unknown 'MFR.Generators.RegularExpressions.Constants.RegularExpressionType.Unknown')
+- [Resources](#T-MFR-Generators-RegularExpressions-Constants-Properties-Resources 'MFR.Generators.RegularExpressions.Constants.Properties.Resources')
+  - [Culture](#P-MFR-Generators-RegularExpressions-Constants-Properties-Resources-Culture 'MFR.Generators.RegularExpressions.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Generators-RegularExpressions-Constants-Properties-Resources-ResourceManager 'MFR.Generators.RegularExpressions.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats'></a>
+<a name='T-MFR-Generators-RegularExpressions-Constants-RegexFormats'></a>
 ## RegexFormats `type`
 
 ##### Namespace
@@ -25,7 +25,7 @@ MFR.Generators.RegularExpressions.Constants
 
 Substitution formats for regular expressions.
 
-<a name='F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchExactWord'></a>
+<a name='F-MFR-Generators-RegularExpressions-Constants-RegexFormats-MatchExactWord'></a>
 ### MatchExactWord `constants`
 
 ##### Summary
@@ -53,14 +53,14 @@ with an atomic group.
 The idea being to fix namespaces when renaming projects to ensure
 that `using` statements bringing in Resources will still work.
 
-<a name='F-MFR-Objects-Generators-RegularExpressions-Constants-RegexFormats-MatchWholeLine'></a>
+<a name='F-MFR-Generators-RegularExpressions-Constants-RegexFormats-MatchWholeLine'></a>
 ### MatchWholeLine `constants`
 
 ##### Summary
 
 Regular expression that matches an entire line from beginning to end.
 
-<a name='T-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType'></a>
+<a name='T-MFR-Generators-RegularExpressions-Constants-RegularExpressionType'></a>
 ## RegularExpressionType `type`
 
 ##### Namespace
@@ -72,28 +72,28 @@ MFR.Generators.RegularExpressions.Constants
 Types of regular expressions (e.g., for matching email addresses, phone
 numbers, exact words etc.)
 
-<a name='F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchExactWordOnly'></a>
+<a name='F-MFR-Generators-RegularExpressions-Constants-RegularExpressionType-MatchExactWordOnly'></a>
 ### MatchExactWordOnly `constants`
 
 ##### Summary
 
 Matches an exact word only, whether surrounded by other text or not.
 
-<a name='F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-MatchWholeLine'></a>
+<a name='F-MFR-Generators-RegularExpressions-Constants-RegularExpressionType-MatchWholeLine'></a>
 ### MatchWholeLine `constants`
 
 ##### Summary
 
 Matches an entire line from beginning to end.
 
-<a name='F-MFR-Objects-Generators-RegularExpressions-Constants-RegularExpressionType-Unknown'></a>
+<a name='F-MFR-Generators-RegularExpressions-Constants-RegularExpressionType-Unknown'></a>
 ### Unknown `constants`
 
 ##### Summary
 
 Unknown regular expression type.
 
-<a name='T-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources'></a>
+<a name='T-MFR-Generators-RegularExpressions-Constants-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -104,7 +104,7 @@ MFR.Generators.RegularExpressions.Constants.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-Culture'></a>
+<a name='P-MFR-Generators-RegularExpressions-Constants-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -112,7 +112,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Generators-RegularExpressions-Constants-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Generators-RegularExpressions-Constants-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
