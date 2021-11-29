@@ -3,13 +3,13 @@
 
 ## Contents
 
-- [Directories](#T-MFR-Objects-CommandLine-Constants-Directories 'MFR.CommandLine.Constants.Directories')
-  - [MyDocuments](#F-MFR-Objects-CommandLine-Constants-Directories-MyDocuments 'MFR.CommandLine.Constants.Directories.MyDocuments')
-- [Resources](#T-MFR-Objects-CommandLine-Constants-Properties-Resources 'MFR.CommandLine.Constants.Properties.Resources')
-  - [Culture](#P-MFR-Objects-CommandLine-Constants-Properties-Resources-Culture 'MFR.CommandLine.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-CommandLine-Constants-Properties-Resources-ResourceManager 'MFR.CommandLine.Constants.Properties.Resources.ResourceManager')
+- [Directories](#T-MFR-CommandLine-Constants-Directories 'MFR.CommandLine.Constants.Directories')
+  - [MyDocuments](#F-MFR-CommandLine-Constants-Directories-MyDocuments 'MFR.CommandLine.Constants.Directories.MyDocuments')
+- [Resources](#T-MFR-CommandLine-Constants-Properties-Resources 'MFR.CommandLine.Constants.Properties.Resources')
+  - [Culture](#P-MFR-CommandLine-Constants-Properties-Resources-Culture 'MFR.CommandLine.Constants.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-CommandLine-Constants-Properties-Resources-ResourceManager 'MFR.CommandLine.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-CommandLine-Constants-Directories'></a>
+<a name='T-MFR-CommandLine-Constants-Directories'></a>
 ## Directories `type`
 
 ##### Namespace
@@ -20,14 +20,14 @@ MFR.CommandLine.Constants
 
 Strings containing pathnames of commonly-referenced folders.
 
-<a name='F-MFR-Objects-CommandLine-Constants-Directories-MyDocuments'></a>
+<a name='F-MFR-CommandLine-Constants-Directories-MyDocuments'></a>
 ### MyDocuments `constants`
 
 ##### Summary
 
 The My Documents folder.
 
-<a name='T-MFR-Objects-CommandLine-Constants-Properties-Resources'></a>
+<a name='T-MFR-CommandLine-Constants-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -38,7 +38,7 @@ MFR.CommandLine.Constants.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-CommandLine-Constants-Properties-Resources-Culture'></a>
+<a name='P-MFR-CommandLine-Constants-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -46,7 +46,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-CommandLine-Constants-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-CommandLine-Constants-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
