@@ -9,8 +9,8 @@
   - [ErrorReportContents](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IErrorReportDialogLaunchResults-ErrorReportContents 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults.ErrorReportContents')
   - [Exception](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IErrorReportDialogLaunchResults-Exception 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults.Exception')
   - [ReproductionSteps](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IErrorReportDialogLaunchResults-ReproductionSteps 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults.ReproductionSteps')
-- [IProfileNameDialogResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogResults')
-  - [ProfileName](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogResults-ProfileName 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogResults.ProfileName')
+- [IProfileNameDialogLaunchResults](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults')
+  - [ProfileName](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults-ProfileName 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.IProfileNameDialogLaunchResults.ProfileName')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Results.Interfaces.Properties.Resources.ResourceManager')
@@ -74,8 +74,8 @@ that describes, in detail, the error which occurred.
 Gets a string that contains the user's description of the events leading up to
 the error.
 
-<a name='T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogResults'></a>
-## IProfileNameDialogResults `type`
+<a name='T-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults'></a>
+## IProfileNameDialogLaunchResults `type`
 
 ##### Namespace
 
@@ -86,7 +86,7 @@ MFR.GUI.Launchers.Dialogs.Results.Interfaces
 Defines the publicly-exposed methods and properties of a Profile Name dialog
 box's results object.
 
-<a name='P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogResults-ProfileName'></a>
+<a name='P-MFR-GUI-Launchers-Dialogs-Results-Interfaces-IProfileNameDialogLaunchResults-ProfileName'></a>
 ### ProfileName `property`
 
 ##### Summary
