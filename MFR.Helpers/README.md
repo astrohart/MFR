@@ -3,11 +3,11 @@
 
 ## Contents
 
-- [Resources](#T-MFR-Objects-Helpers-Properties-Resources 'MFR.Helpers.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Helpers-Properties-Resources-Culture 'MFR.Helpers.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Helpers-Properties-Resources-ResourceManager 'MFR.Helpers.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-Helpers-Properties-Resources 'MFR.Helpers.Properties.Resources')
+  - [Culture](#P-MFR-Helpers-Properties-Resources-Culture 'MFR.Helpers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Helpers-Properties-Resources-ResourceManager 'MFR.Helpers.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Helpers-Properties-Resources'></a>
+<a name='T-MFR-Helpers-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -18,7 +18,7 @@ MFR.Helpers.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Helpers-Properties-Resources-Culture'></a>
+<a name='P-MFR-Helpers-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -26,7 +26,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Helpers-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Helpers-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
