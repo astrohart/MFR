@@ -4,9 +4,11 @@
 ## Contents
 
 - [MainWindowPresenterMessages](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages')
+  - [MWP_ADD_NEW_PROFILE_FAILED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ADD_NEW_PROFILE_FAILED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE_FAILED')
   - [MWP_ALL_HISTORY_CLEARED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ALL_HISTORY_CLEARED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED')
   - [MWP_CONFIGURATION_EXPORTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CONFIGURATION_EXPORTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_CONFIGURATION_EXPORTED')
   - [MWP_CONFIGURATION_IMPORTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CONFIGURATION_IMPORTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED')
+  - [MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED')
   - [MWP_DATA_OPERAITON_ERROR](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERAITON_ERROR 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERAITON_ERROR')
   - [MWP_DATA_OPERATION_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_FINISHED')
   - [MWP_DATA_OPERATION_STARTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_STARTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED')
@@ -29,6 +31,14 @@ MFR.GUI.Windows.Presenters.Constants
 
 Unique identifiers for the messages that are sent by the Presenter of
 the main application window.
+
+<a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ADD_NEW_PROFILE_FAILED'></a>
+### MWP_ADD_NEW_PROFILE_FAILED `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Presenter when the
+operation of creating a new Profile has failed.
 
 <a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ALL_HISTORY_CLEARED'></a>
 ### MWP_ALL_HISTORY_CLEARED `constants`
@@ -55,6 +65,14 @@ exported to a file.
 Unique identifier for the message that is sent by the Presenter of
 the main application window when the configuration has just been
 imported from a file.
+
+<a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED'></a>
+### MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Presenter for the main
+application window when the user has clicked the Add New Profile button.
 
 <a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERAITON_ERROR'></a>
 ### MWP_DATA_OPERAITON_ERROR `constants`
