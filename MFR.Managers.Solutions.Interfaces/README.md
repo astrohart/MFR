@@ -4,6 +4,8 @@
 ## Contents
 
 - [IVisualStudioSolutionService](#T-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+  - [FolderToSearch](#P-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-FolderToSearch 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.FolderToSearch')
+  - [ContainLoadedSolutions()](#M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainLoadedSolutions 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainLoadedSolutions')
   - [ContainsLoadedSolutions(folder)](#M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
   - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
   - [LoadAll(solutions)](#M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
@@ -21,8 +23,7 @@ MFR.Managers.Solutions.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a ` Solution
-            Service ` object.
+Defines the publicly-exposed methods and properties of a `Solution Service` object.
 
 ##### Remarks
 
@@ -30,12 +31,45 @@ Defines the publicly-exposed methods and properties of a ` Solution
 (*.sln) files, such as scanning for them, detecting if they're loaded,
 and loading / unloading them in open instances of Visual Studio.
 
+<a name='P-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-FolderToSearch'></a>
+### FolderToSearch `property`
+
+##### Summary
+
+Gets or sets the fully-qualified pathname of the folder that is to be searched
+for `.sln` files.
+
+<a name='M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainLoadedSolutions'></a>
+### ContainLoadedSolutions() `method`
+
+##### Summary
+
+Alias for the
+[ContainsLoadedSolutions](#M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions')
+method.
+
+
+
+This serves to make this class more fluent.
+
+##### Returns
+
+This method returns the same value as the
+[ContainsLoadedSolutions](#M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService.ContainsLoadedSolutions')
+method does when a blank value is passed for its input.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-ContainsLoadedSolutions-System-String-'></a>
 ### ContainsLoadedSolutions(folder) `method`
 
 ##### Summary
 
-Determines whether the folder having path passed in the `folder` parameter contains any `*.sln` files that represent
+Determines whether the folder having path passed in the
+`folder`
+parameter contains any `*.sln` files that represent
 solutions currently loaded by running instances of Visual Studio.
 
 ##### Returns
@@ -56,7 +90,9 @@ folder that should be scanned for `*.sln` files. |
 
 ##### Summary
 
-Scans the folder whose path is provided in the `folder` parameter for `*.sln` files, and, for each file
+Scans the folder whose path is provided in the
+`folder`
+parameter for `*.sln` files, and, for each file
 located, determines whether a running instance of Visual Studio has
 it loaded.
 
@@ -68,7 +104,8 @@ returned as an element of a collection of any other such solutions.
 ##### Returns
 
 Read-only list of references to instances of objects that implement
-the [IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
+the
+[IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface for each instance of Visual Studio that has that solution loaded.
 
 ##### Parameters
@@ -101,7 +138,8 @@ time, to load them again.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
-objects that implement the [IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
+objects that implement the
+[IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface that represent the solution(s) to be loaded. |
 
 <a name='M-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
@@ -118,7 +156,8 @@ one time, to unload them again.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
-objects that implement the [IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
+objects that implement the
+[IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface which represent the solution(s) to be unloaded. |
 
 <a name='T-MFR-Managers-Solutions-Interfaces-Properties-Resources'></a>
