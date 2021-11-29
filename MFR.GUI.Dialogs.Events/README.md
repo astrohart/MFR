@@ -9,6 +9,17 @@
 - [Resources](#T-MFR-GUI-Dialogs-Events-Properties-Resources 'MFR.GUI.Dialogs.Events.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Events-Properties-Resources-Culture 'MFR.GUI.Dialogs.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Events-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Events.Properties.Resources.ResourceManager')
+- [SendErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs')
+  - [#ctor(exception,errorReportContent,reproductionSteps)](#M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#ctor-System-Exception,System-String,System-String- 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.#ctor(System.Exception,System.String,System.String)')
+  - [ErrorReportContent](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ErrorReportContent 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.ErrorReportContent')
+  - [Exception](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-Exception 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.Exception')
+  - [ReproductionSteps](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ReproductionSteps 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.ReproductionSteps')
+- [SendErrorReportRequestedEventHandler](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventHandler')
+- [ViewErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs')
+  - [#ctor(exception,errorReportContent)](#M-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-#ctor-System-Exception,System-String- 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.#ctor(System.Exception,System.String)')
+  - [ErrorReportContent](#P-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-ErrorReportContent 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.ErrorReportContent')
+  - [Exception](#P-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-Exception 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.Exception')
+- [ViewErrorReportRequestedEventHandler](#T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventHandler')
 
 <a name='T-MFR-GUI-Dialogs-Events-ModifiedEventArgs'></a>
 ## ModifiedEventArgs `type`
@@ -76,3 +87,140 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs'></a>
+## SendErrorReportRequestedEventArgs `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Events
+
+##### Summary
+
+Provides information for SendErrorReportRequested event handlers.
+
+<a name='M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#ctor-System-Exception,System-String,System-String-'></a>
+### #ctor(exception,errorReportContent,reproductionSteps) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[SendErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs') and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | (Required.) Reference to an instance of [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that
+describes the error to be reported. |
+| errorReportContent | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the content of the detailed error report to be
+sent. |
+| reproductionSteps | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the user's report of what was happening that led up to the error. |
+
+<a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ErrorReportContent'></a>
+### ErrorReportContent `property`
+
+##### Summary
+
+Gets a string that contains the detailed error report that is to be sent.
+
+<a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-Exception'></a>
+### Exception `property`
+
+##### Summary
+
+Gets a reference to an instance of [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that
+describes the error being reported.
+
+<a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ReproductionSteps'></a>
+### ReproductionSteps `property`
+
+##### Summary
+
+Gets a string that contains the user's explanation of what led up to the error.
+
+<a name='T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler'></a>
+## SendErrorReportRequestedEventHandler `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Events
+
+##### Summary
+
+Represents a handler for a SendErrorReportRequested event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventHandler](#T-T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler 'T:MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the SendErrorReportRequested event.
+
+<a name='T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs'></a>
+## ViewErrorReportRequestedEventArgs `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Events
+
+##### Summary
+
+Provides information for ViewErrorReportRequested event handlers.
+
+<a name='M-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-#ctor-System-Exception,System-String-'></a>
+### #ctor(exception,errorReportContent) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ViewErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs') and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | (Required.) A [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that
+describes the error that occurred. |
+| errorReportContent | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the text of the report. |
+
+<a name='P-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-ErrorReportContent'></a>
+### ErrorReportContent `property`
+
+##### Summary
+
+Gets a string that contains the detailed error report that is to be sent.
+
+<a name='P-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-Exception'></a>
+### Exception `property`
+
+##### Summary
+
+Gets a reference to the [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') instance that
+describes the error that occurred.
+
+<a name='T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler'></a>
+## ViewErrorReportRequestedEventHandler `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Events
+
+##### Summary
+
+Represents a handler for a ViewErrorReportRequested event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventHandler](#T-T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler 'T:MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the ViewErrorReportRequested event.
