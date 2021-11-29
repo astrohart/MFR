@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [IPathFilterInvoker](#T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker 'MFR.Invokers.Interfaces.IPathFilterInvoker')
-  - [AndPath()](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-AndPath-System-String- 'MFR.Invokers.Interfaces.IPathFilterInvoker.AndPath(System.String)')
-  - [Passes(pathFilter)](#M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-Passes-System-Predicate{System-String}- 'MFR.Invokers.Interfaces.IPathFilterInvoker.Passes(System.Predicate{System.String})')
-- [Resources](#T-MFR-Objects-Invokers-Interfaces-Properties-Resources 'MFR.Invokers.Interfaces.Properties.Resources')
-  - [Culture](#P-MFR-Objects-Invokers-Interfaces-Properties-Resources-Culture 'MFR.Invokers.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Objects-Invokers-Interfaces-Properties-Resources-ResourceManager 'MFR.Invokers.Interfaces.Properties.Resources.ResourceManager')
+- [IPathFilterInvoker](#T-MFR-Invokers-Interfaces-IPathFilterInvoker 'MFR.Invokers.Interfaces.IPathFilterInvoker')
+  - [AndPath()](#M-MFR-Invokers-Interfaces-IPathFilterInvoker-AndPath-System-String- 'MFR.Invokers.Interfaces.IPathFilterInvoker.AndPath(System.String)')
+  - [Passes(pathFilter)](#M-MFR-Invokers-Interfaces-IPathFilterInvoker-Passes-System-Predicate{System-String}- 'MFR.Invokers.Interfaces.IPathFilterInvoker.Passes(System.Predicate{System.String})')
+- [Resources](#T-MFR-Invokers-Interfaces-Properties-Resources 'MFR.Invokers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-Invokers-Interfaces-Properties-Resources-Culture 'MFR.Invokers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Invokers-Interfaces-Properties-Resources-ResourceManager 'MFR.Invokers.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker'></a>
+<a name='T-MFR-Invokers-Interfaces-IPathFilterInvoker'></a>
 ## IPathFilterInvoker `type`
 
 ##### Namespace
@@ -21,7 +21,7 @@ MFR.Invokers.Interfaces
 
 Defines the publicly-exposed methods and properties of all path filter invoker objects.
 
-<a name='M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-AndPath-System-String-'></a>
+<a name='M-MFR-Invokers-Interfaces-IPathFilterInvoker-AndPath-System-String-'></a>
 ### AndPath() `method`
 
 ##### Summary
@@ -38,13 +38,13 @@ method, for fluent use.
 
 This method has no parameters.
 
-<a name='M-MFR-Objects-Invokers-Interfaces-IPathFilterInvoker-Passes-System-Predicate{System-String}-'></a>
+<a name='M-MFR-Invokers-Interfaces-IPathFilterInvoker-Passes-System-Predicate{System-String}-'></a>
 ### Passes(pathFilter) `method`
 
 ##### Summary
 
 Gets the result of invoking the path-filtering predicate on the path
-specified by calling the [AndPath](#M-MFR-Objects-IPathFilterInvoker-AndPath 'MFR.IPathFilterInvoker.AndPath') method.
+specified by calling the [AndPath](#M-MFR-IPathFilterInvoker-AndPath 'MFR.IPathFilterInvoker.AndPath') method.
 
 ##### Returns
 
@@ -59,7 +59,7 @@ method also returns `true` if the `pathFilter` is passed a `null` reference.
 | pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | A [Predicate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate'), taking a string as argument,
 that decides whether the path should be allowed. |
 
-<a name='T-MFR-Objects-Invokers-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-Invokers-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -70,7 +70,7 @@ MFR.Invokers.Interfaces.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Objects-Invokers-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-Invokers-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -78,7 +78,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Objects-Invokers-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Invokers-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
