@@ -137,6 +137,10 @@
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
       <Name>MFR.CommandLine.Models.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Events\MFR.CommandLine.Parsers.Events.csproj">
+      <Project>{D6782453-03FB-4F3D-815C-45C31E06E53D}</Project>
+      <Name>MFR.CommandLine.Parsers.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Parsers.Factories\MFR.CommandLine.Parsers.Factories.csproj">
       <Project>{79EEADFD-A387-4488-9E3A-92AC3316A2FB}</Project>
       <Name>MFR.CommandLine.Parsers.Factories</Name>

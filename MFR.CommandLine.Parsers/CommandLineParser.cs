@@ -3,11 +3,11 @@ using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models;
 using MFR.CommandLine.Models.Factories;
 using MFR.CommandLine.Models.Interfaces;
+using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
-using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.CommandLine.Parsers
@@ -113,11 +113,7 @@ namespace MFR.CommandLine.Parsers
 
                 p.SetupHelp("?", "help")
                  .Callback(
-                     text => MessageBox.Show(
-                         text, Application.ProductName, MessageBoxButtons.OK,
-                         MessageBoxIcon.Information,
-                         MessageBoxDefaultButton.Button1
-                     )
+                     text => OnDisplayHelp(new DisplayHelpEventArgs(text))
                  );
 
                 var parsingResult = p.Parse(args);
@@ -135,11 +131,28 @@ namespace MFR.CommandLine.Parsers
 
                 if (p != null && p.Options.Any())
                     p.HelpOption.ShowHelp(p.Options);
-                
+
                 Environment.Exit(-1);
             }
 
             return result;
         }
+
+        /// <summary>
+        /// Occurs when Help text is to be displayed.
+        /// </summary>
+        public event DisplayHelpEventHandler DisplayHelp;
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.CommandLine.Parsers.CommandLineParser.DisplayHelp" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnDisplayHelp(DisplayHelpEventArgs e)
+            => DisplayHelp?.Invoke(this, e);
     }
 }

@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -130,6 +131,10 @@
     <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
       <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Events\MFR.CommandLine.Parsers.Events.csproj">
+      <Project>{D6782453-03FB-4F3D-815C-45C31E06E53D}</Project>
+      <Name>MFR.CommandLine.Parsers.Events</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
 using MFR.CommandLine.Constants;
-using MFR.CommandLine.Models;
 using MFR.CommandLine.Models.Interfaces;
+using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
 using MFR.CommandLine.Parsers.Interfaces;
 using MFR.CommandLine.Validators.Events;
@@ -15,7 +15,6 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -29,7 +28,8 @@ namespace MFR.GUI
     public static class Program
     {
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
         /// </summary>
         public static ICommandLineInfo CommandLineInfo
         {
@@ -136,6 +136,36 @@ namespace MFR.GUI
 
         /// <summary>
         /// Handles the
+        /// <see cref="E:MFR.CommandLine.Parsers.Interfaces.ICommandLineParser.DisplayHelp" />
+        /// event raised by the command-line parser.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>This meethod shows a message box and then quits the application.</remarks>
+        private static void OnCommandLineParserDisplayHelp(object sender,
+            DisplayHelpEventArgs e)
+        {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In Program.OnCommandLineParserDisplayHelp"
+            );
+
+            MessageBox.Show(
+                e.HelpText, Application.ProductName, MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
+            );
+
+            Environment.Exit(-1);
+        }
+
+        /// <summary>
+        /// Handles the
         /// <see
         ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
         /// event raised by the root-directory validator object.
@@ -214,6 +244,7 @@ namespace MFR.GUI
         /// </remarks>
         private static void ParseCommandLine(string[] args)
         {
+            CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
             CommandLineInfo = CommandLineParser.Parse(args);
 
             if (!CommandLineValidator.IsValid(CommandLineInfo))
@@ -230,8 +261,8 @@ namespace MFR.GUI
             // from the user will be the default value of My Documents) to that
             // which the user has specified on the command line.
             if (!Directories.MyDocuments.Equals(
-                CommandLineInfo.RootDirectory
-            )) // we do not need any more checks here due to the command-line validation that occurs
+                    CommandLineInfo.RootDirectory
+                )) // we do not need any more checks here due to the command-line validation that occurs
                 ConfigurationProvider.Configuration.StartingFolder =
                     CommandLineInfo.RootDirectory;
 

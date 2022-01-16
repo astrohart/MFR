@@ -590,6 +590,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models.Inte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models.Factories", "MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj", "{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Parsers.Events", "MFR.CommandLine.Parsers.Events\MFR.CommandLine.Parsers.Events.csproj", "{D6782453-03FB-4F3D-815C-45C31E06E53D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2926,6 +2928,14 @@ Global
 		{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}.Release|x64.Build.0 = Release|x64
 		{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}.Release|x86.ActiveCfg = Release|x86
 		{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}.Release|x86.Build.0 = Release|x86
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Debug|x64.ActiveCfg = Debug|x64
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Debug|x64.Build.0 = Debug|x64
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Debug|x86.ActiveCfg = Debug|x86
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Debug|x86.Build.0 = Debug|x86
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Release|x64.ActiveCfg = Release|x64
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Release|x64.Build.0 = Release|x64
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Release|x86.ActiveCfg = Release|x86
+		{D6782453-03FB-4F3D-815C-45C31E06E53D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
