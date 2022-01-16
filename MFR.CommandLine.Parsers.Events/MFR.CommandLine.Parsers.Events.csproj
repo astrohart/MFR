@@ -103,6 +103,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayHelpEventArgs.cs" />
+    <Compile Include="DisplayHelpEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
