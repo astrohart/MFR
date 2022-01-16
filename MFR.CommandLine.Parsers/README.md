@@ -7,6 +7,7 @@
   - [#ctor()](#M-MFR-CommandLine-Parsers-CommandLineParser-#ctor 'MFR.CommandLine.Parsers.CommandLineParser.#ctor')
   - [Instance](#P-MFR-CommandLine-Parsers-CommandLineParser-Instance 'MFR.CommandLine.Parsers.CommandLineParser.Instance')
   - [#cctor()](#M-MFR-CommandLine-Parsers-CommandLineParser-#cctor 'MFR.CommandLine.Parsers.CommandLineParser.#cctor')
+  - [OnDisplayHelp(e)](#M-MFR-CommandLine-Parsers-CommandLineParser-OnDisplayHelp-MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs- 'MFR.CommandLine.Parsers.CommandLineParser.OnDisplayHelp(MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs)')
   - [Parse(args)](#M-MFR-CommandLine-Parsers-CommandLineParser-Parse-System-String[]- 'MFR.CommandLine.Parsers.CommandLineParser.Parse(System.String[])')
 - [Resources](#T-xyLOGIXModule-Properties-Resources 'xyLOGIXModule.Properties.Resources')
   - [Culture](#P-xyLOGIXModule-Properties-Resources-Culture 'xyLOGIXModule.Properties.Resources.Culture')
@@ -52,6 +53,22 @@ Empty, static constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-CommandLine-Parsers-CommandLineParser-OnDisplayHelp-MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs-'></a>
+### OnDisplayHelp(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-CommandLine-Parsers-CommandLineParser-DisplayHelp 'MFR.CommandLine.Parsers.CommandLineParser.DisplayHelp') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs](#T-MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs 'MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs') | A
+[DisplayHelpEventArgs](#T-MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs 'MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs') that
+contains the event data. |
 
 <a name='M-MFR-CommandLine-Parsers-CommandLineParser-Parse-System-String[]-'></a>
 ### Parse(args) `method`
