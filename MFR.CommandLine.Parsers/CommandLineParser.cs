@@ -7,6 +7,7 @@ using MFR.CommandLine.Parsers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.CommandLine.Parsers
 {
@@ -114,8 +115,11 @@ namespace MFR.CommandLine.Parsers
 
                 result = p.Object;
             }
-            catch
+            catch (Exception ex)
             {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
                 if (p != null && p.Options.Any())
                     p.HelpOption.ShowHelp(p.Options);
 
