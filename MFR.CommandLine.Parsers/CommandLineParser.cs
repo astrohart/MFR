@@ -7,6 +7,7 @@ using MFR.CommandLine.Parsers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
+using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.CommandLine.Parsers
@@ -91,21 +92,33 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.ReplaceinFiles)
                  .As("replaceInFiles")
-                 .WithDescription("Indicates that text should be replaced in files.")
+                 .WithDescription(
+                     "Indicates that text should be replaced in files."
+                 )
                  .SetDefault(true);
 
                 p.Setup(arg => arg.MatchCase)
                  .As("replaceInFiles")
-                 .WithDescription("Indicates that a case-sensitive search should be performed.")
+                 .WithDescription(
+                     "Indicates that a case-sensitive search should be performed."
+                 )
                  .SetDefault(true);
 
                 p.Setup(arg => arg.MatchWholeWord)
                  .As("replaceInFiles")
-                 .WithDescription("Indicates that a case-sensitive search should be performed.")
+                 .WithDescription(
+                     "Indicates that a case-sensitive search should be performed."
+                 )
                  .SetDefault(true);
 
                 p.SetupHelp("?", "help")
-                 .Callback(text => Console.WriteLine(text));
+                 .Callback(
+                     text => MessageBox.Show(
+                         text, Application.ProductName, MessageBoxButtons.OK,
+                         MessageBoxIcon.Information,
+                         MessageBoxDefaultButton.Button1
+                     )
+                 );
 
                 var parsingResult = p.Parse(args);
                 if (parsingResult != null && parsingResult.HasErrors)
@@ -122,7 +135,7 @@ namespace MFR.CommandLine.Parsers
 
                 if (p != null && p.Options.Any())
                     p.HelpOption.ShowHelp(p.Options);
-
+                
                 Environment.Exit(-1);
             }
 
