@@ -11,6 +11,7 @@
   - [ProfileProvider](#P-MFR-GUI-Program-ProfileProvider 'MFR.GUI.Program.ProfileProvider')
   - [Main(args)](#M-MFR-GUI-Program-Main-System-String[]- 'MFR.GUI.Program.Main(System.String[])')
   - [OnCommandLineInfoInvalid(sender,e)](#M-MFR-GUI-Program-OnCommandLineInfoInvalid-System-Object,MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.GUI.Program.OnCommandLineInfoInvalid(System.Object,MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
+  - [OnCommandLineParserDisplayHelp(sender,e)](#M-MFR-GUI-Program-OnCommandLineParserDisplayHelp-System-Object,MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs- 'MFR.GUI.Program.OnCommandLineParserDisplayHelp(System.Object,MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs)')
   - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Program-OnRootDirectoryInvalid-System-Object,MFR-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Program.OnRootDirectoryInvalid(System.Object,MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs)')
   - [OnThreadException(sender,e)](#M-MFR-GUI-Program-OnThreadException-System-Object,System-Threading-ThreadExceptionEventArgs- 'MFR.GUI.Program.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)')
   - [ParseCommandLine(args)](#M-MFR-GUI-Program-ParseCommandLine-System-String[]- 'MFR.GUI.Program.ParseCommandLine(System.String[])')
@@ -43,7 +44,8 @@ functionality.
 
 ##### Summary
 
-Gets a reference to an instance of an object that implements the [ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface.
+Gets a reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface.
 
 <a name='P-MFR-GUI-Program-CommandLineParser'></a>
 ### CommandLineParser `property`
@@ -121,6 +123,28 @@ that contains the event data. |
 ##### Remarks
 
 This method responds by showing an error message to the user.
+
+<a name='M-MFR-GUI-Program-OnCommandLineParserDisplayHelp-System-Object,MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs-'></a>
+### OnCommandLineParserDisplayHelp(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-CommandLine-Parsers-Interfaces-ICommandLineParser-DisplayHelp 'MFR.CommandLine.Parsers.Interfaces.ICommandLineParser.DisplayHelp')
+event raised by the command-line parser.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs](#T-MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs 'MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This meethod shows a message box and then quits the application.
 
 <a name='M-MFR-GUI-Program-OnRootDirectoryInvalid-System-Object,MFR-CommandLine-Validators-Events-RootDirectoryInvalidEventArgs-'></a>
 ### OnRootDirectoryInvalid(sender,e) `method`
