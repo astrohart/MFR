@@ -46,7 +46,7 @@ namespace MFR.CommandLine.Parsers
         /// accordingly.
         /// </summary>
         /// <param name="args">
-        /// (Required.) Array containing the command-line arguments passed to this
+        /// (Required.) Array containing the command-line arguments passed to this application.
         /// application.
         /// </param>
         public ICommandLineInfo Parse(string[] args)
@@ -98,14 +98,14 @@ namespace MFR.CommandLine.Parsers
                  .SetDefault(true);
 
                 p.Setup(arg => arg.MatchCase)
-                 .As("replaceInFiles")
+                 .As("matchCase")
                  .WithDescription(
                      "Indicates that a case-sensitive search should be performed."
                  )
                  .SetDefault(true);
 
                 p.Setup(arg => arg.MatchWholeWord)
-                 .As("replaceInFiles")
+                 .As("matchWholeWord")
                  .WithDescription(
                      "Indicates that a case-sensitive search should be performed."
                  )

@@ -15,6 +15,7 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -84,13 +85,13 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
+            SetUpLogging();
+
             Register.WindowsMessageFilter();
 
             SetDisplayParameters();
 
             SetUpExceptionHandling();
-
-            SetUpLogging();
 
             SetUpCommandLineValidation();
 

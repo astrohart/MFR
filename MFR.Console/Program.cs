@@ -9,6 +9,7 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
+using System.Diagnostics;
 
 namespace MFR.Console
 {
