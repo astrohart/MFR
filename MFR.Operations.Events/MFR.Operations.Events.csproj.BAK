@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.10.6\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.6\build\PostSharp.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ProjectGuid>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</ProjectGuid>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x64\Debug\MFR.Operations.Events.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x64\Release\MFR.Operations.Events.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x86\Debug\MFR.Operations.Events.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x86\Release\MFR.Operations.Events.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>MFR.Operations.Events</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>MFR.Operations.Events</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=6.10.6.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7">
+      <HintPath>..\packages\PostSharp.Redist.6.10.6\lib\net45\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=6.10.6.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.10.6\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.10.6.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.10.6\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.10.6.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.6\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalAspects.cs" />
+    <Compile Include="DataOperationErrorEventArgs.cs" />
+    <Compile Include="DataOperationErrorEventHandler.cs" />
+    <Compile Include="DataOperationEventArgs.cs" />
+    <Compile Include="DataOperationEventHandler.cs" />
+    <Compile Include="OperationCancelEventArgs.cs" />
+    <Compile Include="OperationEventArgs.cs" />
+    <Compile Include="OperationFinishedEventArgs.cs" />
+    <Compile Include="OperationFinishedEventHandler.cs" />
+    <Compile Include="OperationStartedEventArgs.cs" />
+    <Compile Include="OperationStartedEventHandler.cs" />
+    <Compile Include="ProcessingOperationEventArgs.cs" />
+    <Compile Include="ProcessingOperationEventHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1382_cogs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Events.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Operations.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>REM exit /b 0
+if exist "$(TargetDir)$(ProjectName).md" (
+    if exist "$(ProjectDir)README.md" (
+        erase /F /Q "$(ProjectDir)README.md"
+    )
+    copy /Y "$(TargetDir)$(ProjectName).md" "$(ProjectDir)README.md"
+    git add "$(ProjectDir)README.md"
+    git commit -m "Update README.md"
+    git push -u origin master
+)
+exit /b 0</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>REM exit /b 0
+if "$(ConfigurationName)"=="Release" (
+    erase /F /S /Q "$(TargetDir)*.pdb"
+    erase /F /S /Q "$(TargetDir)*.pspdb"
+    erase /F /S /Q "$(TargetDir)*.vshost.exe"
+    attrib +r "$(TargetDir)$(ProjectName).xml"
+    attrib +r "$(TargetDir)$(ProjectName).md"
+    erase /F /S /Q "$(TargetDir)*.xml"
+    attrib -r "$(TargetDir)$(ProjectName).xml"
+    attrib -r "$(TargetDir)$(ProjectName).md"
+)
+exit /b 0</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.10.6\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.6\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.10.6\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.6\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
+  <Import Project="..\packages\PostSharp.6.10.6\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.6\build\PostSharp.targets')" />
+</Project>

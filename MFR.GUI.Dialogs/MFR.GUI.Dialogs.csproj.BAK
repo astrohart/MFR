@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.10.6\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.6\build\PostSharp.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ProjectGuid>{39F88DD4-65A6-4625-A672-4B8638D500E0}</ProjectGuid>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x64\Debug\MFR.GUI.Dialogs.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x64\Release\MFR.GUI.Dialogs.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x86\Debug\MFR.GUI.Dialogs.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x86\Release\MFR.GUI.Dialogs.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>MFR.GUI.Dialogs</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>MFR.GUI.Dialogs</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=6.10.6.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7">
+      <HintPath>..\packages\PostSharp.Redist.6.10.6\lib\net45\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=6.10.6.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.10.6\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.10.6.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.10.6\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.10.6.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.6\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalAspects.cs" />
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorReportDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorReportDialog.Designer.cs">
+      <DependentUpon>ErrorReportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FolderSelectDialog.cs" />
+    <Compile Include="OperationDrivenProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationDrivenProgressDialog.Designer.cs">
+      <DependentUpon>OperationDrivenProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileManagementDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileManagementDialogBox.Designer.cs">
+      <DependentUpon>ProfileManagementDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileNameDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileNameDialog.Designer.cs">
+      <DependentUpon>ProfileNameDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancellableProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancellableProgressDialog.Designer.cs">
+      <DependentUpon>CancellableProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorReportDialog.resx">
+      <DependentUpon>ErrorReportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationDrivenProgressDialog.resx">
+      <DependentUpon>OperationDrivenProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileManagementDialogBox.resx">
+      <DependentUpon>ProfileManagementDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileNameDialog.resx">
+      <DependentUpon>ProfileNameDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancellableProgressDialog.resx">
+      <DependentUpon>CancellableProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1382_cogs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
+      <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
+      <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Constants\MFR.GUI.Dialogs.Constants.csproj">
+      <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
+      <Name>MFR.GUI.Dialogs.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Profiles.Help.Factories\MFR.GUI.Dialogs.Profiles.Help.Factories.csproj">
+      <Project>{9AAD9674-D7D9-4558-BABD-6A8171815767}</Project>
+      <Name>MFR.GUI.Dialogs.Profiles.Help.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Profiles.Help.Interfaces\MFR.GUI.Dialogs.Profiles.Help.Interfaces.csproj">
+      <Project>{3D51D5A8-6CA0-4A74-AEA1-7363C18C38A6}</Project>
+      <Name>MFR.GUI.Dialogs.Profiles.Help.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Text.Retrievers.Factories\MFR.GUI.Dialogs.Text.Retrievers.Factories.csproj">
+      <Project>{49002D48-38C0-49CF-A6CC-6314218AC468}</Project>
+      <Name>MFR.GUI.Dialogs.Text.Retrievers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
+      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
+      <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
+      <Name>MFR.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
+      <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
+      <Name>MFR.GUI.Dialogs.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
+      <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
+      <Name>MFR.GUI.Dialogs.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Wrappers.Factories\MFR.GUI.Windows.Wrappers.Factories.csproj">
+      <Project>{FC9255CE-CABF-4C5F-8002-E1C738DCF9D7}</Project>
+      <Name>MFR.GUI.Windows.Wrappers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Wrappers.Interfaces\MFR.GUI.Windows.Wrappers.Interfaces.csproj">
+      <Project>{09FC149F-D919-4B90-97D3-DA8842D03E26}</Project>
+      <Name>MFR.GUI.Windows.Wrappers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
+      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
+      <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Factories\MFR.Settings.Profiles.Providers.Factories.csproj">
+      <Project>{61494E63-AE7D-4D4A-967B-D3B50E68858A}</Project>
+      <Name>MFR.Settings.Profiles.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
+      <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
+      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>REM exit /b 0
+if exist "$(TargetDir)$(ProjectName).md" (
+    if exist "$(ProjectDir)README.md" (
+        erase /F /Q "$(ProjectDir)README.md"
+    )
+    copy /Y "$(TargetDir)$(ProjectName).md" "$(ProjectDir)README.md"
+    git add "$(ProjectDir)README.md"
+    git commit -m "Update README.md"
+    git push -u origin master
+)
+exit /b 0</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>REM exit /b 0
+if "$(ConfigurationName)"=="Release" (
+    erase /F /S /Q "$(TargetDir)*.pdb"
+    erase /F /S /Q "$(TargetDir)*.pspdb"
+    erase /F /S /Q "$(TargetDir)*.vshost.exe"
+    attrib +r "$(TargetDir)$(ProjectName).xml"
+    attrib +r "$(TargetDir)$(ProjectName).md"
+    erase /F /S /Q "$(TargetDir)*.xml"
+    attrib -r "$(TargetDir)$(ProjectName).xml"
+    attrib -r "$(TargetDir)$(ProjectName).md"
+)
+exit /b 0</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.10.6\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.6\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.10.6\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.6\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
+  <Import Project="..\packages\PostSharp.6.10.6\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.6\build\PostSharp.targets')" />
+</Project>
