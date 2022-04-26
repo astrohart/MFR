@@ -7,16 +7,53 @@ using System;
 namespace MFR.Renamers.Files.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a <c>File
-    /// Renamer</c> object. Such an object is directly responsible for
+    /// Defines the publicly-exposed methods and properties of a
+    /// <c>
+    /// File
+    /// Renamer
+    /// </c>
+    /// object. Such an object is directly responsible for
     /// processing the file operations of this application.
     /// </summary>
     public interface IFileRenamer : IConfigurationComposedObject
     {
         /// <summary>
+        /// Gets or sets the path to the last Visual Studio Solution that we have worked
+        /// with most recently.
+        /// </summary>
+        string LastSolutionPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        string RootDirectoryPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        bool ShouldReOpenSolution
+        {
+            get;
+        }
+
+        /// <summary>
         /// Occurs when an exception is thrown from an operation.
         /// </summary>
         event ExceptionRaisedEventHandler ExceptionRaised;
+
+        /// <summary>
+        /// Occurs when a file has been renamed.
+        /// </summary>
+        event FileRenamedEventHandler FileRenamed;
 
         /// <summary>
         /// Occurs when files to be renamed have been counted.
@@ -64,54 +101,32 @@ namespace MFR.Renamers.Files.Interfaces
         event FilesOrFoldersCountedEventHandler SubfoldersToBeRenamedCounted;
 
         /// <summary>
-        /// Gets or sets the path to the last Visual Studio Solution that we have worked with most recently.
-        /// </summary>
-        string LastSolutionPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
-        /// operations start.
-        /// </summary>
-        string RootDirectoryPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        bool ShouldReOpenSolution { get; }
-
-        /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
-        /// the pathname stored in the <see
-        /// cref="P:MFR.FileRenamer.RootDirectoryPath"/> property.
+        /// the pathname stored in the
+        /// <see
+        ///     cref="P:MFR.FileRenamer.RootDirectoryPath" />
+        /// property.
         /// </summary>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         void ProcessAll(string findWhat, string replaceWith,
@@ -120,7 +135,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
-        /// the pathname specified by the <paramref name="rootDirectoryPath"/> parameter.
+        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
         /// </summary>
         /// <param name="rootDirectoryPath">
         /// Path to the recursion root.
@@ -130,20 +145,20 @@ namespace MFR.Renamers.Files.Interfaces
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         void ProcessAll(string rootDirectoryPath, string findWhat,
@@ -151,8 +166,10 @@ namespace MFR.Renamers.Files.Interfaces
 
         /// <summary>
         /// Renames all the files in the all the subfolders etc., recursively,
-        /// of the folder whose pathname is specified by the <paramref
-        /// name="rootFolderPath"/> parameter.
+        /// of the folder whose pathname is specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// parameter.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of an existing
@@ -163,29 +180,33 @@ namespace MFR.Renamers.Files.Interfaces
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
-        /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -195,9 +216,9 @@ namespace MFR.Renamers.Files.Interfaces
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
-        /// pathname specified by <paramref name="rootFolderPath"/>, replacing
-        /// any occurrences of the text in the <paramref name="findWhat"/>
-        /// parameter with the values in the <paramref name="replaceWith"/> parameter.
+        /// pathname specified by <paramref name="rootFolderPath" />, replacing
+        /// any occurrences of the text in the <paramref name="findWhat" />
+        /// parameter with the values in the <paramref name="replaceWith" /> parameter.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of an existing
@@ -208,29 +229,33 @@ namespace MFR.Renamers.Files.Interfaces
         /// </param>
         /// <param name="replaceWith">
         /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat"/> with.
+        /// by <paramref name="findWhat" /> with.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/>, <paramref
-        /// name="findWhat"/> , or <paramref name="replaceWith"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -240,10 +265,14 @@ namespace MFR.Renamers.Files.Interfaces
 
         /// <summary>
         /// Iterates recursively through a directory tree, starting at the
-        /// folder with pathname <paramref name="rootFolderPath"/> and replacing
-        /// every occurrence of the text specified by the <paramref
-        /// name="findWhat"/> parameter with the text specified by the <paramref
-        /// name="replaceWith"/> parameter. A case-sensitive, not-in-exact-word
+        /// folder with pathname <paramref name="rootFolderPath" /> and replacing
+        /// every occurrence of the text specified by the
+        /// <paramref
+        ///     name="findWhat" />
+        /// parameter with the text specified by the
+        /// <paramref
+        ///     name="replaceWith" />
+        /// parameter. A case-sensitive, not-in-exact-word
         /// search is performed.
         /// </summary>
         /// <param name="rootFolderPath">
@@ -253,31 +282,35 @@ namespace MFR.Renamers.Files.Interfaces
         /// (Required.) Text to be found in each file contained in the directory tree.
         /// </param>
         /// <param name="replaceWith">
-        /// (Optional.) Text to replace all the instances of <paramref
-        /// name="findWhat"/> with. If this parameter is blank (the default),
+        /// (Optional.) Text to replace all the instances of
+        /// <paramref
+        ///     name="findWhat" />
+        /// with. If this parameter is blank (the default),
         /// then the text is deleted.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath"/> or the
-        /// <paramref name="findWhat"/> parameters are blank.
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the folder with pathname specified by the <paramref
-        /// name="rootFolderPath"/> does not exist.
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
@@ -298,7 +331,8 @@ namespace MFR.Renamers.Files.Interfaces
         /// which searches should be started.
         /// <para />
         /// The fully-qualified pathname passed must reference a folder that currently
-        /// exists on the disk; otherwise, <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
+        /// exists on the disk; otherwise,
+        /// <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter,
