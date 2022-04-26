@@ -4,7 +4,9 @@
 ## Contents
 
 - [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
+  - [LastSolutionPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
+  - [ShouldReOpenSolution](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.Interfaces.IFileRenamer.ShouldReOpenSolution')
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
@@ -29,6 +31,13 @@ Defines the publicly-exposed methods and properties of a `File
             Renamer` object. Such an object is directly responsible for
 processing the file operations of this application.
 
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath'></a>
+### LastSolutionPath `property`
+
+##### Summary
+
+Gets or sets the path to the last Visual Studio Solution that we have worked with most recently.
+
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
 
@@ -36,6 +45,15 @@ processing the file operations of this application.
 
 Gets a string containing the full pathname of the folder where all
 operations start.
+
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolution'></a>
+### ShouldReOpenSolution `property`
+
+##### Summary
+
+Gets a value determining whether the currently-open solution
+in Visual Studio should be closed and then re-opened at the
+completion of the operation.
 
 <a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}-'></a>
 ### ProcessAll(findWhat,replaceWith,pathFilter) `method`
