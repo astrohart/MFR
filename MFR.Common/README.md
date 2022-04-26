@@ -19,9 +19,13 @@
   - [GetEnum(typeName,name)](#M-MFR-Common-Reflector-GetEnum-System-String,System-String- 'MFR.Common.Reflector.GetEnum(System.String,System.String)')
   - [GetType(typeName)](#M-MFR-Common-Reflector-GetType-System-String- 'MFR.Common.Reflector.GetType(System.String)')
   - [New(typeName,parameters)](#M-MFR-Common-Reflector-New-System-String,System-Object[]- 'MFR.Common.Reflector.New(System.String,System.Object[])')
+- [Register](#T-MFR-Common-Register 'MFR.Common.Register')
+  - [WindowsMessageFilter()](#M-MFR-Common-Register-WindowsMessageFilter 'MFR.Common.Register.WindowsMessageFilter')
 - [Resources](#T-MFR-Common-Properties-Resources 'MFR.Common.Properties.Resources')
   - [Culture](#P-MFR-Common-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
+- [Revoke](#T-MFR-Common-Revoke 'MFR.Common.Revoke')
+  - [WindowsMessageFilter()](#M-MFR-Common-Revoke-WindowsMessageFilter 'MFR.Common.Revoke.WindowsMessageFilter')
 
 <a name='T-MFR-Common-ProgramFlowHelper'></a>
 ## ProgramFlowHelper `type`
@@ -413,6 +417,28 @@ the target object as arguments. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `typeName`, is
 passed a blank or `null` string for a value. |
 
+<a name='T-MFR-Common-Register'></a>
+## Register `type`
+
+##### Namespace
+
+MFR.Common
+
+##### Summary
+
+Provides methods to register with the Windows operating system.
+
+<a name='M-MFR-Common-Register-WindowsMessageFilter'></a>
+### WindowsMessageFilter() `method`
+
+##### Summary
+
+Registers an OLE Message Filter with the Windows operating system.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Common-Properties-Resources'></a>
 ## Resources `type`
 
@@ -438,3 +464,25 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-Common-Revoke'></a>
+## Revoke `type`
+
+##### Namespace
+
+MFR.Common
+
+##### Summary
+
+Methods to revoke things from being in a registered status with the operating system.
+
+<a name='M-MFR-Common-Revoke-WindowsMessageFilter'></a>
+### WindowsMessageFilter() `method`
+
+##### Summary
+
+Revokes the most-recently-registered OLE message filter.
+
+##### Parameters
+
+This method has no parameters.
