@@ -15,6 +15,11 @@ namespace MFR.Constants
         public static readonly Guid FRM_EXCEPTION_RAISED = Guid.NewGuid();
 
         /// <summary>
+        /// Unique identifier for a message that indicates that a file has been renamed.
+        /// </summary>
+        public static readonly Guid FRM_FILE_RENAMED = Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for a message that indicates a file system entry
         /// (file or folder) has been skipped by the current operation.
         /// </summary>
