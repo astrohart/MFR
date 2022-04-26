@@ -554,6 +554,12 @@ namespace MFR.Renamers.Files
                     )
                 );
 
+                /*
+                 * First, we obtain the set of all files that need to be
+                 * renamed.  Rules, that the user can define, are used to
+                 * narrow the search.
+                 */
+
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameFilesInFolder)
