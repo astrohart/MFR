@@ -591,47 +591,54 @@ namespace MFR.Renamers.Files
                             )
                         );
 
+                        var newFilePath = Path.Combine(
+                            entry.ContainingFolder,
+                            /*
+                             * OKAY, the code below is going to actually figure
+                             * out the new name of the file.  Not the entire new
+                             * PATH to the file...just the new NAME for the FILE
+                             * ITSELF.
+                             *
+                             * Since the FileInfoExtensions.RenameTo() method must
+                             * be passed the destination file as a fully-qualified,
+                             * absolute pathname, we do the combination with the
+                             * ContainingFolder property of the current
+                             * FileSystemEntry we are processing.  (The Containing
+                             * DoesFolder property is filled during its construction.)
+                             */
+                            (string)GetTextReplacementEngine.For(
+                                    OperationType.RenameFilesInFolder
+                                )
+                                .AndAttachConfiguration(Configuration)
+                                .Replace(
+                                    GetMatchExpressionFactory.For(
+                                            OperationType.RenameFilesInFolder
+                                        )
+                                        .AndAttachConfiguration(Configuration)
+                                        .ForTextValue(
+                                            GetTextValueRetriever.For(
+                                                    OperationType
+                                                        .RenameFilesInFolder
+                                                )
+                                                .GetTextValue(entry)
+                                        )
+                                        .ToFindWhat(findWhat)
+                                        .AndReplaceItWith(replaceWith)
+                                )
+                        );
+                             
                         entry.ToFileInfo()
                              .RenameTo(
-                                 Path.Combine(
-                                     entry.ContainingFolder,
-                                     /*
-                                      * OKAY, the code below is going to actually figure
-                                      * out the new name of the file.  Not the entire new
-                                      * PATH to the file...just the new NAME for the FILE
-                                      * ITSELF.
-                                      *
-                                      * Since the FileInfoExtensions.RenameTo() method must
-                                      * be passed the destination file as a fully-qualified,
-                                      * absolute pathname, we do the combination with the
-                                      * ContainingFolder property of the current
-                                      * FileSystemEntry we are processing.  (The Containing
-                                      * DoesFolder property is filled during its construction.)
-                                      */
-                                     (string)GetTextReplacementEngine.For(
-                                             OperationType.RenameFilesInFolder
-                                         )
-                                         .AndAttachConfiguration(Configuration)
-                                         .Replace(
-                                             GetMatchExpressionFactory.For(
-                                                     OperationType
-                                                         .RenameFilesInFolder
-                                                 )
-                                                 .AndAttachConfiguration(
-                                                     Configuration
-                                                 )
-                                                 .ForTextValue(
-                                                     GetTextValueRetriever.For(
-                                                             OperationType
-                                                                 .RenameFilesInFolder
-                                                         )
-                                                         .GetTextValue(entry)
-                                                 )
-                                                 .ToFindWhat(findWhat)
-                                                 .AndReplaceItWith(replaceWith)
-                                         )
-                                 )
-                             );
+                                newFilePath
+                            );
+
+                        if (File.Exists(newFilePath)
+                            && !File.Exists(entry.Path))
+                            OnFileRenamed(
+                                new FileRenamedEventArgs(
+                                    entry.Path, newFilePath
+                                )
+                            );
                     }
                     catch (Exception ex)
                     {
