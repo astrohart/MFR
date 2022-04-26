@@ -1,7 +1,7 @@
-using MFR.Settings.Configuration.Interfaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;
+using MFR.Settings.Configuration.Interfaces;
 using System;
 
 namespace MFR.Renamers.Files.Interfaces
@@ -64,6 +64,14 @@ namespace MFR.Renamers.Files.Interfaces
         event FilesOrFoldersCountedEventHandler SubfoldersToBeRenamedCounted;
 
         /// <summary>
+        /// Gets or sets the path to the last Visual Studio Solution that we have worked with most recently.
+        /// </summary>
+        string LastSolutionPath
+        {
+            get;
+        }
+
+        /// <summary>
         /// Gets a string containing the full pathname of the folder where all
         /// operations start.
         /// </summary>
@@ -71,6 +79,13 @@ namespace MFR.Renamers.Files.Interfaces
         {
             get;
         }
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        bool ShouldReOpenSolution { get; }
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
