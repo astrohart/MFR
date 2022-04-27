@@ -592,6 +592,8 @@ namespace MFR.Renamers.Files
                         );
 
                         var source = entry.Path;
+                        if (string.IsNullOrWhiteSpace(source)) continue;
+                        if (!File.Exists(source)) continue;
 
                         var destination = Path.Combine(
                             entry.ContainingFolder,
