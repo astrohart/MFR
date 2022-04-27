@@ -591,7 +591,9 @@ namespace MFR.Renamers.Files
                             )
                         );
 
-                        var newFilePath = Path.Combine(
+                        var source = entry.Path;
+
+                        var destination = Path.Combine(
                             entry.ContainingFolder,
                             /*
                              * OKAY, the code below is going to actually figure
@@ -626,17 +628,19 @@ namespace MFR.Renamers.Files
                                         .AndReplaceItWith(replaceWith)
                                 )
                         );
-                             
-                        entry.ToFileInfo()
-                             .RenameTo(
-                                newFilePath
-                            );
 
-                        if (File.Exists(newFilePath)
-                            && !File.Exists(entry.Path))
+                        if (entry.ToFileInfo()
+                                 .RenameTo(destination))
+                        /*
+                             * Raise an event to let other parts of the application
+                             * know that a file has been renamed successfully.
+                             *
+                             * The RenameTo method above returns true if the rename
+                             * operation succeeded.
+                             */
                             OnFileRenamed(
                                 new FileRenamedEventArgs(
-                                    entry.Path, newFilePath
+                                    source, destination
                                 )
                             );
                     }
