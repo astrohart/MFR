@@ -30,7 +30,6 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio;
-using Debugger = System.Diagnostics.Debugger;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
@@ -56,7 +55,9 @@ namespace MFR.Renamers.Files
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FileRenamer() { }
+        static FileRenamer()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
@@ -66,6 +67,68 @@ namespace MFR.Renamers.Files
         {
             LastSolutionPath = RootDirectoryPath = string.Empty;
         }
+
+        /// <summary>
+        /// Occurs when an exception is thrown from an operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler ExceptionRaised;
+
+        /// <summary>
+        /// Occurs when a file has been renamed.
+        /// </summary>
+        public event FileRenamedEventHandler FileRenamed;
+
+        /// <summary>
+        /// Occurs when files to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
+
+        /// <summary>
+        /// Occurs when files to be processed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            FilesToHaveTextReplacedCounted;
+
+        /// <summary>
+        /// Occurs when the processing is completely finished.
+        /// </summary>
+        public event EventHandler Finished;
+
+        /// <summary>
+        /// Occurs when a folder has been renamed.
+        /// </summary>
+        public event FolderRenamedEventHandler FolderRenamed;
+
+        /// <summary>
+        /// Occurs when an operation has completed.
+        /// </summary>
+        public event OperationFinishedEventHandler OperationFinished;
+
+        /// <summary>
+        /// Occurs when an operation has commenced.
+        /// </summary>
+        public event OperationStartedEventHandler OperationStarted;
+
+        /// <summary>
+        /// Occurs when an operation is about to be processed for a file or a folder.
+        /// </summary>
+        public event ProcessingOperationEventHandler ProcessingOperation;
+
+        /// <summary>
+        /// Occurs when the processing has started.
+        /// </summary>
+        public event EventHandler Started;
+
+        /// <summary>
+        /// Occurs when a textual status message is available for display.
+        /// </summary>
+        public event StatusUpdateEventHandler StatusUpdate;
+
+        /// <summary>
+        /// Occurs when subfolders to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SubfoldersToBeRenamedCounted;
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -82,6 +145,46 @@ namespace MFR.Renamers.Files
         /// operation has been requested.
         /// </summary>
         public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
+        /// </summary>
+        public string LastSolutionFolderPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the last Visual Studio Solution that we have worked
+        /// with most recently.
+        /// </summary>
+        public string LastSolutionPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        public string RootDirectoryPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        public bool ShouldReOpenSolution
         {
             get;
             private set;
@@ -139,91 +242,35 @@ namespace MFR.Renamers.Files
             => GetRootFolderPathManager.SoleInstance();
 
         /// <summary>
-        /// Occurs when an exception is thrown from an operation.
+        /// Enables this object to perform some or all of the operations specified.
         /// </summary>
-        public event ExceptionRaisedEventHandler ExceptionRaised;
-
-        /// <summary>
-        /// Occurs when a file has been renamed.
-        /// </summary>
-        public event FileRenamedEventHandler FileRenamed;
-
-        /// <summary>
-        /// Occurs when files to be renamed have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
-
-        /// <summary>
-        /// Occurs when files to be processed have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler
-            FilesToHaveTextReplacedCounted;
-
-        /// <summary>
-        /// Occurs when the processing is completely finished.
-        /// </summary>
-        public event EventHandler Finished;
-
-        /// <summary>
-        /// Occurs when an operation has completed.
-        /// </summary>
-        public event OperationFinishedEventHandler OperationFinished;
-
-        /// <summary>
-        /// Occurs when an operation has commenced.
-        /// </summary>
-        public event OperationStartedEventHandler OperationStarted;
-
-        /// <summary>
-        /// Occurs when an operation is about to be processed for a file or a folder.
-        /// </summary>
-        public event ProcessingOperationEventHandler ProcessingOperation;
-
-        /// <summary>
-        /// Occurs when the processing has started.
-        /// </summary>
-        public event EventHandler Started;
-
-        /// <summary>
-        /// Occurs when a textual status message is available for display.
-        /// </summary>
-        public event StatusUpdateEventHandler StatusUpdate;
-
-        /// <summary>
-        /// Occurs when subfolders to be renamed have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler
-            SubfoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Gets or sets the path to the last Visual Studio Solution that we have worked
-        /// with most recently.
-        /// </summary>
-        public string LastSolutionPath
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
         {
-            get;
-            private set;
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
         }
 
         /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
-        /// operations start.
+        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
         /// </summary>
-        public string RootDirectoryPath
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
         {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        public bool ShouldReOpenSolution
-        {
-            get;
-            private set;
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
         }
 
         /// <summary>
@@ -633,13 +680,13 @@ namespace MFR.Renamers.Files
 
                         if (entry.ToFileInfo()
                                  .RenameTo(destination))
-                        /*
-                             * Raise an event to let other parts of the application
-                             * know that a file has been renamed successfully.
-                             *
-                             * The RenameTo method above returns true if the rename
-                             * operation succeeded.
-                             */
+                            /*
+                                 * Raise an event to let other parts of the application
+                                 * know that a file has been renamed successfully.
+                                 *
+                                 * The RenameTo method above returns true if the rename
+                                 * operation succeeded.
+                                 */
                             OnFileRenamed(
                                 new FileRenamedEventArgs(
                                     source, destination
@@ -801,6 +848,10 @@ namespace MFR.Renamers.Files
                         );
                         return;
                     }
+                    else
+                    {
+                        return;
+                    }
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -826,31 +877,48 @@ namespace MFR.Renamers.Files
                             )
                         );
 
-                        entry.ToDirectoryInfo()
+                        var source = entry.Path;
+
+                        var destination = (string)GetTextReplacementEngine
+                                                  .For(
+                                                      OperationType
+                                                          .RenameSubFolders
+                                                  )
+                                                  .AndAttachConfiguration(
+                                                      Configuration
+                                                  )
+                                                  .Replace(
+                                                      (IMatchExpression)
+                                                      GetMatchExpressionFactory
+                                                          .For(
+                                                              OperationType
+                                                                  .RenameSubFolders
+                                                          )
+                                                          .AndAttachConfiguration(
+                                                              Configuration
+                                                          )
+                                                          .ForTextValue(
+                                                              GetTextValueRetriever
+                                                                  .For(
+                                                                      OperationType
+                                                                          .RenameSubFolders
+                                                                  )
+                                                                  .GetTextValue(
+                                                                      entry
+                                                                  )
+                                                          )
+                                                          .ToFindWhat(findWhat)
+                                                          .AndReplaceItWith(
+                                                              replaceWith
+                                                          )
+                                                  );
+
+                        if (entry.ToDirectoryInfo()
                              .RenameTo(
-                                 (string)GetTextReplacementEngine
-                                         .For(OperationType.RenameSubFolders)
-                                         .AndAttachConfiguration(Configuration)
-                                         .Replace(
-                                             (IMatchExpression)
-                                             GetMatchExpressionFactory.For(
-                                                     OperationType
-                                                         .RenameSubFolders
-                                                 )
-                                                 .AndAttachConfiguration(
-                                                     Configuration
-                                                 )
-                                                 .ForTextValue(
-                                                     GetTextValueRetriever.For(
-                                                             OperationType
-                                                                 .RenameSubFolders
-                                                         )
-                                                         .GetTextValue(entry)
-                                                 )
-                                                 .ToFindWhat(findWhat)
-                                                 .AndReplaceItWith(replaceWith)
-                                         )
-                             );
+                                 destination
+                             )
+                             && !Directory.Exists(source))
+                            OnFolderRenamed(new FolderRenamedEventArgs(source, destination));
                     }
                     catch (Exception ex)
                     {
@@ -1131,38 +1199,6 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
-        }
-
-        /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FileRenamed" /> event.
         /// </summary>
         /// <param name="e">
@@ -1175,7 +1211,7 @@ namespace MFR.Renamers.Files
             SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
                                              .ForMessageId(
                                                  FileRenamerMessages
-                                                     .FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED
+                                                     .FRM_FILE_RENAMED
                                              );
 
             /*
@@ -1191,6 +1227,34 @@ namespace MFR.Renamers.Files
             if (!".sln".Equals(Path.GetExtension(e.Source))) return;
 
             LastSolutionPath = e.Destination;
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed"/> event.
+        /// </summary>
+        /// <param name="e">A <see cref="T:MFR.Events.FolderRenamedEventArgs"/> that contains the event data.</param>
+        protected virtual void OnFolderRenamed(FolderRenamedEventArgs e)
+        {
+            FolderRenamed?.Invoke(this, e);
+            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
+                                             .ForMessageId(
+                                                 FileRenamerMessages
+                                                     .FRM_FOLDER_RENAMED
+                                             );
+
+            /*
+            * custom processing.
+            *
+            * Sometimes, the file folder that houses the .sln file of the solution we are
+            * processing, itself, gets renamed by the operation!
+            *
+            * We check if this is so.  If so, then we set the LastSolutionPath property
+            * to the destination file name.
+            */
+
+            if (!RootDirectoryPath.Equals(e.Destination) &&
+                RootDirectoryPath.Equals(e.Source))
+                LastSolutionFolderPath = RootDirectoryPath = e.Destination;
         }
 
         private static string GetFirstSolutionPathFoundInFolder(string folder)

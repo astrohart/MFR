@@ -18,34 +18,6 @@ namespace MFR.Renamers.Files.Interfaces
     public interface IFileRenamer : IConfigurationComposedObject
     {
         /// <summary>
-        /// Gets or sets the path to the last Visual Studio Solution that we have worked
-        /// with most recently.
-        /// </summary>
-        string LastSolutionPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
-        /// operations start.
-        /// </summary>
-        string RootDirectoryPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        bool ShouldReOpenSolution
-        {
-            get;
-        }
-
-        /// <summary>
         /// Occurs when an exception is thrown from an operation.
         /// </summary>
         event ExceptionRaisedEventHandler ExceptionRaised;
@@ -69,6 +41,11 @@ namespace MFR.Renamers.Files.Interfaces
         /// Occurs when the processing is completely finished.
         /// </summary>
         event EventHandler Finished;
+
+        /// <summary>
+        /// Occurs when a folder has been renamed.
+        /// </summary>
+        event FolderRenamedEventHandler FolderRenamed;
 
         /// <summary>
         /// Occurs when an operation has completed.
@@ -99,6 +76,42 @@ namespace MFR.Renamers.Files.Interfaces
         /// Occurs when subfolders to be renamed have been counted.
         /// </summary>
         event FilesOrFoldersCountedEventHandler SubfoldersToBeRenamedCounted;
+
+        /// <summary>
+        /// Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
+        /// </summary>
+        string LastSolutionFolderPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the last Visual Studio Solution that we have worked
+        /// with most recently.
+        /// </summary>
+        string LastSolutionPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        string RootDirectoryPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        bool ShouldReOpenSolution
+        {
+            get;
+        }
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
