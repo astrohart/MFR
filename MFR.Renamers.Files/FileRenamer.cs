@@ -1319,15 +1319,6 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                /*
-                 * Stop here in order to watch the system locate the correct
-                 * Visual Studio instance to see if there is a Solution that needs
-                 * closing before we process the requested operations.
-                 */
-
-                Debugger.Launch();
-                Debugger.Break();
-
                 DTE dte = null;
 
                 DebugUtils.WriteLine(
@@ -1470,16 +1461,6 @@ namespace MFR.Renamers.Files
                     DebugLevel.Info,
                     "FileRenamer.DoProcessAll: Checking whether we need to re-open the solution..."
                 );
-
-                /*
-                 * Stop here in order to watch the system locate the correct
-                 * Visual Studio instance to see if there is a Solution that needs
-                 * opening after we've processed the requested operations.
-                 */
-
-                Debugger.Launch();
-                Debugger.Break();
-
 
                 // Since the pathname of the Solution file itself may have changed due to a file-rename
                 // operation, re-scan the root directory for the solution path.
