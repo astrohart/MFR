@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{FACD1C44-0214-4DF0-8969-4429C386A51A}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -105,6 +106,8 @@
   <ItemGroup>
     <Compile Include="FileRenamedEventArgs.cs" />
     <Compile Include="FileRenamedEventHandler.cs" />
+    <Compile Include="FolderRenamedEventArgs.cs" />
+    <Compile Include="FolderRenamedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="FilesOrFoldersCountedEventArgs.cs" />
     <Compile Include="FilesOrFoldersCountedEventHandler.cs" />
