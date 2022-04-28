@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace MFR.Tests
 {
+    /// <summary>
+    /// Exposes static methods to extend the functionality of test fixtures.
+    /// </summary>
     public static class TestFixtureExtensions
     {
         /// <summary>
@@ -28,11 +31,7 @@ namespace MFR.Tests
         public static void DumpStringsToConsole(this object fixture,
             IEnumerable<string> list)
         {
-            if (list == null || !list.Any())
-            {
-                Console.WriteLine("ERROR: List is null, or contains zero elements.");
-                return;
-            }
+            if (list == null || !list.Any()) return;    // nothing to do
 
             foreach (var element in list) Console.WriteLine(element);
         }
