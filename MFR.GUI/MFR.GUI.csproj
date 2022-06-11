@@ -7,8 +7,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{F1AA54DD-684F-45CC-A5B7-766AE9E75634}</ProjectGuid>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -227,13 +226,7 @@ if exist "$(TargetDir)$(TargetName).md" (
 exit /b 0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>REM exit /b 0
-echo Deploying $(Configuration) - $(PlatformName)...
-SET "INSTALL_DIR=%25PROGRAMFILES(X86)%25"
-if "$(PlatformName)"=="x64" (
-	SET "INSTALL_DIR=%25PROGRAMW6432%25"
-)
-if "$(ConfigurationName)"=="Release" (
+    <PostBuildEvent>if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.pdb"
     erase /F /S /Q "$(TargetDir)*.pspdb"
     erase /F /S /Q "$(TargetDir)*.vshost.exe"
@@ -242,8 +235,6 @@ if "$(ConfigurationName)"=="Release" (
     erase /F /S /Q "$(TargetDir)*.xml"
     attrib -r "$(TargetDir)$(TargetName).xml"
     attrib -r "$(TargetDir)$(TargetName).md"
-	rd /S /Q "%25INSTALL_DIR%25\xyLOGIX, LLC\Project File Renamer"
-	xcopy "$(TargetDir)*.*" "%25INSTALL_DIR%25\xyLOGIX, LLC\Project File Renamer\*.*" /E /C /R /Y /H /D /J
 )
 exit /b 0</PostBuildEvent>
   </PropertyGroup>
