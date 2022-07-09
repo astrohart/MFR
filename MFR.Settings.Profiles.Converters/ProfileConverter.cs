@@ -1,5 +1,6 @@
 ﻿using MFR.Settings.Profiles.Interfaces;
 using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Settings.Profiles.Converters
@@ -21,6 +22,7 @@ namespace MFR.Settings.Profiles.Converters
     /// the <see cref="T:MFR.Settings.Profiles.Interfaces.IProfile" /> interface we will be using, we
     /// supply the type parameter in order to let the user of this class decide for us.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class ProfileConverter<T> : JsonConverter
         where T : IProfile
     {
