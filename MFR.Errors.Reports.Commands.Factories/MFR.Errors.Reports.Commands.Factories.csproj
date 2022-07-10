@@ -104,7 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetErrorReportCommand.cs" />
+    <Compile Include="GetErrorReportCommandType.cs" />
     <Compile Include="GetViewErrorReportWithNotepadCommand.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>

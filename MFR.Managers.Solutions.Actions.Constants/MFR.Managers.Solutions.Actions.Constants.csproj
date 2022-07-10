@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="VisualStudioSolutionServiceAction.cs" />
+    <Compile Include="VisualStudioSolutionServiceActionType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

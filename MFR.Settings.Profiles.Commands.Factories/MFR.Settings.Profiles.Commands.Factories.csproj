@@ -104,7 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetProfileCollectionCommand.cs" />
+    <Compile Include="GetProfileCollectionCommandType.cs" />
     <Compile Include="GetSaveProfileCollectionPathCommand.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
