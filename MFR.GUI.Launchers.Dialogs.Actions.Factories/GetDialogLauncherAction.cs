@@ -7,7 +7,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.IAction" />
+    ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
     /// interface and that summon and collect results from the various dialog boxes
     /// that are invoked by the commands in this application.
     /// </summary>
@@ -16,7 +16,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IAction" />
+        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <param name="actionType">

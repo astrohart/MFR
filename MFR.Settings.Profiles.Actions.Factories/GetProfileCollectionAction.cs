@@ -7,7 +7,7 @@ namespace MFR.Settings.Profiles.Actions.Factories
     /// <summary>
     /// Creates instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.IAction" />
+    ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
     /// interface, in order to perform actions on the list of profiles.
     /// </summary>
     /// <remarks>
@@ -18,7 +18,7 @@ namespace MFR.Settings.Profiles.Actions.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IAction" />
+        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <param name="actionType">

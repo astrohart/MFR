@@ -7,7 +7,7 @@
         /// <summary>
         /// Creates instances of objects that implement the
         /// <see
-        ///     cref="T:MFR.IAction" />
+        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
         /// interface.
         /// </summary>
         public static class GetConfigurationAction
@@ -15,7 +15,7 @@
             /// <summary>
             /// Creates a new instance of an object that implements the
             /// <see
-            ///     cref="T:MFR.IAction" />
+            ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
             /// interface and returns a reference to it.
             /// </summary>
             /// <param name="actionType">
