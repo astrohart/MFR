@@ -1,4 +1,7 @@
-﻿namespace MFR.GUI.Models.Extensions
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace MFR.GUI.Models.Extensions
 {
     /// <summary>
     /// Exposes static methods that extend the <see cref="T:MFR.GUI.Models.OperationTypeInfo"/> class.
