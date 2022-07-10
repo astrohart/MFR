@@ -8,6 +8,7 @@
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
+  - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
   - [LastSolutionPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionPath 'MFR.Renamers.Files.FileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
   - [RootDirectoryValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryValidator')
@@ -22,6 +23,7 @@
   - [OnFilesToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnFilesToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFilesToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFilesToHaveTextReplacedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnFilesToHaveTextReplacedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFilesToHaveTextReplacedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFinished()](#M-MFR-Renamers-Files-FileRenamer-OnFinished 'MFR.Renamers.Files.FileRenamer.OnFinished')
+  - [OnFolderRenamed(e)](#M-MFR-Renamers-Files-FileRenamer-OnFolderRenamed-MFR-Events-FolderRenamedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFolderRenamed(MFR.Events.FolderRenamedEventArgs)')
   - [OnOperationFinished(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationFinished(MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
@@ -114,6 +116,13 @@ nothing or throw an exception.
 
 Gets a reference to the one and only instance of
 [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer').
+
+<a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath'></a>
+### LastSolutionFolderPath `property`
+
+##### Summary
+
+Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionPath'></a>
 ### LastSolutionPath `property`
@@ -343,6 +352,19 @@ event.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnFolderRenamed-MFR-Events-FolderRenamedEventArgs-'></a>
+### OnFolderRenamed(e) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-FolderRenamed 'MFR.Renamers.Files.FileRenamer.FolderRenamed') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') | A [FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') that contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Operations-Events-OperationFinishedEventArgs-'></a>
 ### OnOperationFinished(e) `method`
