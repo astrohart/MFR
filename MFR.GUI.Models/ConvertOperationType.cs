@@ -1,4 +1,5 @@
 ﻿using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Models
 {
@@ -6,6 +7,7 @@ namespace MFR.GUI.Models
     /// Methods for converting <see cref="T:MFR.Operations.Constants.OperationType" />
     /// values to descriptive strings.
     /// </summary>
+    [Log(AttributeExclude = true)]
     internal static class ConvertOperationType
     {
         /// <summary>
