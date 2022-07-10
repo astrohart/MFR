@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [Is](#T-MFR-GUI-Windows-MainWindow-Is 'MFR.GUI.Windows.MainWindow.Is')
+  - [SolutionFIle(pathname)](#M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String- 'MFR.GUI.Windows.MainWindow.Is.SolutionFIle(System.String)')
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
@@ -76,6 +78,46 @@
   - [Dispose(disposing)](#M-MFR-GUI-Windows-TestBedForm-Dispose-System-Boolean- 'MFR.GUI.Windows.TestBedForm.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Windows-TestBedForm-InitializeComponent 'MFR.GUI.Windows.TestBedForm.InitializeComponent')
   - [OnLoad(e)](#M-MFR-GUI-Windows-TestBedForm-OnLoad-System-EventArgs- 'MFR.GUI.Windows.TestBedForm.OnLoad(System.EventArgs)')
+
+<a name='T-MFR-GUI-Windows-MainWindow-Is'></a>
+## Is `type`
+
+##### Namespace
+
+MFR.GUI.Windows.MainWindow
+
+##### Summary
+
+Exposes static methods to make determinations about data and the state of the
+system..
+
+<a name='M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String-'></a>
+### SolutionFIle(pathname) `method`
+
+##### Summary
+
+Determines whether the file having the specified `pathname`
+is a Visual Studio Solution (*.sln) file.
+
+##### Returns
+
+`true` if the file having the specified
+`pathname` is a Visual Studio Solution (*.sln) file;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file that is to be examined in order to determine whether it is a
+Visual Studio Solution (*.sln) file. |
+
+##### Remarks
+
+This method also returns `false` if the
+`pathname` that is passed is blank, `null`,
+or refers to a file that does actually exist on the disk.
 
 <a name='T-MFR-GUI-Windows-MainWindow'></a>
 ## MainWindow `type`
@@ -388,10 +430,10 @@ for the Browse ("...") button.
 ##### Remarks
 
 When the user clicks the "..." button, we want to show them a dialog
-box to select a folder.
+    box to select a folder.
 
 The contents of the Starting Folder text box will then be
-initialized to hold the pathname to the folder that the user selects.
+    initialized to hold the pathname to the folder that the user selects.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnClickPerformOperation-System-Object,System-EventArgs-'></a>
 ### OnClickPerformOperation(sender,e) `method`
