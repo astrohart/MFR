@@ -276,6 +276,8 @@ namespace MFR.GUI
         /// </summary>
         private static void SetDisplayParameters()
         {
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
         }

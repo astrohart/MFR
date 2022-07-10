@@ -714,7 +714,7 @@ namespace MFR.GUI.Windows
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 505);
             this.Controls.Add(this.switchButton);
             this.Controls.Add(this.standardToolBar);

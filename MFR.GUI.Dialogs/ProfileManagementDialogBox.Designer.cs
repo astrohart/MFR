@@ -1,4 +1,4 @@
-﻿
+
 namespace MFR.GUI.Dialogs
 {
     partial class ProfileManagementDialogBox
@@ -100,7 +100,7 @@ namespace MFR.GUI.Dialogs
             // 
             this.AcceptButton = this.okayButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(604, 353);
             this.Controls.Add(this.deleteProfileButton);
