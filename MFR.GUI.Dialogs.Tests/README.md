@@ -3,12 +3,58 @@
 
 ## Contents
 
+- [DialogTestBase](#T-MFR-GUI-Dialogs-Tests-DialogTestBase 'MFR.GUI.Dialogs.Tests.DialogTestBase')
+  - [Cleanup()](#M-MFR-GUI-Dialogs-Tests-DialogTestBase-Cleanup 'MFR.GUI.Dialogs.Tests.DialogTestBase.Cleanup')
+  - [Initialize()](#M-MFR-GUI-Dialogs-Tests-DialogTestBase-Initialize 'MFR.GUI.Dialogs.Tests.DialogTestBase.Initialize')
 - [ProfileNameDialogTests](#T-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests 'MFR.GUI.Dialogs.Tests.ProfileNameDialogTests')
   - [Test_AddNewProfile_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests-Test_AddNewProfile_Dialog_Works 'MFR.GUI.Dialogs.Tests.ProfileNameDialogTests.Test_AddNewProfile_Dialog_Works')
   - [Test_SaveProfileAs_Dialog_Works()](#M-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests-Test_SaveProfileAs_Dialog_Works 'MFR.GUI.Dialogs.Tests.ProfileNameDialogTests.Test_SaveProfileAs_Dialog_Works')
 - [Resources](#T-MFR-GUI-Dialogs-Tests-Properties-Resources 'MFR.GUI.Dialogs.Tests.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Tests-Properties-Resources-Culture 'MFR.GUI.Dialogs.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Tests-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Tests.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Dialogs-Tests-DialogTestBase'></a>
+## DialogTestBase `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Tests
+
+##### Summary
+
+Defines the events, methods, properties, and behaviors for all test fixtures
+that display forms and dialog boxes.
+
+<a name='M-MFR-GUI-Dialogs-Tests-DialogTestBase-Cleanup'></a>
+### Cleanup() `method`
+
+##### Summary
+
+Method that can be overriden by children of this class in order to do
+processing once all tests have been completed.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Dialogs-Tests-DialogTestBase-Initialize'></a>
+### Initialize() `method`
+
+##### Summary
+
+Called prior to running any of the unit tests.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+The base class version of this method calls the
+[EnableVisualStyles](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Application.EnableVisualStyles 'System.Windows.Forms.Application.EnableVisualStyles') and
+[SetCompatibleTextRenderingDefault](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Application.SetCompatibleTextRenderingDefault 'System.Windows.Forms.Application.SetCompatibleTextRenderingDefault')
+methods in order to prepare the GUI of the forms and dialog boxes so it has a
+modern look and feel.
 
 <a name='T-MFR-GUI-Dialogs-Tests-ProfileNameDialogTests'></a>
 ## ProfileNameDialogTests `type`
