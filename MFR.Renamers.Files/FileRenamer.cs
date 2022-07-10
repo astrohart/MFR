@@ -338,7 +338,7 @@ namespace MFR.Renamers.Files
                 );
             }
 
-            if (Configuration.RenameSubfolders)
+            if (Configuration.RenameSubFolders)
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
@@ -357,7 +357,7 @@ namespace MFR.Renamers.Files
                 );
             }
 
-            if (Configuration.ReplaceInFiles)
+            if (Configuration.ReplaceTextInFiles)
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(

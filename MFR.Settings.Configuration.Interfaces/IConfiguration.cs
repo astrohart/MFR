@@ -84,7 +84,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.
         /// </summary>
-        bool RenameSubfolders
+        bool RenameSubFolders
         {
             get;
             set;
@@ -111,7 +111,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a value that indicates whether we should replace text
         /// in files.
         /// </summary>
-        bool ReplaceInFiles
+        bool ReplaceTextInFiles
         {
             get;
             set;

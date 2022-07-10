@@ -1,4 +1,5 @@
 using MFR.GUI.Models;
+using MFR.GUI.Models.Extensions;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
@@ -52,8 +53,8 @@ namespace MFR.Settings.Configuration
             OperationsToPerform = source.OperationsToPerform;
             ReOpenSolution = source.ReOpenSolution;
             RenameFiles = source.RenameFiles;
-            RenameSubfolders = source.RenameSubfolders;
-            ReplaceInFiles = source.ReplaceInFiles;
+            RenameSubFolders = source.RenameSubFolders;
+            ReplaceTextInFiles = source.ReplaceTextInFiles;
             ReplaceWith = source.ReplaceWith;
             ReplaceWithHistory = source.ReplaceWithHistory;
             SelectedOptionTab = source.SelectedOptionTab;
@@ -129,15 +130,15 @@ namespace MFR.Settings.Configuration
         {
             get;
             set;
-        } = new List<OperationTypeInfo>() {
-            new OperationTypeInfo() {
+        } = new List<OperationTypeInfo> {
+            new OperationTypeInfo {
                 Enabled = false,
                 OperationType = OperationType.RenameFilesInFolder
             },
-            new OperationTypeInfo() {
+            new OperationTypeInfo {
                 Enabled = false, OperationType = OperationType.RenameSubFolders
             },
-            new OperationTypeInfo() {
+            new OperationTypeInfo {
                 Enabled = false,
                 OperationType = OperationType.ReplaceTextInFiles
             }
@@ -155,8 +156,11 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (OperationsToPerform == null
-                        || OperationsToPerform.All(o => OperationType.RenameFilesInFolder != o.OperationType)) return result;
+                    if (!OperationsToPerform.HasAnyOperations()) return result;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.RenameFilesInFolder)
+                        ))
+                        return result;
 
                     result = OperationsToPerform[
                             (int)OperationType.RenameFilesInFolder]
@@ -175,16 +179,20 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                   
+                    if (!OperationsToPerform.HasAnyOperations()) return;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.RenameFilesInFolder)
+                        ))
+                        return;
+
+                    OperationsToPerform[(int)OperationType.RenameFilesInFolder]
+                        .Enabled = value;
                 }
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
                     DebugUtils.LogException(ex);
                 }
-
-                OperationsToPerform[(int)OperationType.RenameFilesInFolder]
-                    .Enabled = value;
             }
         }
 
@@ -192,14 +200,51 @@ namespace MFR.Settings.Configuration
         /// Gets or sets a value that indicates whether we should rename subfolders.
         /// </summary>
         [JsonIgnore]
-        public bool RenameSubfolders
+        public bool RenameSubFolders
         {
-            get
-                => OperationsToPerform[(int)OperationType.RenameSubFolders]
-                    .Enabled;
-            set
-                => OperationsToPerform[(int)OperationType.RenameSubFolders]
-                    .Enabled = value;
+            get {
+                var result = false;
+
+                try
+                {
+                    if (!OperationsToPerform.HasAnyOperations()) return result;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.RenameSubFolders)
+                        ))
+                        return result;
+
+                    result = OperationsToPerform[
+                            (int)OperationType.RenameSubFolders]
+                        .Enabled;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                    if (!OperationsToPerform.HasAnyOperations()) return;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.RenameSubFolders)
+                        ))
+                        return;
+
+                    OperationsToPerform[(int)OperationType.RenameSubFolders]
+                        .Enabled = value;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
         }
 
         /// <summary>
@@ -225,14 +270,51 @@ namespace MFR.Settings.Configuration
         /// in files.
         /// </summary>
         [JsonIgnore]
-        public bool ReplaceInFiles
+        public bool ReplaceTextInFiles
         {
-            get
-                => OperationsToPerform[(int)OperationType.ReplaceTextInFiles]
-                    .Enabled;
-            set
-                => OperationsToPerform[(int)OperationType.ReplaceTextInFiles]
-                    .Enabled = value;
+            get {
+                var result = false;
+
+                try
+                {
+                    if (!OperationsToPerform.HasAnyOperations()) return result;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.ReplaceTextInFiles)
+                        ))
+                        return result;
+
+                    result = OperationsToPerform[
+                            (int)OperationType.ReplaceTextInFiles]
+                        .Enabled;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                    if (!OperationsToPerform.HasAnyOperations()) return;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.ReplaceTextInFiles)
+                        ))
+                        return;
+
+                    OperationsToPerform[(int)OperationType.ReplaceTextInFiles]
+                        .Enabled = value;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
         }
 
         /// <summary>

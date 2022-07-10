@@ -1,13 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using MFR.Operations.Constants;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MFR.GUI.Models.Extensions
 {
     /// <summary>
-    /// Exposes static methods that extend the <see cref="T:MFR.GUI.Models.OperationTypeInfo"/> class.
+    /// Exposes static methods that extend the
+    /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> class.
     /// </summary>
     public static class OperationTypeInfoHelpers
     {
+        /// <summary>
+        /// Determines if the collection coming from the specified
+        /// <paramref name="source" /> has more than zero elements.
+        /// </summary>
+        /// <param name="source">
+        /// (Required.) A collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the <paramref name="source" /> has more
+        /// than zero elements; <see langword="false" /> otherwise.
+        /// </returns>
         public static bool HasAnyOperations(
             this IList<OperationTypeInfo> source)
             => source != null && source.Any();

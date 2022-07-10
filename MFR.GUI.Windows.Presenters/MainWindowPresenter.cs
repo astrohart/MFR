@@ -538,10 +538,10 @@ namespace MFR.GUI.Windows.Presenters
                 "Rename Files", Configuration.RenameFiles
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders", Configuration.RenameSubfolders
+                "Rename Subfolders", Configuration.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Replace in Files", Configuration.ReplaceInFiles
+                "Replace in Files", Configuration.ReplaceTextInFiles
             );
         }
 
@@ -656,11 +656,11 @@ namespace MFR.GUI.Windows.Presenters
 
             Configuration.RenameFiles =
                 View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
-            Configuration.RenameSubfolders =
+            Configuration.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Subfolders"
                 );
-            Configuration.ReplaceInFiles =
+            Configuration.ReplaceTextInFiles =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
