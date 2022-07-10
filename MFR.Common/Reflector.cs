@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -12,6 +13,7 @@ namespace MFR.Common
     /// browser. http://code.google.com/p/fed/ Example: var r = new
     /// Reflector("System.Windows.Forms");
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class Reflector
     {
         /// <summary>
