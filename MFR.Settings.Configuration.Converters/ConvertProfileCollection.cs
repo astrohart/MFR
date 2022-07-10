@@ -5,6 +5,7 @@ using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Globalization;
 
@@ -12,7 +13,8 @@ namespace MFR.Settings.Configuration.Converters
 {
     /// <summary>
     /// Converts JSON-formatted text to and from instances of C# objects that
-    /// implement the <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" />
+    /// implement the
+    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" />
     /// interface.
     /// </summary>
     public static class ConvertProfileCollection
@@ -61,13 +63,15 @@ namespace MFR.Settings.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="json" />, is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public static IProfileCollection FromJson(string json)
+        public static IProfileCollection FromJson([NotLogged] string json)
         {
             if (string.IsNullOrWhiteSpace(json))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(json)
                 );
-            return JsonConvert.DeserializeObject<ProfileCollection>(json, Settings);
+            return JsonConvert.DeserializeObject<ProfileCollection>(
+                json, Settings
+            );
         }
 
         /// <summary>
@@ -79,7 +83,8 @@ namespace MFR.Settings.Configuration.Converters
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" /> interface
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" />
+        /// interface
         /// that is to be converted into JSON-formatted text.
         /// </param>
         /// <returns>
@@ -92,6 +97,7 @@ namespace MFR.Settings.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
+        [return: NotLogged]
         public static string ToJson(IProfileCollection configuration)
         {
             if (configuration == null)

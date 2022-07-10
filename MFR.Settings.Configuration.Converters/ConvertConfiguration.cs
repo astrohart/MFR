@@ -1,6 +1,7 @@
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Globalization;
 
@@ -55,7 +56,7 @@ namespace MFR.Settings.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="json" />, is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public static IConfiguration FromJson(string json)
+        public static IConfiguration FromJson([NotLogged] string json)
         {
             if (string.IsNullOrWhiteSpace(json))
                 throw new ArgumentException(
@@ -86,6 +87,7 @@ namespace MFR.Settings.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
+        [return:NotLogged]
         public static string ToJson(IConfiguration configuration)
         {
             if (configuration == null)
