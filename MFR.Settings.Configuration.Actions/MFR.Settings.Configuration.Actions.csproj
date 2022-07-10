@@ -134,6 +134,14 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models\MFR.GUI.Models.csproj">
+      <Project>{3F247357-B6E3-4681-85FF-889EEA471C89}</Project>
+      <Name>MFR.GUI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Operations.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Registry.Loaders.Factories\MFR.Registry.Loaders.Factories.csproj">
       <Project>{6BCAC1C3-7109-4E18-AFA1-BE6617397F1D}</Project>
       <Name>MFR.Registry.Loaders.Factories</Name>

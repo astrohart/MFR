@@ -27,7 +27,7 @@ namespace MFR.Tests.Properties {
     [GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [DebuggerNonUserCode()]
     [CompilerGenerated()]
-    internal class Resources {
+    public class Resources {
         
         private static ResourceManager resourceMan;
         
@@ -68,7 +68,7 @@ namespace MFR.Tests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\packages\EntityFramework.6.4.4.
         /// </summary>
-        internal static string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER {
+        public static string SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER {
             get {
                 return ResourceManager.GetString("SUBFOLDER_OF_SOLUTION_PACKAGES_FOLDER", resourceCulture);
             }
