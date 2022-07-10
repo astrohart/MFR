@@ -9,7 +9,6 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
-using System.Diagnostics;
 
 namespace MFR.Console
 {
@@ -56,9 +55,8 @@ namespace MFR.Console
 
                 FileRenamer.UpdateConfiguration(Configuration);
 
-                FileRenamer.StartingFrom(
-                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor"
-                );
+                FileRenamer.StartingFrom(Configuration.StartingFolder)
+                           .AndAttachConfiguration(Configuration);
 
                 FileRenamer.FilesToHaveTextReplacedCounted +=
                     OnFilesToHaveTextReplacedCounted;

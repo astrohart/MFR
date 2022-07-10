@@ -1184,14 +1184,12 @@ namespace MFR.Renamers.Files
         [Log(AttributeExclude = true)]
         public IFileRenamer StartingFrom(string path)
         {
-            if (string.IsNullOrWhiteSpace(path))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(path)
-                );
-            if (!Directory.Exists(path))
-                throw new DirectoryNotFoundException(
-                    $"The folder with path '{path}' could not be located.\n\nIt cannot be used as the new value of the FileRenamer.RootDirectoryPath property."
-                );
+            /*
+             * We do not perform any input validation here.  This is because
+             * this value may be being initialized from a default (blank)
+             * configuration.   The configuration may be blank for a number of
+             * reasons, but one of these is the issue that the configuration              * file on the disk may have gotten corrupted or erased.
+             */
 
             RootDirectoryPath = path;
 
