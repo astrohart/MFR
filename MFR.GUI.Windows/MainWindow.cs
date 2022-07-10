@@ -41,6 +41,8 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using File = Alphaleonis.Win32.Filesystem.File;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.GUI.Windows
 {
@@ -72,42 +74,6 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
-        /// Gets a reference to the one and only
-        /// <see cref="T:MFR.GUI.Windows.MainWindow" /> object in this application.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static MainWindow Instance
-        {
-            get;
-        } = new MainWindow();
-
-        /// <summary>
-        /// Gets a value indicating whether the data entered on this form is valid.
-        /// </summary>
-        [Log(AttributeExclude = true)] // do not log this method
-        public bool IsDataValid
-            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
-               Directory.Exists(StartingFolderComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
-               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object plays the role of the Presenter for this form, which determines the
-        /// behavior of this form.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        public IMainWindowPresenter Presenter
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
         /// that represents the currently-loaded configuration.
@@ -129,20 +95,6 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)]
         private static IConfigurationProvider ConfigurationProvider
             => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a value that indicates whether the history is free of all
-        /// previous entries.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
-
-        [Log(AttributeExclude = true)] // do not log this method
-        private bool OnlyReplaceInFilesOperationIsEnabled
-            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
-               OperationsCheckedListBox.GetItemChecked(2);
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -176,6 +128,26 @@ namespace MFR.GUI.Windows
             => $"{ProgramText.MainWindowTitle} {Version}";
 
         /// <summary>
+        /// Gets a reference to the one and only
+        /// <see cref="T:MFR.GUI.Windows.MainWindow" /> object in this application.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MainWindow Instance
+        {
+            get;
+        } = new MainWindow();
+
+        /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        [Log(AttributeExclude = true)] // do not log this method
+        public bool IsDataValid
+            => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
+               Directory.Exists(StartingFolderComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
+               !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
+
+        /// <summary>
         /// Gets or sets a value specifying whether the form is in the Folded state.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
@@ -184,6 +156,15 @@ namespace MFR.GUI.Windows
             get => FoldButton.IsFolded;
             set => FoldButton.IsFolded = value;
         }
+
+        /// <summary>
+        /// Gets a value that indicates whether the history is free of all
+        /// previous entries.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        private bool IsHistoryClear
+            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
+               ReplaceWithComboBox.IsClear();
 
         /// <summary>
         /// Gets or sets the value of the Match Case checkbox.
@@ -205,6 +186,11 @@ namespace MFR.GUI.Windows
             set => matchExactWordCheckBox.Checked = value;
         }
 
+        [Log(AttributeExclude = true)] // do not log this method
+        private bool OnlyReplaceInFilesOperationIsEnabled
+            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
+               OperationsCheckedListBox.GetItemChecked(2);
+
         /// <summary>
         /// Gets a reference to the
         /// <see
@@ -215,6 +201,22 @@ namespace MFR.GUI.Windows
         public CheckedListBox OperationsCheckedListBox
         {
             [DebuggerStepThrough] get => operationsCheckedListBox;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object plays the role of the Presenter for this form, which determines the
+        /// behavior of this form.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        public IMainWindowPresenter Presenter
+        {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -427,6 +429,19 @@ namespace MFR.GUI.Windows
 
             try
             {
+                /*
+                 * We call Is.SolutionFile in the Any call below.  This may seem
+                 * counter-intuitive, since, after all, we are explicitly telling
+                 * our file system enumeration class to only search *.sln files --
+                 * but, since we just need to know whether the folder with the path
+                 * given by the 'path' parameter has AT LEAST ONE file ending in the
+                 * .sln file, we need the functionality of the Any() method and it
+                 * being passed a predicate such as Is.SolutionFile, so this way, the
+                 * file-search operation (which can get expensive) stops as soon as
+                 * a solution file -- ANY solution file -- is found in this folder, or
+                 * its subdirectories.
+                 */
+
                 using (var dialogBox = MakeNewOperationDrivenProgressDialog
                                        .FromScratch()
                                        .HavingProc(
@@ -434,7 +449,7 @@ namespace MFR.GUI.Windows
                                                    arg.ToString(), "*.sln",
                                                    SearchOption.AllDirectories
                                                )
-                                               .Any()
+                                               .Any(Is.SolutionFIle)
                                        )
                                        .AndArgument(path)
                                        .AndStatusText(
@@ -593,27 +608,27 @@ namespace MFR.GUI.Windows
         /// A <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
-        /// <para>
-        /// When the user clicks the "..." button, we want to show them a dialog
-        /// box to select a folder.
-        /// </para>
-        /// <para>
-        /// The contents of the Starting Folder text box will then be
-        /// initialized to hold the pathname to the folder that the user selects.
-        /// </para>
+        ///     <para>
+        ///     When the user clicks the "..." button, we want to show them a dialog
+        ///     box to select a folder.
+        ///     </para>
+        ///     <para>
+        ///     The contents of the Starting Folder text box will then be
+        ///     initialized to hold the pathname to the folder that the user selects.
+        ///     </para>
         /// </remarks>
         private void OnClickBrowseForStartingFolder(object sender, EventArgs e)
         {
             using (var fsd = MakeNewFolderSelectDialog.FromScratch()
-                .HavingTitle("Browse")
-                .AndInitialDirectory(StartingFolderComboBox.EnteredText))
+                       .HavingTitle("Browse")
+                       .AndInitialDirectory(StartingFolderComboBox.EnteredText))
             {
                 if (DialogResult.Cancel == fsd.ShowDialog(this))
                     return;
 
                 /*
                  * OKAY, the folder selected by the user must be a folder that contains
-                 * a Visual Studio Solution (*.sln) file.
+                 * at least one Visual Studio Solution (*.sln) file.
                  */
 
                 if (!DoesDirectoryContainSolutionFile(fsd.FileName))
@@ -1384,8 +1399,8 @@ namespace MFR.GUI.Windows
             }
 
             if (!DoesDirectoryContainSolutionFile(
-                StartingFolderComboBox.EnteredText
-            ))
+                    StartingFolderComboBox.EnteredText
+                ))
                 return DialogResult.Yes == MessageBox.Show(
                     this, Resources.Error_StartingFolderMustContainSolutionFile,
                     Application.ProductName, MessageBoxButtons.YesNo,
@@ -1439,27 +1454,74 @@ namespace MFR.GUI.Windows
              * OKAY, Sometimes we also run into circumstances where the Text to Be Replaced
              * field's value and the With What field's value are identically equal.  This
              * means no replacement is to be done.  So, we prompt the user to try again, and
-             * fail validation.
+             * fail validation.  Otherwise, we have a tautology.
              */
 
-            if (!string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
-                !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText) &&
-                FindWhatComboBox.EnteredText.Equals(
+            if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) ||
+                string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText) ||
+                !FindWhatComboBox.EnteredText.Equals(
                     ReplaceWithComboBox.EnteredText
-                ))
-            {
-                MessageBox.Show(
-                    this,
-                    "Please type different values in the Text to Be Replaced and With What fields.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Error, MessageBoxDefaultButton.Button1
-                );
-                hiddenFocusLabel.Focus();
-                ReplaceWithComboBox.Focus();
-                return false;
-            }
+                )) return true;
 
-            return true;
+            MessageBox.Show(
+                this,
+                "Please type different values in the Text to Be Replaced and With What fields.",
+                Application.ProductName, MessageBoxButtons.OK,
+                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1
+            );
+            hiddenFocusLabel.Focus();
+            ReplaceWithComboBox.Focus();
+            return false;
+        }
+
+        /// <summary>
+        /// Exposes static methods to make determinations about data and the state of the
+        /// system..
+        /// </summary>
+        internal static class Is
+        {
+            /// <summary>
+            /// Determines whether the file having the specified <paramref name="pathname" />
+            /// is a Visual Studio Solution (*.sln) file.
+            /// </summary>
+            /// <param name="pathname">
+            /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+            /// pathname of a file that is to be examined in order to determine whether it is a
+            /// Visual Studio Solution (*.sln) file.
+            /// </param>
+            /// <returns>
+            /// <see langword="true" /> if the file having the specified
+            /// <paramref name="pathname" /> is a Visual Studio Solution (*.sln) file;
+            /// <see langword="false" /> otherwise.
+            /// </returns>
+            /// <remarks>
+            /// This method also returns <see langword="false" /> if the
+            /// <paramref name="pathname" /> that is passed is blank, <see langword="null" />,
+            /// or refers to a file that does actually exist on the disk.
+            /// </remarks>
+            internal static bool SolutionFIle(string pathname)
+            {
+                var result = false;
+
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+                if (!File.Exists(pathname)) return result;
+
+                try
+                {
+                    result = ".sln".Equals(
+                        Path.GetExtension(pathname.ToLowerInvariant())
+                    );
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
         }
     }
 }
