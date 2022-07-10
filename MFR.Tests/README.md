@@ -353,6 +353,10 @@ This method has no parameters.
 
 MFR.Tests
 
+##### Summary
+
+Exposes static methods to extend the functionality of test fixtures.
+
 <a name='M-MFR-Tests-TestFixtureExtensions-DumpStringsToConsole-System-Object,System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### DumpStringsToConsole(fixture,list) `method`
 
