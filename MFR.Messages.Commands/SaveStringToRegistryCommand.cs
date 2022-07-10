@@ -44,7 +44,7 @@ namespace MFR.Messages.Commands
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ConfigurationCommand.SaveConfigurationFilePathToRegistry;
+            => ConfigurationCommandType.SaveConfigurationFilePathToRegistry;
 
         /// <summary>
         /// Executes this command and does not return anything.

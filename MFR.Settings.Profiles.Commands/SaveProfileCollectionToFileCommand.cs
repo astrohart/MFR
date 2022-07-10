@@ -67,7 +67,7 @@ namespace MFR.Settings.Profiles.Commands
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileCollectionCommand.SaveProfileCollectionToFile;
+            => ProfileCollectionCommandType.SaveProfileCollectionToFile;
 
         /// <summary>
         /// Executes this command and does not return anything.

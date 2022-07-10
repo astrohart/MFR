@@ -39,7 +39,7 @@ namespace MFR.Settings.Profiles.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileCollectionAction.CreateNewNamedProfile;
+            => ProfileCollectionActionType.CreateNewNamedProfile;
 
         /// <summary>
         /// Gets a reference to the one and only instance of

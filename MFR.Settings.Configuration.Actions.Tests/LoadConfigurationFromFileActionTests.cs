@@ -36,7 +36,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
             var configurationFilePath = GetConfigurationAction
                                         .For<IRegQueryExpression<string>,
                                             IFileSystemEntry>(
-                                            ConfigurationAction
+                                            ConfigurationActionType
                                                 .LoadStringFromRegistry
                                         )
                                         .AsCachedResultAction()
@@ -62,7 +62,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
             Assert.DoesNotThrow(
                 () => result = GetConfigurationAction
                                .For<IFileSystemEntry, IConfiguration>(
-                                   ConfigurationAction.LoadConfigurationFromFile
+                                   ConfigurationActionType.LoadConfigurationFromFile
                                )
                                .WithInput(
                                    MakeNewFileSystemEntry.ForPath(

@@ -383,9 +383,9 @@ namespace MFR.GUI.Windows
 
             try
             {
-                result = GetProfileCollectionAction
+                result = GetProfileCollectionActionType
                          .For<string, IProfile>(
-                             ProfileCollectionAction.CreateNewNamedProfile
+                             ProfileCollectionActionType.CreateNewNamedProfile
                          )
                          .WithInput(e.Name)
                          .Execute();

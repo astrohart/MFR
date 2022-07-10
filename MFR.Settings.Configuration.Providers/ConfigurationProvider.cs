@@ -55,7 +55,7 @@ namespace MFR.Settings.Configuration.Providers
             LoadConfigPathAction
             => GetConfigurationAction
                .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                   ConfigurationAction.LoadStringFromRegistry
+                   ConfigurationActionType.LoadStringFromRegistry
                )
                .WithInput(
                    MakeNewRegQueryExpression.FromScatch<string>()
@@ -276,7 +276,7 @@ namespace MFR.Settings.Configuration.Providers
             {
                 Configuration = GetConfigurationAction
                                 .For<IFileSystemEntry, IConfiguration>(
-                                    ConfigurationAction
+                                    ConfigurationActionType
                                         .LoadConfigurationFromFile
                                 )
                                 .WithInput(
@@ -373,7 +373,7 @@ namespace MFR.Settings.Configuration.Providers
             try
             {
                 GetConfigurationCommand.For<IFileSystemEntry>(
-                                           ConfigurationCommand
+                                           ConfigurationCommandType
                                                .SaveConfigurationToFile
                                        )
                                        .WithInput(

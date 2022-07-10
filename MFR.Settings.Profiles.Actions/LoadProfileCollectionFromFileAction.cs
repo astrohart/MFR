@@ -52,7 +52,7 @@ namespace MFR.Settings.Profiles.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileCollectionAction.LoadProfileCollectionFromFile;
+            => ProfileCollectionActionType.LoadProfileCollectionFromFile;
 
         /// <summary>
         /// Executes this message.

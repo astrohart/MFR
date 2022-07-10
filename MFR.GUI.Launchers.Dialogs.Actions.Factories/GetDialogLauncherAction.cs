@@ -11,7 +11,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
     /// interface and that summon and collect results from the various dialog boxes
     /// that are invoked by the commands in this application.
     /// </summary>
-    public static class GetDialogLauncherAction
+    public static class GetDialogLauncherActionType
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -42,7 +42,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>
         public static IAction<TInput, TResult> For<TInput, TResult>(
-            DialogLauncherAction actionType) where TInput : class
+            DialogLauncherActionType actionType) where TInput : class
             where TResult : class
         {
             IAction<TInput, TResult> action;
@@ -50,14 +50,14 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories
             switch (actionType)
             {
                 case var _ when actionType ==
-                                DialogLauncherAction.LaunchErrorReportDialog:
+                                DialogLauncherActionType.LaunchErrorReportDialog:
                     action =
                         (IAction<TInput, TResult>)
                         LaunchErrorReportDialogAction.Instance;
                     break;
 
                 case var _ when actionType ==
-                                DialogLauncherAction.LaunchProfileNameDialog:
+                                DialogLauncherActionType.LaunchProfileNameDialog:
                     action =
                         (IAction<TInput, TResult>)
                         LaunchProfileNameDialogAction.Instance;

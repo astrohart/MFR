@@ -48,7 +48,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         public override MessageType MessageType
         {
             get;
-        } = DialogLauncherAction.LaunchErrorReportDialog;
+        } = DialogLauncherActionType.LaunchErrorReportDialog;
 
         /// <summary>
         /// Executes this message.

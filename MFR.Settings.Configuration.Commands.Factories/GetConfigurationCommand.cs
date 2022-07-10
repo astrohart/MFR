@@ -27,12 +27,12 @@ namespace MFR.Settings.Configuration.Commands.Factories
 
             switch (type)
             {
-                case var _ when type == ConfigurationCommand.SaveConfigurationFilePathToRegistry:
+                case var _ when type == ConfigurationCommandType.SaveConfigurationFilePathToRegistry:
                     command =
                         (ICommand<TInput>)SaveStringToRegistryCommand.Instance;
                     break;
 
-                case var _ when type == ConfigurationCommand.SaveConfigurationToFile:
+                case var _ when type == ConfigurationCommandType.SaveConfigurationToFile:
                     command =
                         (ICommand<TInput>)SaveConfigurationToFileCommand
                             .Instance;

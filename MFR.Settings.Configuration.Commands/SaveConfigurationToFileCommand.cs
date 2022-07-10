@@ -67,7 +67,7 @@ namespace MFR.Settings.Configuration.Commands
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ConfigurationCommand.SaveConfigurationToFile;
+            => ConfigurationCommandType.SaveConfigurationToFile;
 
         /// <summary>
         /// Executes this command and does not return anything.

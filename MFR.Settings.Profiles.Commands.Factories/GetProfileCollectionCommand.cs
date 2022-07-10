@@ -14,7 +14,7 @@ namespace MFR.Settings.Profiles.Commands.Factories
     /// In our vernacular, a <c>command</c> object is an object that performs an
     /// operation that accepts input, but has no output.
     /// </remarks>
-    public static class GetProfileCollectionCommand
+    public static class GetProfileCollectionCommandType
     {
         /// <summary>
         /// Creates a new instance of an object that implements the <see
@@ -27,12 +27,12 @@ namespace MFR.Settings.Profiles.Commands.Factories
 
             switch (type)
             {
-                case var _ when type == ProfileCollectionCommand.SaveProfileCollectionPathToRegistry:
+                case var _ when type == ProfileCollectionCommandType.SaveProfileCollectionPathToRegistry:
                     command =
                         (ICommand<TInput>)SaveStringToRegistryCommand.Instance;
                     break;
 
-                case var _ when type == ProfileCollectionCommand.SaveProfileCollectionToFile:
+                case var _ when type == ProfileCollectionCommandType.SaveProfileCollectionToFile:
                     command =
                         (ICommand<TInput>)SaveProfileCollectionToFileCommand
                             .Instance;

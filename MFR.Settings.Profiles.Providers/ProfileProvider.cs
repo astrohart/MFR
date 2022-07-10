@@ -94,9 +94,9 @@ namespace MFR.Settings.Profiles.Providers
         /// </summary>
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadProfileCollectionPathAction
-            => GetProfileCollectionAction
+            => GetProfileCollectionActionType
                .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                   ProfileCollectionAction.LoadStringFromRegistry
+                   ProfileCollectionActionType.LoadStringFromRegistry
                )
                .WithInput(
                    MakeNewRegQueryExpression.FromScatch<string>()
@@ -261,9 +261,9 @@ namespace MFR.Settings.Profiles.Providers
             try
 
             {
-                Profiles = GetProfileCollectionAction
+                Profiles = GetProfileCollectionActionType
                            .For<IFileSystemEntry, IProfileCollection>(
-                               ProfileCollectionAction
+                               ProfileCollectionActionType
                                    .LoadProfileCollectionFromFile
                            )
                            .WithInput(MakeNewFileSystemEntry.ForPath(pathname))
@@ -402,8 +402,8 @@ namespace MFR.Settings.Profiles.Providers
                     $"ProfileProvider.Save: Attempting to save the profiles collection to the file having the pathname '{pathname}'..."
                 );
 
-                GetProfileCollectionCommand.For<IFileSystemEntry>(
-                                               ProfileCollectionCommand
+                GetProfileCollectionCommandType.For<IFileSystemEntry>(
+                                               ProfileCollectionCommandType
                                                    .SaveProfileCollectionToFile
                                            )
                                            .WithInput(

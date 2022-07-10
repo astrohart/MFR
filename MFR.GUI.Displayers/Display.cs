@@ -45,10 +45,10 @@ namespace MFR.GUI.Displayers
             if (exception == null)
                 throw new ArgumentNullException(nameof(exception));
 
-            GetDialogLauncherAction
+            GetDialogLauncherActionType
                 .For<IErrorReportDialogLaunchParams,
                     IErrorReportDialogLaunchResults>(
-                    DialogLauncherAction.LaunchErrorReportDialog
+                    DialogLauncherActionType.LaunchErrorReportDialog
                 )
                 .WithInput(
                     (IErrorReportDialogLaunchParams)
@@ -85,10 +85,10 @@ namespace MFR.GUI.Displayers
         /// </remarks>
         public static void ErrorReportDialog(IWin32Window owner,
             Exception exception)
-            => GetDialogLauncherAction
+            => GetDialogLauncherActionType
                .For<IErrorReportDialogLaunchParams,
                    IErrorReportDialogLaunchResults>(
-                   DialogLauncherAction.LaunchErrorReportDialog
+                   DialogLauncherActionType.LaunchErrorReportDialog
                )
                .WithInput(
                    (IErrorReportDialogLaunchParams)
@@ -141,10 +141,10 @@ namespace MFR.GUI.Displayers
         /// </returns>
         public static IProfileNameDialogLaunchResults ProfileNameDialogBox(
             ProfileCreateOperationType type)
-            => GetDialogLauncherAction
+            => GetDialogLauncherActionType
                .For<IProfileNameDialogLaunchParams,
                    IProfileNameDialogLaunchResults>(
-                   DialogLauncherAction.LaunchProfileNameDialog
+                   DialogLauncherActionType.LaunchProfileNameDialog
                )
                .WithInput(
                    (IProfileNameDialogLaunchParams)
@@ -177,10 +177,10 @@ namespace MFR.GUI.Displayers
         /// </returns>
         public static IProfileNameDialogLaunchResults ProfileNameDialogBox(
             ProfileCreateOperationType type, IWin32Window owner)
-            => GetDialogLauncherAction
+            => GetDialogLauncherActionType
                .For<IProfileNameDialogLaunchParams,
                    IProfileNameDialogLaunchResults>(
-                   DialogLauncherAction.LaunchProfileNameDialog
+                   DialogLauncherActionType.LaunchProfileNameDialog
                )
                .WithInput(
                    (IProfileNameDialogLaunchParams)
@@ -208,9 +208,9 @@ namespace MFR.GUI.Displayers
         /// <remarks>This method responds by launching Notepad to view the detailed report.</remarks>
         private static void OnViewErrorReportRequested(object sender,
             ViewErrorReportRequestedEventArgs e)
-            => GetErrorReportCommand
+            => GetErrorReportCommandType
                .For<ViewErrorReportRequestedEventArgs>(
-                   ErrorReportCommand.ViewErrorReportWithNotepad
+                   ErrorReportCommandType.ViewErrorReportWithNotepad
                )
                .WithInput(e)
                .Execute();

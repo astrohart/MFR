@@ -50,7 +50,7 @@ namespace MFR.Replacers.Factories.Tests
             Assert.DoesNotThrow(
                 () => GetConfigurationCommand
                       .For<IFileSystemEntry>(
-                          ConfigurationCommand.SaveConfigurationToFile
+                          ConfigurationCommandType.SaveConfigurationToFile
                       )
                       .WithInput(
                           MakeNewFileSystemEntry.ForPath(FILE_PATH)

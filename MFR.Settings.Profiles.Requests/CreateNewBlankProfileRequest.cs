@@ -49,7 +49,7 @@ namespace MFR.Settings.Profiles.Requests
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileCollectionRequest.CreateNewBlankProfile;
+            => ProfileCollectionRequestType.CreateNewBlankProfile;
 
         /// <summary>
         /// Executes this message.

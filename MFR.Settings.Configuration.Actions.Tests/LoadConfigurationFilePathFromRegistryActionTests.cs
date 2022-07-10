@@ -31,7 +31,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
         {
             var result = GetConfigurationAction
                          .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                             ConfigurationAction.LoadStringFromRegistry
+                             ConfigurationActionType.LoadStringFromRegistry
                          )
                          .WithInput(
                              MakeNewRegQueryExpression.FromScatch<string>()

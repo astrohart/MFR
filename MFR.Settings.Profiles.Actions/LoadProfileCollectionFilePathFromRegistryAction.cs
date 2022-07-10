@@ -49,7 +49,7 @@ namespace MFR.Settings.Profiles.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ProfileCollectionAction.LoadStringFromRegistry;
+            => ProfileCollectionActionType.LoadStringFromRegistry;
 
         /// <summary>
         /// Performs this action's operation if the result could not located in

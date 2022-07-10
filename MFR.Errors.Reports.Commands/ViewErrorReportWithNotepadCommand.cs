@@ -49,7 +49,7 @@ namespace MFR.Errors.Reports.Commands
         public override MessageType MessageType
         {
             get;
-        } = ErrorReportCommand.ViewErrorReportWithNotepad;
+        } = ErrorReportCommandType.ViewErrorReportWithNotepad;
 
         /// <summary>
         /// Executes this command and does not return anything.

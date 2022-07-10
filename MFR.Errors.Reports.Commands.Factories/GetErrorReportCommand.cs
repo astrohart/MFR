@@ -13,7 +13,7 @@ namespace MFR.Errors.Reports.Commands.Factories
     /// In our vernacular, a <c>command</c> object is an object that performs an
     /// operation that accepts input, but has no output.
     /// </remarks>
-    public static class GetErrorReportCommand
+    public static class GetErrorReportCommandType
     {
         /// <summary>
         /// Creates a new instance of an object that implements the <see
@@ -26,7 +26,7 @@ namespace MFR.Errors.Reports.Commands.Factories
 
             switch (type)
             {
-                case var _ when type == ErrorReportCommand.ViewErrorReportWithNotepad:
+                case var _ when type == ErrorReportCommandType.ViewErrorReportWithNotepad:
                     command =
                         (ICommand<TInput>) GetViewErrorReportWithNotepadCommand.SoleInstance();
                     break;

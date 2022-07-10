@@ -41,20 +41,20 @@
             /// in the <paramref name="actionType" /> parameter.
             /// </exception>
             public static IAction<TInput, TResult>
-                For<TInput, TResult>(ConfigurationAction actionType) where TInput : class
+                For<TInput, TResult>(ConfigurationActionType actionType) where TInput : class
                 where TResult : class
             {
                 IAction<TInput, TResult> action;
 
                 switch (actionType)
                 {
-                    case var _ when actionType == ConfigurationAction.LoadStringFromRegistry:
+                    case var _ when actionType == ConfigurationActionType.LoadStringFromRegistry:
                         action =
                             (IAction<TInput, TResult>)LoadConfigurationFilePathFromRegistryAction
                                 .Instance;
                         break;
 
-                    case var _ when actionType == ConfigurationAction.LoadConfigurationFromFile:
+                    case var _ when actionType == ConfigurationActionType.LoadConfigurationFromFile:
                         action =
                             (IAction<TInput, TResult>)
                             LoadConfigurationFromFileAction.Instance;
