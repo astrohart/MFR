@@ -181,8 +181,8 @@ namespace MFR.GUI.Dialogs
             // 
             // OptionsDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F); // for design in 96 DPI
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(469, 431);
             this.Controls.Add(this.optionsTabControl);
             this.Controls.Add(this.okayButton);

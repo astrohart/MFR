@@ -1,4 +1,4 @@
-﻿
+
 namespace MFR.GUI.Dialogs.Profiles.Help
 {
     partial class HelpProfileExplainerDialog
@@ -57,7 +57,7 @@ namespace MFR.GUI.Dialogs.Profiles.Help
             // HelpProfileExplainerDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(369, 201);
             this.Controls.Add(this.mainInstructionLabel);

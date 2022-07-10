@@ -1,4 +1,4 @@
-﻿
+
 namespace MFR.GUI.Dialogs
 {
     partial class OperationDrivenProgressDialog
@@ -53,7 +53,7 @@ namespace MFR.GUI.Dialogs
             // OperationDrivenProgressDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(444, 122);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar);
