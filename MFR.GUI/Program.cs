@@ -85,11 +85,11 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
+            SetDisplayParameters();
+
             SetUpLogging();
 
             Register.WindowsMessageFilter();
-
-            SetDisplayParameters();
 
             SetUpExceptionHandling();
 
@@ -276,8 +276,6 @@ namespace MFR.GUI
         /// </summary>
         private static void SetDisplayParameters()
         {
-
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
         }
