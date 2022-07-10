@@ -6,7 +6,6 @@
 - [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#ctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#ctor')
   - [DEFAULT_PROFILE_LIST_FILENAME](#F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME 'MFR.Settings.Profiles.Providers.ProfileProvider.DEFAULT_PROFILE_LIST_FILENAME')
-  - [_cachedProfileCollectionPath](#F-MFR-Settings-Profiles-Providers-ProfileProvider-_cachedProfileCollectionPath 'MFR.Settings.Profiles.Providers.ProfileProvider._cachedProfileCollectionPath')
   - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionDir')
   - [DefaultProfileCollectionPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
@@ -50,14 +49,6 @@ This constructor has no parameters.
 ##### Summary
 
 Gets the default JSON file name of the profile list path.
-
-<a name='F-MFR-Settings-Profiles-Providers-ProfileProvider-_cachedProfileCollectionPath'></a>
-### _cachedProfileCollectionPath `constants`
-
-##### Summary
-
-A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that caches the fully-qualified pathname of
-the `profile.json` file.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir'></a>
 ### DefaultProfileCollectionDir `property`
@@ -107,21 +98,6 @@ file.
 
 Gets a string whose value is the fully-qualified pathname of the profile list
 file.
-
-##### Remarks
-
-To avoid burning up needless processor cycles, this property's getter
-caches the result of loading its value from the system Registry.
-
-
-
-If the value is already present in the backing field, and the field's contents
-already refer to the pathname of a file that exists on the disk, then this
-property merely returns the value of the backing field.
-
-
-
-Otherwise, the system Registry is queried for the pathname.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathKeyName'></a>
 ### ProfileCollectionPathKeyName `property`
