@@ -1,14 +1,14 @@
 ﻿using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.GUI.Models
+namespace MFR.GUI.Models.Actions
 {
     /// <summary>
     /// Methods for converting <see cref="T:MFR.Operations.Constants.OperationType" />
     /// values to descriptive strings.
     /// </summary>
     [Log(AttributeExclude = true)]
-    internal static class ConvertOperationType
+    public static class ConvertOperationType
     {
         /// <summary>
         /// Converts the specified <see cref="T:MFR.Operations.Constants.OperationType" />
@@ -25,7 +25,7 @@ namespace MFR.GUI.Models
         /// <para />
         /// Otherwise, the return value is the <see cref="F:System.String.Empty" /> value.
         /// </returns>
-        internal static string ToString(OperationType type)
+        public static string ToString(OperationType type)
         {
             string result;
 
