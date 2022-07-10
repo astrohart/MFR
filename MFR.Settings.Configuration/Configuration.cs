@@ -4,6 +4,8 @@ using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Configuration
 {
@@ -127,7 +129,19 @@ namespace MFR.Settings.Configuration
         {
             get;
             set;
-        } = new List<OperationTypeInfo>();
+        } = new List<OperationTypeInfo>() {
+            new OperationTypeInfo() {
+                Enabled = false,
+                OperationType = OperationType.RenameFilesInFolder
+            },
+            new OperationTypeInfo() {
+                Enabled = false, OperationType = OperationType.RenameSubFolders
+            },
+            new OperationTypeInfo() {
+                Enabled = false,
+                OperationType = OperationType.ReplaceTextInFiles
+            }
+        };
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
@@ -136,12 +150,42 @@ namespace MFR.Settings.Configuration
         [JsonIgnore]
         public bool RenameFiles
         {
-            get
-                => OperationsToPerform[(int)OperationType.RenameFilesInFolder]
-                    .Enabled;
-            set
-                => OperationsToPerform[(int)OperationType.RenameFilesInFolder]
+            get {
+                var result = false;
+
+                try
+                {
+                    if (OperationsToPerform == null
+                        || OperationsToPerform.All(o => OperationType.RenameFilesInFolder != o.OperationType)) return result;
+
+                    result = OperationsToPerform[
+                            (int)OperationType.RenameFilesInFolder]
+                        .Enabled;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                   
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+
+                OperationsToPerform[(int)OperationType.RenameFilesInFolder]
                     .Enabled = value;
+            }
         }
 
         /// <summary>
