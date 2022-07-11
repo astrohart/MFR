@@ -111,7 +111,8 @@ MFR.Settings.Configuration.Converters
 ##### Summary
 
 Converts JSON-formatted text to and from instances of C# objects that
-implement the [IProfileCollection](#T-MFR-Settings-Configuration-Interfaces-IProfileCollection 'MFR.Settings.Configuration.Interfaces.IProfileCollection')
+implement the
+[IProfileCollection](#T-MFR-Settings-Configuration-Interfaces-IProfileCollection 'MFR.Settings.Configuration.Interfaces.IProfileCollection')
 interface.
 
 <a name='F-MFR-Settings-Configuration-Converters-ConvertProfileCollection-Settings'></a>
@@ -177,7 +178,8 @@ object fed in.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configuration | [MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') | (Required.) Reference to an instance of an object that implements
-the [IProfileCollection](#T-MFR-Settings-Configuration-Interfaces-IProfileCollection 'MFR.Settings.Configuration.Interfaces.IProfileCollection') interface
+the [IProfileCollection](#T-MFR-Settings-Configuration-Interfaces-IProfileCollection 'MFR.Settings.Configuration.Interfaces.IProfileCollection')
+interface
 that is to be converted into JSON-formatted text. |
 
 ##### Exceptions
