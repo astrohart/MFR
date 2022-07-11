@@ -1,4 +1,5 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
@@ -11,6 +12,7 @@ namespace MFR.FileSystem.Factories
     /// Creates new instances of <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" /> and returns
     /// references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewFileInfo
     {
         /// <summary>

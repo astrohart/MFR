@@ -1,4 +1,5 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -8,6 +9,7 @@ namespace MFR.FileSystem.Factories
     /// Creates new instances of
     /// <see cref="T:Alphaleonis.Win32.Filesystem.DirectoryInfo" />.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewDirectoryInfo
     {
         /// <summary>

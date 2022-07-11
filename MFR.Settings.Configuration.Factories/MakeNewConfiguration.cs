@@ -1,4 +1,5 @@
 ﻿using MFR.Settings.Configuration.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Settings.Configuration.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.Settings.Configuration.Factories
     /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
     /// interface, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewConfiguration
     {
         /// <summary>

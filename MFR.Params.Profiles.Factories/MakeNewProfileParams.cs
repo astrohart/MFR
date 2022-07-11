@@ -1,4 +1,5 @@
 ﻿using MFR.Params.Profiles.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Params.Profiles.Factories
@@ -8,6 +9,7 @@ namespace MFR.Params.Profiles.Factories
     /// <see cref="T:MFR.Params.Profiles.Interfaces.IProfileParams" /> interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewProfileParams
     {
         /// <summary>

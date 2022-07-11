@@ -1,4 +1,5 @@
-using MFR.Expressions.Registry.Interfaces;
+﻿using MFR.Expressions.Registry.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Expressions.Registry.Factories
 {
@@ -8,6 +9,7 @@ namespace MFR.Expressions.Registry.Factories
     ///     cref="T:MFR.IRegQueryExpression{T}" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewRegQueryExpression
     {
         /// <summary>

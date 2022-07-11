@@ -1,4 +1,5 @@
-using MFR.CommandLine.Models.Interfaces;
+﻿using MFR.CommandLine.Models.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.CommandLine.Models.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.CommandLine.Models.Factories
     /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface,
     /// and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewCommandLineInfo
     {
         /// <summary>

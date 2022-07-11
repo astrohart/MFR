@@ -1,4 +1,5 @@
 ﻿using MFR.Settings.Configuration.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using MFR.Settings.Profiles.Factories.Properties;
 using MFR.Settings.Profiles.Interfaces;
 using System;
@@ -10,6 +11,7 @@ namespace MFR.Settings.Profiles.Factories
     /// <see cref="T:MFR.Settings.Profiles.Interfaces.IProfile" /> interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewProfile
     {
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs.Factories
 {
@@ -9,6 +10,7 @@ namespace MFR.GUI.Dialogs.Factories
     /// interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewProgressDialog
     {
         /// <summary>

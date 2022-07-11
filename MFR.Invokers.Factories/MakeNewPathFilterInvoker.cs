@@ -1,4 +1,5 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using MFR.Invokers.Interfaces;
 
 namespace MFR.Invokers.Factories
@@ -10,6 +11,7 @@ namespace MFR.Invokers.Factories
     /// interface
     /// and initializes them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewPathFilterInvoker
     {
         /// <summary>

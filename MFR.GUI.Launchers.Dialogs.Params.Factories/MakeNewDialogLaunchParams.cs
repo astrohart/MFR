@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace MFR.GUI.Launchers.Dialogs.Params.Factories
     /// "Base" extension methods available to all the root types of all dialog-box
     /// launch param objects.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewDialogLaunchParams
     {
         /// <summary>

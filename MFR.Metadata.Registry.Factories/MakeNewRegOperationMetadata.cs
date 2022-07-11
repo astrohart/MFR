@@ -1,4 +1,5 @@
-using MFR.Metadata.Registry.Interfaces;
+﻿using MFR.Metadata.Registry.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Metadata.Registry.Factories
 {
@@ -8,6 +9,7 @@ namespace MFR.Metadata.Registry.Factories
     ///     cref="T:MFR.IRegOperationMetadata{T}" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewRegOperationMetadata
     {
         /// <summary>

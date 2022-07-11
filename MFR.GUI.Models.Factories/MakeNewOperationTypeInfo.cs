@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Models.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using MFR.Operations.Constants;
 using System;
 
@@ -9,6 +10,7 @@ namespace MFR.GUI.Models.Factories
     /// <see cref="T:MFR.GUI.Models.Interfaces.IOperationTypeInfo" /> interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewOperationTypeInfo
     {
         /// <summary>

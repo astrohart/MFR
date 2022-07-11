@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Text.Retrievers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs.Text.Retrievers.Factories
 {
@@ -9,6 +10,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Factories
     /// <see cref="T:MFR.GUI.Dialogs.Constants.ProfileCreateOperationType" />
     /// enumeration, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewProfileCreateOperationTypeDialogTextRetriever
     {
         /// <summary>

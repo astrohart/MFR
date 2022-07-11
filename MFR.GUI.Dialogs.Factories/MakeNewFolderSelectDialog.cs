@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.GUI.Dialogs.Factories
@@ -8,6 +9,7 @@ namespace MFR.GUI.Dialogs.Factories
     /// <see cref="T:MFR.GUI.Dialogs.Interfaces.IFolderSelectDialog" /> interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewFolderSelectDialog
     {
         /// <summary>

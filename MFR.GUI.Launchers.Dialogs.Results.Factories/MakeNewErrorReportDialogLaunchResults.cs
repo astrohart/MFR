@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace MFR.GUI.Launchers.Dialogs.Results.Factories
     ///     cref="T:MFR.GUI.Launchers.Dialogs.Results.Interfaces.IErrorReportDialogLaunchResults" />
     /// interface, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewErrorReportDialogLaunchResults
     {
         /// <summary>

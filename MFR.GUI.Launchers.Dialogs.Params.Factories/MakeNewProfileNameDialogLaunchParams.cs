@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Constants;
+using PostSharp.Patterns.Diagnostics;
 using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
 using System;
 
@@ -10,6 +11,7 @@ namespace MFR.GUI.Launchers.Dialogs.Params.Factories
     ///     cref="T:MFR.GUI.Launchers.Dialogs.Params.Interfaces.IProfileNameDialogLaunchParams" />
     /// interface, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewProfileNameDialogLaunchParams
     {
         /// <summary>

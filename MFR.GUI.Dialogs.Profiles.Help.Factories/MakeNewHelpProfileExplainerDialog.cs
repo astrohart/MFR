@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Profiles.Help.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs.Profiles.Help.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.GUI.Dialogs.Profiles.Help.Factories
     /// <see cref="T:MFR.GUI.Dialogs.Interfaces.IHelpProfileExplainerDialog" />
     /// interface, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewHelpProfileExplainerDialog
     {
         /// <summary>

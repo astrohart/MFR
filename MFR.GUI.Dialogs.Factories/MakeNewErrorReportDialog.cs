@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Events;
+using PostSharp.Patterns.Diagnostics;
 using MFR.GUI.Dialogs.Interfaces;
 using System;
 
@@ -9,6 +10,7 @@ namespace MFR.GUI.Dialogs.Factories
     /// <see cref="T:MFR.GUI.Dialogs.Interfaces.IErrorReportDialog" /> interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewErrorReportDialog
     {
         /// <summary>
