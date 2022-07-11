@@ -1,5 +1,6 @@
 using MFR.Messages.Constants;
 using MFR.Messages.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Messages
 {
@@ -10,6 +11,7 @@ namespace MFR.Messages
     ///     cref="T:MFR.MessageType" />
     /// enumeration value.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public abstract class
         FixedMessageTypeSpecificObjectBase : IFixedMessageTypeSpecificObject
     {

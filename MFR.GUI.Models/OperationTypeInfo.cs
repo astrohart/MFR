@@ -2,6 +2,7 @@
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
 using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Models
 {
@@ -12,6 +13,7 @@ namespace MFR.GUI.Models
     /// Provides a model for a particular item in the CheckedListBox in the Operations
     /// tab of the GUI.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class OperationTypeInfo : IOperationTypeInfo
     {
         /// <summary>

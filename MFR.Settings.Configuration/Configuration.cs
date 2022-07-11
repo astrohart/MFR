@@ -3,6 +3,7 @@ using MFR.GUI.Models.Extensions;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace MFR.Settings.Configuration
     /// The values of this class' properties are used to affect the behavior of
     /// the application.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class Configuration : IConfiguration
     {
         /// <summary>

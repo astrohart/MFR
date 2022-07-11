@@ -1,5 +1,6 @@
 using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Requests;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Messages.Actions
@@ -18,6 +19,7 @@ namespace MFR.Messages.Actions
     /// Name of the class or data type that will carry user state information
     /// about the results of the message.
     /// </typeparam>
+    [Log(AttributeExclude = true)]
     public abstract class ActionBase<TInput, TResult> : RequestBase<TResult>,
         IAction<TInput, TResult> where TInput : class where TResult : class
     {

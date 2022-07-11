@@ -3,6 +3,7 @@ using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 
@@ -14,6 +15,7 @@ namespace MFR.Settings.Configuration.Helpers
     ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class ConfigurationExtensions
     {
         /// <summary>

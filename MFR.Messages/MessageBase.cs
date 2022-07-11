@@ -1,4 +1,5 @@
 using MFR.Messages.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System.Threading.Tasks;
 
 namespace MFR.Messages
@@ -10,6 +11,7 @@ namespace MFR.Messages
     /// <remarks>
     /// All message objects perform operations that do not require any input or output.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public abstract class MessageBase : FixedMessageTypeSpecificObjectBase, IMessage
     {
         /// <summary>

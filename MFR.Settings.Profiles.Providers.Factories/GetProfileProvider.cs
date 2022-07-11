@@ -1,4 +1,5 @@
 ﻿using MFR.Settings.Profiles.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Settings.Profiles.Providers.Factories
 {
@@ -8,6 +9,7 @@ namespace MFR.Settings.Profiles.Providers.Factories
     ///     cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetProfileProvider
     {
         /// <summary>

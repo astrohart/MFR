@@ -1,4 +1,5 @@
 using MFR.Messages.Requests.Intefaces;
+using PostSharp.Patterns.Diagnostics;
 using System.Threading.Tasks;
 
 namespace MFR.Messages.Requests
@@ -7,6 +8,7 @@ namespace MFR.Messages.Requests
     /// Defines the methods, properties, events, and functionality that all
     /// configuration-request objects share.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public abstract class
         RequestBase<TResult> : FixedMessageTypeSpecificObjectBase,
             IRequest<TResult> where TResult : class

@@ -15,6 +15,7 @@ namespace MFR.Settings.Profiles
     /// <c>Profile</c> s allow the user to hot-swap settings mid-flight, without
     /// actually leaving the app and coming back in.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class Profile : Configuration.Configuration, IProfile
     {
         /// <summary>

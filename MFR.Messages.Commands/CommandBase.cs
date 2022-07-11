@@ -1,4 +1,5 @@
 using MFR.Messages.Commands.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace MFR.Messages.Commands
     /// <para />
     /// This object is composed with the message object at runtime.
     /// </typeparam>
+    [Log(AttributeExclude = true)]
     public abstract class CommandBase<TInput> : FixedMessageTypeSpecificObjectBase,
         ICommand<TInput> where TInput : class
     {
