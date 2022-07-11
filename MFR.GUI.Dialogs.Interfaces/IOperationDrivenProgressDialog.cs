@@ -23,7 +23,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// be executed while the dialog is displayed.  When the code finishes, the dialog
         /// is dismissed.
         /// </summary>
-        Func<object, object> Proc
+        Func<dynamic, dynamic> Proc
         {
             get;
             set;
@@ -33,7 +33,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// Gets a reference to an instance of an object that is supplied as the result of
         /// the code that is executed by this dialog.
         /// </summary>
-        object Result
+        dynamic Result
         {
             get; set;
         }

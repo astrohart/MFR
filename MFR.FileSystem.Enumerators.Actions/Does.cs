@@ -9,7 +9,7 @@ namespace MFR.FileSystem.Enumerators.Actions
     /// <summary>
     /// Exposes static methods to determine the state of the system and/or data.
     /// </summary>
-    public static class Is
+    public static class Does
     {
         /// <summary>
         /// Determines whether at least one file that matches the specified wildcard
@@ -31,7 +31,7 @@ namespace MFR.FileSystem.Enumerators.Actions
         /// contains even one file that matches the <paramref name="pattern" />;
         /// <see langword="false" /> otherwise.
         /// </returns>
-        public static bool AtLeastOneFileInFolderMatching(string folderPathname,
+        public static bool FolderHaveAtLeastOneFileMatching(string folderPathname,
             string pattern)
         {
             var result = false;

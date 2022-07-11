@@ -165,6 +165,10 @@
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Enumerators.Actions\MFR.FileSystem.Enumerators.Actions.csproj">
+      <Project>{29914A76-5AEE-4A3B-BD8F-6F7AE2B0A3CA}</Project>
+      <Name>MFR.FileSystem.Enumerators.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
       <Name>MFR.FileSystem.Enumerators</Name>

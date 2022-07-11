@@ -118,7 +118,7 @@ namespace MFR.GUI.Dialogs.Factories
         /// passed a <see langword="null" /> value.
         /// </exception>
         public static IOperationDrivenProgressDialog HavingProc(
-            this IOperationDrivenProgressDialog self, Func<object, object> proc)
+            this IOperationDrivenProgressDialog self, Func<dynamic, dynamic> proc)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
