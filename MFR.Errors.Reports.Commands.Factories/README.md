@@ -3,16 +3,16 @@
 
 ## Contents
 
-- [GetErrorReportCommand](#T-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommand 'MFR.Errors.Reports.Commands.Factories.GetErrorReportCommand')
-  - [For\`\`1()](#M-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommand-For``1-MFR-Messages-Constants-MessageType- 'MFR.Errors.Reports.Commands.Factories.GetErrorReportCommand.For``1(MFR.Messages.Constants.MessageType)')
+- [GetErrorReportCommandType](#T-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommandType 'MFR.Errors.Reports.Commands.Factories.GetErrorReportCommandType')
+  - [For\`\`1()](#M-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommandType-For``1-MFR-Messages-Constants-MessageType- 'MFR.Errors.Reports.Commands.Factories.GetErrorReportCommandType.For``1(MFR.Messages.Constants.MessageType)')
 - [GetViewErrorReportWithNotepadCommand](#T-MFR-Errors-Reports-Commands-Factories-GetViewErrorReportWithNotepadCommand 'MFR.Errors.Reports.Commands.Factories.GetViewErrorReportWithNotepadCommand')
   - [SoleInstance()](#M-MFR-Errors-Reports-Commands-Factories-GetViewErrorReportWithNotepadCommand-SoleInstance 'MFR.Errors.Reports.Commands.Factories.GetViewErrorReportWithNotepadCommand.SoleInstance')
 - [Resources](#T-MFR-Errors-Reports-Commands-Factories-Properties-Resources 'MFR.Errors.Reports.Commands.Factories.Properties.Resources')
   - [Culture](#P-MFR-Errors-Reports-Commands-Factories-Properties-Resources-Culture 'MFR.Errors.Reports.Commands.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Errors-Reports-Commands-Factories-Properties-Resources-ResourceManager 'MFR.Errors.Reports.Commands.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommand'></a>
-## GetErrorReportCommand `type`
+<a name='T-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommandType'></a>
+## GetErrorReportCommandType `type`
 
 ##### Namespace
 
@@ -27,7 +27,7 @@ Creates instances of objects that implement the [ICommand](#T-MFR-ICommand 'MFR.
 In our vernacular, a `command` object is an object that performs an
 operation that accepts input, but has no output.
 
-<a name='M-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommand-For``1-MFR-Messages-Constants-MessageType-'></a>
+<a name='M-MFR-Errors-Reports-Commands-Factories-GetErrorReportCommandType-For``1-MFR-Messages-Constants-MessageType-'></a>
 ### For\`\`1() `method`
 
 ##### Summary
