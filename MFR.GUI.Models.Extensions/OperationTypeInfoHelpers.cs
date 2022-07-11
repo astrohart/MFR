@@ -1,6 +1,8 @@
 ﻿using MFR.Operations.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Models.Extensions
 {
@@ -24,7 +26,35 @@ namespace MFR.GUI.Models.Extensions
         /// </returns>
         public static bool HasAnyOperations(
             this IList<OperationTypeInfo> source)
-            => source != null && source.Any();
+        {
+            var result = false;
+
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(DebugLevel.Debug, "In OperationTypeInfoHelpers.HasAnyOperations");
+
+            try
+            {
+                result = source != null && source.Any();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: There are {source.Count} operation entry(ies) defined."
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(DebugLevel.Debug, $"OperationTypeInfoHelpers.HasAnyOperations: Result = {result}");
+
+            DebugUtils.WriteLine(DebugLevel.Debug, "OperationTypeInfoHelpers.HasAnyOperations: Done.");
+
+            return result;
+        }
 
         /// <summary>
         /// Determines whether the specified <paramref name="operationTypeInfo" />
