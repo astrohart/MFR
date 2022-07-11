@@ -1,4 +1,5 @@
 ﻿using MFR.Renamers.Files.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Renamers.Files.Factories
 {
@@ -6,6 +7,7 @@ namespace MFR.Renamers.Files.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetFileRenamer
     {
         /// <summary>
