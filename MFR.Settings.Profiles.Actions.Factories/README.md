@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction')
-  - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction)')
+- [GetProfileCollectionActionType](#T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionActionType')
+  - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionActionType.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType)')
 - [Resources](#T-MFR-Settings-Profiles-Actions-Factories-Properties-Resources 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction'></a>
-## GetProfileCollectionAction `type`
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType'></a>
+## GetProfileCollectionActionType `type`
 
 ##### Namespace
 
@@ -19,20 +19,20 @@ MFR.Settings.Profiles.Actions.Factories
 ##### Summary
 
 Creates instances of objects that implement the
-[IAction](#T-MFR-IAction 'MFR.IAction')
+[IAction](#T-MFR-Messages-Actions-Interfaces-IAction 'MFR.Messages.Actions.Interfaces.IAction')
 interface, in order to perform actions on the list of profiles.
 
 ##### Remarks
 
 In our parlance, an Action is a process that has both an input and an output.
 
-<a name='M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-'></a>
+<a name='M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-'></a>
 ### For\`\`2(actionType) `method`
 
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IAction](#T-MFR-IAction 'MFR.IAction')
+[IAction](#T-MFR-Messages-Actions-Interfaces-IAction 'MFR.Messages.Actions.Interfaces.IAction')
 interface and returns a reference to it.
 
 ##### Returns
@@ -47,7 +47,7 @@ that corresponds to the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| actionType | [MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction') | (Required.) A
+| actionType | [MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType') | (Required.) A
 [MessageType](#T-MFR-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
 value that
 indicates what action to execute. |
