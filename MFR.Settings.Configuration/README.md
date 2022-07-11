@@ -14,8 +14,8 @@
   - [OperationsToPerform](#P-MFR-Settings-Configuration-Configuration-OperationsToPerform 'MFR.Settings.Configuration.Configuration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Configuration-ReOpenSolution 'MFR.Settings.Configuration.Configuration.ReOpenSolution')
   - [RenameFiles](#P-MFR-Settings-Configuration-Configuration-RenameFiles 'MFR.Settings.Configuration.Configuration.RenameFiles')
-  - [RenameSubfolders](#P-MFR-Settings-Configuration-Configuration-RenameSubfolders 'MFR.Settings.Configuration.Configuration.RenameSubfolders')
-  - [ReplaceInFiles](#P-MFR-Settings-Configuration-Configuration-ReplaceInFiles 'MFR.Settings.Configuration.Configuration.ReplaceInFiles')
+  - [RenameSubFolders](#P-MFR-Settings-Configuration-Configuration-RenameSubFolders 'MFR.Settings.Configuration.Configuration.RenameSubFolders')
+  - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-Configuration-ReplaceTextInFiles 'MFR.Settings.Configuration.Configuration.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-Settings-Configuration-Configuration-ReplaceWith 'MFR.Settings.Configuration.Configuration.ReplaceWith')
   - [ReplaceWithHistory](#P-MFR-Settings-Configuration-Configuration-ReplaceWithHistory 'MFR.Settings.Configuration.Configuration.ReplaceWithHistory')
   - [SelectedOptionTab](#P-MFR-Settings-Configuration-Configuration-SelectedOptionTab 'MFR.Settings.Configuration.Configuration.SelectedOptionTab')
@@ -156,15 +156,15 @@ operation(s) and then re-opened when the selected operation(s) are complete.
 Gets or sets a value that indicates whether we should rename files
 in the folders encountered.
 
-<a name='P-MFR-Settings-Configuration-Configuration-RenameSubfolders'></a>
-### RenameSubfolders `property`
+<a name='P-MFR-Settings-Configuration-Configuration-RenameSubFolders'></a>
+### RenameSubFolders `property`
 
 ##### Summary
 
 Gets or sets a value that indicates whether we should rename subfolders.
 
-<a name='P-MFR-Settings-Configuration-Configuration-ReplaceInFiles'></a>
-### ReplaceInFiles `property`
+<a name='P-MFR-Settings-Configuration-Configuration-ReplaceTextInFiles'></a>
+### ReplaceTextInFiles `property`
 
 ##### Summary
 
