@@ -12,8 +12,8 @@
   - [OperationsToPerform](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-OperationsToPerform 'MFR.Settings.Configuration.Interfaces.IConfiguration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IConfiguration.ReOpenSolution')
   - [RenameFiles](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-RenameFiles 'MFR.Settings.Configuration.Interfaces.IConfiguration.RenameFiles')
-  - [RenameSubfolders](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-RenameSubfolders 'MFR.Settings.Configuration.Interfaces.IConfiguration.RenameSubfolders')
-  - [ReplaceInFiles](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReplaceInFiles 'MFR.Settings.Configuration.Interfaces.IConfiguration.ReplaceInFiles')
+  - [RenameSubFolders](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-RenameSubFolders 'MFR.Settings.Configuration.Interfaces.IConfiguration.RenameSubFolders')
+  - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.Interfaces.IConfiguration.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReplaceWith 'MFR.Settings.Configuration.Interfaces.IConfiguration.ReplaceWith')
   - [ReplaceWithHistory](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReplaceWithHistory 'MFR.Settings.Configuration.Interfaces.IConfiguration.ReplaceWithHistory')
   - [SelectedOptionTab](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-SelectedOptionTab 'MFR.Settings.Configuration.Interfaces.IConfiguration.SelectedOptionTab')
@@ -118,15 +118,15 @@ operation(s) and then re-opened when the selected operation(s) are complete.
 Gets or sets a value that indicates whether we should rename files
 in the folders encountered.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-RenameSubfolders'></a>
-### RenameSubfolders `property`
+<a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-RenameSubFolders'></a>
+### RenameSubFolders `property`
 
 ##### Summary
 
 Gets or sets a value that indicates whether we should rename subfolders.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReplaceInFiles'></a>
-### ReplaceInFiles `property`
+<a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-ReplaceTextInFiles'></a>
+### ReplaceTextInFiles `property`
 
 ##### Summary
 
