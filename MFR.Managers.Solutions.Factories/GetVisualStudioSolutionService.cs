@@ -1,4 +1,5 @@
 ﻿using MFR.Managers.Solutions.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Managers.Solutions.Factories
 {
@@ -8,6 +9,7 @@ namespace MFR.Managers.Solutions.Factories
     ///     cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetVisualStudioSolutionService
     {
         /// <summary>

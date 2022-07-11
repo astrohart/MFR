@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Events;
+using PostSharp.Patterns.Diagnostics;
 using MFR.Messages.Commands.Interfaces;
 
 namespace MFR.Errors.Reports.Commands.Factories
@@ -9,6 +10,7 @@ namespace MFR.Errors.Reports.Commands.Factories
     /// a <see cref="T:MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs" /> as
     /// input, interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetViewErrorReportWithNotepadCommand
     {
         /// <summary>

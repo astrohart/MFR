@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Launchers.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Launchers.Dialogs.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.GUI.Launchers.Dialogs.Factories
     /// <see cref="T:MFR.GUI.Launchers.Dialogs.Interfaces.IErrorReportDialogLauncher" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetErrorReportDialogLauncher
     {
         /// <summary>

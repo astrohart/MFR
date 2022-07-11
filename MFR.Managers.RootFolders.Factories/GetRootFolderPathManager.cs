@@ -1,4 +1,5 @@
 ﻿using MFR.Managers.RootFolders.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Managers.RootFolders.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.Managers.RootFolders.Factories
     /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetRootFolderPathManager
     {
         /// <summary>

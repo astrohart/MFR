@@ -1,4 +1,5 @@
-using MFR.Errors.Reports.Commands.Constants;
+﻿using MFR.Errors.Reports.Commands.Constants;
+using PostSharp.Patterns.Diagnostics;
 using MFR.Messages.Commands.Interfaces;
 using MFR.Messages.Constants;
 using System;
@@ -13,6 +14,7 @@ namespace MFR.Errors.Reports.Commands.Factories
     /// In our vernacular, a <c>command</c> object is an object that performs an
     /// operation that accepts input, but has no output.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public static class GetErrorReportCommandType
     {
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Launchers.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Launchers.Dialogs.Factories
 {
@@ -8,6 +9,7 @@ namespace MFR.GUI.Launchers.Dialogs.Factories
     ///     cref="T:MFR.GUI.Launchers.Dialogs.Interfaces.HelpProfileExplainerDialogLauncher" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetHelpProfileExplainerDialogLauncher
     {
         /// <summary>
