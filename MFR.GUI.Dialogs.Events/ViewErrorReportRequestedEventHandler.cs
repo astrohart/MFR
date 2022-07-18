@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Dialogs.Events
+namespace MFR.GUI.Dialogs.Events
 {
     /// <summary>
     /// Represents a handler for a ViewErrorReportRequested event.

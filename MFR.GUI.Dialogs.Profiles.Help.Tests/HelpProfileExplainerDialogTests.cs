@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Profiles.Help.Factories;
+using MFR.GUI.Dialogs.Profiles.Help.Factories;
 using MFR.GUI.Dialogs.Tests;
 using NUnit.Framework;
 using System.Threading;

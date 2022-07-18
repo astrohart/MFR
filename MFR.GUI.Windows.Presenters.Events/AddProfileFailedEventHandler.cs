@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Windows.Presenters.Events
+namespace MFR.GUI.Windows.Presenters.Events
 {
     /// <summary>
     /// Defines the method signature for the handlers of a AddProfileFailed event.

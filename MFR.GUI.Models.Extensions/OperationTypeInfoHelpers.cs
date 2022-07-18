@@ -1,4 +1,4 @@
-﻿using MFR.Operations.Constants;
+using MFR.Operations.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +28,9 @@ namespace MFR.GUI.Models.Extensions
             this IList<OperationTypeInfo> source)
         {
             var result = false;
-
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In OperationTypeInfoHelpers.HasAnyOperations");
-
             try
             {
                 result = source != null && source.Any();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: There are {source.Count} operation entry(ies) defined."
-                );
             }
             catch (Exception ex)
             {
@@ -48,10 +39,6 @@ namespace MFR.GUI.Models.Extensions
 
                 result = false;
             }
-
-            DebugUtils.WriteLine(DebugLevel.Debug, $"OperationTypeInfoHelpers.HasAnyOperations: Result = {result}");
-
-            DebugUtils.WriteLine(DebugLevel.Debug, "OperationTypeInfoHelpers.HasAnyOperations: Done.");
 
             return result;
         }

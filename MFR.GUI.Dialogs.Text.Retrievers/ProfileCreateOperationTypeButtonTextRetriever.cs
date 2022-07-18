@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Constants;
+using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Text.Retrievers.Properties;
 using System;
 

@@ -1,4 +1,4 @@
-﻿using MFR.Settings.Profiles.Providers.Interfaces;
+using MFR.Settings.Profiles.Providers.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Settings.Profiles.Providers.Factories.Tests

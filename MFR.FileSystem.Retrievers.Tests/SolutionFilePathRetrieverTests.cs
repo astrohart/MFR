@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Retrievers.Factories;
+using MFR.FileSystem.Retrievers.Factories;
 using MFR.Operations.Constants;
 using MFR.Tests;
 using NUnit.Framework;

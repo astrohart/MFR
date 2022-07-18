@@ -1,4 +1,4 @@
-﻿using MFR.Generators.RegularExpressions.Constants;
+using MFR.Generators.RegularExpressions.Constants;
 using MFR.Generators.RegularExpressions.Interfaces;
 using MFR.Tests.Common;
 using NUnit.Framework;

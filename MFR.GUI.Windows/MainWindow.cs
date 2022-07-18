@@ -488,11 +488,6 @@ namespace MFR.GUI.Windows
         /// </summary>
         private void InitializePresenter()
         {
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to obtain new Presenter object..."
-            );
-
             Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
                 .HavingWindowReference(this)
                 .WithFileRenamer(
@@ -512,12 +507,6 @@ namespace MFR.GUI.Windows
                 throw new InvalidOperationException(
                     "Failed to initialize the main application window."
                 );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** Obtained a reference to the Presenter.  Attaching event handlers..."
-            );
-
             NewMessageMapping.Associate.WithMessageId(
                                  MainWindowPresenterMessages
                                      .MWP_ALL_HISTORY_CLEARED
@@ -565,10 +554,6 @@ namespace MFR.GUI.Windows
                                  MainWindowPresenterMessages.MWP_STARTED
                              )
                              .AndEventHandler(OnPresenterStarted);
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindow.InitializePresenter: Done."
-            );
         }
 
         // Give the button a transparent background.
@@ -852,7 +837,6 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnOptionsModified(object sender, ModifiedEventArgs e)
         {
-            // Get a reference to the dialog box by casting the sender parameter
             var dialog = (OptionsDialog)sender;
             if (dialog == null) return;
 
@@ -1048,8 +1032,6 @@ namespace MFR.GUI.Windows
         {
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
-
-            // display a dialog box that explains what happened in a user-friendly way
             // and which allows the user to choose to send an error report.
             Display.ErrorReportDialog(this, e.Exception);
         }

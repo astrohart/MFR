@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MFR.GUI.Dialogs.Text.Retrievers.Factories
 {

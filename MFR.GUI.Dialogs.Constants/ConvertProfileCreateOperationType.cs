@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Dialogs.Constants
+namespace MFR.GUI.Dialogs.Constants
 {
     /// <summary>
     /// Method to convert

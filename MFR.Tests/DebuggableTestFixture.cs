@@ -1,4 +1,4 @@
-﻿using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Tests
 {

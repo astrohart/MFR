@@ -128,26 +128,8 @@ namespace MFR.Settings.Profiles.Providers.Tests
         [Test]
         public void Test_Load_Method_Works_When_PassedStringEmpty()
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty"
-            );
-
-            // Dump the variable ProfileProvider.DefaultProfileCollectionPath to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: ProfileProvider.DefaultProfileCollectionPath = '{ProfileProvider.DefaultProfileCollectionPath}'"
-            );
-
-            // Dump the variable ProfileProvider.ProfileCollectionFilePath to the log. 
             // This is the value that the Load method will utilize because we 
             // pass in the empty string.
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: ProfileProvider.DefaultProfileCollectionPath = '{ProfileProvider.ProfileCollectionFilePath}'"
-            );
-
             Assert.DoesNotThrow(
                 () => ProfileProvider.Load(
                     /*
@@ -159,11 +141,6 @@ namespace MFR.Settings.Profiles.Providers.Tests
                 )
             );
 
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty: Done."
-            );
         }
     }
 }

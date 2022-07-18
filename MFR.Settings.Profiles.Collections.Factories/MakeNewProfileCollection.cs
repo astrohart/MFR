@@ -1,4 +1,4 @@
-﻿using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Collections.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Settings.Profiles.Collections.Factories

@@ -1,4 +1,4 @@
-﻿namespace MFR.Params.Profiles.Interfaces
+namespace MFR.Params.Profiles.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a <c>ProfileParams</c>

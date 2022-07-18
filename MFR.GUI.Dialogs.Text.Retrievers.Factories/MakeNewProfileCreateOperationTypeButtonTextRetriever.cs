@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Text.Retrievers.Interfaces;
+using MFR.GUI.Dialogs.Text.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs.Text.Retrievers.Factories

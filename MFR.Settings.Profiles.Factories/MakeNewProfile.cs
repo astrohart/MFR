@@ -1,4 +1,4 @@
-﻿using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using MFR.Settings.Profiles.Factories.Properties;
 using MFR.Settings.Profiles.Interfaces;

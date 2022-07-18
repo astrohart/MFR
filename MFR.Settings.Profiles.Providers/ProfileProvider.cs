@@ -219,9 +219,6 @@ namespace MFR.Settings.Profiles.Providers
         public void Load(string pathname = "")
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In ProfileProvider.Load");
-
             if (string.IsNullOrWhiteSpace(pathname) ||
                 !File.Exists(
                     pathname
@@ -231,12 +228,6 @@ namespace MFR.Settings.Profiles.Providers
                     DebugLevel.Debug,
                     $"ProfileProvider.Load: The file '{pathname}' could not be found."
                 );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ProfileProvider.Load: Using the file located at '{ProfileCollectionFilePath}'..."
-                );
-
                 pathname = ProfileCollectionFilePath;
 
                 if (!File.Exists(ProfileCollectionFilePath))
@@ -287,10 +278,6 @@ namespace MFR.Settings.Profiles.Providers
                 // store the pathname in the pathname parameter into the ProfileCollectionFilePath property
                 ProfileCollectionFilePath = pathname;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "ProfileProvider.Load: Done."
-            );
         }
 
         /// <summary>
@@ -315,73 +302,27 @@ namespace MFR.Settings.Profiles.Providers
         /// </remarks>
         public void Save(string pathname = "")
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In ProfileProvider.Save");
-
             /*
              * If the pathname parameter is blank, then use the
              * default profile list file path.
              */
-
-            // Dump the variable pathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"ProfileProvider.Save: pathname = '{pathname}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "ProfileProvider.Save: Checking whether the 'pathname' parameter is blank..."
-            );
-
             if (string.IsNullOrWhiteSpace(pathname))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
                     "ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'ProfileCollectionFilePath' property..."
                 );
-
-                // Dump the variable ProfileCollectionFilePath to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ProfileProvider.Save: ProfileCollectionFilePath = '{ProfileCollectionFilePath}'"
-                );
-
                 pathname = ProfileCollectionFilePath;
-
-                // Dump the variable pathname to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ProfileProvider.Save: pathname = '{pathname}'"
-                );
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "ProfileProvider.Save: Checking whether the Profiles property is null..."
-            );
-
             // Check to see if the required property, Profiles, is null. If
-            // it is, send an error to the log file and quit, returning from the method.
             if (Profiles == null)
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
                     "ProfileProvider.Save: The Profiles property is null.  Stopping."
                 );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "ProfileProvider.Save: Done."
-                );
-
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "ProfileProvider.Save: The Profiles property is not null.  Continuing..."
-            );
-
             /*
              * Scan the Profiles collection for any elements with a Name property
              * starting with 'tmp_'.  If such entries are found, remove them from
@@ -397,11 +338,6 @@ namespace MFR.Settings.Profiles.Providers
             ;
             try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ProfileProvider.Save: Attempting to save the profiles collection to the file having the pathname '{pathname}'..."
-                );
-
                 GetProfileCollectionCommandType.For<IFileSystemEntry>(
                                                ProfileCollectionCommandType
                                                    .SaveProfileCollectionToFile
@@ -425,21 +361,12 @@ namespace MFR.Settings.Profiles.Providers
                                                    )
                                            )
                                            .Execute();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** SUCCESS *** Profiles saved to file '{pathname}'."
-                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "ProfileProvider.Save: Done."
-            );
         }
     }
 }

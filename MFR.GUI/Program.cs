@@ -152,11 +152,6 @@ namespace MFR.GUI
         private static void OnCommandLineParserDisplayHelp(object sender,
             DisplayHelpEventArgs e)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In Program.OnCommandLineParserDisplayHelp"
-            );
-
             MessageBox.Show(
                 e.HelpText, Application.ProductName, MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
@@ -219,8 +214,6 @@ namespace MFR.GUI
         {
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
-
-            // display a dialog box that explains what happened in a user-friendly way
             // and which allows the user to choose to send an error report.
             Display.ErrorReportDialog(e.Exception);
         }

@@ -171,18 +171,6 @@ namespace MFR.FileSystem.Helpers
         /// </exception>
         public static void MakeSureContainingFolderExists(string pathname)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In FileHelpers.MakeSureContainingFolderExists"
-            );
-
-            // Dump the variable pathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileHelpers.MakeSureContainingFolderExists: pathname = '{pathname}'"
-            );
-
             /* Write the config data to the file.  If the folder that the
                    file should be placed in, does not exist, then create the folder. */
             var containingFolderName = Path.GetDirectoryName(pathname);
@@ -190,26 +178,9 @@ namespace MFR.FileSystem.Helpers
                 throw new InvalidOperationException(
                     "The configuration file pathname has no folder."
                 );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileHelpers.MakeSureContainingFolderExists: Checking whether the folder '{containingFolderName}' exists. If not, creating it..."
-            );
-
             if (!Directory.Exists(containingFolderName))
                 Create.Folder(containingFolderName);
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "FileHelpers.MakeSureContainingFolderExists: Checking whether the operation succeeded..."
-            );
-
             Verify.FolderWasCreated(containingFolderName);
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "FileHelpers.MakeSureContainingFolderExists: Done."
-            );
         }
 
         /// <summary>
@@ -283,21 +254,6 @@ namespace MFR.FileSystem.Helpers
                     string
                         .Empty; // set the result to blank if an exception is thrown.
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** SUCCESS *** Created or found a folder at the pathname '{folderName}'."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SystemPreparer.CreateOrOpenTextFile: Result = '{result}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "SystemPreparer.CreateOrOpenTextFile: Done."
-            );
-
             return result;
         }
     }

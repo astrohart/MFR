@@ -51,9 +51,6 @@ namespace MFR.GUI.Dialogs
                     () =>
                     {
                         currentFileLabel.Text = value;
-                        DebugUtils.WriteLine(
-                            DebugLevel.Info, $"*** CURRENT FILE: {value}"
-                        );
                     }
                 );
         }

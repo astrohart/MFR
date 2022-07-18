@@ -65,12 +65,6 @@ namespace MFR.Expressions.Matches.Factories
         public override IMatchExpressionFactory ForTextValue(string value)
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In FileNameReplacementMatchExpressionFactory.ForTextValue"
-            );
-
             return base.ForTextValue(Path.GetFileName(value));
         }
     }

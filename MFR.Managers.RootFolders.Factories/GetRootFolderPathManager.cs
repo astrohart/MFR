@@ -1,4 +1,4 @@
-﻿using MFR.Managers.RootFolders.Interfaces;
+using MFR.Managers.RootFolders.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Managers.RootFolders.Factories

@@ -1,4 +1,4 @@
-﻿using MFR.Errors.Reports.Commands.Constants;
+using MFR.Errors.Reports.Commands.Constants;
 using PostSharp.Patterns.Diagnostics;
 using MFR.Messages.Commands.Interfaces;
 using MFR.Messages.Constants;

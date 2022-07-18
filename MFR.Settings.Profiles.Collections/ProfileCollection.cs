@@ -1,4 +1,4 @@
-﻿using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Collections.Properties;
 using MFR.Settings.Profiles.Interfaces;
 using Newtonsoft.Json;

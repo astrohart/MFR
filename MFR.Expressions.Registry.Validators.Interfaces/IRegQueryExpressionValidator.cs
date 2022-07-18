@@ -47,4 +47,3 @@ namespace MFR.Expressions.Registry.Validators.Interfaces
     }
 }
 
-    

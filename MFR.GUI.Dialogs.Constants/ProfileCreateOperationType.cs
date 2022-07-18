@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Dialogs.Constants
+namespace MFR.GUI.Dialogs.Constants
 {
     /// <summary>
     /// Values that specify which type of profile-creation operation is being done.

@@ -524,29 +524,6 @@ namespace MFR.Renamers.Files
             string replaceWith, Predicate<string> pathFilter = null)
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileRenamer.RenameFilesInFolder"
-            );
-
-            // Dump the parameter rootFolderPath to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.RenameFilesInFolder: rootFolderPath = '{rootFolderPath}'"
-            );
-
-            // Dump the parameter findWhat to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.RenameFilesInFolder: findWhat = '{findWhat}'"
-            );
-
-            // Dump the parameter replaceWith to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.RenameFilesInFolder: replaceWith = '{replaceWith}'"
-            );
-
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -591,12 +568,6 @@ namespace MFR.Renamers.Files
                             RootDirectoryPath, pathFilter
                         );
                 var entries = entryCollection.ToList();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: {entries.Count} files found that might need to be renamed."
-                );
-
                 if (!entries.Any())
                     if (!AbortRequested)
                     {
@@ -1027,12 +998,6 @@ namespace MFR.Renamers.Files
                     .AndReplaceItWith(replaceWith)
                     .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter);
             var fileSystemEntries = entryCollection.ToList();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** INFO: {fileSystemEntries.Count} files found that might have text in them that needs replacing."
-            );
-
             if (!fileSystemEntries.Any())
                 if (!AbortRequested)
                 {
@@ -1138,15 +1103,6 @@ namespace MFR.Renamers.Files
                 throw new OperationAbortedException(
                     "The operation has been aborted."
                 );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** Text replacement in files operation completed successfully."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "FileRenamer.ReplaceTextInFiles: Done."
-            );
         }
 
         /// <summary>
@@ -1188,7 +1144,8 @@ namespace MFR.Renamers.Files
              * We do not perform any input validation here.  This is because
              * this value may be being initialized from a default (blank)
              * configuration.   The configuration may be blank for a number of
-             * reasons, but one of these is the issue that the configuration              * file on the disk may have gotten corrupted or erased.
+             * reasons, but one of these is the issue that the configuration 
+             * file on the disk may have gotten corrupted or erased.
              */
 
             RootDirectoryPath = path;
@@ -1257,18 +1214,6 @@ namespace MFR.Renamers.Files
 
         private static string GetFirstSolutionPathFoundInFolder(string folder)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In FileRenamer.GetFirstSolutionPathFoundInFolder"
-            );
-
-            // Dump the variable folder to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.GetFirstSolutionPathFoundInFolder: folder = '{folder}'"
-            );
-
             var result = string.Empty;
 
             if (string.IsNullOrWhiteSpace(folder)) return result;
@@ -1289,12 +1234,6 @@ namespace MFR.Renamers.Files
 
                 result = string.Empty;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.GetFirstSolutionPathFoundInFolder: Result = '{result}'"
-            );
-
             return result;
         }
 
@@ -1338,29 +1277,6 @@ namespace MFR.Renamers.Files
         private void DoProcessAll(string rootDirectoryPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileRenamer.DoProcessAll"
-            );
-
-            // Dump the variable path to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.DoProcessAll: path = '{rootDirectoryPath}'"
-            );
-
-            // Dump the variable findWhat to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.DoProcessAll: findWhat = '{findWhat}'"
-            );
-
-            // Dump the variable replaceWith to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.DoProcessAll: replaceWith = '{replaceWith}'"
-            );
-
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -1388,12 +1304,6 @@ namespace MFR.Renamers.Files
                 );
 
                 DTE dte = null;
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "FileRenamer.DoProcessAll: Checking whether there is an open Visual Studio Solution that should be closed..."
-                );
-
                 // This tool can potentially be run from Visual Studio (e.g.,
                 // configured via the Tools menu as an external tool, for instance).
 
@@ -1405,12 +1315,6 @@ namespace MFR.Renamers.Files
                 // Scan the folder in which we are starting for files ending with the
                 // .sln extension.  If any of them are open in Visual Studio, mark
                 // them all for reloading, and then reload them.
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.DoProcessAll: Searching for files ending in the *.sln file extension in the folder '{RootDirectoryPath}'..."
-                );
-
                 var solutionPath = GetFirstSolutionPathFoundInFolder(
                     RootDirectoryPath
                 );
@@ -1443,13 +1347,6 @@ namespace MFR.Renamers.Files
                     );
 
                     ShouldReOpenSolution = dte != null;
-
-                    // Dump the variable ShouldReOpenSolution to the log
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        $"FileRenamer.DoProcessAll: ShouldReOpenSolution = {ShouldReOpenSolution}"
-                    );
-
                     // Prior to beginning the operation(s) selected by the user,
                     // we'll then tell the instance of Visual Studio that has the
                     // solution containing the item(s) to be renamed open to close
@@ -1524,20 +1421,8 @@ namespace MFR.Renamers.Files
                 }
 
                 InvokeProcessing(findWhat, replaceWith, pathFilter);
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "FileRenamer.DoProcessAll: Checking whether we need to re-open the solution..."
-                );
-
                 // Since the pathname of the Solution file itself may have changed due to a file-rename
                 // operation, re-scan the root directory for the solution path.
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.DoProcessAll: Re-scanning the folder '{RootDirectoryPath}' for Solution files (in case a file's name was changed..."
-                );
-
                 solutionPath =
                     string.IsNullOrWhiteSpace(LastSolutionPath) ||
                     !File.Exists(LastSolutionPath)
@@ -1552,13 +1437,6 @@ namespace MFR.Renamers.Files
                     );
                     return;
                 }
-
-                // Dump the variable solutionPath to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileRenamer.DoProcessAll: solutionPath = '{solutionPath}'"
-                );
-
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)
@@ -1600,10 +1478,6 @@ namespace MFR.Renamers.Files
             {
                 OnFinished();
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "FileRenamer.DoProcessAll: Done."
-            );
         }
 
         /// <summary>
@@ -1633,11 +1507,6 @@ namespace MFR.Renamers.Files
         private void InvokeProcessing(string findWhat, string replaceWith,
             Predicate<string> pathFilter)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileRenamer.InvokeProcessing"
-            );
-
             /*
                  * OKAY, check whether Find What and Replace With are the same,
                  * apart from case.  This means that the user wants to use the same
@@ -1659,10 +1528,6 @@ namespace MFR.Renamers.Files
                 ProcessAll(findWhat, guid, pathFilter);
                 ProcessAll(guid, replaceWith, pathFilter);
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "FileRenamer.InvokeProcessing: Done."
-            );
         }
 
         /// <summary>

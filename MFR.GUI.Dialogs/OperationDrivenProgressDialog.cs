@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Interfaces;
+using MFR.GUI.Dialogs.Interfaces;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;

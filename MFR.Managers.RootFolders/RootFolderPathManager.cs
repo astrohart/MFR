@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Enumerators;
+using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Validators.Factories;
 using MFR.Managers.RootFolders.Events;
 using MFR.Managers.RootFolders.Interfaces;

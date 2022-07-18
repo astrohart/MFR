@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Launchers.Dialogs.Actions.Constants;
+using MFR.GUI.Launchers.Dialogs.Actions.Constants;
 using MFR.Messages.Actions.Interfaces;
 using System;
 

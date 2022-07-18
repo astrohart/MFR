@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Windows.Presenters.Events.Properties;
+using MFR.GUI.Windows.Presenters.Events.Properties;
 using System;
 
 namespace MFR.GUI.Windows.Presenters.Events

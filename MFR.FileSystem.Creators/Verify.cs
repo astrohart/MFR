@@ -30,28 +30,11 @@ namespace MFR.FileSystem.Creators
         /// </exception>
         public static void FolderWasCreated(string containingFolderName)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileHelpers.FolderWasCreated"
-            );
-
-            // Dump the variable containingFolderName to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileHelpers.FolderWasCreated: containingFolderName = '{containingFolderName}'"
-            );
-
             if (string.IsNullOrWhiteSpace(containingFolderName))
                 throw new ArgumentException(
                     Resources.Error_ValueCannotBeNullOrWhiteSpace,
                     nameof(containingFolderName)
                 );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileHelpers.FolderWasCreated: Verifying that the folder having path '{containingFolderName}' exists on the disk..."
-            );
-
             if (Directory.Exists(containingFolderName))
                 DebugUtils.WriteLine(
                     DebugLevel.Info,

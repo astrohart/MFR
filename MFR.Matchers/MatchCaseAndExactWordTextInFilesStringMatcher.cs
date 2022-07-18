@@ -87,7 +87,6 @@ namespace MFR.Matchers
             string replaceWith = "")
         {
             // Call the base class here since it provides default
-            // input-validation logic.
             base.IsMatch(value, findWhat, replaceWith);
 
             bool result;

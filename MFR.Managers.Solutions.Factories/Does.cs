@@ -1,4 +1,4 @@
-﻿using MFR.Managers.Solutions.Interfaces;
+using MFR.Managers.Solutions.Interfaces;
 using System.IO;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 

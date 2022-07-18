@@ -1,4 +1,4 @@
-﻿using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 using System;
 
 namespace MFR.Settings.Profiles.Interfaces

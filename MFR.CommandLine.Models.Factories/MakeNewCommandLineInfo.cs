@@ -1,4 +1,4 @@
-﻿using MFR.CommandLine.Models.Interfaces;
+using MFR.CommandLine.Models.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.CommandLine.Models.Factories

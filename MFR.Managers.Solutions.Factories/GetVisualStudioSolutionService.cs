@@ -1,4 +1,4 @@
-﻿using MFR.Managers.Solutions.Interfaces;
+using MFR.Managers.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Managers.Solutions.Factories

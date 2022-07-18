@@ -1,4 +1,4 @@
-﻿using MFR.Params.Profiles.Interfaces;
+using MFR.Params.Profiles.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using xyLOGIX.Validators;
 using xyLOGIX.Validators.Events;

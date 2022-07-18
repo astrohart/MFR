@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Filters.Factories;
+using MFR.FileSystem.Filters.Factories;
 using NUnit.Framework;
 using System;
 

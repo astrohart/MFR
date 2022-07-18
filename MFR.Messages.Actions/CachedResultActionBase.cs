@@ -108,70 +108,25 @@ namespace MFR.Messages.Actions
         protected sealed override TResult CommonExecute()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In CachedActionBase.CommonExecute"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the _input field has a null reference for a value..."
-            );
-
             var result = default(TResult);
 
             // Check to see if the required field, _input, is null. If it is,
-            // send an error to the log file and quit.
             if (Input == default(TInput))
             {
                 // the field _input is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _input field has a null reference.  This field is required."
-                );
-
-                // log the result
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"CachedActionBase.CommonExecute: Result = {result}"
-                );
-
                 // stop.
                 return result;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _input field has a valid object reference for its value."
-            );
-
             try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** INFO: Checking whether the result is in the result cache..."
-                );
-
                 if (TryGetCachedResult(out result) && result != null)
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
                         "*** SUCCESS *** Found the result in the cache.  Using the value retrieved as the return value of this method."
                     );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        "CachedActionBase.CommonExecute: Done."
-                    );
-
                     return result;
                 }
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** INFO: The cache did not contain the current input, so we are needing to perform the operation regardless..."
-                );
-
                 result = ExecuteOperationIfNotCached();
             }
             catch (Exception ex)
@@ -187,11 +142,6 @@ namespace MFR.Messages.Actions
                     DebugLevel.Info,
                     "*** SUCCESS *** Successfully obtained the result."
                 );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "CachedActionBase.CommonExecute: Done."
-            );
-
             return result;
         }
 

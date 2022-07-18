@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Constants;
+using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Factories;
 using NUnit.Framework;
 using System;

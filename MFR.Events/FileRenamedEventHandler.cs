@@ -1,4 +1,4 @@
-﻿namespace MFR.Events
+namespace MFR.Events
 {
     /// <summary>
     /// Represents a handler for a <c>FileRenamed</c> event.

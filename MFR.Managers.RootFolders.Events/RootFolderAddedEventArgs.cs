@@ -1,4 +1,4 @@
-﻿namespace MFR.Managers.RootFolders.Events
+namespace MFR.Managers.RootFolders.Events
 {
     /// <summary>
     /// Provides information for RootFolderAdded event handlers.

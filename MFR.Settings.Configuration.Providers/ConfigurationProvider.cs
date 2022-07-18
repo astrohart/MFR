@@ -258,11 +258,6 @@ namespace MFR.Settings.Configuration.Providers
         public void Load(string pathname = "")
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In ConfigurationProvider.Load"
-            );
-
             /*
              * If the file whose path is specified in the pathname parameter does not exist,
              * or if the pathname parameter is blank (in which case, the File.Exists method will
@@ -288,19 +283,8 @@ namespace MFR.Settings.Configuration.Providers
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"ConfigurationProvider.Load: Since the loading of configuration from the file '{pathname}' did not work, we are creating a blank Configuration object with the default settings."
-                );
-
                 Configuration =
                     MakeNewConfiguration.FromScratch(); // make a default config if can't be loaded
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** SUCCESS *** Blank configuration object initialized."
-                );
             }
 
             if (Configuration != null)
@@ -312,10 +296,6 @@ namespace MFR.Settings.Configuration.Providers
                 // store the pathname in the pathname parameter into the ConfigurationFilePath property
                 ConfigurationFilePath = pathname;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "ConfigurationProvider.Load: Done."
-            );
         }
 
         /// <summary>
@@ -367,7 +347,6 @@ namespace MFR.Settings.Configuration.Providers
             if (string.IsNullOrWhiteSpace(pathname)) return;
             
             // Check to see if the required property, Configuration, is null. If
-            // it is, send an error to the log file and quit, returning from the method.
             if (Configuration == null) return;
 
             try

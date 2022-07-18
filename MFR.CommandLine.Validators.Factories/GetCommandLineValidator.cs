@@ -1,4 +1,4 @@
-﻿using MFR.CommandLine.Validators.Interfaces;
+using MFR.CommandLine.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.CommandLine.Validators.Factories

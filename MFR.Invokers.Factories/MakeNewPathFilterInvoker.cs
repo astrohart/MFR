@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using MFR.Invokers.Interfaces;
 

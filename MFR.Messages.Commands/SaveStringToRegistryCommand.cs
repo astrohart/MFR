@@ -58,72 +58,20 @@ namespace MFR.Messages.Commands
         /// </remarks>
         protected override void CommonExecute()
         {
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the _input field has a null reference for a value..."
-            );
-
             // Check to see if the required field, _input, is null. If it is,
-            // send an error to the log file and quit.
             if (Input == null)
             {
                 // the field _input is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _input field has a null reference.  This field is required."
-                );
-
                 // stop.
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _input field has a valid object reference for its value."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the _input.Value property has a null reference for a value..."
-            );
-
             // Check to see if the required property, _input.Value, is null. If
-            // it is, send an error to the log file and quit.
             if (string.IsNullOrWhiteSpace(Input.Value))
             {
                 // the property _input.Value is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _input.Value property has a null reference.  This property is required."
-                );
-
                 // stop.
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _input.Value property has a valid object reference for its value."
-            );
-
-            // Dump the variable _input.KeyPath to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SavePathToRegistryCommand.Execute: _input.KeyPath = '{Input.KeyPath}'"
-            );
-
-            // Dump the variable _input.ValueName to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SavePathToRegistryCommand.Execute: _input.ValueName = '{Input.ValueName}'"
-            );
-
-            // Dump the variable _input.Value to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"SavePathToRegistryCommand.Execute: _input.Value = '{Input.Value}'"
-            );
-
             try
             {
                 Write.String.ToRegistry(

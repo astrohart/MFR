@@ -1,4 +1,4 @@
-﻿using MFR.Managers.RootFolders.Events;
+using MFR.Managers.RootFolders.Events;
 using System.Collections.Generic;
 
 namespace MFR.Managers.RootFolders.Interfaces

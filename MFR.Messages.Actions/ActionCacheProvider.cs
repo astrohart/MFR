@@ -35,100 +35,29 @@ namespace MFR.Messages.Actions
         public static void Add(TInput input, TResult result)
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In ActionCacheProvider.Add"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ActionCacheProvider.Add: Checking whether the 'input' method parameter has a null reference for a value..."
-            );
-
             // Check to see if the required parameter, input, is null. If it is,
-            // send an error to the log file and quit, returning from this method.
             if (input == null)
             {
                 // the parameter input is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "ActionCacheProvider.Add: A null reference was passed for the 'input' method parameter."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "ActionCacheProvider.Add: This method parameter is required to have a valid object reference."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "ActionCacheProvider.Add: Done."
-                );
-
                 // stop.
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ActionCacheProvider.Add: We have been passed a valid object reference for the 'input' method parameter."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ActionCacheProvider.Add: Checking whether the 'result' method parameter has a null reference for a value..."
-            );
-
             // Check to see if the required parameter, result, is null. If it
-            // is, send an error to the log file and quit, returning from this method.
             if (result == null)
             {
                 // the parameter result is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "ActionCacheProvider.Add: A null reference was passed for the 'result' method parameter."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "ActionCacheProvider.Add: This method parameter is required to have a valid object reference."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "ActionCacheProvider.Add: Done."
-                );
-
                 // stop.
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "ActionCacheProvider.Add: We have been passed a valid object reference for the 'result' method parameter."
-            );
-
             try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "ActionCacheProvider.Add: Associating the most-recently returned result with the input parameters..."
-                );
-
                 ResultCache[input] = result;
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** SUCCESS *** The cache has been updated."
-                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "ActionCacheProvider.Add: Done."
-            );
         }
 
         /// <summary>

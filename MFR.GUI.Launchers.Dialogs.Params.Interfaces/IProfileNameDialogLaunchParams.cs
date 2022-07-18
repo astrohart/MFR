@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Constants;
+using MFR.GUI.Dialogs.Constants;
 
 namespace MFR.GUI.Launchers.Dialogs.Params.Interfaces
 {

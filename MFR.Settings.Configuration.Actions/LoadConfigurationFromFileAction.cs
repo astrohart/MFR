@@ -72,43 +72,15 @@ namespace MFR.Settings.Configuration.Actions
         /// </remarks>
         protected override IConfiguration CommonExecute()
         {
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the _input field has a null reference for a value..."
-            );
-
             IConfiguration result = null;
 
             // Check to see if the required field, _input, is null. If it is,
-            // send an error to the log file and quit.
             if (Input == null)
             {
                 // the field _input is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _input field has a null reference.  This field is required."
-                );
-
-                // log the result
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "LoadConfigurationFilePathFromRegistryAction.Execute: Result = {0}", result
-                );
-
                 // stop.
                 return result;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _input field has a valid object reference for its value."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** SUCCESS *** The file with path '{Input.Path}' was found on the disk.  Proceeding..."
-            );
-
             try
             {
                 Input.Path = FileHelpers.CreateOrOpenTextFile(
@@ -123,17 +95,6 @@ namespace MFR.Settings.Configuration.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"LoadConfigurationFromFileAction.CommonExecute: Result = {result}"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "LoadConfigurationFromFileAction.CommonExecute: Done."
-            );
-
             return result;
         }
     }

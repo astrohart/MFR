@@ -1,4 +1,4 @@
-﻿using xyLOGIX.Core.Extensions;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Dialogs.Profiles.Help.Interfaces
 {

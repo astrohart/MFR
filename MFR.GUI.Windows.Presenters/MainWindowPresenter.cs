@@ -110,11 +110,6 @@ namespace MFR.GUI.Windows.Presenters
         public MainWindowPresenter()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.MainWindowPresenter"
-            );
-
             InitializeComponents();
 
             ReinitializeProgressDialog();
@@ -361,11 +356,6 @@ namespace MFR.GUI.Windows.Presenters
         public void ClearAllHistory()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.ClearAllHistory"
-            );
-
             UpdateData(); // save data from the screen prior to doing the operation
 
             if (!_historyManager.ClearAll())
@@ -374,10 +364,6 @@ namespace MFR.GUI.Windows.Presenters
             UpdateData(false);
 
             OnAllHistoryCleared();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.ClearAllHistory: Done."
-            );
         }
 
         /// <summary>
@@ -394,11 +380,6 @@ namespace MFR.GUI.Windows.Presenters
         public void DoSelectedOperations()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.DoSelectedOperations"
-            );
-
             if (View == null || _fileRenamer == null)
                 return;
 
@@ -411,11 +392,6 @@ namespace MFR.GUI.Windows.Presenters
             ValidateInputs();
 
             CommenceRenameOperation();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.DoSelectedOperations: Done."
-            );
         }
 
         /// <summary>
@@ -648,12 +624,6 @@ namespace MFR.GUI.Windows.Presenters
         public void SaveOperationSelections()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.SaveOperationSelections"
-            );
-
             Configuration.RenameFiles =
                 View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
             Configuration.RenameSubFolders =
@@ -664,11 +634,6 @@ namespace MFR.GUI.Windows.Presenters
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.SaveOperationSelections: Done."
-            );
         }
 
         /// <summary>
@@ -823,50 +788,13 @@ namespace MFR.GUI.Windows.Presenters
         public void UpdateData(bool bSavingAndValidating = true)
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.UpdateData"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the 'Configuration' property has a null reference for a value..."
-            );
-
             // Check to see if the required property, Configuration, is null. If
-            // it is, send an error to the log file and quit, returning from the method.
             if (Configuration == null)
             {
                 // the property Configuration is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The 'Configuration' property has a null reference. "
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: This property is required to be set to a valid object reference before we can proceed."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "MainWindowPresenter.UpdateData: Done."
-                );
-
                 // stop.
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The 'Configuration' property has a valid object reference for its value."
-            );
-
-            // Dump the parameter bSavingAndValidating to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.UpdateData: bSavingAndValidating = {bSavingAndValidating}"
-            );
-
             // Since moving data to/from the screen may potentially take some
             // time, show the marquee-style progress bar on the status bar in
             // the interim
@@ -931,10 +859,6 @@ namespace MFR.GUI.Windows.Presenters
             }
 
             OnDataOperationFinished();
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.UpdateData: Done."
-            );
         }
 
         /// <summary>
@@ -956,29 +880,8 @@ namespace MFR.GUI.Windows.Presenters
         public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.MainWindowReference"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to associate the Main Window to its Presenter..."
-            );
-
             View = mainWindow ??
                    throw new ArgumentNullException(nameof(mainWindow));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The Main Window has been attached to the Presenter."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.MainWindowReference: Done."
-            );
-
             return this;
         }
 
@@ -1343,7 +1246,6 @@ namespace MFR.GUI.Windows.Presenters
         private void InitializeComponents()
 
         {
-            // exportConfigDialog
             _exportConfigDialog = new SaveFileDialog
             {
                 DefaultExt = "json",
@@ -1353,8 +1255,6 @@ namespace MFR.GUI.Windows.Presenters
                 RestoreDirectory = true,
                 Title = "Export Configuration"
             };
-
-            // importConfigDialog
             _importConfigDialog = new OpenFileDialog
             {
                 DefaultExt = "json",
@@ -1373,45 +1273,13 @@ namespace MFR.GUI.Windows.Presenters
         private void InitializeFileRenamer()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.InitializeFileRenamer"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the _fileRenamer field has a null reference for a value..."
-            );
-
             // Check to see if the required field, _fileRenamer, is null. If it
-            // is, send an error to the log file and quit.
             if (_fileRenamer == null)
             {
                 // the field _fileRenamer is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR: The _fileRenamer field has a null reference.  This field is required."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "MainWindowPresenter.InitializeFileRenamer: Done."
-                );
-
                 // stop.
                 return;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The _fileRenamer field has a valid object reference for its value."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Attempting to hook up events to the File Renamer..."
-            );
-
             NewMessageMapping<ExceptionRaisedEventArgs>.Associate
                 .WithMessageId(FileRenamerMessages.FRM_EXCEPTION_RAISED)
                 .AndHandler(
@@ -1486,16 +1354,6 @@ namespace MFR.GUI.Windows.Presenters
                                  FileRenamerMessages.FRM_FINISHED
                              )
                              .AndHandler(new Action(OnFileRenamerFinished));
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** File Renamer event handlers hooked up."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "MainWindowPresenter.InitializeFileRenamer: Done."
-            );
         }
 
         /// <summary>
@@ -1805,11 +1663,6 @@ namespace MFR.GUI.Windows.Presenters
         private void ValidateInputs()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In MainWindowPresenter.ValidateInputs"
-            );
-
             if (!Directory.Exists(StartingFolder))
                 throw new DirectoryNotFoundException(
                     string.Format(
@@ -1837,10 +1690,6 @@ namespace MFR.GUI.Windows.Presenters
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "*** SUCCESS *** All inputs have been successfully validated."
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "MainWindowPresenter.ValidateInputs: Done."
             );
         }
     }

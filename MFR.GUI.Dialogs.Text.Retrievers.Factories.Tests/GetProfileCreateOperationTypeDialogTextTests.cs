@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Dialogs.Constants;
+using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties;
 using NUnit.Framework;
 

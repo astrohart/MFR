@@ -35,90 +35,23 @@ namespace MFR.FileSystem.Validators
         [Log(AttributeExclude = true)]
         public virtual bool DoesExist(IFileSystemEntry entry)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In FileSystemEntryValidatorBase.DoesExist"
-            );
-
             var result = false;
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "FileSystemEntryValidatorBase.DoesExist: Checking whether the 'entry' method parameter has a null reference for a value..."
-            );
-
             // Check to see if the required parameter, entry, is null. If it is, send an
-            // error to the log file and quit, returning the default return value of this
             // method.
             if (entry == null)
             {
                 // the parameter entry is required.
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "FileSystemEntryValidatorBase.DoesExist: A null reference was passed for the 'entry' method parameter."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "FileSystemEntryValidatorBase.DoesExist: This method parameter is required to have a valid object reference."
-                );
-
-                // log the result
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileSystemEntryValidatorBase.DoesExist: Result = {result}"
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "FileSystemEntryValidatorBase.DoesExist: Done."
-                );
-
                 // stop.
                 return result;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "FileSystemEntryValidatorBase.DoesExist: We have been passed a valid object reference for the 'entry' method parameter."
-            );
-
-            // Dump the variable entry.Path to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileSystemEntryValidatorBase.DoesExist: entry.Path = '{entry.Path}'"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Checking whether the value of the 'entry.Path' parameter is blank..."
-            );
-
             if (string.IsNullOrWhiteSpace(entry.Path))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
                     "FileSystemEntryValidatorBase.DoesExist: Blank value passed for the 'entry.Path' parameter. This parameter is required."
                 );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileSystemEntryValidatorBase.DoesExist: Result = {result}"
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "FileSystemEntryValidatorBase.DoesExist: Done."
-                );
-
                 return result;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The parameter 'entry.Path' is not blank.  Continuing..."
-            );
-
             try
             {
                 result = DoesExist(entry.Path);

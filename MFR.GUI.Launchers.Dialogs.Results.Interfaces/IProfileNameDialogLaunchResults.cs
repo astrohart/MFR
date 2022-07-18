@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Launchers.Dialogs.Results.Interfaces
+namespace MFR.GUI.Launchers.Dialogs.Results.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Profile Name dialog

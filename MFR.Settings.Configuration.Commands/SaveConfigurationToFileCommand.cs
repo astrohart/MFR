@@ -90,13 +90,11 @@ namespace MFR.Settings.Configuration.Commands
              */
 
             // Check to see if the required field, _input, is null. If it is, send an
-            // error to the log file and quit.
             if (Input == null) return;
 
             if (string.IsNullOrWhiteSpace(Input.Path)) return;
 
             // Check to see if the required property, _input.UserState, is null. If it is, send an
-            // error to the log file and quit.  This is because the UserState has to contain a reference
             // to the configuration data that needs saving.
             if (Input.UserState == null) return;
 

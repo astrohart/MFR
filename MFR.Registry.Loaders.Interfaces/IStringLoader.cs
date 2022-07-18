@@ -1,4 +1,4 @@
-﻿namespace MFR.Registry.Loaders.Interfaces
+namespace MFR.Registry.Loaders.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that loads

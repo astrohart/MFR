@@ -89,11 +89,6 @@ namespace MFR.Expressions.Registry.Validators
         public void Validate()
         {
             // write the name of the current class and method we are now
-            // entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In RegQueryExpressionValidator.Validate"
-            );
-
             if (string.IsNullOrWhiteSpace(Expression.KeyPath))
                 throw new InvalidOperationException(
                     "The specified expression's Registry key path is invalid."

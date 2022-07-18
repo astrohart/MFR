@@ -13,7 +13,6 @@ namespace MFR.GUI.Dialogs
     /// </summary>
     public class FolderSelectDialog : IFolderSelectDialog
     {
-        // Wrapped dialog
         private OpenFileDialog _ofd;
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Enumerators;
+using MFR.FileSystem.Enumerators;
 using MFR.Managers.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -76,13 +76,6 @@ namespace MFR.Managers.Solutions
         public bool ContainsLoadedSolutions(string folder = "")
         {
             var result = false;
-
-            // Dump the variable folder to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: folder = '{folder}'");
-
-            // Dump the variable FolderToSearch to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: FolderToSearch = '{FolderToSearch}'");
-
             /*
              * If the value of the folder parameter is blank, or it
              * contains a value that is not the fully-qualified pathname
@@ -107,15 +100,6 @@ namespace MFR.Managers.Solutions
                 );
 
                 folder = FolderToSearch;
-
-                // Dump the variable folder to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: folder = '{folder}'");
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"VisualStudioSolutionService.ContainsLoadedSolutions: Checking whether the folder '{folder}' exists..."
-                );
-
                 if (string.IsNullOrWhiteSpace(folder) ||
                     !Directory.Exists(folder))
                 {
@@ -123,13 +107,6 @@ namespace MFR.Managers.Solutions
                         DebugLevel.Error,
                         $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' cannot be located on the disk."
                     );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"VisualStudioSolutionService.ContainsLoadedSolutions: Result = {result}"
-                    );
-
-                    DebugUtils.WriteLine(DebugLevel.Debug, "VisualStudioSolutionService.ContainsLoadedSolutions: Done.");
-
                     return result;
                 }
                 else
