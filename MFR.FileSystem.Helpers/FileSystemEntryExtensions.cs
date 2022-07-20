@@ -1,4 +1,5 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using Alphaleonis.Win32.Filesystem;
 
@@ -10,6 +11,7 @@ namespace MFR.FileSystem.Helpers
     ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class FileSystemEntryExtensions
     {
         /// <summary>

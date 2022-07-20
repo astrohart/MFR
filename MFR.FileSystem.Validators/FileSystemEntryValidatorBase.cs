@@ -11,8 +11,8 @@ namespace MFR.FileSystem.Validators
     /// Defines the common methods, properties, events, and other functionality
     /// for all types of file-system-entry validator object.
     /// </summary>
-    public abstract class
-        FileSystemEntryValidatorBase : IFileSystemEntryValidator
+    [Log(AttributeExclude = true)]
+    public abstract class FileSystemEntryValidatorBase : IFileSystemEntryValidator
     {
         /// <summary>
         /// Determines whether the specified file-system
@@ -32,7 +32,6 @@ namespace MFR.FileSystem.Validators
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        [Log(AttributeExclude = true)]
         public virtual bool DoesExist(IFileSystemEntry entry)
         {
             var result = false;

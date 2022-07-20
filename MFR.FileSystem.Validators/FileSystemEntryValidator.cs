@@ -1,4 +1,5 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.FileSystem.Validators
@@ -8,6 +9,7 @@ namespace MFR.FileSystem.Validators
     /// implement the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class FileSystemEntryValidator
     {
         /// <summary>
