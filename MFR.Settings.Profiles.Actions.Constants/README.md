@@ -3,17 +3,18 @@
 
 ## Contents
 
-- [ProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction')
-  - [#ctor(messageId)](#M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-#ctor-System-Guid- 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction.#ctor(System.Guid)')
-  - [CreateNewNamedProfile](#F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-CreateNewNamedProfile 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction.CreateNewNamedProfile')
-  - [LoadProfileCollectionFromFile](#F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-LoadProfileCollectionFromFile 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction.LoadProfileCollectionFromFile')
-  - [LoadStringFromRegistry](#F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-LoadStringFromRegistry 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction.LoadStringFromRegistry')
+- [ProfileCollectionActionType](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType')
+  - [#ctor(messageId)](#M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-#ctor-System-Guid- 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType.#ctor(System.Guid)')
+  - [#ctor(description,messageId)](#M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-#ctor-System-Guid,System-String- 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType.#ctor(System.Guid,System.String)')
+  - [CreateNewNamedProfile](#F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-CreateNewNamedProfile 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType.CreateNewNamedProfile')
+  - [LoadProfileCollectionFromFile](#F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-LoadProfileCollectionFromFile 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType.LoadProfileCollectionFromFile')
+  - [LoadStringFromRegistry](#F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-LoadStringFromRegistry 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType.LoadStringFromRegistry')
 - [Resources](#T-MFR-Settings-Profiles-Actions-Constants-Properties-Resources 'MFR.Settings.Profiles.Actions.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Actions-Constants-Properties-Resources-Culture 'MFR.Settings.Profiles.Actions.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Actions-Constants-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Actions.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction'></a>
-## ProfileCollectionAction `type`
+<a name='T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType'></a>
+## ProfileCollectionActionType `type`
 
 ##### Namespace
 
@@ -23,13 +24,13 @@ MFR.Settings.Profiles.Actions.Constants
 
 Available actions for use when working with configuration.
 
-<a name='M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-#ctor-System-Guid-'></a>
+<a name='M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-#ctor-System-Guid-'></a>
 ### #ctor(messageId) `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[ProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionAction')
+[ProfileCollectionActionType](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType')
 and returns a reference to it.
 
 ##### Parameters
@@ -39,21 +40,39 @@ and returns a reference to it.
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
 that provides a unique identifier to be associated with this instance. |
 
-<a name='F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-CreateNewNamedProfile'></a>
+<a name='M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-#ctor-System-Guid,System-String-'></a>
+### #ctor(description,messageId) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ProfileCollectionActionType](#T-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType 'MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| description | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing a user-friendly
+descriptive name for this message type. |
+| messageId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+that provides a unique identifier to be associated with this instance. |
+
+<a name='F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-CreateNewNamedProfile'></a>
 ### CreateNewNamedProfile `constants`
 
 ##### Summary
 
 Creates a new, named profile that can be added to the list.
 
-<a name='F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-LoadProfileCollectionFromFile'></a>
+<a name='F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-LoadProfileCollectionFromFile'></a>
 ### LoadProfileCollectionFromFile `constants`
 
 ##### Summary
 
 Loads the configuration from a file.
 
-<a name='F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionAction-LoadStringFromRegistry'></a>
+<a name='F-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-LoadStringFromRegistry'></a>
 ### LoadStringFromRegistry `constants`
 
 ##### Summary
