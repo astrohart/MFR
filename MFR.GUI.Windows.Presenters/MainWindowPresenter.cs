@@ -51,7 +51,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.GUI.ICancellableProgressDialog" />
+        ///     cref="T:MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog" />
         /// interface.
         /// </summary>
         private ICancellableProgressDialog _cancellableProgressDialog;

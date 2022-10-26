@@ -9,9 +9,9 @@
   - [#cctor()](#M-MFR-CommandLine-Parsers-CommandLineParser-#cctor 'MFR.CommandLine.Parsers.CommandLineParser.#cctor')
   - [OnDisplayHelp(e)](#M-MFR-CommandLine-Parsers-CommandLineParser-OnDisplayHelp-MFR-CommandLine-Parsers-Events-DisplayHelpEventArgs- 'MFR.CommandLine.Parsers.CommandLineParser.OnDisplayHelp(MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs)')
   - [Parse(args)](#M-MFR-CommandLine-Parsers-CommandLineParser-Parse-System-String[]- 'MFR.CommandLine.Parsers.CommandLineParser.Parse(System.String[])')
-- [Resources](#T-xyLOGIXModule-Properties-Resources 'xyLOGIXModule.Properties.Resources')
-  - [Culture](#P-xyLOGIXModule-Properties-Resources-Culture 'xyLOGIXModule.Properties.Resources.Culture')
-  - [ResourceManager](#P-xyLOGIXModule-Properties-Resources-ResourceManager 'xyLOGIXModule.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-CommandLine-Parsers-Properties-Resources 'MFR.CommandLine.Parsers.Properties.Resources')
+  - [Culture](#P-MFR-CommandLine-Parsers-Properties-Resources-Culture 'MFR.CommandLine.Parsers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-CommandLine-Parsers-Properties-Resources-ResourceManager 'MFR.CommandLine.Parsers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-CommandLine-Parsers-CommandLineParser'></a>
 ## CommandLineParser `type`
@@ -87,18 +87,18 @@ accordingly.
 | args | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) Array containing the command-line arguments passed to this application.
 application. |
 
-<a name='T-xyLOGIXModule-Properties-Resources'></a>
+<a name='T-MFR-CommandLine-Parsers-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-xyLOGIXModule.Properties
+MFR.CommandLine.Parsers.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-xyLOGIXModule-Properties-Resources-Culture'></a>
+<a name='P-MFR-CommandLine-Parsers-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -106,7 +106,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-xyLOGIXModule-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-CommandLine-Parsers-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary

@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{F1AA54DD-684F-45CC-A5B7-766AE9E75634}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -157,6 +158,10 @@
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
+      <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
+      <Name>MFR.GUI.Dialogs.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Displayers\MFR.GUI.Displayers.csproj">
       <Project>{88EE1339-FB88-453E-9517-81D51B9C1D9D}</Project>

@@ -6,6 +6,7 @@
 - [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#ctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#ctor')
   - [DEFAULT_PROFILE_LIST_FILENAME](#F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME 'MFR.Settings.Profiles.Providers.ProfileProvider.DEFAULT_PROFILE_LIST_FILENAME')
+  - [_profileCollectionFilePath](#F-MFR-Settings-Profiles-Providers-ProfileProvider-_profileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider._profileCollectionFilePath')
   - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionDir')
   - [DefaultProfileCollectionPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
@@ -49,6 +50,14 @@ This constructor has no parameters.
 ##### Summary
 
 Gets the default JSON file name of the profile list path.
+
+<a name='F-MFR-Settings-Profiles-Providers-ProfileProvider-_profileCollectionFilePath'></a>
+### _profileCollectionFilePath `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that holds the path the JSON file that stores
+profiles.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir'></a>
 ### DefaultProfileCollectionDir `property`

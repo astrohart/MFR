@@ -7,6 +7,7 @@ using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
 using MFR.CommandLine.Validators.Interfaces;
 using MFR.Common;
+using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Displayers;
 using MFR.GUI.Windows;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -28,6 +29,14 @@ namespace MFR.GUI
     /// </summary>
     public static class Program
     {
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog" />
+        /// interface.
+        /// </summary>
+        private static ICancellableProgressDialog _cancellableProgressDialog;
+
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
