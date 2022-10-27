@@ -39,7 +39,8 @@ namespace MFR.GUI.Dialogs.Profiles.Help
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 17F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(41, 0, 41, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 28);
             this.label1.TabIndex = 0;
@@ -48,23 +49,25 @@ namespace MFR.GUI.Dialogs.Profiles.Help
             // mainInstructionLabel
             // 
             this.mainInstructionLabel.Font = new System.Drawing.Font("Calibri", 9F);
-            this.mainInstructionLabel.Location = new System.Drawing.Point(12, 46);
+            this.mainInstructionLabel.Location = new System.Drawing.Point(9, 47);
+            this.mainInstructionLabel.Margin = new System.Windows.Forms.Padding(41, 0, 41, 0);
             this.mainInstructionLabel.Name = "mainInstructionLabel";
-            this.mainInstructionLabel.Size = new System.Drawing.Size(349, 140);
+            this.mainInstructionLabel.Size = new System.Drawing.Size(621, 129);
             this.mainInstructionLabel.TabIndex = 3;
             this.mainInstructionLabel.Text = resources.GetString("mainInstructionLabel.Text");
             // 
             // HelpProfileExplainerDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(369, 201);
+            this.ClientSize = new System.Drawing.Size(643, 158);
             this.Controls.Add(this.mainInstructionLabel);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(41, 19, 41, 19);
             this.MaximizeBox = false;
             this.Name = "HelpProfileExplainerDialog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
