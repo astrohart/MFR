@@ -120,6 +120,9 @@
   <data name="CommandLineInfoIsNull" xml:space="preserve">
     <value>The command-line arguments could not be parsed.</value>
   </data>
+  <data name="FindWhatBlank" xml:space="preserve">
+    <value>The 'Find What' value is blank, or it contains only whitespace.</value>
+  </data>
   <data name="RootDirectoryDoesntContainSolution" xml:space="preserve">
     <value>The specified starting directory, '{0}', exists on disk but does not contain a Visual Studio Solution (*.sln) file.
 

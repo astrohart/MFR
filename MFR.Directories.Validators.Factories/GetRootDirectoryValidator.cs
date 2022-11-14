@@ -1,12 +1,12 @@
-using MFR.CommandLine.Validators.Interfaces;
+using MFR.Directories.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.CommandLine.Validators.Factories
+namespace MFR.Directories.Validators.Factories
 {
     /// <summary>
     /// Provides access to the sole instance of the object that implements the
     /// <see
-    ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+    ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
     /// interface.
     /// </summary>
     [Log(AttributeExclude = true)]
@@ -16,13 +16,13 @@ namespace MFR.CommandLine.Validators.Factories
         /// Provides access to the sole instance of the object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">

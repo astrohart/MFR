@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following set
 // of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MassFileRenamer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("xyLOGIX Project File Renamer Command Line Tool")]
+[assembly: AssemblyDescription("Command-line version of the graphical user interface of the Project File Renamer.  Call this directly from the command line with the proper arguments.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MassFileRenamer")]
-[assembly: AssemblyCopyright("Copyright © xyLOGIX, LLC 2021")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer Command Line Tool")]
+[assembly: AssemblyCopyright("Copyright © 2021-22 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

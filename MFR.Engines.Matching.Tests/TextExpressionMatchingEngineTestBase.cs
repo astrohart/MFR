@@ -57,7 +57,7 @@ namespace MFR.Engines.Matching.Tests
         [Test]
         public virtual void
             Test_ArgumentException_NotThrown_If_AllThreeParams_Of_IsMatch_Method_AreNonBlank()
-            => Assert.DoesNotThrow(() => _matcher.IsMatch("Foo", "Bar", "Baz"));
+            => Assert.DoesNotThrow(() => _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", "Bar", "Baz"));
 
         /// <summary>
         /// Asserts that the
@@ -125,7 +125,7 @@ namespace MFR.Engines.Matching.Tests
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
                     StringConstants.EMPTY_STRING, StringConstants.EMPTY_STRING,
-                    "Foo"
+                    "MFR.Directories.Validators.Constants.Generators"
                 )
             );
 
@@ -142,7 +142,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_FirstAndSecondParams_Of_IsMatch_Method_AreNull()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(null, null, "Foo")
+                () => _matcher.IsMatch(null, null, "MFR.Directories.Validators.Constants.Generators")
             );
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace MFR.Engines.Matching.Tests
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
                     StringConstants.WHITESPACE, StringConstants.WHITESPACE,
-                    "Foo"
+                    "MFR.Directories.Validators.Constants.Generators"
                 )
             );
 
@@ -178,7 +178,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_FirstAndThirdParams_Of_IsMatch_Method_AreBlank()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    StringConstants.EMPTY_STRING, "Foo",
+                    StringConstants.EMPTY_STRING, "MFR.Directories.Validators.Constants.Generators",
                     StringConstants.EMPTY_STRING
                 )
             );
@@ -196,7 +196,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_FirstAndThirdParams_Of_IsMatch_Method_AreNull()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(null, "Foo", null)
+                () => _matcher.IsMatch(null, "MFR.Directories.Validators.Constants.Generators", null)
             );
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_FirstAndThirdParams_Of_IsMatch_Method_AreWhitespace()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    StringConstants.WHITESPACE, "Foo",
+                    StringConstants.WHITESPACE, "MFR.Directories.Validators.Constants.Generators",
                     StringConstants.WHITESPACE
                 )
             );
@@ -239,7 +239,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_OnlyFirstParam_Of_IsMatch_Method_IsBlank()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    StringConstants.EMPTY_STRING, "Foo", "Bar"
+                    StringConstants.EMPTY_STRING, "MFR.Directories.Validators.Constants.Generators", "Bar"
                 )
             );
 
@@ -263,7 +263,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyFirstParam_Of_IsMatch_Method_IsNull()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(null, "Foo", "Bar")
+                () => _matcher.IsMatch(null, "MFR.Directories.Validators.Constants.Generators", "Bar")
             );
 
         /// <summary>
@@ -286,7 +286,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyFirstParam_Of_IsMatch_Method_IsWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch(StringConstants.WHITESPACE, "Foo", "Bar")
+                () => _matcher.IsMatch(StringConstants.WHITESPACE, "MFR.Directories.Validators.Constants.Generators", "Bar")
             );
 
         /// <summary>
@@ -310,7 +310,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_OnlySecondParam_Of_IsMatch_Method_IsBlank()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    "Foo", StringConstants.EMPTY_STRING, "Bar"
+                    "MFR.Directories.Validators.Constants.Generators", StringConstants.EMPTY_STRING, "Bar"
                 )
             );
 
@@ -334,7 +334,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlySecondParam_Of_IsMatch_Method_IsNull()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", null, "Bar")
+                () => _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", null, "Bar")
             );
 
         /// <summary>
@@ -357,7 +357,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlySecondParam_Of_IsMatch_Method_IsWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", StringConstants.WHITESPACE, "Bar")
+                () => _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", StringConstants.WHITESPACE, "Bar")
             );
 
         /// <summary>
@@ -381,7 +381,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_OnlyThirdParam_Of_IsMatch_Method_IsBlank()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    "Foo", "Bar", StringConstants.EMPTY_STRING
+                    "MFR.Directories.Validators.Constants.Generators", "Bar", StringConstants.EMPTY_STRING
                 )
             );
 
@@ -405,7 +405,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyThirdParam_Of_IsMatch_Method_IsNull()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", "Bar", null)
+                () => _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", "Bar", null)
             );
 
         /// <summary>
@@ -428,7 +428,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_OnlyThirdParam_Of_IsMatch_Method_IsWhitespace()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", "Bar", StringConstants.WHITESPACE)
+                () => _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", "Bar", StringConstants.WHITESPACE)
             );
 
         /// <summary>
@@ -445,7 +445,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_SecondAndThirdParams_Of_IsMatch_Method_AreBlank()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    "Foo", StringConstants.EMPTY_STRING,
+                    "MFR.Directories.Validators.Constants.Generators", StringConstants.EMPTY_STRING,
                     StringConstants.EMPTY_STRING
                 )
             );
@@ -463,7 +463,7 @@ namespace MFR.Engines.Matching.Tests
         public virtual void
             Test_ArgumentException_Thrown_If_SecondAndThirdParams_Of_IsMatch_Method_AreNull()
             => Assert.Throws<ArgumentException>(
-                () => _matcher.IsMatch("Foo", null, null)
+                () => _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", null, null)
             );
 
         /// <summary>
@@ -480,7 +480,7 @@ namespace MFR.Engines.Matching.Tests
             Test_ArgumentException_Thrown_If_SecondAndThirdParams_Of_IsMatch_Method_AreWhitespace()
             => Assert.Throws<ArgumentException>(
                 () => _matcher.IsMatch(
-                    "Foo", StringConstants.WHITESPACE,
+                    "MFR.Directories.Validators.Constants.Generators", StringConstants.WHITESPACE,
                     StringConstants.WHITESPACE
                 )
             );
@@ -504,8 +504,8 @@ namespace MFR.Engines.Matching.Tests
                 new Configuration {
                     MatchCase = true, MatchExactWord = false
                 };
-            Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "foo", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "foo", "Bar"));
         }
 
         /// <summary>
@@ -527,8 +527,8 @@ namespace MFR.Engines.Matching.Tests
                 new Configuration {
                     MatchCase = false, MatchExactWord = true
                 };
-            Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
         }
 
         /// <summary>
@@ -551,7 +551,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = false, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "Bar", "Baz"));
         }
 
         /// <summary>
@@ -574,7 +574,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "Bar", "Baz"));
         }
 
         /// <summary>
@@ -597,7 +597,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "bar", "baz"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "bar", "baz"));
         }
 
         /// <summary>
@@ -620,7 +620,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "Bar", "Baz"));
         }
 
         /// <summary>
@@ -642,8 +642,8 @@ namespace MFR.Engines.Matching.Tests
                 new Configuration {
                     MatchCase = false, MatchExactWord = true
                 };
-            Assert.IsTrue(_matcher.IsMatch("foo", "Foo", "Bar"));
-            Assert.IsTrue(_matcher.IsMatch("Foo", "Foo", "Bar"));
+            Assert.IsTrue(_matcher.IsMatch("foo", "MFR.Directories.Validators.Constants.Generators", "Bar"));
+            Assert.IsTrue(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators", "MFR.Directories.Validators.Constants.Generators", "Bar"));
         }
 
         /// <summary>
@@ -666,7 +666,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Bar", "Baz"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "Bar", "Baz"));
         }
 
         /// <summary>
@@ -689,10 +689,10 @@ namespace MFR.Engines.Matching.Tests
                 .AndSetMatchExactWord()
                 .Build();
             Assert.IsFalse(
-                _matcher.IsMatch("foo.tests", "Foo.Tests", "Bar.Tests")
+                _matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators.Tests", "Bar.Tests")
             );
             Assert.IsTrue(
-                _matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests")
+                _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "MFR.Directories.Validators.Constants.Generators.Tests", "Bar.Tests")
             );
         }
 
@@ -715,8 +715,8 @@ namespace MFR.Engines.Matching.Tests
                 new Configuration {
                     MatchCase = false, MatchExactWord = false
                 };
-            Assert.IsTrue(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
-            Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
+            Assert.IsTrue(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
+            Assert.IsTrue(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
         }
 
         /// <summary>
@@ -739,7 +739,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "foo", "Bar"));
-            Assert.IsTrue(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
+            Assert.IsTrue(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
         }
 
         /// -- STOPPED HERE -- *
@@ -762,7 +762,7 @@ namespace MFR.Engines.Matching.Tests
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsTrue(
-                _matcher.IsMatch("Foo.Tests", "Foo.Tests", "Bar.Tests")
+                _matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "MFR.Directories.Validators.Constants.Generators.Tests", "Bar.Tests")
             );
         }
 
@@ -785,8 +785,8 @@ namespace MFR.Engines.Matching.Tests
                 new Configuration {
                     MatchCase = true, MatchExactWord = true
                 };
-            Assert.IsFalse(_matcher.IsMatch("foo.tests", "Foo", "Bar"));
-            Assert.IsFalse(_matcher.IsMatch("Foo.Tests", "Foo", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
+            Assert.IsFalse(_matcher.IsMatch("MFR.Directories.Validators.Constants.Generators.Tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
         }
 
         /// <summary>

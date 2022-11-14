@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{197747FD-A37B-4518-9A5F-DD9E236A8291}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -173,6 +174,14 @@
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
+      <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
+      <Name>MFR.Directories.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
+      <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
+      <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>

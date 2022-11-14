@@ -1,6 +1,6 @@
 using System;
 
-namespace MFR.CommandLine.Constants
+namespace MFR.Directories.Constants
 {
     /// <summary>
     /// Strings containing pathnames of commonly-referenced folders.

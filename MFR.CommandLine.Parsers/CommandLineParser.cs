@@ -1,3 +1,4 @@
+using Alphaleonis.Win32.Filesystem;
 using Fclp;
 using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models;
@@ -64,14 +65,15 @@ namespace MFR.CommandLine.Parsers
                  .WithDescription(
                      "Sets the directory that this application begins in."
                  )
-                 .SetDefault(Directories.MyDocuments);
+                 .Required()
+                 .SetDefault(Directory.GetCurrentDirectory());
 
                 p.Setup(arg => arg.FindWhat)
                  .As("findWhat")
                  .WithDescription(
                      "Sets the string to be found in file system entries."
                  )
-                 .SetDefault(string.Empty);
+                 .Required();
 
                 p.Setup(arg => arg.ReplaceWith)
                  .As("replaceWith")
@@ -83,19 +85,19 @@ namespace MFR.CommandLine.Parsers
                 p.Setup(arg => arg.RenameFiles)
                  .As("renameFiles")
                  .WithDescription("Indicates that files should be renamed.")
-                 .SetDefault(true);
+                 .SetDefault(false);
 
                 p.Setup(arg => arg.RenameSubFolders)
                  .As("renameSubFolders")
                  .WithDescription("Indicates that folders should be renamed.")
-                 .SetDefault(true);
+                 .SetDefault(false);
 
                 p.Setup(arg => arg.ReplaceinFiles)
                  .As("replaceInFiles")
                  .WithDescription(
                      "Indicates that text should be replaced in files."
                  )
-                 .SetDefault(true);
+                 .SetDefault(false);
 
                 p.Setup(arg => arg.MatchCase)
                  .As("matchCase")
@@ -109,7 +111,7 @@ namespace MFR.CommandLine.Parsers
                  .WithDescription(
                      "Indicates that a case-sensitive search should be performed."
                  )
-                 .SetDefault(true);
+                 .SetDefault(false);
 
                 p.SetupHelp("?", "help")
                  .Callback(
@@ -123,6 +125,16 @@ namespace MFR.CommandLine.Parsers
                     );
 
                 result = p.Object;
+
+                /*
+                 * If the user didn't specify any of the operation flags
+                 * on the command line, assume that the user wants to perform
+                 * all of them.
+                 */
+                if (!result.RenameFiles && !result.RenameSubFolders &&
+                    !result.ReplaceinFiles)
+                    result.RenameFiles = result.RenameSubFolders =
+                        result.ReplaceinFiles = true;
             }
             catch (Exception ex)
             {

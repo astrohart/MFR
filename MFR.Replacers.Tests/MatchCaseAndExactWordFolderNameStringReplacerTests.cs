@@ -30,26 +30,26 @@ namespace MFR.Replacers.Tests
         public void Test_Replace_Works()
         {
             Assert.That(
-                "Foo.Bim.Baz", Is.EqualTo(
+                "MFR.Directories.Validators.Constants.Generators.Bim.Baz", Is.EqualTo(
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
                                              .MatchCaseAndExactWord
                                      )
                                      .Replace(
-                                         "Foo.Bar.Baz", "Foo.Bar.Baz",
-                                         "Foo.Bim.Baz"
+                                         "MFR.Directories.Validators.Constants.Generators.Bar.Baz", "MFR.Directories.Validators.Constants.Generators.Bar.Baz",
+                                         "MFR.Directories.Validators.Constants.Generators.Bim.Baz"
                                      )
                 )
             );
             Assert.That(
-                "Foo.Bim.Baz", Is.Not.EqualTo(
+                "MFR.Directories.Validators.Constants.Generators.Bim.Baz", Is.Not.EqualTo(
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
                                          TextMatchingConfiguration
                                              .MatchCaseAndExactWord
                                      )
-                                     .Replace("Foo.Bar.Baz", "Bar", "Bim")
+                                     .Replace("MFR.Directories.Validators.Constants.Generators.Bar.Baz", "Bar", "Bim")
                 )
             );
             Assert.That(
@@ -89,7 +89,7 @@ namespace MFR.Replacers.Tests
                                          .MatchCaseAndExactWord
                                  )
                                  .Replace(
-                                     "Foo.Bar.Baz", "Foo.Bar.Baz", "Foo.Bim.Baz"
+                                     "MFR.Directories.Validators.Constants.Generators.Bar.Baz", "MFR.Directories.Validators.Constants.Generators.Bar.Baz", "MFR.Directories.Validators.Constants.Generators.Bim.Baz"
                                  )
             );
             Console.WriteLine(
@@ -98,7 +98,7 @@ namespace MFR.Replacers.Tests
                                      TextMatchingConfiguration
                                          .MatchCaseAndExactWord
                                  )
-                                 .Replace("Foo.Bar.Baz", "Bar", "Bim")
+                                 .Replace("MFR.Directories.Validators.Constants.Generators.Bar.Baz", "Bar", "Bim")
             );
         }
     }

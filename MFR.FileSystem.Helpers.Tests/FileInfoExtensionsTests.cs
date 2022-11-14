@@ -170,7 +170,7 @@ namespace MFR.FileSystem.Helpers.Tests
                 string.IsNullOrWhiteSpace(
                     Path.GetDirectoryName(
                         ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                                @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                             )
                             .AndOperationType(
                                 OperationType.RenameFilesInFolder
@@ -182,7 +182,7 @@ namespace MFR.FileSystem.Helpers.Tests
                 Path.Combine(
                         Path.GetDirectoryName(
                             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                 )
                                 .AndOperationType(
                                     OperationType.RenameFilesInFolder
@@ -220,7 +220,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
-                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                                               )
                                                               .AndOperationType(
                                                                   OperationType
@@ -228,14 +228,14 @@ namespace MFR.FileSystem.Helpers.Tests
                                                               )
                                                       )
                                               )
-                                              .ToFindWhat("Foo")
+                                              .ToFindWhat("MFR.Directories.Validators.Constants.Generators")
                                               .AndReplaceItWith("Bar")
                         )
                     )
                     .IsAbsolutePath()
             );
             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                        @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                     )
                     .AndOperationType(OperationType.RenameFilesInFolder))
                 .ToFileInfo()
@@ -243,7 +243,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     Path.Combine(
                         Path.GetDirectoryName(
                             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                 )
                                 .AndOperationType(
                                     OperationType.RenameFilesInFolder
@@ -281,7 +281,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
-                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                                               )
                                                               .AndOperationType(
                                                                   OperationType
@@ -289,7 +289,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                               )
                                                       )
                                               )
-                                              .ToFindWhat("Foo")
+                                              .ToFindWhat("MFR.Directories.Validators.Constants.Generators")
                                               .AndReplaceItWith("Bar")
                         )
                     )
@@ -297,7 +297,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.IsFalse(
                 File.Exists(
                     ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                         )
                         .AndOperationType(OperationType.RenameFilesInFolder))
                     .Path
@@ -308,7 +308,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     Path.Combine(
                         Path.GetDirectoryName(
                             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                 )
                                 .AndOperationType(
                                     OperationType.RenameFilesInFolder
@@ -346,7 +346,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
-                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                                               )
                                                               .AndOperationType(
                                                                   OperationType
@@ -354,7 +354,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                               )
                                                       )
                                               )
-                                              .ToFindWhat("Foo")
+                                              .ToFindWhat("MFR.Directories.Validators.Constants.Generators")
                                               .AndReplaceItWith("Bar")
                         )
                     )
@@ -365,7 +365,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                    Path.GetDirectoryName(
                                        ((IFileSystemEntry)MakeNewFileSystemEntry
                                            .ForPath(
-                                               @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                               @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                            )
                                            .AndOperationType(
                                                OperationType.RenameFilesInFolder
@@ -400,7 +400,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                        (IFileSystemEntry)
                                                        MakeNewFileSystemEntry
                                                            .ForPath(
-                                                               @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                               @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                                            )
                                                            .AndOperationType(
                                                                OperationType
@@ -408,7 +408,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                            )
                                                    )
                                            )
-                                           .ToFindWhat("Foo")
+                                           .ToFindWhat("MFR.Directories.Validators.Constants.Generators")
                                            .AndReplaceItWith("Bar")
                                    )
                                )
@@ -416,7 +416,7 @@ namespace MFR.FileSystem.Helpers.Tests
                            .RenameTo(
                                ((IFileSystemEntry)MakeNewFileSystemEntry
                                                   .ForPath(
-                                                      @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                      @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                                   )
                                                   .AndOperationType(
                                                       OperationType
@@ -426,7 +426,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.IsTrue(
                 File.Exists(
                     ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                            @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                         )
                         .AndOperationType(OperationType.RenameFilesInFolder))
                     .Path
@@ -437,7 +437,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     Path.Combine(
                         Path.GetDirectoryName(
                             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
-                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                    @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                 )
                                 .AndOperationType(
                                     OperationType.RenameFilesInFolder
@@ -475,7 +475,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
-                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\Foo\Foo.csproj"
+                                                                  @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
                                                               )
                                                               .AndOperationType(
                                                                   OperationType
@@ -483,7 +483,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                               )
                                                       )
                                               )
-                                              .ToFindWhat("Foo")
+                                              .ToFindWhat("MFR.Directories.Validators.Constants.Generators")
                                               .AndReplaceItWith("Bar")
                         )
                     )

@@ -1,13 +1,14 @@
-using MFR.CommandLine.Validators.Events;
+using MFR.Directories.Validators.Events;
+using MFR.Validators.Interfaces;
 
-namespace MFR.CommandLine.Validators.Interfaces
+namespace MFR.Directories.Validators.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that
     /// validates the pathnames of root directories; i.e., the folder where the
     /// project-rename operation starts..
     /// </summary>
-    public interface IRootDirectoryValidator : IValidator
+    public interface  IRootDirectoryValidator : IValidator
     {
         /// <summary>
         /// Occurs when validation rules have determined that the value of the
@@ -44,9 +45,9 @@ namespace MFR.CommandLine.Validators.Interfaces
         /// <remarks>
         /// In the event that validation fails, this method raises the
         /// <see
-        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
         /// event.
         /// </remarks>
-        bool IsValid(string rootDirectory);
+        bool Validate(string rootDirectory);
     }
 }

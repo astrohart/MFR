@@ -1,4 +1,4 @@
-namespace MFR.CommandLine.Validators.Events
+namespace MFR.Directories.Validators.Events
 {
     /// <summary>
     /// Represents a handler for a RootDirectoryInvalid event.
@@ -9,7 +9,7 @@ namespace MFR.CommandLine.Validators.Events
     /// <param name="e">
     /// A
     /// <see
-    ///     cref="T:MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs" />
+    ///     cref="T:MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs" />
     /// that contains the event data.
     /// </param>
     /// <remarks>

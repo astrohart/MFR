@@ -1,6 +1,6 @@
-using MFR.CommandLine.Validators.Constants.Properties;
+using MFR.Directories.Validators.Constants.Properties;
 
-namespace MFR.CommandLine.Validators.Constants
+namespace MFR.Directories.Validators.Constants
 {
     /// <summary>
     /// Provides access to format strings that can be used to display

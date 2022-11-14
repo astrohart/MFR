@@ -1,13 +1,14 @@
-using MFR.CommandLine.Validators.Constants;
-using MFR.CommandLine.Validators.Constants.Generators;
+using MFR.Directories.Validators.Constants;
+using MFR.Directories.Validators.Constants.Generators;
 using System;
+using System.ComponentModel;
 
-namespace MFR.CommandLine.Validators.Events
+namespace MFR.Directories.Validators.Events
 {
     /// <summary>
     /// Provides information for RootDirectoryInvalid event handlers.
     /// </summary>
-    public class RootDirectoryInvalidEventArgs : EventArgs
+    public class RootDirectoryInvalidEventArgs : CancelEventArgs
     {
         /// <summary>
         /// Constructs a new instance of
@@ -18,14 +19,15 @@ namespace MFR.CommandLine.Validators.Events
         /// <param name="reason">
         /// (Required.) A
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        ///     cref="T:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason" />
         /// value specifying why the validation failed.
         /// </param>
         /// <param name="rootDirectory">
         /// (Required.) String containing the value of the root directory
         /// specified by the user on the command line.
         /// </param>
-        public RootDirectoryInvalidEventArgs(RootDirectoryInvalidReason reason,
+        public RootDirectoryInvalidEventArgs(
+            RootDirectoryInvalidReason reason,
             string rootDirectory)
         {
             Exception = null;
@@ -42,7 +44,7 @@ namespace MFR.CommandLine.Validators.Events
         /// <param name="reason">
         /// (Required.) A
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        ///     cref="T:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason" />
         /// value specifying why the validation failed.
         /// </param>
         /// <param name="rootDirectory">
@@ -53,8 +55,10 @@ namespace MFR.CommandLine.Validators.Events
         /// (Required.) An <see cref="T:System.Exception" /> that provides
         /// detailed error information.
         /// </param>
-        public RootDirectoryInvalidEventArgs(RootDirectoryInvalidReason reason,
-            string rootDirectory, Exception exception)
+        public RootDirectoryInvalidEventArgs(
+            RootDirectoryInvalidReason reason,
+            string rootDirectory,
+            Exception exception)
         {
             Exception = exception;
             Reason = reason;
@@ -93,7 +97,7 @@ namespace MFR.CommandLine.Validators.Events
         /// <summary>
         /// Gets a
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        ///     cref="T:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason" />
         /// value that specifies why the validation failed.
         /// </summary>
         public RootDirectoryInvalidReason Reason

@@ -1,16 +1,16 @@
-using MFR.CommandLine.Constants;
-using MFR.CommandLine.Validators.Constants;
-using MFR.CommandLine.Validators.Events;
-using MFR.CommandLine.Validators.Interfaces;
+using MFR.Directories.Validators.Constants;
+using MFR.Directories.Validators.Events;
+using MFR.Directories.Validators.Interfaces;
 using MFR.FileSystem.Enumerators;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
-namespace MFR.CommandLine.Validators
+namespace MFR.Directories.Validators
 {
     /// <summary>
     /// Validates the root directory of a project-rename operation.
@@ -30,11 +30,19 @@ namespace MFR.CommandLine.Validators
         protected RootDirectoryValidator() { }
 
         /// <summary>
+        /// Gets a collection of strings, each of which contains an error message.
+        /// </summary>
+        public IList<string> Errors
+        {
+            get;
+        } = new List<string>();
+
+        /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.CommandLine.Validators.RootDirectoryValidator" />.
+        /// <see cref="T:MFR.Directories.Validators.RootDirectoryValidator" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RootDirectoryValidator Instance
+        public static IRootDirectoryValidator Instance
         {
             get;
         } = new RootDirectoryValidator();
@@ -50,6 +58,14 @@ namespace MFR.CommandLine.Validators
             get;
             private set;
         }
+
+        /// <summary>
+        /// Gets a collection of strings, each of which contains a warning message.
+        /// </summary>
+        public IList<string> VWarnings
+        {
+            get;
+        } = new List<string>();
 
         /// <summary>
         /// Occurs when validation rules have determined that the value of the
@@ -89,14 +105,16 @@ namespace MFR.CommandLine.Validators
         ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
         /// event.
         /// </remarks>
-        public bool IsValid(string rootDirectory)
+        public bool Validate(string rootDirectory)
         {
             ValidationFailures = 0;
+            Errors.Clear();
 
             try
             {
-                if (Directories.MyDocuments.Equals(rootDirectory))
-                    return true;    // this is a dummy directory; it's always "valid"
+                if (Directories.Constants.Directories.MyDocuments.Equals(rootDirectory))
+                    return
+                        true; // this is a dummy directory; it's always "valid"
 
                 /*
                  * OKAY, a root directory is defined to be the path to
@@ -109,31 +127,29 @@ namespace MFR.CommandLine.Validators
 
                 if (!Directory.Exists(rootDirectory))
                 {
-                    OnRootDirectoryInvalid(
-                        new RootDirectoryInvalidEventArgs(
-                            RootDirectoryInvalidReason.DoesntExist,
-                            rootDirectory
-                        )
+                    var args = new RootDirectoryInvalidEventArgs(
+                        RootDirectoryInvalidReason.DoesntExist, rootDirectory
                     );
-
-                    ValidationFailures++;
+                    OnRootDirectoryInvalid(
+                      args  
+                    );
+                    if (args.Cancel) return false;
                 }
 
-                if (Directory.Exists(rootDirectory)
-                    && !Enumerate.Files(
-                                  rootDirectory, "*.sln",
-                                  SearchOption.TopDirectoryOnly
-                              )
-                              .Any())
-                {
-                    OnRootDirectoryInvalid(
-                        new RootDirectoryInvalidEventArgs(
-                            RootDirectoryInvalidReason.DoesntContainSolution,
-                            rootDirectory
+                if (Directory.Exists(rootDirectory) && !Enumerate.Files(
+                            rootDirectory, "*.sln",
+                            SearchOption.TopDirectoryOnly
                         )
+                        .Any())
+                {
+                    var args = new RootDirectoryInvalidEventArgs(
+                        RootDirectoryInvalidReason.DoesntContainSolution,
+                        rootDirectory
                     );
-
-                    ValidationFailures++;
+                    OnRootDirectoryInvalid(
+                      args  
+                    );
+                    if (args.Cancel) return false;
                 }
             }
             catch (Exception ex)
@@ -143,12 +159,11 @@ namespace MFR.CommandLine.Validators
 
                 OnRootDirectoryInvalid(
                     new RootDirectoryInvalidEventArgs(
-                        RootDirectoryInvalidReason.Unknown,
-                        rootDirectory, ex
+                        RootDirectoryInvalidReason.Unknown, rootDirectory, ex
                     )
                 );
 
-                ValidationFailures++;
+                return false;
             }
 
             /*
@@ -171,8 +186,19 @@ namespace MFR.CommandLine.Validators
         ///     cref="T:MFR.CommandLine.Validators.Events.RootDirectoryInvalidEventArgs" />
         /// that contains the event data.
         /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="e" />, is passed a <see langword="null" /> value.
+        /// </exception>
         protected virtual void OnRootDirectoryInvalid(
             RootDirectoryInvalidEventArgs e)
-            => RootDirectoryInvalid?.Invoke(this, e);
+        {
+            if (e == null) throw new ArgumentNullException(nameof(e));
+
+            Errors.Add(e.Message);
+            ValidationFailures = Errors.Count;
+
+            RootDirectoryInvalid?.Invoke(this, e);
+        }
     }
 }

@@ -5,7 +5,7 @@ using xyLOGIX.FileSystem.Enumerable.Factories;
 namespace MFR.FileSystem.Enumerators
 {
     /// <summary>
-    /// Methods to search the file system.
+    /// Exposes static methods to search the file system.
     /// </summary>
     public static class Enumerate
     {

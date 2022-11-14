@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{EA1DC6C8-5108-494A-8699-E05910A5E234}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -103,6 +104,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="CommandLineValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,7 +113,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RootDirectoryValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -151,9 +152,17 @@
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.CommandLine.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
+      <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
+      <Name>MFR.Directories.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
       <Name>MFR.FileSystem.Enumerators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9D0A59C5-A814-45CA-88B3-DAE6E6462D07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

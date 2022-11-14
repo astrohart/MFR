@@ -68,6 +68,21 @@ namespace MFR.CommandLine.Validators.Constants.Generators
                         .CommandLineInfoIsNull;
                     break;
 
+                case CommandLineInvalidReason.FindWhatBlank:
+                    MessageFormat = CommandLineValidationMessages.FindWhatBlank;
+                    break;
+
+                case CommandLineInvalidReason
+                    .RootDirectoryDoesntContainSolution:
+                    MessageFormat = CommandLineValidationMessages
+                        .RootDirectoryDoesntContainSolution;
+                    break;
+
+                case CommandLineInvalidReason.RootDirectoryDoesntExist:
+                    MessageFormat = CommandLineValidationMessages
+                        .RootDirectoryDoesntExist;
+                    break;
+
                 default:
                     MessageFormat = CommandLineValidationMessages
                         .UnknownCommandLineValidationFailedError;

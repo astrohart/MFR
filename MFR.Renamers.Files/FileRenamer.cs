@@ -1,7 +1,7 @@
 using EnvDTE;
-using MFR.CommandLine.Validators.Factories;
-using MFR.CommandLine.Validators.Interfaces;
 using MFR.Constants;
+using MFR.Directories.Validators.Factories;
+using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Replacement.Factories;
 using MFR.Events;
 using MFR.Events.Common;
@@ -216,7 +216,7 @@ namespace MFR.Renamers.Files
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -1292,7 +1292,7 @@ namespace MFR.Renamers.Files
 
                 RootDirectoryPath = rootDirectoryPath;
 
-                if (!RootDirectoryValidator.IsValid(rootDirectoryPath))
+                if (!RootDirectoryValidator.Validate(rootDirectoryPath))
                     return;
 
                 OnStarted();

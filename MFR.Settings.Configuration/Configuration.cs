@@ -380,6 +380,19 @@ namespace MFR.Settings.Configuration
         /// This method typically is called from a class constructor.
         /// </remarks>
         public void Reset()
-            => ReOpenSolution = true;
+        {
+            ReOpenSolution = true;
+
+            RenameFiles = RenameSubFolders = ReplaceTextInFiles = true;
+
+            MatchCase = true;
+            MatchExactWord = false;
+
+            StartingFolderHistory.Clear();
+            FindWhatHistory.Clear();
+            ReplaceWithHistory.Clear();
+
+            FindWhat = ReplaceWith = StartingFolder = string.Empty;
+        }
     }
 }

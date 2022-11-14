@@ -1,5 +1,7 @@
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Events;
+using MFR.Directories.Validators.Interfaces;
+using MFR.Validators.Interfaces;
 
 namespace MFR.CommandLine.Validators.Interfaces
 {
@@ -20,14 +22,14 @@ namespace MFR.CommandLine.Validators.Interfaces
         /// <summary>
         /// Associates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface with this validator object.
         /// </summary>
         /// <param name="rootDirectoryValidator">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface.
         /// </param>
         /// <returns>
@@ -77,6 +79,6 @@ namespace MFR.CommandLine.Validators.Interfaces
         ///     cref="P:MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures" />
         /// property's value is set to zero.
         /// </remarks>
-        bool IsValid(ICommandLineInfo cmdInfo);
+        bool Validate(ICommandLineInfo cmdInfo);
     }
 }

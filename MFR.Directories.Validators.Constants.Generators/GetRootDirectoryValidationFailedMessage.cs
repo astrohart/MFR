@@ -1,6 +1,6 @@
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.CommandLine.Validators.Constants.Generators
+namespace MFR.Directories.Validators.Constants.Generators
 {
     /// <summary>
     /// Fluent builder object that crafts a validation failed message for a root
@@ -24,7 +24,7 @@ namespace MFR.CommandLine.Validators.Constants.Generators
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage" />
+        ///     cref="T:MFR.Directories.Validators.Constants.Generators.GetRootDirectoryValidationFailedMessage" />
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -59,7 +59,7 @@ namespace MFR.CommandLine.Validators.Constants.Generators
         ///     name="value" />
         /// ; empty if the
         /// <see
-        ///     cref="P:MFR.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat" />
+        ///     cref="P:MFR.Directories.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat" />
         /// property has not yet been initialized.
         /// </returns>
         /// <remarks>
@@ -75,17 +75,17 @@ namespace MFR.CommandLine.Validators.Constants.Generators
 
         /// <summary>s
         /// Initializes the
-        /// <see cref="P:MFR.CommandLine.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat" />
+        /// <see cref="P:MFR.Directories.Validators.Constants.Generators.Factories.GetRootDirectoryValidationFailedMessage.MessageFormat" />
         /// property with the message format string, if any, that corresponds to
         /// the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        ///     cref="T:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason" />
         /// value passed in the <paramref name="reason" /> parameter.
         /// </summary>
         /// <param name="reason">
         /// A
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Constants.RootDirectoryInvalidReason" />
+        ///     cref="T:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason" />
         /// value that indicates the reason why validation failed.
         /// </param>
         /// <returns>

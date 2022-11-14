@@ -2,8 +2,11 @@ using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Interfaces;
+using MFR.Directories.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.CommandLine.Validators
@@ -20,7 +23,7 @@ namespace MFR.CommandLine.Validators
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface.
         /// </summary>
         private IRootDirectoryValidator _rootDirectoryValidator;
@@ -38,6 +41,15 @@ namespace MFR.CommandLine.Validators
         protected CommandLineValidator() { }
 
         /// <summary>
+        /// Gets a collection of strings, each of which contains an error message.
+        /// </summary>
+        public IList<string> Errors
+        {
+            get;
+            private set;
+        } = new List<string>();
+
+        /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.CommandLine.Validators.CommandLineValidator" />.
         /// </summary>
@@ -46,11 +58,6 @@ namespace MFR.CommandLine.Validators
         {
             get;
         } = new CommandLineValidator();
-
-        /// <summary>
-        /// Occurs once for each validation failure.
-        /// </summary>
-        public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
 
         /// <summary>
         /// Gets a count of validation failures that occurred the last time the
@@ -65,16 +72,29 @@ namespace MFR.CommandLine.Validators
         }
 
         /// <summary>
+        /// Gets a collection of strings, each of which contains a warning message.
+        /// </summary>
+        public IList<string> VWarnings
+        {
+            get;
+        } = new List<string>();
+
+        /// <summary>
+        /// Occurs once for each validation failure.
+        /// </summary>
+        public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
+
+        /// <summary>
         /// Associates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface with this validator object.
         /// </summary>
         /// <param name="rootDirectoryValidator">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
         /// interface.
         /// </param>
         /// <returns>
@@ -134,22 +154,18 @@ namespace MFR.CommandLine.Validators
         ///     cref="P:MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures" />
         /// property's value is set to zero.
         /// </remarks>
-        public bool IsValid(ICommandLineInfo cmdInfo)
+        public bool Validate(ICommandLineInfo cmdInfo)
         {
             ValidationFailures = 0;
 
             try
             {
                 if (cmdInfo == null)
-                {
                     OnCommandLineInfoInvalid(
                         new CommandLineInfoInvalidEventArgs(
                             cmdInfo, CommandLineInvalidReason.IsNull
                         )
                     );
-
-                    ValidationFailures++;
-                }
 
                 /*
                  * Call an associated validator object in order to
@@ -158,10 +174,21 @@ namespace MFR.CommandLine.Validators
                  * Therefore, if the validation fails here, we simply increment
                  * the count of validation failures but otherwise do nothing.
                  */
-                if (!_rootDirectoryValidator?.IsValid(cmdInfo.RootDirectory) ??
+                if (!_rootDirectoryValidator?.Validate(cmdInfo.RootDirectory) ??
                     false)
+                {
                     ValidationFailures +=
                         _rootDirectoryValidator?.ValidationFailures ?? 1;
+                    Errors = Errors.Concat(_rootDirectoryValidator.Errors)
+                                   .ToList();
+                }
+
+                if (string.IsNullOrWhiteSpace(cmdInfo.FindWhat))
+                    OnCommandLineInfoInvalid(
+                        new CommandLineInfoInvalidEventArgs(
+                            cmdInfo, CommandLineInvalidReason.FindWhatBlank
+                        )
+                    );
             }
             catch (Exception ex)
             {
@@ -192,8 +219,19 @@ namespace MFR.CommandLine.Validators
         ///     cref="T:MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs" />
         /// that contains the event data.
         /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="e" />, is passed a <see langword="null" /> value.
+        /// </exception>
         protected virtual void OnCommandLineInfoInvalid(
             CommandLineInfoInvalidEventArgs e)
-            => CommandLineInfoInvalid?.Invoke(this, e);
+        {
+            if (e == null) throw new ArgumentNullException(nameof(e));
+
+            Errors.Add(e.Message);
+            ValidationFailures = Errors.Count;
+
+            CommandLineInfoInvalid?.Invoke(this, e);
+        }
     }
 }

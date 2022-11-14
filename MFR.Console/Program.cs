@@ -1,3 +1,6 @@
+using MFR.CommandLine.Parsers.Events;
+using MFR.CommandLine.Parsers.Factories;
+using MFR.CommandLine.Parsers.Interfaces;
 using MFR.Common;
 using MFR.Events;
 using MFR.Events.Common;
@@ -17,6 +20,14 @@ namespace MFR.Console
     /// </summary>
     public static class Program
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Parsers.Interfaces.ICommandLineParser" />
+        /// interface.
+        /// </summary>
+        private static ICommandLineParser CommandLineParser
+            => GetCommandLineParser.SoleInstance();
+
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
@@ -45,11 +56,13 @@ namespace MFR.Console
         /// Application entry point.
         /// </summary>
         [STAThread]
-        public static void Main()
+        public static void Main(string[] args)
         {
             try
             {
                 Register.WindowsMessageFilter();
+
+                CommandLineParser.DisplayHelp += OnDisplayHelp;
 
                 ConfigurationProvider.Load();
 
@@ -78,6 +91,11 @@ namespace MFR.Console
             {
                 System.Console.WriteLine(e);
             }
+        }
+
+        private static void OnDisplayHelp(object sender, DisplayHelpEventArgs e)
+        {
+
         }
 
         private static void OnFileRenamerProcessingOperation(object sender,

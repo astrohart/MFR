@@ -1,4 +1,3 @@
-using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
@@ -7,7 +6,9 @@ using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
 using MFR.CommandLine.Validators.Interfaces;
 using MFR.Common;
-using MFR.GUI.Dialogs.Interfaces;
+using MFR.Directories.Validators.Events;
+using MFR.Directories.Validators.Factories;
+using MFR.Directories.Validators.Interfaces;
 using MFR.GUI.Displayers;
 using MFR.GUI.Windows;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -16,7 +17,6 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -29,14 +29,6 @@ namespace MFR.GUI
     /// </summary>
     public static class Program
     {
-        /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog" />
-        /// interface.
-        /// </summary>
-        private static ICancellableProgressDialog _cancellableProgressDialog;
-
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
@@ -83,6 +75,14 @@ namespace MFR.GUI
         /// </summary>
         private static IProfileProvider ProfileProvider
             => GetProfileProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
+        /// </summary>
+        private static IRootDirectoryValidator RootDirectoryValidator
+            => GetRootDirectoryValidator.SoleInstance();
 
         /// <summary>
         /// The main entry point for the application.
@@ -223,6 +223,7 @@ namespace MFR.GUI
         {
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
+
             // and which allows the user to choose to send an error report.
             Display.ErrorReportDialog(e.Exception);
         }
@@ -250,7 +251,7 @@ namespace MFR.GUI
             CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
             CommandLineInfo = CommandLineParser.Parse(args);
 
-            if (!CommandLineValidator.IsValid(CommandLineInfo))
+            if (!CommandLineValidator.Validate(CommandLineInfo))
                 Environment.Exit(-1); // kill this app
         }
 
@@ -263,7 +264,7 @@ namespace MFR.GUI
             // not pass anything on the command line, in which case the value
             // from the user will be the default value of My Documents) to that
             // which the user has specified on the command line.
-            if (!Directories.MyDocuments.Equals(
+            if (!Directories.Constants.Directories.MyDocuments.Equals(
                     CommandLineInfo.RootDirectory
                 )) // we do not need any more checks here due to the command-line validation that occurs
                 ConfigurationProvider.Configuration.StartingFolder =
@@ -288,11 +289,9 @@ namespace MFR.GUI
         /// </summary>
         private static void SetUpCommandLineValidation()
         {
-            GetCommandLineValidator.SoleInstance()
-                                   .CommandLineInfoInvalid +=
+            CommandLineValidator.CommandLineInfoInvalid +=
                 OnCommandLineInfoInvalid;
-            GetRootDirectoryValidator.SoleInstance()
-                                     .RootDirectoryInvalid +=
+            RootDirectoryValidator.RootDirectoryInvalid +=
                 OnRootDirectoryInvalid;
         }
 

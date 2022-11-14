@@ -83,6 +83,6 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = Directories.MyDocuments;
+        } = Directories.Constants.Directories.MyDocuments;
     }
 }

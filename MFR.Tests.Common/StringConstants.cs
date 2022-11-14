@@ -63,7 +63,7 @@ namespace MFR.Tests.Common
         /// String that contains a fake project name.
         /// </summary>
         public static readonly string FAKE_PROJECT_NAME_WITH_DOTS =
-            "Foo.Bar.Baz.Blarg";
+            "MFR.Directories.Validators.Constants.Generators.Bar.Baz.Blarg";
 
         /// <summary>
         /// String containing a regex searching for the

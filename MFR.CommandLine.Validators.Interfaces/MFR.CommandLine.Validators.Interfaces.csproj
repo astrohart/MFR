@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -105,8 +106,6 @@
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="ICommandLineValidator.cs" />
-    <Compile Include="IRootDirectoryValidator.cs" />
-    <Compile Include="IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -135,6 +134,14 @@
     <ProjectReference Include="..\MFR.CommandLine.Models\MFR.CommandLine.Models.csproj">
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.CommandLine.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
+      <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
+      <Name>MFR.Directories.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9D0A59C5-A814-45CA-88B3-DAE6E6462D07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,7 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Directories.Validators.Events;
+using MFR.Directories.Validators.Factories;
+using MFR.Directories.Validators.Interfaces;
 using MFR.Events.Common;
 using MFR.FileSystem.Enumerators.Actions;
 using MFR.GUI.Constants;
@@ -38,9 +42,6 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
-using Directory = Alphaleonis.Win32.Filesystem.Directory;
-using File = Alphaleonis.Win32.Filesystem.File;
-using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.GUI.Windows
 {
@@ -53,9 +54,7 @@ namespace MFR.GUI.Windows
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static MainWindow()
-        {
-        }
+        static MainWindow() { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -71,17 +70,32 @@ namespace MFR.GUI.Windows
             InitializePresenter();
 
             Application.Idle += OnUpdateCmdUI;
+            RootDirectoryValidator.RootDirectoryInvalid +=
+                OnRootDirectoryInvalid;
         }
 
         /// <summary>
-        /// Gets a reference to the one and only
-        /// <see cref="T:MFR.GUI.Windows.MainWindow" /> object in this application.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// that represents the currently-loaded configuration.
         /// </summary>
+        private static IConfiguration Configuration
+            => GetConfigurationProvider.SoleInstance()
+                                       .Configuration;
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
         [Log(AttributeExclude = true)]
-        public static MainWindow Instance
-        {
-            get;
-        } = new MainWindow();
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -90,8 +104,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough]
-            get => findWhatcomboBox;
+            [DebuggerStepThrough] get => findWhatcomboBox;
         }
 
         /// <summary>
@@ -105,8 +118,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public FoldUnfoldButton FoldButton
         {
-            [DebuggerStepThrough]
-            get => foldButton;
+            [DebuggerStepThrough] get => foldButton;
         }
 
         /// <summary>
@@ -115,6 +127,16 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public string FullApplicationName
             => $"{ProgramText.MainWindowTitle} {Version}";
+
+        /// <summary>
+        /// Gets a reference to the one and only
+        /// <see cref="T:MFR.GUI.Windows.MainWindow" /> object in this application.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static MainWindow Instance
+        {
+            get;
+        } = new MainWindow();
 
         /// <summary>
         /// Gets a value indicating whether the data entered on this form is valid.
@@ -137,6 +159,15 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Gets a value that indicates whether the history is free of all
+        /// previous entries.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        private bool IsHistoryClear
+            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
+               ReplaceWithComboBox.IsClear();
+
+        /// <summary>
         /// Gets or sets the value of the Match Case checkbox.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
@@ -156,6 +187,11 @@ namespace MFR.GUI.Windows
             set => matchExactWordCheckBox.Checked = value;
         }
 
+        [Log(AttributeExclude = true)] // do not log this method
+        private bool OnlyReplaceInFilesOperationIsEnabled
+            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
+               OperationsCheckedListBox.GetItemChecked(2);
+
         /// <summary>
         /// Gets a reference to the
         /// <see
@@ -165,8 +201,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public CheckedListBox OperationsCheckedListBox
         {
-            [DebuggerStepThrough]
-            get => operationsCheckedListBox;
+            [DebuggerStepThrough] get => operationsCheckedListBox;
         }
 
         /// <summary>
@@ -200,9 +235,16 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox ReplaceWithComboBox
         {
-            [DebuggerStepThrough]
-            get => replaceWithComboBox;
+            [DebuggerStepThrough] get => replaceWithComboBox;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
+        /// </summary>
+        private static IRootDirectoryValidator RootDirectoryValidator
+            => GetRootDirectoryValidator.SoleInstance();
 
         /// <summary>
         /// Gets or sets the value of the Select/Deselect All checkbox
@@ -221,8 +263,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public int SelectedOptionTab
         {
-            [DebuggerStepThrough]
-            get => optionsTabControl.SelectedIndex;
+            [DebuggerStepThrough] get => optionsTabControl.SelectedIndex;
             set => optionsTabControl.SelectedIndex = value;
         }
 
@@ -233,8 +274,7 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox StartingFolderComboBox
         {
-            [DebuggerStepThrough]
-            get => startingFolderComboBox;
+            [DebuggerStepThrough] get => startingFolderComboBox;
         }
 
         /// <summary>
@@ -258,43 +298,6 @@ namespace MFR.GUI.Windows
         } = Assembly.GetEntryAssembly()
                     .GetName()
                     .Version.ToString();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
-        /// that represents the currently-loaded configuration.
-        /// </summary>
-        private static IConfiguration Configuration
-            => GetConfigurationProvider.SoleInstance()
-                                       .Configuration;
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the actions
-        /// associated with it.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a value that indicates whether the history is free of all
-        /// previous entries.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
-
-        [Log(AttributeExclude = true)] // do not log this method
-        private bool OnlyReplaceInFilesOperationIsEnabled
-            => OperationsCheckedListBox.CheckedItems.Count == 1 &&
-               OperationsCheckedListBox.GetItemChecked(2);
 
         /// <summary>
         /// Clears all the items from the Profile List combo box and then adds the
@@ -389,12 +392,11 @@ namespace MFR.GUI.Windows
 
             try
             {
-                result = GetProfileCollectionActionType
-                         .For<string, IProfile>(
-                             ProfileCollectionActionType.CreateNewNamedProfile
-                         )
-                         .WithInput(e.Name)
-                         .Execute();
+                result = GetProfileCollectionActionType.For<string, IProfile>(
+                        ProfileCollectionActionType.CreateNewNamedProfile
+                    )
+                    .WithInput(e.Name)
+                    .Execute();
 
                 ConfigurationProvider.Configuration =
                     result; // set the newly-created profile as the new configuration.
@@ -451,7 +453,10 @@ namespace MFR.GUI.Windows
                 using (var dialogBox = MakeNewOperationDrivenProgressDialog
                                        .FromScratch()
                                        .HavingProc(
-                                           arg => Does.FolderHaveAtLeastOneFileMatching(arg, "*.sln")
+                                           arg => Does
+                                               .FolderHaveAtLeastOneFileMatching(
+                                                   arg, "*.sln"
+                                               )
                                        )
                                        .AndArgument(path)
                                        .AndStatusText(
@@ -1032,6 +1037,7 @@ namespace MFR.GUI.Windows
         {
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
+
             // and which allows the user to choose to send an error report.
             Display.ErrorReportDialog(this, e.Exception);
         }
@@ -1062,6 +1068,37 @@ namespace MFR.GUI.Windows
                     Presenter.ShowProgressDialog();
                 }
             );
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        /// event raised by the <c>Root Directory Validator</c> component.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs" />
+        /// that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by displaying a message to the user about why the
+        /// validation failed, and then instructing the validator to stop the validation
+        /// process.
+        /// </remarks>
+        private void OnRootDirectoryInvalid(object sender,
+            RootDirectoryInvalidEventArgs e)
+        {
+            MessageBox.Show(
+                this, e.Message, Application.ProductName, MessageBoxButtons.OK,
+                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+            );
+            e.Cancel = true;
+        }
 
         /// <summary>
         /// Handles the
@@ -1368,28 +1405,14 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private bool ValidateData()
         {
-            if (string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) ||
-                !Directory.Exists(StartingFolderComboBox.EnteredText))
+            if (!RootDirectoryValidator.Validate(
+                    StartingFolderComboBox.EnteredText
+                ))
             {
-                MessageBox.Show(
-                    this,
-                    "Please choose a pathname to a folder that exists on your computer for the starting location of the search.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
-                );
                 hiddenFocusLabel.Focus();
                 StartingFolderComboBox.Focus();
                 return false;
             }
-
-            if (!DoesDirectoryContainSolutionFile(
-                    StartingFolderComboBox.EnteredText
-                ))
-                return DialogResult.Yes == MessageBox.Show(
-                    this, Resources.Error_StartingFolderMustContainSolutionFile,
-                    Application.ProductName, MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2
-                );
 
             if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
             {

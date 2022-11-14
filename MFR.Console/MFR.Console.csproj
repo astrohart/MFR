@@ -12,7 +12,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Console.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\mfrc.xml</DocumentationFile>
     <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -25,7 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Console.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\mfrc.xml</DocumentationFile>
     <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -38,7 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Console.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\mfrc.xml</DocumentationFile>
     <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -51,7 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Console.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\mfrc.xml</DocumentationFile>
     <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -59,7 +59,14 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{D3545EBF-F159-4681-BAD3-25DBBB1860A8}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>xylogix.ICO</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>mfrc</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -98,6 +105,22 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Events\MFR.CommandLine.Parsers.Events.csproj">
+      <Project>{D6782453-03FB-4F3D-815C-45C31E06E53D}</Project>
+      <Name>MFR.CommandLine.Parsers.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Factories\MFR.CommandLine.Parsers.Factories.csproj">
+      <Project>{79EEADFD-A387-4488-9E3A-92AC3316A2FB}</Project>
+      <Name>MFR.CommandLine.Parsers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Interfaces\MFR.CommandLine.Parsers.Interfaces.csproj">
+      <Project>{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}</Project>
+      <Name>MFR.CommandLine.Parsers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
@@ -150,6 +173,10 @@
       <Project>{f2c19dde-1877-4176-b4a1-f74195fe5f6a}</Project>
       <Name>MFR.Settings.Configuration</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\HelpText.txt" />
+    <Content Include="xylogix.ICO" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
