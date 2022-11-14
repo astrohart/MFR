@@ -113,7 +113,7 @@ This constructor has no parameters.
 ##### Summary
 
 Reference to an instance of an object that implements the
-[ICancellableProgressDialog](#T-MFR-GUI-ICancellableProgressDialog 'MFR.GUI.ICancellableProgressDialog')
+[ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
 interface.
 
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_exportConfigDialog'></a>

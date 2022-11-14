@@ -4,12 +4,8 @@
 ## Contents
 
 - [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
-  - [AssociateWithRootDirectoryValidator(rootDirectoryValidator)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryValidator-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.AssociateWithRootDirectoryValidator(MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator)')
-  - [IsValid(cmdInfo)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-IsValid-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
-- [IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
-  - [IsValid(rootDirectory)](#M-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-IsValid-System-String- 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.IsValid(System.String)')
-- [IValidator](#T-MFR-CommandLine-Validators-Interfaces-IValidator 'MFR.CommandLine.Validators.Interfaces.IValidator')
-  - [ValidationFailures](#P-MFR-CommandLine-Validators-Interfaces-IValidator-ValidationFailures 'MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures')
+  - [AssociateWithRootDirectoryValidator(rootDirectoryValidator)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.AssociateWithRootDirectoryValidator(MFR.Directories.Validators.Interfaces.IRootDirectoryValidator)')
+  - [Validate(cmdInfo)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-Validate-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.Validate(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 - [Resources](#T-MFR-CommandLine-Validators-Interfaces-Properties-Resources 'MFR.CommandLine.Validators.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Validators-Interfaces-Properties-Resources-Culture 'MFR.CommandLine.Validators.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.CommandLine.Validators.Interfaces.Properties.Resources.ResourceManager')
@@ -29,13 +25,13 @@ Defines the publicly-exposed methods and properties of a
             `
 object.
 
-<a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryValidator-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-'></a>
+<a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator-'></a>
 ### AssociateWithRootDirectoryValidator(rootDirectoryValidator) `method`
 
 ##### Summary
 
 Associates an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
 interface with this validator object.
 
 ##### Returns
@@ -47,9 +43,9 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| rootDirectoryValidator | [MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator') | (Required.) Reference to an instance of an object that implements
+| rootDirectoryValidator | [MFR.Directories.Validators.Interfaces.IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator') | (Required.) Reference to an instance of an object that implements
 the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
 interface. |
 
 ##### Exceptions
@@ -59,8 +55,8 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `rootDirectoryValidator`,
 is passed a `null` value. |
 
-<a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-IsValid-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
-### IsValid(cmdInfo) `method`
+<a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-Validate-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### Validate(cmdInfo) `method`
 
 ##### Summary
 
@@ -102,78 +98,6 @@ property is used to keep track of the number of validation failures that occur.
 At the beginning of this method's execution, the
 [ValidationFailures](#P-MFR-CommandLine-Validators-Interfaces-IValidator-ValidationFailures 'MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures')
 property's value is set to zero.
-
-<a name='T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator'></a>
-## IRootDirectoryValidator `type`
-
-##### Namespace
-
-MFR.CommandLine.Validators.Interfaces
-
-##### Summary
-
-Defines the publicly-exposed methods and properties of an object that
-validates the pathnames of root directories; i.e., the folder where the
-project-rename operation starts..
-
-<a name='M-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-IsValid-System-String-'></a>
-### IsValid(rootDirectory) `method`
-
-##### Summary
-
-Gets a value that determines whether the specified
-`rootDirectory`
-is valid or not.
-
-
-
-A "root directory" is defined to be the starting folder of a
-project-rename operation.
-
-
-
-It must exist on the disk, and it must contain a Visual Studio
-Solution (*.sln) file.
-
-##### Returns
-
-`true` if the pathname specified by the
-`rootDirectory`
-parameter refers to a valid directory;
-`false`
-otherwise.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| rootDirectory | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) String containing the pathname of a root directory to be validated. |
-
-##### Remarks
-
-In the event that validation fails, this method raises the
-[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
-event.
-
-<a name='T-MFR-CommandLine-Validators-Interfaces-IValidator'></a>
-## IValidator `type`
-
-##### Namespace
-
-MFR.CommandLine.Validators.Interfaces
-
-##### Summary
-
-Defines the publicly-exposed methods and properties of all Validator objects.
-
-<a name='P-MFR-CommandLine-Validators-Interfaces-IValidator-ValidationFailures'></a>
-### ValidationFailures `property`
-
-##### Summary
-
-Gets a count of validation failures that occurred the last time the
-[IsValid](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-IsValid 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid')
-method was called.
 
 <a name='T-MFR-CommandLine-Validators-Interfaces-Properties-Resources'></a>
 ## Resources `type`

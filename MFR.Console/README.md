@@ -1,13 +1,14 @@
 <a name='assembly'></a>
-# MFR.Console
+# mfrc
 
 ## Contents
 
 - [Program](#T-MFR-Console-Program 'MFR.Console.Program')
+  - [CommandLineParser](#P-MFR-Console-Program-CommandLineParser 'MFR.Console.Program.CommandLineParser')
   - [Configuration](#P-MFR-Console-Program-Configuration 'MFR.Console.Program.Configuration')
   - [ConfigurationProvider](#P-MFR-Console-Program-ConfigurationProvider 'MFR.Console.Program.ConfigurationProvider')
   - [FileRenamer](#P-MFR-Console-Program-FileRenamer 'MFR.Console.Program.FileRenamer')
-  - [Main()](#M-MFR-Console-Program-Main 'MFR.Console.Program.Main')
+  - [Main()](#M-MFR-Console-Program-Main-System-String[]- 'MFR.Console.Program.Main(System.String[])')
 
 <a name='T-MFR-Console-Program'></a>
 ## Program `type`
@@ -19,6 +20,15 @@ MFR.Console
 ##### Summary
 
 Provides the application-level functionality.
+
+<a name='P-MFR-Console-Program-CommandLineParser'></a>
+### CommandLineParser `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ICommandLineParser](#T-MFR-CommandLine-Parsers-Interfaces-ICommandLineParser 'MFR.CommandLine.Parsers.Interfaces.ICommandLineParser')
+interface.
 
 <a name='P-MFR-Console-Program-Configuration'></a>
 ### Configuration `property`
@@ -46,7 +56,7 @@ interface.
 Gets a reference to an instance of an object that implements the
 [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') interface.
 
-<a name='M-MFR-Console-Program-Main'></a>
+<a name='M-MFR-Console-Program-Main-System-String[]-'></a>
 ### Main() `method`
 
 ##### Summary
