@@ -615,6 +615,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Validators.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Constants", "MFR.Directories.Constants.Constants\MFR.Directories.Constants.csproj", "{E1887899-A285-48C9-B4A8-AAD2E50A30CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Translators", "MFR.CommandLine.Translators\MFR.CommandLine.Translators.csproj", "{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -3047,6 +3049,14 @@ Global
 		{E1887899-A285-48C9-B4A8-AAD2E50A30CE}.Release|x64.Build.0 = Release|x64
 		{E1887899-A285-48C9-B4A8-AAD2E50A30CE}.Release|x86.ActiveCfg = Release|x86
 		{E1887899-A285-48C9-B4A8-AAD2E50A30CE}.Release|x86.Build.0 = Release|x86
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Debug|x64.ActiveCfg = Debug|x64
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Debug|x64.Build.0 = Debug|x64
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Debug|x86.ActiveCfg = Debug|x86
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Debug|x86.Build.0 = Debug|x86
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x64.ActiveCfg = Release|x64
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x64.Build.0 = Release|x64
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x86.ActiveCfg = Release|x86
+		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
