@@ -1,3 +1,4 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models.Interfaces;
 
@@ -19,7 +20,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets a value indicating whether a case-sensitive search should be done.
@@ -37,7 +38,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = true;
+        } = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether the files are to be renamed.
@@ -74,7 +75,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = string.Empty;
 
         /// <summary>
         /// Gets or sets a string that contains the starting folder.
@@ -83,6 +84,6 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = Directories.Constants.Directories.MyDocuments;
+        } = Directory.GetCurrentDirectory();
     }
 }
