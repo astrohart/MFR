@@ -1,3 +1,4 @@
+using MFR.GUI.Models;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -207,7 +208,7 @@ namespace MFR.Settings.Configuration.Factories
         /// </exception>
         public static IConfiguration AndOperationsToPerform(
             this IConfiguration self,
-            List<MFR.GUI.Models.OperationTypeInfo> operationsToPerform)
+            List<OperationTypeInfo> operationsToPerform)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 

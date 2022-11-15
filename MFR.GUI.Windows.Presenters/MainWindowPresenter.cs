@@ -201,7 +201,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
         public bool IsProfileLoaded
-            => !ConfigurationProvider.Configuration.IsTransientProfile();
+            => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
 
         /// <summary>
         /// Gets the replacement text to be used during the operations.
@@ -495,7 +495,7 @@ namespace MFR.GUI.Windows.Presenters
 
             ConfigurationProvider.Import(_importConfigDialog.FileName);
 
-            UpdateConfiguration(ConfigurationProvider.Configuration);
+            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
 
             UpdateData(false);
 
@@ -578,9 +578,9 @@ namespace MFR.GUI.Windows.Presenters
                                .RenameTo(dialog.ConfigPathname);
 
             ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
-            ConfigurationProvider.Configuration.ReOpenSolution =
+            ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
                 dialog.ShouldReOpenVisualStudioSolution;
-            UpdateConfiguration(ConfigurationProvider.Configuration);
+            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
         }
 
         /// <summary>
@@ -602,7 +602,7 @@ namespace MFR.GUI.Windows.Presenters
 
             if (Does.ProfileAlreadyExist(profileName)) return;
 
-            var newProfile = ConfigurationProvider.Configuration.ToProfile(profileName);
+            var newProfile = ConfigurationProvider.CurrentConfiguration.ToProfile(profileName);
             ProfileProvider.Profiles.Add(
                 newProfile
             );
@@ -613,7 +613,7 @@ namespace MFR.GUI.Windows.Presenters
              * loaded configuration.
              */
 
-            ConfigurationProvider.Configuration = newProfile;
+            ConfigurationProvider.CurrentConfiguration = newProfile;
             ConfigurationProvider.Save();
         }
 
@@ -832,7 +832,7 @@ namespace MFR.GUI.Windows.Presenters
             {
                 InitializeOperationSelections();
 
-                View.SelectedOptionTab = ConfigurationProvider.Configuration
+                View.SelectedOptionTab = ConfigurationProvider.CurrentConfiguration
                     .SelectedOptionTab;
 
                 View.MatchExactWord = Configuration.MatchExactWord;

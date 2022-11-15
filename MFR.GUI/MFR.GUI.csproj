@@ -154,6 +154,10 @@
       <Project>{7E6C8039-7AF9-4F3A-A046-AAC198D0703D}</Project>
       <Name>MFR.CommandLine.Parsers.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Translators\MFR.CommandLine.Translators.csproj">
+      <Project>{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}</Project>
+      <Name>MFR.CommandLine.Translators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>

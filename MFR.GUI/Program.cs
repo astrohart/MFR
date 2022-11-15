@@ -2,6 +2,7 @@ using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
 using MFR.CommandLine.Parsers.Interfaces;
+using MFR.CommandLine.Translators;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
 using MFR.CommandLine.Validators.Interfaces;
@@ -126,9 +127,13 @@ namespace MFR.GUI
 
             // Save changes in the configuration back out to the disk.
             // Also writes the path to the config file to the Registry.
-            ConfigurationProvider.Save();
+            //
+            // NOTE: Do NOT save the configuration settings in the event
+            // that the user is running this app from the command line.
+            // Ditto for profiles.
+            if (!CommandLineSpecified) ConfigurationProvider.Save();
 
-            ProfileProvider.Save();
+            if (!CommandLineSpecified) ProfileProvider.Save();
 
             Revoke.WindowsMessageFilter();
         }
@@ -276,6 +281,16 @@ namespace MFR.GUI
         /// </summary>
         private static void ProcessCommandLine()
         {
+            /*
+             * If the user specified one or more argument(s) on the command line of this
+             * application, translate those parameters into configuration settings for this
+             * run.
+             */
+
+            if (CommandLineSpecified)
+                ConfigurationProvider.CurrentConfiguration =
+                    CommandLineInfo.ToConfiguration();
+
             // Set the starting folder in the configuration (unless the user did
             // not pass anything on the command line, in which case the value
             // from the user will be the default value of My Documents) to that
@@ -284,7 +299,7 @@ namespace MFR.GUI
                 !Directories.Constants.Directories.MyDocuments.Equals(
                     CommandLineInfo.StartingFolder
                 )) // we do not need any more checks here due to the command-line validation that occurs
-                ConfigurationProvider.Configuration.StartingFolder =
+                ConfigurationProvider.CurrentConfiguration.StartingFolder =
                     CommandLineInfo.StartingFolder;
 
             Application.Run(MainWindow.Instance);

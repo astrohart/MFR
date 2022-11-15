@@ -34,7 +34,7 @@ namespace MFR.Console
         /// interface.
         /// </summary>
         private static IConfiguration Configuration
-            => ConfigurationProvider.Configuration;
+            => ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

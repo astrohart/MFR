@@ -81,7 +81,7 @@ namespace MFR.GUI.Windows
         /// </summary>
         private static IConfiguration Configuration
             => GetConfigurationProvider.SoleInstance()
-                                       .Configuration;
+                                       .CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -398,7 +398,7 @@ namespace MFR.GUI.Windows
                     .WithInput(e.Name)
                     .Execute();
 
-                ConfigurationProvider.Configuration =
+                ConfigurationProvider.CurrentConfiguration =
                     result; // set the newly-created profile as the new configuration.
             }
             catch (Exception ex)
@@ -762,7 +762,7 @@ namespace MFR.GUI.Windows
             FoldButton.SetFoldedStateText();
 
             GetConfigurationProvider.SoleInstance()
-                                    .Configuration.IsFolded = e.Folded;
+                                    .CurrentConfiguration.IsFolded = e.Folded;
         }
 
         /// <summary>

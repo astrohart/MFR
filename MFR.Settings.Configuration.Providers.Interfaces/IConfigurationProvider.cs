@@ -13,7 +13,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        IConfiguration Configuration { get; set; }
+        IConfiguration CurrentConfiguration { get; set; }
 
         /// <summary>
         /// Gets or sets the pathname of the configuration file.

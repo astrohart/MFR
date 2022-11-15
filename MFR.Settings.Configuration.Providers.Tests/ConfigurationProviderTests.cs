@@ -28,7 +28,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 () => ConfigurationProvider.Instance.Load(ConfigFilePath)
             );
 
-            Console.WriteLine(ConfigurationProvider.Instance.Configuration.FindWhat);
+            Console.WriteLine(ConfigurationProvider.Instance.CurrentConfiguration.FindWhat);
         }
     }
 }

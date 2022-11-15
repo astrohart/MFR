@@ -79,7 +79,7 @@ namespace MFR.Settings.Configuration.Providers
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        public IConfiguration Configuration
+        public IConfiguration CurrentConfiguration
         {
             get;
             set;
@@ -269,7 +269,7 @@ namespace MFR.Settings.Configuration.Providers
 
             try
             {
-                Configuration = GetConfigurationAction
+                CurrentConfiguration = GetConfigurationAction
                                 .For<IFileSystemEntry, IConfiguration>(
                                     ConfigurationActionType
                                         .LoadConfigurationFromFile
@@ -283,11 +283,11 @@ namespace MFR.Settings.Configuration.Providers
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-                Configuration =
+                CurrentConfiguration =
                     MakeNewConfiguration.FromScratch(); // make a default config if can't be loaded
             }
 
-            if (Configuration != null)
+            if (CurrentConfiguration != null)
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info, "*** SUCCESS *** Configuration loaded."
@@ -347,7 +347,7 @@ namespace MFR.Settings.Configuration.Providers
             if (string.IsNullOrWhiteSpace(pathname)) return;
             
             // Check to see if the required property, Configuration, is null. If
-            if (Configuration == null) return;
+            if (CurrentConfiguration == null) return;
 
             try
             {
@@ -359,7 +359,7 @@ namespace MFR.Settings.Configuration.Providers
                                            MakeNewFileSystemEntry
                                                .ForPath(pathname)
                                                .AndHavingUserState(
-                                                   Configuration
+                                                   CurrentConfiguration
                                                )
                                        )
                                        .Execute();
