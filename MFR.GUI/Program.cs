@@ -17,6 +17,7 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -46,6 +47,16 @@ namespace MFR.GUI
         /// </summary>
         private static ICommandLineParser CommandLineParser
             => GetCommandLineParser.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the user specified any arguments on
+        /// this application's command line at startup or not.
+        /// </summary>
+        public static bool CommandLineSpecified
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -248,6 +259,11 @@ namespace MFR.GUI
         /// </remarks>
         private static void ParseCommandLine(string[] args)
         {
+            CommandLineSpecified = args.Any();
+
+            if (!args.Any())
+                return; // This app can be launched with no command-line arguments.
+
             CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
             CommandLineInfo = CommandLineParser.Parse(args);
 
@@ -264,7 +280,8 @@ namespace MFR.GUI
             // not pass anything on the command line, in which case the value
             // from the user will be the default value of My Documents) to that
             // which the user has specified on the command line.
-            if (!Directories.Constants.Directories.MyDocuments.Equals(
+            if (CommandLineInfo != null &&
+                !Directories.Constants.Directories.MyDocuments.Equals(
                     CommandLineInfo.RootDirectory
                 )) // we do not need any more checks here due to the command-line validation that occurs
                 ConfigurationProvider.Configuration.StartingFolder =
