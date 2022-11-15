@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{197747FD-A37B-4518-9A5F-DD9E236A8291}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -277,6 +278,10 @@
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
       <Name>MFR.TextValues.Retrievers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9d0a59c5-a814-45ca-88b3-dae6e6462d07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -55,9 +55,7 @@ namespace MFR.Renamers.Files
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FileRenamer()
-        {
-        }
+        static FileRenamer() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
@@ -66,6 +64,118 @@ namespace MFR.Renamers.Files
         protected FileRenamer()
         {
             LastSolutionPath = RootDirectoryPath = string.Empty;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
+        /// method is called, do
+        /// nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.Renamers.Files.FileRenamer" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IFileRenamer Instance
+        {
+            get;
+        } = new FileRenamer();
+
+        /// <summary>
+        /// Gets or sets the path to the folder in which last Visual Studio Solution that
+        /// we have worked with most recently resides.
+        /// </summary>
+        public string LastSolutionFolderPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the last Visual Studio Solution that we have worked
+        /// with most recently.
+        /// </summary>
+        public string LastSolutionPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        public string RootDirectoryPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object runs validation rules to ensure, among other things, that the
+        /// pathname passed to it is that of a folder that exists on disk, and that
+        /// contains a <c>.sln</c> file.
+        /// </remarks>
+        private IRootDirectoryValidator RootDirectoryValidator
+            => GetRootDirectoryValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object manages a collection of strings.
+        /// <para />
+        /// Individually, the strings are all taken to be the root folder of where our
+        /// search should start for the operation(s) that the user wants us to process.
+        /// </remarks>
+        private IRootFolderPathManager RootFolderPathManager
+            => GetRootFolderPathManager.SoleInstance();
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        public bool ShouldReOpenSolution
+        {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -129,149 +239,6 @@ namespace MFR.Renamers.Files
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
             SubfoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Renamers.Files.FileRenamer" />.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static IFileRenamer Instance
-        {
-            get;
-        } = new FileRenamer();
-
-        /// <summary>
-        /// Gets a value that indicates whether an abort of the current
-        /// operation has been requested.
-        /// </summary>
-        public bool AbortRequested
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
-        /// </summary>
-        public string LastSolutionFolderPath
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets or sets the path to the last Visual Studio Solution that we have worked
-        /// with most recently.
-        /// </summary>
-        public string LastSolutionPath
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
-        /// operations start.
-        /// </summary>
-        public string RootDirectoryPath
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        public bool ShouldReOpenSolution
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to a collection of of the
-        /// <see
-        ///     cref="T:MFR.OperationType" />
-        /// values.
-        /// </summary>
-        /// <remarks>
-        /// All the values in this collection identify operations that the user
-        /// wishes to perform.
-        /// <para />
-        /// This list should be cleared after every run.
-        /// <para />
-        /// If the list is empty when the
-        /// <see
-        ///     cref="M:MFR.FileRenamer.ProcessAll" />
-        /// method is called, do
-        /// nothing or throw an exception.
-        /// </remarks>
-        protected IList<OperationType> EnabledOperations
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object runs validation rules to ensure, among other things, that the
-        /// pathname passed to it is that of a folder that exists on disk, and that
-        /// contains a <c>.sln</c> file.
-        /// </remarks>
-        private IRootDirectoryValidator RootDirectoryValidator
-            => GetRootDirectoryValidator.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object manages a collection of strings.
-        /// <para />
-        /// Individually, the strings are all taken to be the root folder of where our
-        /// search should start for the operation(s) that the user wants us to process.
-        /// </remarks>
-        private IRootFolderPathManager RootFolderPathManager
-            => GetRootFolderPathManager.SoleInstance();
-
-        /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
-        }
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
@@ -659,9 +626,7 @@ namespace MFR.Renamers.Files
                                  * operation succeeded.
                                  */
                             OnFileRenamed(
-                                new FileRenamedEventArgs(
-                                    source, destination
-                                )
+                                new FileRenamedEventArgs(source, destination)
                             );
                     }
                     catch (Exception ex)
@@ -820,9 +785,7 @@ namespace MFR.Renamers.Files
                         return;
                     }
                     else
-                    {
                         return;
-                    }
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -885,11 +848,11 @@ namespace MFR.Renamers.Files
                                                   );
 
                         if (entry.ToDirectoryInfo()
-                             .RenameTo(
-                                 destination
-                             )
-                             && !Directory.Exists(source))
-                            OnFolderRenamed(new FolderRenamedEventArgs(source, destination));
+                                 .RenameTo(destination) &&
+                            !Directory.Exists(source))
+                            OnFolderRenamed(
+                                new FolderRenamedEventArgs(source, destination)
+                            );
                     }
                     catch (Exception ex)
                     {
@@ -1144,13 +1107,45 @@ namespace MFR.Renamers.Files
              * We do not perform any input validation here.  This is because
              * this value may be being initialized from a default (blank)
              * configuration.   The configuration may be blank for a number of
-             * reasons, but one of these is the issue that the configuration 
+             * reasons, but one of these is the issue that the configuration
              * file on the disk may have gotten corrupted or erased.
              */
 
             RootDirectoryPath = path;
 
             return this;
+        }
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
         }
 
         /// <summary>
@@ -1185,9 +1180,12 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed"/> event.
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:MFR.Events.FolderRenamedEventArgs"/> that contains the event data.</param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
         protected virtual void OnFolderRenamed(FolderRenamedEventArgs e)
         {
             FolderRenamed?.Invoke(this, e);
@@ -1234,6 +1232,7 @@ namespace MFR.Renamers.Files
 
                 result = string.Empty;
             }
+
             return result;
         }
 
@@ -1304,6 +1303,7 @@ namespace MFR.Renamers.Files
                 );
 
                 DTE dte = null;
+
                 // This tool can potentially be run from Visual Studio (e.g.,
                 // configured via the Tools menu as an external tool, for instance).
 
@@ -1347,6 +1347,7 @@ namespace MFR.Renamers.Files
                     );
 
                     ShouldReOpenSolution = dte != null;
+
                     // Prior to beginning the operation(s) selected by the user,
                     // we'll then tell the instance of Visual Studio that has the
                     // solution containing the item(s) to be renamed open to close
@@ -1421,6 +1422,7 @@ namespace MFR.Renamers.Files
                 }
 
                 InvokeProcessing(findWhat, replaceWith, pathFilter);
+
                 // Since the pathname of the Solution file itself may have changed due to a file-rename
                 // operation, re-scan the root directory for the solution path.
                 solutionPath =
@@ -1437,6 +1439,7 @@ namespace MFR.Renamers.Files
                     );
                     return;
                 }
+
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
                 if (ShouldReOpenSolution && dte != null)

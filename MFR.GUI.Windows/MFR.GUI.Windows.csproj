@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{7D4538BB-9DDA-4DEE-8EDA-853BD4AFE22B}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -391,6 +392,10 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
       <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9d0a59c5-a814-45ca-88b3-dae6e6462d07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
