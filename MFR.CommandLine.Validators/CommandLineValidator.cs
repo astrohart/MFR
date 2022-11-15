@@ -174,7 +174,7 @@ namespace MFR.CommandLine.Validators
                  * Therefore, if the validation fails here, we simply increment
                  * the count of validation failures but otherwise do nothing.
                  */
-                if (!_rootDirectoryValidator?.Validate(cmdInfo.RootDirectory) ??
+                if (!_rootDirectoryValidator?.Validate(cmdInfo.StartingFolder) ??
                     false)
                 {
                     ValidationFailures +=

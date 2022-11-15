@@ -60,7 +60,7 @@ namespace MFR.CommandLine.Parsers
 
             try
             {
-                p.Setup(arg => arg.RootDirectory)
+                p.Setup(arg => arg.StartingFolder)
                  .As('r', "root")
                  .WithDescription(
                      "Sets the directory that this application begins in."
@@ -92,10 +92,17 @@ namespace MFR.CommandLine.Parsers
                  .WithDescription("Indicates that folders should be renamed.")
                  .SetDefault(false);
 
-                p.Setup(arg => arg.ReplaceinFiles)
-                 .As("replaceInFiles")
+                p.Setup(arg => arg.ReplaceTextInFiles)
+                 .As("replaceTextInFiles")
                  .WithDescription(
                      "Indicates that text should be replaced in files."
+                 )
+                 .SetDefault(false);
+
+                p.Setup(arg => arg.ReOpenSolution)
+                 .As("reOpenSolution")
+                 .WithDescription(
+                     "Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed."
                  )
                  .SetDefault(false);
 
@@ -132,9 +139,9 @@ namespace MFR.CommandLine.Parsers
                  * all of them.
                  */
                 if (!result.RenameFiles && !result.RenameSubFolders &&
-                    !result.ReplaceinFiles)
+                    !result.ReplaceTextInFiles)
                     result.RenameFiles = result.RenameSubFolders =
-                        result.ReplaceinFiles = true;
+                        result.ReplaceTextInFiles = true;
             }
             catch (Exception ex)
             {

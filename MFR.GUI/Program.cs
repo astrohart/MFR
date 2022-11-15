@@ -282,10 +282,10 @@ namespace MFR.GUI
             // which the user has specified on the command line.
             if (CommandLineInfo != null &&
                 !Directories.Constants.Directories.MyDocuments.Equals(
-                    CommandLineInfo.RootDirectory
+                    CommandLineInfo.StartingFolder
                 )) // we do not need any more checks here due to the command-line validation that occurs
                 ConfigurationProvider.Configuration.StartingFolder =
-                    CommandLineInfo.RootDirectory;
+                    CommandLineInfo.StartingFolder;
 
             Application.Run(MainWindow.Instance);
         }

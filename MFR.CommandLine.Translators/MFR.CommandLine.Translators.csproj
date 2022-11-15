@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="TranslateCommandLineInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +130,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Factories\MFR.Settings.Configuration.Factories.csproj">
+      <Project>{2F551CBE-04C2-4DD3-82D1-D4A2D4D0F002}</Project>
+      <Name>MFR.Settings.Configuration.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -21,7 +21,8 @@ namespace MFR.CommandLine.Models.Interfaces
         /// </summary>
         bool MatchCase
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -29,7 +30,8 @@ namespace MFR.CommandLine.Models.Interfaces
         /// </summary>
         bool MatchWholeWord
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -37,7 +39,8 @@ namespace MFR.CommandLine.Models.Interfaces
         /// </summary>
         bool RenameFiles
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -45,15 +48,27 @@ namespace MFR.CommandLine.Models.Interfaces
         /// </summary>
         bool RenameSubFolders
         {
-            get; set;
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates that the Solution is to be reloaded when
+        /// the operations are finished.
+        /// </summary>
+        bool ReOpenSolution
+        {
+            get;
+            set;
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.
         /// </summary>
-        bool ReplaceinFiles
+        bool ReplaceTextInFiles
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -69,7 +84,7 @@ namespace MFR.CommandLine.Models.Interfaces
         /// <summary>
         /// Gets or sets a string that contains the starting folder.
         /// </summary>
-        string RootDirectory
+        string StartingFolder
         {
             get;
             set;

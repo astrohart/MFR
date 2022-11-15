@@ -1,3 +1,4 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Models;
 using MFR.GUI.Models.Extensions;
 using MFR.Operations.Constants;
@@ -132,19 +133,7 @@ namespace MFR.Settings.Configuration
         {
             get;
             set;
-        } = new List<OperationTypeInfo> {
-            new OperationTypeInfo {
-                Enabled = false,
-                OperationType = OperationType.RenameFilesInFolder
-            },
-            new OperationTypeInfo {
-                Enabled = false, OperationType = OperationType.RenameSubFolders
-            },
-            new OperationTypeInfo {
-                Enabled = false,
-                OperationType = OperationType.ReplaceTextInFiles
-            }
-        };
+        }
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
@@ -392,7 +381,22 @@ namespace MFR.Settings.Configuration
             FindWhatHistory.Clear();
             ReplaceWithHistory.Clear();
 
-            FindWhat = ReplaceWith = StartingFolder = string.Empty;
+            FindWhat = ReplaceWith = string.Empty;
+            StartingFolder = Directory.GetCurrentDirectory();
+
+            OperationsToPerform = new List<OperationTypeInfo> {
+                new OperationTypeInfo {
+                    Enabled = false,
+                    OperationType = OperationType.RenameFilesInFolder
+                },
+                new OperationTypeInfo {
+                    Enabled = false, OperationType = OperationType.RenameSubFolders
+                },
+                new OperationTypeInfo {
+                    Enabled = false,
+                    OperationType = OperationType.ReplaceTextInFiles
+                }
+            };
         }
     }
 }

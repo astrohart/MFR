@@ -1,5 +1,4 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models.Interfaces;
 
 namespace MFR.CommandLine.Models
@@ -59,9 +58,19 @@ namespace MFR.CommandLine.Models
         } = true;
 
         /// <summary>
+        /// Gets or sets a value that indicates that the Solution is to be reloaded when
+        /// the operations are finished.
+        /// </summary>
+        public bool ReOpenSolution
+        {
+            get;
+            set;
+        } = false;
+
+        /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.
         /// </summary>
-        public bool ReplaceinFiles
+        public bool ReplaceTextInFiles
         {
             get;
             set;
@@ -80,7 +89,7 @@ namespace MFR.CommandLine.Models
         /// <summary>
         /// Gets or sets a string that contains the starting folder.
         /// </summary>
-        public string RootDirectory
+        public string StartingFolder
         {
             get;
             set;
