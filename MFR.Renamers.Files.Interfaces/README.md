@@ -4,6 +4,7 @@
 ## Contents
 
 - [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
+  - [LastSolutionFolderPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionFolderPath')
   - [LastSolutionPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
   - [ShouldReOpenSolution](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.Interfaces.IFileRenamer.ShouldReOpenSolution')
@@ -27,16 +28,28 @@ MFR.Renamers.Files.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a `File
-            Renamer` object. Such an object is directly responsible for
+Defines the publicly-exposed methods and properties of a
+`
+            File
+            Renamer
+            `
+object. Such an object is directly responsible for
 processing the file operations of this application.
+
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath'></a>
+### LastSolutionFolderPath `property`
+
+##### Summary
+
+Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
 
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath'></a>
 ### LastSolutionPath `property`
 
 ##### Summary
 
-Gets or sets the path to the last Visual Studio Solution that we have worked with most recently.
+Gets or sets the path to the last Visual Studio Solution that we have worked
+with most recently.
 
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
@@ -62,7 +75,9 @@ completion of the operation.
 
 Executes the Rename Subfolders, Rename Files, and Replace Text in
 Files operation on all the folders and files in the root folder with
-the pathname stored in the [RootDirectoryPath](#P-MFR-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath') property.
+the pathname stored in the
+[RootDirectoryPath](#P-MFR-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath')
+property.
 
 ##### Parameters
 
@@ -128,7 +143,9 @@ filtering is done. |
 ##### Summary
 
 Renames all the files in the all the subfolders etc., recursively,
-of the folder whose pathname is specified by the `rootFolderPath` parameter.
+of the folder whose pathname is specified by the
+`rootFolderPath`
+parameter.
 
 ##### Parameters
 
@@ -160,8 +177,12 @@ filtering is done. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath`, `findWhat` , or `replaceWith` parameters are blank. |
-| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the `rootFolderPath` does not exist. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath`,
+`findWhat`
+, or `replaceWith` parameters are blank. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
+`rootFolderPath`
+does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
 <a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
@@ -204,8 +225,12 @@ filtering is done. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath`, `findWhat` , or `replaceWith` parameters are blank. |
-| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the `rootFolderPath` does not exist. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath`,
+`findWhat`
+, or `replaceWith` parameters are blank. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
+`rootFolderPath`
+does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
 <a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
@@ -215,7 +240,11 @@ filtering is done. |
 
 Iterates recursively through a directory tree, starting at the
 folder with pathname `rootFolderPath` and replacing
-every occurrence of the text specified by the `findWhat` parameter with the text specified by the `replaceWith` parameter. A case-sensitive, not-in-exact-word
+every occurrence of the text specified by the
+`findWhat`
+parameter with the text specified by the
+`replaceWith`
+parameter. A case-sensitive, not-in-exact-word
 search is performed.
 
 ##### Parameters
@@ -224,7 +253,9 @@ search is performed.
 | ---- | ---- | ----------- |
 | rootFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Pathname of the folder where the operation is to start. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Text to be found in each file contained in the directory tree. |
-| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) Text to replace all the instances of `findWhat` with. If this parameter is blank (the default),
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) Text to replace all the instances of
+`findWhat`
+with. If this parameter is blank (the default),
 then the text is deleted. |
 | pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func')
 that points to a delegate, accepting the current file or folder's
@@ -249,7 +280,9 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath` or the
 `findWhat` parameters are blank. |
-| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the `rootFolderPath` does not exist. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
+`rootFolderPath`
+does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
 <a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RequestAbort'></a>
@@ -280,7 +313,8 @@ which searches should be started.
 
 
 The fully-qualified pathname passed must reference a folder that currently
-exists on the disk; otherwise, [DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') is thrown. |
+exists on the disk; otherwise,
+[DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') is thrown. |
 
 ##### Exceptions
 

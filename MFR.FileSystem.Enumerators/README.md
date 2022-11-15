@@ -23,7 +23,7 @@ MFR.FileSystem.Enumerators
 
 ##### Summary
 
-Methods to search the file system.
+Exposes static methods to search the file system.
 
 <a name='M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String,System-String,System-IO-SearchOption-'></a>
 ### Directories(path,searchPattern,searchOption) `method`

@@ -7,8 +7,10 @@
   - [FRM_EXCEPTION_RAISED](#F-MFR-Constants-FileRenamerMessages-FRM_EXCEPTION_RAISED 'MFR.Constants.FileRenamerMessages.FRM_EXCEPTION_RAISED')
   - [FRM_FILES_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_FILES_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED')
   - [FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED')
+  - [FRM_FILE_RENAMED](#F-MFR-Constants-FileRenamerMessages-FRM_FILE_RENAMED 'MFR.Constants.FileRenamerMessages.FRM_FILE_RENAMED')
   - [FRM_FILE_SYSTEM_ENTRY_SKIPPED](#F-MFR-Constants-FileRenamerMessages-FRM_FILE_SYSTEM_ENTRY_SKIPPED 'MFR.Constants.FileRenamerMessages.FRM_FILE_SYSTEM_ENTRY_SKIPPED')
   - [FRM_FINISHED](#F-MFR-Constants-FileRenamerMessages-FRM_FINISHED 'MFR.Constants.FileRenamerMessages.FRM_FINISHED')
+  - [FRM_FOLDER_RENAMED](#F-MFR-Constants-FileRenamerMessages-FRM_FOLDER_RENAMED 'MFR.Constants.FileRenamerMessages.FRM_FOLDER_RENAMED')
   - [FRM_OPERATION_FINISHED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_FINISHED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_FINISHED')
   - [FRM_OPERATION_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
   - [FRM_PROCESSING_OPERATION](#F-MFR-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
@@ -55,6 +57,13 @@ files that are to be renamed has been counted.
 Unique identifier for a message that indicates that the number of
 files to have text within them replaced has been counted.
 
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_FILE_RENAMED'></a>
+### FRM_FILE_RENAMED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that a file has been renamed.
+
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_FILE_SYSTEM_ENTRY_SKIPPED'></a>
 ### FRM_FILE_SYSTEM_ENTRY_SKIPPED `constants`
 
@@ -70,6 +79,13 @@ Unique identifier for a message that indicates a file system entry
 
 Unique identifier for a message that indicates that the File Renamer
 component has completed all of the requested operations.
+
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_FOLDER_RENAMED'></a>
+### FRM_FOLDER_RENAMED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that a folder has been renamed.
 
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_FINISHED'></a>
 ### FRM_OPERATION_FINISHED `constants`

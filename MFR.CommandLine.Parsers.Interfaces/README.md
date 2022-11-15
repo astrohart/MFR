@@ -5,9 +5,9 @@
 
 - [ICommandLineParser](#T-MFR-CommandLine-Parsers-Interfaces-ICommandLineParser 'MFR.CommandLine.Parsers.Interfaces.ICommandLineParser')
   - [Parse(args)](#M-MFR-CommandLine-Parsers-Interfaces-ICommandLineParser-Parse-System-String[]- 'MFR.CommandLine.Parsers.Interfaces.ICommandLineParser.Parse(System.String[])')
-- [Resources](#T-xyLOGIXModule-Interfaces-Properties-Resources 'xyLOGIXModule.Interfaces.Properties.Resources')
-  - [Culture](#P-xyLOGIXModule-Interfaces-Properties-Resources-Culture 'xyLOGIXModule.Interfaces.Properties.Resources.Culture')
-  - [ResourceManager](#P-xyLOGIXModule-Interfaces-Properties-Resources-ResourceManager 'xyLOGIXModule.Interfaces.Properties.Resources.ResourceManager')
+- [Resources](#T-MFR-CommandLine-Parsers-Interfaces-Properties-Resources 'MFR.CommandLine.Parsers.Interfaces.Properties.Resources')
+  - [Culture](#P-MFR-CommandLine-Parsers-Interfaces-Properties-Resources-Culture 'MFR.CommandLine.Parsers.Interfaces.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-CommandLine-Parsers-Interfaces-Properties-Resources-ResourceManager 'MFR.CommandLine.Parsers.Interfaces.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-CommandLine-Parsers-Interfaces-ICommandLineParser'></a>
 ## ICommandLineParser `type`
@@ -38,18 +38,18 @@ accordingly.
 | args | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) Array containing the command-line arguments passed to this
 application. |
 
-<a name='T-xyLOGIXModule-Interfaces-Properties-Resources'></a>
+<a name='T-MFR-CommandLine-Parsers-Interfaces-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-xyLOGIXModule.Interfaces.Properties
+MFR.CommandLine.Parsers.Interfaces.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-xyLOGIXModule-Interfaces-Properties-Resources-Culture'></a>
+<a name='P-MFR-CommandLine-Parsers-Interfaces-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -57,7 +57,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-xyLOGIXModule-Interfaces-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-CommandLine-Parsers-Interfaces-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary

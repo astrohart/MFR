@@ -6,11 +6,12 @@
 - [Resources](#T-MFR-Managers-Solutions-Actions-Constants-Properties-Resources 'MFR.Managers.Solutions.Actions.Constants.Properties.Resources')
   - [Culture](#P-MFR-Managers-Solutions-Actions-Constants-Properties-Resources-Culture 'MFR.Managers.Solutions.Actions.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Managers-Solutions-Actions-Constants-Properties-Resources-ResourceManager 'MFR.Managers.Solutions.Actions.Constants.Properties.Resources.ResourceManager')
-- [VisualStudioSolutionServiceAction](#T-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceAction')
-  - [#ctor(messageId)](#M-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-#ctor-System-Guid- 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceAction.#ctor(System.Guid)')
-  - [LoadAllSolutionsInFolder](#F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-LoadAllSolutionsInFolder 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceAction.LoadAllSolutionsInFolder')
-  - [Unknown](#F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-Unknown 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceAction.Unknown')
-  - [UnloadAllSolutionsInFolder](#F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-UnloadAllSolutionsInFolder 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceAction.UnloadAllSolutionsInFolder')
+- [VisualStudioSolutionServiceActionType](#T-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType')
+  - [#ctor(messageId)](#M-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-#ctor-System-Guid- 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType.#ctor(System.Guid)')
+  - [#ctor(description,messageId)](#M-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-#ctor-System-Guid,System-String- 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType.#ctor(System.Guid,System.String)')
+  - [LoadAllSolutionsInFolder](#F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-LoadAllSolutionsInFolder 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType.LoadAllSolutionsInFolder')
+  - [Unknown](#F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-Unknown 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType.Unknown')
+  - [UnloadAllSolutionsInFolder](#F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-UnloadAllSolutionsInFolder 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType.UnloadAllSolutionsInFolder')
 
 <a name='T-MFR-Managers-Solutions-Actions-Constants-Properties-Resources'></a>
 ## Resources `type`
@@ -38,8 +39,8 @@ Overrides the current thread's CurrentUICulture property for all
 
 Returns the cached ResourceManager instance used by this class.
 
-<a name='T-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction'></a>
-## VisualStudioSolutionServiceAction `type`
+<a name='T-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType'></a>
+## VisualStudioSolutionServiceActionType `type`
 
 ##### Namespace
 
@@ -50,7 +51,7 @@ MFR.Managers.Solutions.Actions.Constants
 Defines names for the types of actions that can be performed on
 `Visual Studio Solution Service` objects.
 
-<a name='M-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-#ctor-System-Guid-'></a>
+<a name='M-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-#ctor-System-Guid-'></a>
 ### #ctor(messageId) `constructor`
 
 ##### Summary
@@ -66,7 +67,25 @@ and returns a reference to it.
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
 that provides a unique identifier to be associated with this instance. |
 
-<a name='F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-LoadAllSolutionsInFolder'></a>
+<a name='M-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-#ctor-System-Guid,System-String-'></a>
+### #ctor(description,messageId) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[VisualStudioSolutionServiceActionType](#T-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType 'MFR.Managers.Solutions.Actions.Constants.VisualStudioSolutionServiceActionType')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| description | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing a user-friendly
+descriptive name for this message type. |
+| messageId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+that provides a unique identifier to be associated with this instance. |
+
+<a name='F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-LoadAllSolutionsInFolder'></a>
 ### LoadAllSolutionsInFolder `constants`
 
 ##### Summary
@@ -74,14 +93,14 @@ that provides a unique identifier to be associated with this instance. |
 Loads all the `*.sln` files in a given folder into separate instances
 of Visual Studio.
 
-<a name='F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-Unknown'></a>
+<a name='F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-Unknown'></a>
 ### Unknown `constants`
 
 ##### Summary
 
 Unknown action.
 
-<a name='F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceAction-UnloadAllSolutionsInFolder'></a>
+<a name='F-MFR-Managers-Solutions-Actions-Constants-VisualStudioSolutionServiceActionType-UnloadAllSolutionsInFolder'></a>
 ### UnloadAllSolutionsInFolder `constants`
 
 ##### Summary

@@ -3,17 +3,18 @@
 
 ## Contents
 
-- [DialogLauncherAction](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction')
-  - [#ctor(messageId)](#M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-#ctor-System-Guid- 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.#ctor(System.Guid)')
-  - [LaunchErrorReportDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchErrorReportDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.LaunchErrorReportDialog')
-  - [LaunchHelpExplainerDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchHelpExplainerDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.LaunchHelpExplainerDialog')
-  - [LaunchProfileNameDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchProfileNameDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction.LaunchProfileNameDialog')
+- [DialogLauncherActionType](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType')
+  - [#ctor(messageId)](#M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-#ctor-System-Guid- 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType.#ctor(System.Guid)')
+  - [#ctor(description,messageId)](#M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-#ctor-System-Guid,System-String- 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType.#ctor(System.Guid,System.String)')
+  - [LaunchErrorReportDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-LaunchErrorReportDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType.LaunchErrorReportDialog')
+  - [LaunchHelpExplainerDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-LaunchHelpExplainerDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType.LaunchHelpExplainerDialog')
+  - [LaunchProfileNameDialog](#F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-LaunchProfileNameDialog 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType.LaunchProfileNameDialog')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Actions.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Actions.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Actions-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Actions.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction'></a>
-## DialogLauncherAction `type`
+<a name='T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType'></a>
+## DialogLauncherActionType `type`
 
 ##### Namespace
 
@@ -23,13 +24,13 @@ MFR.GUI.Launchers.Dialogs.Actions.Constants
 
 Available commands for use when working with error reports.
 
-<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-#ctor-System-Guid-'></a>
+<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-#ctor-System-Guid-'></a>
 ### #ctor(messageId) `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[DialogLauncherAction](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherAction')
+[DialogLauncherActionType](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType')
 and returns a
 reference to it.
 
@@ -40,21 +41,40 @@ reference to it.
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
 that provides a unique identifier to be associated with this instance. |
 
-<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchErrorReportDialog'></a>
+<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-#ctor-System-Guid,System-String-'></a>
+### #ctor(description,messageId) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[DialogLauncherActionType](#T-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType 'MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType')
+and returns a
+reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| description | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing a user-friendly
+descriptive name for this message type. |
+| messageId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+that provides a unique identifier to be associated with this instance. |
+
+<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-LaunchErrorReportDialog'></a>
 ### LaunchErrorReportDialog `constants`
 
 ##### Summary
 
 Launches the Profile Name dialog box.
 
-<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchHelpExplainerDialog'></a>
+<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-LaunchHelpExplainerDialog'></a>
 ### LaunchHelpExplainerDialog `constants`
 
 ##### Summary
 
 Launches the Help dialog that explains what Profiles are.
 
-<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherAction-LaunchProfileNameDialog'></a>
+<a name='F-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-LaunchProfileNameDialog'></a>
 ### LaunchProfileNameDialog `constants`
 
 ##### Summary

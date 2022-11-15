@@ -3,6 +3,11 @@
 
 ## Contents
 
+- [FileRenamedEventArgs](#T-MFR-Events-FileRenamedEventArgs 'MFR.Events.FileRenamedEventArgs')
+  - [#ctor(source,destination)](#M-MFR-Events-FileRenamedEventArgs-#ctor-System-String,System-String- 'MFR.Events.FileRenamedEventArgs.#ctor(System.String,System.String)')
+  - [Destination](#P-MFR-Events-FileRenamedEventArgs-Destination 'MFR.Events.FileRenamedEventArgs.Destination')
+  - [Source](#P-MFR-Events-FileRenamedEventArgs-Source 'MFR.Events.FileRenamedEventArgs.Source')
+- [FileRenamedEventHandler](#T-MFR-Events-FileRenamedEventHandler 'MFR.Events.FileRenamedEventHandler')
 - [FileSystemEntrySkippedEventArgs](#T-MFR-Events-FileSystemEntrySkippedEventArgs 'MFR.Events.FileSystemEntrySkippedEventArgs')
   - [#ctor(pathname)](#M-MFR-Events-FileSystemEntrySkippedEventArgs-#ctor-System-String- 'MFR.Events.FileSystemEntrySkippedEventArgs.#ctor(System.String)')
   - [Pathname](#P-MFR-Events-FileSystemEntrySkippedEventArgs-Pathname 'MFR.Events.FileSystemEntrySkippedEventArgs.Pathname')
@@ -11,6 +16,11 @@
   - [#ctor(count,operationType)](#M-MFR-Events-FilesOrFoldersCountedEventArgs-#ctor-System-Int32,MFR-Operations-Constants-OperationType- 'MFR.Events.FilesOrFoldersCountedEventArgs.#ctor(System.Int32,MFR.Operations.Constants.OperationType)')
   - [Count](#P-MFR-Events-FilesOrFoldersCountedEventArgs-Count 'MFR.Events.FilesOrFoldersCountedEventArgs.Count')
 - [FilesOrFoldersCountedEventHandler](#T-MFR-Events-FilesOrFoldersCountedEventHandler 'MFR.Events.FilesOrFoldersCountedEventHandler')
+- [FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs')
+  - [#ctor(source,destination)](#M-MFR-Events-FolderRenamedEventArgs-#ctor-System-String,System-String- 'MFR.Events.FolderRenamedEventArgs.#ctor(System.String,System.String)')
+  - [Destination](#P-MFR-Events-FolderRenamedEventArgs-Destination 'MFR.Events.FolderRenamedEventArgs.Destination')
+  - [Source](#P-MFR-Events-FolderRenamedEventArgs-Source 'MFR.Events.FolderRenamedEventArgs.Source')
+- [FolderRenamedEventHandler](#T-MFR-Events-FolderRenamedEventHandler 'MFR.Events.FolderRenamedEventHandler')
 - [Resources](#T-MFR-Events-Properties-Resources 'MFR.Events.Properties.Resources')
   - [Culture](#P-MFR-Events-Properties-Resources-Culture 'MFR.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Events-Properties-Resources-ResourceManager 'MFR.Events.Properties.Resources.ResourceManager')
@@ -20,6 +30,80 @@
   - [FindWhat](#P-MFR-Events-TextPatternMatchEventArgs-FindWhat 'MFR.Events.TextPatternMatchEventArgs.FindWhat')
   - [ReplaceWith](#P-MFR-Events-TextPatternMatchEventArgs-ReplaceWith 'MFR.Events.TextPatternMatchEventArgs.ReplaceWith')
   - [Source](#P-MFR-Events-TextPatternMatchEventArgs-Source 'MFR.Events.TextPatternMatchEventArgs.Source')
+
+<a name='T-MFR-Events-FileRenamedEventArgs'></a>
+## FileRenamedEventArgs `type`
+
+##### Namespace
+
+MFR.Events
+
+##### Summary
+
+Provides information for FileRenamed event handlers.
+
+<a name='M-MFR-Events-FileRenamedEventArgs-#ctor-System-String,System-String-'></a>
+### #ctor(source,destination) `constructor`
+
+##### Summary
+
+Constructs a new instance of [FileRenamedEventArgs](#T-MFR-Events-FileRenamedEventArgs 'MFR.Events.FileRenamedEventArgs')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified
+pathname of the file's former location (before the rename operation). |
+| destination | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified
+pathname of the file's current location (after the rename operation). |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required
+parameters, `source` or `source`, are
+passed blank or `null` strings for values. |
+
+<a name='P-MFR-Events-FileRenamedEventArgs-Destination'></a>
+### Destination `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname
+of the file's current location.
+
+<a name='P-MFR-Events-FileRenamedEventArgs-Source'></a>
+### Source `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname
+of the file's former name.
+
+<a name='T-MFR-Events-FileRenamedEventHandler'></a>
+## FileRenamedEventHandler `type`
+
+##### Namespace
+
+MFR.Events
+
+##### Summary
+
+Represents a handler for a `FileRenamed` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Events.FileRenamedEventHandler](#T-T-MFR-Events-FileRenamedEventHandler 'T:MFR.Events.FileRenamedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`FileRenamed` event.
 
 <a name='T-MFR-Events-FileSystemEntrySkippedEventArgs'></a>
 ## FileSystemEntrySkippedEventArgs `type`
@@ -123,6 +207,126 @@ Defines the method signature for the handlers of the [](#E-MFR-FilesOrFoldersCou
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [T:MFR.Events.FilesOrFoldersCountedEventHandler](#T-T-MFR-Events-FilesOrFoldersCountedEventHandler 'T:MFR.Events.FilesOrFoldersCountedEventHandler') | Reference to the instance of the object that raised the event. |
+
+<a name='T-MFR-Events-FolderRenamedEventArgs'></a>
+## FolderRenamedEventArgs `type`
+
+##### Namespace
+
+MFR.Events
+
+##### Summary
+
+Provides information for `FolderRenamed` event handlers.
+
+##### Remarks
+
+This class is utilized in order to supply data to handlers of the
+`FolderRenamed` event.
+
+
+
+This class has two read-only [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') properties,
+[Source](#P-MFR-Events-FolderRenamedEventArgs-Source 'MFR.Events.FolderRenamedEventArgs.Source') and
+[Destination](#P-MFR-Events-FolderRenamedEventArgs-Destination 'MFR.Events.FolderRenamedEventArgs.Destination').
+
+
+
+The [Source](#P-MFR-Events-FolderRenamedEventArgs-Source 'MFR.Events.FolderRenamedEventArgs.Source') property stores
+the fully-qualified pathname of the previous location of a folder that has been
+renamed.  The [Destination](#P-MFR-Events-FolderRenamedEventArgs-Destination 'MFR.Events.FolderRenamedEventArgs.Destination')
+property stores the fully-qualified pathname of the current location of a
+folder that has been renamed.
+
+
+
+Callers of this class must use the class' constructor to initialize these
+properties.
+
+<a name='M-MFR-Events-FolderRenamedEventArgs-#ctor-System-String,System-String-'></a>
+### #ctor(source,destination) `constructor`
+
+##### Summary
+
+Constructs a new instance of [FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| source | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified
+pathname of the previous location of a folder that has been renamed. |
+| destination | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified
+pathname of the current location of a folder that has been renamed. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required
+parameters, `source` or `destination`, are
+passed blank or `null` strings for values. |
+
+##### Remarks
+
+This constructor is utilized in order to construct a new instance of an object
+that supplies data to handlers of the `FolderRenamed` event.
+
+
+
+This constructor has two required parameters, `source` and
+`destination`.  Both must be filled in, otherwise
+[ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') is thrown.  The
+`source` parameter should refer to the name the folder used
+to have, and the `destination` parameter should refer to the
+current pathname of the folder.
+
+
+
+If valid values have been passed for both the `source` and
+`destination` parameters, then this constructor sets the
+values of the [Source](#P-MFR-Events-FolderRenamedEventArgs-Source 'MFR.Events.FolderRenamedEventArgs.Source') and
+[Destination](#P-MFR-Events-FolderRenamedEventArgs-Destination 'MFR.Events.FolderRenamedEventArgs.Destination') properties to
+the corresponding parameter values.
+
+<a name='P-MFR-Events-FolderRenamedEventArgs-Destination'></a>
+### Destination `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the current location of a folder that has been renamed.
+
+<a name='P-MFR-Events-FolderRenamedEventArgs-Source'></a>
+### Source `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the previous location of a folder that has been renamed.
+
+<a name='T-MFR-Events-FolderRenamedEventHandler'></a>
+## FolderRenamedEventHandler `type`
+
+##### Namespace
+
+MFR.Events
+
+##### Summary
+
+Represents a handler for a `FolderRenamed` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Events.FolderRenamedEventHandler](#T-T-MFR-Events-FolderRenamedEventHandler 'T:MFR.Events.FolderRenamedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`FolderRenamed` event.
 
 <a name='T-MFR-Events-Properties-Resources'></a>
 ## Resources `type`

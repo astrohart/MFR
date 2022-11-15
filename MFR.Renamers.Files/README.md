@@ -122,7 +122,8 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
+Gets or sets the path to the folder in which last Visual Studio Solution that
+we have worked with most recently resides.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionPath'></a>
 ### LastSolutionPath `property`
@@ -146,7 +147,7 @@ operations start.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
 interface.
 
 ##### Remarks
@@ -364,7 +365,8 @@ Raises the [](#E-MFR-Renamers-Files-FileRenamer-FolderRenamed 'MFR.Renamers.File
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') | A [FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') that contains the event data. |
+| e | [MFR.Events.FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') | A [FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') that
+contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Operations-Events-OperationFinishedEventArgs-'></a>
 ### OnOperationFinished(e) `method`

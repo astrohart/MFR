@@ -5,8 +5,6 @@
 
 - [GetCommandLineValidator](#T-MFR-CommandLine-Validators-Factories-GetCommandLineValidator 'MFR.CommandLine.Validators.Factories.GetCommandLineValidator')
   - [SoleInstance()](#M-MFR-CommandLine-Validators-Factories-GetCommandLineValidator-SoleInstance 'MFR.CommandLine.Validators.Factories.GetCommandLineValidator.SoleInstance')
-- [GetRootDirectoryValidator](#T-MFR-CommandLine-Validators-Factories-GetRootDirectoryValidator 'MFR.CommandLine.Validators.Factories.GetRootDirectoryValidator')
-  - [SoleInstance()](#M-MFR-CommandLine-Validators-Factories-GetRootDirectoryValidator-SoleInstance 'MFR.CommandLine.Validators.Factories.GetRootDirectoryValidator.SoleInstance')
 - [Resources](#T-MFR-CommandLine-Validators-Factories-Properties-Resources 'MFR.CommandLine.Validators.Factories.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Validators-Factories-Properties-Resources-Culture 'MFR.CommandLine.Validators.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Validators-Factories-Properties-Resources-ResourceManager 'MFR.CommandLine.Validators.Factories.Properties.Resources.ResourceManager')
@@ -38,45 +36,6 @@ interface.
 
 Reference to an instance of an object that implements the
 [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
-interface.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the object type requested is not supported. |
-
-<a name='T-MFR-CommandLine-Validators-Factories-GetRootDirectoryValidator'></a>
-## GetRootDirectoryValidator `type`
-
-##### Namespace
-
-MFR.CommandLine.Validators.Factories
-
-##### Summary
-
-Provides access to the sole instance of the object that implements the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
-interface.
-
-<a name='M-MFR-CommandLine-Validators-Factories-GetRootDirectoryValidator-SoleInstance'></a>
-### SoleInstance() `method`
-
-##### Summary
-
-Provides access to the sole instance of the object that implements
-the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
-interface.
-
-##### Returns
-
-Reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator')
 interface.
 
 ##### Parameters
