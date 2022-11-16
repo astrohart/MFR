@@ -380,12 +380,12 @@ namespace MFR.GUI.Windows
              * by the user, then we should update the screen with the values from the
              * configuration, and then "click" the Perform Operation button.
              */
-            //if (!CurrentConfiguration.IsFromCommandLine)
-            //    return;
+            if (!CurrentConfiguration.IsFromCommandLine)
+                return;
 
-            //Presenter.UpdateData(false);
+            Presenter.UpdateData(false);
 
-            //performOperationButton.PerformClick();
+            performOperationButton.PerformClick();
         }
 
         /// <summary>

@@ -12,6 +12,16 @@ namespace MFR.CommandLine.Models
     public class CommandLineInfo : ICommandLineInfo
     {
         /// <summary>
+        /// Gets or sets a value indicating whether processing starts when the application
+        /// starts.
+        /// </summary>
+        public bool AutoStart
+        {
+            get;
+            set;
+        } = false;
+
+        /// <summary>
         /// Gets or sets a string containing the content to be found in the file system
         /// entries.
         /// </summary>

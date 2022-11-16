@@ -60,6 +60,13 @@ namespace MFR.CommandLine.Parsers
 
             try
             {
+                p.Setup(arg => arg.AutoStart)
+                 .As("autoStart")
+                 .SetDefault(false)
+                 .WithDescription(
+                     "Specify this flag in order to start the specified operation(s) automatically when the application starts.  If this flag is specified, the application will automatically exit when the specified operation(s) are completed."
+                 );
+
                 p.Setup(arg => arg.StartingFolder)
                  .As('r', "root")
                  .WithDescription(
