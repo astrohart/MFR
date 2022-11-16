@@ -32,6 +32,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
@@ -1569,6 +1570,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="mfr" Directory_="SHORTCUTDIR" Name="XYLOGI~1.363|xyLOGIX Project File Renamer [|ProductVersion]" Component_="mfr.exe" Target="[#mfr.exe]" Description="Provides a Find and Replace for Solution Explorer-like utility to make renaming projects in large Visual Studio Solutions a breeze." Hotkey="0" Icon_="mfr.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="1"/>
+    <ROW Shortcut="mfr_1" Directory_="DesktopFolder" Name="XYLOGI~1.363|xyLOGIX Project File Renamer [|ProductVersion]" Component_="mfr.exe" Target="[#mfr.exe]" Hotkey="0" Icon_="mfr.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>
