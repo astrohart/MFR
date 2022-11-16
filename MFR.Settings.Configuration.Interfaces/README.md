@@ -4,6 +4,7 @@
 ## Contents
 
 - [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+  - [AutoStart](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IConfiguration.FindWhatHistory')
   - [IsFolded](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-IsFolded 'MFR.Settings.Configuration.Interfaces.IConfiguration.IsFolded')
@@ -42,6 +43,21 @@ MFR.Settings.Configuration.Interfaces
 ##### Summary
 
 Defines the public-exposed methods and properties of a configuration object.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-AutoStart'></a>
+### AutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether the specified operation(s) should be
+automatically initiated when the application starts.  If this value is set to
+`true` then the application quits automatically after the
+specified operation(s) have been completed.
+
+##### Remarks
+
+This flag is ignored if this configuration did not originate from the command
+line.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-FindWhat'></a>
 ### FindWhat `property`
