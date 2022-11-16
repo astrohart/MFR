@@ -6,10 +6,11 @@
 - [Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
   - [#ctor()](#M-MFR-Settings-Configuration-Configuration-#ctor 'MFR.Settings.Configuration.Configuration.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-Configuration-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.Configuration.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
-  - [CommandLineSpecified](#P-MFR-Settings-Configuration-Configuration-CommandLineSpecified 'MFR.Settings.Configuration.Configuration.CommandLineSpecified')
+  - [AutoStart](#P-MFR-Settings-Configuration-Configuration-AutoStart 'MFR.Settings.Configuration.Configuration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-Configuration-FindWhat 'MFR.Settings.Configuration.Configuration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Configuration-FindWhatHistory 'MFR.Settings.Configuration.Configuration.FindWhatHistory')
   - [IsFolded](#P-MFR-Settings-Configuration-Configuration-IsFolded 'MFR.Settings.Configuration.Configuration.IsFolded')
+  - [IsFromCommandLine](#P-MFR-Settings-Configuration-Configuration-IsFromCommandLine 'MFR.Settings.Configuration.Configuration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-Configuration-MatchCase 'MFR.Settings.Configuration.Configuration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-Configuration-MatchExactWord 'MFR.Settings.Configuration.Configuration.MatchExactWord')
   - [OperationsToPerform](#P-MFR-Settings-Configuration-Configuration-OperationsToPerform 'MFR.Settings.Configuration.Configuration.OperationsToPerform')
@@ -81,13 +82,16 @@ and returns a reference to it.
 [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
 that contains existing configuration settings to copy into this object. |
 
-<a name='P-MFR-Settings-Configuration-Configuration-CommandLineSpecified'></a>
-### CommandLineSpecified `property`
+<a name='P-MFR-Settings-Configuration-Configuration-AutoStart'></a>
+### AutoStart `property`
 
 ##### Summary
 
-Gets or sets a value indicating whether this configuration was specified by the
-user on the command line.
+Gets or sets a value indicating whether the specified operation(s) should be automatically initiated when the application starts.  If this value is set to `true` then the application quits automatically after the specified operation(s) have been completed.
+
+##### Remarks
+
+This flag is ignored if this configuration did not originate from the command line.
 
 <a name='P-MFR-Settings-Configuration-Configuration-FindWhat'></a>
 ### FindWhat `property`
@@ -116,6 +120,14 @@ Gets a value indicating whether the form is in the Folded state.
 
 If this value is `true` when the form is loaded, then ensure
 that the form displays in the folded state.
+
+<a name='P-MFR-Settings-Configuration-Configuration-IsFromCommandLine'></a>
+### IsFromCommandLine `property`
+
+##### Summary
+
+Gets or sets a value indicating whether this configuration was specified by the
+user on the command line.
 
 <a name='P-MFR-Settings-Configuration-Configuration-MatchCase'></a>
 ### MatchCase `property`

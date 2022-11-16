@@ -58,8 +58,9 @@ namespace MFR.CommandLine.Translators
                                        .AndShouldReOpenSolution(
                                            cmdInfo.ReOpenSolution
                                        )
-                                       .SetIsFromCommandLine(
-                                           true
+                                       .SetIsFromCommandLine(true)
+                                       .ShouldAutoStart(
+                                           cmdInfo.AutoStart
                                        ); // mark this as a command-line specified configuration
         }
     }

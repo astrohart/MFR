@@ -48,9 +48,11 @@ namespace MFR.Settings.Configuration
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
+            AutoStart = source.AutoStart;
             FindWhat = source.FindWhat;
             FindWhatHistory = source.FindWhatHistory;
             IsFolded = source.IsFolded;
+            IsFromCommandLine = source.IsFromCommandLine;
             MatchCase = source.MatchCase;
             MatchExactWord = source.MatchExactWord;
             OperationsToPerform = source.OperationsToPerform;
@@ -63,6 +65,22 @@ namespace MFR.Settings.Configuration
             SelectedOptionTab = source.SelectedOptionTab;
             StartingFolder = source.StartingFolder;
             StartingFolderHistory = source.StartingFolderHistory;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the specified operation(s) should be
+        /// automatically initiated when the application starts.  If this value is set to
+        /// <see langword="true" /> then the application quits automatically after the
+        /// specified operation(s) have been completed.
+        /// </summary>
+        /// <remarks>
+        /// This flag is ignored if this configuration did not originate from the command
+        /// line.
+        /// </remarks>
+        public bool AutoStart
+        {
+            get;
+            set;
         }
 
         /// <summary>

@@ -7,6 +7,16 @@ namespace MFR.CommandLine.Models.Interfaces
     public interface ICommandLineInfo
     {
         /// <summary>
+        /// Gets or sets a value indicating whether processing starts when the application
+        /// starts.
+        /// </summary>
+        bool AutoStart
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a string containing the content to be found in the file system
         /// entries.
         /// </summary>

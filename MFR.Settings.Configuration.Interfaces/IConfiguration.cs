@@ -174,5 +174,17 @@ namespace MFR.Settings.Configuration.Interfaces
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the specified operation(s) should be
+        /// automatically initiated when the application starts.  If this value is set to
+        /// <see langword="true" /> then the application quits automatically after the
+        /// specified operation(s) have been completed.
+        /// </summary>
+        /// <remarks>
+        /// This flag is ignored if this configuration did not originate from the command
+        /// line.
+        /// </remarks>
+        bool AutoStart { get; set; }
     }
 }

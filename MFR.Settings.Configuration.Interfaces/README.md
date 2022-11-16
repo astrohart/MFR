@@ -7,6 +7,7 @@
   - [FindWhat](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IConfiguration.FindWhatHistory')
   - [IsFolded](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-IsFolded 'MFR.Settings.Configuration.Interfaces.IConfiguration.IsFolded')
+  - [IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-MatchCase 'MFR.Settings.Configuration.Interfaces.IConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-MatchExactWord 'MFR.Settings.Configuration.Interfaces.IConfiguration.MatchExactWord')
   - [OperationsToPerform](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-OperationsToPerform 'MFR.Settings.Configuration.Interfaces.IConfiguration.OperationsToPerform')
@@ -69,6 +70,14 @@ Gets a value indicating whether the form is in the Folded state.
 
 If this value is `true` when the form is loaded, then ensure
 that the form displays in the folded state.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-IsFromCommandLine'></a>
+### IsFromCommandLine `property`
+
+##### Summary
+
+Gets or sets a value indicating whether this configuration was specified by the
+user on the command line.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IConfiguration-MatchCase'></a>
 ### MatchCase `property`

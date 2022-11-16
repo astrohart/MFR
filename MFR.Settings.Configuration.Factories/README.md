@@ -20,6 +20,7 @@
   - [AndStartingFolderHistory(self,startingFolderHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-AndStartingFolderHistory-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.AndStartingFolderHistory(MFR.Settings.Configuration.Interfaces.IConfiguration,System.Collections.Generic.List{System.String})')
   - [ForStartingFolder(self,startingFolder)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-ForStartingFolder-MFR-Settings-Configuration-Interfaces-IConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.ForStartingFolder(MFR.Settings.Configuration.Interfaces.IConfiguration,System.String)')
   - [FromScratch()](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-FromScratch 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.FromScratch')
+  - [SetIsFromCommandLine(self,isFromCommandLine)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.SetIsFromCommandLine(MFR.Settings.Configuration.Interfaces.IConfiguration,System.Boolean)')
   - [SetRenameFilesTo(self,renameFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-SetRenameFilesTo-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.SetRenameFilesTo(MFR.Settings.Configuration.Interfaces.IConfiguration,System.Boolean)')
 - [Resources](#T-MFR-Settings-Configuration-Factories-Properties-Resources 'MFR.Settings.Configuration.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Factories.Properties.Resources.Culture')
@@ -528,6 +529,37 @@ interface.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean-'></a>
+### SetIsFromCommandLine(self,isFromCommandLine) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IConfiguration.IsFromCommandLine')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+interface. |
+| isFromCommandLine | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
 
 <a name='M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-SetRenameFilesTo-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean-'></a>
 ### SetRenameFilesTo(self,renameFiles) `method`

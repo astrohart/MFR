@@ -4,6 +4,7 @@
 ## Contents
 
 - [CommandLineInfo](#T-MFR-CommandLine-Models-CommandLineInfo 'MFR.CommandLine.Models.CommandLineInfo')
+  - [AutoStart](#P-MFR-CommandLine-Models-CommandLineInfo-AutoStart 'MFR.CommandLine.Models.CommandLineInfo.AutoStart')
   - [FindWhat](#P-MFR-CommandLine-Models-CommandLineInfo-FindWhat 'MFR.CommandLine.Models.CommandLineInfo.FindWhat')
   - [MatchCase](#P-MFR-CommandLine-Models-CommandLineInfo-MatchCase 'MFR.CommandLine.Models.CommandLineInfo.MatchCase')
   - [MatchWholeWord](#P-MFR-CommandLine-Models-CommandLineInfo-MatchWholeWord 'MFR.CommandLine.Models.CommandLineInfo.MatchWholeWord')
@@ -31,6 +32,14 @@ Encapsulates this application's command line arguments.
 ##### Remarks
 
 This class depends on the `FluentCommandLineParser` NuGet package.
+
+<a name='P-MFR-CommandLine-Models-CommandLineInfo-AutoStart'></a>
+### AutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether processing starts when the application
+starts.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-FindWhat'></a>
 ### FindWhat `property`

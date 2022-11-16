@@ -595,5 +595,39 @@ namespace MFR.Settings.Configuration.Factories
             self.RenameFiles = renameFiles;
             return self;
         }
+
+        /// <summary>
+        /// Builder extension method that initializes the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfiguration.AutoStart" />
+        /// property.
+        /// </summary>
+        /// <param name="self">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </param>
+        /// <param name="autoStart">
+        /// (Required.) Sets a value indicating whether the specified operation(s) should
+        /// be automatically processed when the application starts.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="self" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        public static IConfiguration ShouldAutoStart(this IConfiguration self,
+            bool autoStart)
+        {
+            if (self == null) throw new ArgumentNullException(nameof(self));
+
+            self.AutoStart = autoStart;
+            return self;
+        }
     }
 }
