@@ -5,10 +5,10 @@
 
 - [ConfigurationProvider](#T-MFR-Settings-Configuration-Providers-ConfigurationProvider 'MFR.Settings.Configuration.Providers.ConfigurationProvider')
   - [#ctor()](#M-MFR-Settings-Configuration-Providers-ConfigurationProvider-#ctor 'MFR.Settings.Configuration.Providers.ConfigurationProvider.#ctor')
-  - [Configuration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Configuration')
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
   - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePathKeyName')
   - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePathValueName')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.CurrentConfiguration')
   - [DefaultConfigDir](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigDir 'MFR.Settings.Configuration.Providers.ConfigurationProvider.DefaultConfigDir')
   - [DefaultConfigFileName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigFileName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.DefaultConfigFileName')
   - [Instance](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Instance 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Instance')
@@ -47,16 +47,6 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Configuration'></a>
-### Configuration `property`
-
-##### Summary
-
-Gets a reference to the instance of the object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface and which
-exposes settings changed by the user in order to modify the
-application's behavior.
-
 <a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath'></a>
 ### ConfigurationFilePath `property`
 
@@ -79,6 +69,16 @@ configuration settings are stored.
 
 Gets a string whose value is the Registry value under which we store the path
 to the configuration file.
+
+<a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to the instance of the object that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface and which
+exposes settings changed by the user in order to modify the
+application's behavior.
 
 <a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigDir'></a>
 ### DefaultConfigDir `property`
