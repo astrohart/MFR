@@ -76,7 +76,8 @@ to the configuration file.
 ##### Summary
 
 Gets a reference to the instance of the object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface and which
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
+and which
 exposes settings changed by the user in order to modify the
 application's behavior.
 
