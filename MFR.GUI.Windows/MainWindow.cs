@@ -98,6 +98,14 @@ namespace MFR.GUI.Windows
             => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </summary>
+        private static IConfiguration CurrentConfiguration
+            => ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
@@ -326,8 +334,6 @@ namespace MFR.GUI.Windows
             base.OnFormClosing(e);
 
             Presenter.UpdateData();
-
-            ConfigurationProvider.Save();
         }
 
         /// <summary>
@@ -355,6 +361,31 @@ namespace MFR.GUI.Windows
             MakeButtonBitmapTransparent(switchButton);
 
             Presenter.FillProfileDropDownList();
+        }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            /*
+             * Just carry out the normal behavior in the event that the configuration
+             * is not specified on the command line.
+             *
+             * However, if the configuration did come from the command-line options chosen
+             * by the user, then we should update the screen with the values from the
+             * configuration, and then "click" the Perform Operation button.
+             */
+            //if (!CurrentConfiguration.IsFromCommandLine)
+            //    return;
+
+            //Presenter.UpdateData(false);
+
+            //performOperationButton.PerformClick();
         }
 
         /// <summary>
@@ -671,9 +702,6 @@ namespace MFR.GUI.Windows
                 UseWaitCursor = true;
                 Enabled = false;
 
-                GetConfigurationProvider.SoleInstance()
-                                        .Save(); // save the configuration to disk
-
                 Presenter.DoSelectedOperations();
             }
             catch (Exception ex)
@@ -732,13 +760,7 @@ namespace MFR.GUI.Windows
         /// the application, closing this window ends the lifecycle of the application.
         /// </remarks>
         private void OnFileExit(object sender, EventArgs e)
-        {
-            // Save the configuration one last time
-            GetConfigurationProvider.SoleInstance()
-                                    .Save();
-
-            Close();
-        }
+            => Close();
 
         /// <summary>
         /// Handles the
@@ -1166,8 +1188,6 @@ namespace MFR.GUI.Windows
         {
             // Creating a new profile will blank out the application screen.
             // Save the current configuration settings.
-            Presenter.SaveConfiguration();
-
             var results =
                 Display.ProfileNameDialogBox(ProfileCreateOperationType.New);
             if (DialogResult.Cancel == results.DialogResult)
@@ -1190,8 +1210,6 @@ namespace MFR.GUI.Windows
              * First step, save whatever settings are on the screen
              * to the configuration.
              */
-
-            Presenter.SaveConfiguration();
 
             // Prompt the user to create a new name for the new
             // Profile

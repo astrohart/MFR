@@ -347,7 +347,8 @@ namespace MFR.Settings.Configuration.Providers
             if (string.IsNullOrWhiteSpace(pathname)) return;
             
             // Check to see if the required property, Configuration, is null. If
-            if (CurrentConfiguration == null) return;
+            if (CurrentConfiguration == null
+                || CurrentConfiguration.IsFromCommandLine) return;
 
             try
             {

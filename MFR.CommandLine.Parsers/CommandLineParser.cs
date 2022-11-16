@@ -85,19 +85,19 @@ namespace MFR.CommandLine.Parsers
                 p.Setup(arg => arg.RenameFiles)
                  .As("renameFiles")
                  .WithDescription("Indicates that files should be renamed.")
-                 .SetDefault(false);
+                 .SetDefault(true);
 
                 p.Setup(arg => arg.RenameSubFolders)
                  .As("renameSubFolders")
                  .WithDescription("Indicates that folders should be renamed.")
-                 .SetDefault(false);
+                 .SetDefault(true);
 
                 p.Setup(arg => arg.ReplaceTextInFiles)
                  .As("replaceTextInFiles")
                  .WithDescription(
                      "Indicates that text should be replaced in files."
                  )
-                 .SetDefault(false);
+                 .SetDefault(true);
 
                 p.Setup(arg => arg.ReOpenSolution)
                  .As("reOpenSolution")

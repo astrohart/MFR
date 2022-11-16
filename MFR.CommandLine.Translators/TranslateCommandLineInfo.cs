@@ -57,7 +57,10 @@ namespace MFR.CommandLine.Translators
                                        )
                                        .AndShouldReOpenSolution(
                                            cmdInfo.ReOpenSolution
-                                       );
+                                       )
+                                       .SetIsFromCommandLine(
+                                           true
+                                       ); // mark this as a command-line specified configuration
         }
     }
 }

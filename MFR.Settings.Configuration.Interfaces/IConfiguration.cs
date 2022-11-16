@@ -42,6 +42,15 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this configuration was specified by the
+        /// user on the command line.
+        /// </summary>
+        bool IsFromCommandLine
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether we should match the case on
         /// found text.
         /// </summary>

@@ -1629,7 +1629,7 @@ namespace MFR.GUI.Windows.Presenters
         [Log(AttributeExclude = true)]
         private void ResetProgressBar()
             => _cancellableProgressDialog.DoIfNotDisposed(
-                _cancellableProgressDialog.Reset
+               _cancellableProgressDialog.Reset
             );
 
         /// <summary>

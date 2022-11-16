@@ -6,6 +6,7 @@
 - [Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
   - [#ctor()](#M-MFR-Settings-Configuration-Configuration-#ctor 'MFR.Settings.Configuration.Configuration.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-Configuration-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.Configuration.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [CommandLineSpecified](#P-MFR-Settings-Configuration-Configuration-CommandLineSpecified 'MFR.Settings.Configuration.Configuration.CommandLineSpecified')
   - [FindWhat](#P-MFR-Settings-Configuration-Configuration-FindWhat 'MFR.Settings.Configuration.Configuration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Configuration-FindWhatHistory 'MFR.Settings.Configuration.Configuration.FindWhatHistory')
   - [IsFolded](#P-MFR-Settings-Configuration-Configuration-IsFolded 'MFR.Settings.Configuration.Configuration.IsFolded')
@@ -79,6 +80,14 @@ and returns a reference to it.
 | source | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements the
 [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
 that contains existing configuration settings to copy into this object. |
+
+<a name='P-MFR-Settings-Configuration-Configuration-CommandLineSpecified'></a>
+### CommandLineSpecified `property`
+
+##### Summary
+
+Gets or sets a value indicating whether this configuration was specified by the
+user on the command line.
 
 <a name='P-MFR-Settings-Configuration-Configuration-FindWhat'></a>
 ### FindWhat `property`

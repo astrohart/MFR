@@ -10,6 +10,7 @@
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
   - [Configuration](#P-MFR-GUI-Windows-MainWindow-Configuration 'MFR.GUI.Windows.MainWindow.Configuration')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-MainWindow-FullApplicationName 'MFR.GUI.Windows.MainWindow.FullApplicationName')
@@ -55,6 +56,7 @@
   - [OnPresenterStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterStarted(System.Object,System.EventArgs)')
   - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Windows.MainWindow.OnRootDirectoryInvalid(System.Object,MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
   - [OnSelChangeComboBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnSelChangeComboBox(System.Object,System.EventArgs)')
+  - [OnShown(e)](#M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnShown(System.EventArgs)')
   - [OnToolsConfigImport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigImport(System.Object,System.EventArgs)')
   - [OnToolsConfigurationNewProfile(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigurationNewProfile-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigurationNewProfile(System.Object,System.EventArgs)')
   - [OnToolsExportConfig(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsExportConfig(System.Object,System.EventArgs)')
@@ -174,6 +176,15 @@ interface.
 
 This object allows access to the user configuration and the actions
 associated with it.
+
+<a name='P-MFR-GUI-Windows-MainWindow-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+interface.
 
 <a name='P-MFR-GUI-Windows-MainWindow-FindWhatComboBox'></a>
 ### FindWhatComboBox `property`
@@ -888,6 +899,20 @@ raised by the Starting Folder, Find What, and Replace With combo boxes.
 This method responds by moving the input focus to a hidden label.
 This is to get rid of that annoying highlight that remains in a
 combo box when it loses the input focus.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs-'></a>
+### OnShown(e) `method`
+
+##### Summary
+
+Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Shown') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs-'></a>
 ### OnToolsConfigImport(sender,e) `method`

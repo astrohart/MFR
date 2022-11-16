@@ -291,17 +291,6 @@ namespace MFR.GUI
                 ConfigurationProvider.CurrentConfiguration =
                     CommandLineInfo.ToConfiguration();
 
-            // Set the starting folder in the configuration (unless the user did
-            // not pass anything on the command line, in which case the value
-            // from the user will be the default value of My Documents) to that
-            // which the user has specified on the command line.
-            if (CommandLineInfo != null &&
-                !Directories.Constants.Directories.MyDocuments.Equals(
-                    CommandLineInfo.StartingFolder
-                )) // we do not need any more checks here due to the command-line validation that occurs
-                ConfigurationProvider.CurrentConfiguration.StartingFolder =
-                    CommandLineInfo.StartingFolder;
-
             Application.Run(MainWindow.Instance);
         }
 

@@ -102,6 +102,16 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this configuration was specified by the
+        /// user on the command line.
+        /// </summary>
+        public bool IsFromCommandLine
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether we should match the case on
         /// found text.
         /// </summary>
@@ -370,6 +380,8 @@ namespace MFR.Settings.Configuration
         /// </remarks>
         public void Reset()
         {
+            IsFromCommandLine = false;
+
             ReOpenSolution = true;
 
             RenameFiles = RenameSubFolders = ReplaceTextInFiles = true;
@@ -390,7 +402,8 @@ namespace MFR.Settings.Configuration
                     OperationType = OperationType.RenameFilesInFolder
                 },
                 new OperationTypeInfo {
-                    Enabled = false, OperationType = OperationType.RenameSubFolders
+                    Enabled = false,
+                    OperationType = OperationType.RenameSubFolders
                 },
                 new OperationTypeInfo {
                     Enabled = false,

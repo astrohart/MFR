@@ -138,7 +138,7 @@ namespace MFR.Directories.Validators
 
                 if (Directory.Exists(rootDirectory) && !Enumerate.Files(
                             rootDirectory, "*.sln",
-                            SearchOption.TopDirectoryOnly
+                            SearchOption.AllDirectories
                         )
                         .Any())
                 {
