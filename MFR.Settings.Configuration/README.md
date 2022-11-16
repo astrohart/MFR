@@ -87,11 +87,15 @@ that contains existing configuration settings to copy into this object. |
 
 ##### Summary
 
-Gets or sets a value indicating whether the specified operation(s) should be automatically initiated when the application starts.  If this value is set to `true` then the application quits automatically after the specified operation(s) have been completed.
+Gets or sets a value indicating whether the specified operation(s) should be
+automatically initiated when the application starts.  If this value is set to
+`true` then the application quits automatically after the
+specified operation(s) have been completed.
 
 ##### Remarks
 
-This flag is ignored if this configuration did not originate from the command line.
+This flag is ignored if this configuration did not originate from the command
+line.
 
 <a name='P-MFR-Settings-Configuration-Configuration-FindWhat'></a>
 ### FindWhat `property`
