@@ -15,10 +15,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://www.xylogix.net"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://www.xylogix.net"/>
     <ROW Property="Manufacturer" Value="xyLOGIX, LLC"/>
-    <ROW Property="ProductCode" Value="1033:{8336C8CF-FAAF-46C4-A302-EF75046696CF} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{6570A068-6301-49F2-A5EC-AF7BF9DEECA2} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer"/>
-    <ROW Property="ProductVersion" Value="1.0.8354.36348" Options="16"/>
+    <ROW Property="ProductVersion" Value="1.0.8355.28276" Options="16"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4E59BE49-9FCD-4677-B60B-164D3C8EC006}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -245,7 +245,7 @@
     <ROW Component="PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll" ComponentId="{42FD17DC-91C6-4396-8C49-E83CA72C167C}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll"/>
     <ROW Component="PostSharp.Patterns.Diagnostics.dll" ComponentId="{01305660-71F5-4A81-B90F-5D232C94DCC5}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.Patterns.Diagnostics.dll"/>
     <ROW Component="PostSharp.dll" ComponentId="{2F86F628-8990-4C75-AD47-32A57743D236}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.dll"/>
-    <ROW Component="ProductInformation" ComponentId="{64C5CF90-EF25-442F-89C6-13BE3D0CCEFD}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="ProductInformation" ComponentId="{64C5CF90-EF25-442F-89C6-13BE3D0CCEFD}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{BC445822-18B7-4E94-8301-E9F229B2461A}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="log4net.dll" ComponentId="{BABC4675-036F-4592-8F2A-C12F2B22C021}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
     <ROW Component="mfr.exe" ComponentId="{9132EC2B-533F-4742-A0A3-68CF02698C01}" Directory_="APPDIR" Attributes="256" KeyPath="mfr.exe"/>
@@ -1213,7 +1213,7 @@
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -1288,8 +1288,8 @@
     <ROW Action="AI_UnpinFromStartScreen" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromStartScreen" WithoutSeq="true"/>
     <ROW Action="AI_UnpinFromTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromTaskbar" WithoutSeq="true"/>
     <ROW Action="AI_UnpinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="UnpinShortcuts"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
-    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]" MultiBuildTarget="DefaultBuild:[ProgramMenuFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
