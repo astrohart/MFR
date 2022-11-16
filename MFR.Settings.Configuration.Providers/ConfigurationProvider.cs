@@ -348,7 +348,9 @@ namespace MFR.Settings.Configuration.Providers
             
             // Check to see if the required property, Configuration, is null. If
             if (CurrentConfiguration == null
-                || CurrentConfiguration.IsFromCommandLine) return;
+                || CurrentConfiguration.IsFromCommandLine
+                && CurrentConfiguration.AutoStart) 
+                return;
 
             try
             {
