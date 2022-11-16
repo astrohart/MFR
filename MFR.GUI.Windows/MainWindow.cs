@@ -1044,19 +1044,29 @@ namespace MFR.GUI.Windows
         /// This method toggles UI state and dismisses the progress dialog.
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
-            => startingFolderBrowseButton.InvokeIfRequired(
+        {
+            startingFolderBrowseButton.InvokeIfRequired(
                 () =>
                 {
                     UseWaitCursor = false;
                     Enabled = true;
 
                     Presenter.CloseProgressDialog();
-
-                    if (CurrentConfiguration.IsFromCommandLine &&
-                        CurrentConfiguration.AutoStart)
-                        Application.Exit();
                 }
             );
+
+            /*
+             * If this application was invoked using command-line
+             * arguments to set the configuration settings, and
+             * if the --autoStart flag is also passed on the command
+             * line, then automatically exit the application once
+             * processing is done.
+             */
+
+            if (CurrentConfiguration.IsFromCommandLine
+                && CurrentConfiguration.AutoStart)
+                this.InvokeIfRequired(Close);
+        }
 
         [Log(AttributeExclude = true)]
         private void OnPresenterOperationError(object sender,
