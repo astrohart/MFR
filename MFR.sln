@@ -617,8 +617,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Constants",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Translators", "MFR.CommandLine.Translators\MFR.CommandLine.Translators.csproj", "{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}"
 EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{F64BBB81-4E26-45F6-8743-3C70926154A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -4277,18 +4275,6 @@ Global
 		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x64.Build.0 = Release|x64
 		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x86.ActiveCfg = Release|x86
 		{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}.Release|x86.Build.0 = Release|x86
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x64.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x64.Build.0 = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.Build.0 = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.Build.0 = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.Build.0 = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Release|x64.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Release|x64.Build.0 = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Release|x86.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Release|x86.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
