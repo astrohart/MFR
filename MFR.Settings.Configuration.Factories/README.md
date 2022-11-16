@@ -22,6 +22,7 @@
   - [FromScratch()](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-FromScratch 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.FromScratch')
   - [SetIsFromCommandLine(self,isFromCommandLine)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.SetIsFromCommandLine(MFR.Settings.Configuration.Interfaces.IConfiguration,System.Boolean)')
   - [SetRenameFilesTo(self,renameFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-SetRenameFilesTo-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.SetRenameFilesTo(MFR.Settings.Configuration.Interfaces.IConfiguration,System.Boolean)')
+  - [ShouldAutoStart(self,autoStart)](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-ShouldAutoStart-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.ShouldAutoStart(MFR.Settings.Configuration.Interfaces.IConfiguration,System.Boolean)')
 - [Resources](#T-MFR-Settings-Configuration-Factories-Properties-Resources 'MFR.Settings.Configuration.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Factories.Properties.Resources.ResourceManager')
@@ -584,6 +585,38 @@ the
 [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface. |
 | renameFiles | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that contains the desired value. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
+
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-ShouldAutoStart-MFR-Settings-Configuration-Interfaces-IConfiguration,System-Boolean-'></a>
+### ShouldAutoStart(self,autoStart) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[AutoStart](#P-MFR-Settings-Configuration-Interfaces-IConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IConfiguration.AutoStart')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+interface. |
+| autoStart | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) Sets a value indicating whether the specified operation(s) should
+be automatically processed when the application starts. |
 
 ##### Exceptions
 
