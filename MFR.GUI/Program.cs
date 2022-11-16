@@ -131,9 +131,9 @@ namespace MFR.GUI
             // NOTE: Do NOT save the configuration settings in the event
             // that the user is running this app from the command line.
             // Ditto for profiles.
-            if (!CommandLineSpecified) ConfigurationProvider.Save();
+            ConfigurationProvider.Save();
 
-            if (!CommandLineSpecified) ProfileProvider.Save();
+            ProfileProvider.Save();
 
             Revoke.WindowsMessageFilter();
         }

@@ -1,18 +1,16 @@
-using MFR.Settings.Configuration.Actions.Constants;
-using MFR.Settings.Configuration.Actions.Factories;
-using MFR.Settings.Configuration.Commands.Constants;
-using MFR.Settings.Configuration.Commands.Factories;
-using MFR.Settings.Configuration.Constants;
-using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Settings.Configuration.Actions.Constants;
+using MFR.Settings.Configuration.Actions.Factories;
+using MFR.Settings.Configuration.Commands.Constants;
+using MFR.Settings.Configuration.Commands.Factories;
+using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Factories;
-using MFR.Settings.Profiles.Factories;
-using MFR.Settings.Profiles.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -37,6 +35,80 @@ namespace MFR.Settings.Configuration.Providers
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         protected ConfigurationProvider() { }
+
+        /// <summary>
+        /// Gets or sets the pathname of the configuration file.
+        /// </summary>
+        public string ConfigurationFilePath
+        {
+            get
+                => LoadConfigPathAction.Execute()
+                                       .Path;
+            set {
+                GetSaveConfigPathCommand.ForPath(
+                                            ConfigurationFilePathKeyName,
+                                            ConfigurationFilePathValueName,
+                                            value
+                                        )
+                                        .Execute();
+
+                /* Clear out the cache of previously-loaded paths
+                 for this same operation. */
+                LoadConfigPathAction.AsCachedResultAction()
+                                    .ClearResultCache();
+            }
+        }
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the system Registry key in which
+        /// configuration settings are stored.
+        /// </summary>
+        public string ConfigurationFilePathKeyName
+            => ConfigurationPathRegistry.KeyName;
+
+        /// <summary>
+        /// Gets a string whose value is the Registry value under which we store the path
+        /// to the configuration file.
+        /// </summary>
+        public string ConfigurationFilePathValueName
+            => ConfigurationPathRegistry.ValueName;
+
+        /// <summary>
+        /// Gets a reference to the instance of the object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// and which
+        /// exposes settings changed by the user in order to modify the
+        /// application's behavior.
+        /// </summary>
+        public IConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = MakeNewConfiguration.FromScratch();
+
+        /// <summary>
+        /// Gets the default folder for the configuration file.
+        /// </summary>
+        /// <remarks>
+        /// We store the config file, by default, in a folder under
+        /// %USERPROFILE%\AppData\Local.
+        /// </remarks>
+        public string DefaultConfigDir
+        {
+            get;
+        } = Path.Combine(
+            Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.LocalApplicationData
+                ), Application.CompanyName
+            ), $@"{Application.ProductName}\Config"
+        );
+
+        /// <summary>
+        /// Gets the default filename for the config file.
+        /// </summary>
+        public string DefaultConfigFileName
+            => "config.json";
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -72,65 +144,6 @@ namespace MFR.Settings.Configuration.Providers
                                                 )
                                             )
                );
-
-        /// <summary>
-        /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface and which
-        /// exposes settings changed by the user in order to modify the
-        /// application's behavior.
-        /// </summary>
-        public IConfiguration CurrentConfiguration
-        {
-            get;
-            set;
-        } = MakeNewConfiguration.FromScratch();
-
-        /// <summary>
-        /// Gets or sets the pathname of the configuration file.
-        /// </summary>
-        public string ConfigurationFilePath
-        {
-            get
-                => LoadConfigPathAction.Execute()
-                                       .Path;
-            set {
-                GetSaveConfigPathCommand.ForPath(
-                                            ConfigurationFilePathKeyName,
-                                            ConfigurationFilePathValueName,
-                                            value
-                                        )
-                                        .Execute();
-
-                /* Clear out the cache of previously-loaded paths
-                 for this same operation. */
-                LoadConfigPathAction.AsCachedResultAction()
-                                    .ClearResultCache();
-            }
-        }
-
-        /// <summary>
-        /// Gets the default folder for the configuration file.
-        /// </summary>
-        /// <remarks>
-        /// We store the config file, by default, in a folder under
-        /// %USERPROFILE%\AppData\Local.
-        /// </remarks>
-        public string DefaultConfigDir
-        {
-            get;
-        } = Path.Combine(
-            Path.Combine(
-                Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData
-                ), Application.CompanyName
-            ), $@"{Application.ProductName}\Config"
-        );
-
-        /// <summary>
-        /// Gets the default filename for the config file.
-        /// </summary>
-        public string DefaultConfigFileName
-            => "config.json";
 
         /// <summary>
         /// Exports configuration data to a file other than the master
@@ -170,20 +183,6 @@ namespace MFR.Settings.Configuration.Providers
                 exportFileName
             ); /* save the latest settings out to the export file */
         }
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key in which
-        /// configuration settings are stored.
-        /// </summary>
-        public string ConfigurationFilePathKeyName
-            => ConfigurationPathRegistry.KeyName;
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store the path
-        /// to the configuration file.
-        /// </summary>
-        public string ConfigurationFilePathValueName
-            => ConfigurationPathRegistry.ValueName;
 
         /// <summary>
         /// Imports configuration data from a file whose path is
@@ -270,21 +269,24 @@ namespace MFR.Settings.Configuration.Providers
             try
             {
                 CurrentConfiguration = GetConfigurationAction
-                                .For<IFileSystemEntry, IConfiguration>(
-                                    ConfigurationActionType
-                                        .LoadConfigurationFromFile
-                                )
-                                .WithInput(
-                                    MakeNewFileSystemEntry.ForPath(pathname)
-                                )
-                                .Execute();
+                                       .For<IFileSystemEntry, IConfiguration>(
+                                           ConfigurationActionType
+                                               .LoadConfigurationFromFile
+                                       )
+                                       .WithInput(
+                                           MakeNewFileSystemEntry.ForPath(
+                                               pathname
+                                           )
+                                       )
+                                       .Execute();
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
                 CurrentConfiguration =
-                    MakeNewConfiguration.FromScratch(); // make a default config if can't be loaded
+                    MakeNewConfiguration
+                        .FromScratch(); // make a default config if can't be loaded
             }
 
             if (CurrentConfiguration != null)
@@ -345,11 +347,12 @@ namespace MFR.Settings.Configuration.Providers
         public void SaveCopyAs(string pathname)
         {
             if (string.IsNullOrWhiteSpace(pathname)) return;
-            
+
             // Check to see if the required property, Configuration, is null. If
-            if (CurrentConfiguration == null
-                || CurrentConfiguration.IsFromCommandLine
-                && CurrentConfiguration.AutoStart) 
+            if (CurrentConfiguration == null) return;
+
+            if (CurrentConfiguration.IsFromCommandLine
+                && CurrentConfiguration.AutoStart)
                 return;
 
             try
@@ -414,7 +417,7 @@ namespace MFR.Settings.Configuration.Providers
             if (File.Exists(pathname))
                 return true;
 
-            if (!File.Exists(fallbackPath)) 
+            if (!File.Exists(fallbackPath))
                 return false;
 
             pathname = fallbackPath;
