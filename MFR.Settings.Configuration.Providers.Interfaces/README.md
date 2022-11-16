@@ -4,10 +4,10 @@
 ## Contents
 
 - [IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
-  - [Configuration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration')
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ConfigurationFilePath')
   - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ConfigurationFilePathKeyName')
   - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ConfigurationFilePathValueName')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.CurrentConfiguration')
   - [DefaultConfigDir](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-DefaultConfigDir 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.DefaultConfigDir')
   - [DefaultConfigFileName](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-DefaultConfigFileName 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.DefaultConfigFileName')
   - [Export(exportFileName)](#M-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Export-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Export(System.String)')
@@ -29,16 +29,6 @@ MFR.Settings.Configuration.Providers.Interfaces
 
 Defines the publicly-exposed methods and properties of a Configuration Provider object.
 
-<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Configuration'></a>
-### Configuration `property`
-
-##### Summary
-
-Gets a reference to the instance of the object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface and which
-exposes settings changed by the user in order to modify the
-application's behavior.
-
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePath'></a>
 ### ConfigurationFilePath `property`
 
@@ -59,6 +49,16 @@ Gets a string whose value is the pathname of the system Registry key in which co
 ##### Summary
 
 Gets a string whose value is the Registry value under which we store the path to the configuration file.
+
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to the instance of the object that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface and which
+exposes settings changed by the user in order to modify the
+application's behavior.
 
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-DefaultConfigDir'></a>
 ### DefaultConfigDir `property`
