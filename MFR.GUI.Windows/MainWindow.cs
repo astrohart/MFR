@@ -1051,6 +1051,10 @@ namespace MFR.GUI.Windows
                     Enabled = true;
 
                     Presenter.CloseProgressDialog();
+
+                    if (CurrentConfiguration.IsFromCommandLine &&
+                        CurrentConfiguration.AutoStart)
+                        Application.Exit();
                 }
             );
 
