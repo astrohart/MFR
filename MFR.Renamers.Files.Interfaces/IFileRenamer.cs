@@ -1,3 +1,4 @@
+using EnvDTE;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;
@@ -17,6 +18,58 @@ namespace MFR.Renamers.Files.Interfaces
     /// </summary>
     public interface IFileRenamer : IConfigurationComposedObject
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:EnvDTE.DTE" /> interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides a connection to an instance of Visual Studio.
+        /// <para />
+        /// <b>NOTE: </b>It is vitally important that the caller check this value for
+        /// <see langword="null" /> prior to using it.
+        /// </remarks>
+        DTE Dte
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the folder in which last Visual Studio Solution that
+        /// we have worked with most recently resides.
+        /// </summary>
+        string LastSolutionFolderPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the last Visual Studio Solution that we have worked
+        /// with most recently.
+        /// </summary>
+        string LastSolutionPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        string RootDirectoryPath
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        bool ShouldReOpenSolution
+        {
+            get;
+        }
+
         /// <summary>
         /// Occurs when an exception is thrown from an operation.
         /// </summary>
@@ -76,42 +129,6 @@ namespace MFR.Renamers.Files.Interfaces
         /// Occurs when subfolders to be renamed have been counted.
         /// </summary>
         event FilesOrFoldersCountedEventHandler SubfoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
-        /// </summary>
-        string LastSolutionFolderPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets or sets the path to the last Visual Studio Solution that we have worked
-        /// with most recently.
-        /// </summary>
-        string LastSolutionPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
-        /// operations start.
-        /// </summary>
-        string RootDirectoryPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        bool ShouldReOpenSolution
-        {
-            get;
-        }
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in

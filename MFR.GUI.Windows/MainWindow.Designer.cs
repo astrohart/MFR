@@ -83,7 +83,7 @@ namespace MFR.GUI.Windows
             this.hiddenFocusLabel = new System.Windows.Forms.Label();
             this.standardToolBar = new System.Windows.Forms.ToolStrip();
             this.goButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.sep1 = new System.Windows.Forms.ToolStripSeparator();
             this.newProfileButton = new System.Windows.Forms.ToolStripButton();
             this.saveProfileButton = new System.Windows.Forms.ToolStripButton();
             this.manageProfilesButton = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +97,10 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
+            this.viewDarkThemeButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.sep2 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewDarkTheme = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -209,7 +213,7 @@ namespace MFR.GUI.Windows
             // fileExit
             // 
             this.fileExit.Name = "fileExit";
-            this.fileExit.Size = new System.Drawing.Size(93, 22);
+            this.fileExit.Size = new System.Drawing.Size(180, 22);
             this.fileExit.Text = "E&xit";
             this.fileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -217,7 +221,9 @@ namespace MFR.GUI.Windows
             // 
             this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewToolBar,
-            this.viewStatusBar});
+            this.viewStatusBar,
+            this.sep2,
+            this.viewDarkTheme});
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(44, 20);
             this.viewMenu.Text = "&View";
@@ -228,7 +234,7 @@ namespace MFR.GUI.Windows
             this.viewToolBar.CheckOnClick = true;
             this.viewToolBar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewToolBar.Name = "viewToolBar";
-            this.viewToolBar.Size = new System.Drawing.Size(126, 22);
+            this.viewToolBar.Size = new System.Drawing.Size(180, 22);
             this.viewToolBar.Text = "&Toolbar";
             this.viewToolBar.Click += new System.EventHandler(this.OnViewToolBar);
             // 
@@ -238,7 +244,7 @@ namespace MFR.GUI.Windows
             this.viewStatusBar.CheckOnClick = true;
             this.viewStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.viewStatusBar.Name = "viewStatusBar";
-            this.viewStatusBar.Size = new System.Drawing.Size(126, 22);
+            this.viewStatusBar.Size = new System.Drawing.Size(180, 22);
             this.viewStatusBar.Text = "&Status Bar";
             this.viewStatusBar.Click += new System.EventHandler(this.OnViewStatusBar);
             // 
@@ -550,7 +556,9 @@ namespace MFR.GUI.Windows
             this.standardToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.standardToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goButton,
-            this.toolStripSeparator3,
+            this.sep1,
+            this.viewDarkThemeButton,
+            this.toolStripSeparator7,
             this.newProfileButton,
             this.saveProfileButton,
             this.manageProfilesButton,
@@ -577,10 +585,10 @@ namespace MFR.GUI.Windows
             this.goButton.ToolTipText = "Perform Operation";
             this.goButton.Click += new System.EventHandler(this.OnOperationsPerform);
             // 
-            // toolStripSeparator3
+            // sep1
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.sep1.Name = "sep1";
+            this.sep1.Size = new System.Drawing.Size(6, 25);
             // 
             // newProfileButton
             // 
@@ -712,6 +720,37 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.TabIndex = 1;
             this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
+            // viewDarkThemeButton
+            // 
+            this.viewDarkThemeButton.CheckOnClick = true;
+            this.viewDarkThemeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.viewDarkThemeButton.Image = ((System.Drawing.Image)(resources.GetObject("viewDarkThemeButton.Image")));
+            this.viewDarkThemeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.viewDarkThemeButton.Name = "viewDarkThemeButton";
+            this.viewDarkThemeButton.Size = new System.Drawing.Size(23, 22);
+            this.viewDarkThemeButton.Text = "toolStripButton1";
+            this.viewDarkThemeButton.Click += new System.EventHandler(this.OnViewDarkTheme);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // sep2
+            // 
+            this.sep2.Name = "sep2";
+            this.sep2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // viewDarkTheme
+            // 
+            this.viewDarkTheme.CheckOnClick = true;
+            this.viewDarkTheme.Image = ((System.Drawing.Image)(resources.GetObject("viewDarkTheme.Image")));
+            this.viewDarkTheme.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.viewDarkTheme.Name = "viewDarkTheme";
+            this.viewDarkTheme.Size = new System.Drawing.Size(180, 22);
+            this.viewDarkTheme.Text = "Dark Theme";
+            this.viewDarkTheme.Click += new System.EventHandler(this.OnViewDarkTheme);
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
@@ -804,7 +843,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem toolsConfigNewProfile;
         private System.Windows.Forms.ToolStrip standardToolBar;
         private System.Windows.Forms.ToolStripButton goButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator sep1;
         private System.Windows.Forms.ToolStripButton newProfileButton;
         private System.Windows.Forms.ToolStripButton manageProfilesButton;
         private System.Windows.Forms.ToolStripComboBox profileListComboBox;
@@ -824,6 +863,10 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton clearAllHistoryButton;
         private System.Windows.Forms.Button switchButton;
+        private System.Windows.Forms.ToolStripButton viewDarkThemeButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripSeparator sep2;
+        private System.Windows.Forms.ToolStripMenuItem viewDarkTheme;
     }
 }
 

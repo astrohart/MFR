@@ -380,8 +380,8 @@ namespace MFR.GUI.Windows
              * by the user, then we should update the screen with the values from the
              * configuration, and then "click" the Perform Operation button.
              */
-            if (!CurrentConfiguration.IsFromCommandLine
-                || !CurrentConfiguration.AutoStart)
+            if (!CurrentConfiguration.IsFromCommandLine ||
+                !CurrentConfiguration.AutoStart)
                 return;
 
             Presenter.UpdateData(false);
@@ -1063,8 +1063,8 @@ namespace MFR.GUI.Windows
              * processing is done.
              */
 
-            if (CurrentConfiguration.IsFromCommandLine
-                && CurrentConfiguration.AutoStart)
+            if (CurrentConfiguration.IsFromCommandLine &&
+                CurrentConfiguration.AutoStart)
                 this.InvokeIfRequired(Close);
         }
 
@@ -1363,6 +1363,24 @@ namespace MFR.GUI.Windows
                     toolsHistoryClearFindWhatHistory.Enabled =
                         toolsHistoryClearReplaceWithHistory.Enabled =
                             !IsHistoryClear;
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
+        /// raised by the <b>Dark Theme</b> command on the <b>View</b> menu.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>This method responds by toggling the Dark Theme on and off.</remarks>
+        private void OnViewDarkTheme(object sender, EventArgs e)
+        {
+            // TODO: Add code here to implement the switch to Dark Theme.
         }
 
         /// <summary>

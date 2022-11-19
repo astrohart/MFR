@@ -77,6 +77,22 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:EnvDTE.DTE" /> interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides a connection to an instance of Visual Studio.
+        /// <para />
+        /// <b>NOTE: </b>It is vitally important that the caller check this value for
+        /// <see langword="null" /> prior to using it.
+        /// </remarks>
+        public DTE Dte
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// Gets a reference to a collection of of the
         /// <see
         ///     cref="T:MFR.OperationType" />
@@ -324,24 +340,24 @@ namespace MFR.Renamers.Files
                 );
             }
 
-            if (Configuration.ReplaceTextInFiles)
-            {
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
-                    )
-                );
+            if (!Configuration.ReplaceTextInFiles)
+                return;
 
-                ReplaceTextInFiles(
-                    RootDirectoryPath, findWhat, replaceWith, pathFilter
-                );
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                )
+            );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
-                    )
-                );
-            }
+            ReplaceTextInFiles(
+                RootDirectoryPath, findWhat, replaceWith, pathFilter
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+                )
+            );
         }
 
         /// <summary>
@@ -1302,7 +1318,7 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                DTE dte = null;
+                Dte = null;
 
                 // This tool can potentially be run from Visual Studio (e.g.,
                 // configured via the Tools menu as an external tool, for instance).
@@ -1342,11 +1358,11 @@ namespace MFR.Renamers.Files
                     // attempt to form an automation connection to the instance of
                     // Visual Studio, if any, that is (a) currently open and (b)
                     // currently has the solution open
-                    dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
+                    Dte = VisualStudioManager.GetVsProcessHavingSolutionOpened(
                         solutionPath
                     );
 
-                    ShouldReOpenSolution = dte != null;
+                    ShouldReOpenSolution = Dte != null;
 
                     // Prior to beginning the operation(s) selected by the user,
                     // we'll then tell the instance of Visual Studio that has the
@@ -1390,7 +1406,7 @@ namespace MFR.Renamers.Files
 
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
-                if (ShouldReOpenSolution && dte != null)
+                if (ShouldReOpenSolution && Dte != null)
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
@@ -1409,7 +1425,7 @@ namespace MFR.Renamers.Files
                         )
                     );
 
-                    dte.Solution.Close();
+                    Dte.Solution.Close();
 
                     /* Wait for the solution to be closed.
                     while (dte.Solution.IsOpen) Thread.Sleep(50);*/
@@ -1442,31 +1458,31 @@ namespace MFR.Renamers.Files
 
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
-                if (ShouldReOpenSolution && dte != null)
-                {
-                    OnOperationStarted(
-                        new OperationStartedEventArgs(
-                            OperationType.OpenActiveSolution
-                        )
-                    );
+                if (!ShouldReOpenSolution || Dte == null)
+                    return;
 
-                    OnStatusUpdate(
-                        new StatusUpdateEventArgs(
-                            "Instructing Visual Studio to reload the solution (maybe with its new path)..."
-                        )
-                    );
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.OpenActiveSolution
+                    )
+                );
 
-                    dte.Solution.Open(solutionPath);
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        "Instructing Visual Studio to reload the solution (maybe with its new path)..."
+                    )
+                );
 
-                    /* Wait for the solution to be opened/loaded.
+                Dte.Solution.Open(solutionPath);
+
+                /* Wait for the solution to be opened/loaded.
                     while (!dte.Solution.IsOpen) Thread.Sleep(50); */
 
-                    OnOperationFinished(
-                        new OperationFinishedEventArgs(
-                            OperationType.OpenActiveSolution
-                        )
-                    );
-                }
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.OpenActiveSolution
+                    )
+                );
             }
             catch (OperationAbortedException)
             {
