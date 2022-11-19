@@ -38,6 +38,8 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.VisualStudio.Actions;
+using xyLOGIX.VisualStudio.Actions.Constants;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.GUI.Windows.Presenters
@@ -74,7 +76,11 @@ namespace MFR.GUI.Windows.Presenters
         /// <remarks>
         /// THis object provides the core services that this application offers.
         /// </remarks>
-        private IFileRenamer _fileRenamer;
+        private IFileRenamer FileRenamer
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -380,12 +386,12 @@ namespace MFR.GUI.Windows.Presenters
         public void DoSelectedOperations()
         {
             // write the name of the current class and method we are now
-            if (View == null || _fileRenamer == null)
+            if (View == null || FileRenamer == null)
                 return;
 
             // just in case, have the file renamer object update its
             // configuration to match that which we have access to
-            _fileRenamer.UpdateConfiguration(Configuration);
+            FileRenamer.UpdateConfiguration(Configuration);
 
             ReinitializeProgressDialog();
 
@@ -763,7 +769,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             base.UpdateConfiguration(configuration);
 
-            _fileRenamer.UpdateConfiguration(configuration);
+            FileRenamer.UpdateConfiguration(configuration);
             _historyManager.UpdateConfiguration(configuration);
 
             InitializeFileRenamer();
@@ -902,7 +908,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </exception>
         public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
         {
-            _fileRenamer = fileRenamer ??
+            FileRenamer = fileRenamer ??
                            throw new ArgumentNullException(nameof(fileRenamer));
 
             InitializeFileRenamer();
@@ -1159,7 +1165,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private void CommenceRenameOperation()
             => Task.Run(
-                () => _fileRenamer.ProcessAll(
+                () => FileRenamer.ProcessAll(
                     StartingFolder, FindWhat, ReplaceWith
                 ));
 
@@ -1274,7 +1280,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now
             // Check to see if the required field, _fileRenamer, is null. If it
-            if (_fileRenamer == null)
+            if (FileRenamer == null)
             {
                 // the field _fileRenamer is required.
                 // stop.
@@ -1374,7 +1380,7 @@ namespace MFR.GUI.Windows.Presenters
         [Log(AttributeExclude = true)]
         private void OnCancellableProgressDialogRequestedCancel(object sender,
             EventArgs e)
-            => _fileRenamer.RequestAbort();
+            => FileRenamer.RequestAbort();
 
         /// <summary>
         /// Handles the <see cref="E:MFR.IFileRenamer.ExceptionRaised" /> event.
@@ -1393,7 +1399,7 @@ namespace MFR.GUI.Windows.Presenters
         private void OnFileRenamerExceptionRaised(object sender,
             ExceptionRaisedEventArgs e)
         {
-            _fileRenamer.RequestAbort();
+            FileRenamer.RequestAbort();
 
             OnOperationError(new ExceptionRaisedEventArgs(e.Exception));
         }
@@ -1568,6 +1574,14 @@ namespace MFR.GUI.Windows.Presenters
             if (string.IsNullOrWhiteSpace(e.Text)) return;
 
             Console.WriteLine(e.Text);
+
+            // Only proceed if we have an active connection to a 
+            // Visual Studio instance.
+            if (FileRenamer.Dte == null) return;
+
+            // Make the Git Changes window refresh with the latest 
+            // updates
+            Execute.Command(FileRenamer.Dte, VisualStudioCommands.View.GitWindow);
         }
 
         /// <summary>
