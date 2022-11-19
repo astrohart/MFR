@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
@@ -37,11 +36,16 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using File = Alphaleonis.Win32.Filesystem.File;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.GUI.Windows
 {
@@ -361,6 +365,8 @@ namespace MFR.GUI.Windows
             MakeButtonBitmapTransparent(switchButton);
 
             Presenter.FillProfileDropDownList();
+
+            SetUpFindWhatComboBox();
         }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
@@ -1417,6 +1423,33 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnViewToolBar(object sender, EventArgs e)
             => standardToolBar.Visible = !standardToolBar.Visible;
+
+        /// <summary>
+        /// Configures the <b>Find What</b> combo box.
+        /// </summary>
+        /// <remarks>
+        /// One of the things method does is get a list of all the <c>*.csproj</c> files in
+        /// the stating folder and builds an auto-completion suggestion list consisting of
+        /// just their names (with no folder path or file extension).
+        /// </remarks>
+        private void SetUpFindWhatComboBox()
+        {
+            var findWhatAutocompleteCustomSource =
+                new AutoCompleteStringCollection();
+            findWhatAutocompleteCustomSource.AddRange(
+                Directory.EnumerateFiles(
+                             Configuration.StartingFolder, "*.csproj",
+                             SearchOption.AllDirectories
+                         )
+                         .Select(Path.GetFileNameWithoutExtension)
+                         .ToArray()
+            );
+            FindWhatComboBox.AutoCompleteCustomSource =
+                findWhatAutocompleteCustomSource;
+            FindWhatComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            FindWhatComboBox.AutoCompleteSource =
+                AutoCompleteSource.CustomSource;
+        }
 
         /// <summary>
         /// Resizes the form to that specified in the <paramref name="newSize" />
