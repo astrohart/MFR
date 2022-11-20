@@ -77,6 +77,16 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration value that indicates which operation is currently being performed.
+        /// </summary>
+        public OperationType CurrentOperation
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:EnvDTE.DTE" /> interface.
         /// </summary>
@@ -306,7 +316,8 @@ namespace MFR.Renamers.Files
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                        $"Attempting to rename subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
+                        CurrentOperation
                     )
                 );
 
@@ -316,7 +327,8 @@ namespace MFR.Renamers.Files
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+                        $"*** Finished processing subfolders of '{RootDirectoryPath}'.",
+                        CurrentOperation
                     )
                 );
             }
@@ -325,7 +337,8 @@ namespace MFR.Renamers.Files
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                        $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
+                        CurrentOperation
                     )
                 );
 
@@ -335,7 +348,8 @@ namespace MFR.Renamers.Files
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'."
+                        $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'.",
+                        CurrentOperation
                     )
                 );
             }
@@ -345,7 +359,8 @@ namespace MFR.Renamers.Files
 
             OnStatusUpdate(
                 new StatusUpdateEventArgs(
-                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'..."
+                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
+                    CurrentOperation
                 )
             );
 
@@ -355,7 +370,8 @@ namespace MFR.Renamers.Files
 
             OnStatusUpdate(
                 new StatusUpdateEventArgs(
-                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'."
+                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation
                 )
             );
         }
@@ -1421,7 +1437,8 @@ namespace MFR.Renamers.Files
 
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
-                            "Closing solution containing item(s) to be processed..."
+                            "Closing solution containing item(s) to be processed...",
+                            CurrentOperation
                         )
                     );
 
@@ -1469,7 +1486,8 @@ namespace MFR.Renamers.Files
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        "Instructing Visual Studio to reload the solution (maybe with its new path)..."
+                        "Instructing Visual Studio to reload the solution (maybe with its new path)...",
+                        CurrentOperation
                     )
                 );
 
@@ -1627,6 +1645,8 @@ namespace MFR.Renamers.Files
         /// </param>
         private void OnOperationStarted(OperationStartedEventArgs e)
         {
+            CurrentOperation = e.OperationType;
+
             OperationStarted?.Invoke(this, e);
             SendMessage<OperationStartedEventArgs>.Having.Args(this, e)
                                                   .ForMessageId(
