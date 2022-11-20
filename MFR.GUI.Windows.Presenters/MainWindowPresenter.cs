@@ -1,4 +1,3 @@
-using MFR.Common;
 using MFR.Constants;
 using MFR.Events;
 using MFR.Events.Common;
@@ -1581,7 +1580,19 @@ namespace MFR.GUI.Windows.Presenters
 
             // Make the Git Changes window refresh with the latest 
             // updates
-            Execute.Command(FileRenamer.Dte, VisualStudioCommands.View.GitWindow);
+            switch (e.OperationType)
+            {
+                case OperationType.ReplaceTextInFiles:
+                case OperationType.RenameFilesInFolder:
+                case OperationType.RenameSubFolders:
+                    Execute.Command(
+                        FileRenamer.Dte, VisualStudioCommands.View.GitWindow
+                    );
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         /// <summary>
