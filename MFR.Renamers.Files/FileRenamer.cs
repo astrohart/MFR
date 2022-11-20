@@ -328,7 +328,7 @@ namespace MFR.Renamers.Files
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
                         $"*** Finished processing subfolders of '{RootDirectoryPath}'.",
-                        CurrentOperation
+                        CurrentOperation, true /* operation finished */
                     )
                 );
             }
@@ -349,7 +349,7 @@ namespace MFR.Renamers.Files
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
                         $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'.",
-                        CurrentOperation
+                        CurrentOperation, true /* operation finished */
                     )
                 );
             }
@@ -371,7 +371,7 @@ namespace MFR.Renamers.Files
             OnStatusUpdate(
                 new StatusUpdateEventArgs(
                     $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
-                    CurrentOperation
+                    CurrentOperation, true /* operation finished */
                 )
             );
         }
@@ -1438,7 +1438,7 @@ namespace MFR.Renamers.Files
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
                             "Closing solution containing item(s) to be processed...",
-                            CurrentOperation
+                            CurrentOperation, true /* operation finished */
                         )
                     );
 
