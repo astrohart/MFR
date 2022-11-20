@@ -1578,6 +1578,8 @@ namespace MFR.GUI.Windows.Presenters
             // Visual Studio instance.
             if (FileRenamer.Dte == null) return;
 
+            if (!e.OperationFinished) return;
+
             // Make the Git Changes window refresh with the latest 
             // updates
             switch (e.OperationType)
@@ -1588,9 +1590,6 @@ namespace MFR.GUI.Windows.Presenters
                     Execute.Command(
                         FileRenamer.Dte, VisualStudioCommands.View.GitWindow
                     );
-                    break;
-
-                default:
                     break;
             }
         }
