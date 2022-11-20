@@ -4,6 +4,7 @@
 ## Contents
 
 - [ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo')
+  - [AutoStart](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-AutoStart 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.AutoStart')
   - [FindWhat](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-FindWhat 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.FindWhat')
   - [MatchCase](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-MatchCase 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.MatchCase')
   - [MatchWholeWord](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-MatchWholeWord 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.MatchWholeWord')
@@ -28,6 +29,14 @@ MFR.CommandLine.Models.Interfaces
 
 Defines the publicly-exposed methods and properties of an object that stores
 the information supplied by the user on the application's command line.
+
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-AutoStart'></a>
+### AutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether processing starts when the application
+starts.
 
 <a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-FindWhat'></a>
 ### FindWhat `property`

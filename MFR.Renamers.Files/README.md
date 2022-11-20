@@ -6,6 +6,7 @@
 - [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
   - [#ctor()](#M-MFR-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
+  - [Dte](#P-MFR-Renamers-Files-FileRenamer-Dte 'MFR.Renamers.Files.FileRenamer.Dte')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
@@ -83,6 +84,23 @@ This constructor has no parameters.
 
 Gets a value that indicates whether an abort of the current
 operation has been requested.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-Dte'></a>
+### Dte `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[DTE](#T-EnvDTE-DTE 'EnvDTE.DTE') interface.
+
+##### Remarks
+
+This object provides a connection to an instance of Visual Studio.
+
+
+
+It is vitally important that the caller check this value for
+`null` prior to using it.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-EnabledOperations'></a>
 ### EnabledOperations `property`

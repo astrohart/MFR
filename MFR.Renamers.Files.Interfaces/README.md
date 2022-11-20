@@ -4,6 +4,7 @@
 ## Contents
 
 - [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
+  - [Dte](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-Dte 'MFR.Renamers.Files.Interfaces.IFileRenamer.Dte')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionFolderPath')
   - [LastSolutionPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
@@ -36,12 +37,30 @@ Defines the publicly-exposed methods and properties of a
 object. Such an object is directly responsible for
 processing the file operations of this application.
 
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-Dte'></a>
+### Dte `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[DTE](#T-EnvDTE-DTE 'EnvDTE.DTE') interface.
+
+##### Remarks
+
+This object provides a connection to an instance of Visual Studio.
+
+
+
+It is vitally important that the caller check this value for
+`null` prior to using it.
+
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath'></a>
 ### LastSolutionFolderPath `property`
 
 ##### Summary
 
-Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
+Gets or sets the path to the folder in which last Visual Studio Solution that
+we have worked with most recently resides.
 
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath'></a>
 ### LastSolutionPath `property`

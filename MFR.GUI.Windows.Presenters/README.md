@@ -7,12 +7,12 @@
   - [#ctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#ctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#ctor')
   - [_cancellableProgressDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_cancellableProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._cancellableProgressDialog')
   - [_exportConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_exportConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._exportConfigDialog')
-  - [_fileRenamer](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_fileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter._fileRenamer')
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
   - [_importConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._importConfigDialog')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigurationProvider')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
   - [Does](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Does')
+  - [FileRenamer](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileRenamer')
   - [FindWhat](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhatComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhatComboBox')
   - [IsProfileLoaded](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-IsProfileLoaded 'MFR.GUI.Windows.Presenters.MainWindowPresenter.IsProfileLoaded')
@@ -126,19 +126,6 @@ Reference to an instance of a
 that allows the user
 to choose where they want to export the configuration data.
 
-<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_fileRenamer'></a>
-### _fileRenamer `constants`
-
-##### Summary
-
-Reference to an instance of an object that implements the
-[IFileRenamer](#T-MFR-IFileRenamer 'MFR.IFileRenamer')
-interface.
-
-##### Remarks
-
-THis object provides the core services that this application offers.
-
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager'></a>
 ### _historyManager `constants`
 
@@ -199,6 +186,19 @@ Gets a reference to this object instance.
 ##### Remarks
 
 This property is here to maintain method call semantics.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer'></a>
+### FileRenamer `property`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[IFileRenamer](#T-MFR-IFileRenamer 'MFR.IFileRenamer')
+interface.
+
+##### Remarks
+
+THis object provides the core services that this application offers.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat'></a>
 ### FindWhat `property`
