@@ -327,7 +327,7 @@ namespace MFR.Renamers.Files
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"*** Finished processing subfolders of '{RootDirectoryPath}'."
+                        $"*** Finished processing subfolders of '{RootDirectoryPath}'.", CurrentOperation, true /* operation finished */
                     )
                 );
             }
