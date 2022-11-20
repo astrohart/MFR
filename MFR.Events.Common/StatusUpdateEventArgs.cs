@@ -33,26 +33,6 @@ namespace MFR.Events.Common
             bool operationFinished = false)
         {
             Text = text;
-            OperationFinished = operationFinished;
-            OperationType = operationType;
-        }
-
-        /// <summary>
-        /// Gets a <see cref="T:System.Boolean" /> value that indicates whether the
-        /// operation has completed.
-        /// </summary>
-        public bool OperationFinished
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" />
-        /// enumeration values that indicates what operation is currently being performed.
-        /// </summary>
-        public OperationType OperationType
-        {
-            get;
         }
 
         /// <summary>
