@@ -1573,34 +1573,10 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now entering, into the log
             DebugUtils.WriteLine(DebugLevel.Debug, "In MainWindowPresenter.OnFileRenamerStatusUpdate");
-
-            System.Diagnostics.Debugger.Launch();
-            System.Diagnostics.Debugger.Break();
-
+            
             if (string.IsNullOrWhiteSpace(e.Text)) return;
 
             Console.WriteLine(e.Text);
-
-            // Only proceed if we have an active connection to a 
-            // Visual Studio instance.
-            if (FileRenamer.Dte == null) return;
-
-            if (!e.OperationFinished) return;
-
-            // Make the Git Changes window refresh with the latest 
-            // updates
-            switch (e.OperationType)
-            {
-                case OperationType.ReplaceTextInFiles:
-                case OperationType.RenameFilesInFolder:
-                case OperationType.RenameSubFolders:
-                    Execute.Command(
-                        FileRenamer.Dte, VisualStudioCommands.View.GitWindow
-                    );
-                    break;
-            }
-
-            DebugUtils.WriteLine(DebugLevel.Debug, "MainWindowPresenter.OnFileRenamerStatusUpdate: Done.");
         }
 
         /// <summary>
