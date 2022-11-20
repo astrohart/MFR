@@ -1,3 +1,4 @@
+using EnvDTE;
 using MFR.Constants;
 using MFR.Events;
 using MFR.Events.Common;
@@ -1570,6 +1571,12 @@ namespace MFR.GUI.Windows.Presenters
         private void OnFileRenamerStatusUpdate(object sender,
             StatusUpdateEventArgs e)
         {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(DebugLevel.Debug, "In MainWindowPresenter.OnFileRenamerStatusUpdate");
+
+            System.Diagnostics.Debugger.Launch();
+            System.Diagnostics.Debugger.Break();
+
             if (string.IsNullOrWhiteSpace(e.Text)) return;
 
             Console.WriteLine(e.Text);
@@ -1592,6 +1599,8 @@ namespace MFR.GUI.Windows.Presenters
                     );
                     break;
             }
+
+            DebugUtils.WriteLine(DebugLevel.Debug, "MainWindowPresenter.OnFileRenamerStatusUpdate: Done.");
         }
 
         /// <summary>
