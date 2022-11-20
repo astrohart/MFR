@@ -67,6 +67,7 @@
   - [OnViewStatusBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewStatusBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewStatusBar(System.Object,System.EventArgs)')
   - [OnViewToolBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewToolBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewToolBar(System.Object,System.EventArgs)')
   - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ResetProfileCollectionComboBox')
+  - [SetUpFindWhatComboBox()](#M-MFR-GUI-Windows-MainWindow-SetUpFindWhatComboBox 'MFR.GUI.Windows.MainWindow.SetUpFindWhatComboBox')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
 - [Resources](#T-MFR-GUI-Windows-Properties-Resources 'MFR.GUI.Windows.Properties.Resources')
@@ -1135,6 +1136,23 @@ item and then selects the first element in the
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-SetUpFindWhatComboBox'></a>
+### SetUpFindWhatComboBox() `method`
+
+##### Summary
+
+Configures the combo box.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+One of the things method does is get a list of all the `*.csproj` files in
+the stating folder and builds an auto-completion suggestion list consisting of
+just their names (with no folder path or file extension).
 
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size-'></a>
 ### UpdateSize(newSize) `method`

@@ -182,13 +182,6 @@ namespace MFR.CommandLine.Validators
                     Errors = Errors.Concat(_rootDirectoryValidator.Errors)
                                    .ToList();
                 }
-
-                if (string.IsNullOrWhiteSpace(cmdInfo.FindWhat))
-                    OnCommandLineInfoInvalid(
-                        new CommandLineInfoInvalidEventArgs(
-                            cmdInfo, CommandLineInvalidReason.FindWhatBlank
-                        )
-                    );
             }
             catch (Exception ex)
             {
