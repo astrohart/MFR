@@ -79,8 +79,7 @@ namespace MFR.CommandLine.Parsers
                  .As("findWhat")
                  .WithDescription(
                      "Sets the string to be found in file system entries."
-                 )
-                 .Required();
+                 );
 
                 p.Setup(arg => arg.ReplaceWith)
                  .As("replaceWith")
