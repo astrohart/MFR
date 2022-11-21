@@ -164,6 +164,14 @@
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
+      <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
+      <Name>MFR.Directories.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
+      <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
+      <Name>MFR.Directories.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Errors.Reports.Commands.Constants\MFR.Errors.Reports.Commands.Constants.csproj">
       <Project>{12421A60-E923-47AB-84B5-B8D556594C7A}</Project>
       <Name>MFR.Errors.Reports.Commands.Constants</Name>
@@ -339,6 +347,10 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Providers\MFR.Settings.Profiles.Providers.csproj">
       <Project>{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}</Project>
       <Name>MFR.Settings.Profiles.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9D0A59C5-A814-45CA-88B3-DAE6E6462D07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
