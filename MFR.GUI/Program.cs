@@ -288,11 +288,35 @@ namespace MFR.GUI
              */
 
             if (CommandLineSpecified)
-                ConfigurationProvider.CurrentConfiguration =
-                    CommandLineInfo.ToConfiguration();
+            {
+                /*
+                 * If we are here, then the user specified arguments on the command line.
+                 * If Auto-Start was requested, translate the entirety of the command-line
+                 * arguments into the current configuration, overwriting whatever was read in
+                 * from the configuration file on the disk.
+                 *
+                 * If Auto-Start mode is not requested, then simply overwrite the Starting
+                 * Folder setting in the loaded configuration with the Starting Folder that
+                 * is supplied on the command line.
+                 */
+
+                if (AutoStart)
+                    ConfigurationProvider.CurrentConfiguration =
+                        CommandLineInfo.ToConfiguration();
+                else
+                    ConfigurationProvider.CurrentConfiguration.StartingFolder =
+                        CommandLineInfo.StartingFolder;
+            }
+                
 
             Application.Run(MainWindow.Instance);
         }
+
+        /// <summary>
+        /// Gets a value indicating whether the application should automatically process operations requested by the user from the command line.
+        /// </summary>
+        private static bool AutoStart
+            => CommandLineInfo.AutoStart;
 
         /// <summary>
         /// Configures the display settings, such as DPI-awareness and visual
