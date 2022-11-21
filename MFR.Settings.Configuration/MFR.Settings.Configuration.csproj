@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -141,6 +142,10 @@
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Events\MFR.Settings.Configuration.Events.csproj">
+      <Project>{0A5D9948-AAD3-403C-BEF5-0F3E0C54C048}</Project>
+      <Name>MFR.Settings.Configuration.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Exceptions\MFR.Settings.Configuration.Exceptions.csproj">
       <Project>{8B3F92A5-3A48-4460-AF0F-BFFE0EE00727}</Project>
