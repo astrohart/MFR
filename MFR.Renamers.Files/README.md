@@ -6,6 +6,7 @@
 - [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
   - [#ctor()](#M-MFR-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
+  - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [Dte](#P-MFR-Renamers-Files-FileRenamer-Dte 'MFR.Renamers.Files.FileRenamer.Dte')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
@@ -84,6 +85,14 @@ This constructor has no parameters.
 
 Gets a value that indicates whether an abort of the current
 operation has been requested.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-CurrentOperation'></a>
+### CurrentOperation `property`
+
+##### Summary
+
+Gets or sets the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+enumeration value that indicates which operation is currently being performed.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-Dte'></a>
 ### Dte `property`

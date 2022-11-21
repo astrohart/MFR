@@ -10,6 +10,7 @@
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
   - [_importConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._importConfigDialog')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
   - [Does](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Does')
   - [FileRenamer](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileRenamer')
@@ -19,6 +20,7 @@
   - [ProfileProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileProvider')
   - [ReplaceWith](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWith 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWithComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWithComboBox')
+  - [RootDirectoryValidator](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryValidator 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RootDirectoryValidator')
   - [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolderComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolderComboBox')
   - [View](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-View 'MFR.GUI.Windows.Presenters.MainWindowPresenter.View')
@@ -35,6 +37,7 @@
   - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ImportConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ImportConfiguration')
   - [IncrementProgressBar(statusLabelText,currentFileLabelText)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-IncrementProgressBar-System-String,System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.IncrementProgressBar(System.String,System.String)')
   - [InitializeComponents()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeComponents 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeComponents')
+  - [InitializeConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeConfiguration')
   - [InitializeFileRenamer()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeFileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeFileRenamer')
   - [InitializeOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeOperationSelections')
   - [OnAddProfileFailed(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnAddProfileFailed-MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnAddProfileFailed(MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs)')
@@ -42,6 +45,7 @@
   - [OnCancellableProgressDialogRequestedCancel(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCancellableProgressDialogRequestedCancel-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCancellableProgressDialogRequestedCancel(System.Object,System.EventArgs)')
   - [OnConfigurationExported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationExported(MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs)')
   - [OnConfigurationImported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationImported(MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs)')
+  - [OnConfigurationStartingFolderChanged(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationStartingFolderChanged-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationStartingFolderChanged(System.Object,System.EventArgs)')
   - [OnCreateNewBlankProfileRequested(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCreateNewBlankProfileRequested(MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs)')
   - [OnDataOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationError-MFR-Operations-Events-DataOperationErrorEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationError(MFR.Operations.Events.DataOperationErrorEventArgs)')
   - [OnDataOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationFinished')
@@ -169,6 +173,20 @@ interface.
 This object allows access to the user configuration and the actions
 associated with it.
 
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+interface.
+
+##### Remarks
+
+This object's properties are initialized with the currently-loaded
+configuration.
+
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName'></a>
 ### CurrentProfileName `property`
 
@@ -247,6 +265,15 @@ Gets the replacement text to be used during the operations.
 Gets a reference to an instance of an object that implements the
 [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') interface
 that plays the role of the Replace With combo box on the main user interface.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryValidator'></a>
+### RootDirectoryValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+interface.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder'></a>
 ### StartingFolder `property`
@@ -510,6 +537,17 @@ configurable by use of fluent-builder methods.
 
 This method has no parameters.
 
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeConfiguration'></a>
+### InitializeConfiguration() `method`
+
+##### Summary
+
+Initializes the currently-loaded configuration object.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeFileRenamer'></a>
 ### InitializeFileRenamer() `method`
 
@@ -621,6 +659,35 @@ event.
 | ---- | ---- | ----------- |
 | e | [MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs') | A [ConfigurationImportedEventArgs](#T-MFR-Settings-ConfigurationImportedEventArgs 'MFR.Settings.ConfigurationImportedEventArgs') that
 contains the event data. |
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationStartingFolderChanged-System-Object,System-EventArgs-'></a>
+### OnConfigurationStartingFolderChanged(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Settings-Configuration-Interfaces-IConfiguration-StartingFolderChanged 'MFR.Settings.Configuration.Interfaces.IConfiguration.StartingFolderChanged')
+event raised by the configuration object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by checking whether the entry is a valid folder
+pathname; if so, then the folder pathname is added to the history of
+starting-folder entries in the history.
+
+
+
+Starting-folder pathname entries aren't added to the configuration's history
+list if an entry having the same content already exists in the history.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs-'></a>
 ### OnCreateNewBlankProfileRequested(e) `method`

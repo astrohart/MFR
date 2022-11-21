@@ -6,6 +6,7 @@
 - [Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
   - [#ctor()](#M-MFR-Settings-Configuration-Configuration-#ctor 'MFR.Settings.Configuration.Configuration.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-Configuration-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.Configuration.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [_startingFolder](#F-MFR-Settings-Configuration-Configuration-_startingFolder 'MFR.Settings.Configuration.Configuration._startingFolder')
   - [AutoStart](#P-MFR-Settings-Configuration-Configuration-AutoStart 'MFR.Settings.Configuration.Configuration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-Configuration-FindWhat 'MFR.Settings.Configuration.Configuration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Configuration-FindWhatHistory 'MFR.Settings.Configuration.Configuration.FindWhatHistory')
@@ -23,6 +24,7 @@
   - [SelectedOptionTab](#P-MFR-Settings-Configuration-Configuration-SelectedOptionTab 'MFR.Settings.Configuration.Configuration.SelectedOptionTab')
   - [StartingFolder](#P-MFR-Settings-Configuration-Configuration-StartingFolder 'MFR.Settings.Configuration.Configuration.StartingFolder')
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-Configuration-StartingFolderHistory 'MFR.Settings.Configuration.Configuration.StartingFolderHistory')
+  - [OnStartingFolderChanged()](#M-MFR-Settings-Configuration-Configuration-OnStartingFolderChanged 'MFR.Settings.Configuration.Configuration.OnStartingFolderChanged')
   - [Reset()](#M-MFR-Settings-Configuration-Configuration-Reset 'MFR.Settings.Configuration.Configuration.Reset')
 - [ConfigurationComposedObjectBase](#T-MFR-Settings-Configuration-ConfigurationComposedObjectBase 'MFR.Settings.Configuration.ConfigurationComposedObjectBase')
   - [#ctor()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.#ctor')
@@ -81,6 +83,14 @@ and returns a reference to it.
 | source | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements the
 [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
 that contains existing configuration settings to copy into this object. |
+
+<a name='F-MFR-Settings-Configuration-Configuration-_startingFolder'></a>
+### _startingFolder `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname of the
+folder in which the selected operation(s) should be initiated.
 
 <a name='P-MFR-Settings-Configuration-Configuration-AutoStart'></a>
 ### AutoStart `property`
@@ -234,6 +244,19 @@ the search.
 
 Gets or sets a collection of strings that correspond to the
 most-recently-used values for Starting Folder.
+
+<a name='M-MFR-Settings-Configuration-Configuration-OnStartingFolderChanged'></a>
+### OnStartingFolderChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Configuration-Configuration-StartingFolderChanged 'MFR.Settings.Configuration.Configuration.StartingFolderChanged')
+event.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Settings-Configuration-Configuration-Reset'></a>
 ### Reset() `method`

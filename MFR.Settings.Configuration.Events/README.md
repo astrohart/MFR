@@ -14,6 +14,7 @@
 - [Resources](#T-MFR-Settings-Configuration-Events-Properties-Resources 'MFR.Settings.Configuration.Events.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Events-Properties-Resources-Culture 'MFR.Settings.Configuration.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Events-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Events.Properties.Resources.ResourceManager')
+- [StartingFolderChangedEventHandler](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventHandler 'MFR.Settings.Configuration.Events.StartingFolderChangedEventHandler')
 
 <a name='T-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs'></a>
 ## ConfigurationExportedEventArgs `type`
@@ -159,3 +160,25 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-Settings-Configuration-Events-StartingFolderChangedEventHandler'></a>
+## StartingFolderChangedEventHandler `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Events
+
+##### Summary
+
+Represents a handler for a `StartingFolderChanged` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Settings.Configuration.Events.StartingFolderChangedEventHandler](#T-T-MFR-Settings-Configuration-Events-StartingFolderChangedEventHandler 'T:MFR.Settings.Configuration.Events.StartingFolderChangedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`StartingFolderChanged` event.
