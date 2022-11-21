@@ -2,6 +2,7 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Models;
 using MFR.GUI.Models.Extensions;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
@@ -22,6 +23,12 @@ namespace MFR.Settings.Configuration
     [Log(AttributeExclude = true)]
     public class Configuration : IConfiguration
     {
+        /// <summary>
+        /// A <see cref="T:System.String" /> containing the fully-qualified pathname of the
+        /// folder in which the selected operation(s) should be initiated.
+        /// </summary>
+        private string _startingFolder;
+
         /// <summary>
         /// Constructs a new instance of
         /// <see
@@ -375,8 +382,12 @@ namespace MFR.Settings.Configuration
         [JsonProperty("startingFolder")]
         public string StartingFolder
         {
-            get;
-            set;
+            get => _startingFolder;
+            set {
+                var changed = _startingFolder != value;
+                _startingFolder = value;
+                if (changed) OnStartingFolderChanged();
+            }
         }
 
         /// <summary>
@@ -389,6 +400,13 @@ namespace MFR.Settings.Configuration
             get;
             set;
         } = new List<string>();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Settings.Configuration.Configuration.StartingFolder" />
+        /// property has been updated.
+        /// </summary>
+        public event StartingFolderChangedEventHandler StartingFolderChanged;
 
         /// <summary>
         /// Sets the values of this class' properties to their default values.
@@ -429,5 +447,13 @@ namespace MFR.Settings.Configuration
                 }
             };
         }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Settings.Configuration.Configuration.StartingFolderChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnStartingFolderChanged()
+            => StartingFolderChanged?.Invoke(this, EventArgs.Empty);
     }
 }
