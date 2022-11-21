@@ -1,5 +1,6 @@
-using EnvDTE;
 using MFR.Constants;
+using MFR.Directories.Validators.Factories;
+using MFR.Directories.Validators.Interfaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
@@ -38,8 +39,6 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
-using xyLOGIX.VisualStudio.Actions;
-using xyLOGIX.VisualStudio.Actions.Constants;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.GUI.Windows.Presenters
@@ -66,21 +65,6 @@ namespace MFR.GUI.Windows.Presenters
         /// to choose where they want to export the configuration data.
         /// </summary>
         private SaveFileDialog _exportConfigDialog;
-
-        /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.IFileRenamer" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// THis object provides the core services that this application offers.
-        /// </remarks>
-        private IFileRenamer FileRenamer
-        {
-            get;
-            set;
-        }
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -119,6 +103,143 @@ namespace MFR.GUI.Windows.Presenters
             InitializeComponents();
 
             ReinitializeProgressDialog();
+
+            InitializeConfiguration();
+        }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object's properties are initialized with the currently-loaded
+        /// configuration.
+        /// </remarks>
+        private static IConfiguration CurrentConfiguration
+            => ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Gets the name of the currently-selected profile.
+        /// </summary>
+        private string CurrentProfileName
+            => Configuration is IProfile profile ? profile.Name : string.Empty;
+
+        /// <summary>
+        /// Gets a reference to this object instance.
+        /// </summary>
+        /// <remarks>
+        /// This property is here to maintain method call semantics.
+        /// </remarks>
+        public IMainWindowPresenter Does
+            => this;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.IFileRenamer" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// THis object provides the core services that this application offers.
+        /// </remarks>
+        private IFileRenamer FileRenamer
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets the text to be searched for during the operations.
+        /// </summary>
+        private string FindWhat
+            => FindWhatComboBox.EnteredText;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that plays the role of the Find What combo box.
+        /// </summary>
+        private IEntryRespectingComboBox FindWhatComboBox
+            => View.FindWhatComboBox;
+
+        /// <summary>
+        /// Gets a value that indicates whether a Profile is currently loaded.
+        /// </summary>
+        public bool IsProfileLoaded
+            => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
+        /// </summary>
+        private static IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets the replacement text to be used during the operations.
+        /// </summary>
+        private string ReplaceWith
+            => ReplaceWithComboBox.EnteredText;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that plays the role of the Replace With combo box on the main user interface.
+        /// </summary>
+        private IEntryRespectingComboBox ReplaceWithComboBox
+            => View.ReplaceWithComboBox;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// interface.
+        /// </summary>
+        private static IRootDirectoryValidator RootDirectoryValidator
+            => GetRootDirectoryValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets the path to the starting folder of the search.
+        /// </summary>
+        private string StartingFolder
+            => StartingFolderComboBox.EnteredText;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that plays the role of the Starting Folder combo box on the main user
+        /// interface.
+        /// </summary>
+        private IEntryRespectingComboBox StartingFolderComboBox
+            => View.StartingFolderComboBox;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.IMainWindow" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides the functionality of the main window of the application.
+        /// </remarks>
+        public IMainWindow View
+        {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -179,108 +300,6 @@ namespace MFR.GUI.Windows.Presenters
         /// Occurs when the processing has started.
         /// </summary>
         public event EventHandler Started;
-
-        /// <summary>
-        /// Gets a reference to this object instance.
-        /// </summary>
-        /// <remarks>
-        /// This property is here to maintain method call semantics.
-        /// </remarks>
-        public IMainWindowPresenter Does
-            => this;
-
-        /// <summary>
-        /// Gets the text to be searched for during the operations.
-        /// </summary>
-        private string FindWhat
-            => FindWhatComboBox.EnteredText;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
-        /// that plays the role of the Find What combo box.
-        /// </summary>
-        private IEntryRespectingComboBox FindWhatComboBox
-            => View.FindWhatComboBox;
-
-        /// <summary>
-        /// Gets a value that indicates whether a Profile is currently loaded.
-        /// </summary>
-        public bool IsProfileLoaded
-            => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
-
-        /// <summary>
-        /// Gets the replacement text to be used during the operations.
-        /// </summary>
-        private string ReplaceWith
-            => ReplaceWithComboBox.EnteredText;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
-        /// that plays the role of the Replace With combo box on the main user interface.
-        /// </summary>
-        private IEntryRespectingComboBox ReplaceWithComboBox
-            => View.ReplaceWithComboBox;
-
-        /// <summary>
-        /// Gets the path to the starting folder of the search.
-        /// </summary>
-        private string StartingFolder
-            => StartingFolderComboBox.EnteredText;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
-        /// that plays the role of the Starting Folder combo box on the main user
-        /// interface.
-        /// </summary>
-        private IEntryRespectingComboBox StartingFolderComboBox
-            => View.StartingFolderComboBox;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.GUI.IMainWindow" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object provides the functionality of the main window of the application.
-        /// </remarks>
-        public IMainWindow View
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the actions
-        /// associated with it.
-        /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
-        /// interface.
-        /// </summary>
-        private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets the name of the currently-selected profile.
-        /// </summary>
-        private string CurrentProfileName
-            => Configuration is IProfile profile
-                ? profile.Name
-                : string.Empty;
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of configuration
@@ -433,8 +452,8 @@ namespace MFR.GUI.Windows.Presenters
                 return;
 
             if (ProfileProvider.Profiles.Count(
-                p => !p.Name.StartsWith("tmp_")
-            ) == 0)
+                    p => !p.Name.StartsWith("tmp_")
+                ) == 0)
                 return;
 
             /*
@@ -608,10 +627,11 @@ namespace MFR.GUI.Windows.Presenters
 
             if (Does.ProfileAlreadyExist(profileName)) return;
 
-            var newProfile = ConfigurationProvider.CurrentConfiguration.ToProfile(profileName);
-            ProfileProvider.Profiles.Add(
-                newProfile
-            );
+            var newProfile =
+                ConfigurationProvider.CurrentConfiguration.ToProfile(
+                    profileName
+                );
+            ProfileProvider.Profiles.Add(newProfile);
             ProfileProvider.Save();
 
             /*
@@ -621,25 +641,6 @@ namespace MFR.GUI.Windows.Presenters
 
             ConfigurationProvider.CurrentConfiguration = newProfile;
             ConfigurationProvider.Save();
-        }
-
-        /// <summary>
-        /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
-        /// </summary>
-        public void SaveOperationSelections()
-        {
-            // write the name of the current class and method we are now
-            Configuration.RenameFiles =
-                View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
-            Configuration.RenameSubFolders =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Subfolders"
-                );
-            Configuration.ReplaceTextInFiles =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    "Replace in Files"
-                );
         }
 
         /// <summary>
@@ -796,11 +797,11 @@ namespace MFR.GUI.Windows.Presenters
             // write the name of the current class and method we are now
             // Check to see if the required property, Configuration, is null. If
             if (Configuration == null)
-            {
+
                 // the property Configuration is required.
                 // stop.
                 return;
-            }
+
             // Since moving data to/from the screen may potentially take some
             // time, show the marquee-style progress bar on the status bar in
             // the interim
@@ -838,8 +839,9 @@ namespace MFR.GUI.Windows.Presenters
             {
                 InitializeOperationSelections();
 
-                View.SelectedOptionTab = ConfigurationProvider.CurrentConfiguration
-                    .SelectedOptionTab;
+                View.SelectedOptionTab = ConfigurationProvider
+                                         .CurrentConfiguration
+                                         .SelectedOptionTab;
 
                 View.MatchExactWord = Configuration.MatchExactWord;
 
@@ -868,6 +870,50 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// </summary>
+        /// <param name="fileRenamer">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.IFileRenamer" /> interface.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
+        {
+            FileRenamer = fileRenamer ??
+                          throw new ArgumentNullException(nameof(fileRenamer));
+
+            InitializeFileRenamer();
+
+            return this;
+        }
+
+        /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            // write the name of the current class and method we are now
+            Configuration.RenameFiles =
+                View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
+            Configuration.RenameSubFolders =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    "Rename Subfolders"
+                );
+            Configuration.ReplaceTextInFiles =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    "Replace in Files"
+                );
+        }
+
+        /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.
         /// </summary>
         /// <param name="mainWindow">
@@ -888,31 +934,6 @@ namespace MFR.GUI.Windows.Presenters
             // write the name of the current class and method we are now
             View = mainWindow ??
                    throw new ArgumentNullException(nameof(mainWindow));
-            return this;
-        }
-
-        /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this presenter.
-        /// </summary>
-        /// <param name="fileRenamer">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IFileRenamer" /> interface.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
-        {
-            FileRenamer = fileRenamer ??
-                           throw new ArgumentNullException(nameof(fileRenamer));
-
-            InitializeFileRenamer();
-
             return this;
         }
 
@@ -993,6 +1014,8 @@ namespace MFR.GUI.Windows.Presenters
                 .ForMessageId(
                     MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
                 );
+
+            InitializeConfiguration();
         }
 
         /// <summary>
@@ -1167,7 +1190,8 @@ namespace MFR.GUI.Windows.Presenters
             => Task.Run(
                 () => FileRenamer.ProcessAll(
                     StartingFolder, FindWhat, ReplaceWith
-                ));
+                )
+            );
 
         /// <summary>
         /// Called when the count of files to be processed in a given operation
@@ -1252,8 +1276,7 @@ namespace MFR.GUI.Windows.Presenters
         private void InitializeComponents()
 
         {
-            _exportConfigDialog = new SaveFileDialog
-            {
+            _exportConfigDialog = new SaveFileDialog {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1261,8 +1284,7 @@ namespace MFR.GUI.Windows.Presenters
                 RestoreDirectory = true,
                 Title = "Export Configuration"
             };
-            _importConfigDialog = new OpenFileDialog
-            {
+            _importConfigDialog = new OpenFileDialog {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
@@ -1270,6 +1292,17 @@ namespace MFR.GUI.Windows.Presenters
                 RestoreDirectory = true,
                 Title = "Import Configuration"
             };
+        }
+
+        /// <summary>
+        /// Initializes the currently-loaded configuration object.
+        /// </summary>
+        private void InitializeConfiguration()
+        {
+            CurrentConfiguration.StartingFolderChanged -=
+                OnConfigurationStartingFolderChanged;
+            CurrentConfiguration.StartingFolderChanged +=
+                OnConfigurationStartingFolderChanged;
         }
 
         /// <summary>
@@ -1281,11 +1314,10 @@ namespace MFR.GUI.Windows.Presenters
             // write the name of the current class and method we are now
             // Check to see if the required field, _fileRenamer, is null. If it
             if (FileRenamer == null)
-            {
+
                 // the field _fileRenamer is required.
                 // stop.
                 return;
-            }
             NewMessageMapping<ExceptionRaisedEventArgs>.Associate
                 .WithMessageId(FileRenamerMessages.FRM_EXCEPTION_RAISED)
                 .AndHandler(
@@ -1381,6 +1413,41 @@ namespace MFR.GUI.Windows.Presenters
         private void OnCancellableProgressDialogRequestedCancel(object sender,
             EventArgs e)
             => FileRenamer.RequestAbort();
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Interfaces.IConfiguration.StartingFolderChanged" />
+        /// event raised by the configuration object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by checking whether the entry is a valid folder
+        /// pathname; if so, then the folder pathname is added to the history of
+        /// starting-folder entries in the history.
+        /// <para />
+        /// Starting-folder pathname entries aren't added to the configuration's history
+        /// list if an entry having the same content already exists in the history.
+        /// </remarks>
+        private void OnConfigurationStartingFolderChanged(object sender,
+            EventArgs e)
+        {
+            // Make sure we're getting a valid folder
+            if (!RootDirectoryValidator.Validate(
+                    CurrentConfiguration.StartingFolder
+                )) return;
+
+            StartingFolderComboBox.Items.AddDistinct(
+                CurrentConfiguration.StartingFolder
+            );
+        }
 
         /// <summary>
         /// Handles the <see cref="E:MFR.IFileRenamer.ExceptionRaised" /> event.
@@ -1572,8 +1639,11 @@ namespace MFR.GUI.Windows.Presenters
             StatusUpdateEventArgs e)
         {
             // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In MainWindowPresenter.OnFileRenamerStatusUpdate");
-            
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In MainWindowPresenter.OnFileRenamerStatusUpdate"
+            );
+
             if (string.IsNullOrWhiteSpace(e.Text)) return;
 
             Console.WriteLine(e.Text);
@@ -1638,7 +1708,7 @@ namespace MFR.GUI.Windows.Presenters
         [Log(AttributeExclude = true)]
         private void ResetProgressBar()
             => _cancellableProgressDialog.DoIfNotDisposed(
-               _cancellableProgressDialog.Reset
+                _cancellableProgressDialog.Reset
             );
 
         /// <summary>
