@@ -1,4 +1,5 @@
 using MFR.GUI.Models;
+using MFR.Settings.Configuration.Events;
 using System.Collections.Generic;
 
 namespace MFR.Settings.Configuration.Interfaces
@@ -186,5 +187,12 @@ namespace MFR.Settings.Configuration.Interfaces
         /// line.
         /// </remarks>
         bool AutoStart { get; set; }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Settings.Configuration.Interfaces.IConfiguration.StartingFolder" />
+        /// property has been updated.
+        /// </summary>
+        event StartingFolderChangedEventHandler StartingFolderChanged;
     }
 }
