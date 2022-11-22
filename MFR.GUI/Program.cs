@@ -32,6 +32,19 @@ namespace MFR.GUI
     public static class Program
     {
         /// <summary>
+        /// A <see cref="T:System.Guid" /> that uniquely identifies this product.
+        /// </summary>
+        public static Guid AppId =
+            new Guid("ce26f41b-78f8-4093-ab60-91fbb069c70b");
+
+        /// <summary>
+        /// Gets a value indicating whether the application should automatically process
+        /// operations requested by the user from the command line.
+        /// </summary>
+        private static bool AutoStart
+            => CommandLineInfo.AutoStart;
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
         /// </summary>
@@ -307,16 +320,9 @@ namespace MFR.GUI
                     ConfigurationProvider.CurrentConfiguration.StartingFolder =
                         CommandLineInfo.StartingFolder;
             }
-                
 
             Application.Run(MainWindow.Instance);
         }
-
-        /// <summary>
-        /// Gets a value indicating whether the application should automatically process operations requested by the user from the command line.
-        /// </summary>
-        private static bool AutoStart
-            => CommandLineInfo.AutoStart;
 
         /// <summary>
         /// Configures the display settings, such as DPI-awareness and visual
