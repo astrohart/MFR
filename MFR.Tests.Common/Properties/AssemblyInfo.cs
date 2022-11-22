@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
         "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX MFR.  MassFileRenamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+        "This software is a component of xyLOGIX Project File Renamer.  MassFileRenamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
