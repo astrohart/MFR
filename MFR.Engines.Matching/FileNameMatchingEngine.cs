@@ -21,12 +21,12 @@ namespace MFR.Engines.Matching
         /// returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public FileNameMatchingEngine(IConfiguration configuration) : base(
-            configuration
+        public FileNameMatchingEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
+            projectFileRenamerConfiguration
         ) { }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace MFR.Engines.Matching
             {
                 result = GetStringMatcher.For(OperationType.RenameFilesInFolder)
                                          .AndTextMatchingConfiguration(
-                                             Configuration
+                                             ProjectFileRenamerConfiguration
                                                  .GetTextMatchingConfiguration()
                                          )
                                          .IsMatch(value, findWhat, replaceWith);

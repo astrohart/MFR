@@ -30,11 +30,11 @@ namespace MFR.Console
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
-        private static IConfiguration Configuration
-            => ConfigurationProvider.CurrentConfiguration;
+        private static IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
+            => ConfigurationProvider.CurrentProjectFileRenamerConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -66,10 +66,10 @@ namespace MFR.Console
 
                 ConfigurationProvider.Load();
 
-                FileRenamer.UpdateConfiguration(Configuration);
+                FileRenamer.UpdateConfiguration(ProjectFileRenamerConfiguration);
 
-                FileRenamer.StartingFrom(Configuration.StartingFolder)
-                           .AndAttachConfiguration(Configuration);
+                FileRenamer.StartingFrom(ProjectFileRenamerConfiguration.StartingFolder)
+                           .AndAttachConfiguration(ProjectFileRenamerConfiguration);
 
                 FileRenamer.FilesToHaveTextReplacedCounted +=
                     OnFilesToHaveTextReplacedCounted;
@@ -78,7 +78,7 @@ namespace MFR.Console
                 FileRenamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
                 FileRenamer.ProcessAll(
-                    Configuration.FindWhat, Configuration.ReplaceWith
+                    ProjectFileRenamerConfiguration.FindWhat, ProjectFileRenamerConfiguration.ReplaceWith
                 );
 
                 ConfigurationProvider.Save();

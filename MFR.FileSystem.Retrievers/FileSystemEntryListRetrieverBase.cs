@@ -132,7 +132,7 @@ namespace MFR.FileSystem.Retrievers
         /// <see
         ///     cref="T:MFR.ITextExpressionMatchingEngine" />
         /// interface,
-        /// for the current operation type and configuration.
+        /// for the current operation type and projectFileRenamerConfiguration.
         /// </summary>
         /// <remarks>
         /// The property is designed to be called as part of a fluent
@@ -142,7 +142,7 @@ namespace MFR.FileSystem.Retrievers
         private ITextExpressionMatchingEngine TextExpressionMatchingEngineSays
             => GetTextExpressionMatchingEngine.For(OperationType)
                                               .AndAttachConfiguration(
-                                                  Configuration
+                                                  ProjectFileRenamerConfiguration
                                               );
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder whose pathname is specified by the '
@@ -228,7 +228,7 @@ namespace MFR.FileSystem.Retrievers
             /*
              * This method is merely a template to ensure that the rootFolderPath
              * is verified to be referencing a folder that actually exists on the
-             * disk, and we ensure the configuration object is attached.
+             * disk, and we ensure the projectFileRenamerConfiguration object is attached.
              *
              * The "meat" is done in the DoGetMatchingFileSystemPaths template
              * method.  This method is declared abstract, so it must be implemented
@@ -447,12 +447,12 @@ namespace MFR.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.Configuration" />
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(string rootFolderPath,
@@ -485,7 +485,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown in the event that the
@@ -502,7 +502,7 @@ namespace MFR.FileSystem.Retrievers
             VerifyConfigurationAttached();
 
             return (MatchExpression)GetMatchExpressionFactory.For(OperationType)
-                .AndAttachConfiguration(Configuration)
+                .AndAttachConfiguration(ProjectFileRenamerConfiguration)
                 .ForTextValue(
                     OperationType == OperationType.ReplaceTextInFiles
                         ? entry.UserState as string
@@ -515,7 +515,7 @@ namespace MFR.FileSystem.Retrievers
         /// <summary>
         /// Determines whether the path and/or user-state data in the specified
         /// file system <paramref name="entry" /> object matches search and
-        /// configuration criteria specified by the user.
+        /// projectFileRenamerConfiguration criteria specified by the user.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements

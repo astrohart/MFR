@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Translating Command-Line Arguments Component")]
-[assembly: AssemblyDescription("Provides objects and functionality to translate instances of ICommandLineInfo-implementing objects to other objects, such as that which implements the IConfiguration interface.  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyDescription("Provides objects and functionality to translate instances of ICommandLineInfo-implementing objects to other objects, such as that which implements the IProjectFileRenamerConfiguration interface.  This particular library holds the concrete classes and implementations of the component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]

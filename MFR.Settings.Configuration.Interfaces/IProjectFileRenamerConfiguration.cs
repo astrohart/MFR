@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace MFR.Settings.Configuration.Interfaces
 {
     /// <summary>
-    /// Defines the public-exposed methods and properties of a configuration object.
+    /// Defines the public-exposed methods and properties of a projectFileRenamerConfiguration object.
     /// </summary>
-    public interface IConfiguration
+    public interface IProjectFileRenamerConfiguration
     {
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
@@ -43,7 +43,7 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this configuration was specified by the
+        /// Gets or sets a value indicating whether this projectFileRenamerConfiguration was specified by the
         /// user on the command line.
         /// </summary>
         bool IsFromCommandLine
@@ -183,14 +183,14 @@ namespace MFR.Settings.Configuration.Interfaces
         /// specified operation(s) have been completed.
         /// </summary>
         /// <remarks>
-        /// This flag is ignored if this configuration did not originate from the command
+        /// This flag is ignored if this projectFileRenamerConfiguration did not originate from the command
         /// line.
         /// </remarks>
         bool AutoStart { get; set; }
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.Settings.Configuration.Interfaces.IConfiguration.StartingFolder" />
+        /// <see cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         event StartingFolderChangedEventHandler StartingFolderChanged;

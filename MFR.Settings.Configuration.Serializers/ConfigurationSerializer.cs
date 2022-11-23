@@ -11,18 +11,18 @@ using File = Alphaleonis.Win32.Filesystem.File;
 namespace MFR.Settings.Configuration.Serializers
 {
     /// <summary>
-    ///     Provides helper methods for storing the configuration data to, and
+    ///     Provides helper methods for storing the projectFileRenamerConfiguration data to, and
     ///     loading it from, a file on the disk.
     /// </summary>
     public static class ConfigurationSerializer
     {
         /// <summary>
-        ///     Loads the configuration data from the file on the disk that has the
+        ///     Loads the projectFileRenamerConfiguration data from the file on the disk that has the
         ///     specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         ///     (Required.) String containing the fully-qualified pathname of a
-        ///     JSON-formatted data file on the disk that contains the configuration data.
+        ///     JSON-formatted data file on the disk that contains the projectFileRenamerConfiguration data.
         /// </param>
         /// <returns>
         ///     Reference to an instance of an object that implements the
@@ -44,7 +44,7 @@ namespace MFR.Settings.Configuration.Serializers
         ///         name="pathname" />
         ///     parameter, cannot be located on the disk.
         /// </exception>
-        public static IConfiguration Load(string pathname)
+        public static IProjectFileRenamerConfiguration Load(string pathname)
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 throw new ArgumentException(
@@ -53,18 +53,18 @@ namespace MFR.Settings.Configuration.Serializers
                 );
             if (!File.Exists(pathname))
                 throw new FileNotFoundException(
-                    $"The system could not find the configuration file having the pathname '{pathname}'",
+                    $"The system could not find the projectFileRenamerConfiguration file having the pathname '{pathname}'",
                     pathname
                 );
 
-            IConfiguration result;
+            IProjectFileRenamerConfiguration result;
 
             try
             {
                 var content = File.ReadAllText(pathname);
 
                 // If the file at the path pathname has zero bytes of data, or
-                // only whitespace, then return a blank Configuration instance
+                // only whitespace, then return a blank ProjectFileRenamerConfiguration instance
                 // with its properties all set to default values.
                 result = string.IsNullOrWhiteSpace(content)
                     ? MakeNewConfiguration.FromScratch()
@@ -82,30 +82,30 @@ namespace MFR.Settings.Configuration.Serializers
         }
 
         /// <summary>
-        ///     Saves configuration data to a file.
+        ///     Saves projectFileRenamerConfiguration data to a file.
         /// </summary>
         /// <param name="pathname">
         ///     (Required.) String containing the pathname of the file that the data
         ///     is to be saved to.
         /// </param>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         ///     (Required.) Reference to an instance of an object that implements
         ///     the
         ///     <see
-        ///         cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        ///         cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         ///     interface.
         /// </param>
-        public static void Save(string pathname, IConfiguration configuration)
+        public static void Save(string pathname, IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
 
-            if (configuration == null)
+            if (projectFileRenamerConfiguration == null)
                 return;
 
             try
             {
-                var content = ConvertConfiguration.ToJson(configuration);
+                var content = ConvertConfiguration.ToJson(projectFileRenamerConfiguration);
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;

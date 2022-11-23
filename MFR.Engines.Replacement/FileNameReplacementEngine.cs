@@ -30,17 +30,17 @@ namespace MFR.Engines.Replacement
         /// and returns a
         /// reference to it.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface that holds
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public FileNameReplacementEngine(IConfiguration configuration) : base(
-            configuration
+        public FileNameReplacementEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
+            projectFileRenamerConfiguration
         ) { }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace MFR.Engines.Replacement
             {
                 result = GetStringReplacer.For(OperationType)
                                           .AndTextMatchingConfiguration(
-                                              Configuration
+                                              ProjectFileRenamerConfiguration
                                                   .GetTextMatchingConfiguration()
                                           )
                                           .Replace(value, pattern, dest);

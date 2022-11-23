@@ -64,7 +64,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.Pass();
 
             /*
-            var configuration =
+            var projectFileRenamerConfiguration =
                 ConfigurationBuilder.BuildConfigurationForUseCase(
                     true, /* match case
                     true
@@ -87,7 +87,7 @@ namespace MFR.FileSystem.Helpers.Tests
             var textValue = textValueRetriever.GetTextValue(newFileSystemEntry);
             var matchExpressionFactory = GetMatchExpressionFactory
                                          .For(OperationType.RenameFilesInFolder)
-                                         .AndAttachConfiguration(ConfigurationProvider.CurrentConfiguration)
+                                         .AndAttachConfiguration(ConfigurationProvider.CurrentProjectFileRenamerConfiguration)
                                          .ForTextValue(textValue)
                                          .ToFindWhat("FizzBuzz");
             IMatchExpression expression = matchExpressionFactory
@@ -98,7 +98,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                     .RenameFilesInFolder
                                             )
                                             .AndAttachConfiguration(
-                                                ConfigurationProvider.CurrentConfiguration
+                                                ConfigurationProvider.CurrentProjectFileRenamerConfiguration
                                             );
             Console.WriteLine(expression);
             Console.WriteLine(engine);
@@ -137,7 +137,7 @@ namespace MFR.FileSystem.Helpers.Tests
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the actions
+        /// This object allows access to the user projectFileRenamerConfiguration and the actions
         /// associated with it.
         /// </remarks>
         private static IConfigurationProvider ConfigurationProvider

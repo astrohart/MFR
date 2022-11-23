@@ -9,7 +9,7 @@ namespace MFR.Settings.Configuration.Converters
 {
     /// <summary>
     /// Converts JSON-formatted text to and from instances of C# objects that
-    /// implement the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+    /// implement the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface.
     /// </summary>
     public static class ConvertConfiguration
@@ -37,7 +37,7 @@ namespace MFR.Settings.Configuration.Converters
         /// Converts a string containing JSON-formatted text into an instance of
         /// an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface and
         /// returns a reference to it.
         /// </summary>
@@ -47,7 +47,7 @@ namespace MFR.Settings.Configuration.Converters
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface whose
         /// properties are initialized to the data values read in from the JSON
         /// text, or <see langword="null" /> if a problem occurred.
@@ -56,44 +56,44 @@ namespace MFR.Settings.Configuration.Converters
         /// Thrown if the required parameter, <paramref name="json" />, is passed
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
-        public static IConfiguration FromJson([NotLogged] string json)
+        public static IProjectFileRenamerConfiguration FromJson([NotLogged] string json)
         {
             if (string.IsNullOrWhiteSpace(json))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(json)
                 );
-            return JsonConvert.DeserializeObject<Configuration>(json, Settings);
+            return JsonConvert.DeserializeObject<ProjectFileRenamerProjectFileRenamerConfiguration>(json, Settings);
         }
 
         /// <summary>
         /// Converts an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface into a
         /// JSON-formatted string and returns the resultant string.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// that is to be converted into JSON-formatted text.
         /// </param>
         /// <returns>
         /// String containing the JSON equivalent of the
         /// <paramref
-        ///     name="configuration" />
+        ///     name="projectFileRenamerConfiguration" />
         /// object fed in.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [return:NotLogged]
-        public static string ToJson(IConfiguration configuration)
+        public static string ToJson(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
+            if (projectFileRenamerConfiguration == null)
+                throw new ArgumentNullException(nameof(projectFileRenamerConfiguration));
             return JsonConvert.SerializeObject(
-                configuration as Configuration, Settings
+                projectFileRenamerConfiguration as ProjectFileRenamerProjectFileRenamerConfiguration, Settings
             );
         }
     }

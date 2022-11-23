@@ -21,7 +21,7 @@ namespace MFR.Settings.Configuration
     /// the application.
     /// </remarks>
     [Log(AttributeExclude = true)]
-    public class Configuration : IConfiguration
+    public class ProjectFileRenamerProjectFileRenamerConfiguration : IProjectFileRenamerConfiguration
     {
         /// <summary>
         /// A <see cref="T:System.String" /> containing the fully-qualified pathname of the
@@ -32,10 +32,10 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Configuration" />
+        ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
         /// and returns a reference to it.
         /// </summary>
-        public Configuration()
+        public ProjectFileRenamerProjectFileRenamerConfiguration()
         {
             Reset();
         }
@@ -43,15 +43,15 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Configuration" />
+        ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="source">
         /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
-        /// that contains existing configuration settings to copy into this object.
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// that contains existing projectFileRenamerConfiguration settings to copy into this object.
         /// </param>
-        public Configuration(IConfiguration source)
+        public ProjectFileRenamerProjectFileRenamerConfiguration(IProjectFileRenamerConfiguration source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
@@ -81,7 +81,7 @@ namespace MFR.Settings.Configuration
         /// specified operation(s) have been completed.
         /// </summary>
         /// <remarks>
-        /// This flag is ignored if this configuration did not originate from the command
+        /// This flag is ignored if this projectFileRenamerConfiguration did not originate from the command
         /// line.
         /// </remarks>
         public bool AutoStart
@@ -127,7 +127,7 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this configuration was specified by the
+        /// Gets or sets a value indicating whether this projectFileRenamerConfiguration was specified by the
         /// user on the command line.
         /// </summary>
         public bool IsFromCommandLine
@@ -403,7 +403,7 @@ namespace MFR.Settings.Configuration
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.Settings.Configuration.Configuration.StartingFolder" />
+        /// <see cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
@@ -450,7 +450,7 @@ namespace MFR.Settings.Configuration
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.Settings.Configuration.Configuration.StartingFolderChanged" />
+        /// <see cref="E:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
         /// event.
         /// </summary>
         protected virtual void OnStartingFolderChanged()

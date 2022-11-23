@@ -7,7 +7,7 @@ namespace MFR.Tests.Common
     /// <summary>
     /// Builds instances of fake
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Configuration" />
+    ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
     /// objects in a fluent
     /// manner, initialized for unit tests.
     /// </summary>
@@ -66,15 +66,15 @@ namespace MFR.Tests.Common
         ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         /// interface whose
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
         /// and
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
         /// properties are set to the same values as were passed for the
         /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
         /// parameters.
         /// </returns>
-        public static IConfiguration BuildConfigurationForUseCase(
+        public static IProjectFileRenamerConfiguration BuildConfigurationForUseCase(
             bool matchCase, bool matchExactWord)
         {
             var configuration = Instance.SetMatchCase(matchCase)
@@ -129,8 +129,8 @@ namespace MFR.Tests.Common
         /// The new instance's properties are initialized with the values
         /// provided to this class' other methods.
         /// </remarks>
-        public IConfiguration Build()
-            => new Configuration {
+        public IProjectFileRenamerConfiguration Build()
+            => new ProjectFileRenamerProjectFileRenamerConfiguration {
                 MatchCase = _matchCase, MatchExactWord = _matchExactWord
             };
 

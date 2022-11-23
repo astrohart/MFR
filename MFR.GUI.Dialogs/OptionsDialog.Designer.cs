@@ -111,7 +111,7 @@ namespace MFR.GUI.Dialogs
             this.configPathnamePromptLabel.Name = "configPathnamePromptLabel";
             this.configPathnamePromptLabel.Size = new System.Drawing.Size(295, 37);
             this.configPathnamePromptLabel.TabIndex = 0;
-            this.configPathnamePromptLabel.Text = "Where on your computer should we store the configuration file?";
+            this.configPathnamePromptLabel.Text = "Where on your computer should we store the projectFileRenamerConfiguration file?";
             // 
             // configPathnameTextBox
             // 
@@ -138,7 +138,7 @@ namespace MFR.GUI.Dialogs
             this.configPathnameLabel.Name = "configPathnameLabel";
             this.configPathnameLabel.Size = new System.Drawing.Size(160, 15);
             this.configPathnameLabel.TabIndex = 1;
-            this.configPathnameLabel.Text = "&Configuration file pathname:";
+            this.configPathnameLabel.Text = "&ProjectFileRenamerConfiguration file pathname:";
             // 
             // visualStudioTabPage
             // 

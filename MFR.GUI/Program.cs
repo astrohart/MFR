@@ -87,7 +87,7 @@ namespace MFR.GUI
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the actions
+        /// This object allows access to the user projectFileRenamerConfiguration and the actions
         /// associated with it.
         /// </remarks>
         private static IConfigurationProvider ConfigurationProvider
@@ -129,7 +129,7 @@ namespace MFR.GUI
 
             SetUpCommandLineValidation();
 
-            // Load the configuration from the disk.
+            // Load the projectFileRenamerConfiguration from the disk.
             ProfileProvider.Load();
 
             ConfigurationProvider.Load();
@@ -138,10 +138,10 @@ namespace MFR.GUI
 
             ProcessCommandLine();
 
-            // Save changes in the configuration back out to the disk.
+            // Save changes in the projectFileRenamerConfiguration back out to the disk.
             // Also writes the path to the config file to the Registry.
             //
-            // NOTE: Do NOT save the configuration settings in the event
+            // NOTE: Do NOT save the projectFileRenamerConfiguration settings in the event
             // that the user is running this app from the command line.
             // Ditto for profiles.
             ConfigurationProvider.Save();
@@ -296,7 +296,7 @@ namespace MFR.GUI
         {
             /*
              * If the user specified one or more argument(s) on the command line of this
-             * application, translate those parameters into configuration settings for this
+             * application, translate those parameters into projectFileRenamerConfiguration settings for this
              * run.
              */
 
@@ -305,19 +305,19 @@ namespace MFR.GUI
                 /*
                  * If we are here, then the user specified arguments on the command line.
                  * If Auto-Start was requested, translate the entirety of the command-line
-                 * arguments into the current configuration, overwriting whatever was read in
-                 * from the configuration file on the disk.
+                 * arguments into the current projectFileRenamerConfiguration, overwriting whatever was read in
+                 * from the projectFileRenamerConfiguration file on the disk.
                  *
                  * If Auto-Start mode is not requested, then simply overwrite the Starting
-                 * Folder setting in the loaded configuration with the Starting Folder that
+                 * Folder setting in the loaded projectFileRenamerConfiguration with the Starting Folder that
                  * is supplied on the command line.
                  */
 
                 if (AutoStart)
-                    ConfigurationProvider.CurrentConfiguration =
+                    ConfigurationProvider.CurrentProjectFileRenamerConfiguration =
                         CommandLineInfo.ToConfiguration();
                 else
-                    ConfigurationProvider.CurrentConfiguration.StartingFolder =
+                    ConfigurationProvider.CurrentProjectFileRenamerConfiguration.StartingFolder =
                         CommandLineInfo.StartingFolder;
             }
 

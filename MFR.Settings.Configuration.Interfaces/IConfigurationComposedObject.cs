@@ -4,16 +4,16 @@ namespace MFR.Settings.Configuration.Interfaces
     /// Defines the public-exposed methods and properties of an object that is
     /// composed with an instance of another object that implements the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface.
     /// </summary>
     public interface IConfigurationComposedObject
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface.
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface.
         /// </summary>
-        IConfiguration Configuration
+        IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
         {
             get;
             set;
@@ -23,7 +23,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Associates user settings, in the form of an instance of an object
         /// that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface, with
         /// this matcher.
         /// </summary>
@@ -32,23 +32,23 @@ namespace MFR.Settings.Configuration.Interfaces
         /// method, for fluent use.
         /// </returns>
         /// <remarks>
-        /// The <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
-        /// -implementing configuration object controls the behavior of this
+        /// The <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// -implementing projectFileRenamerConfiguration object controls the behavior of this
         /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         dynamic AndAttachConfiguration(
-            IConfiguration configuration);
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration);
 
         /// <summary>
-        /// Updates the configuration currently being used with a new value.
+        /// Updates the projectFileRenamerConfiguration currently being used with a new value.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// which has the new settings.
         /// </param>
         /// <remarks>
@@ -56,23 +56,23 @@ namespace MFR.Settings.Configuration.Interfaces
         /// from this point forward.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        void UpdateConfiguration(IConfiguration configuration);
+        void UpdateConfiguration(IProjectFileRenamerConfiguration projectFileRenamerConfiguration);
 
         /// <summary>
-        /// Verifies that configuration has been attached to this object.
+        /// Verifies that projectFileRenamerConfiguration has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// If no configuration is attached to this object, then a new
+        /// If no projectFileRenamerConfiguration is attached to this object, then a new
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException" />
         /// exception is thrown.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         void VerifyConfigurationAttached();
     }

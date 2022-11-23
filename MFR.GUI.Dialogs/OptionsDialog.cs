@@ -35,7 +35,7 @@ namespace MFR.GUI.Dialogs
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the actions
+        /// This object allows access to the user projectFileRenamerConfiguration and the actions
         /// associated with it.
         /// </remarks>
         private static IConfigurationProvider ConfigurationProvider
@@ -48,7 +48,7 @@ namespace MFR.GUI.Dialogs
         public event ModifiedEventHandler Modified;
 
         /// <summary>
-        /// Gets or sets the text of the Configuration File Pathname text box.
+        /// Gets or sets the text of the ProjectFileRenamerConfiguration File Pathname text box.
         /// </summary>
         public string ConfigPathname
         {
@@ -131,7 +131,7 @@ namespace MFR.GUI.Dialogs
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
-        /// for the Browse button on the Configuration File Pathname text box..
+        /// for the Browse button on the ProjectFileRenamerConfiguration File Pathname text box..
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -142,7 +142,7 @@ namespace MFR.GUI.Dialogs
         /// <remarks>
         /// This method responds to a click of the '...' button that lies next
         /// to the text box that accepts the pathname of the application's
-        /// configuration file.
+        /// projectFileRenamerConfiguration file.
         /// </remarks>
         private void OnClickConfigPathnameBrowseButton(object sender,
             EventArgs e)
@@ -174,7 +174,7 @@ namespace MFR.GUI.Dialogs
         /// </param>
         /// <remarks>
         /// This method is called to respond to the value of the text inside the
-        /// Configuration File Pathname text box being changed. This method
+        /// ProjectFileRenamerConfiguration File Pathname text box being changed. This method
         /// responds to such a happenstance by updating the value of the
         /// <see
         ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />

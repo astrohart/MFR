@@ -13,7 +13,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
     public class ConfigurationProviderTests
     {
         /// <summary>
-        /// Path to a sample configuration file.
+        /// Path to a sample projectFileRenamerConfiguration file.
         /// </summary>
         private const string ConfigFilePath =
             @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\config.json";
@@ -28,7 +28,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 () => ConfigurationProvider.Instance.Load(ConfigFilePath)
             );
 
-            Console.WriteLine(ConfigurationProvider.Instance.CurrentConfiguration.FindWhat);
+            Console.WriteLine(ConfigurationProvider.Instance.CurrentProjectFileRenamerConfiguration.FindWhat);
         }
     }
 }

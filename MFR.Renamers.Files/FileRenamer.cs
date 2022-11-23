@@ -43,7 +43,7 @@ namespace MFR.Renamers.Files
     /// <remarks>
     /// NOTE: Instances of this class must be composed with an instance of an
     /// object that implements the
-    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface.
     /// <para />
     /// Such an object is necessary because it provides settings specified by
@@ -312,7 +312,7 @@ namespace MFR.Renamers.Files
                     "Value cannot be null or whitespace.", nameof(replaceWith)
                 );
 
-            if (Configuration.RenameFiles)
+            if (ProjectFileRenamerConfiguration.RenameFiles)
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
@@ -332,7 +332,7 @@ namespace MFR.Renamers.Files
                 );
             }
 
-            if (Configuration.RenameSubFolders)
+            if (ProjectFileRenamerConfiguration.RenameSubFolders)
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
@@ -353,7 +353,7 @@ namespace MFR.Renamers.Files
                 );
             }
 
-            if (!Configuration.ReplaceTextInFiles)
+            if (!ProjectFileRenamerConfiguration.ReplaceTextInFiles)
                 return;
 
             OnStatusUpdate(
@@ -557,7 +557,7 @@ namespace MFR.Renamers.Files
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameFilesInFolder)
-                        .AndAttachConfiguration(Configuration)
+                        .AndAttachConfiguration(ProjectFileRenamerConfiguration)
                         .UsingSearchPattern("*")
                         .WithSearchOption(SearchOption.AllDirectories)
                         .ToFindWhat(findWhat)
@@ -629,12 +629,12 @@ namespace MFR.Renamers.Files
                             (string)GetTextReplacementEngine.For(
                                     OperationType.RenameFilesInFolder
                                 )
-                                .AndAttachConfiguration(Configuration)
+                                .AndAttachConfiguration(ProjectFileRenamerConfiguration)
                                 .Replace(
                                     GetMatchExpressionFactory.For(
                                             OperationType.RenameFilesInFolder
                                         )
-                                        .AndAttachConfiguration(Configuration)
+                                        .AndAttachConfiguration(ProjectFileRenamerConfiguration)
                                         .ForTextValue(
                                             GetTextValueRetriever.For(
                                                     OperationType
@@ -770,7 +770,7 @@ namespace MFR.Renamers.Files
                 IEnumerable<IFileSystemEntry> entryCollection =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSubFolders)
-                        .AndAttachConfiguration(Configuration)
+                        .AndAttachConfiguration(ProjectFileRenamerConfiguration)
                         .UsingSearchPattern("*")
                         .WithSearchOption(SearchOption.AllDirectories)
                         .ToFindWhat(findWhat)
@@ -850,7 +850,7 @@ namespace MFR.Renamers.Files
                                                           .RenameSubFolders
                                                   )
                                                   .AndAttachConfiguration(
-                                                      Configuration
+                                                      ProjectFileRenamerConfiguration
                                                   )
                                                   .Replace(
                                                       (IMatchExpression)
@@ -860,7 +860,7 @@ namespace MFR.Renamers.Files
                                                                   .RenameSubFolders
                                                           )
                                                           .AndAttachConfiguration(
-                                                              Configuration
+                                                              ProjectFileRenamerConfiguration
                                                           )
                                                           .ForTextValue(
                                                               GetTextValueRetriever
@@ -985,7 +985,7 @@ namespace MFR.Renamers.Files
             IEnumerable<IFileSystemEntry> entryCollection =
                 GetFileSystemEntryListRetriever
                     .For(OperationType.ReplaceTextInFiles)
-                    .AndAttachConfiguration(Configuration)
+                    .AndAttachConfiguration(ProjectFileRenamerConfiguration)
                     .UsingSearchPattern("*")
                     .WithSearchOption(SearchOption.AllDirectories)
                     .ToFindWhat(findWhat)
@@ -1028,7 +1028,7 @@ namespace MFR.Renamers.Files
                                                          .ReplaceTextInFiles
                                                  )
                                                  .AndAttachConfiguration(
-                                                     Configuration
+                                                     ProjectFileRenamerConfiguration
                                                  )
                                                  .Replace(
                                                      (IMatchExpression)
@@ -1038,7 +1038,7 @@ namespace MFR.Renamers.Files
                                                                  .ReplaceTextInFiles
                                                          )
                                                          .AndAttachConfiguration(
-                                                             Configuration
+                                                             ProjectFileRenamerConfiguration
                                                          )
                                                          .ForTextValue(
                                                              GetTextValueRetriever
@@ -1137,8 +1137,8 @@ namespace MFR.Renamers.Files
             /*
              * We do not perform any input validation here.  This is because
              * this value may be being initialized from a default (blank)
-             * configuration.   The configuration may be blank for a number of
-             * reasons, but one of these is the issue that the configuration
+             * projectFileRenamerConfiguration.   The projectFileRenamerConfiguration may be blank for a number of
+             * reasons, but one of these is the issue that the projectFileRenamerConfiguration
              * file on the disk may have gotten corrupted or erased.
              */
 

@@ -31,17 +31,17 @@ namespace MFR.Engines.Matching
         /// and returns
         /// a reference to it.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface that holds
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        protected TextExpressionMatchingEngineBase(IConfiguration configuration)
-            : base(configuration) { }
+        protected TextExpressionMatchingEngineBase(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+            : base(projectFileRenamerConfiguration) { }
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.OperationType" /> values
@@ -99,7 +99,7 @@ namespace MFR.Engines.Matching
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MFR.ITextExpressionMatchingEngine.Configuration" />
+        ///     cref="P:MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfiguration" />
         /// property.
         /// </summary>
         /// <param name="expression">

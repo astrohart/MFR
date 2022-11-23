@@ -8,7 +8,7 @@ using System;
 namespace MFR.Settings.Profiles
 {
     /// <summary>
-    /// A <c>Profile</c> is basically a <c>Configuration</c>, just with an ID
+    /// A <c>Profile</c> is basically a <c>ProjectFileRenamerConfiguration</c>, just with an ID
     /// and a name.
     /// </summary>
     /// <remarks>
@@ -16,7 +16,7 @@ namespace MFR.Settings.Profiles
     /// actually leaving the app and coming back in.
     /// </remarks>
     [Log(AttributeExclude = true)]
-    public class Profile : Configuration.Configuration, IProfile
+    public class Profile : Configuration.ProjectFileRenamerProjectFileRenamerConfiguration, IProfile
     {
         /// <summary>
         /// Constructs a new instance of <see cref="T:MFR.Settings.Profiles.Profile" />
@@ -61,15 +61,15 @@ namespace MFR.Settings.Profiles
         /// </summary>
         /// <param name="source">
         /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
-        /// that contains configuration settings to copy into this object.
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// that contains projectFileRenamerConfiguration settings to copy into this object.
         /// </param>
         /// <param name="name">
         /// (Required.) String containing the descriptive name that the user wants to use
         /// for this profile.
         /// </param>
         [Log(AttributeExclude = true)]
-        public Profile(IConfiguration source, string name) : base(source)
+        public Profile(IProjectFileRenamerConfiguration source, string name) : base(source)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException(

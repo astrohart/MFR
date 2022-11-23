@@ -19,11 +19,11 @@ namespace MFR.Engines.Matching.Tests
         [Test]
         public void Test_IsMatch_ReturnsTrue_ForExactFolderSearchMatch()
         {
-            _configuration = ConfigurationBuilder.Instance
+            ProjectFileRenamerConfiguration = ConfigurationBuilder.Instance
                                                  .SetMatchCase()
                                                  .AndSetMatchExactWord(false)
                                                  .Build();
-            _matcher.UpdateConfiguration(_configuration);
+            _matcher.UpdateConfiguration(ProjectFileRenamerConfiguration);
 
             Assert.IsTrue(
                 _matcher.IsMatch(

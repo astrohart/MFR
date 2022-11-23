@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Settings.Configuration.Providers.Interfaces")]
+[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces")]
 [assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Settings.Configuration.Providers.Interfaces")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]

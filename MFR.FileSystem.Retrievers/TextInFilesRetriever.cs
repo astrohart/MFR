@@ -109,7 +109,7 @@ namespace MFR.FileSystem.Retrievers
         /// Implementers of this method have a guarantee that the <paramref
         /// name="rootFolderPath"/> parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the <see
-        /// cref="P:MFR.Settings.ConfigurationComposedObjectBase.Configuration"/>
+        /// cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration"/>
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
@@ -117,7 +117,7 @@ namespace MFR.FileSystem.Retrievers
         /// is passed a blank or <see langword="null"/> string for a value.
         /// </exception>
         /// <exception cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(string rootFolderPath,

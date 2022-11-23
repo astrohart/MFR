@@ -62,7 +62,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <see
         ///     cref="T:System.Windows.Forms.SaveFileDialog" />
         /// that allows the user
-        /// to choose where they want to export the configuration data.
+        /// to choose where they want to export the projectFileRenamerConfiguration data.
         /// </summary>
         private SaveFileDialog _exportConfigDialog;
 
@@ -74,7 +74,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <remarks>
         /// This object's sole purpose in life is to provide the service of
-        /// maintaining the history lists in the configuration data source.
+        /// maintaining the history lists in the projectFileRenamerConfiguration data source.
         /// </remarks>
         private IHistoryManager _historyManager;
 
@@ -87,7 +87,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <remarks>
         /// The file chosen by this dialog is to be used for importing
-        /// configuration data.
+        /// projectFileRenamerConfiguration data.
         /// </remarks>
         private OpenFileDialog _importConfigDialog;
 
@@ -114,7 +114,7 @@ namespace MFR.GUI.Windows.Presenters
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the actions
+        /// This object allows access to the user projectFileRenamerConfiguration and the actions
         /// associated with it.
         /// </remarks>
         private static IConfigurationProvider ConfigurationProvider
@@ -122,21 +122,21 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
         /// <remarks>
         /// This object's properties are initialized with the currently-loaded
-        /// configuration.
+        /// projectFileRenamerConfiguration.
         /// </remarks>
-        private static IConfiguration CurrentConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
+        private static IProjectFileRenamerConfiguration CurrentProjectFileRenamerConfiguration
+            => ConfigurationProvider.CurrentProjectFileRenamerConfiguration;
 
         /// <summary>
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
-            => Configuration is IProfile profile ? profile.Name : string.Empty;
+            => ProjectFileRenamerConfiguration is IProfile profile ? profile.Name : string.Empty;
 
         /// <summary>
         /// Gets a reference to this object instance.
@@ -180,7 +180,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
         public bool IsProfileLoaded
-            => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
+            => !ConfigurationProvider.CurrentProjectFileRenamerConfiguration.IsTransientProfile();
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -254,12 +254,12 @@ namespace MFR.GUI.Windows.Presenters
         public event EventHandler AllHistoryCleared;
 
         /// <summary>
-        /// Occurs when the configuration has been exported to a file.
+        /// Occurs when the projectFileRenamerConfiguration has been exported to a file.
         /// </summary>
         public event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the configuration has been updated, say, by an import process.
+        /// Occurs when the projectFileRenamerConfiguration has been updated, say, by an import process.
         /// </summary>
         public event ConfigurationImportedEventHandler ConfigurationImported;
 
@@ -276,13 +276,13 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
-        /// screen and the configuration data source.
+        /// screen and the projectFileRenamerConfiguration data source.
         /// </summary>
         public event EventHandler DataOperationFinished;
 
         /// <summary>
         /// Occurs when data is about to be moved to and fro between the screen
-        /// and the configuration data source.
+        /// and the projectFileRenamerConfiguration data source.
         /// </summary>
         public event DataOperationEventHandler DataOperationStarted;
 
@@ -302,7 +302,7 @@ namespace MFR.GUI.Windows.Presenters
         public event EventHandler Started;
 
         /// <summary>
-        /// Creates a 'profile' (really a way of saving a group of configuration
+        /// Creates a 'profile' (really a way of saving a group of projectFileRenamerConfiguration
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -375,7 +375,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Clears all the history lists in the configuration.
+        /// Clears all the history lists in the projectFileRenamerConfiguration.
         /// </summary>
         [Log(AttributeExclude = true)]
         public void ClearAllHistory()
@@ -409,8 +409,8 @@ namespace MFR.GUI.Windows.Presenters
                 return;
 
             // just in case, have the file renamer object update its
-            // configuration to match that which we have access to
-            FileRenamer.UpdateConfiguration(Configuration);
+            // projectFileRenamerConfiguration to match that which we have access to
+            FileRenamer.UpdateConfiguration(ProjectFileRenamerConfiguration);
 
             ReinitializeProgressDialog();
 
@@ -420,11 +420,11 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Exports the current configuration data to a file on the user's hard drive.
+        /// Exports the current projectFileRenamerConfiguration data to a file on the user's hard drive.
         /// </summary>
         public void ExportConfiguration()
         {
-            // Bring data from the screen down into the Configuration
+            // Bring data from the screen down into the ProjectFileRenamerConfiguration
             // object
             UpdateData();
 
@@ -498,13 +498,13 @@ namespace MFR.GUI.Windows.Presenters
 
             UpdateData(
                 false
-            ); // at this step, move data from the configuration to the screen
+            ); // at this step, move data from the projectFileRenamerConfiguration to the screen
 
             return this;
         }
 
         /// <summary>
-        /// Imports the configuration data for this application.
+        /// Imports the projectFileRenamerConfiguration data for this application.
         /// </summary>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file
@@ -520,7 +520,7 @@ namespace MFR.GUI.Windows.Presenters
 
             ConfigurationProvider.Import(_importConfigDialog.FileName);
 
-            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
+            UpdateConfiguration(ConfigurationProvider.CurrentProjectFileRenamerConfiguration);
 
             UpdateData(false);
 
@@ -531,18 +531,18 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
-        /// based on configuration settings.
+        /// based on projectFileRenamerConfiguration settings.
         /// </summary>
         public void InitializeOperationSelections()
         {
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Files", Configuration.RenameFiles
+                "Rename Files", ProjectFileRenamerConfiguration.RenameFiles
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders", Configuration.RenameSubFolders
+                "Rename Subfolders", ProjectFileRenamerConfiguration.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Replace in Files", Configuration.ReplaceTextInFiles
+                "Replace in Files", ProjectFileRenamerConfiguration.ReplaceTextInFiles
             );
         }
 
@@ -570,7 +570,7 @@ namespace MFR.GUI.Windows.Presenters
                ProfileProvider.Profiles.HasProfileNamed(profileName);
 
         /// <summary>
-        /// Saves data from the screen control and then saves the configuration to the
+        /// Saves data from the screen control and then saves the projectFileRenamerConfiguration to the
         /// persistence location.
         /// </summary>
         public void SaveConfiguration()
@@ -603,15 +603,15 @@ namespace MFR.GUI.Windows.Presenters
                                .RenameTo(dialog.ConfigPathname);
 
             ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
-            ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
+            ConfigurationProvider.CurrentProjectFileRenamerConfiguration.ReOpenSolution =
                 dialog.ShouldReOpenVisualStudioSolution;
-            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
+            UpdateConfiguration(ConfigurationProvider.CurrentProjectFileRenamerConfiguration);
         }
 
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
@@ -628,7 +628,7 @@ namespace MFR.GUI.Windows.Presenters
             if (Does.ProfileAlreadyExist(profileName)) return;
 
             var newProfile =
-                ConfigurationProvider.CurrentConfiguration.ToProfile(
+                ConfigurationProvider.CurrentProjectFileRenamerConfiguration.ToProfile(
                     profileName
                 );
             ProfileProvider.Profiles.Add(newProfile);
@@ -636,10 +636,10 @@ namespace MFR.GUI.Windows.Presenters
 
             /*
              * Make the new Profile the same as the currently-
-             * loaded configuration.
+             * loaded projectFileRenamerConfiguration.
              */
 
-            ConfigurationProvider.CurrentConfiguration = newProfile;
+            ConfigurationProvider.CurrentProjectFileRenamerConfiguration = newProfile;
             ConfigurationProvider.Save();
         }
 
@@ -746,11 +746,11 @@ namespace MFR.GUI.Windows.Presenters
             );
 
         /// <summary>
-        /// Updates the configuration currently being used with a new value.
+        /// Updates the projectFileRenamerConfiguration currently being used with a new value.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface which has
         /// the new settings.
         /// </param>
@@ -763,15 +763,15 @@ namespace MFR.GUI.Windows.Presenters
         /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public override void UpdateConfiguration(IConfiguration configuration)
+        public override void UpdateConfiguration(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
-            base.UpdateConfiguration(configuration);
+            base.UpdateConfiguration(projectFileRenamerConfiguration);
 
-            FileRenamer.UpdateConfiguration(configuration);
-            _historyManager.UpdateConfiguration(configuration);
+            FileRenamer.UpdateConfiguration(projectFileRenamerConfiguration);
+            _historyManager.UpdateConfiguration(projectFileRenamerConfiguration);
 
             InitializeFileRenamer();
         }
@@ -795,10 +795,10 @@ namespace MFR.GUI.Windows.Presenters
         public void UpdateData(bool bSavingAndValidating = true)
         {
             // write the name of the current class and method we are now
-            // Check to see if the required property, Configuration, is null. If
-            if (Configuration == null)
+            // Check to see if the required property, ProjectFileRenamerConfiguration, is null. If
+            if (ProjectFileRenamerConfiguration == null)
 
-                // the property Configuration is required.
+                // the property ProjectFileRenamerConfiguration is required.
                 // stop.
                 return;
 
@@ -807,31 +807,31 @@ namespace MFR.GUI.Windows.Presenters
             // the interim
             OnDataOperationStarted(
                 new DataOperationEventArgs(
-                    "Updating configuration...  Please wait."
+                    "Updating projectFileRenamerConfiguration...  Please wait."
                 )
             );
 
             if (bSavingAndValidating)
             {
-                Configuration.SaveCurrentStartingFolderAndHistory(
+                ProjectFileRenamerConfiguration.SaveCurrentStartingFolderAndHistory(
                     View.StartingFolderComboBox
                 );
 
-                Configuration.SaveCurrentFindWhatAndHistory(
+                ProjectFileRenamerConfiguration.SaveCurrentFindWhatAndHistory(
                     View.FindWhatComboBox
                 );
 
-                Configuration.SaveCurrentReplaceWithAndHistory(
+                ProjectFileRenamerConfiguration.SaveCurrentReplaceWithAndHistory(
                     View.ReplaceWithComboBox
                 );
 
-                Configuration.IsFolded = View.IsFolded;
+                ProjectFileRenamerConfiguration.IsFolded = View.IsFolded;
 
-                Configuration.MatchCase = View.MatchCase;
+                ProjectFileRenamerConfiguration.MatchCase = View.MatchCase;
 
-                Configuration.MatchExactWord = View.MatchExactWord;
+                ProjectFileRenamerConfiguration.MatchExactWord = View.MatchExactWord;
 
-                Configuration.SelectedOptionTab = View.SelectedOptionTab;
+                ProjectFileRenamerConfiguration.SelectedOptionTab = View.SelectedOptionTab;
 
                 SaveOperationSelections();
             }
@@ -840,29 +840,29 @@ namespace MFR.GUI.Windows.Presenters
                 InitializeOperationSelections();
 
                 View.SelectedOptionTab = ConfigurationProvider
-                                         .CurrentConfiguration
+                                         .CurrentProjectFileRenamerConfiguration
                                          .SelectedOptionTab;
 
-                View.MatchExactWord = Configuration.MatchExactWord;
+                View.MatchExactWord = ProjectFileRenamerConfiguration.MatchExactWord;
 
-                View.MatchCase = Configuration.MatchCase;
+                View.MatchCase = ProjectFileRenamerConfiguration.MatchCase;
 
-                View.IsFolded = Configuration.IsFolded;
+                View.IsFolded = ProjectFileRenamerConfiguration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.StartingFolderComboBox,
-                    Configuration.StartingFolderHistory,
-                    Configuration.StartingFolder
+                    ProjectFileRenamerConfiguration.StartingFolderHistory,
+                    ProjectFileRenamerConfiguration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.FindWhatComboBox, Configuration.FindWhatHistory,
-                    Configuration.FindWhat
+                    View.FindWhatComboBox, ProjectFileRenamerConfiguration.FindWhatHistory,
+                    ProjectFileRenamerConfiguration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.ReplaceWithComboBox, Configuration.ReplaceWithHistory,
-                    Configuration.ReplaceWith
+                    View.ReplaceWithComboBox, ProjectFileRenamerConfiguration.ReplaceWithHistory,
+                    ProjectFileRenamerConfiguration.ReplaceWith
                 );
             }
 
@@ -896,18 +896,18 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
-        /// box into the <see cref="T:MFR.Settings.Configuration.Configuration" /> object.
+        /// box into the <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> object.
         /// </summary>
         public void SaveOperationSelections()
         {
             // write the name of the current class and method we are now
-            Configuration.RenameFiles =
+            ProjectFileRenamerConfiguration.RenameFiles =
                 View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
-            Configuration.RenameSubFolders =
+            ProjectFileRenamerConfiguration.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Subfolders"
                 );
-            Configuration.ReplaceTextInFiles =
+            ProjectFileRenamerConfiguration.ReplaceTextInFiles =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
@@ -1075,7 +1075,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
         /// the user to use the GUI. This is because moving data to and from the
-        /// configuration data source, while a mildly lengthy operation, is
+        /// projectFileRenamerConfiguration data source, while a mildly lengthy operation, is
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
         protected virtual void OnDataOperationFinished()
@@ -1103,7 +1103,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
         /// the user to use the GUI. This is because moving data to and from the
-        /// configuration data source, while a mildly lengthy operation, is
+        /// projectFileRenamerConfiguration data source, while a mildly lengthy operation, is
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
         protected virtual void OnDataOperationStarted(DataOperationEventArgs e)
@@ -1282,7 +1282,7 @@ namespace MFR.GUI.Windows.Presenters
                 Filter =
                     "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
                 RestoreDirectory = true,
-                Title = "Export Configuration"
+                Title = "Export ProjectFileRenamerConfiguration"
             };
             _importConfigDialog = new OpenFileDialog {
                 DefaultExt = "json",
@@ -1290,18 +1290,18 @@ namespace MFR.GUI.Windows.Presenters
                 Filter =
                     "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
                 RestoreDirectory = true,
-                Title = "Import Configuration"
+                Title = "Import ProjectFileRenamerConfiguration"
             };
         }
 
         /// <summary>
-        /// Initializes the currently-loaded configuration object.
+        /// Initializes the currently-loaded projectFileRenamerConfiguration object.
         /// </summary>
         private void InitializeConfiguration()
         {
-            CurrentConfiguration.StartingFolderChanged -=
+            CurrentProjectFileRenamerConfiguration.StartingFolderChanged -=
                 OnConfigurationStartingFolderChanged;
-            CurrentConfiguration.StartingFolderChanged +=
+            CurrentProjectFileRenamerConfiguration.StartingFolderChanged +=
                 OnConfigurationStartingFolderChanged;
         }
 
@@ -1417,8 +1417,8 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.Settings.Configuration.Interfaces.IConfiguration.StartingFolderChanged" />
-        /// event raised by the configuration object.
+        ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged" />
+        /// event raised by the projectFileRenamerConfiguration object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -1433,7 +1433,7 @@ namespace MFR.GUI.Windows.Presenters
         /// pathname; if so, then the folder pathname is added to the history of
         /// starting-folder entries in the history.
         /// <para />
-        /// Starting-folder pathname entries aren't added to the configuration's history
+        /// Starting-folder pathname entries aren't added to the projectFileRenamerConfiguration's history
         /// list if an entry having the same content already exists in the history.
         /// </remarks>
         private void OnConfigurationStartingFolderChanged(object sender,
@@ -1441,11 +1441,11 @@ namespace MFR.GUI.Windows.Presenters
         {
             // Make sure we're getting a valid folder
             if (!RootDirectoryValidator.Validate(
-                    CurrentConfiguration.StartingFolder
+                    CurrentProjectFileRenamerConfiguration.StartingFolder
                 )) return;
 
             StartingFolderComboBox.Items.AddDistinct(
-                CurrentConfiguration.StartingFolder
+                CurrentProjectFileRenamerConfiguration.StartingFolder
             );
         }
 

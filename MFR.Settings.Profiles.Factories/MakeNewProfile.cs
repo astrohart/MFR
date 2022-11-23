@@ -84,16 +84,16 @@ namespace MFR.Settings.Profiles.Factories
         }
 
         /// <summary>
-        /// Extension method that converts the specified <paramref name="configuration" />
+        /// Extension method that converts the specified <paramref name="projectFileRenamerConfiguration" />
         /// object to a profile object.
         /// <para />
-        /// The configuration settings in the source are copied to the new profile, and the
+        /// The projectFileRenamerConfiguration settings in the source are copied to the new profile, and the
         /// specified <paramref name="name" /> is also assigned to the new profile.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object
         /// that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </param>
         /// <param name="name">
@@ -113,7 +113,7 @@ namespace MFR.Settings.Profiles.Factories
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
+        /// parameter, <paramref name="projectFileRenamerConfiguration" />, is passed a
         /// <see langword="null" /> value.
         /// </exception>
         /// <exception cref="T:System.ArgumentException">
@@ -121,17 +121,17 @@ namespace MFR.Settings.Profiles.Factories
         /// <paramref name="name" />, is passed a blank or <see langword="null" /> string
         /// for a value.
         /// </exception>
-        public static IProfile ToProfile(this IConfiguration configuration,
+        public static IProfile ToProfile(this IProjectFileRenamerConfiguration projectFileRenamerConfiguration,
             string name)
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
+            if (projectFileRenamerConfiguration == null)
+                throw new ArgumentNullException(nameof(projectFileRenamerConfiguration));
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException(
                     Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name)
                 );
 
-            return new Profile(configuration, name);
+            return new Profile(projectFileRenamerConfiguration, name);
         }
     }
 }

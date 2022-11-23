@@ -10,7 +10,7 @@ namespace MFR.Engines.Matching
 {
     /// <summary>
     /// Searches for matches to textual-search criteria patterns and regexes in
-    /// the pathnames of folders, according to rules specified by configuration
+    /// the pathnames of folders, according to rules specified by projectFileRenamerConfiguration
     /// settings.
     /// </summary>
     public class FolderNameMatchingEngine : TextExpressionMatchingEngineBase
@@ -23,12 +23,12 @@ namespace MFR.Engines.Matching
         /// and returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public FolderNameMatchingEngine(IConfiguration configuration) : base(
-            configuration
+        public FolderNameMatchingEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
+            projectFileRenamerConfiguration
         ) { }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace MFR.Engines.Matching
             {
                 result = GetStringMatcher.For(OperationType.RenameSubFolders)
                                          .AndTextMatchingConfiguration(
-                                             Configuration
+                                             ProjectFileRenamerConfiguration
                                                  .GetTextMatchingConfiguration()
                                          )
                                          .IsMatch(value, findWhat, replaceWith);

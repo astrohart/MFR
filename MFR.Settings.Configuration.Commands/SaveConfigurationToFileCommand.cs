@@ -11,9 +11,9 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Settings.Configuration.Commands
 {
     /// <summary>
-    /// Saves a configuration object, i.e., one that implements the
+    /// Saves a projectFileRenamerConfiguration object, i.e., one that implements the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface, to a JSON file.
     /// </summary>
     /// <remarks>
@@ -25,14 +25,14 @@ namespace MFR.Settings.Configuration.Commands
     /// <see
     ///     cref="P:MFR.IFileSystemEntry.Path" />
     /// property be
-    /// initialized to the pathname where the configuration data should be
+    /// initialized to the pathname where the projectFileRenamerConfiguration data should be
     /// saved; preferably, the file should have the .json extension.
     /// <para />
     /// This command also requires that the
     /// <see
     ///     cref="P:MFR.IFileSystemEntry.UserState" />
     /// property
-    /// be initialized to a reference to the configuration object containing the
+    /// be initialized to a reference to the projectFileRenamerConfiguration object containing the
     /// data that is to be saved.
     /// </remarks>
     public class SaveConfigurationToFileCommand : CommandBase<IFileSystemEntry>
@@ -84,9 +84,9 @@ namespace MFR.Settings.Configuration.Commands
             /*
              * OKAY, so here, the _input field is of type IFileSystemEntry.  We assume
              * that it is referencing a valid object (not null) and that its Path property
-             * points to the pathname of the file to which the configuration data should
+             * points to the pathname of the file to which the projectFileRenamerConfiguration data should
              * be saved.  Furthermore, we assume its UserState property has been initialized
-             * with a reference to the configuration data that is to be saved.
+             * with a reference to the projectFileRenamerConfiguration data that is to be saved.
              */
 
             // Check to see if the required field, _input, is null. If it is, send an
@@ -95,13 +95,13 @@ namespace MFR.Settings.Configuration.Commands
             if (string.IsNullOrWhiteSpace(Input.Path)) return;
 
             // Check to see if the required property, _input.UserState, is null. If it is, send an
-            // to the configuration data that needs saving.
+            // to the projectFileRenamerConfiguration data that needs saving.
             if (Input.UserState == null) return;
 
             try
             {
                 ConfigurationSerializer.Save(
-                    Input.Path, Input.UserState as IConfiguration
+                    Input.Path, Input.UserState as IProjectFileRenamerConfiguration
                 );
             }
             catch (Exception ex)

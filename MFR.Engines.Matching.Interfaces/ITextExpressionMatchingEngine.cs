@@ -48,7 +48,7 @@ namespace MFR.Engines.Matching.Interfaces
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MFR.ITextExpressionMatchingEngine.Configuration" />
+        ///     cref="P:MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfiguration" />
         /// property.
         /// </summary>
         /// <param name="expression">

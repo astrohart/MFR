@@ -10,7 +10,7 @@ using xyLOGIX.Core.Extensions;
 namespace MFR.Managers.History
 {
     /// <summary>
-    /// Manages the configuration history on behalf of the application.
+    /// Manages the projectFileRenamerConfiguration history on behalf of the application.
     /// </summary>
     public class HistoryManager : ConfigurationComposedObjectBase,
         IHistoryManager
@@ -55,7 +55,7 @@ namespace MFR.Managers.History
         }
 
         /// <summary>
-        /// Clears all the history objects in a configuration object.
+        /// Clears all the history objects in a projectFileRenamerConfiguration object.
         /// </summary>
         /// <returns>
         /// <see langword="true" /> if the Clear operation was carried out
@@ -67,11 +67,11 @@ namespace MFR.Managers.History
             if (!CanClearAll())
                 return false;
 
-            // Since this configuration object may have god knows how many
+            // Since this projectFileRenamerConfiguration object may have god knows how many
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
-            var historyLists = Configuration.GetType()
+            var historyLists = ProjectFileRenamerConfiguration.GetType()
                                             .GetProperties()
                                             .Where(
                                                 x => x.PropertyType
@@ -81,7 +81,7 @@ namespace MFR.Managers.History
                                             )
                                             .Select(
                                                 p => p.GetValue(
-                                                    Configuration
+                                                    ProjectFileRenamerConfiguration
                                                 ) as IList
                                             )
                                             .ToArray();
@@ -93,8 +93,8 @@ namespace MFR.Managers.History
 
             // Finally, clear out all the current values of the form. This is
             // basically like a "Reset Form" button on a website.
-            Configuration.StartingFolder = Configuration.FindWhat =
-                Configuration.ReplaceWith = string.Empty;
+            ProjectFileRenamerConfiguration.StartingFolder = ProjectFileRenamerConfiguration.FindWhat =
+                ProjectFileRenamerConfiguration.ReplaceWith = string.Empty;
 
             return true;    // success
         }
@@ -114,9 +114,9 @@ namespace MFR.Managers.History
         /// </remarks>
         private bool CanClearAll()
         {
-            if (!Configuration.StartingFolderHistory.Any() &&
-                !Configuration.FindWhatHistory.Any() &&
-                !Configuration.ReplaceWithHistory.Any())
+            if (!ProjectFileRenamerConfiguration.StartingFolderHistory.Any() &&
+                !ProjectFileRenamerConfiguration.FindWhatHistory.Any() &&
+                !ProjectFileRenamerConfiguration.ReplaceWithHistory.Any())
                 return false;
 
             return DialogResult.Yes == MessageBox.Show(

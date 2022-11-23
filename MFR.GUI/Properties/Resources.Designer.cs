@@ -70,7 +70,7 @@ namespace MFR.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Could not find the configuration file..
+        ///   Looks up a localized string similar to Could not find the projectFileRenamerConfiguration file..
         /// </summary>
         public static string Error_ConfigFileNotFound {
             get {

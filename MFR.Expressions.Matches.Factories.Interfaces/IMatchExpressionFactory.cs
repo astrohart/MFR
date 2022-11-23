@@ -14,7 +14,7 @@ namespace MFR.Expressions.Matches.Factories.Interfaces
     /// <remarks>
     /// This interface is meant to be implemented by fluent-builder objects
     /// whose behavior is affected by the specific operation type and
-    /// configuration settings.
+    /// projectFileRenamerConfiguration settings.
     /// </remarks>
     public interface IMatchExpressionFactory : IFixedOperationTypeSpecificObject,
         IConfigurationComposedObject

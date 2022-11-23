@@ -14,7 +14,7 @@ namespace MFR.CommandLine.Translators
     /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
     /// into instances of objects of other types, such as an instance of an object that
     /// implements the
-    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface, for example.
     /// </remarks>
     public static class TranslateCommandLineInfo
@@ -23,7 +23,7 @@ namespace MFR.CommandLine.Translators
         /// Translates an instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
         /// to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
         /// <param name="cmdInfo">
@@ -32,11 +32,11 @@ namespace MFR.CommandLine.Translators
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" /> interface
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// whose properties have been initialized with the values specified in the
         /// properties of the <paramref name="cmdInfo" /> object.
         /// </returns>
-        public static IConfiguration ToConfiguration(
+        public static IProjectFileRenamerConfiguration ToConfiguration(
             this ICommandLineInfo cmdInfo)
         {
             if (cmdInfo == null)
@@ -61,7 +61,7 @@ namespace MFR.CommandLine.Translators
                                        .SetIsFromCommandLine(true)
                                        .ShouldAutoStart(
                                            cmdInfo.AutoStart
-                                       ); // mark this as a command-line specified configuration
+                                       ); // mark this as a command-line specified projectFileRenamerConfiguration
         }
     }
 }

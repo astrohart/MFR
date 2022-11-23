@@ -141,22 +141,22 @@ namespace MFR.FileSystem.Retrievers
         }
 
         /// <summary>
-        /// Verifies that configuration has been attached to this object.
+        /// Verifies that projectFileRenamerConfiguration has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// If no configuration is attached to this object, then
+        /// If no projectFileRenamerConfiguration is attached to this object, then
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException" />
         /// is thrown.
         /// <para />
         /// <strong>NOTE:</strong> Child classes may override this method, e.g., to make
-        /// attaching a configuration object optional.
+        /// attaching a projectFileRenamerConfiguration object optional.
         /// <para />
         /// This particular override of the method takes no action at all.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         public override void VerifyConfigurationAttached() { }
 
@@ -202,12 +202,12 @@ namespace MFR.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.Configuration" />
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(string rootFolderPath,

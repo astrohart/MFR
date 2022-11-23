@@ -302,7 +302,7 @@ namespace MFR.GUI.Windows
             this.toolsHistoryMenu});
             this.toolsConfigMenu.Name = "toolsConfigMenu";
             this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
-            this.toolsConfigMenu.Text = "&Configuration";
+            this.toolsConfigMenu.Text = "&ProjectFileRenamerConfiguration";
             // 
             // toolsConfigImport
             // 
@@ -671,7 +671,7 @@ namespace MFR.GUI.Windows
             this.exportConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.exportConfigButton.Name = "exportConfigButton";
             this.exportConfigButton.Size = new System.Drawing.Size(23, 22);
-            this.exportConfigButton.Text = "Export Configuration";
+            this.exportConfigButton.Text = "Export ProjectFileRenamerConfiguration";
             this.exportConfigButton.Click += new System.EventHandler(this.OnToolsExportConfig);
             // 
             // importConfigButton
@@ -681,7 +681,7 @@ namespace MFR.GUI.Windows
             this.importConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.importConfigButton.Name = "importConfigButton";
             this.importConfigButton.Size = new System.Drawing.Size(23, 22);
-            this.importConfigButton.Text = "Import Configuration";
+            this.importConfigButton.Text = "Import ProjectFileRenamerConfiguration";
             this.importConfigButton.Click += new System.EventHandler(this.OnToolsConfigImport);
             // 
             // toolStripSeparator6

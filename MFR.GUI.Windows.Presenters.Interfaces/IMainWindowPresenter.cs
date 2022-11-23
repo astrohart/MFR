@@ -30,12 +30,12 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         event EventHandler AllHistoryCleared;
 
         /// <summary>
-        /// Occurs when the configuration has been exported to a file.
+        /// Occurs when the projectFileRenamerConfiguration has been exported to a file.
         /// </summary>
         event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the configuration has been imported successfully from a
+        /// Occurs when the projectFileRenamerConfiguration has been imported successfully from a
         /// file on the disk.
         /// </summary>
         event ConfigurationImportedEventHandler ConfigurationImported;
@@ -53,7 +53,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
-        /// screen and the configuration data source.
+        /// screen and the projectFileRenamerConfiguration data source.
         /// </summary>
         event EventHandler DataOperationFinished;
 
@@ -86,7 +86,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         }
 
         /// <summary>
-        /// Creates a 'profile' (really a way of saving a group of configuration
+        /// Creates a 'profile' (really a way of saving a group of projectFileRenamerConfiguration
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -122,7 +122,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter AndHistoryManager(IHistoryManager historyManager);
 
         /// <summary>
-        /// Clears all the history lists in the configuration.
+        /// Clears all the history lists in the projectFileRenamerConfiguration.
         /// </summary>
         void ClearAllHistory();
 
@@ -132,7 +132,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void DoSelectedOperations();
 
         /// <summary>
-        /// Exports the current configuration data to a file on the user's hard drive.
+        /// Exports the current projectFileRenamerConfiguration data to a file on the user's hard drive.
         /// </summary>
         void ExportConfiguration();
 
@@ -142,7 +142,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void FillProfileDropDownList();
 
         /// <summary>
-        /// Imports the configuration data for this application.
+        /// Imports the projectFileRenamerConfiguration data for this application.
         /// </summary>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file
@@ -152,7 +152,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
-        /// based on configuration settings.
+        /// based on projectFileRenamerConfiguration settings.
         /// </summary>
         void InitializeOperationSelections();
 
@@ -178,7 +178,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         bool ProfileAlreadyExist(string profileName);
 
         /// <summary>
-        /// Saves data from the screen control and then saves the configuration to the persistence location.
+        /// Saves data from the screen control and then saves the projectFileRenamerConfiguration to the persistence location.
         /// </summary>
         void SaveConfiguration();
 
@@ -199,7 +199,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does

@@ -14,12 +14,12 @@ namespace MFR.Settings.Configuration.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Settings.Configuration.Factories.MakeNewConfiguration.FromScratch" />
+        ///     cref="M:MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewConfiguration.FromScratch" />
         /// method returns a reference to an instance of an object that is (a) non-
         /// <see langword="null" />, (b) an instance of the
-        /// <see cref="T:MFR.Settings.Configuration.Configuration" /> class, and (c)
+        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> class, and (c)
         /// implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
         [Test]
@@ -28,8 +28,8 @@ namespace MFR.Settings.Configuration.Factories.Tests
             var result = MakeNewConfiguration.FromScratch();
 
             Assert.That(result, Is.Not.Null);
-            Assert.That(result, Is.AssignableFrom(typeof(Configuration)));
-            Assert.That(result, Is.AssignableTo(typeof(IConfiguration)));
+            Assert.That(result, Is.AssignableFrom(typeof(ProjectFileRenamerProjectFileRenamerConfiguration)));
+            Assert.That(result, Is.AssignableTo(typeof(IProjectFileRenamerConfiguration)));
         }
     }
 }

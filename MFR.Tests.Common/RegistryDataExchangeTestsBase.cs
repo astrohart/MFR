@@ -7,10 +7,10 @@ namespace MFR.Tests.Common
     {
         /// <summary>
         /// String containing the fully-qualified pathname of the master
-        /// configuration file.
+        /// projectFileRenamerConfiguration file.
         /// </summary>
         /// <remarks>
-        /// The master configuration file is defined to be that file, containing
+        /// The master projectFileRenamerConfiguration file is defined to be that file, containing
         /// a JSON representation of an object that implements the <see
         /// cref="T:MFR.Settings.Profiles.Interfaces.IProfile"/> interface, exists
         /// in the centralized location that is used by the application.
@@ -21,26 +21,26 @@ namespace MFR.Tests.Common
             @"""C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config\config.json""";
 
         /// <summary>
-        /// String containing the fully-qualified pathname of a folder that stores the configuration file.
+        /// String containing the fully-qualified pathname of a folder that stores the projectFileRenamerConfiguration file.
         /// </summary>
         protected const string CONFIG_FILE_DIR =
                     @"C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config";
 
         /// <summary>
-        /// String containing the name of a configuration file.
+        /// String containing the name of a projectFileRenamerConfiguration file.
         /// </summary>
         protected const string CONFIG_FILE_NAME = "config.json";
 
         /// <summary>
         /// Fully-qualified pathname to where we expect that the path to the
-        /// configuration file has been written to.
+        /// projectFileRenamerConfiguration file has been written to.
         /// </summary>
         protected const string KEY_PATH =
             @"HKEY_CURRENT_USER\Software\xyLOGIX, LLC\Project File Renamer\Paths";
 
         /// <summary>
         /// Name of the Registry value under which the path to the application's
-        /// configuration file is to be stored.
+        /// projectFileRenamerConfiguration file is to be stored.
         /// </summary>
         protected const string VALUE_NAME = "ConfigFile";
     }
