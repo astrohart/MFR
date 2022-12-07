@@ -59,7 +59,7 @@ Provides file- and folder-rename services.
 
 NOTE: Instances of this class must be composed with an instance of an
 object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
 

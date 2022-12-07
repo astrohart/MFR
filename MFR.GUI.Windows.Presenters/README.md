@@ -10,8 +10,8 @@
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
   - [_importConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._importConfigDialog')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigurationProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
+  - [CurrentProjectFileRenamerConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProjectFileRenamerConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProjectFileRenamerConfiguration')
   - [Does](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Does')
   - [FileRenamer](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileRenamer')
   - [FindWhat](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat')
@@ -73,7 +73,7 @@
   - [ShowProgressDialog(owner)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog(System.Windows.Forms.IWin32Window)')
   - [ShowProgressDialog(owner,canCancel)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window,System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog(System.Windows.Forms.IWin32Window,System.Boolean)')
   - [ShowProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog')
-  - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [UpdateConfiguration(projectFileRenamerConfiguration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
   - [WindowReference(mainWindow)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
@@ -128,7 +128,7 @@ interface.
 Reference to an instance of a
 [SaveFileDialog](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.SaveFileDialog 'System.Windows.Forms.SaveFileDialog')
 that allows the user
-to choose where they want to export the configuration data.
+to choose where they want to export the projectFileRenamerConfiguration data.
 
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager'></a>
 ### _historyManager `constants`
@@ -142,7 +142,7 @@ interface.
 ##### Remarks
 
 This object's sole purpose in life is to provide the service of
-maintaining the history lists in the configuration data source.
+maintaining the history lists in the projectFileRenamerConfiguration data source.
 
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog'></a>
 ### _importConfigDialog `constants`
@@ -157,7 +157,7 @@ to choose a filename on the disk.
 ##### Remarks
 
 The file chosen by this dialog is to be used for importing
-configuration data.
+projectFileRenamerConfiguration data.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
@@ -170,22 +170,8 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the actions
+This object allows access to the user projectFileRenamerConfiguration and the actions
 associated with it.
-
-<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
-interface.
-
-##### Remarks
-
-This object's properties are initialized with the currently-loaded
-configuration.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName'></a>
 ### CurrentProfileName `property`
@@ -193,6 +179,20 @@ configuration.
 ##### Summary
 
 Gets the name of the currently-selected profile.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProjectFileRenamerConfiguration'></a>
+### CurrentProjectFileRenamerConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
+
+##### Remarks
+
+This object's properties are initialized with the currently-loaded
+projectFileRenamerConfiguration.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does'></a>
 ### Does `property`
@@ -310,7 +310,7 @@ This object provides the functionality of the main window of the application.
 
 ##### Summary
 
-Creates a 'profile' (really a way of saving a group of configuration
+Creates a 'profile' (really a way of saving a group of projectFileRenamerConfiguration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -363,7 +363,7 @@ should depend. |
 
 ##### Summary
 
-Clears all the history lists in the configuration.
+Clears all the history lists in the projectFileRenamerConfiguration.
 
 ##### Parameters
 
@@ -407,7 +407,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current configuration data to a file on the user's hard drive.
+Exports the current projectFileRenamerConfiguration data to a file on the user's hard drive.
 
 ##### Parameters
 
@@ -486,7 +486,7 @@ a `null` value. |
 
 ##### Summary
 
-Imports the configuration data for this application.
+Imports the projectFileRenamerConfiguration data for this application.
 
 ##### Parameters
 
@@ -542,7 +542,7 @@ This method has no parameters.
 
 ##### Summary
 
-Initializes the currently-loaded configuration object.
+Initializes the currently-loaded projectFileRenamerConfiguration object.
 
 ##### Parameters
 
@@ -566,7 +566,7 @@ This method has no parameters.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on configuration settings.
+based on projectFileRenamerConfiguration settings.
 
 ##### Parameters
 
@@ -666,8 +666,8 @@ contains the event data. |
 ##### Summary
 
 Handles the
-[](#E-MFR-Settings-Configuration-Interfaces-IConfiguration-StartingFolderChanged 'MFR.Settings.Configuration.Interfaces.IConfiguration.StartingFolderChanged')
-event raised by the configuration object.
+[](#E-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
+event raised by the projectFileRenamerConfiguration object.
 
 ##### Parameters
 
@@ -686,7 +686,7 @@ starting-folder entries in the history.
 
 
 
-Starting-folder pathname entries aren't added to the configuration's history
+Starting-folder pathname entries aren't added to the projectFileRenamerConfiguration's history
 list if an entry having the same content already exists in the history.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs-'></a>
@@ -741,7 +741,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation, is
+projectFileRenamerConfiguration data source, while a mildly lengthy operation, is
 nowhere near as involved as the file operations we would normally undertake.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs-'></a>
@@ -766,7 +766,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation, is
+projectFileRenamerConfiguration data source, while a mildly lengthy operation, is
 nowhere near as involved as the file operations we would normally undertake.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
@@ -1086,7 +1086,7 @@ This method has no parameters.
 
 ##### Summary
 
-Saves data from the screen control and then saves the configuration to the
+Saves data from the screen control and then saves the projectFileRenamerConfiguration to the
 persistence location.
 
 ##### Parameters
@@ -1121,7 +1121,7 @@ passed a `null` value. |
 ##### Summary
 
 Transforms the current value of the
-[Configuration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration')
 property into a Profile with the `profileName` specified.
 
 
@@ -1142,7 +1142,7 @@ new Profile. |
 ##### Summary
 
 Saves the selections made in the Operations to Perform checked list
-box into the [Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration') object.
+box into the [ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration') object.
 
 ##### Parameters
 
@@ -1245,19 +1245,19 @@ Shows the progress window.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
-### UpdateConfiguration(configuration) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### UpdateConfiguration(projectFileRenamerConfiguration) `method`
 
 ##### Summary
 
-Updates the configuration currently being used with a new value.
+Updates the projectFileRenamerConfiguration currently being used with a new value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface which has
 the new settings. |
 
@@ -1265,7 +1265,7 @@ the new settings. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
 is passed a `null` value. |
 
 ##### Remarks

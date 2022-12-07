@@ -124,4 +124,7 @@ It doesn't appear that the solution contaiing the project to be renamed is open 
 
 Choose File -&gt; Reopen Workspace when the selected rename operation(s) have completed if the solution is open and we missed it.</value>
   </data>
+  <data name="Error_NoSolutionsInRootDirectory" xml:space="preserve">
+    <value>FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder '{0}'.  Stopping.</value>
+  </data>
 </root>

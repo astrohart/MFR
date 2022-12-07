@@ -50,7 +50,7 @@ Gets a value that indicates whether a Profile is currently loaded.
 
 ##### Summary
 
-Creates a 'profile' (really a way of saving a group of configuration
+Creates a 'profile' (really a way of saving a group of projectFileRenamerConfiguration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -103,7 +103,7 @@ should depend. |
 
 ##### Summary
 
-Clears all the history lists in the configuration.
+Clears all the history lists in the projectFileRenamerConfiguration.
 
 ##### Parameters
 
@@ -125,7 +125,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current configuration data to a file on the user's hard drive.
+Exports the current projectFileRenamerConfiguration data to a file on the user's hard drive.
 
 ##### Parameters
 
@@ -147,7 +147,7 @@ This method has no parameters.
 
 ##### Summary
 
-Imports the configuration data for this application.
+Imports the projectFileRenamerConfiguration data for this application.
 
 ##### Parameters
 
@@ -164,7 +164,7 @@ that exists on the user's hard drive and has the `.json` extension.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on configuration settings.
+based on projectFileRenamerConfiguration settings.
 
 ##### Parameters
 
@@ -207,7 +207,7 @@ string for a value. |
 
 ##### Summary
 
-Saves data from the screen control and then saves the configuration to the persistence location.
+Saves data from the screen control and then saves the projectFileRenamerConfiguration to the persistence location.
 
 ##### Parameters
 
@@ -241,7 +241,7 @@ passed a `null` value. |
 ##### Summary
 
 Transforms the current value of the
-[Configuration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration')
 property into a Profile with the `profileName` specified.
 
 

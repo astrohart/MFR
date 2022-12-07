@@ -8,9 +8,8 @@
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
-  - [Configuration](#P-MFR-GUI-Windows-MainWindow-Configuration 'MFR.GUI.Windows.MainWindow.Configuration')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
+  - [CurrentProjectFileRenamerConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentProjectFileRenamerConfiguration 'MFR.GUI.Windows.MainWindow.CurrentProjectFileRenamerConfiguration')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-MainWindow-FullApplicationName 'MFR.GUI.Windows.MainWindow.FullApplicationName')
@@ -23,6 +22,7 @@
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.MainWindow.OperationsCheckedListBox')
   - [Presenter](#P-MFR-GUI-Windows-MainWindow-Presenter 'MFR.GUI.Windows.MainWindow.Presenter')
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ProfileCollectionComboBox')
+  - [ProjectFileRenamerConfiguration](#P-MFR-GUI-Windows-MainWindow-ProjectFileRenamerConfiguration 'MFR.GUI.Windows.MainWindow.ProjectFileRenamerConfiguration')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.MainWindow.ReplaceWithComboBox')
   - [RootDirectoryValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryValidator')
   - [SelectAll](#P-MFR-GUI-Windows-MainWindow-SelectAll 'MFR.GUI.Windows.MainWindow.SelectAll')
@@ -156,15 +156,6 @@ This constructor has no parameters.
 
 Required designer variable.
 
-<a name='P-MFR-GUI-Windows-MainWindow-Configuration'></a>
-### Configuration `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
-that represents the currently-loaded configuration.
-
 <a name='P-MFR-GUI-Windows-MainWindow-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
 
@@ -176,16 +167,16 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the actions
+This object allows access to the user projectFileRenamerConfiguration and the actions
 associated with it.
 
-<a name='P-MFR-GUI-Windows-MainWindow-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-GUI-Windows-MainWindow-CurrentProjectFileRenamerConfiguration'></a>
+### CurrentProjectFileRenamerConfiguration `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
 <a name='P-MFR-GUI-Windows-MainWindow-FindWhatComboBox'></a>
@@ -288,6 +279,15 @@ behavior of this form.
 
 Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
 that has a drop-down list of the profiles that the user has created.
+
+<a name='P-MFR-GUI-Windows-MainWindow-ProjectFileRenamerConfiguration'></a>
+### ProjectFileRenamerConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
+that represents the currently-loaded projectFileRenamerConfiguration.
 
 <a name='P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`
@@ -517,7 +517,7 @@ event for the File -> Exit menu command.
 ##### Remarks
 
 This method is called to handle the message of the user clicking the
-Exit command on the File menu. This method saves the configuration
+Exit command on the File menu. This method saves the projectFileRenamerConfiguration
 and then closes this window. Since this window is the main window of
 the application, closing this window ends the lifecycle of the application.
 
@@ -720,7 +720,7 @@ contains the event data. |
 
 ##### Remarks
 
-This method is called when an export of the configuration has been
+This method is called when an export of the projectFileRenamerConfiguration has been
 successfully completed. This method responds to the event by
 informing the user that the operation has completed successfully.
 
@@ -743,10 +743,10 @@ event.
 ##### Remarks
 
 This method responds to the event by triggering an update of the
-screen from values stored in the configuration object in the
-[Configuration](#P-MFR-GUI-MainWindowPresenter-Configuration 'MFR.GUI.MainWindowPresenter.Configuration')
+screen from values stored in the projectFileRenamerConfiguration object in the
+[ProjectFileRenamerConfiguration](#P-MFR-GUI-MainWindowPresenter-ProjectFileRenamerConfiguration 'MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfiguration')
 property. This
-happens most often as a the result of the Import Configuration
+happens most often as a the result of the Import ProjectFileRenamerConfiguration
 command on the Tools menu.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs-'></a>
@@ -922,8 +922,8 @@ data. |
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the Tools -> Import and Export Configuration ->
-Import Configuration menu command.
+event for the Tools -> Import and Export ProjectFileRenamerConfiguration ->
+Import ProjectFileRenamerConfiguration menu command.
 
 ##### Parameters
 
@@ -934,8 +934,8 @@ Import Configuration menu command.
 
 ##### Remarks
 
-This method is called when the user chooses the Import Configuration
-menu command from the Import and Export Configuration submenu of the
+This method is called when the user chooses the Import ProjectFileRenamerConfiguration
+menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
 Tools menu. This method responds to the event by showing the user a
 dialog that the user can utilize to select the file they want to
 import, and then calls the presenter to perform the import operation.
@@ -946,7 +946,7 @@ import, and then calls the presenter to perform the import operation.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
-raised by the New Profile toolbar button and/or Tools -> Configuration -> New
+raised by the New Profile toolbar button and/or Tools -> ProjectFileRenamerConfiguration -> New
 Profile menu command.
 
 ##### Parameters
@@ -974,8 +974,8 @@ then add it to the list of profiles and then set it as the current profile.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the Tools -> Import and Export Configuration ->
-Export Configuration menu command.
+event for the Tools -> Import and Export ProjectFileRenamerConfiguration ->
+Export ProjectFileRenamerConfiguration menu command.
 
 ##### Parameters
 
@@ -986,11 +986,11 @@ Export Configuration menu command.
 
 ##### Remarks
 
-This method is called when the user chooses the Export Configuration
-menu command from the Import and Export Configuration submenu of the
+This method is called when the user chooses the Export ProjectFileRenamerConfiguration
+menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
 Tools menu. This method responds to the event by showing the user a
 dialog that the user can utilize to select the pathname of the file
-that the user wants the configuration data to be exported to.
+that the user wants the projectFileRenamerConfiguration data to be exported to.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs-'></a>
 ### OnToolsHistoryClearAll(sender,e) `method`
@@ -1011,8 +1011,8 @@ History, and then choosing the Clear All command.
 ##### Remarks
 
 This method responds to the event by clearing the contents of all
-history lists in the configuration, saving it to the configuration
-data source, and then reloading the screen from the configuration.
+history lists in the projectFileRenamerConfiguration, saving it to the projectFileRenamerConfiguration
+data source, and then reloading the screen from the projectFileRenamerConfiguration.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsOptions-System-Object,System-EventArgs-'></a>
 ### OnToolsOptions(sender,e) `method`

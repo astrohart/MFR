@@ -2,7 +2,6 @@ using MFR.Settings.Profiles.Collections.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Web.UI;
 
 namespace MFR.Settings.Profiles.Collections.Converters
 {

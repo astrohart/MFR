@@ -18,6 +18,8 @@ namespace MFR.Renamers.Files.Interfaces
     /// </summary>
     public interface IFileRenamer : IConfigurationComposedObject
     {
+
+
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:EnvDTE.DTE" /> interface.
@@ -114,6 +116,11 @@ namespace MFR.Renamers.Files.Interfaces
         /// Occurs when an operation is about to be processed for a file or a folder.
         /// </summary>
         event ProcessingOperationEventHandler ProcessingOperation;
+
+        /// <summary>
+        /// Occurs just before the processing has started.
+        /// </summary>
+        event EventHandler Starting;
 
         /// <summary>
         /// Occurs when the processing has started.

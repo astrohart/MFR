@@ -43,7 +43,8 @@ namespace MFR.Renamers.Files
     /// <remarks>
     /// NOTE: Instances of this class must be composed with an instance of an
     /// object that implements the
-    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    /// <see
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface.
     /// <para />
     /// Such an object is necessary because it provides settings specified by
@@ -256,6 +257,11 @@ namespace MFR.Renamers.Files
         public event EventHandler Started;
 
         /// <summary>
+        /// Occurs just before the processing has started.
+        /// </summary>
+        public event EventHandler Starting;
+
+        /// <summary>
         /// Occurs when a textual status message is available for display.
         /// </summary>
         public event StatusUpdateEventHandler StatusUpdate;
@@ -327,7 +333,8 @@ namespace MFR.Renamers.Files
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"*** Finished processing subfolders of '{RootDirectoryPath}'.", CurrentOperation, true /* operation finished */
+                        $"*** Finished processing subfolders of '{RootDirectoryPath}'.",
+                        CurrentOperation, true /* operation finished */
                     )
                 );
             }
@@ -629,12 +636,16 @@ namespace MFR.Renamers.Files
                             (string)GetTextReplacementEngine.For(
                                     OperationType.RenameFilesInFolder
                                 )
-                                .AndAttachConfiguration(ProjectFileRenamerConfiguration)
+                                .AndAttachConfiguration(
+                                    ProjectFileRenamerConfiguration
+                                )
                                 .Replace(
                                     GetMatchExpressionFactory.For(
                                             OperationType.RenameFilesInFolder
                                         )
-                                        .AndAttachConfiguration(ProjectFileRenamerConfiguration)
+                                        .AndAttachConfiguration(
+                                            ProjectFileRenamerConfiguration
+                                        )
                                         .ForTextValue(
                                             GetTextValueRetriever.For(
                                                     OperationType
@@ -1241,6 +1252,16 @@ namespace MFR.Renamers.Files
                 LastSolutionFolderPath = RootDirectoryPath = e.Destination;
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
+        /// </summary>
+        protected virtual void OnStarting()
+        {
+            Starting?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(FileRenamerMessages.FRM_STARTING);
+        }
+
         private static string GetFirstSolutionPathFoundInFolder(string folder)
         {
             var result = string.Empty;
@@ -1315,6 +1336,8 @@ namespace MFR.Renamers.Files
 
             try
             {
+                OnStarting();   // before we even check the root directory path
+
                 /*
                  * Set the RootDirectoryPath property to the
                  * value that is passed in.
@@ -1323,7 +1346,10 @@ namespace MFR.Renamers.Files
                 RootDirectoryPath = rootDirectoryPath;
 
                 if (!RootDirectoryValidator.Validate(rootDirectoryPath))
+                {
+                    OnFinished();   // let subscribers to events know that we are done
                     return;
+                }
 
                 OnStarted();
 
@@ -1354,8 +1380,9 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder '{RootDirectoryPath}'.  Stopping."
+                        string.Format(Resources.Error_NoSolutionsInRootDirectory, RootDirectoryPath)
                     );
+                    OnFinished();   // let subscribers to events know that we are done
                     return;
                 }
 
@@ -1467,7 +1494,7 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder '{RootDirectoryPath}'.  Stopping."
+                        string.Format(Resources.Error_NoSolutionsInRootDirectory, RootDirectoryPath)
                     );
                     return;
                 }

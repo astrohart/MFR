@@ -44,7 +44,7 @@ namespace MFR.Settings.Configuration.Interfaces
             IProjectFileRenamerConfiguration projectFileRenamerConfiguration);
 
         /// <summary>
-        /// Updates the projectFileRenamerConfiguration currently being used with a new value.
+        /// Updates the <paramref name="projectFileRenamerConfiguration"/> currently being used with a new value.
         /// </summary>
         /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements

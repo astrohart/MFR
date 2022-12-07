@@ -76,6 +76,12 @@ namespace MFR.Constants
         public static readonly Guid FRM_STARTED = Guid.NewGuid();
 
         /// <summary>
+        /// Unique identifier for a message that indicates that the set of all
+        /// requested File Renamer operations are about to begin.
+        /// </summary>
+        public static readonly Guid FRM_STARTING = Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for a message that indicates that the File Renamer
         /// component has a status update available that should be displayed to
         /// the user.

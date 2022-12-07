@@ -1,8 +1,10 @@
-﻿# MFR (Mass File Renamer aka xyLOGIX Project File Renamer)
+# MFR (Mass File Renamer aka xyLOGIX Project File Renamer)
 
 The xyLOGIX Project File Renamer, packaged as a WinForms app, is basically like a Find/Replace and Find in Files/Replace in Files tool, but for Solution Explorer.
 
 ![Fig01](fig01.png)
+
+**Figure 1.** The main window of the xyLOGIX Project File Renamer application.
 
 ## Problem solved
 
@@ -43,9 +45,13 @@ in the **Arguments** field of its entry in the **External Tools** dialog box, as
 
 ![Fig02](fig02.png)
 
-This will cause the **What folder should the operation start in?** drop-down to be focused on the folder that the currently-open solution that is open in Visual Studio is located in.
+**Figure 2.** Visual Studio's **External Tools** dialog box, with the **Arguments** box's value highligthed.
+
+This will cause the **What Folder Should the Operation Start In** drop-down to be focused on the folder that the currently-open solution that is open in Visual Studio is located in.
 
 ![Fig03](fig03.png)
+
+**Figure 3.** The value of the **What Folder Should the Operation Start In** box being supplied by the value of the **Arguments** box in the **External Tools** window shown in **Figure 2.**
 
 During its operation, before the app begins any of the requested operations, if it determines that one or more `.sln` files found in the folder tree beginning at the specified root are open in running instances of Visual Studio, it will:
 
@@ -54,3 +60,189 @@ During its operation, before the app begins any of the requested operations, if 
 3. Re-open all previously closed solution(s), each in the instance of Visual Studio that it was originally open in.
 
 **NOTE:** You can also run the tool in with the **What folder should the operation start in?** drop-down set to, in principle, _any_ folder on your hard disk, provided that that there are more than `.sln` files anywhere in the directory tree.
+
+## Command-line execution
+
+The xyLOGIX Project File Renamer's operations can now all be executed in a fully-automated fashion from the command line.  Currently, only the `MFR.GUI` project supports this in full; the `MFR.Console` support is still a work in progress.
+
+We made use of the code from the [fclp](https://github.com/fclp/fluent-command-line-parser) project on GitHub -- called the `FluentCommandLineParser` and accessible using [this NuGet package](https://www.nuget.org/packages/FluentCommandLineParser/) in order to enable the command line functionality.
+
+The following section explains the command-line arguments that are available.
+
+### Required command-line arguments
+
+The command-line arguments listed below in **Table 1.** are required.  Only the `--root` argument is mandatory, i.e., if it is provided, it must be given a value.
+
+You can launch the `mfr.exe` executable with no command-line arguments; in which case, it merely reads its settings from the configuration file.
+
+**NOTE:** By default, the application's configuration file is stored at the path:
+
+```
+%LOCALAPPDATA%\xyLOGIX, LLC\Project File Renamer\Config\config.json
+```
+
+Profiles are stored in the file
+
+```
+%LOCALAPPDATA%\xyLOGIX, LLC\Project File Renamer\Config\profiles.json
+```
+
+The mandatory/required command-line arguments are listed below.
+
+
+| **Argument**     | **Meaning**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| `--root` or `-r` | (Mandatory.) Sets the directory that this application begins in.           |
+| `--findWhat`     | (Required.) Sets the string to be found in file system entries.           |
+| `--replaceWith`  | (Required.) Sets the string to be substituted in file system entry names. |
+
+**Table 1.** Mandatory and required command-line arguments.
+
+#### Mandatory/required command-line argument detailed descriptions
+
+##### **--root** or **-r**
+
+**Summary**
+
+Mandatory.  Sets the directory that this application begins processing its operations in.
+
+**Remarks**
+
+The `--root` argument, or its short form, `-r`, specifies a string that provides a fully-qualified pathname of a folder in which the Project File Renamer should begin its operations.
+
+This value can be the fully-qualified pathname of any folder on the system, and even an [UNC pathname](https://en.wikipedia.org/?title=UNC_path&redirect=no) to a shared network folder. 
+
+The only caveat to this is that the folder must contain at least one `*.sln` file, either in its root, or in any of its subfolders or their subfolders.  If this is not the case, then Project File Renamer will display an error when you attempt to process the file and folder renaming operations.
+
+This constraint was added because this tool is expressly meant to operate on the files and folders within a Visual Studio Solution, and also on the `*.sln` file itself.
+
+**NOTE:** A great use for this argument is from the **Tools** menu of Visual Studio, such as is discussed in the **Problem Solved** section.
+
+**Example.**
+```
+--root="C:\users\MyUser\source\repos\foo\bar"
+```
+
+with the `C:\users\MyUser\source\repos\foo\bar` containing the `MyProject.sln` solution file.
+
+##### **--findWhat**
+
+**Summary**
+
+Required. Sets the string to be found in file system entries.
+
+**Remarks**
+
+![Fig04](fig04.png)
+
+**Figure 4.** The **Find** dialog box in Windows Notepad.
+
+Much like the **Edit**, **Find** dialog box in, say, Notepad asks you for a **Find What** value (shown in **Figure 4**), this command-line argument serves a similar function for the Project File Renamer.
+
+The string value that is passed for this command-line argument is used as the value of the **Text to Be Replaced** box in the application window shown in **Figure 1**.
+
+The application, when processing the requested operations, will search for this text in the names of files and folders, and inside the contents of text files.
+
+You can also apply the `--matchCase` and `--matchWholeWord` optional command-line arguments (see below) to optionally match the `--findWhat` value on character casing and in whole word boundaries (respecting any periods (`.`) in project, project file, and folder names).
+
+**Example.**
+```
+--findWhat="MFR.Engines"
+```
+
+will find the content `MFR.Engines` in:
+
+* pathnames of folders within the root directory
+* pathnames of files within the root directory
+* contents of any text file within the root directory
+
+If this command-line argument is not specified, then the **Text to Be Replaced** box will be blank when the application starts.  
+
+You won't be able to perform any operations until a value is provided for the **Text to Be Replaced** box in **Figure 1**.  The application will still launch, however.
+
+If the command-line argument is supplied as
+
+```
+--findWhat
+```
+or
+```
+--findWhat=""
+```
+
+then an error message will be displayed and operations can't be performed.
+
+##### **--replaceWith**
+
+**Summary**
+
+Required.  Sets the string to be substituted in file system entry names.
+
+**Remarks**
+
+The `--replaceWith` argument, specifies the content to be substituted in file names, folder names, and file contents in place of the text that you're asking the application to search for.
+
+![Fig05](fig05.png)
+
+**Figure 5.** The **Replace** dialog box in Windows Ntoepad, with the **Replace With** box highligthed.
+
+Think of this command-line argument as specifying the value shown in **Figure 5**, i.e., the value to replace the found text with.
+
+The string value that is passed to this command-line argument is entered into the **With What** box in the Project File Renamer main window, shown in **Figure 1.**
+
+This command-line argument doesn't have to be specified on the command line unless the `--findWhat` argument is also specified.  (The two go together).
+
+If this argument is specified on the command line, it has to have a value other than a blank string (this is what it means for the paramter to be required.).  If the argument is provided a blank string as its value, then the application won't process any requested operations.
+
+**Example.**
+```
+--replaceWith="Baz"
+```
+
+Keying off the previous example, if we're searching for `MFR.Engines`, then it will be replaced with `Baz` in:
+
+* pathnames of folders within the root directory
+* pathnames of files within the root directory
+* contents of any text file within the root directory
+
+**NOTE:** One need not worry whether higher-level folders than the root have `MFR.Engines` in their names.  This is because the Project File Renamer only acts upon files and folders that are _contained within_ the root direcotry.
+
+If this command-line argument is not specified, then the value of the **With What** box will be blank when the application starts.  
+
+You won't be able to perform any operations until the value for the **With What** box in **Figure 1** is provided.  The application will still launch, however.
+
+If the command-line argument is supplied as
+
+```
+--replaceWith
+```
+or
+```
+--replaceWith=""
+```
+
+then an error message will be displayed and operations can't be performed.
+
+### Optional command-line arguments
+
+The folllowing command-line arguments are all optional.  They are all `Boolean`, meaning, they turn various settings on or off that affect the application's behavior.
+
+If one of the arguments below is specified on the command line, then its corresponding `Boolean` setting is turned on.  Otherwise, the setting is deactivated.
+
+| **Flag**           | **Meaning**                                                                                                                                                  |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--autoStart`      | (Optional.) Specify this flag to automatically start the specified operation(s) when the application starts and then quit when done.  Default is `false`.    |
+| `--reOpenSolution` | (Optional.) Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed.  Default is `false`. |
+| `--matchCase`      | (Optional.) Indicates a case-sensitive search should be performed.  Default is `true`.                                                                       |
+| `--matchWholeWord` | (Optional.) Indicates that a whole-word search (respecting periods) should be performed.  Default is `false`.                                                |
+| `--renameFiles`    | (Optional.) Indicates that files should be renamed.  Default is `true`.                                                                                      |
+| `-?`               | (Optional.) Displays a Help message about all the command-line arguments and flags.                                                                          |
+
+**Table 2.** Command-line flags to turn settings on or off.
+
+**NOTE:** The default values of `true` or `false` reflect whether the setting is on (i.e., `true`) or off (i.e., `false`) if the specified flag is not provided on the command line.
+
+The optional command-line arguments, and the settings that they affect, are described in **Table 2** below.
+
+To differentiate these arguments, which merely turn settings on or off, we will refer to these as _flags_ not _arguments_ per se.
+
