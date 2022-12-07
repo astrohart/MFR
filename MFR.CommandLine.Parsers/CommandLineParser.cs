@@ -79,14 +79,29 @@ namespace MFR.CommandLine.Parsers
                  .As("findWhat")
                  .WithDescription(
                      "Sets the string to be found in file system entries."
-                 );
+                 )
+                 .Required();
+
+                /*
+                 * Originally, the replaceWith command-line argument was deemed
+                 * okay to be made optional, with a default of the empty string.
+                 *
+                 * Here, however, we are making the parameter required and not
+                 * defaulting to an empty string.  The thought occurs that setting
+                 * text within a file to a blank string is okay, but allowing this
+                 * command-line argument to be a blank string runs the risk of us
+                 * setting the names of files and folders to be blank, which the
+                 * operating system does not allow.
+                 *
+                 * Therefore, we updated this parameter to being required.
+                 */
 
                 p.Setup(arg => arg.ReplaceWith)
                  .As("replaceWith")
                  .WithDescription(
                      "Sets the string to be substituted in file system entry names."
                  )
-                 .SetDefault(string.Empty);
+                 .Required();
 
                 p.Setup(arg => arg.RenameFiles)
                  .As("renameFiles")
