@@ -64,7 +64,7 @@ namespace MFR.CommandLine.Parsers
                  .As("autoStart")
                  .SetDefault(false)
                  .WithDescription(
-                     "Specify this flag in order to start the specified operation(s) automatically when the application starts.  If this flag is specified, the application will automatically exit when the specified operation(s) are completed."
+                     "Specify this flag to automatically start the specified operation(s) when the application starts and then quit when done. "
                  );
 
                 p.Setup(arg => arg.StartingFolder)
@@ -79,8 +79,7 @@ namespace MFR.CommandLine.Parsers
                  .As("findWhat")
                  .WithDescription(
                      "Sets the string to be found in file system entries."
-                 )
-                 .Required();
+                 );
 
                 /*
                  * Originally, the replaceWith command-line argument was deemed
@@ -100,8 +99,7 @@ namespace MFR.CommandLine.Parsers
                  .As("replaceWith")
                  .WithDescription(
                      "Sets the string to be substituted in file system entry names."
-                 )
-                 .Required();
+                 );
 
                 p.Setup(arg => arg.RenameFiles)
                  .As("renameFiles")
@@ -128,7 +126,7 @@ namespace MFR.CommandLine.Parsers
                  .SetDefault(false);
 
                 p.Setup(arg => arg.MatchCase)
-                 .As("matchCase")
+                 .As("matchCase")   
                  .WithDescription(
                      "Indicates that a case-sensitive search should be performed."
                  )
@@ -137,7 +135,7 @@ namespace MFR.CommandLine.Parsers
                 p.Setup(arg => arg.MatchWholeWord)
                  .As("matchWholeWord")
                  .WithDescription(
-                     "Indicates that a case-sensitive search should be performed."
+                     "Indicates that a whole-word search (respecting periods) should be performed."
                  )
                  .SetDefault(false);
 
