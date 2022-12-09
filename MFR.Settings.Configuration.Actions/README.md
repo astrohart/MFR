@@ -29,7 +29,7 @@ MFR.Settings.Configuration.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master configuration file.
+the master projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -111,7 +111,7 @@ MFR.Settings.Configuration.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master configuration file.
+the master projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFromFileAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -162,7 +162,7 @@ Executes this message.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface that is initialized with the values read in from the
 specified file.
 
