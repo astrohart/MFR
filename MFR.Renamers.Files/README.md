@@ -30,6 +30,7 @@
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
+  - [OnStarting()](#M-MFR-Renamers-Files-FileRenamer-OnStarting 'MFR.Renamers.Files.FileRenamer.OnStarting')
   - [OnStatusUpdate(e)](#M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnSubfoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSubfoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
@@ -42,6 +43,7 @@
 - [Resources](#T-MFR-Renamers-Files-Properties-Resources 'MFR.Renamers.Files.Properties.Resources')
   - [Confirm_PerformRename](#P-MFR-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Renamers.Files.Properties.Resources.Confirm_PerformRename')
   - [Culture](#P-MFR-Renamers-Files-Properties-Resources-Culture 'MFR.Renamers.Files.Properties.Resources.Culture')
+  - [Error_NoSolutionsInRootDirectory](#P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory 'MFR.Renamers.Files.Properties.Resources.Error_NoSolutionsInRootDirectory')
   - [ResourceManager](#P-MFR-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Renamers-Files-FileRenamer'></a>
@@ -450,6 +452,17 @@ event.
 
 This method has no parameters.
 
+<a name='M-MFR-Renamers-Files-FileRenamer-OnStarting'></a>
+### OnStarting() `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-Starting 'MFR.Renamers.Files.FileRenamer.Starting') event.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs-'></a>
 ### OnStatusUpdate(e) `method`
 
@@ -784,6 +797,13 @@ Choose File -> Reopen Workspace when the selected rename operation(s) have compl
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory'></a>
+### Error_NoSolutionsInRootDirectory `property`
+
+##### Summary
+
+Looks up a localized string similar to FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder '{0}'.  Stopping..
 
 <a name='P-MFR-Renamers-Files-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
