@@ -21,6 +21,14 @@ namespace MFR.Engines.Factories
         /// <see cref="T:MFR.Engines.Constants.OperationEngineType" /> values that
         /// describes what type of object you want.
         /// </param>
+        /// <typeparam name="T">
+        /// Name of any interface that implements
+        /// <see cref="T:MFR.Engines.Interfaces.IOperationEngine" /> to which the returned
+        /// object should be cast.
+        /// <para />
+        /// Obviously, the object that is being returned should also implement the
+        /// interface that you are specifying in this type parameter.
+        /// </typeparam>
         /// <returns>
         /// A reference to the instance of the object that implements the
         /// <see cref="T:MFR.Engines.Interfaces.IOperationEngine" /> interface which
@@ -36,12 +44,25 @@ namespace MFR.Engines.Factories
         /// <see cref="T:MFR.Engines.Interfaces.IOperationEngine" /> interface and which
         /// corresponds to the value passed in the <paramref name="type" /> parameter.
         /// </exception>
-        public static IOperationEngine OfType(OperationEngineType type)
+        public static T OfType<T>(OperationEngineType type)
+            where T : class, IOperationEngine
         {
             IOperationEngine result;
 
             switch (type)
             {
+                case OperationEngineType.FullGUI:
+                    result = FullGuiOperationEngine.Instance as T;
+                    break;
+
+                case OperationEngineType.AutomatedGUI:
+                    result = AutomatedGuiOperationEngine.Instance as T;
+                    break;
+
+                case OperationEngineType.Console:
+                    result = ConsoleOperationEngine.Instance as T;
+                    break;
+
                 case OperationEngineType.Unknown:
                 default:
                     throw new ArgumentOutOfRangeException(
@@ -50,7 +71,7 @@ namespace MFR.Engines.Factories
                     );
             }
 
-            return result;
+            return (T)result;
         }
     }
 }
