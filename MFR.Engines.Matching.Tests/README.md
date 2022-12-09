@@ -12,7 +12,7 @@
   - [Culture](#P-MFR-Engines-Matching-Tests-Properties-Resources-Culture 'MFR.Engines.Matching.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Matching-Tests-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Tests.Properties.Resources.ResourceManager')
 - [TextExpressionMatchingEngineTestBase](#T-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase')
-  - [_configuration](#F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_configuration 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase._configuration')
+  - [ProjectFileRenamerConfiguration](#F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-ProjectFileRenamerConfiguration 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.ProjectFileRenamerConfiguration')
   - [_matcher](#F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_matcher 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase._matcher')
   - [CreateMatchingEngineFor(type)](#M-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-CreateMatchingEngineFor-MFR-Operations-Constants-OperationType- 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.CreateMatchingEngineFor(MFR.Operations.Constants.OperationType)')
   - [Initialize()](#M-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-Initialize 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.Initialize')
@@ -151,13 +151,13 @@ MFR.Engines.Matching.Tests
 Provides default implementations for unit tests and abstract methods for
 mandatory implementation details.
 
-<a name='F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_configuration'></a>
-### _configuration `constants`
+<a name='F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-ProjectFileRenamerConfiguration'></a>
+### ProjectFileRenamerConfiguration `constants`
 
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
 <a name='F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_matcher'></a>
@@ -628,7 +628,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 MatchExactWord
-= true in the configuration, (b) the source string does not exactly
+= true in the projectFileRenamerConfiguration, (b) the source string does not exactly
 match the pattern string as a substring, and if (c) the cases do not
 match in the first sub-case.
 
@@ -646,7 +646,7 @@ Asserts the
 method
 returns `true` in the event that (a) MatchCase =
 MatchExactWord
-= true in the configuration, (b) the source string exactly matches the
+= true in the projectFileRenamerConfiguration, (b) the source string exactly matches the
 pattern string as a substring, except if (c) the cases do not match
 in the first sub-case.
 
@@ -664,7 +664,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 true and MatchExactWord
-= false in the configuration, (b) the source string contains the
+= false in the projectFileRenamerConfiguration, (b) the source string contains the
 pattern string as a substring, but (c) the cases do not match in
 neither the first sub-case nor in the second.
 
@@ -682,7 +682,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 false and MatchExactWord
-= true in the configuration, (b) the source string contains the
+= true in the projectFileRenamerConfiguration, (b) the source string contains the
 pattern string as a substring, and (c) the cases do not match in the
 first sub-case but the cases match in the second.
 
@@ -700,7 +700,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 MatchExactWord
-= false in the configuration, (b) the source string does not contain the
+= false in the projectFileRenamerConfiguration, (b) the source string does not contain the
 pattern string as a substring, and (c) the cases do not match in the
 first sub-case.
 
@@ -718,7 +718,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 true and MatchExactWord
-= false in the configuration, (b) the source string does not contain the
+= false in the projectFileRenamerConfiguration, (b) the source string does not contain the
 pattern string as a substring, and even if (c) the cases do not
 match in the first sub-case but the cases match in the second.
 
@@ -736,7 +736,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 true and MatchExactWord
-= false in the configuration, (b) the source string does not contain the
+= false in the projectFileRenamerConfiguration, (b) the source string does not contain the
 pattern string as a substring, but (c) the cases do not match in
 neither the first sub-case nor in the second.
 
@@ -754,7 +754,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 true and MatchExactWord
-= false in the configuration, (b) the source string does not contain the
+= false in the projectFileRenamerConfiguration, (b) the source string does not contain the
 pattern string as a substring, but (c) the cases match in both the
 first sub-case and in the second.
 
@@ -772,7 +772,7 @@ Asserts the
 method
 returns `true` in the event that (a) MatchCase =
 false and MatchExactWord
-= true in the configuration, (b) the source string exactly matches the
+= true in the projectFileRenamerConfiguration, (b) the source string exactly matches the
 pattern string, and (c) the cases do not match in the first sub-case
 but the cases match in the second.
 
@@ -790,7 +790,7 @@ Asserts the
 method
 returns `true` in the event that (a) MatchCase =
 MatchExactWord
-= false in the configuration, (b) the source string contains the
+= false in the projectFileRenamerConfiguration, (b) the source string contains the
 pattern string as a substring, and (c) the cases do not match in the
 first sub-case.
 
@@ -808,7 +808,7 @@ Asserts the
 method
 returns `true` in the event that (a) MatchCase =
 true and MatchExactWord
-= false in the configuration, (b) the source string contains the
+= false in the projectFileRenamerConfiguration, (b) the source string contains the
 pattern string as a substring, and if (c) the cases match in the
 first sub-case and in the second.
 
@@ -826,7 +826,7 @@ Asserts the
 method
 returns `true` in the event that (a) MatchCase =
 MatchExactWord
-= true in the configuration, and (b) the source string exactly
+= true in the projectFileRenamerConfiguration, and (b) the source string exactly
 matches the pattern string as a substring (including case).
 
 ##### Parameters
@@ -843,7 +843,7 @@ Asserts the
 method
 returns `false` in the event that (a) MatchCase =
 MatchExactWord
-= true in the configuration, (b) the source string does contain the
+= true in the projectFileRenamerConfiguration, (b) the source string does contain the
 pattern string as a substring, and (c) the cases do not match in the
 first sub-case.
 
