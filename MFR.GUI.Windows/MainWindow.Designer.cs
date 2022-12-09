@@ -24,8 +24,6 @@ namespace MFR.GUI.Windows
          base.Dispose(disposing);
       }
 
-      #region Windows Form Designer generated code
-
       /// <summary>
       /// Required method for Designer support - do not modify
       /// the contents of this method with the code editor.
@@ -302,8 +300,8 @@ namespace MFR.GUI.Windows
             this.toolStripSeparator5,
             this.toolsHistoryMenu});
             this.toolsConfigMenu.Name = "toolsConfigMenu";
-            this.toolsConfigMenu.Size = new System.Drawing.Size(250, 22);
-            this.toolsConfigMenu.Text = "&ProjectFileRenamerConfiguration";
+            this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
+            this.toolsConfigMenu.Text = "&Configuration";
             // 
             // toolsConfigImport
             // 
@@ -407,14 +405,14 @@ namespace MFR.GUI.Windows
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(247, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // toolsOptions
             // 
             this.toolsOptions.Image = ((System.Drawing.Image)(resources.GetObject("toolsOptions.Image")));
             this.toolsOptions.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(250, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(148, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
@@ -672,7 +670,7 @@ namespace MFR.GUI.Windows
             this.exportConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.exportConfigButton.Name = "exportConfigButton";
             this.exportConfigButton.Size = new System.Drawing.Size(23, 22);
-            this.exportConfigButton.Text = "Export ProjectFileRenamerConfiguration";
+            this.exportConfigButton.Text = "Export Configuration";
             this.exportConfigButton.Click += new System.EventHandler(this.OnToolsExportConfig);
             // 
             // importConfigButton
@@ -682,7 +680,7 @@ namespace MFR.GUI.Windows
             this.importConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.importConfigButton.Name = "importConfigButton";
             this.importConfigButton.Size = new System.Drawing.Size(23, 22);
-            this.importConfigButton.Text = "Import ProjectFileRenamerConfiguration";
+            this.importConfigButton.Text = "Import Configuration";
             this.importConfigButton.Click += new System.EventHandler(this.OnToolsConfigImport);
             // 
             // toolStripSeparator6
@@ -765,6 +763,7 @@ namespace MFR.GUI.Windows
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(596, 505);
             this.Controls.Add(this.switchButton);
             this.Controls.Add(this.standardToolBar);
@@ -805,8 +804,6 @@ namespace MFR.GUI.Windows
             this.PerformLayout();
 
       }
-
-      #endregion
 
       private System.Windows.Forms.Label startingFolderLabel;
       private System.Windows.Forms.Button startingFolderBrowseButton;
