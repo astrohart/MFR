@@ -9,7 +9,7 @@
   - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AndHistoryManager-MFR-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ClearAllHistory')
   - [DoSelectedOperations()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-DoSelectedOperations 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.DoSelectedOperations')
-  - [ExportConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ExportConfiguration')
+  - [ExportConfiguration(pathname)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ExportConfiguration(System.String)')
   - [FillProfileDropDownList()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-FillProfileDropDownList 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.FillProfileDropDownList')
   - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ImportConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ImportConfiguration')
   - [InitializeOperationSelections()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-InitializeOperationSelections 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.InitializeOperationSelections')
@@ -50,7 +50,8 @@ Gets a value that indicates whether a Profile is currently loaded.
 
 ##### Summary
 
-Creates a 'profile' (really a way of saving a group of projectFileRenamerConfiguration
+Creates a 'profile' (really a way of saving a group of
+projectFileRenamerConfiguration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -120,16 +121,26 @@ Executes the operations selected by the user.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration'></a>
-### ExportConfiguration() `method`
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration-System-String-'></a>
+### ExportConfiguration(pathname) `method`
 
 ##### Summary
 
-Exports the current projectFileRenamerConfiguration data to a file on the user's hard drive.
+Exports the current projectFileRenamerConfiguration data to a file on the
+user's hard drive.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to which the configuration should be exported. |
+
+##### Remarks
+
+If a file having the specified `pathname` already
+exists on the disk at the time the export operation is performed, it will be
+overwritten.
 
 <a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-FillProfileDropDownList'></a>
 ### FillProfileDropDownList() `method`
@@ -207,7 +218,8 @@ string for a value. |
 
 ##### Summary
 
-Saves data from the screen control and then saves the projectFileRenamerConfiguration to the persistence location.
+Saves data from the screen control and then saves the
+projectFileRenamerConfiguration to the persistence location.
 
 ##### Parameters
 
