@@ -1089,7 +1089,7 @@ Required designer variable.
 
 ##### Summary
 
-Gets or sets the text of the Configuration File Pathname text box.
+Gets or sets the text of the ProjectFileRenamerConfiguration File Pathname text box.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
@@ -1102,7 +1102,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the actions
+This object allows access to the user projectFileRenamerConfiguration and the actions
 associated with it.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-IsModified'></a>
@@ -1173,7 +1173,7 @@ the client of this dialog box to update data.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-Control-Click 'System.Windows.Forms.Control.Click') event
-for the Browse button on the Configuration File Pathname text box..
+for the Browse button on the ProjectFileRenamerConfiguration File Pathname text box..
 
 ##### Parameters
 
@@ -1186,7 +1186,7 @@ for the Browse button on the Configuration File Pathname text box..
 
 This method responds to a click of the '...' button that lies next
 to the text box that accepts the pathname of the application's
-configuration file.
+projectFileRenamerConfiguration file.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs-'></a>
 ### OnModified(e) `method`
@@ -1239,7 +1239,7 @@ Handles the [](#E-System-Windows-Forms-Control-TextChanged 'System.Windows.Forms
 ##### Remarks
 
 This method is called to respond to the value of the text inside the
-Configuration File Pathname text box being changed. This method
+ProjectFileRenamerConfiguration File Pathname text box being changed. This method
 responds to such a happenstance by updating the value of the
 [IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified')
 property to be
@@ -1290,7 +1290,7 @@ MFR.GUI.Dialogs
 
 ##### Summary
 
-Dialog box to assist the user in managing configuration profiles.
+Dialog box to assist the user in managing projectFileRenamerConfiguration profiles.
 
 <a name='M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor'></a>
 ### #ctor() `constructor`
