@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [Folders](#T-MFR-GUI-Windows-Presenters-Constants-Folders 'MFR.GUI.Windows.Presenters.Constants.Folders')
+  - [QuickAccess](#F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess 'MFR.GUI.Windows.Presenters.Constants.Folders.QuickAccess')
 - [MainWindowPresenterMessages](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages')
   - [MWP_ADD_NEW_PROFILE_FAILED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ADD_NEW_PROFILE_FAILED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE_FAILED')
   - [MWP_ALL_HISTORY_CLEARED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ALL_HISTORY_CLEARED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED')
@@ -19,6 +21,24 @@
 - [Resources](#T-MFR-GUI-Windows-Presenters-Constants-Properties-Resources 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Windows-Presenters-Constants-Folders'></a>
+## Folders `type`
+
+##### Namespace
+
+MFR.GUI.Windows.Presenters.Constants
+
+##### Summary
+
+Provides string constants that allow access to special folders.
+
+<a name='F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess'></a>
+### QuickAccess `constants`
+
+##### Summary
+
+Path to the area of Windows.
 
 <a name='T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages'></a>
 ## MainWindowPresenterMessages `type`
