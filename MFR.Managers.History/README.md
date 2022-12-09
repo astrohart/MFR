@@ -21,7 +21,7 @@ MFR.Managers.History
 
 ##### Summary
 
-Manages the configuration history on behalf of the application.
+Manages the projectFileRenamerConfiguration history on behalf of the application.
 
 <a name='M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window-'></a>
 ### #ctor(messageBoxParentWindow) `constructor`
@@ -92,7 +92,7 @@ means that there is nothing to do.
 
 ##### Summary
 
-Clears all the history objects in a configuration object.
+Clears all the history objects in a projectFileRenamerConfiguration object.
 
 ##### Returns
 
