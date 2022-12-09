@@ -28,7 +28,7 @@
   - [ResourceManager](#P-MFR-Replacers-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Replacers.Factories.Tests.Properties.Resources.ResourceManager')
 - [SaveConfigurationToFileCommandTests](#T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests')
   - [FILE_PATH](#F-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
-  - [CONFIGURATION_DATA](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-CONFIGURATION_DATA 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.CONFIGURATION_DATA')
+  - [ProjectFileRenamerConfigurationData](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.ProjectFileRenamerConfigurationData')
   - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
 - [SaveStringToRegistryCommandTests](#T-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests')
   - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
@@ -405,7 +405,7 @@ class.
 
 ##### Remarks
 
-This class enables callers to provide a filename and a configuration
+This class enables callers to provide a filename and a projectFileRenamerConfiguration
 object reference, bundled together inside a File System Entry POCO, and
 it is serialized to disk.
 
@@ -416,12 +416,12 @@ it is serialized to disk.
 
 File in the root of the C: drive where the data is to be saved.
 
-<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-CONFIGURATION_DATA'></a>
-### CONFIGURATION_DATA `property`
+<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData'></a>
+### ProjectFileRenamerConfigurationData `property`
 
 ##### Summary
 
-Empty configuration object for testing.
+Empty projectFileRenamerConfiguration object for testing.
 
 <a name='M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs'></a>
 ### Test_SaveConfigurationToFile_Works_ForvalidInputs() `method`
