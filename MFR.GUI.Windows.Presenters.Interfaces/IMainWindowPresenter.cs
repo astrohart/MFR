@@ -20,6 +20,14 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
         /// <summary>
+        /// Gets a value that indicates whether a Profile is currently loaded.
+        /// </summary>
+        bool IsProfileLoaded
+        {
+            get;
+        }
+
+        /// <summary>
         /// Occurs when an Add Profile operation has failed.
         /// </summary>
         event AddProfileFailedEventHandler AddProfileFailed;
@@ -35,7 +43,8 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the projectFileRenamerConfiguration has been imported successfully from a
+        /// Occurs when the projectFileRenamerConfiguration has been imported successfully
+        /// from a
         /// file on the disk.
         /// </summary>
         event ConfigurationImportedEventHandler ConfigurationImported;
@@ -78,15 +87,8 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         event EventHandler Started;
 
         /// <summary>
-        /// Gets a value that indicates whether a Profile is currently loaded.
-        /// </summary>
-        bool IsProfileLoaded
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Creates a 'profile' (really a way of saving a group of projectFileRenamerConfiguration
+        /// Creates a 'profile' (really a way of saving a group of
+        /// projectFileRenamerConfiguration
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -132,9 +134,19 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void DoSelectedOperations();
 
         /// <summary>
-        /// Exports the current projectFileRenamerConfiguration data to a file on the user's hard drive.
+        /// Exports the current projectFileRenamerConfiguration data to a file on the
+        /// user's hard drive.
         /// </summary>
-        void ExportConfiguration();
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file to which the configuration should be exported.
+        /// </param>
+        /// <remarks>
+        /// If a file having the specified <paramref name="pathname" /> already
+        /// exists on the disk at the time the export operation is performed, it will be
+        /// overwritten.
+        /// </remarks>
+        void ExportConfiguration(string pathname);
 
         /// <summary>
         /// This method is called to populate the Profiles combo box.
@@ -178,7 +190,8 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         bool ProfileAlreadyExist(string profileName);
 
         /// <summary>
-        /// Saves data from the screen control and then saves the projectFileRenamerConfiguration to the persistence location.
+        /// Saves data from the screen control and then saves the
+        /// projectFileRenamerConfiguration to the persistence location.
         /// </summary>
         void SaveConfiguration();
 
@@ -210,6 +223,25 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// new Profile.
         /// </param>
         void SaveCurrentConfigurationAsProfile(string profileName);
+
+        /// <summary>
+        /// Shows a marquee progress bar that indicates the application is
+        /// performing work but of an indeterminate length, such as calculating
+        /// the amount of files to process.
+        /// </summary>
+        /// ///
+        /// <param name="text">
+        /// (Required.) String containing the text to display in the progress dialog.
+        /// </param>
+        /// <param name="canCancel">
+        /// (Required.) <see langword="true" /> to show a <strong>Cancel</strong> button in
+        /// the progress dialog; <see langword="false" /> to hide it.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter, <paramref name="text" />, is passed
+        /// a blank or <see langword="null" /> string for a value.
+        /// </exception>
+        void ShowCalculatingProgressBar(string text, bool canCancel = true);
 
         /// <summary>
         /// Shows the progress window.
@@ -250,8 +282,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// Set this parameter to <see langword="true" /> to display the button;
         /// <see langword="false" /> to hide it.
         /// </param>
-        void ShowProgressDialog(IWin32Window owner,
-            bool canCancel);
+        void ShowProgressDialog(IWin32Window owner, bool canCancel);
 
         /// <summary>
         /// Fluent-builder method for composing a file-renamer object with this
@@ -270,25 +301,5 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// passed a <see langword="null" /> value.
         /// </exception>
         IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
-
-        /// <summary>
-        /// Shows a marquee progress bar that indicates the application is
-        /// performing work but of an indeterminate length, such as calculating
-        /// the amount of files to process.
-        /// </summary>
-        /// ///
-        /// <param name="text">
-        /// (Required.) String containing the text to display in the progress dialog.
-        /// </param>
-        /// <param name="canCancel">
-        /// (Required.) <see langword="true" /> to show a <strong>Cancel</strong> button in
-        /// the progress dialog; <see langword="false" /> to hide it.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="text" />, is passed
-        /// a blank or <see langword="null" /> string for a value.
-        /// </exception>
-        void ShowCalculatingProgressBar(string text,
-            bool canCancel = true);
     }
 }

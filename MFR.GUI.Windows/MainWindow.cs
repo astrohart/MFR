@@ -1285,7 +1285,17 @@ namespace MFR.GUI.Windows
         /// that the user wants the projectFileRenamerConfiguration data to be exported to.
         /// </remarks>
         private void OnToolsExportConfig(object sender, EventArgs e)
-            => Presenter.ExportConfiguration();
+        {
+            if (exportConfigDialog.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Exporting the configuration to '{exportConfigDialog.FileName}'..."
+            );
+
+            Presenter.ExportConfiguration(exportConfigDialog.FileName);
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />

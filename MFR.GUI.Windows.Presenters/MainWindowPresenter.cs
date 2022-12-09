@@ -59,15 +59,6 @@ namespace MFR.GUI.Windows.Presenters
         private ICancellableProgressDialog _cancellableProgressDialog;
 
         /// <summary>
-        /// Reference to an instance of a
-        /// <see
-        ///     cref="T:System.Windows.Forms.SaveFileDialog" />
-        /// that allows the user
-        /// to choose where they want to export the projectFileRenamerConfiguration data.
-        /// </summary>
-        private SaveFileDialog _exportConfigDialog;
-
-        /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.IHistoryManager" />
@@ -434,28 +425,6 @@ namespace MFR.GUI.Windows.Presenters
             ValidateInputs();
 
             CommenceRenameOperation();
-        }
-
-        /// <summary>
-        /// Exports the current projectFileRenamerConfiguration data to a file on the
-        /// user's hard drive.
-        /// </summary>
-        public void ExportConfiguration()
-        {
-            // Bring data from the screen down into the ProjectFileRenamerConfiguration
-            // object
-            UpdateData();
-
-            _exportConfigDialog.InitialDirectory = Folders.QuickAccess;
-
-            if (_exportConfigDialog.ShowDialog(View) != DialogResult.OK)
-                return;
-
-            ConfigurationProvider.Export(_exportConfigDialog.FileName);
-
-            OnConfigurationExported(
-                new ConfigurationExportedEventArgs(_exportConfigDialog.FileName)
-            );
         }
 
         /// <summary>
@@ -932,6 +901,44 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Exports the current projectFileRenamerConfiguration data to a file on the
+        /// user's hard drive.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file to which the configuration should be exported.
+        /// </param>
+        /// <remarks>
+        /// If a file having the specified <paramref name="pathname" /> already
+        /// exists on the disk at the time the export operation is performed, it will be
+        /// overwritten.
+        /// </remarks>
+        public void ExportConfiguration(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            try
+            {
+                if (File.Exists(pathname)) File.Delete(pathname);
+
+                // Bring data from the screen down into the ProjectFileRenamerConfiguration
+                // object
+                UpdateData();
+
+                ConfigurationProvider.Export(pathname);
+
+                OnConfigurationExported(
+                    new ConfigurationExportedEventArgs(pathname)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
         /// box into the
         /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
@@ -1315,25 +1322,14 @@ namespace MFR.GUI.Windows.Presenters
         /// configurable by use of fluent-builder methods.
         /// </summary>
         private void InitializeComponents()
-
-        {
-            _exportConfigDialog = new SaveFileDialog {
+            => _importConfigDialog = new OpenFileDialog {
                 DefaultExt = "json",
                 FileName = "config.json",
                 Filter =
                     "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
                 RestoreDirectory = true,
-                Title = "Export ProjectFileRenamerConfiguration"
+                Title = "Import Configuration"
             };
-            _importConfigDialog = new OpenFileDialog {
-                DefaultExt = "json",
-                FileName = "config.json",
-                Filter =
-                    "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
-                RestoreDirectory = true,
-                Title = "Import ProjectFileRenamerConfiguration"
-            };
-        }
 
         /// <summary>
         /// Initializes the currently-loaded projectFileRenamerConfiguration object.
