@@ -6,7 +6,6 @@
 - [MainWindowPresenter](#T-MFR-GUI-Windows-Presenters-MainWindowPresenter 'MFR.GUI.Windows.Presenters.MainWindowPresenter')
   - [#ctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#ctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#ctor')
   - [_cancellableProgressDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_cancellableProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._cancellableProgressDialog')
-  - [_exportConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_exportConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._exportConfigDialog')
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
   - [_importConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._importConfigDialog')
   - [_operationEngine](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_operationEngine 'MFR.GUI.Windows.Presenters.MainWindowPresenter._operationEngine')
@@ -31,7 +30,7 @@
   - [CloseProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CloseProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CloseProgressDialog')
   - [CommenceRenameOperation()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommenceRenameOperation 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommenceRenameOperation')
   - [DoSelectedOperations()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-DoSelectedOperations 'MFR.GUI.Windows.Presenters.MainWindowPresenter.DoSelectedOperations')
-  - [ExportConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ExportConfiguration')
+  - [ExportConfiguration(pathname)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ExportConfiguration(System.String)')
   - [FillProfileDropDownList()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FillProfileDropDownList 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FillProfileDropDownList')
   - [HandleFilesCountedEvent(count)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HandleFilesCountedEvent-System-Int32- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.HandleFilesCountedEvent(System.Int32)')
   - [HavingWindowReference(view)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HavingWindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.HavingWindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
@@ -120,16 +119,6 @@ This constructor has no parameters.
 Reference to an instance of an object that implements the
 [ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
 interface.
-
-<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_exportConfigDialog'></a>
-### _exportConfigDialog `constants`
-
-##### Summary
-
-Reference to an instance of a
-[SaveFileDialog](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.SaveFileDialog 'System.Windows.Forms.SaveFileDialog')
-that allows the user
-to choose where they want to export the projectFileRenamerConfiguration data.
 
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager'></a>
 ### _historyManager `constants`
@@ -415,8 +404,8 @@ Begins the rename operation.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration'></a>
-### ExportConfiguration() `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration-System-String-'></a>
+### ExportConfiguration(pathname) `method`
 
 ##### Summary
 
@@ -425,7 +414,16 @@ user's hard drive.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to which the configuration should be exported. |
+
+##### Remarks
+
+If a file having the specified `pathname` already
+exists on the disk at the time the export operation is performed, it will be
+overwritten.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FillProfileDropDownList'></a>
 ### FillProfileDropDownList() `method`
