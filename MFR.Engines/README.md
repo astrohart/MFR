@@ -8,6 +8,11 @@
   - [Instance](#P-MFR-Engines-AutomatedGuiOperationEngine-Instance 'MFR.Engines.AutomatedGuiOperationEngine.Instance')
   - [Type](#P-MFR-Engines-AutomatedGuiOperationEngine-Type 'MFR.Engines.AutomatedGuiOperationEngine.Type')
   - [#cctor()](#M-MFR-Engines-AutomatedGuiOperationEngine-#cctor 'MFR.Engines.AutomatedGuiOperationEngine.#cctor')
+- [ConsoleOperationEngine](#T-MFR-Engines-ConsoleOperationEngine 'MFR.Engines.ConsoleOperationEngine')
+  - [#ctor()](#M-MFR-Engines-ConsoleOperationEngine-#ctor 'MFR.Engines.ConsoleOperationEngine.#ctor')
+  - [Instance](#P-MFR-Engines-ConsoleOperationEngine-Instance 'MFR.Engines.ConsoleOperationEngine.Instance')
+  - [Type](#P-MFR-Engines-ConsoleOperationEngine-Type 'MFR.Engines.ConsoleOperationEngine.Type')
+  - [#cctor()](#M-MFR-Engines-ConsoleOperationEngine-#cctor 'MFR.Engines.ConsoleOperationEngine.#cctor')
 - [FullGuiOperationEngine](#T-MFR-Engines-FullGuiOperationEngine 'MFR.Engines.FullGuiOperationEngine')
   - [#ctor()](#M-MFR-Engines-FullGuiOperationEngine-#ctor 'MFR.Engines.FullGuiOperationEngine.#ctor')
   - [Instance](#P-MFR-Engines-FullGuiOperationEngine-Instance 'MFR.Engines.FullGuiOperationEngine.Instance')
@@ -66,6 +71,60 @@ value that describes what type of operation engine this is.
 Child classes must implement this property.
 
 <a name='M-MFR-Engines-AutomatedGuiOperationEngine-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Engines-ConsoleOperationEngine'></a>
+## ConsoleOperationEngine `type`
+
+##### Namespace
+
+MFR.Engines
+
+##### Summary
+
+Coordinates the operation of the `File Renamer` component when the
+application is invoked as a console app.
+
+<a name='M-MFR-Engines-ConsoleOperationEngine-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Engines-ConsoleOperationEngine-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface.
+
+<a name='P-MFR-Engines-ConsoleOperationEngine-Type'></a>
+### Type `property`
+
+##### Summary
+
+Gets a [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType') enumeration
+value that describes what type of operation engine this is.
+
+##### Remarks
+
+Child classes must implement this property.
+
+<a name='M-MFR-Engines-ConsoleOperationEngine-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
