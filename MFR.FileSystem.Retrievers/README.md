@@ -229,7 +229,7 @@ Fluent bridge property that accesses the appropriate text-expression
 matcher object, that implements the
 [ITextExpressionMatchingEngine](#T-MFR-ITextExpressionMatchingEngine 'MFR.ITextExpressionMatchingEngine')
 interface,
-for the current operation type and configuration.
+for the current operation type and projectFileRenamerConfiguration.
 
 ##### Remarks
 
@@ -303,7 +303,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -311,7 +311,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
@@ -354,7 +354,7 @@ the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSy
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that the
 [Path](#P-MFR-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property of
@@ -405,7 +405,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
 `rootFolderPath`
 ' parameter cannot be located on the disk. |
@@ -472,7 +472,7 @@ This method typically is called from a class constructor.
 
 Determines whether the path and/or user-state data in the specified
 file system `entry` object matches search and
-configuration criteria specified by the user.
+projectFileRenamerConfiguration criteria specified by the user.
 
 ##### Returns
 
@@ -706,7 +706,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -714,7 +714,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='T-MFR-FileSystem-Retrievers-FolderToRenameRetriever'></a>
@@ -811,7 +811,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -819,7 +819,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='T-MFR-FileSystem-Retrievers-Properties-Resources'></a>
@@ -993,7 +993,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -1001,7 +1001,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-Reset'></a>
@@ -1069,7 +1069,7 @@ then the default value will be utilized.
 
 ##### Summary
 
-Verifies that configuration has been attached to this object.
+Verifies that projectFileRenamerConfiguration has been attached to this object.
 
 ##### Parameters
 
@@ -1079,18 +1079,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
-If no configuration is attached to this object, then
+If no projectFileRenamerConfiguration is attached to this object, then
 [ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException')
 is thrown.
 
 
 
 Child classes may override this method, e.g., to make
-attaching a configuration object optional.
+attaching a projectFileRenamerConfiguration object optional.
 
 
 
@@ -1211,10 +1211,10 @@ filtering is done. |
 is passed a blank or `null` string for a value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
 Implementers of this method have a guarantee that the `rootFolderPath` parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the [Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+pathname of a folder that exists on the disk, and that the [ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
