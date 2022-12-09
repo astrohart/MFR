@@ -752,6 +752,12 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.TabIndex = 1;
             this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
+            // exportConfigDialog
+            // 
+            this.exportConfigDialog.DefaultExt = "config.json";
+            this.exportConfigDialog.Filter = "Configuration File (*.config.json)|*.config.json|All Files (*.*)|*.*";
+            this.exportConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
