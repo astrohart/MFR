@@ -28,12 +28,12 @@ class.
 ##### Summary
 
 Asserts that the
-[FromScratch](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-FromScratch 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.FromScratch')
+[FromScratch](#M-MFR-Settings-ProjectFileRenamerConfiguration-Factories-MakeNewConfiguration-FromScratch 'MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewConfiguration.FromScratch')
 method returns a reference to an instance of an object that is (a) non-
 `null`, (b) an instance of the
-[Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration') class, and (c)
+[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration') class, and (c)
 implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
 ##### Parameters

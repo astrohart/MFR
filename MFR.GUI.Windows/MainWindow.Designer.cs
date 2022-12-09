@@ -101,6 +101,7 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
+            this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -301,7 +302,7 @@ namespace MFR.GUI.Windows
             this.toolStripSeparator5,
             this.toolsHistoryMenu});
             this.toolsConfigMenu.Name = "toolsConfigMenu";
-            this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
+            this.toolsConfigMenu.Size = new System.Drawing.Size(250, 22);
             this.toolsConfigMenu.Text = "&ProjectFileRenamerConfiguration";
             // 
             // toolsConfigImport
@@ -406,14 +407,14 @@ namespace MFR.GUI.Windows
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(247, 6);
             // 
             // toolsOptions
             // 
             this.toolsOptions.Image = ((System.Drawing.Image)(resources.GetObject("toolsOptions.Image")));
             this.toolsOptions.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(148, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(250, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
@@ -867,6 +868,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripSeparator sep2;
         private System.Windows.Forms.ToolStripMenuItem viewDarkTheme;
+        private System.Windows.Forms.SaveFileDialog exportConfigDialog;
     }
 }
 

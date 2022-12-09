@@ -8,7 +8,7 @@
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
   - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePathKeyName')
   - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePathValueName')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.CurrentConfiguration')
+  - [CurrentProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.CurrentProjectFileRenamerConfiguration')
   - [DefaultConfigDir](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigDir 'MFR.Settings.Configuration.Providers.ConfigurationProvider.DefaultConfigDir')
   - [DefaultConfigFileName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigFileName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.DefaultConfigFileName')
   - [Instance](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Instance 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Instance')
@@ -34,7 +34,7 @@ MFR.Settings.Configuration.Providers
 ##### Summary
 
 Provides shared functionality for obtaining and storing the path to the
-user's configuration file.
+user's projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-#ctor'></a>
 ### #ctor() `constructor`
@@ -52,7 +52,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets or sets the pathname of the configuration file.
+Gets or sets the pathname of the projectFileRenamerConfiguration file.
 
 <a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathKeyName'></a>
 ### ConfigurationFilePathKeyName `property`
@@ -60,7 +60,7 @@ Gets or sets the pathname of the configuration file.
 ##### Summary
 
 Gets a string whose value is the pathname of the system Registry key in which
-configuration settings are stored.
+projectFileRenamerConfiguration settings are stored.
 
 <a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathValueName'></a>
 ### ConfigurationFilePathValueName `property`
@@ -68,15 +68,15 @@ configuration settings are stored.
 ##### Summary
 
 Gets a string whose value is the Registry value under which we store the path
-to the configuration file.
+to the projectFileRenamerConfiguration file.
 
-<a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentProjectFileRenamerConfiguration'></a>
+### CurrentProjectFileRenamerConfiguration `property`
 
 ##### Summary
 
 Gets a reference to the instance of the object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
 and which
 exposes settings changed by the user in order to modify the
 application's behavior.
@@ -86,7 +86,7 @@ application's behavior.
 
 ##### Summary
 
-Gets the default folder for the configuration file.
+Gets the default folder for the projectFileRenamerConfiguration file.
 
 ##### Remarks
 
@@ -113,7 +113,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Default action to be utilized for loading the path to the configuration file
+Default action to be utilized for loading the path to the projectFileRenamerConfiguration file
 from the system Registry.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-#cctor'></a>
@@ -132,11 +132,11 @@ This method has no parameters.
 
 ##### Summary
 
-Determines whether the configuration should be loaded from the file whose path
+Determines whether the projectFileRenamerConfiguration should be loaded from the file whose path
 is specified in the `pathname` parameter, or whether no data
 actually exists at that location and we should, instead, just use
 the default value of the
-[Configuration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
 property.
 
 ##### Returns
@@ -144,14 +144,14 @@ property.
 `true` if the file at the path specified by
 `pathname` exists on the disk, or if the file whose path is
 given by the value of the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property exists on the disk; `false` otherwise.
 
 
 
 If the `pathname` passed is blank, then this method updates
 it to have the value of the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property.
 
 ##### Parameters
@@ -159,13 +159,13 @@ property.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String@ 'System.String@') | (Required.) Address of the string containing the fully-qualified pathname of
-the configuration
+the projectFileRenamerConfiguration
 file.
 
 
 
 If this parameter is blank, then the value of the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property is used. |
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-Export-System-String-'></a>
@@ -173,8 +173,8 @@ property is used. |
 
 ##### Summary
 
-Exports configuration data to a file other than the master
-configuration file.
+Exports projectFileRenamerConfiguration data to a file other than the master
+projectFileRenamerConfiguration file.
 
 ##### Parameters
 
@@ -192,7 +192,7 @@ is passed a blank or `null` string for a value. |
 ##### Remarks
 
 Before performing the export, the method first saves the latest
-settings out to the master configuration file.
+settings out to the master projectFileRenamerConfiguration file.
 
 
 
@@ -213,7 +213,7 @@ handle this.
 
 ##### Summary
 
-Imports configuration data from a file whose path is
+Imports projectFileRenamerConfiguration data from a file whose path is
 `sourceFilePath`.
 
 ##### Parameters
@@ -221,7 +221,7 @@ Imports configuration data from a file whose path is
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sourceFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of the
-file from which to import the configuration data. |
+file from which to import the projectFileRenamerConfiguration data. |
 
 ##### Exceptions
 
@@ -236,23 +236,23 @@ parameter, cannot be located on the disk. |
 ##### Remarks
 
 First, this method loads the data from the file specified into the
-application's configuration object.
+application's projectFileRenamerConfiguration object.
 
 
 
-Then, the method saves the new data out to the master configuration file.
+Then, the method saves the new data out to the master projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
 
 ##### Summary
 
-Loads the configuration from the disk.
+Loads the projectFileRenamerConfiguration from the disk.
 
 
 
 The
-[Configuration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
 property is then initialized to point to the data that has been loaded.
 
 ##### Parameters
@@ -260,12 +260,12 @@ property is then initialized to point to the data that has been loaded.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) String containing the pathname to a file to be loaded
-from disk, that contains the configuration data in JSON format.
+from disk, that contains the projectFileRenamerConfiguration data in JSON format.
 
 
 
 If this value is blank, then the file whose path is stored in the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property is used instead. |
 
 ##### Exceptions
@@ -279,7 +279,7 @@ parameter cannot be located on the disk. |
 ##### Remarks
 
 The value of the
-[Configuration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
 property is set to `null` if an error occurs during loading.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-Save-System-String-'></a>
@@ -287,7 +287,7 @@ property is set to `null` if an error occurs during loading.
 
 ##### Summary
 
-Saves configuration data to a file on the disk having path
+Saves projectFileRenamerConfiguration data to a file on the disk having path
 `pathname`.
 
 ##### Parameters
@@ -301,7 +301,7 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property. |
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-SaveCopyAs-System-String-'></a>
@@ -309,7 +309,7 @@ property. |
 
 ##### Summary
 
-Saves configuration data to a file on the disk having path
+Saves projectFileRenamerConfiguration data to a file on the disk having path
 `pathname`.
 
 ##### Parameters
@@ -323,13 +323,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
+[ConfigurationFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Settings-Configuration-Providers-Properties-Resources'></a>

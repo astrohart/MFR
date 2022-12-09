@@ -48,8 +48,8 @@ MFR.Settings.Configuration.Commands
 
 ##### Summary
 
-Saves a configuration object, i.e., one that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+Saves a projectFileRenamerConfiguration object, i.e., one that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface, to a JSON file.
 
 ##### Remarks
@@ -63,7 +63,7 @@ interface as input, and does not return any output.
 This command requires that the
 [Path](#P-MFR-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property be
-initialized to the pathname where the configuration data should be
+initialized to the pathname where the projectFileRenamerConfiguration data should be
 saved; preferably, the file should have the .json extension.
 
 
@@ -71,7 +71,7 @@ saved; preferably, the file should have the .json extension.
 This command also requires that the
 [UserState](#P-MFR-IFileSystemEntry-UserState 'MFR.IFileSystemEntry.UserState')
 property
-be initialized to a reference to the configuration object containing the
+be initialized to a reference to the projectFileRenamerConfiguration object containing the
 data that is to be saved.
 
 <a name='M-MFR-Settings-Configuration-Commands-SaveConfigurationToFileCommand-#ctor'></a>
