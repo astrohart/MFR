@@ -54,7 +54,7 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Gets the <see cref="T:MFR.TextMatchingConfiguration" /> value
-        /// that corresponds to the values set in the projectFileRenamerConfiguration object, a
+        /// that corresponds to the values set in the configuration object, a
         /// reference to which is passed by the <paramref name="config" /> parameter.
         /// </summary>
         /// <param name="config">
@@ -129,13 +129,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Saves the currently-selected Find What text item and the history to
-        /// the projectFileRenamerConfiguration.
+        /// the configuration.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface and which
-        /// allows access to the projectFileRenamerConfiguration data.
+        /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
@@ -167,13 +167,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Saves the currently-selected Replace With text item and the history
-        /// to the projectFileRenamerConfiguration.
+        /// to the configuration.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface and which
-        /// allows access to the projectFileRenamerConfiguration data.
+        /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
@@ -207,13 +207,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Saves the currently-selected Starting Folder text item and the
-        /// history to the projectFileRenamerConfiguration.
+        /// history to the configuration.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface and which
-        /// allows access to the projectFileRenamerConfiguration data.
+        /// allows access to the configuration data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements

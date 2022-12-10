@@ -10,7 +10,7 @@ using xyLOGIX.Core.Extensions;
 namespace MFR.Managers.History
 {
     /// <summary>
-    /// Manages the projectFileRenamerConfiguration history on behalf of the application.
+    /// Manages the configuration history on behalf of the application.
     /// </summary>
     public class HistoryManager : ConfigurationComposedObjectBase,
         IHistoryManager

@@ -37,7 +37,7 @@ namespace MFR.Settings.Configuration.Providers
         protected ConfigurationProvider() { }
 
         /// <summary>
-        /// Gets or sets the pathname of the projectFileRenamerConfiguration file.
+        /// Gets or sets the pathname of the configuration file.
         /// </summary>
         public string ConfigurationFilePath
         {
@@ -68,7 +68,7 @@ namespace MFR.Settings.Configuration.Providers
 
         /// <summary>
         /// Gets a string whose value is the Registry value under which we store the path
-        /// to the projectFileRenamerConfiguration file.
+        /// to the configuration file.
         /// </summary>
         public string ConfigurationFilePathValueName
             => ConfigurationPathRegistry.ValueName;
@@ -87,7 +87,7 @@ namespace MFR.Settings.Configuration.Providers
         } = MakeNewConfiguration.FromScratch();
 
         /// <summary>
-        /// Gets the default folder for the projectFileRenamerConfiguration file.
+        /// Gets the default folder for the configuration file.
         /// </summary>
         /// <remarks>
         /// We store the config file, by default, in a folder under
@@ -120,7 +120,7 @@ namespace MFR.Settings.Configuration.Providers
         } = new ConfigurationProvider();
 
         /// <summary>
-        /// Default action to be utilized for loading the path to the projectFileRenamerConfiguration file
+        /// Default action to be utilized for loading the path to the configuration file
         /// from the system Registry.
         /// </summary>
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
@@ -190,7 +190,7 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         /// <param name="sourceFilePath">
         /// (Required.) String containing the fully-qualified pathname of the
-        /// file from which to import the projectFileRenamerConfiguration data.
+        /// file from which to import the configuration data.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="sourceFilePath" />,
@@ -217,7 +217,7 @@ namespace MFR.Settings.Configuration.Providers
                 );
             if (!File.Exists(sourceFilePath))
                 throw new FileNotFoundException(
-                    "Can't import the projectFileRenamerConfiguration because the source file does not exist.",
+                    "Can't import the configuration because the source file does not exist.",
                     sourceFilePath
                 );
 
@@ -226,7 +226,7 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
-        /// Loads the projectFileRenamerConfiguration from the disk.
+        /// Loads the configuration from the disk.
         /// <para />
         /// The
         /// <see
@@ -235,7 +235,7 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         /// <param name="pathname">
         /// (Optional.) String containing the pathname to a file to be loaded
-        /// from disk, that contains the projectFileRenamerConfiguration data in JSON format.
+        /// from disk, that contains the configuration data in JSON format.
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
@@ -378,7 +378,7 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
-        /// Determines whether the projectFileRenamerConfiguration should be loaded from the file whose path
+        /// Determines whether the configuration should be loaded from the file whose path
         /// is specified in the <paramref name="pathname" /> parameter, or whether no data
         /// actually exists at that location and we should, instead, just use
         /// the default value of the
@@ -388,7 +388,7 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         /// <param name="pathname">
         /// (Required.) Address of the string containing the fully-qualified pathname of
-        /// the projectFileRenamerConfiguration
+        /// the configuration
         /// file.
         /// <para />
         /// If this parameter is blank, then the value of the

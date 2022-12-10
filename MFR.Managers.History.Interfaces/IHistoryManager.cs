@@ -4,7 +4,7 @@ namespace MFR.Managers.History.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a history manager
-    /// object for the projectFileRenamerConfiguration.
+    /// object for the configuration.
     /// </summary>
     public interface IHistoryManager : IConfigurationComposedObject
     {

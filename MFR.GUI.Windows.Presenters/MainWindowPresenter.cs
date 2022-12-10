@@ -66,7 +66,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <remarks>
         /// This object's sole purpose in life is to provide the service of
-        /// maintaining the history lists in the projectFileRenamerConfiguration data
+        /// maintaining the history lists in the configuration data
         /// source.
         /// </remarks>
         private IHistoryManager _historyManager;
@@ -260,12 +260,12 @@ namespace MFR.GUI.Windows.Presenters
         public event EventHandler AllHistoryCleared;
 
         /// <summary>
-        /// Occurs when the projectFileRenamerConfiguration has been exported to a file.
+        /// Occurs when the configuration has been exported to a file.
         /// </summary>
         public event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the projectFileRenamerConfiguration has been updated, say, by an
+        /// Occurs when the configuration has been updated, say, by an
         /// import process.
         /// </summary>
         public event ConfigurationImportedEventHandler ConfigurationImported;
@@ -283,13 +283,13 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
-        /// screen and the projectFileRenamerConfiguration data source.
+        /// screen and the configuration data source.
         /// </summary>
         public event EventHandler DataOperationFinished;
 
         /// <summary>
         /// Occurs when data is about to be moved to and fro between the screen
-        /// and the projectFileRenamerConfiguration data source.
+        /// and the configuration data source.
         /// </summary>
         public event DataOperationEventHandler DataOperationStarted;
 
@@ -383,7 +383,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Clears all the history lists in the projectFileRenamerConfiguration.
+        /// Clears all the history lists in the configuration.
         /// </summary>
         [Log(AttributeExclude = true)]
         public void ClearAllHistory()
@@ -484,13 +484,13 @@ namespace MFR.GUI.Windows.Presenters
 
             UpdateData(
                 false
-            ); // at this step, move data from the projectFileRenamerConfiguration to the screen
+            ); // at this step, move data from the configuration to the screen
 
             return this;
         }
 
         /// <summary>
-        /// Imports the projectFileRenamerConfiguration data for this application.
+        /// Imports the configuration data for this application.
         /// </summary>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file
@@ -740,7 +740,7 @@ namespace MFR.GUI.Windows.Presenters
             );
 
         /// <summary>
-        /// Updates the projectFileRenamerConfiguration currently being used with a new
+        /// Updates the configuration currently being used with a new
         /// value.
         /// </summary>
         /// <param name="projectFileRenamerConfiguration">
@@ -921,7 +921,7 @@ namespace MFR.GUI.Windows.Presenters
             {
                 if (File.Exists(pathname)) File.Delete(pathname);
 
-                // Bring data from the screen down into the ProjectFileRenamerConfiguration
+                // Bring data from the screen down into the configuration
                 // object
                 UpdateData();
 
@@ -1455,7 +1455,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Handles the
         /// <see
         ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged" />
-        /// event raised by the projectFileRenamerConfiguration object.
+        /// event raised by the configuration object.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the

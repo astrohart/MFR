@@ -1,8 +1,8 @@
+using MFR.FileSystem.Helpers;
 using MFR.Settings.Configuration.Converters;
+using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Serializers.Properties;
-using MFR.FileSystem.Helpers;
-using MFR.Settings.Configuration.Factories;
 using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
@@ -11,38 +11,38 @@ using File = Alphaleonis.Win32.Filesystem.File;
 namespace MFR.Settings.Configuration.Serializers
 {
     /// <summary>
-    ///     Provides helper methods for storing the projectFileRenamerConfiguration data to, and
-    ///     loading it from, a file on the disk.
+    /// Provides helper methods for storing the configuration data to, and
+    /// loading it from, a file on the disk.
     /// </summary>
     public static class ConfigurationSerializer
     {
         /// <summary>
-        ///     Loads the projectFileRenamerConfiguration data from the file on the disk that has the
-        ///     specified <paramref name="pathname" />.
+        /// Loads the configuration data from the file on the disk that has the
+        /// specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
-        ///     (Required.) String containing the fully-qualified pathname of a
-        ///     JSON-formatted data file on the disk that contains the projectFileRenamerConfiguration data.
+        /// (Required.) String containing the fully-qualified pathname of a
+        /// JSON-formatted data file on the disk that contains the configuration data.
         /// </param>
         /// <returns>
-        ///     Reference to an instance of an object that implements the
-        ///     <see
-        ///         cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
-        ///     interface that has been
-        ///     initialized with the data present in the file; or
-        ///     <see
-        ///         langword="null" />
-        ///     if a problem occurred.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
+        /// interface that has been
+        /// initialized with the data present in the file; or
+        /// <see
+        ///     langword="null" />
+        /// if a problem occurred.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        ///     Thrown if the required parameter, <paramref name="pathname" />, is
-        ///     passed a blank or <see langword="null" /> string for a value.
+        /// Thrown if the required parameter, <paramref name="pathname" />, is
+        /// passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <exception cref="T:System.IO.FileNotFoundException">
-        ///     Thrown if the file, the path to which is specified by the
-        ///     <paramref
-        ///         name="pathname" />
-        ///     parameter, cannot be located on the disk.
+        /// Thrown if the file, the path to which is specified by the
+        /// <paramref
+        ///     name="pathname" />
+        /// parameter, cannot be located on the disk.
         /// </exception>
         public static IProjectFileRenamerConfiguration Load(string pathname)
         {
@@ -53,7 +53,7 @@ namespace MFR.Settings.Configuration.Serializers
                 );
             if (!File.Exists(pathname))
                 throw new FileNotFoundException(
-                    $"The system could not find the projectFileRenamerConfiguration file having the pathname '{pathname}'",
+                    $"The system could not find the configuration file having the pathname '{pathname}'",
                     pathname
                 );
 
@@ -82,20 +82,21 @@ namespace MFR.Settings.Configuration.Serializers
         }
 
         /// <summary>
-        ///     Saves projectFileRenamerConfiguration data to a file.
+        /// Saves projectFileRenamerConfiguration data to a file.
         /// </summary>
         /// <param name="pathname">
-        ///     (Required.) String containing the pathname of the file that the data
-        ///     is to be saved to.
+        /// (Required.) String containing the pathname of the file that the data
+        /// is to be saved to.
         /// </param>
         /// <param name="projectFileRenamerConfiguration">
-        ///     (Required.) Reference to an instance of an object that implements
-        ///     the
-        ///     <see
-        ///         cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        ///     interface.
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
         /// </param>
-        public static void Save(string pathname, IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+        public static void Save(string pathname,
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
@@ -105,7 +106,10 @@ namespace MFR.Settings.Configuration.Serializers
 
             try
             {
-                var content = ConvertConfiguration.ToJson(projectFileRenamerConfiguration);
+                var content =
+                    ConvertConfiguration.ToJson(
+                        projectFileRenamerConfiguration
+                    );
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;

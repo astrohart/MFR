@@ -27,7 +27,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface will be loaded from
-        /// the projectFileRenamerConfiguration file for the application, provided that a valid
+        /// the configuration file for the application, provided that a valid
         /// path has been supplied as input to the loading action.
         /// </summary>
         [Test]

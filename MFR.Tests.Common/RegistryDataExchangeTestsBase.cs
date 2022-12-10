@@ -21,7 +21,7 @@ namespace MFR.Tests.Common
             @"""C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config\config.json""";
 
         /// <summary>
-        /// String containing the fully-qualified pathname of a folder that stores the projectFileRenamerConfiguration file.
+        /// String containing the fully-qualified pathname of a folder that stores the configuration file.
         /// </summary>
         protected const string CONFIG_FILE_DIR =
                     @"C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config";

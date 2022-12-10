@@ -1148,8 +1148,8 @@ namespace MFR.Renamers.Files
             /*
              * We do not perform any input validation here.  This is because
              * this value may be being initialized from a default (blank)
-             * projectFileRenamerConfiguration.   The projectFileRenamerConfiguration may be blank for a number of
-             * reasons, but one of these is the issue that the projectFileRenamerConfiguration
+             * projectFileRenamerConfiguration.   the configuration may be blank for a number of
+             * reasons, but one of these is the issue that the configuration
              * file on the disk may have gotten corrupted or erased.
              */
 

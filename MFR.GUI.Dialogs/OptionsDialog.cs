@@ -48,7 +48,7 @@ namespace MFR.GUI.Dialogs
         public event ModifiedEventHandler Modified;
 
         /// <summary>
-        /// Gets or sets the text of the ProjectFileRenamerConfiguration File Pathname text box.
+        /// Gets or sets the text of the configuration File Pathname text box.
         /// </summary>
         public string ConfigPathname
         {
@@ -131,7 +131,7 @@ namespace MFR.GUI.Dialogs
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
-        /// for the Browse button on the ProjectFileRenamerConfiguration File Pathname text box..
+        /// for the Browse button on the configuration File Pathname text box..
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.

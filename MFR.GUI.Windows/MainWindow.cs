@@ -378,11 +378,15 @@ namespace MFR.GUI.Windows
         {
             base.OnShown(e);
 
+            // Automatically resize the main window for the monitor it is 
+            // being displayed upon
+            PerformAutoScale();
+
             /*
-             * Just carry out the normal behavior in the event that the projectFileRenamerConfiguration
+             * Just carry out the normal behavior in the event that the configuration
              * is not specified on the command line.
              *
-             * However, if the projectFileRenamerConfiguration did come from the command-line options chosen
+             * However, if the configuration did come from the command-line options chosen
              * by the user, then we should update the screen with the values from the
              * projectFileRenamerConfiguration, and then "click" the Perform Operation button.
              */
@@ -762,7 +766,7 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         /// This method is called to handle the message of the user clicking the
-        /// Exit command on the File menu. This method saves the projectFileRenamerConfiguration
+        /// Exit command on the File menu. This method saves the configuration
         /// and then closes this window. Since this window is the main window of
         /// the application, closing this window ends the lifecycle of the application.
         /// </remarks>
@@ -920,7 +924,7 @@ namespace MFR.GUI.Windows
         /// contains the event data.
         /// </param>
         /// <remarks>
-        /// This method is called when an export of the projectFileRenamerConfiguration has been
+        /// This method is called when an export of the configuration has been
         /// successfully completed. This method responds to the event by
         /// informing the user that the operation has completed successfully.
         /// </remarks>
@@ -928,7 +932,7 @@ namespace MFR.GUI.Windows
             ConfigurationExportedEventArgs e)
             => MessageBox.Show(
                 this,
-                $"Successfully exported the projectFileRenamerConfiguration to the file with path '{e.Path}'.",
+                $"Successfully exported the configuration to the file with path '{e.Path}'.",
                 Application.ProductName, MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
             );
@@ -947,7 +951,7 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         /// This method responds to the event by triggering an update of the
-        /// screen from values stored in the projectFileRenamerConfiguration object in the
+        /// screen from values stored in the configuration object in the
         /// <see
         ///     cref="P:MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfiguration" />
         /// property. This
@@ -958,7 +962,7 @@ namespace MFR.GUI.Windows
             ConfigurationImportedEventArgs e)
             => MessageBox.Show(
                 this,
-                $"Successfully imported the projectFileRenamerConfiguration from the file with path '{e.Path}'.",
+                $"Successfully imported the configuration from the file with path '{e.Path}'.",
                 Application.ProductName, MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1
             );
@@ -1063,7 +1067,7 @@ namespace MFR.GUI.Windows
 
             /*
              * If this application was invoked using command-line
-             * arguments to set the projectFileRenamerConfiguration settings, and
+             * arguments to set the configuration settings, and
              * if the --autoStart flag is also passed on the command
              * line, then automatically exit the application once
              * processing is done.
@@ -1229,7 +1233,7 @@ namespace MFR.GUI.Windows
         {
             /*
              * First step, save whatever settings are on the screen
-             * to the projectFileRenamerConfiguration.
+             * to the configuration.
              */
 
             // Prompt the user to create a new name for the new
@@ -1282,7 +1286,7 @@ namespace MFR.GUI.Windows
         /// menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
         /// Tools menu. This method responds to the event by showing the user a
         /// dialog that the user can utilize to select the pathname of the file
-        /// that the user wants the projectFileRenamerConfiguration data to be exported to.
+        /// that the user wants the configuration data to be exported to.
         /// </remarks>
         private void OnToolsExportConfig(object sender, EventArgs e)
         {
@@ -1310,8 +1314,8 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         /// This method responds to the event by clearing the contents of all
-        /// history lists in the projectFileRenamerConfiguration, saving it to the projectFileRenamerConfiguration
-        /// data source, and then reloading the screen from the projectFileRenamerConfiguration.
+        /// history lists in the configuration, saving it to the configuration
+        /// data source, and then reloading the screen from the configuration.
         /// </remarks>
         private void OnToolsHistoryClearAll(object sender, EventArgs e)
             => Presenter.ClearAllHistory();

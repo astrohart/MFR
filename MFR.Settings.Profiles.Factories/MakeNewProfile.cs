@@ -87,7 +87,7 @@ namespace MFR.Settings.Profiles.Factories
         /// Extension method that converts the specified <paramref name="projectFileRenamerConfiguration" />
         /// object to a profile object.
         /// <para />
-        /// The projectFileRenamerConfiguration settings in the source are copied to the new profile, and the
+        /// the configuration settings in the source are copied to the new profile, and the
         /// specified <paramref name="name" /> is also assigned to the new profile.
         /// </summary>
         /// <param name="projectFileRenamerConfiguration">

@@ -228,7 +228,7 @@ namespace MFR.FileSystem.Retrievers
             /*
              * This method is merely a template to ensure that the rootFolderPath
              * is verified to be referencing a folder that actually exists on the
-             * disk, and we ensure the projectFileRenamerConfiguration object is attached.
+             * disk, and we ensure the configuration object is attached.
              *
              * The "meat" is done in the DoGetMatchingFileSystemPaths template
              * method.  This method is declared abstract, so it must be implemented

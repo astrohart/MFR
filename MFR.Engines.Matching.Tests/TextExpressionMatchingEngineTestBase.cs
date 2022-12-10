@@ -492,7 +492,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string contains the
+        /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
         /// </summary>
@@ -515,7 +515,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// false and MatchExactWord
-        /// = true in the projectFileRenamerConfiguration, (b) the source string contains the
+        /// = true in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case but the cases match in the second.
         /// </summary>
@@ -538,7 +538,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string does not contain the
+        /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
@@ -561,7 +561,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string does not contain the
+        /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, and even if (c) the cases do not
         /// match in the first sub-case but the cases match in the second.
         /// </summary>
@@ -584,7 +584,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string does not contain the
+        /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
         /// </summary>
@@ -607,7 +607,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string does not contain the
+        /// = false in the configuration, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases match in both the
         /// first sub-case and in the second.
         /// </summary>
@@ -630,7 +630,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// false and MatchExactWord
-        /// = true in the projectFileRenamerConfiguration, (b) the source string exactly matches the
+        /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string, and (c) the cases do not match in the first sub-case
         /// but the cases match in the second.
         /// </summary>
@@ -653,7 +653,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the projectFileRenamerConfiguration, (b) the source string does not exactly
+        /// = true in the configuration, (b) the source string does not exactly
         /// match the pattern string as a substring, and if (c) the cases do not
         /// match in the first sub-case.
         /// </summary>
@@ -676,7 +676,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the projectFileRenamerConfiguration, (b) the source string exactly matches the
+        /// = true in the configuration, (b) the source string exactly matches the
         /// pattern string as a substring, except if (c) the cases do not match
         /// in the first sub-case.
         /// </summary>
@@ -703,7 +703,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string contains the
+        /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
@@ -726,7 +726,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the projectFileRenamerConfiguration, (b) the source string contains the
+        /// = false in the configuration, (b) the source string contains the
         /// pattern string as a substring, and if (c) the cases match in the
         /// first sub-case and in the second.
         /// </summary>
@@ -750,7 +750,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the projectFileRenamerConfiguration, and (b) the source string exactly
+        /// = true in the configuration, and (b) the source string exactly
         /// matches the pattern string as a substring (including case).
         /// </summary>
         [Test]
@@ -773,7 +773,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the projectFileRenamerConfiguration, (b) the source string does contain the
+        /// = true in the configuration, (b) the source string does contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>

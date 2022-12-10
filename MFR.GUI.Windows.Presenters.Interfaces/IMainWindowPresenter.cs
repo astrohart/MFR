@@ -38,12 +38,12 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         event EventHandler AllHistoryCleared;
 
         /// <summary>
-        /// Occurs when the projectFileRenamerConfiguration has been exported to a file.
+        /// Occurs when the configuration has been exported to a file.
         /// </summary>
         event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the projectFileRenamerConfiguration has been imported successfully
+        /// Occurs when the configuration has been imported successfully
         /// from a
         /// file on the disk.
         /// </summary>
@@ -62,7 +62,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
-        /// screen and the projectFileRenamerConfiguration data source.
+        /// screen and the configuration data source.
         /// </summary>
         event EventHandler DataOperationFinished;
 
@@ -124,7 +124,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter AndHistoryManager(IHistoryManager historyManager);
 
         /// <summary>
-        /// Clears all the history lists in the projectFileRenamerConfiguration.
+        /// Clears all the history lists in the configuration.
         /// </summary>
         void ClearAllHistory();
 
@@ -154,7 +154,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void FillProfileDropDownList();
 
         /// <summary>
-        /// Imports the projectFileRenamerConfiguration data for this application.
+        /// Imports the configuration data for this application.
         /// </summary>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file

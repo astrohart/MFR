@@ -16,12 +16,12 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         IProjectFileRenamerConfiguration CurrentProjectFileRenamerConfiguration { get; set; }
 
         /// <summary>
-        /// Gets or sets the pathname of the projectFileRenamerConfiguration file.
+        /// Gets or sets the pathname of the configuration file.
         /// </summary>
         string ConfigurationFilePath { get; set; }
 
         /// <summary>
-        /// Gets the default folder for the projectFileRenamerConfiguration file.
+        /// Gets the default folder for the configuration file.
         /// </summary>
         /// <remarks>
         /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
@@ -69,7 +69,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         }
 
         /// <summary>
-        /// Gets a string whose value is the Registry value under which we store the path to the projectFileRenamerConfiguration file.
+        /// Gets a string whose value is the Registry value under which we store the path to the configuration file.
         /// </summary>
         string ConfigurationFilePathValueName
         {
@@ -82,7 +82,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// </summary>
         /// <param name="sourceFilePath">
         /// (Required.) String containing the fully-qualified pathname of the
-        /// file from which to import the projectFileRenamerConfiguration data.
+        /// file from which to import the configuration data.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="sourceFilePath" />,
@@ -103,7 +103,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         void Import(string sourceFilePath);
 
         /// <summary>
-        /// Loads the projectFileRenamerConfiguration from the disk.
+        /// Loads the configuration from the disk.
         /// <para />
         /// The
         /// <see
@@ -112,7 +112,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// </summary>
         /// <param name="pathname">
         /// (Optional.) String containing the pathname to a file to be loaded
-        /// from disk, that contains the projectFileRenamerConfiguration data in JSON format.
+        /// from disk, that contains the configuration data in JSON format.
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
