@@ -102,7 +102,7 @@ object to a profile object.
 
 
 
-The projectFileRenamerConfiguration settings in the source are copied to the new profile, and the
+the configuration settings in the source are copied to the new profile, and the
 specified `name` is also assigned to the new profile.
 
 ##### Returns

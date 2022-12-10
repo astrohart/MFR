@@ -21,7 +21,7 @@ MFR.Managers.History
 
 ##### Summary
 
-Manages the projectFileRenamerConfiguration history on behalf of the application.
+Manages the configuration history on behalf of the application.
 
 <a name='M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window-'></a>
 ### #ctor(messageBoxParentWindow) `constructor`

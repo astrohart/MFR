@@ -59,7 +59,7 @@ class.
 Asserts that a valid instance of an object that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface will be loaded from
-the projectFileRenamerConfiguration file for the application, provided that a valid
+the configuration file for the application, provided that a valid
 path has been supplied as input to the loading action.
 
 ##### Parameters

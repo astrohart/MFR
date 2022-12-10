@@ -19,7 +19,7 @@ MFR.Managers.History.Interfaces
 ##### Summary
 
 Defines the public-exposed methods and properties of a history manager
-object for the projectFileRenamerConfiguration.
+object for the configuration.
 
 <a name='M-MFR-Managers-History-Interfaces-IHistoryManager-ClearAll'></a>
 ### ClearAll() `method`

@@ -246,7 +246,7 @@ Defines the events, methods, properties, and behaviors for all unit test fixture
 
 ##### Summary
 
-String containing the fully-qualified pathname of a folder that stores the projectFileRenamerConfiguration file.
+String containing the fully-qualified pathname of a folder that stores the configuration file.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME'></a>
 ### CONFIG_FILE_NAME `constants`

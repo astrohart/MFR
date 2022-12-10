@@ -64,7 +64,7 @@ parameter, `projectFileRenamerConfiguration`, is passed a
 ##### Summary
 
 Gets the [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') value
-that corresponds to the values set in the projectFileRenamerConfiguration object, a
+that corresponds to the values set in the configuration object, a
 reference to which is passed by the `config` parameter.
 
 ##### Returns
@@ -114,7 +114,7 @@ interface. |
 ##### Summary
 
 Saves the currently-selected Find What text item and the history to
-the projectFileRenamerConfiguration.
+the configuration.
 
 ##### Parameters
 
@@ -123,7 +123,7 @@ the projectFileRenamerConfiguration.
 | config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface and which
-allows access to the projectFileRenamerConfiguration data. |
+allows access to the configuration data. |
 | comboBox | [MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') | (Required.) Reference to an instance of an object that implements
 the [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
 interface that is the control displaying the Find What content to the user. |
@@ -144,7 +144,7 @@ value. |
 ##### Summary
 
 Saves the currently-selected Replace With text item and the history
-to the projectFileRenamerConfiguration.
+to the configuration.
 
 ##### Parameters
 
@@ -153,7 +153,7 @@ to the projectFileRenamerConfiguration.
 | config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface and which
-allows access to the projectFileRenamerConfiguration data. |
+allows access to the configuration data. |
 | comboBox | [MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') | (Required.) Reference to an instance of an object that implements
 the [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
 interface that is the control displaying the Replace With content to the user. |
@@ -174,7 +174,7 @@ value. |
 ##### Summary
 
 Saves the currently-selected Starting Folder text item and the
-history to the projectFileRenamerConfiguration.
+history to the configuration.
 
 ##### Parameters
 
@@ -183,7 +183,7 @@ history to the projectFileRenamerConfiguration.
 | config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface and which
-allows access to the projectFileRenamerConfiguration data. |
+allows access to the configuration data. |
 | comboBox | [MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') | (Required.) Reference to an instance of an object that implements
 the [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
 interface that is the control displaying the Starting Folder

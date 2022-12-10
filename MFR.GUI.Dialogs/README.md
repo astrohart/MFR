@@ -1089,7 +1089,7 @@ Required designer variable.
 
 ##### Summary
 
-Gets or sets the text of the ProjectFileRenamerConfiguration File Pathname text box.
+Gets or sets the text of the configuration File Pathname text box.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
@@ -1173,7 +1173,7 @@ the client of this dialog box to update data.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-Control-Click 'System.Windows.Forms.Control.Click') event
-for the Browse button on the ProjectFileRenamerConfiguration File Pathname text box..
+for the Browse button on the configuration File Pathname text box..
 
 ##### Parameters
 

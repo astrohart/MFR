@@ -517,7 +517,7 @@ event for the File -> Exit menu command.
 ##### Remarks
 
 This method is called to handle the message of the user clicking the
-Exit command on the File menu. This method saves the projectFileRenamerConfiguration
+Exit command on the File menu. This method saves the configuration
 and then closes this window. Since this window is the main window of
 the application, closing this window ends the lifecycle of the application.
 
@@ -720,7 +720,7 @@ contains the event data. |
 
 ##### Remarks
 
-This method is called when an export of the projectFileRenamerConfiguration has been
+This method is called when an export of the configuration has been
 successfully completed. This method responds to the event by
 informing the user that the operation has completed successfully.
 
@@ -743,7 +743,7 @@ event.
 ##### Remarks
 
 This method responds to the event by triggering an update of the
-screen from values stored in the projectFileRenamerConfiguration object in the
+screen from values stored in the configuration object in the
 [ProjectFileRenamerConfiguration](#P-MFR-GUI-MainWindowPresenter-ProjectFileRenamerConfiguration 'MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfiguration')
 property. This
 happens most often as a the result of the Import ProjectFileRenamerConfiguration
@@ -990,7 +990,7 @@ This method is called when the user chooses the Export ProjectFileRenamerConfigu
 menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
 Tools menu. This method responds to the event by showing the user a
 dialog that the user can utilize to select the pathname of the file
-that the user wants the projectFileRenamerConfiguration data to be exported to.
+that the user wants the configuration data to be exported to.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs-'></a>
 ### OnToolsHistoryClearAll(sender,e) `method`
@@ -1011,8 +1011,8 @@ History, and then choosing the Clear All command.
 ##### Remarks
 
 This method responds to the event by clearing the contents of all
-history lists in the projectFileRenamerConfiguration, saving it to the projectFileRenamerConfiguration
-data source, and then reloading the screen from the projectFileRenamerConfiguration.
+history lists in the configuration, saving it to the configuration
+data source, and then reloading the screen from the configuration.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsOptions-System-Object,System-EventArgs-'></a>
 ### OnToolsOptions(sender,e) `method`

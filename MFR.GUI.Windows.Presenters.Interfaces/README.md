@@ -104,7 +104,7 @@ should depend. |
 
 ##### Summary
 
-Clears all the history lists in the projectFileRenamerConfiguration.
+Clears all the history lists in the configuration.
 
 ##### Parameters
 
@@ -158,7 +158,7 @@ This method has no parameters.
 
 ##### Summary
 
-Imports the projectFileRenamerConfiguration data for this application.
+Imports the configuration data for this application.
 
 ##### Parameters
 

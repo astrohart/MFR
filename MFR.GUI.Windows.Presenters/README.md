@@ -132,7 +132,7 @@ interface.
 ##### Remarks
 
 This object's sole purpose in life is to provide the service of
-maintaining the history lists in the projectFileRenamerConfiguration data
+maintaining the history lists in the configuration data
 source.
 
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog'></a>
@@ -365,7 +365,7 @@ should depend. |
 
 ##### Summary
 
-Clears all the history lists in the projectFileRenamerConfiguration.
+Clears all the history lists in the configuration.
 
 ##### Parameters
 
@@ -498,7 +498,7 @@ a `null` value. |
 
 ##### Summary
 
-Imports the projectFileRenamerConfiguration data for this application.
+Imports the configuration data for this application.
 
 ##### Parameters
 
@@ -679,7 +679,7 @@ contains the event data. |
 
 Handles the
 [](#E-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
-event raised by the projectFileRenamerConfiguration object.
+event raised by the configuration object.
 
 ##### Parameters
 
@@ -1268,7 +1268,7 @@ This method has no parameters.
 
 ##### Summary
 
-Updates the projectFileRenamerConfiguration currently being used with a new
+Updates the configuration currently being used with a new
 value.
 
 ##### Parameters
