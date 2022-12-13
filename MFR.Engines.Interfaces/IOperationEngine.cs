@@ -1,5 +1,6 @@
 ﻿using MFR.Engines.Constants;
 using MFR.Settings.Configuration.Interfaces;
+using System;
 
 namespace MFR.Engines.Interfaces
 {
@@ -16,6 +17,11 @@ namespace MFR.Engines.Interfaces
     /// </remarks>
     public interface IOperationEngine : IConfigurationComposedObject
     {
+        /// <summary>
+        /// Occurs when the operation engine is finished.
+        /// </summary>
+        event EventHandler EngineOperationFinished;
+
         /// <summary>
         /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration
         /// value that describes what type of operation engine this is.
