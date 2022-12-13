@@ -3,6 +3,7 @@ using MFR.Engines.Interfaces;
 using MFR.Renamers.Files.Factories;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration;
+using System;
 
 namespace MFR.Engines
 {
@@ -38,5 +39,17 @@ namespace MFR.Engines
         {
             get;
         }
+
+        /// <summary>
+        /// Occurs when the operation engine is finished.
+        /// </summary>
+        public event EventHandler EngineOperationFinished;
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Engines.OperationEngineBase.EngineOperationFinished" /> event.
+        /// </summary>
+        protected virtual void OnEngineOperationFinished()
+            => EngineOperationFinished?.Invoke(this, EventArgs.Empty);
     }
 }
