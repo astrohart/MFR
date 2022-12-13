@@ -100,6 +100,7 @@ namespace MFR.GUI.Windows
             this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
+            this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -300,14 +301,14 @@ namespace MFR.GUI.Windows
             this.toolStripSeparator5,
             this.toolsHistoryMenu});
             this.toolsConfigMenu.Name = "toolsConfigMenu";
-            this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
+            this.toolsConfigMenu.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigMenu.Text = "&Configuration";
             // 
             // toolsConfigImport
             // 
             this.toolsConfigImport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigImport.Image")));
             this.toolsConfigImport.Name = "toolsConfigImport";
-            this.toolsConfigImport.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigImport.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigImport.Text = "&Import...";
             this.toolsConfigImport.Click += new System.EventHandler(this.OnToolsConfigImport);
             // 
@@ -315,26 +316,26 @@ namespace MFR.GUI.Windows
             // 
             this.toolsConfigExport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigExport.Image")));
             this.toolsConfigExport.Name = "toolsConfigExport";
-            this.toolsConfigExport.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigExport.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigExport.Text = "&Export...";
-            this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsExportConfig);
+            this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsConfigExport);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsSaveProfileAs
             // 
             this.toolsSaveProfileAs.Image = ((System.Drawing.Image)(resources.GetObject("toolsSaveProfileAs.Image")));
             this.toolsSaveProfileAs.Name = "toolsSaveProfileAs";
-            this.toolsSaveProfileAs.Size = new System.Drawing.Size(159, 22);
+            this.toolsSaveProfileAs.Size = new System.Drawing.Size(180, 22);
             this.toolsSaveProfileAs.Text = "&Save Profile As";
             // 
             // toolsConfigApplyProfile
             // 
             this.toolsConfigApplyProfile.Name = "toolsConfigApplyProfile";
-            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigApplyProfile.Text = "&Apply Profile";
             // 
             // toolsConfigProfiles
@@ -342,20 +343,20 @@ namespace MFR.GUI.Windows
             this.toolsConfigProfiles.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigProfiles.Image")));
             this.toolsConfigProfiles.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsConfigProfiles.Name = "toolsConfigProfiles";
-            this.toolsConfigProfiles.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigProfiles.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigProfiles.Text = "&Manage Profiles";
             // 
             // toolsConfigNewProfile
             // 
             this.toolsConfigNewProfile.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigNewProfile.Image")));
             this.toolsConfigNewProfile.Name = "toolsConfigNewProfile";
-            this.toolsConfigNewProfile.Size = new System.Drawing.Size(159, 22);
+            this.toolsConfigNewProfile.Size = new System.Drawing.Size(180, 22);
             this.toolsConfigNewProfile.Text = "&New Profile";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsHistoryMenu
             // 
@@ -364,7 +365,7 @@ namespace MFR.GUI.Windows
             this.toolsHistoryClearMenu});
             this.toolsHistoryMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryMenu.Image")));
             this.toolsHistoryMenu.Name = "toolsHistoryMenu";
-            this.toolsHistoryMenu.Size = new System.Drawing.Size(159, 22);
+            this.toolsHistoryMenu.Size = new System.Drawing.Size(180, 22);
             this.toolsHistoryMenu.Text = "&History";
             // 
             // toolsHistoryClearAll
@@ -405,14 +406,14 @@ namespace MFR.GUI.Windows
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toolsOptions
             // 
             this.toolsOptions.Image = ((System.Drawing.Image)(resources.GetObject("toolsOptions.Image")));
             this.toolsOptions.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(148, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(180, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
@@ -671,7 +672,7 @@ namespace MFR.GUI.Windows
             this.exportConfigButton.Name = "exportConfigButton";
             this.exportConfigButton.Size = new System.Drawing.Size(23, 22);
             this.exportConfigButton.Text = "Export Configuration";
-            this.exportConfigButton.Click += new System.EventHandler(this.OnToolsExportConfig);
+            this.exportConfigButton.Click += new System.EventHandler(this.OnToolsConfigExport);
             // 
             // importConfigButton
             // 
@@ -757,6 +758,14 @@ namespace MFR.GUI.Windows
             this.exportConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
             this.exportConfigDialog.RestoreDirectory = true;
             this.exportConfigDialog.Title = "Export Configuration";
+            // 
+            // importConfigDialog
+            // 
+            this.importConfigDialog.DefaultExt = "config.json";
+            this.importConfigDialog.Filter = "Configuration File (*.config.json)|*.config.json|All Files (*.*)|*.*";
+            this.importConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
+            this.importConfigDialog.RestoreDirectory = true;
+            this.importConfigDialog.Title = "Import Configuration";
             // 
             // MainWindow
             // 
@@ -874,6 +883,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripSeparator sep2;
         private System.Windows.Forms.ToolStripMenuItem viewDarkTheme;
         private System.Windows.Forms.SaveFileDialog exportConfigDialog;
+        private System.Windows.Forms.OpenFileDialog importConfigDialog;
     }
 }
 

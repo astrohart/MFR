@@ -134,8 +134,8 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void DoSelectedOperations();
 
         /// <summary>
-        /// Exports the current projectFileRenamerConfiguration data to a file on the
-        /// user's hard drive.
+        /// Exports the current projectFileRenamerConfiguration data to the file on the
+        /// user's hard drive having the specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
@@ -154,13 +154,19 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void FillProfileDropDownList();
 
         /// <summary>
-        /// Imports the configuration data for this application.
+        /// Imports the configuration data for this application from the file with the
+        /// specified <paramref name="pathname" />.
         /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file from which the configuration should be imported.
+        /// </param>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file
         /// that exists on the user's hard drive and has the <c>.json</c> extension.
         /// </remarks>
-        void ImportConfiguration();
+        void ImportConfiguration(
+            string pathname /* path of the file to be imported */);
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items

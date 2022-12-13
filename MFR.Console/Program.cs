@@ -34,7 +34,7 @@ namespace MFR.Console
         /// interface.
         /// </summary>
         private static IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
-            => ConfigurationProvider.CurrentProjectFileRenamerConfiguration;
+            => ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

@@ -72,24 +72,19 @@ namespace MFR.GUI.Windows.Presenters
         private IHistoryManager _historyManager;
 
         /// <summary>
-        /// Reference to an instance of
-        /// <see
-        ///     cref="T:System.Windows.Forms.OpenFileDialog" />
-        /// that allows the user
-        /// to choose a filename on the disk.
-        /// </summary>
-        /// <remarks>
-        /// The file chosen by this dialog is to be used for importing
-        /// projectFileRenamerConfiguration data.
-        /// </remarks>
-        private OpenFileDialog _importConfigDialog;
-
-        /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface and
         /// which actually performs the behavior of this Presenter.
         /// </summary>
         private IFullGuiOperationEngine _operationEngine;
+
+        public MainWindowPresenter(IFullGuiOperationEngine engine)
+        {
+            _operationEngine =
+                engine ?? throw new ArgumentNullException(nameof(engine));
+
+            //_operationEngine.Setup();
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -99,9 +94,6 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public MainWindowPresenter()
         {
-            // write the name of the current class and method we are now
-            InitializeComponents();
-
             ReinitializeProgressDialog();
 
             InitializeConfiguration();
@@ -122,14 +114,6 @@ namespace MFR.GUI.Windows.Presenters
             => GetConfigurationProvider.SoleInstance();
 
         /// <summary>
-        /// Gets the name of the currently-selected profile.
-        /// </summary>
-        private string CurrentProfileName
-            => ProjectFileRenamerConfiguration is IProfile profile
-                ? profile.Name
-                : string.Empty;
-
-        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
@@ -139,9 +123,16 @@ namespace MFR.GUI.Windows.Presenters
         /// This object's properties are initialized with the currently-loaded
         /// projectFileRenamerConfiguration.
         /// </remarks>
-        private static IProjectFileRenamerConfiguration
-            CurrentProjectFileRenamerConfiguration
-            => ConfigurationProvider.CurrentProjectFileRenamerConfiguration;
+        private static IProjectFileRenamerConfiguration CurrentConfiguration
+            => ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Gets the name of the currently-selected profile.
+        /// </summary>
+        private string CurrentProfileName
+            => ProjectFileRenamerConfiguration is IProfile profile
+                ? profile.Name
+                : string.Empty;
 
         /// <summary>
         /// Gets a reference to this object instance.
@@ -185,8 +176,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
         public bool IsProfileLoaded
-            => !ConfigurationProvider.CurrentProjectFileRenamerConfiguration
-                                     .IsTransientProfile();
+            => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -428,6 +418,49 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Exports the current projectFileRenamerConfiguration data to a file on the
+        /// user's hard drive.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file to which the configuration should be exported.
+        /// </param>
+        /// <remarks>
+        /// If a file having the specified <paramref name="pathname" /> already
+        /// exists on the disk at the time the export operation is performed, it will be
+        /// overwritten.
+        /// </remarks>
+        public void ExportConfiguration(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            try
+            {
+                /*
+                 * If a configuration file already exists at the specified pathname,
+                 * then
+                 */
+
+                if (File.Exists(pathname)) File.Delete(pathname);
+
+                // Bring data from the screen down into the configuration
+                // object
+                UpdateData();
+
+                ConfigurationProvider.Export(pathname);
+
+                OnConfigurationExported(
+                    new ConfigurationExportedEventArgs(pathname)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// This method is called to populate the Profiles combo box.
         /// </summary>
         public void FillProfileDropDownList()
@@ -496,25 +529,24 @@ namespace MFR.GUI.Windows.Presenters
         /// The data is presumed to be located inside of a JSON-formatted file
         /// that exists on the user's hard drive and has the <c>.json</c> extension.
         /// </remarks>
-        public void ImportConfiguration()
+        public void ImportConfiguration(string pathname /* path of the file to be imported */)
         {
-            _importConfigDialog.InitialDirectory =
-                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+            if (!File.Exists(pathname)) return;
 
-            if (_importConfigDialog.ShowDialog(View) != DialogResult.OK)
-                return;
+            try
+            {
+                ConfigurationProvider.Import(pathname);
 
-            ConfigurationProvider.Import(_importConfigDialog.FileName);
-
-            UpdateConfiguration(
-                ConfigurationProvider.CurrentProjectFileRenamerConfiguration
-            );
-
-            UpdateData(false);
-
-            OnConfigurationImported(
-                new ConfigurationImportedEventArgs(_importConfigDialog.FileName)
-            );
+                OnConfigurationImported(
+                    new ConfigurationImportedEventArgs(pathname)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -594,12 +626,9 @@ namespace MFR.GUI.Windows.Presenters
                                .RenameTo(dialog.ConfigPathname);
 
             ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
-            ConfigurationProvider.CurrentProjectFileRenamerConfiguration
-                                 .ReOpenSolution = dialog
-                .ShouldReOpenVisualStudioSolution;
-            UpdateConfiguration(
-                ConfigurationProvider.CurrentProjectFileRenamerConfiguration
-            );
+            ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
+                dialog.ShouldReOpenVisualStudioSolution;
+            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
         }
 
         /// <summary>
@@ -622,8 +651,9 @@ namespace MFR.GUI.Windows.Presenters
             if (Does.ProfileAlreadyExist(profileName)) return;
 
             var newProfile =
-                ConfigurationProvider.CurrentProjectFileRenamerConfiguration
-                                     .ToProfile(profileName);
+                ConfigurationProvider.CurrentConfiguration.ToProfile(
+                    profileName
+                );
             ProfileProvider.Profiles.Add(newProfile);
             ProfileProvider.Save();
 
@@ -632,8 +662,7 @@ namespace MFR.GUI.Windows.Presenters
              * loaded projectFileRenamerConfiguration.
              */
 
-            ConfigurationProvider.CurrentProjectFileRenamerConfiguration =
-                newProfile;
+            ConfigurationProvider.CurrentConfiguration = newProfile;
             ConfigurationProvider.Save();
         }
 
@@ -843,7 +872,7 @@ namespace MFR.GUI.Windows.Presenters
                 InitializeOperationSelections();
 
                 View.SelectedOptionTab = ConfigurationProvider
-                                         .CurrentProjectFileRenamerConfiguration
+                                         .CurrentConfiguration
                                          .SelectedOptionTab;
 
                 View.MatchExactWord =
@@ -898,44 +927,6 @@ namespace MFR.GUI.Windows.Presenters
             InitializeFileRenamer();
 
             return this;
-        }
-
-        /// <summary>
-        /// Exports the current projectFileRenamerConfiguration data to a file on the
-        /// user's hard drive.
-        /// </summary>
-        /// <param name="pathname">
-        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a file to which the configuration should be exported.
-        /// </param>
-        /// <remarks>
-        /// If a file having the specified <paramref name="pathname" /> already
-        /// exists on the disk at the time the export operation is performed, it will be
-        /// overwritten.
-        /// </remarks>
-        public void ExportConfiguration(string pathname)
-        {
-            if (string.IsNullOrWhiteSpace(pathname)) return;
-
-            try
-            {
-                if (File.Exists(pathname)) File.Delete(pathname);
-
-                // Bring data from the screen down into the configuration
-                // object
-                UpdateData();
-
-                ConfigurationProvider.Export(pathname);
-
-                OnConfigurationExported(
-                    new ConfigurationExportedEventArgs(pathname)
-                );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         /// <summary>
@@ -1060,6 +1051,10 @@ namespace MFR.GUI.Windows.Presenters
                 .ForMessageId(
                     MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
                 );
+
+            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
+
+            UpdateData(false);
 
             InitializeConfiguration();
         }
@@ -1318,27 +1313,13 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Initializes the values of those dependencies which are not
-        /// configurable by use of fluent-builder methods.
-        /// </summary>
-        private void InitializeComponents()
-            => _importConfigDialog = new OpenFileDialog {
-                DefaultExt = "json",
-                FileName = "config.json",
-                Filter =
-                    "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*",
-                RestoreDirectory = true,
-                Title = "Import Configuration"
-            };
-
-        /// <summary>
         /// Initializes the currently-loaded projectFileRenamerConfiguration object.
         /// </summary>
         private void InitializeConfiguration()
         {
-            CurrentProjectFileRenamerConfiguration.StartingFolderChanged -=
+            CurrentConfiguration.StartingFolderChanged -=
                 OnConfigurationStartingFolderChanged;
-            CurrentProjectFileRenamerConfiguration.StartingFolderChanged +=
+            CurrentConfiguration.StartingFolderChanged +=
                 OnConfigurationStartingFolderChanged;
         }
 
@@ -1479,11 +1460,11 @@ namespace MFR.GUI.Windows.Presenters
         {
             // Make sure we're getting a valid folder
             if (!RootDirectoryValidator.Validate(
-                    CurrentProjectFileRenamerConfiguration.StartingFolder
+                    CurrentConfiguration.StartingFolder
                 )) return;
 
             StartingFolderComboBox.Items.AddDistinct(
-                CurrentProjectFileRenamerConfiguration.StartingFolder
+                CurrentConfiguration.StartingFolder
             );
         }
 
@@ -1717,6 +1698,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Sets the progress dialog and/or reinitializes it from prior use.
         /// </summary>
+        /// MTE
         [Log(AttributeExclude = true)]
         private void ReinitializeProgressDialog()
         {

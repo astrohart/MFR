@@ -80,7 +80,7 @@ namespace MFR.Settings.Configuration.Providers
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        public IProjectFileRenamerConfiguration CurrentProjectFileRenamerConfiguration
+        public IProjectFileRenamerConfiguration CurrentConfiguration
         {
             get;
             set;
@@ -268,7 +268,7 @@ namespace MFR.Settings.Configuration.Providers
 
             try
             {
-                CurrentProjectFileRenamerConfiguration = GetConfigurationAction
+                CurrentConfiguration = GetConfigurationAction
                                        .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
                                            ConfigurationActionType
                                                .LoadConfigurationFromFile
@@ -284,12 +284,12 @@ namespace MFR.Settings.Configuration.Providers
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-                CurrentProjectFileRenamerConfiguration =
+                CurrentConfiguration =
                     MakeNewConfiguration
                         .FromScratch(); // make a default config if can't be loaded
             }
 
-            if (CurrentProjectFileRenamerConfiguration != null)
+            if (CurrentConfiguration != null)
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info, "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
@@ -349,10 +349,10 @@ namespace MFR.Settings.Configuration.Providers
             if (string.IsNullOrWhiteSpace(pathname)) return;
 
             // Check to see if the required property, ProjectFileRenamerConfiguration, is null. If
-            if (CurrentProjectFileRenamerConfiguration == null) return;
+            if (CurrentConfiguration == null) return;
 
-            if (CurrentProjectFileRenamerConfiguration.IsFromCommandLine
-                && CurrentProjectFileRenamerConfiguration.AutoStart)
+            if (CurrentConfiguration.IsFromCommandLine
+                && CurrentConfiguration.AutoStart)
                 return;
 
             try
@@ -365,7 +365,7 @@ namespace MFR.Settings.Configuration.Providers
                                            MakeNewFileSystemEntry
                                                .ForPath(pathname)
                                                .AndHavingUserState(
-                                                   CurrentProjectFileRenamerConfiguration
+                                                   CurrentConfiguration
                                                )
                                        )
                                        .Execute();

@@ -314,10 +314,10 @@ namespace MFR.GUI
                  */
 
                 if (AutoStart)
-                    ConfigurationProvider.CurrentProjectFileRenamerConfiguration =
+                    ConfigurationProvider.CurrentConfiguration =
                         CommandLineInfo.ToConfiguration();
                 else
-                    ConfigurationProvider.CurrentProjectFileRenamerConfiguration.StartingFolder =
+                    ConfigurationProvider.CurrentConfiguration.StartingFolder =
                         CommandLineInfo.StartingFolder;
             }
 

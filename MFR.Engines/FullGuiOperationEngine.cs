@@ -3,6 +3,8 @@ using MFR.Engines.Interfaces;
 using MFR.Engines.Properties;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
@@ -17,53 +19,6 @@ namespace MFR.Engines
     public class FullGuiOperationEngine : OperationEngineBase,
         IFullGuiOperationEngine
     {
-        /// <summary>
-        /// Sets the progress dialog and/or reinitializes it from prior use.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        private void ReinitializeProgressDialog()
-        {
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () =>
-                {
-                    if (_cancellableProgressDialog != null)
-                    {
-                        _cancellableProgressDialog.Close();
-                        _cancellableProgressDialog.Dispose();
-                    }
-
-                    _cancellableProgressDialog = null;
-                }
-            );
-            _cancellableProgressDialog.DoIfDisposed(
-                () => _cancellableProgressDialog =
-                    MakeNewProgressDialog.FromScratch()
-            );
-            _cancellableProgressDialog.CancelRequested +=
-                OnCancellableProgressDialogRequestedCancel;
-        }
-
-        /// <summary>
-        /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
-        /// event.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method handles the situation in which the user has clicked the
-        /// Cancel button on the progress dialog. The message taken by this
-        /// method is to tell the File Renamer Object to attempt to abort.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnCancellableProgressDialogRequestedCancel(object sender,
-            EventArgs e)
-            => FileRenamer.RequestAbort();
-
-
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
@@ -80,7 +35,25 @@ namespace MFR.Engines
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected FullGuiOperationEngine() { }
+        protected FullGuiOperationEngine()
+        {
+            ReinitializeProgressDialog(); // reinitialize the progress dialog to a "clean" state
+        }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IConfigurationProvider ConfigurationProvider
+            => GetConfigurationProvider.SoleInstance();
+
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -90,6 +63,24 @@ namespace MFR.Engines
         {
             get;
         } = new FullGuiOperationEngine();
+
+        /// <summary>
+        /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration
+        /// value that describes what type of operation engine this is.
+        /// </summary>
+        /// <remarks>
+        /// Child classes must implement this property.
+        /// </remarks>
+        public override OperationEngineType Type
+            => OperationEngineType.FullGUI;
+
+        /// <summary>
+        /// Dismisses the progress dialog.
+        /// </summary>
+        public void CloseProgressDialog()
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Close()
+            );
 
         /// <summary>
         /// Shows a marquee progress bar that indicates the application is
@@ -128,30 +119,64 @@ namespace MFR.Engines
         }
 
         /// <summary>
+        /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method handles the situation in which the user has clicked the
+        /// Cancel button on the progress dialog. The message taken by this
+        /// method is to tell the File Renamer Object to attempt to abort.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private static void OnCancellableProgressDialogRequestedCancel(object sender,
+                EventArgs e)
+
+            // Ask the File Renamer component to stop.  Because the user has
+            // clicked the Cancel button in the progress dialog.
+            => FileRenamer.RequestAbort();
+
+        /// <summary>
+        /// Sets the progress dialog and/or reinitializes it from prior use.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        private void ReinitializeProgressDialog()
+        {
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    if (_cancellableProgressDialog != null)
+                    {
+                        _cancellableProgressDialog.Close();
+                        _cancellableProgressDialog.Dispose();
+                    }
+
+                    _cancellableProgressDialog = null;
+                }
+            );
+            _cancellableProgressDialog.DoIfDisposed(
+                () => _cancellableProgressDialog =
+                    MakeNewProgressDialog.FromScratch()
+            );
+
+            _cancellableProgressDialog.CancelRequested -=
+                OnCancellableProgressDialogRequestedCancel;
+            _cancellableProgressDialog.CancelRequested +=
+                OnCancellableProgressDialogRequestedCancel;
+        }
+
+        /// <summary>
         /// Resets the progress bar back to the beginning.
         /// </summary>
         [Log(AttributeExclude = true)]
         private void ResetProgressBar()
             => _cancellableProgressDialog.DoIfNotDisposed(
                 _cancellableProgressDialog.Reset
-            );
-
-        /// <summary>
-        /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration
-        /// value that describes what type of operation engine this is.
-        /// </summary>
-        /// <remarks>
-        /// Child classes must implement this property.
-        /// </remarks>
-        public override OperationEngineType Type
-            => OperationEngineType.FullGUI;
-
-        /// <summary>
-        /// Dismisses the progress dialog.
-        /// </summary>
-        public void CloseProgressDialog()
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Close()
             );
     }
 }

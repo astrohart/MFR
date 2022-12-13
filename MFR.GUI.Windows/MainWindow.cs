@@ -85,7 +85,7 @@ namespace MFR.GUI.Windows
         /// </summary>
         private static IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
             => GetConfigurationProvider.SoleInstance()
-                                       .CurrentProjectFileRenamerConfiguration;
+                                       .CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -106,8 +106,8 @@ namespace MFR.GUI.Windows
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentProjectFileRenamerConfiguration
-            => ConfigurationProvider.CurrentProjectFileRenamerConfiguration;
+        private static IProjectFileRenamerConfiguration CurrentConfiguration
+            => ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -390,8 +390,8 @@ namespace MFR.GUI.Windows
              * by the user, then we should update the screen with the values from the
              * projectFileRenamerConfiguration, and then "click" the Perform Operation button.
              */
-            if (!CurrentProjectFileRenamerConfiguration.IsFromCommandLine ||
-                !CurrentProjectFileRenamerConfiguration.AutoStart)
+            if (!CurrentConfiguration.IsFromCommandLine ||
+                !CurrentConfiguration.AutoStart)
                 return;
 
             Presenter.UpdateData(false);
@@ -440,7 +440,7 @@ namespace MFR.GUI.Windows
                     .WithInput(e.Name)
                     .Execute();
 
-                ConfigurationProvider.CurrentProjectFileRenamerConfiguration =
+                ConfigurationProvider.CurrentConfiguration =
                     result; // set the newly-created profile as the new projectFileRenamerConfiguration.
             }
             catch (Exception ex)
@@ -795,7 +795,7 @@ namespace MFR.GUI.Windows
             FoldButton.SetFoldedStateText();
 
             GetConfigurationProvider.SoleInstance()
-                                    .CurrentProjectFileRenamerConfiguration.IsFolded = e.Folded;
+                                    .CurrentConfiguration.IsFolded = e.Folded;
         }
 
         /// <summary>
@@ -1073,8 +1073,8 @@ namespace MFR.GUI.Windows
              * processing is done.
              */
 
-            if (CurrentProjectFileRenamerConfiguration.IsFromCommandLine &&
-                CurrentProjectFileRenamerConfiguration.AutoStart)
+            if (CurrentConfiguration.IsFromCommandLine &&
+                CurrentConfiguration.AutoStart)
                 this.InvokeIfRequired(Close);
         }
 
@@ -1187,7 +1187,17 @@ namespace MFR.GUI.Windows
         /// import, and then calls the presenter to perform the import operation.
         /// </remarks>
         private void OnToolsConfigImport(object sender, EventArgs e)
-            => Presenter.ImportConfiguration();
+        { 
+            if (importConfigDialog.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Exporting the configuration to '{importConfigDialog.FileName}'..."
+            );
+
+            Presenter.ImportConfiguration(importConfigDialog.FileName);
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
@@ -1288,7 +1298,7 @@ namespace MFR.GUI.Windows
         /// dialog that the user can utilize to select the pathname of the file
         /// that the user wants the configuration data to be exported to.
         /// </remarks>
-        private void OnToolsExportConfig(object sender, EventArgs e)
+        private void OnToolsConfigExport(object sender, EventArgs e)
         {
             if (exportConfigDialog.ShowDialog(this) == DialogResult.Cancel)
                 return;
