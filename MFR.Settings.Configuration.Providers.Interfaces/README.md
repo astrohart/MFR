@@ -34,7 +34,7 @@ Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfi
 
 ##### Summary
 
-Gets or sets the pathname of the projectFileRenamerConfiguration file.
+Gets or sets the pathname of the configuration file.
 
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePathKeyName'></a>
 ### ConfigurationFilePathKeyName `property`
@@ -48,7 +48,7 @@ Gets a string whose value is the pathname of the system Registry key in which pr
 
 ##### Summary
 
-Gets a string whose value is the Registry value under which we store the path to the projectFileRenamerConfiguration file.
+Gets a string whose value is the Registry value under which we store the path to the configuration file.
 
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentProjectFileRenamerConfiguration'></a>
 ### CurrentProjectFileRenamerConfiguration `property`
@@ -65,7 +65,7 @@ application's behavior.
 
 ##### Summary
 
-Gets the default folder for the projectFileRenamerConfiguration file.
+Gets the default folder for the configuration file.
 
 ##### Remarks
 
@@ -131,7 +131,7 @@ Imports projectFileRenamerConfiguration data from a file whose path is
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sourceFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of the
-file from which to import the projectFileRenamerConfiguration data. |
+file from which to import the configuration data. |
 
 ##### Exceptions
 
@@ -157,7 +157,7 @@ Then, the method saves the new data out to the master projectFileRenamerConfigur
 
 ##### Summary
 
-Loads the projectFileRenamerConfiguration from the disk.
+Loads the configuration from the disk.
 
 
 
@@ -170,7 +170,7 @@ property is then initialized to point to the data that has been loaded.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) String containing the pathname to a file to be loaded
-from disk, that contains the projectFileRenamerConfiguration data in JSON format.
+from disk, that contains the configuration data in JSON format.
 
 
 
