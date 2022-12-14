@@ -7,7 +7,7 @@
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ConfigurationFilePath')
   - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ConfigurationFilePathKeyName')
   - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ConfigurationFilePathValueName')
-  - [CurrentProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.CurrentProjectFileRenamerConfiguration')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.CurrentConfiguration')
   - [DefaultConfigDir](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-DefaultConfigDir 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.DefaultConfigDir')
   - [DefaultConfigFileName](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-DefaultConfigFileName 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.DefaultConfigFileName')
   - [Export(exportFileName)](#M-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Export-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Export(System.String)')
@@ -50,8 +50,8 @@ Gets a string whose value is the pathname of the system Registry key in which pr
 
 Gets a string whose value is the Registry value under which we store the path to the configuration file.
 
-<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentProjectFileRenamerConfiguration'></a>
-### CurrentProjectFileRenamerConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
 
 ##### Summary
 

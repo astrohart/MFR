@@ -4,9 +4,9 @@
 ## Contents
 
 - [IConfigurationComposedObject](#T-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject')
-  - [ProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.ProjectFileRenamerConfiguration')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-CurrentConfiguration 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.CurrentConfiguration')
   - [AndAttachConfiguration()](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.AndAttachConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [UpdateConfiguration(projectFileRenamerConfiguration)](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [UpdateConfiguration(configuration)](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [VerifyConfigurationAttached()](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-VerifyConfigurationAttached 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.VerifyConfigurationAttached')
 - [IFixedTextMatchingConfigurationSpecificObject](#T-MFR-Settings-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject 'MFR.Settings.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject')
   - [TextMatchingConfiguration](#P-MFR-Settings-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject-TextMatchingConfiguration 'MFR.Settings.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration')
@@ -47,8 +47,8 @@ composed with an instance of another object that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-ProjectFileRenamerConfiguration'></a>
-### ProjectFileRenamerConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
 
 ##### Summary
 
@@ -89,17 +89,17 @@ The [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-
 object by dint of the settings chosen by the user at runtime.
 
 <a name='M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### UpdateConfiguration(projectFileRenamerConfiguration) `method`
+### UpdateConfiguration(configuration) `method`
 
 ##### Summary
 
-Updates the `projectFileRenamerConfiguration` currently being used with a new value.
+Updates the `configuration` currently being used with a new value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
 which has the new settings. |
 
@@ -107,7 +107,7 @@ which has the new settings. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
 is passed a `null` value. |
 
 ##### Remarks

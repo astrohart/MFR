@@ -3,14 +3,48 @@
 
 ## Contents
 
+- [OperationEngineMessages](#T-MFR-Engines-Constants-OperationEngineMessages 'MFR.Engines.Constants.OperationEngineMessages')
+  - [OE_OPERATION_ERROR](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_ERROR 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_ERROR')
+  - [OE_OPERATION_FINISHED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_FINISHED 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_FINISHED')
+  - [OE_OPERATION_STARTED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_STARTED 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_STARTED')
 - [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType')
-  - [AutomatedGUI](#F-MFR-Engines-Constants-OperationEngineType-AutomatedGUI 'MFR.Engines.Constants.OperationEngineType.AutomatedGUI')
   - [Console](#F-MFR-Engines-Constants-OperationEngineType-Console 'MFR.Engines.Constants.OperationEngineType.Console')
   - [FullGUI](#F-MFR-Engines-Constants-OperationEngineType-FullGUI 'MFR.Engines.Constants.OperationEngineType.FullGUI')
   - [Unknown](#F-MFR-Engines-Constants-OperationEngineType-Unknown 'MFR.Engines.Constants.OperationEngineType.Unknown')
 - [Resources](#T-MFR-Engines-Constants-Properties-Resources 'MFR.Engines.Constants.Properties.Resources')
   - [Culture](#P-MFR-Engines-Constants-Properties-Resources-Culture 'MFR.Engines.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Constants-Properties-Resources-ResourceManager 'MFR.Engines.Constants.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Engines-Constants-OperationEngineMessages'></a>
+## OperationEngineMessages `type`
+
+##### Namespace
+
+MFR.Engines.Constants
+
+<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_ERROR'></a>
+### OE_OPERATION_ERROR `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Operation Engine when one
+of the file-renaming operations throws an exception.
+
+<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_FINISHED'></a>
+### OE_OPERATION_FINISHED `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Operation Engine when all
+of the requested file-renaming operations have been completed.
+
+<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_STARTED'></a>
+### OE_OPERATION_STARTED `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Operation Engine when a
+new [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer') job is started.
 
 <a name='T-MFR-Engines-Constants-OperationEngineType'></a>
 ## OperationEngineType `type`
@@ -22,13 +56,6 @@ MFR.Engines.Constants
 ##### Summary
 
 Values that describe the type of operation engine -- e.g., full GUI, automated GUI (called from command line) or console app, which which we are working.
-
-<a name='F-MFR-Engines-Constants-OperationEngineType-AutomatedGUI'></a>
-### AutomatedGUI `constants`
-
-##### Summary
-
-The GUI was brought up by the user, with the `--autoStart` flag passed on the command line.
 
 <a name='F-MFR-Engines-Constants-OperationEngineType-Console'></a>
 ### Console `constants`

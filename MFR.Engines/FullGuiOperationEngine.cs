@@ -174,8 +174,12 @@ namespace MFR.Engines
             => _cancellableProgressDialog.DoIfNotDisposed(
                 () =>
                 {
-                    _cancellableProgressDialog.CanCancel = canCancel;
-                    _cancellableProgressDialog.Show(owner);
+                    _cancellableProgressDialog.InvokeIfRequired(
+                        () =>
+                        {
+                            _cancellableProgressDialog.CanCancel = canCancel;
+                            _cancellableProgressDialog.Show(owner);
+                        });
                 }
             );
 
@@ -184,7 +188,9 @@ namespace MFR.Engines
         /// </summary>
         public void ShowProgressDialog()
             => _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Show()
+                () => _cancellableProgressDialog.InvokeIfRequired(
+                    _cancellableProgressDialog.Show
+                )
             );
 
         /// <summary>
