@@ -71,7 +71,7 @@ namespace MFR.Managers.History
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
-            var historyLists = ProjectFileRenamerConfiguration.GetType()
+            var historyLists = CurrentConfiguration.GetType()
                                             .GetProperties()
                                             .Where(
                                                 x => x.PropertyType
@@ -81,7 +81,7 @@ namespace MFR.Managers.History
                                             )
                                             .Select(
                                                 p => p.GetValue(
-                                                    ProjectFileRenamerConfiguration
+                                                    CurrentConfiguration
                                                 ) as IList
                                             )
                                             .ToArray();
@@ -93,8 +93,8 @@ namespace MFR.Managers.History
 
             // Finally, clear out all the current values of the form. This is
             // basically like a "Reset Form" button on a website.
-            ProjectFileRenamerConfiguration.StartingFolder = ProjectFileRenamerConfiguration.FindWhat =
-                ProjectFileRenamerConfiguration.ReplaceWith = string.Empty;
+            CurrentConfiguration.StartingFolder = CurrentConfiguration.FindWhat =
+                CurrentConfiguration.ReplaceWith = string.Empty;
 
             return true;    // success
         }
@@ -114,9 +114,9 @@ namespace MFR.Managers.History
         /// </remarks>
         private bool CanClearAll()
         {
-            if (!ProjectFileRenamerConfiguration.StartingFolderHistory.Any() &&
-                !ProjectFileRenamerConfiguration.FindWhatHistory.Any() &&
-                !ProjectFileRenamerConfiguration.ReplaceWithHistory.Any())
+            if (!CurrentConfiguration.StartingFolderHistory.Any() &&
+                !CurrentConfiguration.FindWhatHistory.Any() &&
+                !CurrentConfiguration.ReplaceWithHistory.Any())
                 return false;
 
             return DialogResult.Yes == MessageBox.Show(

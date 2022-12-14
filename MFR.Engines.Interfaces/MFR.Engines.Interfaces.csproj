@@ -8,7 +8,8 @@
     <TargetFrameworkProfile />
     <ProjectGuid>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</ProjectGuid>
     <Deterministic>false</Deterministic>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -105,12 +106,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAutomatedGuiOperationEngine.cs" />
     <Compile Include="IConsoleOperationEngine.cs" />
     <Compile Include="IFullGuiOperationEngine.cs" />
     <Compile Include="IOperationEngine.cs" />
@@ -138,6 +139,10 @@
     <ProjectReference Include="..\MFR.Engines.Constants\MFR.Engines.Constants.csproj">
       <Project>{6991D784-1E07-471C-BA54-CB9C1A723D09}</Project>
       <Name>MFR.Engines.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Events.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>

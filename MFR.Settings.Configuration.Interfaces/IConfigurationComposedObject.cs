@@ -13,7 +13,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface.
         /// </summary>
-        IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
+        IProjectFileRenamerConfiguration CurrentConfiguration
         {
             get;
             set;
@@ -44,9 +44,9 @@ namespace MFR.Settings.Configuration.Interfaces
             IProjectFileRenamerConfiguration projectFileRenamerConfiguration);
 
         /// <summary>
-        /// Updates the <paramref name="projectFileRenamerConfiguration"/> currently being used with a new value.
+        /// Updates the <paramref name="configuration"/> currently being used with a new value.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// which has the new settings.
@@ -56,10 +56,10 @@ namespace MFR.Settings.Configuration.Interfaces
         /// from this point forward.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        void UpdateConfiguration(IProjectFileRenamerConfiguration projectFileRenamerConfiguration);
+        void UpdateConfiguration(IProjectFileRenamerConfiguration configuration);
 
         /// <summary>
         /// Verifies that projectFileRenamerConfiguration has been attached to this object.

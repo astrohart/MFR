@@ -1,3 +1,4 @@
+using MFR.Events.Common;
 using MFR.Settings.Configuration.Exceptions;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -44,7 +45,7 @@ namespace MFR.Settings.Configuration
         /// </exception>
         protected ConfigurationComposedObjectBase(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
-            ProjectFileRenamerConfiguration = projectFileRenamerConfiguration ??
+            CurrentConfiguration = projectFileRenamerConfiguration ??
                             throw new ArgumentNullException(
                                 nameof(projectFileRenamerConfiguration)
                             );
@@ -58,7 +59,7 @@ namespace MFR.Settings.Configuration
         /// This object's properties give us access to the settings configured
         /// by the user of the application.
         /// </remarks>
-        public IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
+        public IProjectFileRenamerConfiguration CurrentConfiguration
         {
             get;
             set;
@@ -70,7 +71,7 @@ namespace MFR.Settings.Configuration
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface.
         /// </summary>
         protected bool IsConfigurationAttached
-            => ProjectFileRenamerConfiguration != null;
+            => CurrentConfiguration != null;
 
         /// <summary>
         /// Associates user settings, in the form of an instance of an object
@@ -95,7 +96,7 @@ namespace MFR.Settings.Configuration
         /// </exception>
         public dynamic AndAttachConfiguration(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
-            ProjectFileRenamerConfiguration = projectFileRenamerConfiguration ??
+            CurrentConfiguration = projectFileRenamerConfiguration ??
                             throw new ArgumentNullException(
                                 nameof(projectFileRenamerConfiguration)
                             );
@@ -104,9 +105,9 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Updates the <paramref name="projectFileRenamerConfiguration"/> currently being used with a new value.
+        /// Updates the <paramref name="configuration"/> currently being used with a new value.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// which has the new settings.
@@ -120,13 +121,13 @@ namespace MFR.Settings.Configuration
         /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public virtual void UpdateConfiguration(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
-            => ProjectFileRenamerConfiguration = projectFileRenamerConfiguration ??
+        public virtual void UpdateConfiguration(IProjectFileRenamerConfiguration configuration)
+            => CurrentConfiguration = configuration ??
                                throw new ArgumentNullException(
-                                   nameof(projectFileRenamerConfiguration)
+                                   nameof(configuration)
                                );
 
         /// <summary>

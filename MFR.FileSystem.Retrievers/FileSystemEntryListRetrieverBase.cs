@@ -142,7 +142,7 @@ namespace MFR.FileSystem.Retrievers
         private ITextExpressionMatchingEngine TextExpressionMatchingEngineSays
             => GetTextExpressionMatchingEngine.For(OperationType)
                                               .AndAttachConfiguration(
-                                                  ProjectFileRenamerConfiguration
+                                                  CurrentConfiguration
                                               );
 
         /// <summary>
@@ -502,7 +502,7 @@ namespace MFR.FileSystem.Retrievers
             VerifyConfigurationAttached();
 
             return (MatchExpression)GetMatchExpressionFactory.For(OperationType)
-                .AndAttachConfiguration(ProjectFileRenamerConfiguration)
+                .AndAttachConfiguration(CurrentConfiguration)
                 .ForTextValue(
                     OperationType == OperationType.ReplaceTextInFiles
                         ? entry.UserState as string

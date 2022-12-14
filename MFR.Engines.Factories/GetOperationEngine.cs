@@ -55,10 +55,6 @@ namespace MFR.Engines.Factories
                     result = FullGuiOperationEngine.Instance as T;
                     break;
 
-                case OperationEngineType.AutomatedGUI:
-                    result = AutomatedGuiOperationEngine.Instance as T;
-                    break;
-
                 case OperationEngineType.Console:
                     result = ConsoleOperationEngine.Instance as T;
                     break;

@@ -1,14 +1,11 @@
-using MFR.Constants;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Interfaces;
-using MFR.Events;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.GUI.Controls.Extensions;
 using MFR.GUI.Controls.Interfaces;
-using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Initializers;
 using MFR.GUI.Windows.Interfaces;
@@ -17,8 +14,6 @@ using MFR.GUI.Windows.Presenters.Events;
 using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Managers.History.Interfaces;
-using MFR.Operations.Constants;
-using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration;
@@ -35,8 +30,6 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
@@ -53,14 +46,6 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog" />
-        /// interface.
-        /// </summary>
-        private ICancellableProgressDialog _cancellableProgressDialog;
-
-        /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see
         ///     cref="T:MFR.IHistoryManager" />
         /// interface.
         /// </summary>
@@ -72,21 +57,6 @@ namespace MFR.GUI.Windows.Presenters
         private IHistoryManager _historyManager;
 
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface and
-        /// which actually performs the behavior of this Presenter.
-        /// </summary>
-        private IFullGuiOperationEngine _operationEngine;
-
-        public MainWindowPresenter(IFullGuiOperationEngine engine)
-        {
-            _operationEngine =
-                engine ?? throw new ArgumentNullException(nameof(engine));
-
-            //_operationEngine.Setup();
-        }
-
-        /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.GUI.MainWindowPresenter" />
@@ -94,8 +64,6 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public MainWindowPresenter()
         {
-            ReinitializeProgressDialog();
-
             InitializeConfiguration();
         }
 
@@ -130,7 +98,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
-            => ProjectFileRenamerConfiguration is IProfile profile
+            => base.CurrentConfiguration is IProfile profile
                 ? profile.Name
                 : string.Empty;
 
@@ -177,6 +145,17 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         public bool IsProfileLoaded
             => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface and
+        /// which actually performs the behavior of this Presenter.
+        /// </summary>
+        public IFullGuiOperationEngine OperationEngine
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -390,31 +369,21 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Dismisses the progress dialog.
-        /// </summary>
-        public void CloseProgressDialog()
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Close()
-            );
-
-        /// <summary>
         /// Begins the rename operation.
         /// </summary>
         public void DoSelectedOperations()
         {
             // write the name of the current class and method we are now
-            if (View == null || FileRenamer == null)
+            if (View == null || OperationEngine == null)
                 return;
-
-            // just in case, have the file renamer object update its
-            // projectFileRenamerConfiguration to match that which we have access to
-            FileRenamer.UpdateConfiguration(ProjectFileRenamerConfiguration);
-
-            ReinitializeProgressDialog();
 
             ValidateInputs();
 
-            CommenceRenameOperation();
+            // just in case, have the file renamer object update its
+            // projectFileRenamerConfiguration to match that which we have access to
+            OperationEngine.UpdateConfiguration(base.CurrentConfiguration);
+
+            OperationEngine.ProcessAll(StartingFolder, FindWhat, ReplaceWith);
         }
 
         /// <summary>
@@ -529,7 +498,8 @@ namespace MFR.GUI.Windows.Presenters
         /// The data is presumed to be located inside of a JSON-formatted file
         /// that exists on the user's hard drive and has the <c>.json</c> extension.
         /// </remarks>
-        public void ImportConfiguration(string pathname /* path of the file to be imported */)
+        public void ImportConfiguration(
+            string pathname /* path of the file to be imported */)
         {
             if (string.IsNullOrWhiteSpace(pathname)) return;
             if (!File.Exists(pathname)) return;
@@ -556,15 +526,13 @@ namespace MFR.GUI.Windows.Presenters
         public void InitializeOperationSelections()
         {
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Files", ProjectFileRenamerConfiguration.RenameFiles
+                "Rename Files", base.CurrentConfiguration.RenameFiles
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders",
-                ProjectFileRenamerConfiguration.RenameSubFolders
+                "Rename Subfolders", base.CurrentConfiguration.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Replace in Files",
-                ProjectFileRenamerConfiguration.ReplaceTextInFiles
+                "Replace in Files", base.CurrentConfiguration.ReplaceTextInFiles
             );
         }
 
@@ -667,112 +635,10 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Shows a marquee progress bar that indicates the application is
-        /// performing work but of an indeterminate length, such as calculating
-        /// the amount of files to process.
-        /// </summary>
-        /// ///
-        /// <param name="text">
-        /// (Required.) String containing the text to display in the progress dialog.
-        /// </param>
-        /// <param name="canCancel">
-        /// (Required.) <see langword="true" /> to show a <strong>Cancel</strong> button in
-        /// the progress dialog; <see langword="false" /> to hide it.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="text" />, is passed
-        /// a blank or <see langword="null" /> string for a value.
-        /// </exception>
-        [Log(AttributeExclude = true)]
-        public void ShowCalculatingProgressBar(string text,
-            bool canCancel = true)
-        {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(text)
-                );
-            ResetProgressBar();
-
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.ProgressBarStyle =
-                    ProgressBarStyle.Marquee
-            );
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Status = text
-            );
-        }
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        /// <param name="canCancel">
-        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
-        /// <strong>Cancel</strong> button is displayed by the dialog box.
-        /// <para />
-        /// Set this parameter to <see langword="true" /> to display the button;
-        /// <see langword="false" /> to hide it.
-        /// </param>
-        public void ShowProgressDialog(bool canCancel)
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                () =>
-                {
-                    _cancellableProgressDialog.CanCancel = canCancel;
-                    _cancellableProgressDialog.Show();
-                }
-            );
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        /// <param name="owner">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
-        /// <para />
-        /// This object plays the role of the parent window of the dialog box.
-        /// </param>
-        public void ShowProgressDialog(IWin32Window owner)
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Show(owner)
-            );
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        /// <param name="owner">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
-        /// <para />
-        /// This object plays the role of the parent window of the dialog box.
-        /// </param>
-        /// <param name="canCancel">
-        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
-        /// <strong>Cancel</strong> button is displayed by the dialog box.
-        /// <para />
-        /// Set this parameter to <see langword="true" /> to display the button;
-        /// <see langword="false" /> to hide it.
-        /// </param>
-        public void ShowProgressDialog(IWin32Window owner, bool canCancel)
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                () =>
-                {
-                    _cancellableProgressDialog.CanCancel = canCancel;
-                    _cancellableProgressDialog.Show(owner);
-                }
-            );
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        public void ShowProgressDialog()
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Show()
-            );
-
-        /// <summary>
         /// Updates the configuration currently being used with a new
         /// value.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
@@ -790,20 +656,16 @@ namespace MFR.GUI.Windows.Presenters
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="projectFileRenamerConfiguration" />,
+        /// <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(
-            IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+            IProjectFileRenamerConfiguration configuration)
         {
-            base.UpdateConfiguration(projectFileRenamerConfiguration);
+            base.UpdateConfiguration(configuration);
 
-            FileRenamer.UpdateConfiguration(projectFileRenamerConfiguration);
-            _historyManager.UpdateConfiguration(
-                projectFileRenamerConfiguration
-            );
-
-            InitializeFileRenamer();
+            OperationEngine.UpdateConfiguration(configuration);
+            _historyManager.UpdateConfiguration(configuration);
         }
 
         /// <summary>
@@ -826,7 +688,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now
             // Check to see if the required property, ProjectFileRenamerConfiguration, is null. If
-            if (ProjectFileRenamerConfiguration == null)
+            if (base.CurrentConfiguration == null)
 
                 // the property ProjectFileRenamerConfiguration is required.
                 // stop.
@@ -843,26 +705,25 @@ namespace MFR.GUI.Windows.Presenters
 
             if (bSavingAndValidating)
             {
-                ProjectFileRenamerConfiguration
-                    .SaveCurrentStartingFolderAndHistory(
-                        View.StartingFolderComboBox
-                    );
+                base.CurrentConfiguration.SaveCurrentStartingFolderAndHistory(
+                    View.StartingFolderComboBox
+                );
 
-                ProjectFileRenamerConfiguration.SaveCurrentFindWhatAndHistory(
+                base.CurrentConfiguration.SaveCurrentFindWhatAndHistory(
                     View.FindWhatComboBox
                 );
 
-                ProjectFileRenamerConfiguration
-                    .SaveCurrentReplaceWithAndHistory(View.ReplaceWithComboBox);
+                base.CurrentConfiguration.SaveCurrentReplaceWithAndHistory(
+                    View.ReplaceWithComboBox
+                );
 
-                ProjectFileRenamerConfiguration.IsFolded = View.IsFolded;
+                base.CurrentConfiguration.IsFolded = View.IsFolded;
 
-                ProjectFileRenamerConfiguration.MatchCase = View.MatchCase;
+                base.CurrentConfiguration.MatchCase = View.MatchCase;
 
-                ProjectFileRenamerConfiguration.MatchExactWord =
-                    View.MatchExactWord;
+                base.CurrentConfiguration.MatchExactWord = View.MatchExactWord;
 
-                ProjectFileRenamerConfiguration.SelectedOptionTab =
+                base.CurrentConfiguration.SelectedOptionTab =
                     View.SelectedOptionTab;
 
                 SaveOperationSelections();
@@ -875,29 +736,28 @@ namespace MFR.GUI.Windows.Presenters
                                          .CurrentConfiguration
                                          .SelectedOptionTab;
 
-                View.MatchExactWord =
-                    ProjectFileRenamerConfiguration.MatchExactWord;
+                View.MatchExactWord = base.CurrentConfiguration.MatchExactWord;
 
-                View.MatchCase = ProjectFileRenamerConfiguration.MatchCase;
+                View.MatchCase = base.CurrentConfiguration.MatchCase;
 
-                View.IsFolded = ProjectFileRenamerConfiguration.IsFolded;
+                View.IsFolded = base.CurrentConfiguration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.StartingFolderComboBox,
-                    ProjectFileRenamerConfiguration.StartingFolderHistory,
-                    ProjectFileRenamerConfiguration.StartingFolder
+                    base.CurrentConfiguration.StartingFolderHistory,
+                    base.CurrentConfiguration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.FindWhatComboBox,
-                    ProjectFileRenamerConfiguration.FindWhatHistory,
-                    ProjectFileRenamerConfiguration.FindWhat
+                    base.CurrentConfiguration.FindWhatHistory,
+                    base.CurrentConfiguration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.ReplaceWithComboBox,
-                    ProjectFileRenamerConfiguration.ReplaceWithHistory,
-                    ProjectFileRenamerConfiguration.ReplaceWith
+                    base.CurrentConfiguration.ReplaceWithHistory,
+                    base.CurrentConfiguration.ReplaceWith
                 );
             }
 
@@ -905,26 +765,31 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this presenter.
+        /// Fluent-builder method for initializing the operation engine object.  This is
+        /// the object that actually schedules and runs the file-renaming tasks and
+        /// provides user feedback.
         /// </summary>
-        /// <param name="fileRenamer">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IFileRenamer" /> interface.
+        /// <param name="operationEngine">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface on
+        /// which this Presenter should depend.
         /// </param>
         /// <returns>
         /// Reference to the same instance of the object that called this
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required
+        /// parameter, <paramref name="operationEngine" />, is passed a
+        /// <see langword="null" /> value.
         /// </exception>
-        public IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer)
+        public IMainWindowPresenter WithOperationEngine(
+            IFullGuiOperationEngine operationEngine)
         {
-            FileRenamer = fileRenamer ??
-                          throw new ArgumentNullException(nameof(fileRenamer));
-
-            InitializeFileRenamer();
+            OperationEngine = operationEngine ??
+                                     throw new ArgumentNullException(
+                                         nameof(operationEngine)
+                                     );
 
             return this;
         }
@@ -938,13 +803,13 @@ namespace MFR.GUI.Windows.Presenters
         public void SaveOperationSelections()
         {
             // write the name of the current class and method we are now
-            ProjectFileRenamerConfiguration.RenameFiles =
+            base.CurrentConfiguration.RenameFiles =
                 View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
-            ProjectFileRenamerConfiguration.RenameSubFolders =
+            base.CurrentConfiguration.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Subfolders"
                 );
-            ProjectFileRenamerConfiguration.ReplaceTextInFiles =
+            base.CurrentConfiguration.ReplaceTextInFiles =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
@@ -1160,31 +1025,6 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.IFileRenamer.Started" /> event
-        /// raised by the File Renamer object. This event is raised when the
-        /// rename operations are all completed.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to the instance of the object that raised this event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds merely by raising the
-        /// <see
-        ///     cref="E:MFR.GUI.IMainWindowPresenter.Started" />
-        /// event, in turn.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        protected virtual void OnFileRenamerStarted(object sender, EventArgs e)
-        {
-            Started?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
-        }
-
-        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.Finished" />
@@ -1206,113 +1046,6 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.GUI.MainWindowPresenter.OperationError" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
-        {
-            OperationError?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     MainWindowPresenterMessages
-                                                         .MWP_OPERATION_ERROR
-                                                 );
-        }
-
-        /// <summary>
-        /// Actually begins the rename process.
-        /// </summary>
-        private void CommenceRenameOperation()
-            => Task.Run(
-                () => FileRenamer.ProcessAll(
-                    StartingFolder, FindWhat, ReplaceWith
-                )
-            );
-
-        /// <summary>
-        /// Called when the count of files to be processed in a given operation
-        /// is computed.
-        /// </summary>
-        /// <param name="count">
-        /// (Required.) Integer value specifying the count of files that are to
-        /// be processed in the current operation.
-        /// </param>
-        /// <remarks>
-        /// Takes the message of resetting the progress dialog and reconfiguring
-        /// the progress bar such that the <paramref name="count" /> parameter
-        /// specifies the new maximum value of the progress bar.
-        /// </remarks>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <paramref name="count" /> parameter is zero or
-        /// negative. This parameter describes a count of files; therefore, it
-        /// is expected that it should be 1 or greater.
-        /// </exception>
-        private void HandleFilesCountedEvent(int count)
-        {
-            if (count <= 0)
-                throw new ArgumentOutOfRangeException(nameof(count));
-            ResetProgressBar();
-
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.ProgressBarMaximum = count
-            );
-        }
-
-        /// <summary>
-        /// Increments the value of the progress bar. Also updates the status
-        /// text and the label that is displaying the pathname to the file that
-        /// is currently being processed.
-        /// </summary>
-        /// <param name="statusLabelText">
-        /// (Required.) String containing the text that is to be displayed on
-        /// the top line of the progress dialog. This text serves to inform the
-        /// user as to which operation is currently being performed.
-        /// </param>
-        /// efs
-        /// <param name="currentFileLabelText">
-        /// (Required.) String containing the pathname to the file that is
-        /// currently being processed.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either of the required parameters,
-        /// <paramref
-        ///     name="statusLabelText" />
-        /// or <paramref name="currentFileLabelText" />,
-        /// are passed blank or <see langword="null" /> string for values.
-        /// </exception>
-        private void IncrementProgressBar(string statusLabelText,
-            string currentFileLabelText)
-        {
-            if (string.IsNullOrWhiteSpace(statusLabelText))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
-                    nameof(statusLabelText)
-                );
-            if (string.IsNullOrWhiteSpace(currentFileLabelText))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
-                    nameof(currentFileLabelText)
-                );
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.Status = statusLabelText
-            );
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.CurrentFile =
-                    currentFileLabelText
-            );
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () => _cancellableProgressDialog.ProgressBarValue++
-            );
-        }
-
-        /// <summary>
         /// Initializes the currently-loaded projectFileRenamerConfiguration object.
         /// </summary>
         private void InitializeConfiguration()
@@ -1321,95 +1054,6 @@ namespace MFR.GUI.Windows.Presenters
                 OnConfigurationStartingFolderChanged;
             CurrentConfiguration.StartingFolderChanged +=
                 OnConfigurationStartingFolderChanged;
-        }
-
-        /// <summary>
-        /// Sets the properties of the FileRenamer object that we are working
-        /// with and subscribes to the events that it emits.
-        /// </summary>
-        private void InitializeFileRenamer()
-        {
-            // write the name of the current class and method we are now
-            // Check to see if the required field, _fileRenamer, is null. If it
-            if (FileRenamer == null)
-
-                // the field _fileRenamer is required.
-                // stop.
-                return;
-            NewMessageMapping<ExceptionRaisedEventArgs>.Associate
-                .WithMessageId(FileRenamerMessages.FRM_EXCEPTION_RAISED)
-                .AndHandler(
-                    new Action<object, ExceptionRaisedEventArgs>(
-                        OnFileRenamerExceptionRaised
-                    )
-                );
-            NewMessageMapping<OperationFinishedEventArgs>.Associate
-                .WithMessageId(FileRenamerMessages.FRM_OPERATION_FINISHED)
-                .AndHandler(
-                    new Action<object, OperationFinishedEventArgs>(
-                        OnFileRenamerOperationFinished
-                    )
-                );
-            NewMessageMapping<OperationStartedEventArgs>.Associate
-                .WithMessageId(FileRenamerMessages.FRM_OPERATION_STARTED)
-                .AndHandler(
-                    new Action<object, OperationStartedEventArgs>(
-                        OnFileRenamerOperationStarted
-                    )
-                );
-            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
-                .WithMessageId(
-                    FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED
-                )
-                .AndHandler(
-                    new Action<object, FilesOrFoldersCountedEventArgs>(
-                        OnFileRenamerFilesToBeRenamedCounted
-                    )
-                );
-            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
-                .WithMessageId(
-                    FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED
-                )
-                .AndHandler(
-                    new Action<object, FilesOrFoldersCountedEventArgs>(
-                        OnFileRenamerFilesToHaveTextReplacedCounted
-                    )
-                );
-            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
-                .WithMessageId(
-                    FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED
-                )
-                .AndHandler(
-                    new Action<object, FilesOrFoldersCountedEventArgs>(
-                        OnFileRenamerSubfoldersToBeRenamedCounted
-                    )
-                );
-            NewMessageMapping.Associate
-                             .WithMessageId(FileRenamerMessages.FRM_STARTED)
-                             .AndEventHandler(OnFileRenamerStarted);
-            NewMessageMapping<StatusUpdateEventArgs>.Associate
-                                                    .WithMessageId(
-                                                        FileRenamerMessages
-                                                            .FRM_STATUS_UPDATE
-                                                    )
-                                                    .AndHandler(
-                                                        new Action<object,
-                                                            StatusUpdateEventArgs>(
-                                                            OnFileRenamerStatusUpdate
-                                                        )
-                                                    );
-            NewMessageMapping<ProcessingOperationEventArgs>.Associate
-                .WithMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION)
-                .AndHandler(
-                    new Action<object, ProcessingOperationEventArgs>(
-                        OnFileRenamerProcessingOperation
-                    )
-                );
-
-            NewMessageMapping.Associate.WithMessageId(
-                                 FileRenamerMessages.FRM_FINISHED
-                             )
-                             .AndHandler(new Action(OnFileRenamerFinished));
         }
 
         /// <summary>
@@ -1469,269 +1113,6 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.IFileRenamer.ExceptionRaised" /> event.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds to such an event by showing the user a message
-        /// box, logging the error, and then aborting the operation.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerExceptionRaised(object sender,
-            ExceptionRaisedEventArgs e)
-        {
-            FileRenamer.RequestAbort();
-
-            OnOperationError(new ExceptionRaisedEventArgs(e.Exception));
-        }
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.IFileRenamer.FilesToBeRenamedCounted" />
-        /// event
-        /// raised by the file renamer object when it's finished determining the
-        /// set of file system entries upon which the current operation should act.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
-        /// the same value as the count of file system entries.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerFilesToBeRenamedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
-            => HandleFilesCountedEvent(e.Count);
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.IFileRenamer.FilesToHaveTextReplacedCounted" />
-        /// event raised by the File Renamer object.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
-        /// the same value as the count of file system entries.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerFilesToHaveTextReplacedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
-            => HandleFilesCountedEvent(e.Count);
-
-        /// <summary>
-        /// Handles the <see cref="E:MFR.IFileRenamer.Finished" /> event
-        /// raised by the File Renamer object. This event is raised when the
-        /// rename operations are all completed.
-        /// </summary>
-        /// <remarks>
-        /// This method responds merely by raising the
-        /// <see
-        ///     cref="E:MFR.GUI.IMainWindowPresenter.Finished" />
-        /// event in turn.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerFinished()
-            => OnFinished();
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.IFileRenamer.OperationFinished" />
-        /// event raised
-        /// by the file renamer object.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.OperationFinishedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds to the event by telling the progress dialog to
-        /// reset the progress bar back to the starting point.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerOperationFinished(object sender,
-            OperationFinishedEventArgs e)
-            => ResetProgressBar();
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.IFileRenamer.OperationStarted" />
-        /// event raised by
-        /// the file-renamer object.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds to the event by telling the progress dialog to
-        /// show the marquee progress bar for the operation type whose
-        /// processing is now being started.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerOperationStarted(object sender,
-            OperationStartedEventArgs e)
-        {
-            if (e.OperationType == OperationType.Unknown) return;
-
-            ShowCalculatingProgressBar(
-                GetOperationStartedDescription.For(e.OperationType)
-            );
-        }
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.IFileRenamer.ProcessingOperation" />
-        /// event raised
-        /// by the File Renamer object when it moves on to processing the next
-        /// file system entry in its list.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ProcessingOperationEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds by first checking the values passed in the
-        /// <see
-        ///     cref="T:MFR.ProcessingOperationEventArgs" />
-        /// for valid values.
-        /// <para />
-        /// If the checks fail, then this method does nothing.
-        /// <para />
-        /// Otherwise, the method responds by incrementing the progress dialog's
-        /// progress bar to the next notch, and updating the text of the lower
-        /// status label in the progress dialog to contain the path to the file
-        /// currently being worked on.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerProcessingOperation(object sender,
-            ProcessingOperationEventArgs e)
-        {
-            if (e.OperationType == OperationType.Unknown) return;
-            if (e.Entry == null) return;
-            if (string.IsNullOrWhiteSpace(e.Entry.Path)) return;
-
-            IncrementProgressBar(
-                GetOperationDescription.For(e.OperationType)
-                                       .Text, e.Entry.Path
-            );
-        }
-
-        private void OnFileRenamerStatusUpdate(object sender,
-            StatusUpdateEventArgs e)
-        {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In MainWindowPresenter.OnFileRenamerStatusUpdate"
-            );
-
-            if (string.IsNullOrWhiteSpace(e.Text)) return;
-
-            Console.WriteLine(e.Text);
-        }
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.IFileRenamer.SubfoldersToBeRenamedCounted" />
-        /// event raised by the File Renamer object when it has finished
-        /// calculating how many subfolders are to be renamed.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method responds by resetting the progress dialog's progress bar
-        /// back to zero, and then updating the value of its
-        /// <see
-        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
-        /// property to have
-        /// the same value as the count of file system entries.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerSubfoldersToBeRenamedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
-            => HandleFilesCountedEvent(e.Count);
-
-        /// <summary>
-        /// Sets the progress dialog and/or reinitializes it from prior use.
-        /// </summary>
-        /// MTE
-        [Log(AttributeExclude = true)]
-        private void ReinitializeProgressDialog()
-        {
-            _cancellableProgressDialog.DoIfNotDisposed(
-                () =>
-                {
-                    if (_cancellableProgressDialog != null)
-                    {
-                        _cancellableProgressDialog.Close();
-                        _cancellableProgressDialog.Dispose();
-                    }
-
-                    _cancellableProgressDialog = null;
-                }
-            );
-            _cancellableProgressDialog.DoIfDisposed(
-                () => _cancellableProgressDialog =
-                    MakeNewProgressDialog.FromScratch()
-            );
-            _cancellableProgressDialog.CancelRequested +=
-                OnCancellableProgressDialogRequestedCancel;
-        }
-
-        /// <summary>
-        /// Resets the progress bar back to the beginning.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        private void ResetProgressBar()
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                _cancellableProgressDialog.Reset
-            );
-
-        /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are
         /// valid. Throws a <see cref="T:System.Exception" /> if a validation
         /// rule fails.
@@ -1761,7 +1142,6 @@ namespace MFR.GUI.Windows.Presenters
         /// </remarks>
         private void ValidateInputs()
         {
-            // write the name of the current class and method we are now
             if (!Directory.Exists(StartingFolder))
                 throw new DirectoryNotFoundException(
                     string.Format(

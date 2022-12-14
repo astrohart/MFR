@@ -115,7 +115,7 @@ namespace MFR.Engines.Matching
             {
                 result = GetStringMatcher.For(OperationType.RenameSubFolders)
                                          .AndTextMatchingConfiguration(
-                                             ProjectFileRenamerConfiguration
+                                             CurrentConfiguration
                                                  .GetTextMatchingConfiguration()
                                          )
                                          .IsMatch(value, findWhat, replaceWith);

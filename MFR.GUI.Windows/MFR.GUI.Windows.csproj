@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{7D4538BB-9DDA-4DEE-8EDA-853BD4AFE22B}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -184,6 +185,18 @@
     <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Constants\MFR.Engines.Constants.csproj">
+      <Project>{6991D784-1E07-471C-BA54-CB9C1A723D09}</Project>
+      <Name>MFR.Engines.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Factories\MFR.Engines.Factories.csproj">
+      <Project>{4F6FED29-A3F6-47B6-826E-8B371E34FCEE}</Project>
+      <Name>MFR.Engines.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Interfaces\MFR.Engines.Interfaces.csproj">
+      <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
+      <Name>MFR.Engines.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators.Actions\MFR.FileSystem.Enumerators.Actions.csproj">
       <Project>{29914A76-5AEE-4A3B-BD8F-6F7AE2B0A3CA}</Project>

@@ -1,6 +1,9 @@
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
+using MFR.Engines.Constants;
+using MFR.Engines.Factories;
+using MFR.Engines.Interfaces;
 using MFR.Events.Common;
 using MFR.FileSystem.Enumerators.Actions;
 using MFR.GUI.Constants;
@@ -24,7 +27,6 @@ using MFR.Managers.History.Factories;
 using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
-using MFR.Renamers.Files.Factories;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -79,22 +81,14 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
-        /// that represents the currently-loaded projectFileRenamerConfiguration.
-        /// </summary>
-        private static IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
-            => GetConfigurationProvider.SoleInstance()
-                                       .CurrentConfiguration;
-
-        /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the actions
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
         /// associated with it.
         /// </remarks>
         [Log(AttributeExclude = true)]
@@ -103,7 +97,8 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
         private static IProjectFileRenamerConfiguration CurrentConfiguration
@@ -378,7 +373,7 @@ namespace MFR.GUI.Windows
         {
             base.OnShown(e);
 
-            // Automatically resize the main window for the monitor it is 
+            // Automatically resize the main window for the monitor it is
             // being displayed upon
             PerformAutoScale();
 
@@ -537,16 +532,20 @@ namespace MFR.GUI.Windows
         {
             Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
                 .HavingWindowReference(this)
-                .WithFileRenamer(
-                    GetFileRenamer.SoleInstance()
-                                  .StartingFrom(ProjectFileRenamerConfiguration.StartingFolder)
-                                  .AndAttachConfiguration(ProjectFileRenamerConfiguration)
-                )
                 .AndHistoryManager(
                     MakeHistoryManager.ForForm(this)
-                                      .AndAttachConfiguration(ProjectFileRenamerConfiguration)
+                                      .AndAttachConfiguration(
+                                          CurrentConfiguration
+                                      )
                 )
-                .AndAttachConfiguration(ProjectFileRenamerConfiguration);
+                .WithOperationEngine(
+                    GetOperationEngine
+                        .OfType<IFullGuiOperationEngine>(
+                            OperationEngineType.FullGUI
+                        )
+                        .AndAttachConfiguration(CurrentConfiguration)
+                )
+                .AndAttachConfiguration(CurrentConfiguration);
 
             Presenter.UpdateData(false);
 
@@ -590,17 +589,17 @@ namespace MFR.GUI.Windows
                 )
                 .AndEventHandler(OnPresenterDataOperationStarted);
             NewMessageMapping<ExceptionRaisedEventArgs>.Associate.WithMessageId(
-                    MainWindowPresenterMessages.MWP_OPERATION_ERROR
+                    OperationEngineMessages.OE_OPERATION_ERROR
                 )
-                .AndEventHandler(OnPresenterOperationError);
+                .AndEventHandler(OnOperationError);
             NewMessageMapping
                 .Associate
                 .WithMessageId(MainWindowPresenterMessages.MWP_FINISHED)
                 .AndEventHandler(OnPresenterFinished);
             NewMessageMapping.Associate.WithMessageId(
-                                 MainWindowPresenterMessages.MWP_STARTED
+                                 OperationEngineMessages.OE_OPERATION_STARTED
                              )
-                             .AndEventHandler(OnPresenterStarted);
+                             .AndEventHandler(OnOperationStarted);
         }
 
         // Give the button a transparent background.
@@ -842,6 +841,16 @@ namespace MFR.GUI.Windows
             helpAbout.Text = $"&About {FullApplicationName}";
         }
 
+        [Log(AttributeExclude = true)]
+        private void OnOperationError(object sender, ExceptionRaisedEventArgs e)
+        {
+            // dump all the exception info to the log
+            DebugUtils.LogException(e.Exception);
+
+            // and which allows the user to choose to send an error report.
+            Display.ErrorReportDialog(this, e.Exception);
+        }
+
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
         /// event on the Operations -&gt; Perform menu command.
@@ -859,6 +868,19 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnOperationsPerform(object sender, EventArgs e)
             => performOperationButton.PerformClick();
+
+        /// <summary>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnOperationStarted(object sender, EventArgs e)
+            => this.InvokeIfRequired(
+                () =>
+                {
+                    UseWaitCursor = true;
+                    Enabled = false;
+                }
+            );
 
         /// <summary>
         /// Handles the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
@@ -955,7 +977,8 @@ namespace MFR.GUI.Windows
         /// <see
         ///     cref="P:MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfiguration" />
         /// property. This
-        /// happens most often as a the result of the Import ProjectFileRenamerConfiguration
+        /// happens most often as a the result of the Import
+        /// ProjectFileRenamerConfiguration
         /// command on the Tools menu.
         /// </remarks>
         private void OnPresenterConfigurationImported(object sender,
@@ -1055,13 +1078,11 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
         {
-            startingFolderBrowseButton.InvokeIfRequired(
+            this.InvokeIfRequired(
                 () =>
                 {
                     UseWaitCursor = false;
                     Enabled = true;
-
-                    Presenter.CloseProgressDialog();
                 }
             );
 
@@ -1077,44 +1098,6 @@ namespace MFR.GUI.Windows
                 CurrentConfiguration.AutoStart)
                 this.InvokeIfRequired(Close);
         }
-
-        [Log(AttributeExclude = true)]
-        private void OnPresenterOperationError(object sender,
-            ExceptionRaisedEventArgs e)
-        {
-            // dump all the exception info to the log
-            DebugUtils.LogException(e.Exception);
-
-            // and which allows the user to choose to send an error report.
-            Display.ErrorReportDialog(this, e.Exception);
-        }
-
-        /// <summary>
-        /// Handles the <see cref="E:MFR.GUI.IMainWindowPresenter.Started" /> event.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This handler is called when the
-        /// <see
-        ///     cref="M:MFR.FileRenamer.ProcessAll" />
-        /// begins its execution.
-        /// This method responds by showing the progress dialog.
-        /// </remarks>
-        private void OnPresenterStarted(object sender, EventArgs e)
-            => startingFolderBrowseButton.InvokeIfRequired(
-                () =>
-                {
-                    Enabled = false;
-                    UseWaitCursor = true;
-
-                    Presenter.ShowProgressDialog();
-                }
-            );
 
         /// <summary>
         /// Handles the
@@ -1170,7 +1153,42 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
-        /// event for the Tools -&gt; Import and Export ProjectFileRenamerConfiguration -&gt;
+        /// event for the Tools -&gt; Import and Export ProjectFileRenamerConfiguration -
+        /// &gt;
+        /// Export ProjectFileRenamerConfiguration menu command.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called when the user chooses the Export
+        /// ProjectFileRenamerConfiguration
+        /// menu command from the Import and Export ProjectFileRenamerConfiguration submenu
+        /// of the
+        /// Tools menu. This method responds to the event by showing the user a
+        /// dialog that the user can utilize to select the pathname of the file
+        /// that the user wants the configuration data to be exported to.
+        /// </remarks>
+        private void OnToolsConfigExport(object sender, EventArgs e)
+        {
+            if (exportConfigDialog.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Exporting the configuration to '{exportConfigDialog.FileName}'..."
+            );
+
+            Presenter.ExportConfiguration(exportConfigDialog.FileName);
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event for the Tools -&gt; Import and Export ProjectFileRenamerConfiguration -
+        /// &gt;
         /// Import ProjectFileRenamerConfiguration menu command.
         /// </summary>
         /// <param name="sender">
@@ -1180,14 +1198,16 @@ namespace MFR.GUI.Windows
         /// An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
-        /// This method is called when the user chooses the Import ProjectFileRenamerConfiguration
-        /// menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
+        /// This method is called when the user chooses the Import
+        /// ProjectFileRenamerConfiguration
+        /// menu command from the Import and Export ProjectFileRenamerConfiguration submenu
+        /// of the
         /// Tools menu. This method responds to the event by showing the user a
         /// dialog that the user can utilize to select the file they want to
         /// import, and then calls the presenter to perform the import operation.
         /// </remarks>
         private void OnToolsConfigImport(object sender, EventArgs e)
-        { 
+        {
             if (importConfigDialog.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
@@ -1201,7 +1221,8 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the New Profile toolbar button and/or Tools -> ProjectFileRenamerConfiguration -> New
+        /// raised by the New Profile toolbar button and/or Tools ->
+        /// ProjectFileRenamerConfiguration -> New
         /// Profile menu command.
         /// </summary>
         /// <param name="sender">
@@ -1278,37 +1299,6 @@ namespace MFR.GUI.Windows
              * the current profile.
              */
             ProfileCollectionComboBox.SelectFirstItemNamed(results.ProfileName);
-        }
-
-        /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
-        /// event for the Tools -&gt; Import and Export ProjectFileRenamerConfiguration -&gt;
-        /// Export ProjectFileRenamerConfiguration menu command.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method is called when the user chooses the Export ProjectFileRenamerConfiguration
-        /// menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
-        /// Tools menu. This method responds to the event by showing the user a
-        /// dialog that the user can utilize to select the pathname of the file
-        /// that the user wants the configuration data to be exported to.
-        /// </remarks>
-        private void OnToolsConfigExport(object sender, EventArgs e)
-        {
-            if (exportConfigDialog.ShowDialog(this) == DialogResult.Cancel)
-                return;
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** INFO: Exporting the configuration to '{exportConfigDialog.FileName}'..."
-            );
-
-            Presenter.ExportConfiguration(exportConfigDialog.FileName);
         }
 
         /// <summary>
@@ -1462,8 +1452,8 @@ namespace MFR.GUI.Windows
                 new AutoCompleteStringCollection();
             findWhatAutocompleteCustomSource.AddRange(
                 Directory.EnumerateFiles(
-                             ProjectFileRenamerConfiguration.StartingFolder, "*.csproj",
-                             SearchOption.AllDirectories
+                             CurrentConfiguration.StartingFolder,
+                             "*.csproj", SearchOption.AllDirectories
                          )
                          .Select(Path.GetFileNameWithoutExtension)
                          .ToArray()

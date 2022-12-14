@@ -8,7 +8,7 @@
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePath')
   - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePathKeyName')
   - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigurationFilePathValueName')
-  - [CurrentProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.CurrentProjectFileRenamerConfiguration')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.CurrentConfiguration')
   - [DefaultConfigDir](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigDir 'MFR.Settings.Configuration.Providers.ConfigurationProvider.DefaultConfigDir')
   - [DefaultConfigFileName](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-DefaultConfigFileName 'MFR.Settings.Configuration.Providers.ConfigurationProvider.DefaultConfigFileName')
   - [Instance](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-Instance 'MFR.Settings.Configuration.Providers.ConfigurationProvider.Instance')
@@ -70,8 +70,8 @@ projectFileRenamerConfiguration settings are stored.
 Gets a string whose value is the Registry value under which we store the path
 to the configuration file.
 
-<a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentProjectFileRenamerConfiguration'></a>
-### CurrentProjectFileRenamerConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
 
 ##### Summary
 

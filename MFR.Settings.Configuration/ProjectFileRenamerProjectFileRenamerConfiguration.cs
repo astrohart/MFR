@@ -434,15 +434,15 @@ namespace MFR.Settings.Configuration
 
             OperationsToPerform = new List<OperationTypeInfo> {
                 new OperationTypeInfo {
-                    Enabled = false,
+                    Enabled = true,
                     OperationType = OperationType.RenameFilesInFolder
                 },
                 new OperationTypeInfo {
-                    Enabled = false,
+                    Enabled = true,
                     OperationType = OperationType.RenameSubFolders
                 },
                 new OperationTypeInfo {
-                    Enabled = false,
+                    Enabled = true,
                     OperationType = OperationType.ReplaceTextInFiles
                 }
             };

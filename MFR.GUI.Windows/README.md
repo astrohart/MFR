@@ -9,7 +9,7 @@
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
-  - [CurrentProjectFileRenamerConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentProjectFileRenamerConfiguration 'MFR.GUI.Windows.MainWindow.CurrentProjectFileRenamerConfiguration')
+  - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-MainWindow-FullApplicationName 'MFR.GUI.Windows.MainWindow.FullApplicationName')
@@ -44,6 +44,7 @@
   - [OnHelpAbout(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpAbout-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpAbout(System.Object,System.EventArgs)')
   - [OnHelpMenuDropDownOpening(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpMenuDropDownOpening-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpMenuDropDownOpening(System.Object,System.EventArgs)')
   - [OnLoad(e)](#M-MFR-GUI-Windows-MainWindow-OnLoad-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnLoad(System.EventArgs)')
+  - [OnOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationStarted(System.Object,System.EventArgs)')
   - [OnOperationsPerform(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationsPerform-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationsPerform(System.Object,System.EventArgs)')
   - [OnOptionsModified(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOptionsModified-System-Object,MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Windows.MainWindow.OnOptionsModified(System.Object,MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
   - [OnPresenterAddNewProfileFailed(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterAddNewProfileFailed-System-Object,MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterAddNewProfileFailed(System.Object,MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs)')
@@ -53,13 +54,12 @@
   - [OnPresenterDataOperationFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationFinished(System.Object,System.EventArgs)')
   - [OnPresenterDataOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationStarted(System.Object,MFR.Operations.Events.DataOperationEventArgs)')
   - [OnPresenterFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterFinished(System.Object,System.EventArgs)')
-  - [OnPresenterStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterStarted(System.Object,System.EventArgs)')
   - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Windows.MainWindow.OnRootDirectoryInvalid(System.Object,MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
   - [OnSelChangeComboBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnSelChangeComboBox(System.Object,System.EventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnShown(System.EventArgs)')
+  - [OnToolsConfigExport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigExport(System.Object,System.EventArgs)')
   - [OnToolsConfigImport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigImport(System.Object,System.EventArgs)')
   - [OnToolsConfigurationNewProfile(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigurationNewProfile-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigurationNewProfile(System.Object,System.EventArgs)')
-  - [OnToolsExportConfig(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsExportConfig(System.Object,System.EventArgs)')
   - [OnToolsHistoryClearAll(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsHistoryClearAll(System.Object,System.EventArgs)')
   - [OnToolsOptions(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsOptions-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsOptions(System.Object,System.EventArgs)')
   - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnUpdateCmdUI(System.Object,System.EventArgs)')
@@ -167,11 +167,12 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the actions
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
 associated with it.
 
-<a name='P-MFR-GUI-Windows-MainWindow-CurrentProjectFileRenamerConfiguration'></a>
-### CurrentProjectFileRenamerConfiguration `property`
+<a name='P-MFR-GUI-Windows-MainWindow-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
 
 ##### Summary
 
@@ -286,7 +287,8 @@ that has a drop-down list of the profiles that the user has created.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface
 that represents the currently-loaded projectFileRenamerConfiguration.
 
 <a name='P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox'></a>
@@ -613,6 +615,20 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 | ---- | ---- | ----------- |
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
+<a name='M-MFR-GUI-Windows-MainWindow-OnOperationStarted-System-Object,System-EventArgs-'></a>
+### OnOperationStarted(sender,e) `method`
+
+##### Summary
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') |  |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') |  |
+
 <a name='M-MFR-GUI-Windows-MainWindow-OnOperationsPerform-System-Object,System-EventArgs-'></a>
 ### OnOperationsPerform(sender,e) `method`
 
@@ -746,7 +762,8 @@ This method responds to the event by triggering an update of the
 screen from values stored in the configuration object in the
 [ProjectFileRenamerConfiguration](#P-MFR-GUI-MainWindowPresenter-ProjectFileRenamerConfiguration 'MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfiguration')
 property. This
-happens most often as a the result of the Import ProjectFileRenamerConfiguration
+happens most often as a the result of the Import
+ProjectFileRenamerConfiguration
 command on the Tools menu.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs-'></a>
@@ -832,27 +849,6 @@ Handles the [](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPres
 
 This method toggles UI state and dismisses the progress dialog.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs-'></a>
-### OnPresenterStarted(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-MFR-GUI-IMainWindowPresenter-Started 'MFR.GUI.IMainWindowPresenter.Started') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This handler is called when the
-[ProcessAll](#M-MFR-FileRenamer-ProcessAll 'MFR.FileRenamer.ProcessAll')
-begins its execution.
-This method responds by showing the progress dialog.
-
 <a name='M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs-'></a>
 ### OnRootDirectoryInvalid(sender,e) `method`
 
@@ -916,13 +912,41 @@ Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Show
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
 data. |
 
+<a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs-'></a>
+### OnToolsConfigExport(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
+event for the Tools -> Import and Export ProjectFileRenamerConfiguration -
+>
+Export ProjectFileRenamerConfiguration menu command.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+
+##### Remarks
+
+This method is called when the user chooses the Export
+ProjectFileRenamerConfiguration
+menu command from the Import and Export ProjectFileRenamerConfiguration submenu
+of the
+Tools menu. This method responds to the event by showing the user a
+dialog that the user can utilize to select the pathname of the file
+that the user wants the configuration data to be exported to.
+
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs-'></a>
 ### OnToolsConfigImport(sender,e) `method`
 
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the Tools -> Import and Export ProjectFileRenamerConfiguration ->
+event for the Tools -> Import and Export ProjectFileRenamerConfiguration -
+>
 Import ProjectFileRenamerConfiguration menu command.
 
 ##### Parameters
@@ -934,8 +958,10 @@ Import ProjectFileRenamerConfiguration menu command.
 
 ##### Remarks
 
-This method is called when the user chooses the Import ProjectFileRenamerConfiguration
-menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
+This method is called when the user chooses the Import
+ProjectFileRenamerConfiguration
+menu command from the Import and Export ProjectFileRenamerConfiguration submenu
+of the
 Tools menu. This method responds to the event by showing the user a
 dialog that the user can utilize to select the file they want to
 import, and then calls the presenter to perform the import operation.
@@ -946,7 +972,8 @@ import, and then calls the presenter to perform the import operation.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
-raised by the New Profile toolbar button and/or Tools -> ProjectFileRenamerConfiguration -> New
+raised by the New Profile toolbar button and/or Tools ->
+ProjectFileRenamerConfiguration -> New
 Profile menu command.
 
 ##### Parameters
@@ -967,30 +994,6 @@ button or menu item.
 
 The goal is to prompt the user for the name of their new profile, create it,
 then add it to the list of profiles and then set it as the current profile.
-
-<a name='M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs-'></a>
-### OnToolsExportConfig(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the Tools -> Import and Export ProjectFileRenamerConfiguration ->
-Export ProjectFileRenamerConfiguration menu command.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This method is called when the user chooses the Export ProjectFileRenamerConfiguration
-menu command from the Import and Export ProjectFileRenamerConfiguration submenu of the
-Tools menu. This method responds to the event by showing the user a
-dialog that the user can utilize to select the pathname of the file
-that the user wants the configuration data to be exported to.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs-'></a>
 ### OnToolsHistoryClearAll(sender,e) `method`

@@ -1,3 +1,4 @@
+using MFR.Engines.Interfaces;
 using MFR.Events.Common;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Presenters.Interfaces;
@@ -8,7 +9,6 @@ using MFR.Operations.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration.Events;
 using System;
-using System.Windows.Forms;
 
 namespace MFR.GUI.Windows.Presenters.Interfaces
 {
@@ -124,6 +124,19 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter AndHistoryManager(IHistoryManager historyManager);
 
         /// <summary>
+        /// Fluent-builder method for initializing the operation engine object.  This is the object that actually schedules and runs the file-renaming tasks and provides user feedback.
+        /// </summary>
+        /// <param name="operationEngine">
+        /// (Required.) Reference to an instance of an object that implements the <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface on which this Presenter should depend.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        IMainWindowPresenter WithOperationEngine(
+            IFullGuiOperationEngine operationEngine);
+
+        /// <summary>
         /// Clears all the history lists in the configuration.
         /// </summary>
         void ClearAllHistory();
@@ -229,83 +242,5 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// new Profile.
         /// </param>
         void SaveCurrentConfigurationAsProfile(string profileName);
-
-        /// <summary>
-        /// Shows a marquee progress bar that indicates the application is
-        /// performing work but of an indeterminate length, such as calculating
-        /// the amount of files to process.
-        /// </summary>
-        /// ///
-        /// <param name="text">
-        /// (Required.) String containing the text to display in the progress dialog.
-        /// </param>
-        /// <param name="canCancel">
-        /// (Required.) <see langword="true" /> to show a <strong>Cancel</strong> button in
-        /// the progress dialog; <see langword="false" /> to hide it.
-        /// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="text" />, is passed
-        /// a blank or <see langword="null" /> string for a value.
-        /// </exception>
-        void ShowCalculatingProgressBar(string text, bool canCancel = true);
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        /// <param name="canCancel">
-        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
-        /// <strong>Cancel</strong> button is displayed by the dialog box.
-        /// <para />
-        /// Set this parameter to <see langword="true" /> to display the button;
-        /// <see langword="false" /> to hide it.
-        /// </param>
-        void ShowProgressDialog(bool canCancel);
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        /// <param name="owner">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
-        /// <para />
-        /// This object plays the role of the parent window of the dialog box.
-        /// </param>
-        void ShowProgressDialog(IWin32Window owner);
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        /// <param name="owner">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
-        /// <para />
-        /// This object plays the role of the parent window of the dialog box.
-        /// </param>
-        /// <param name="canCancel">
-        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
-        /// <strong>Cancel</strong> button is displayed by the dialog box.
-        /// <para />
-        /// Set this parameter to <see langword="true" /> to display the button;
-        /// <see langword="false" /> to hide it.
-        /// </param>
-        void ShowProgressDialog(IWin32Window owner, bool canCancel);
-
-        /// <summary>
-        /// Fluent-builder method for composing a file-renamer object with this
-        /// presenter.
-        /// </summary>
-        /// <param name="fileRenamer">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.IFileRenamer" /> interface.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="fileRenamer" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        IMainWindowPresenter WithFileRenamer(IFileRenamer fileRenamer);
     }
 }

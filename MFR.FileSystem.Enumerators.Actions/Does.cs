@@ -52,7 +52,10 @@ namespace MFR.FileSystem.Enumerators.Actions
                                           SearchOption.AllDirectories
                                       )
                                   )
-                                  .Any();
+                                  .Any() || Directory.EnumerateFiles(
+                        folderPathname, pattern, SearchOption.TopDirectoryOnly
+                    )
+                    .Any();
             }
             catch (Exception ex)
             {

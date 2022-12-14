@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{0D06CEA2-CE32-4611-8FA6-763309506223}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -125,6 +126,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Engines.Interfaces\MFR.Engines.Interfaces.csproj">
+      <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
+      <Name>MFR.Engines.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
       <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
       <Name>MFR.GUI.Dialogs.Events</Name>

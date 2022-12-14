@@ -130,7 +130,7 @@ namespace MFR.Engines.Matching
             {
                 result = GetStringMatcher.For(OperationType.ReplaceTextInFiles)
                                          .AndTextMatchingConfiguration(
-                                             ProjectFileRenamerConfiguration
+                                             CurrentConfiguration
                                                  .GetTextMatchingConfiguration()
                                          )
                                          .IsMatch(value, findWhat, replaceWith);

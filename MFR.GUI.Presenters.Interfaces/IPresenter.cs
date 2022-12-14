@@ -12,11 +12,6 @@ namespace MFR.GUI.Presenters.Interfaces
         where TChildPresenterInterface : class
     {
         /// <summary>
-        /// Dismisses the progress dialog.
-        /// </summary>
-        void CloseProgressDialog();
-
-        /// <summary>
         /// Fluent-builder method to set a reference to the main window of the application.
         /// </summary>
         /// <param name="view">
@@ -33,11 +28,6 @@ namespace MFR.GUI.Presenters.Interfaces
         /// a <see langword="null" /> value.
         /// </exception>
         TChildPresenterInterface HavingWindowReference(TView view);
-
-        /// <summary>
-        /// Shows the progress window.
-        /// </summary>
-        void ShowProgressDialog();
 
         /// <summary>
         /// Updates data. Moves data from the screen to the model (

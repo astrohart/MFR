@@ -168,7 +168,7 @@ namespace MFR.Engines.Replacement
                      level folder in the pathname */
                     GetStringReplacer.For(OperationType.RenameSubFolders)
                                      .AndTextMatchingConfiguration(
-                                         ProjectFileRenamerConfiguration
+                                         CurrentConfiguration
                                              .GetTextMatchingConfiguration()
                                      )
                                      .Replace(folderName, pattern, dest)

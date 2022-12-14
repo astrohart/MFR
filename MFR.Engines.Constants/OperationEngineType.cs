@@ -11,11 +11,6 @@
         FullGUI,
 
         /// <summary>
-        /// The GUI was brought up by the user, with the <c>--autoStart</c> flag passed on the command line.
-        /// </summary>
-        AutomatedGUI,
-
-        /// <summary>
         /// Application is run as a console program.
         /// </summary>
         Console,

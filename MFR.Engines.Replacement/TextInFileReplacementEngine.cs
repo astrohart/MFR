@@ -125,7 +125,7 @@ namespace MFR.Engines.Replacement
             {
                 result = GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                           .AndTextMatchingConfiguration(
-                                              ProjectFileRenamerConfiguration
+                                              CurrentConfiguration
                                                   .GetTextMatchingConfiguration()
                                           )
                                           .Replace(value, pattern, dest);

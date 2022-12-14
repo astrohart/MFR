@@ -3,6 +3,10 @@ using MFR.Engines.Interfaces;
 using MFR.Engines.Properties;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Factories;
+using MFR.Operations.Events;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -53,7 +57,6 @@ namespace MFR.Engines
         /// </remarks>
         private static IConfigurationProvider ConfigurationProvider
             => GetConfigurationProvider.SoleInstance();
-
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -119,6 +122,252 @@ namespace MFR.Engines
         }
 
         /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        /// <param name="canCancel">
+        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
+        /// <strong>Cancel</strong> button is displayed by the dialog box.
+        /// <para />
+        /// Set this parameter to <see langword="true" /> to display the button;
+        /// <see langword="false" /> to hide it.
+        /// </param>
+        public void ShowProgressDialog(bool canCancel)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    _cancellableProgressDialog.CanCancel = canCancel;
+                    _cancellableProgressDialog.Show();
+                }
+            );
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
+        /// <para />
+        /// This object plays the role of the parent window of the dialog box.
+        /// </param>
+        public void ShowProgressDialog(IWin32Window owner)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Show(owner)
+            );
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface.
+        /// <para />
+        /// This object plays the role of the parent window of the dialog box.
+        /// </param>
+        /// <param name="canCancel">
+        /// (Required.) A <see cref="T:System.Boolean" /> that controls whether the
+        /// <strong>Cancel</strong> button is displayed by the dialog box.
+        /// <para />
+        /// Set this parameter to <see langword="true" /> to display the button;
+        /// <see langword="false" /> to hide it.
+        /// </param>
+        public void ShowProgressDialog(IWin32Window owner, bool canCancel)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    _cancellableProgressDialog.CanCancel = canCancel;
+                    _cancellableProgressDialog.Show(owner);
+                }
+            );
+
+        /// <summary>
+        /// Shows the progress window.
+        /// </summary>
+        public void ShowProgressDialog()
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Show()
+            );
+
+        /// <summary>
+        /// Updates the <paramref name="configuration" /> currently being used with a new
+        /// value.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
+        /// which has the new settings.
+        /// </param>
+        /// <remarks>
+        /// The settings in the object specified will be used for all matching
+        /// from this point forward.
+        /// <para />
+        /// NOTE:This member may be overriden by a child class. If this is the
+        /// case, the overrider must call the base class method before doing any
+        /// of its own processing.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <see langword="null" /> value.
+        /// </exception>
+        public override void UpdateConfiguration(
+            IProjectFileRenamerConfiguration configuration)
+        {
+            base.UpdateConfiguration(configuration);
+
+            InitializeFileRenamer();
+        }
+
+        /// <summary>
+        /// Called when the count of files to be processed in a given operation
+        /// is computed.
+        /// </summary>
+        /// <param name="count">
+        /// (Required.) Integer value specifying the count of files that are to
+        /// be processed in the current operation.
+        /// </param>
+        /// <remarks>
+        /// Takes the message of resetting the progress dialog and reconfiguring
+        /// the progress bar such that the <paramref name="count" /> parameter
+        /// specifies the new maximum value of the progress bar.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// Thrown if the <paramref name="count" /> parameter is zero or
+        /// negative. This parameter describes a count of files; therefore, it
+        /// is expected that it should be 1 or greater.
+        /// </exception>
+        protected override void HandleFilesCountedEvent(int count)
+        {
+            if (count <= 0)
+                throw new ArgumentOutOfRangeException(nameof(count));
+            ResetProgressBar();
+
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.ProgressBarMaximum = count
+            );
+        }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.IFileRenamer.OperationFinished" />
+        /// event raised
+        /// by the file renamer object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.OperationFinishedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by telling the progress dialog to
+        /// reset the progress bar back to the starting point.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        protected override void OnFileRenamerOperationFinished(object sender,
+            OperationFinishedEventArgs e)
+            => ResetProgressBar();
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.IFileRenamer.OperationStarted" />
+        /// event raised by
+        /// the file-renamer object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds to the event by telling the progress dialog to
+        /// show the marquee progress bar for the operation type whose
+        /// processing is now being started.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        protected override void OnFileRenamerOperationStarted(object sender,
+            OperationStartedEventArgs e)
+        {
+            if (e.OperationType == OperationType.Unknown) return;
+
+            ShowCalculatingProgressBar(
+                GetOperationStartedDescription.For(e.OperationType)
+            );
+        }
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.IFileRenamer.ProcessingOperation" />
+        /// event raised
+        /// by the File Renamer object when it moves on to processing the next
+        /// file system entry in its list.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ProcessingOperationEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by first checking the values passed in the
+        /// <see
+        ///     cref="T:MFR.ProcessingOperationEventArgs" />
+        /// for valid values.
+        /// <para />
+        /// If the checks fail, then this method does nothing.
+        /// <para />
+        /// Otherwise, the method responds by incrementing the progress dialog's
+        /// progress bar to the next notch, and updating the text of the lower
+        /// status label in the progress dialog to contain the path to the file
+        /// currently being worked on.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        protected override void OnFileRenamerProcessingOperation(object sender,
+            ProcessingOperationEventArgs e)
+        {
+            if (e.OperationType == OperationType.Unknown) return;
+            if (e.Entry == null) return;
+            if (string.IsNullOrWhiteSpace(e.Entry.Path)) return;
+
+            IncrementProgressBar(
+                GetOperationDescription.For(e.OperationType)
+                                       .Text, e.Entry.Path
+            );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Engines.OperationEngineBase.ProcessingFinished" /> event.
+        /// </summary>
+        protected override void OnProcessingFinished()
+        {
+            base.OnProcessingFinished();
+
+            CloseProgressDialog();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Engines.OperationEngineBase.ProcessingStarted" />
+        /// event.
+        /// </summary>
+        protected override void OnProcessingStarted()
+        {
+            base.OnProcessingStarted();
+
+            ReinitializeProgressDialog();
+
+            ShowProgressDialog();
+        }
+
+        /// <summary>
         /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
         /// event.
         /// </summary>
@@ -134,12 +383,59 @@ namespace MFR.Engines
         /// method is to tell the File Renamer Object to attempt to abort.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private static void OnCancellableProgressDialogRequestedCancel(object sender,
-                EventArgs e)
+        private static void OnCancellableProgressDialogRequestedCancel(
+                object sender, EventArgs e)
 
             // Ask the File Renamer component to stop.  Because the user has
             // clicked the Cancel button in the progress dialog.
             => FileRenamer.RequestAbort();
+
+        /// <summary>
+        /// Increments the value of the progress bar. Also updates the status
+        /// text and the label that is displaying the pathname to the file that
+        /// is currently being processed.
+        /// </summary>
+        /// <param name="statusLabelText">
+        /// (Required.) String containing the text that is to be displayed on
+        /// the top line of the progress dialog. This text serves to inform the
+        /// user as to which operation is currently being performed.
+        /// </param>
+        /// efs
+        /// <param name="currentFileLabelText">
+        /// (Required.) String containing the pathname to the file that is
+        /// currently being processed.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either of the required parameters,
+        /// <paramref
+        ///     name="statusLabelText" />
+        /// or <paramref name="currentFileLabelText" />,
+        /// are passed blank or <see langword="null" /> string for values.
+        /// </exception>
+        private void IncrementProgressBar(string statusLabelText,
+            string currentFileLabelText)
+        {
+            if (string.IsNullOrWhiteSpace(statusLabelText))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
+                    nameof(statusLabelText)
+                );
+            if (string.IsNullOrWhiteSpace(currentFileLabelText))
+                throw new ArgumentException(
+                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
+                    nameof(currentFileLabelText)
+                );
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Status = statusLabelText
+            );
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.CurrentFile =
+                    currentFileLabelText
+            );
+            _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.ProgressBarValue++
+            );
+        }
 
         /// <summary>
         /// Sets the progress dialog and/or reinitializes it from prior use.
