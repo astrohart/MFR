@@ -107,7 +107,7 @@ source.
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
 interface.
 
 ##### Remarks
@@ -726,7 +726,7 @@ passed a `null` value. |
 ##### Summary
 
 Transforms the current value of the
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration')
 property into a Profile with the `profileName` specified.
 
 

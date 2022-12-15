@@ -79,7 +79,8 @@ namespace MFR.GUI.Windows.Presenters
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -1048,6 +1049,13 @@ namespace MFR.GUI.Windows.Presenters
                        .ForMessageId(MainWindowPresenterMessages.MWP_FINISHED);
         }
 
+        protected virtual void OnOperationStarted()
+        {
+            Started?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
+        }
+
         /// <summary>
         /// Initializes the currently-loaded projectFileRenamerConfiguration object.
         /// </summary>
@@ -1067,6 +1075,10 @@ namespace MFR.GUI.Windows.Presenters
                                  OperationEngineMessages.OE_OPERATION_STARTED
                              )
                              .AndHandler(new Action(OnOperationStarted));
+            NewMessageMapping.Associate.WithMessageId(
+                                 OperationEngineMessages.OE_OPERATION_FINISHED
+                             )
+                             .AndHandler(new Action(OnOperationFinished));
         }
 
         /// <summary>
@@ -1108,8 +1120,7 @@ namespace MFR.GUI.Windows.Presenters
         /// pathname; if so, then the folder pathname is added to the history of
         /// starting-folder entries in the history.
         /// <para />
-        /// Starting-folder pathname entries aren't added to the
-        /// projectFileRenamerConfiguration's history
+        /// Starting-folder pathname entries aren't added to the configuration's history
         /// list if an entry having the same content already exists in the history.
         /// </remarks>
         private void OnConfigurationStartingFolderChanged(object sender,
@@ -1125,12 +1136,12 @@ namespace MFR.GUI.Windows.Presenters
             );
         }
 
-        protected virtual void OnOperationStarted()
-        {
-            Started?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
-        }
+        /// <summary>
+        /// This method is called when the Operation Engine sends the
+        /// <c>OE_OPERATION_FINISHED</c> message.
+        /// </summary>
+        private void OnOperationFinished()
+            => OnFinished(); // raise the Finish event
 
         /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are

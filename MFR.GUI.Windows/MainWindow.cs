@@ -755,7 +755,7 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
-        /// event for the File -&gt; Exit menu command.
+        /// event for the <b>Exit</b> command on the <b>File</b> menu.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.

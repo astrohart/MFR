@@ -89,6 +89,52 @@ namespace MFR.Engines
         public event EventHandler ProcessingStarted;
 
         /// <summary>
+        /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+        /// Files operation on all the folders and files in the root folder with
+        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
+        /// </summary>
+        /// <param name="rootDirectoryPath">
+        /// Path to the recursion root.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        public void ProcessAll(string rootDirectoryPath, string findWhat,
+            string replaceWith, Predicate<string> pathFilter = null)
+        {
+            if (_processingWorker == null || _processingWorker.IsBusy) return;
+
+            OnProcessingStarted();
+
+            _processingWorker.RunWorkerAsync(
+                new FileRenamerJob {
+                    RootDirectory = rootDirectoryPath,
+                    FindWhat = findWhat,
+                    ReplaceWith = replaceWith,
+                    PathFilter = pathFilter
+                }
+            );
+        }
+
+        /// <summary>
         /// Updates the <paramref name="configuration" /> currently being used with a new
         /// value.
         /// </summary>
@@ -118,52 +164,6 @@ namespace MFR.Engines
             base.UpdateConfiguration(configuration);
 
             FileRenamer.UpdateConfiguration(configuration);
-        }
-
-        /// <summary>
-        /// Executes the Rename Subfolders, Rename Files, and Replace Text in
-        /// Files operation on all the folders and files in the root folder with
-        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
-        /// </summary>
-        /// <param name="rootDirectoryPath">
-        /// Path to the recursion root.
-        /// </param>
-        /// <param name="findWhat">
-        /// (Required.) String containing the text to search for.
-        /// </param>
-        /// <param name="replaceWith">
-        /// (Required.) String containing the text to replace the text specified
-        /// by <paramref name="findWhat" /> with.
-        /// </param>
-        /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
-        /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true" /> if the file
-        /// should be included in the operation or <see langword="false" /> otherwise.
-        /// <para />
-        /// This parameter is <see langword="null" /> by default. This method
-        /// should return <see langword="true" /> to specify that a given
-        /// file-system entry is to be included in the output collection --
-        /// barring other inclusion/exclusion criteria.
-        /// <para />
-        /// In the event that this parameter is <see langword="null" />, no path
-        /// filtering is done.
-        /// </param>
-        public void ProcessAll(string rootDirectoryPath, string findWhat, string replaceWith,
-            Predicate<string> pathFilter = null)
-        {
-            if (_processingWorker == null || _processingWorker.IsBusy) return;
-
-            OnProcessingStarted();
-
-            _processingWorker.RunWorkerAsync(
-                new FileRenamerJob {
-                    RootDirectory = rootDirectoryPath,
-                    FindWhat = findWhat,
-                    ReplaceWith = replaceWith,
-                    PathFilter = pathFilter
-                }
-            );
         }
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace MFR.Engines
         protected virtual void OnProcessingFinished()
         {
             ProcessingFinished?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
+            SendMessage.Having.NoArgs()
                        .ForMessageId(
                            OperationEngineMessages.OE_OPERATION_FINISHED
                        );
@@ -383,10 +383,25 @@ namespace MFR.Engines
         protected virtual void OnProcessingStarted()
         {
             ProcessingStarted?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
+            SendMessage.Having.NoArgs()
                        .ForMessageId(
                            OperationEngineMessages.OE_OPERATION_STARTED
                        );
+        }
+
+        [Log(AttributeExclude = true)]
+        private static void OnFileRenamerStatusUpdate(object sender,
+            StatusUpdateEventArgs e)
+        {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In OperationEngineBase.OnFileRenamerStatusUpdate"
+            );
+
+            if (string.IsNullOrWhiteSpace(e.Text)) return;
+
+            Console.WriteLine(e.Text);
         }
 
         /// <summary>
@@ -511,23 +526,11 @@ namespace MFR.Engines
         ///     cref="E:MFR.GUI.IMainWindowPresenter.Finished" />
         /// event in turn.
         /// </remarks>
-        [Log(AttributeExclude = true)]
+
+        // ReSharper disable once MemberCanBeMadeStatic.Local
         private void OnFileRenamerFinished()
-            => OnProcessingFinished();
-
-        [Log(AttributeExclude = true)]
-        private void OnFileRenamerStatusUpdate(object sender,
-            StatusUpdateEventArgs e)
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In OperationEngineBase.OnFileRenamerStatusUpdate"
-            );
-
-            if (string.IsNullOrWhiteSpace(e.Text)) return;
-
-            Console.WriteLine(e.Text);
+            // TODO: Add code here that should execute when the FileRenamer component announces that it is finished
         }
 
         /// <summary>
