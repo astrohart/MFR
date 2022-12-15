@@ -1,4 +1,5 @@
 ﻿using MFR.Constants;
+using MFR.Engines.Actions;
 using MFR.Engines.Constants;
 using MFR.Engines.Interfaces;
 using MFR.Events;
@@ -7,6 +8,7 @@ using MFR.Operations.Events;
 using MFR.Renamers.Files.Factories;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
@@ -15,56 +17,6 @@ using xyLOGIX.Queues.Messages;
 
 namespace MFR.Engines
 {
-    /// <summary>
-    /// Encapsulates the parameters for a
-    /// <see cref="T:MFR.Renamers.Files.FileRenamer" /> job.
-    /// </summary>
-    public class FileRenamerJob
-    {
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> containing the content to be
-        /// found in file names, folder names, and file contents.
-        /// </summary>
-        public string FindWhat
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets an instance of <see cref="T:System.Func" /> that points to a
-        /// delegate, accepting the current file or folder's path as an argument, that
-        /// returns <see langword="true" /> if the file should be included in the operation
-        /// or <see langword="false" /> otherwise.
-        /// </summary>
-        public Predicate<string> PathFilter
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> that contains the value(s) that
-        /// should be substituted for the found content in file names, folder names, and
-        /// file contents.
-        /// </summary>
-        public string ReplaceWith
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of the folder in which the job was ready to start.
-        /// </summary>
-        public string RootDirectory
-        {
-            get;
-            set;
-        }
-    }
-
     /// <summary>
     /// Defines the events, methods, properties, and behaviors for all operation
     /// engines.
@@ -137,6 +89,38 @@ namespace MFR.Engines
         public event EventHandler ProcessingStarted;
 
         /// <summary>
+        /// Updates the <paramref name="configuration" /> currently being used with a new
+        /// value.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
+        /// which has the new settings.
+        /// </param>
+        /// <remarks>
+        /// The settings in the object specified will be used for all matching
+        /// from this point forward.
+        /// <para />
+        /// NOTE:This member may be overriden by a child class. If this is the
+        /// case, the overrider must call the base class method before doing any
+        /// of its own processing.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <see langword="null" /> value.
+        /// </exception>
+        public override void UpdateConfiguration(
+            IProjectFileRenamerConfiguration configuration)
+        {
+            base.UpdateConfiguration(configuration);
+
+            FileRenamer.UpdateConfiguration(configuration);
+        }
+
+        /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
         /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
@@ -165,8 +149,8 @@ namespace MFR.Engines
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        public void ProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null)
+        public void ProcessAll(string rootDirectoryPath, string findWhat, string replaceWith,
+            Predicate<string> pathFilter = null)
         {
             if (_processingWorker == null || _processingWorker.IsBusy) return;
 
@@ -282,9 +266,6 @@ namespace MFR.Engines
                         OnFileRenamerProcessingOperation
                     )
                 );
-            NewMessageMapping
-                .Associate.WithMessageId(FileRenamerMessages.FRM_STARTING)
-                .AndHandler(new Action(OnFileRenamerStarting));
             NewMessageMapping.Associate.WithMessageId(
                                  FileRenamerMessages.FRM_FINISHED
                              )
@@ -533,9 +514,6 @@ namespace MFR.Engines
         [Log(AttributeExclude = true)]
         private void OnFileRenamerFinished()
             => OnProcessingFinished();
-
-        private void OnFileRenamerStarting()
-            => throw new NotImplementedException();
 
         [Log(AttributeExclude = true)]
         private void OnFileRenamerStatusUpdate(object sender,

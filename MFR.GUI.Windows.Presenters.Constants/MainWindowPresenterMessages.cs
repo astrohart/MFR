@@ -79,5 +79,11 @@ namespace MFR.GUI.Windows.Presenters.Constants
         /// has just come to completion.
         /// </summary>
         public static readonly Guid MWP_OPERATION_FINISHED = Guid.NewGuid();
+
+        /// <summary>
+        /// Unique identifier for the message that is sent by the main
+        /// application window's Presenter when a file-rename operation is started.
+        /// </summary>
+        public static readonly Guid MWP_STARTED = Guid.NewGuid();
     }
 }

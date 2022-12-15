@@ -28,7 +28,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
             var result = MakeNewConfiguration.FromScratch();
 
             Assert.That(result, Is.Not.Null);
-            Assert.That(result, Is.AssignableFrom(typeof(ProjectFileRenamerProjectFileRenamerConfiguration)));
+            Assert.That(result, Is.AssignableFrom(typeof(ProjectFileRenamerConfiguration)));
             Assert.That(result, Is.AssignableTo(typeof(IProjectFileRenamerConfiguration)));
         }
     }

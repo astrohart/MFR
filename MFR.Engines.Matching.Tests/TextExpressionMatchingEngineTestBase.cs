@@ -501,7 +501,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -524,7 +524,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = false, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -547,7 +547,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = false, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
@@ -570,7 +570,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
@@ -593,7 +593,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
@@ -616,7 +616,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesMatch()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
@@ -639,7 +639,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceExactlyMatchesPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = false, MatchExactWord = true
                 };
             Assert.IsTrue(_matcher.IsMatch("foo", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -662,7 +662,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturnedIfCaseDoesNotMatch_AndFalseReturnedWhenCaseDoesMatch_IfSourceDoesNotExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
@@ -712,7 +712,7 @@ namespace MFR.Engines.Matching.Tests
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = false, MatchExactWord = false
                 };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -735,7 +735,7 @@ namespace MFR.Engines.Matching.Tests
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "foo", "Bar"));
@@ -758,7 +758,7 @@ namespace MFR.Engines.Matching.Tests
             Test_TrueReturned_WhenSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsTrue(
@@ -782,7 +782,7 @@ namespace MFR.Engines.Matching.Tests
             Test_WhenMatchCaseOn_AndMatchExactWordOn_FalseReturned_IfSourceContainsPattern()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfiguration {
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));

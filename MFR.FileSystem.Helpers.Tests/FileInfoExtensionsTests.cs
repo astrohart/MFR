@@ -133,15 +133,15 @@ namespace MFR.FileSystem.Helpers.Tests
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
         /// This object allows access to the user projectFileRenamerConfiguration and the actions
         /// associated with it.
         /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Serves as a test bed to run the entire algorithm of renaming

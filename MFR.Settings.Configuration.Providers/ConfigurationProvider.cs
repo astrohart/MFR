@@ -24,7 +24,7 @@ namespace MFR.Settings.Configuration.Providers
     /// Provides shared functionality for obtaining and storing the path to the
     /// user's projectFileRenamerConfiguration file.
     /// </summary>
-    public class ConfigurationProvider : IConfigurationProvider
+    public class ConfigurationProvider : IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.

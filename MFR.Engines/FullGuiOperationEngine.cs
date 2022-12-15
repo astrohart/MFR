@@ -47,7 +47,7 @@ namespace MFR.Engines
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -55,8 +55,8 @@ namespace MFR.Engines
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -179,7 +179,8 @@ namespace MFR.Engines
                         {
                             _cancellableProgressDialog.CanCancel = canCancel;
                             _cancellableProgressDialog.Show(owner);
-                        });
+                        }
+                    );
                 }
             );
 
@@ -477,8 +478,11 @@ namespace MFR.Engines
         /// </summary>
         [Log(AttributeExclude = true)]
         private void ResetProgressBar()
-            => _cancellableProgressDialog.DoIfNotDisposed(
-                _cancellableProgressDialog.Reset
+            => _cancellableProgressDialog
+                .DoIfNotDisposed(()=>
+                    _cancellableProgressDialog.InvokeIfRequired(
+                        _cancellableProgressDialog.Reset
+                )
             );
     }
 }

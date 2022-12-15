@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -100,7 +101,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetConfigurationProvider.cs" />
+    <Compile Include="GetProjectFileRenamerConfigurationProvider.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

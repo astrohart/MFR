@@ -10,8 +10,14 @@ using MFR.Common;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
+using MFR.Engines.Constants;
+using MFR.Engines.Factories;
+using MFR.Engines.Interfaces;
 using MFR.GUI.Displayers;
-using MFR.GUI.Windows;
+using MFR.GUI.Processors.Constants;
+using MFR.GUI.Processors.Factories;
+using MFR.GUI.Processors.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
@@ -83,15 +89,30 @@ namespace MFR.GUI
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the actions
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
         /// associated with it.
         /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to the one and only instance of the object that
+        /// implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface that represents the currently-loaded configuration.
+        /// </summary>
+        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get => ConfigurationProvider.CurrentConfiguration;
+            set => ConfigurationProvider.CurrentConfiguration = value;
+        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -300,6 +321,18 @@ namespace MFR.GUI
              * run.
              */
 
+            ICommandLineProcessor processor = GetCommandLineProcessor
+                                              .OfType(
+                                                  GetCommandLineProcessorType()
+                                              )
+                                              .HavingCommandLineInfo(
+                                                  CommandLineInfo
+                                              )
+                                              .AndAttachConfiguration(
+                                                  CurrentConfiguration
+                                              );
+            processor.Process();
+
             if (CommandLineSpecified)
             {
                 /*
@@ -313,15 +346,25 @@ namespace MFR.GUI
                  * is supplied on the command line.
                  */
 
-                if (AutoStart)
-                    ConfigurationProvider.CurrentConfiguration =
-                        CommandLineInfo.ToConfiguration();
-                else
-                    ConfigurationProvider.CurrentConfiguration.StartingFolder =
-                        CommandLineInfo.StartingFolder;
-            }
+                CurrentConfiguration = CommandLineInfo.ToConfiguration();
 
-            Application.Run(MainWindow.Instance);
+                if (AutoStart)
+                {
+                    IFullGuiOperationEngine engine = GetOperationEngine
+                        .OfType<IFullGuiOperationEngine>(
+                            OperationEngineType.FullGUI
+                        )
+                        .AndAttachConfiguration(CurrentConfiguration);
+
+                    engine.ProcessAll(
+                        CurrentConfiguration.StartingFolder,
+                        CurrentConfiguration.FindWhat,
+                        CurrentConfiguration.ReplaceWith
+                    );
+
+                    return;
+                }
+            }
         }
 
         /// <summary>
@@ -385,6 +428,16 @@ namespace MFR.GUI
                 message, Application.ProductName, MessageBoxButtons.OK,
                 MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
             );
+        }
+
+        private static CommandLineProcessorType GetCommandLineProcessorType()
+        {
+            if (!CommandLineSpecified)
+                return CommandLineProcessorType.NoCommandLine;
+
+            return AutoStart
+                ? CommandLineProcessorType.AutoStart
+                : CommandLineProcessorType.GuiDriven;
         }
     }
 }

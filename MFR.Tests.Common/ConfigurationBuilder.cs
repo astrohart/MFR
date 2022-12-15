@@ -130,7 +130,7 @@ namespace MFR.Tests.Common
         /// provided to this class' other methods.
         /// </remarks>
         public IProjectFileRenamerConfiguration Build()
-            => new ProjectFileRenamerProjectFileRenamerConfiguration {
+            => new ProjectFileRenamerConfiguration {
                 MatchCase = _matchCase, MatchExactWord = _matchExactWord
             };
 

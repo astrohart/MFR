@@ -1,5 +1,6 @@
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
+using MFR.Engines.Constants;
 using MFR.Engines.Interfaces;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
@@ -70,7 +71,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -78,8 +79,8 @@ namespace MFR.GUI.Windows.Presenters
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -602,7 +603,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
@@ -666,6 +667,8 @@ namespace MFR.GUI.Windows.Presenters
 
             OperationEngine.UpdateConfiguration(configuration);
             _historyManager.UpdateConfiguration(configuration);
+
+            InitializeOperationEngine();
         }
 
         /// <summary>
@@ -787,9 +790,9 @@ namespace MFR.GUI.Windows.Presenters
             IFullGuiOperationEngine operationEngine)
         {
             OperationEngine = operationEngine ??
-                                     throw new ArgumentNullException(
-                                         nameof(operationEngine)
-                                     );
+                              throw new ArgumentNullException(
+                                  nameof(operationEngine)
+                              );
 
             return this;
         }
@@ -1056,6 +1059,16 @@ namespace MFR.GUI.Windows.Presenters
                 OnConfigurationStartingFolderChanged;
         }
 
+        private void InitializeOperationEngine()
+        {
+            if (OperationEngine == null) return;
+
+            NewMessageMapping.Associate.WithMessageId(
+                                 OperationEngineMessages.OE_OPERATION_STARTED
+                             )
+                             .AndHandler(new Action(OnOperationStarted));
+        }
+
         /// <summary>
         /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
         /// event.
@@ -1110,6 +1123,13 @@ namespace MFR.GUI.Windows.Presenters
             StartingFolderComboBox.Items.AddDistinct(
                 CurrentConfiguration.StartingFolder
             );
+        }
+
+        protected virtual void OnOperationStarted()
+        {
+            Started?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
         }
 
         /// <summary>

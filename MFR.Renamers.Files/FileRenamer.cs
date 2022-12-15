@@ -411,6 +411,17 @@ namespace MFR.Renamers.Files
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// Thrown if the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration" />
+        /// property has not been set prior to calling this method.
+        /// <para />
+        /// Call the
+        /// <see
+        ///     cref="M:MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration" />
+        /// method on this object prior to calling this method.
+        /// </exception>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter,
         /// <paramref
@@ -423,6 +434,10 @@ namespace MFR.Renamers.Files
         public void ProcessAll(string rootDirectoryPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
         {
+            if (CurrentConfiguration == null)
+                throw new InvalidOperationException(
+                    "The configuration has not been initialized."
+                );
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -636,9 +651,7 @@ namespace MFR.Renamers.Files
                             (string)GetTextReplacementEngine.For(
                                     OperationType.RenameFilesInFolder
                                 )
-                                .AndAttachConfiguration(
-                                    CurrentConfiguration
-                                )
+                                .AndAttachConfiguration(CurrentConfiguration)
                                 .Replace(
                                     GetMatchExpressionFactory.For(
                                             OperationType.RenameFilesInFolder
@@ -1336,7 +1349,7 @@ namespace MFR.Renamers.Files
 
             try
             {
-                OnStarting();   // before we even check the root directory path
+                OnStarting(); // before we even check the root directory path
 
                 /*
                  * Set the RootDirectoryPath property to the
@@ -1347,7 +1360,7 @@ namespace MFR.Renamers.Files
 
                 if (!RootDirectoryValidator.Validate(rootDirectoryPath))
                 {
-                    OnFinished();   // let subscribers to events know that we are done
+                    OnFinished(); // let subscribers to events know that we are done
                     return;
                 }
 
@@ -1380,9 +1393,12 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        string.Format(Resources.Error_NoSolutionsInRootDirectory, RootDirectoryPath)
+                        string.Format(
+                            Resources.Error_NoSolutionsInRootDirectory,
+                            RootDirectoryPath
+                        )
                     );
-                    OnFinished();   // let subscribers to events know that we are done
+                    OnFinished(); // let subscribers to events know that we are done
                     return;
                 }
 
@@ -1494,7 +1510,10 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        string.Format(Resources.Error_NoSolutionsInRootDirectory, RootDirectoryPath)
+                        string.Format(
+                            Resources.Error_NoSolutionsInRootDirectory,
+                            RootDirectoryPath
+                        )
                     );
                     return;
                 }

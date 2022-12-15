@@ -21,7 +21,7 @@ namespace MFR.Settings.Configuration
     /// the application.
     /// </remarks>
     [Log(AttributeExclude = true)]
-    public class ProjectFileRenamerProjectFileRenamerConfiguration : IProjectFileRenamerConfiguration
+    public class ProjectFileRenamerConfiguration : IProjectFileRenamerConfiguration
     {
         /// <summary>
         /// A <see cref="T:System.String" /> containing the fully-qualified pathname of the
@@ -35,7 +35,7 @@ namespace MFR.Settings.Configuration
         ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
         /// and returns a reference to it.
         /// </summary>
-        public ProjectFileRenamerProjectFileRenamerConfiguration()
+        public ProjectFileRenamerConfiguration()
         {
             Reset();
         }
@@ -51,7 +51,7 @@ namespace MFR.Settings.Configuration
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// that contains existing projectFileRenamerConfiguration settings to copy into this object.
         /// </param>
-        public ProjectFileRenamerProjectFileRenamerConfiguration(IProjectFileRenamerConfiguration source)
+        public ProjectFileRenamerConfiguration(IProjectFileRenamerConfiguration source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 

@@ -528,7 +528,7 @@ namespace MFR.Settings.Configuration.Factories
         /// interface.
         /// </returns>
         public static IProjectFileRenamerConfiguration FromScratch()
-            => new ProjectFileRenamerProjectFileRenamerConfiguration();
+            => new ProjectFileRenamerConfiguration();
 
         /// <summary>
         /// Builder extension method that initializes the

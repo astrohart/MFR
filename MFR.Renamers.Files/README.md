@@ -566,6 +566,15 @@ filtering is done. |
 
 | Name | Description |
 | ---- | ----------- |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the value of the
+[CurrentConfiguration](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration')
+property has not been set prior to calling this method.
+
+
+
+Call the
+[UpdateConfiguration](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration')
+method on this object prior to calling this method. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
 `rootDirectoryPath`
 , is passed a blank or

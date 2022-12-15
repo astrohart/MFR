@@ -39,11 +39,11 @@ namespace MFR.Console
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

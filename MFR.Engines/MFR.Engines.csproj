@@ -150,6 +150,10 @@
       <Project>{A9C55463-4815-4CC5-84BA-4058440521F4}</Project>
       <Name>MFR.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Actions\MFR.Engines.Actions.csproj">
+      <Project>{AAA05D77-6BDD-43CD-83F3-1ADC63788569}</Project>
+      <Name>MFR.Engines.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Constants\MFR.Engines.Constants.csproj">
       <Project>{6991D784-1E07-471C-BA54-CB9C1A723D09}</Project>
       <Name>MFR.Engines.Constants</Name>

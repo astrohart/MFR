@@ -5,7 +5,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
     /// </summary>
-    public interface IConfigurationProvider
+    public interface IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
         /// Gets a reference to the instance of the object that implements the

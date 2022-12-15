@@ -2,7 +2,6 @@ using MFR.GUI.Dialogs.Interfaces;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Dialogs
@@ -45,7 +44,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string CurrentFile
         {
-            [DebuggerStepThrough] get => currentFileLabel.Text;
+            [DebuggerStepThrough]
+            get => currentFileLabel.Text;
             set
                 => currentFileLabel.InvokeIfRequired(
                     () =>
@@ -60,7 +60,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public ProgressBar ProgressBar
         {
-            [DebuggerStepThrough] get => progressBar;
+            [DebuggerStepThrough]
+            get => progressBar;
         }
 
         /// <summary>
@@ -68,7 +69,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarMaximum
         {
-            [DebuggerStepThrough] get => progressBar.Maximum;
+            [DebuggerStepThrough]
+            get => progressBar.Maximum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Maximum = value
@@ -80,7 +82,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarMinimum
         {
-            [DebuggerStepThrough] get => progressBar.Minimum;
+            [DebuggerStepThrough]
+            get => progressBar.Minimum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Minimum = value
@@ -92,7 +95,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public ProgressBarStyle ProgressBarStyle
         {
-            [DebuggerStepThrough] get => progressBar.Style;
+            [DebuggerStepThrough]
+            get => progressBar.Style;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Style = value
@@ -104,7 +108,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarValue
         {
-            [DebuggerStepThrough] get => progressBar.Value;
+            [DebuggerStepThrough]
+            get => progressBar.Value;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Value = value
@@ -116,7 +121,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string Status
         {
-            [DebuggerStepThrough] get => statusLabel.Text;
+            [DebuggerStepThrough]
+            get => statusLabel.Text;
             set => statusLabel.InvokeIfRequired(() => statusLabel.Text = value);
         }
 
@@ -140,7 +146,7 @@ namespace MFR.GUI.Dialogs
 
             currentFileLabel.Text = statusLabel.Text = string.Empty;
 
-            this.InvokeIfRequired(RedrawDisplay);
+            RedrawDisplay();
         }
 
         /// <summary>

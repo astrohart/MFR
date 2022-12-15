@@ -62,7 +62,7 @@ namespace MFR.Settings.Configuration.Converters
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(json)
                 );
-            return JsonConvert.DeserializeObject<ProjectFileRenamerProjectFileRenamerConfiguration>(json, Settings);
+            return JsonConvert.DeserializeObject<ProjectFileRenamerConfiguration>(json, Settings);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace MFR.Settings.Configuration.Converters
             if (projectFileRenamerConfiguration == null)
                 throw new ArgumentNullException(nameof(projectFileRenamerConfiguration));
             return JsonConvert.SerializeObject(
-                projectFileRenamerConfiguration as ProjectFileRenamerProjectFileRenamerConfiguration, Settings
+                projectFileRenamerConfiguration as ProjectFileRenamerConfiguration, Settings
             );
         }
     }

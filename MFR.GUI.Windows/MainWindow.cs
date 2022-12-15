@@ -83,7 +83,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -92,8 +92,8 @@ namespace MFR.GUI.Windows
         /// associated with it.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private static IConfigurationProvider ConfigurationProvider
-            => GetConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -793,7 +793,7 @@ namespace MFR.GUI.Windows
 
             FoldButton.SetFoldedStateText();
 
-            GetConfigurationProvider.SoleInstance()
+            GetProjectFileRenamerConfigurationProvider.SoleInstance()
                                     .CurrentConfiguration.IsFolded = e.Folded;
         }
 
@@ -874,7 +874,7 @@ namespace MFR.GUI.Windows
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnOperationStarted(object sender, EventArgs e)
-            => this.InvokeIfRequired(
+            => startingFolderBrowseButton.InvokeIfRequired(
                 () =>
                 {
                     UseWaitCursor = true;
@@ -1340,7 +1340,7 @@ namespace MFR.GUI.Windows
         {
             using (var dialog = new OptionsDialog())
             {
-                dialog.ConfigPathname = GetConfigurationProvider.SoleInstance()
+                dialog.ConfigPathname = GetProjectFileRenamerConfigurationProvider.SoleInstance()
                     .ConfigurationFilePath;
                 dialog.Modified += OnOptionsModified;
 

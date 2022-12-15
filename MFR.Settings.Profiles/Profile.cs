@@ -16,7 +16,7 @@ namespace MFR.Settings.Profiles
     /// actually leaving the app and coming back in.
     /// </remarks>
     [Log(AttributeExclude = true)]
-    public class Profile : Configuration.ProjectFileRenamerProjectFileRenamerConfiguration, IProfile
+    public class Profile : Configuration.ProjectFileRenamerConfiguration, IProfile
     {
         /// <summary>
         /// Constructs a new instance of <see cref="T:MFR.Settings.Profiles.Profile" />

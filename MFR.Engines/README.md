@@ -63,6 +63,7 @@
   - [OnProcessingWorkerDoWork(sender,e)](#M-MFR-Engines-OperationEngineBase-OnProcessingWorkerDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.Engines.OperationEngineBase.OnProcessingWorkerDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
   - [OnProcessingWorkerRunWorkerCompleted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnProcessingWorkerRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs- 'MFR.Engines.OperationEngineBase.OnProcessingWorkerRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Engines-OperationEngineBase-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Engines.OperationEngineBase.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [UpdateConfiguration(configuration)](#M-MFR-Engines-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.OperationEngineBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [Resources](#T-MFR-Engines-Properties-Resources 'MFR.Engines.Properties.Resources')
   - [Culture](#P-MFR-Engines-Properties-Resources-Culture 'MFR.Engines.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-Engines-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.Engines.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
@@ -1156,6 +1157,39 @@ barring other inclusion/exclusion criteria.
 
 In the event that this parameter is `null`, no path
 filtering is done. |
+
+<a name='M-MFR-Engines-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### UpdateConfiguration(configuration) `method`
+
+##### Summary
+
+Updates the `configuration` currently being used with a new value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
+which has the new settings. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+is passed a `null` value. |
+
+##### Remarks
+
+The settings in the object specified will be used for all matching
+from this point forward.
+
+
+
+NOTE:This member may be overriden by a child class. If this is the
+case, the overrider must call the base class method before doing any
+of its own processing.
 
 <a name='T-MFR-Engines-Properties-Resources'></a>
 ## Resources `type`
