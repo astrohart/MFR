@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetMainWIndow](#T-MFR-GUI-Windows-Factories-GetMainWIndow 'MFR.GUI.Windows.Factories.GetMainWIndow')
-  - [SoleInstance()](#M-MFR-GUI-Windows-Factories-GetMainWIndow-SoleInstance 'MFR.GUI.Windows.Factories.GetMainWIndow.SoleInstance')
+- [GetMainWindow](#T-MFR-GUI-Windows-Factories-GetMainWindow 'MFR.GUI.Windows.Factories.GetMainWindow')
+  - [SoleInstance()](#M-MFR-GUI-Windows-Factories-GetMainWindow-SoleInstance 'MFR.GUI.Windows.Factories.GetMainWindow.SoleInstance')
 - [Resources](#T-MFR-GUI-Windows-Factories-Properties-Resources 'MFR.GUI.Windows.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Factories-Properties-Resources-Culture 'MFR.GUI.Windows.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Windows-Factories-GetMainWIndow'></a>
-## GetMainWIndow `type`
+<a name='T-MFR-GUI-Windows-Factories-GetMainWindow'></a>
+## GetMainWindow `type`
 
 ##### Namespace
 
@@ -21,7 +21,7 @@ MFR.GUI.Windows.Factories
 Provides access to the one and only instance of the object that implements the
 [IMainWindow](#T-MFR-GUI-Windows-Interfaces-IMainWindow 'MFR.GUI.Windows.Interfaces.IMainWindow') interface.
 
-<a name='M-MFR-GUI-Windows-Factories-GetMainWIndow-SoleInstance'></a>
+<a name='M-MFR-GUI-Windows-Factories-GetMainWindow-SoleInstance'></a>
 ### SoleInstance() `method`
 
 ##### Summary

@@ -118,6 +118,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
+    <None Include="app.manifest.v2" />
     <None Include="config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -252,6 +253,14 @@
     <ProjectReference Include="..\MFR.CommandLine.Models\MFR.CommandLine.Models.csproj">
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.CommandLine.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Factories\MFR.Renamers.Files.Factories.csproj">
+      <Project>{A93C6F56-DF58-45F1-8C4B-03C63F013E7F}</Project>
+      <Name>MFR.Renamers.Files.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Interfaces\MFR.Renamers.Files.Interfaces.csproj">
+      <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
+      <Name>MFR.Renamers.Files.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>

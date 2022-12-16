@@ -13,7 +13,8 @@ using MFR.Directories.Validators.Interfaces;
 using MFR.GUI.Actions;
 using MFR.GUI.Displayers;
 using MFR.GUI.Processors.Factories;
-using MFR.Settings.Configuration.Interfaces;
+using MFR.Renamers.Files.Factories;
+using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
@@ -99,6 +100,20 @@ namespace MFR.GUI
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides access to the file- and folder-processing functionality of
+        /// the application.
+        /// <para />
+        /// It is marked as <c>protected</c> in the source code, allowing access to
+        /// children of the <see cref="T:MFR.Engines.OperationEngineBase" /> class.
+        /// </remarks>
+        private static IFileRenamer FileRenamer
+            => GetFileRenamer.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
         /// interface.
         /// </summary>
@@ -141,6 +156,20 @@ namespace MFR.GUI
             ParseCommandLine(args);
 
             ProcessCommandLine();
+
+            /*
+             * If we're running in AutoStart mode, then run a message loop
+             * while we wait for the File Renamer component to process its
+             * operations.
+             */
+
+            if (AutoStart)
+                while (FileRenamer.IsBusy)
+                {
+                    Thread.Sleep(50);
+                    Application.DoEvents();
+                    Thread.Sleep(50);
+                }
 
             // Save changes in the configuration back out to the disk.
             // Also writes the path to the config file to the Registry.
@@ -254,11 +283,19 @@ namespace MFR.GUI
         private static void OnThreadException(object sender,
             ThreadExceptionEventArgs e)
         {
-            // dump all the exception info to the log
-            DebugUtils.LogException(e.Exception);
+            try
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(e.Exception);
 
-            // and which allows the user to choose to send an error report.
-            Display.ErrorReportDialog(e.Exception);
+                // and which allows the user to choose to send an error report.
+                Display.ErrorReportDialog(e.Exception);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>

@@ -49,7 +49,7 @@ namespace MFR.GUI.Processors
         {
             CurrentConfiguration = CommandLineInfo.ToConfiguration();
 
-            Application.Run((Form)GetMainWIndow.SoleInstance());
+            Application.Run((Form)GetMainWindow.SoleInstance());
         }
     }
 }

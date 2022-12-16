@@ -301,14 +301,14 @@ namespace MFR.GUI.Windows
             this.toolStripSeparator5,
             this.toolsHistoryMenu});
             this.toolsConfigMenu.Name = "toolsConfigMenu";
-            this.toolsConfigMenu.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigMenu.Size = new System.Drawing.Size(148, 22);
             this.toolsConfigMenu.Text = "&Configuration";
             // 
             // toolsConfigImport
             // 
             this.toolsConfigImport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigImport.Image")));
             this.toolsConfigImport.Name = "toolsConfigImport";
-            this.toolsConfigImport.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigImport.Size = new System.Drawing.Size(159, 22);
             this.toolsConfigImport.Text = "&Import...";
             this.toolsConfigImport.Click += new System.EventHandler(this.OnToolsConfigImport);
             // 
@@ -316,26 +316,26 @@ namespace MFR.GUI.Windows
             // 
             this.toolsConfigExport.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigExport.Image")));
             this.toolsConfigExport.Name = "toolsConfigExport";
-            this.toolsConfigExport.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigExport.Size = new System.Drawing.Size(159, 22);
             this.toolsConfigExport.Text = "&Export...";
             this.toolsConfigExport.Click += new System.EventHandler(this.OnToolsConfigExport);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
             // 
             // toolsSaveProfileAs
             // 
             this.toolsSaveProfileAs.Image = ((System.Drawing.Image)(resources.GetObject("toolsSaveProfileAs.Image")));
             this.toolsSaveProfileAs.Name = "toolsSaveProfileAs";
-            this.toolsSaveProfileAs.Size = new System.Drawing.Size(180, 22);
+            this.toolsSaveProfileAs.Size = new System.Drawing.Size(159, 22);
             this.toolsSaveProfileAs.Text = "&Save Profile As";
             // 
             // toolsConfigApplyProfile
             // 
             this.toolsConfigApplyProfile.Name = "toolsConfigApplyProfile";
-            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigApplyProfile.Size = new System.Drawing.Size(159, 22);
             this.toolsConfigApplyProfile.Text = "&Apply Profile";
             // 
             // toolsConfigProfiles
@@ -343,20 +343,20 @@ namespace MFR.GUI.Windows
             this.toolsConfigProfiles.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigProfiles.Image")));
             this.toolsConfigProfiles.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsConfigProfiles.Name = "toolsConfigProfiles";
-            this.toolsConfigProfiles.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigProfiles.Size = new System.Drawing.Size(159, 22);
             this.toolsConfigProfiles.Text = "&Manage Profiles";
             // 
             // toolsConfigNewProfile
             // 
             this.toolsConfigNewProfile.Image = ((System.Drawing.Image)(resources.GetObject("toolsConfigNewProfile.Image")));
             this.toolsConfigNewProfile.Name = "toolsConfigNewProfile";
-            this.toolsConfigNewProfile.Size = new System.Drawing.Size(180, 22);
+            this.toolsConfigNewProfile.Size = new System.Drawing.Size(159, 22);
             this.toolsConfigNewProfile.Text = "&New Profile";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(156, 6);
             // 
             // toolsHistoryMenu
             // 
@@ -365,7 +365,7 @@ namespace MFR.GUI.Windows
             this.toolsHistoryClearMenu});
             this.toolsHistoryMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolsHistoryMenu.Image")));
             this.toolsHistoryMenu.Name = "toolsHistoryMenu";
-            this.toolsHistoryMenu.Size = new System.Drawing.Size(180, 22);
+            this.toolsHistoryMenu.Size = new System.Drawing.Size(159, 22);
             this.toolsHistoryMenu.Text = "&History";
             // 
             // toolsHistoryClearAll
@@ -406,14 +406,14 @@ namespace MFR.GUI.Windows
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // toolsOptions
             // 
             this.toolsOptions.Image = ((System.Drawing.Image)(resources.GetObject("toolsOptions.Image")));
             this.toolsOptions.ImageTransparentColor = System.Drawing.Color.White;
             this.toolsOptions.Name = "toolsOptions";
-            this.toolsOptions.Size = new System.Drawing.Size(180, 22);
+            this.toolsOptions.Size = new System.Drawing.Size(148, 22);
             this.toolsOptions.Text = "&Options";
             this.toolsOptions.Click += new System.EventHandler(this.OnToolsOptions);
             // 
@@ -482,10 +482,10 @@ namespace MFR.GUI.Windows
             this.operationsTabPage.Controls.Add(this.tabPageInstructionLabel);
             this.operationsTabPage.Controls.Add(this.selectDeselectAllCheckBox);
             this.operationsTabPage.Controls.Add(this.operationsCheckedListBox);
-            this.operationsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.operationsTabPage.Location = new System.Drawing.Point(4, 22);
             this.operationsTabPage.Name = "operationsTabPage";
             this.operationsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.operationsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.operationsTabPage.Size = new System.Drawing.Size(561, 184);
             this.operationsTabPage.TabIndex = 1;
             this.operationsTabPage.Text = "Operations";
             this.operationsTabPage.UseVisualStyleBackColor = true;
@@ -526,20 +526,20 @@ namespace MFR.GUI.Windows
             // 
             // inclusionsTabPage
             // 
-            this.inclusionsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.inclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.inclusionsTabPage.Name = "inclusionsTabPage";
             this.inclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.inclusionsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.inclusionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.inclusionsTabPage.TabIndex = 2;
             this.inclusionsTabPage.Text = "Inclusions";
             this.inclusionsTabPage.UseVisualStyleBackColor = true;
             // 
             // exclusionsTabPage
             // 
-            this.exclusionsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.exclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.exclusionsTabPage.Name = "exclusionsTabPage";
             this.exclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.exclusionsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.exclusionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.exclusionsTabPage.TabIndex = 3;
             this.exclusionsTabPage.Text = "Exclusions";
             this.exclusionsTabPage.UseVisualStyleBackColor = true;
@@ -770,8 +770,7 @@ namespace MFR.GUI.Windows
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(596, 505);
             this.Controls.Add(this.switchButton);

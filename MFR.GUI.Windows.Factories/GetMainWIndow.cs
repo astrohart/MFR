@@ -6,7 +6,7 @@ namespace MFR.GUI.Windows.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface.
     /// </summary>
-    public static class GetMainWIndow
+    public static class GetMainWindow
     {
         /// <summary>
         /// Obtains access to the sole instance of the object that implements the

@@ -65,6 +65,7 @@ namespace MFR.Renamers.Files
         protected FileRenamer()
         {
             LastSolutionPath = RootDirectoryPath = string.Empty;
+            IsBusy = false;
         }
 
         /// <summary>
@@ -136,6 +137,16 @@ namespace MFR.Renamers.Files
         {
             get;
         } = new FileRenamer();
+
+        /// <summary>
+        /// Gets a value that indicates whether this component is currently processing
+        /// operation(s).
+        /// </summary>
+        public bool IsBusy
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Gets or sets the path to the folder in which last Visual Studio Solution that
@@ -1266,10 +1277,21 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Synchronization root object for creating critical sections.
+        /// </summary>
+        private static object SyncRoot
+        {
+            get;
+        } = new object();
+
+        /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
         /// </summary>
         protected virtual void OnStarting()
         {
+            lock(SyncRoot)
+                IsBusy = true;
+
             Starting?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(FileRenamerMessages.FRM_STARTING);
@@ -1659,6 +1681,9 @@ namespace MFR.Renamers.Files
         /// </summary>
         private void OnFinished()
         {
+            lock (SyncRoot)
+                IsBusy = false;
+
             Finished?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.NoArgs()
                        .ForMessageId(FileRenamerMessages.FRM_FINISHED);

@@ -43,6 +43,6 @@ namespace MFR.GUI.Processors
         /// Executes the processing specified by this processor type.
         /// </summary>
         public override void Process()
-            => Application.Run((Form)GetMainWIndow.SoleInstance());
+            => Application.Run((Form)GetMainWindow.SoleInstance());
     }
 }

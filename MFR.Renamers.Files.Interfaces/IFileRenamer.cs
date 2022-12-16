@@ -18,8 +18,6 @@ namespace MFR.Renamers.Files.Interfaces
     /// </summary>
     public interface IFileRenamer : IConfigurationComposedObject
     {
-
-
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:EnvDTE.DTE" /> interface.
@@ -31,6 +29,15 @@ namespace MFR.Renamers.Files.Interfaces
         /// <see langword="null" /> prior to using it.
         /// </remarks>
         DTE Dte
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether this component is currently processing
+        /// operation(s).
+        /// </summary>
+        bool IsBusy
         {
             get;
         }
@@ -118,14 +125,14 @@ namespace MFR.Renamers.Files.Interfaces
         event ProcessingOperationEventHandler ProcessingOperation;
 
         /// <summary>
-        /// Occurs just before the processing has started.
-        /// </summary>
-        event EventHandler Starting;
-
-        /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
         event EventHandler Started;
+
+        /// <summary>
+        /// Occurs just before the processing has started.
+        /// </summary>
+        event EventHandler Starting;
 
         /// <summary>
         /// Occurs when a textual status message is available for display.

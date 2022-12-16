@@ -75,14 +75,9 @@
   - [Error_StartingFolderMustContainSolutionFile](#P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile 'MFR.GUI.Windows.Properties.Resources.Error_StartingFolderMustContainSolutionFile')
   - [ResourceManager](#P-MFR-GUI-Windows-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Properties.Resources.ResourceManager')
   - [SwitchUpDown_16x](#P-MFR-GUI-Windows-Properties-Resources-SwitchUpDown_16x 'MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x')
-- [TestBedForm](#T-MFR-GUI-Windows-TestBedForm 'MFR.GUI.Windows.TestBedForm')
-  - [#ctor()](#M-MFR-GUI-Windows-TestBedForm-#ctor 'MFR.GUI.Windows.TestBedForm.#ctor')
-  - [components](#F-MFR-GUI-Windows-TestBedForm-components 'MFR.GUI.Windows.TestBedForm.components')
-  - [Instance](#P-MFR-GUI-Windows-TestBedForm-Instance 'MFR.GUI.Windows.TestBedForm.Instance')
-  - [#cctor()](#M-MFR-GUI-Windows-TestBedForm-#cctor 'MFR.GUI.Windows.TestBedForm.#cctor')
-  - [Dispose(disposing)](#M-MFR-GUI-Windows-TestBedForm-Dispose-System-Boolean- 'MFR.GUI.Windows.TestBedForm.Dispose(System.Boolean)')
-  - [InitializeComponent()](#M-MFR-GUI-Windows-TestBedForm-InitializeComponent 'MFR.GUI.Windows.TestBedForm.InitializeComponent')
-  - [OnLoad(e)](#M-MFR-GUI-Windows-TestBedForm-OnLoad-System-EventArgs- 'MFR.GUI.Windows.TestBedForm.OnLoad(System.EventArgs)')
+- [ResponsiveFormBase](#T-MFR-GUI-Windows-ResponsiveFormBase 'MFR.GUI.Windows.ResponsiveFormBase')
+  - [#ctor()](#M-MFR-GUI-Windows-ResponsiveFormBase-#ctor 'MFR.GUI.Windows.ResponsiveFormBase.#ctor')
+  - [OnLoad(e)](#M-MFR-GUI-Windows-ResponsiveFormBase-OnLoad-System-EventArgs- 'MFR.GUI.Windows.ResponsiveFormBase.OnLoad(System.EventArgs)')
 
 <a name='T-MFR-GUI-Windows-MainWindow-Is'></a>
 ## Is `type`
@@ -1236,80 +1231,27 @@ Returns the cached ResourceManager instance used by this class.
 
 Looks up a localized resource of type System.Drawing.Bitmap.
 
-<a name='T-MFR-GUI-Windows-TestBedForm'></a>
-## TestBedForm `type`
+<a name='T-MFR-GUI-Windows-ResponsiveFormBase'></a>
+## ResponsiveFormBase `type`
 
 ##### Namespace
 
 MFR.GUI.Windows
 
-##### Summary
-
-Form for putting controls on as a test bed.
-
-<a name='M-MFR-GUI-Windows-TestBedForm-#ctor'></a>
+<a name='M-MFR-GUI-Windows-ResponsiveFormBase-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Constructs a new instance of
+[ResponsiveFormBase](#T-MFR-GUI-Windows-ResponsiveFormBase 'MFR.GUI.Windows.ResponsiveFormBase') and returns a reference to
+it.
 
 ##### Parameters
 
 This constructor has no parameters.
 
-<a name='F-MFR-GUI-Windows-TestBedForm-components'></a>
-### components `constants`
-
-##### Summary
-
-Required designer variable.
-
-<a name='P-MFR-GUI-Windows-TestBedForm-Instance'></a>
-### Instance `property`
-
-##### Summary
-
-Gets a reference to the one and only instance of
-[TestBedForm](#T-MFR-GUI-Windows-TestBedForm 'MFR.GUI.Windows.TestBedForm').
-
-<a name='M-MFR-GUI-Windows-TestBedForm-#cctor'></a>
-### #cctor() `method`
-
-##### Summary
-
-Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-TestBedForm-Dispose-System-Boolean-'></a>
-### Dispose(disposing) `method`
-
-##### Summary
-
-Clean up any resources being used.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
-
-<a name='M-MFR-GUI-Windows-TestBedForm-InitializeComponent'></a>
-### InitializeComponent() `method`
-
-##### Summary
-
-Required method for Designer support - do not modify
-the contents of this method with the code editor.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-TestBedForm-OnLoad-System-EventArgs-'></a>
+<a name='M-MFR-GUI-Windows-ResponsiveFormBase-OnLoad-System-EventArgs-'></a>
 ### OnLoad(e) `method`
 
 ##### Summary
@@ -1320,4 +1262,5 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |

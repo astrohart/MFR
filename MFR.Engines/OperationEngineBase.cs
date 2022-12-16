@@ -124,6 +124,8 @@ namespace MFR.Engines
 
             OnProcessingStarted();
 
+            FileRenamer.UpdateConfiguration(CurrentConfiguration);
+
             _processingWorker.RunWorkerAsync(
                 new FileRenamerJob {
                     RootDirectory = rootDirectoryPath,
