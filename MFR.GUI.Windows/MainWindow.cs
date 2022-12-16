@@ -373,13 +373,6 @@ namespace MFR.GUI.Windows
         {
             base.OnShown(e);
 
-            Hide();
-            Show();
-            Hide();
-            Show();
-
-            Activate();
-
             // Automatically resize the main window for the monitor it is
             // being displayed upon
             PerformAutoScale();
