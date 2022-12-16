@@ -75,7 +75,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = false;
+        } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.
