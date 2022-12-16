@@ -81,6 +81,14 @@ namespace MFR.GUI.Processors.Factories
 
             switch (type)
             {
+                case CommandLineProcessorType.AutoStart:
+                    result = AutoStartCommandLineProcessor.Instance;
+                    break;
+
+                case CommandLineProcessorType.GuiDriven:
+                    result = GuiDrivenCommandLineProcessor.Instance;
+                    break;
+
                 case CommandLineProcessorType.NoCommandLine:
                     result = NoCommandLineProcessor.Instance;
                     break;

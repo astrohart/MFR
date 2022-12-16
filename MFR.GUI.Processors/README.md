@@ -3,12 +3,91 @@
 
 ## Contents
 
+- [AutoStartCommandLineProcessor](#T-MFR-GUI-Processors-AutoStartCommandLineProcessor 'MFR.GUI.Processors.AutoStartCommandLineProcessor')
+  - [#ctor()](#M-MFR-GUI-Processors-AutoStartCommandLineProcessor-#ctor 'MFR.GUI.Processors.AutoStartCommandLineProcessor.#ctor')
+  - [Instance](#P-MFR-GUI-Processors-AutoStartCommandLineProcessor-Instance 'MFR.GUI.Processors.AutoStartCommandLineProcessor.Instance')
+  - [Type](#P-MFR-GUI-Processors-AutoStartCommandLineProcessor-Type 'MFR.GUI.Processors.AutoStartCommandLineProcessor.Type')
+  - [#cctor()](#M-MFR-GUI-Processors-AutoStartCommandLineProcessor-#cctor 'MFR.GUI.Processors.AutoStartCommandLineProcessor.#cctor')
+  - [Process()](#M-MFR-GUI-Processors-AutoStartCommandLineProcessor-Process 'MFR.GUI.Processors.AutoStartCommandLineProcessor.Process')
 - [CommandLineProcessorBase](#T-MFR-GUI-Processors-CommandLineProcessorBase 'MFR.GUI.Processors.CommandLineProcessorBase')
+  - [CommandLineInfo](#P-MFR-GUI-Processors-CommandLineProcessorBase-CommandLineInfo 'MFR.GUI.Processors.CommandLineProcessorBase.CommandLineInfo')
+  - [ConfigurationProvider](#P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigurationProvider 'MFR.GUI.Processors.CommandLineProcessorBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration 'MFR.GUI.Processors.CommandLineProcessorBase.CurrentConfiguration')
   - [Type](#P-MFR-GUI-Processors-CommandLineProcessorBase-Type 'MFR.GUI.Processors.CommandLineProcessorBase.Type')
   - [Process()](#M-MFR-GUI-Processors-CommandLineProcessorBase-Process 'MFR.GUI.Processors.CommandLineProcessorBase.Process')
+- [GuiDrivenCommandLineProcessor](#T-MFR-GUI-Processors-GuiDrivenCommandLineProcessor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor')
+  - [#ctor()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#ctor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.#ctor')
+  - [Instance](#P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Instance 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.Instance')
+  - [Type](#P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Type 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.Type')
+  - [#cctor()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#cctor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.#cctor')
+  - [Process()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Process 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.Process')
+- [NoCommandLineProcessor](#T-MFR-GUI-Processors-NoCommandLineProcessor 'MFR.GUI.Processors.NoCommandLineProcessor')
+  - [#ctor()](#M-MFR-GUI-Processors-NoCommandLineProcessor-#ctor 'MFR.GUI.Processors.NoCommandLineProcessor.#ctor')
+  - [Instance](#P-MFR-GUI-Processors-NoCommandLineProcessor-Instance 'MFR.GUI.Processors.NoCommandLineProcessor.Instance')
+  - [Type](#P-MFR-GUI-Processors-NoCommandLineProcessor-Type 'MFR.GUI.Processors.NoCommandLineProcessor.Type')
+  - [#cctor()](#M-MFR-GUI-Processors-NoCommandLineProcessor-#cctor 'MFR.GUI.Processors.NoCommandLineProcessor.#cctor')
+  - [Process()](#M-MFR-GUI-Processors-NoCommandLineProcessor-Process 'MFR.GUI.Processors.NoCommandLineProcessor.Process')
 - [Resources](#T-MFR-GUI-Processors-Properties-Resources 'MFR.GUI.Processors.Properties.Resources')
   - [Culture](#P-MFR-GUI-Processors-Properties-Resources-Culture 'MFR.GUI.Processors.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Processors-Properties-Resources-ResourceManager 'MFR.GUI.Processors.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Processors-AutoStartCommandLineProcessor'></a>
+## AutoStartCommandLineProcessor `type`
+
+##### Namespace
+
+MFR.GUI.Processors
+
+<a name='M-MFR-GUI-Processors-AutoStartCommandLineProcessor-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-GUI-Processors-AutoStartCommandLineProcessor-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[ICommandLineProcessor](#T-MFR-GUI-Processors-Interfaces-ICommandLineProcessor 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor') interface
+and that represents the command-line processor that acts when the user
+specifies the `--autoStart` flag on the command line.
+
+<a name='P-MFR-GUI-Processors-AutoStartCommandLineProcessor-Type'></a>
+### Type `property`
+
+##### Summary
+
+Gets a [CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
+enumeration value that identifies the type of processing this processor does.
+
+<a name='M-MFR-GUI-Processors-AutoStartCommandLineProcessor-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Processors-AutoStartCommandLineProcessor-Process'></a>
+### Process() `method`
+
+##### Summary
+
+Executes the processing specified by this processor type.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Processors-CommandLineProcessorBase'></a>
 ## CommandLineProcessorBase `type`
@@ -22,6 +101,57 @@ MFR.GUI.Processors
 Defines the events, methods, properties, and behaviors for all command-line
 processors.
 
+<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-CommandLineInfo'></a>
+### CommandLineInfo `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+from which settings should be read.
+
+<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+The object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface allows access to the configuration settings that the user can use to
+control the behavior of the application.
+
+
+
+As this class is an abstract base class, we made this property `protected`
+so that our child classes can see it.
+
+<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
+
+##### Remarks
+
+This property can be both read from and written to.  This way, if a
+command-line processor decides to update the configuration from the command
+line, then the data currently being stored and loaded by the configuration
+provider can be manipulated by simply setting this property.
+
+
+
+Given that this class is an abstract base class, we have marked this property
+as `protected` so that our child classes can see it.
+
 <a name='P-MFR-GUI-Processors-CommandLineProcessorBase-Type'></a>
 ### Type `property`
 
@@ -31,6 +161,134 @@ Gets a [CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLinePro
 enumeration value that identifies the type of processing this processor does.
 
 <a name='M-MFR-GUI-Processors-CommandLineProcessorBase-Process'></a>
+### Process() `method`
+
+##### Summary
+
+Executes the processing specified by this processor type.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-GUI-Processors-GuiDrivenCommandLineProcessor'></a>
+## GuiDrivenCommandLineProcessor `type`
+
+##### Namespace
+
+MFR.GUI.Processors
+
+##### Summary
+
+Processes the command line, filling in form fields on the GUI with values
+supplied by the user on the command line but otherwise does not run automated
+operations.
+
+<a name='M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[ICommandLineProcessor](#T-MFR-GUI-Processors-Interfaces-ICommandLineProcessor 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor') interface
+and which represents the processor that allows the application's user interface
+to be shown, but with command-line argument values specifying the settings of
+the controls.
+
+<a name='P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Type'></a>
+### Type `property`
+
+##### Summary
+
+Gets a [CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
+enumeration value that identifies the type of processing this processor does.
+
+<a name='M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Process'></a>
+### Process() `method`
+
+##### Summary
+
+Executes the processing specified by this processor type.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-GUI-Processors-NoCommandLineProcessor'></a>
+## NoCommandLineProcessor `type`
+
+##### Namespace
+
+MFR.GUI.Processors
+
+##### Summary
+
+Processes operations that occur when the user launches the application with
+nothing specified on the command line.
+
+<a name='M-MFR-GUI-Processors-NoCommandLineProcessor-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-GUI-Processors-NoCommandLineProcessor-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[ICommandLineProcessor](#T-MFR-GUI-Processors-Interfaces-ICommandLineProcessor 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor') interface
+and which represents the processor that supports the use case when the user
+supplies nothing on the application's command line at launch.
+
+<a name='P-MFR-GUI-Processors-NoCommandLineProcessor-Type'></a>
+### Type `property`
+
+##### Summary
+
+Gets a [CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
+enumeration value that identifies the type of processing this processor does.
+
+<a name='M-MFR-GUI-Processors-NoCommandLineProcessor-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Processors-NoCommandLineProcessor-Process'></a>
 ### Process() `method`
 
 ##### Summary

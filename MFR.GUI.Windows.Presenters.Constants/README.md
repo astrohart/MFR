@@ -16,6 +16,7 @@
   - [MWP_DATA_OPERATION_STARTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_STARTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED')
   - [MWP_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_FINISHED')
   - [MWP_OPERATION_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_OPERATION_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_OPERATION_FINISHED')
+  - [MWP_STARTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_STARTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_STARTED')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Constants-Properties-Resources 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.ResourceManager')
@@ -139,6 +140,14 @@ have finished.
 Unique identifier for the message that is sent by the Presenter of
 the main application window when one of the file-rename operations
 has just come to completion.
+
+<a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_STARTED'></a>
+### MWP_STARTED `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the main
+application window's Presenter when a file-rename operation is started.
 
 <a name='T-MFR-GUI-Windows-Presenters-Constants-Properties-Resources'></a>
 ## Resources `type`

@@ -43,6 +43,7 @@
   - [OnDataOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationFinished')
   - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Operations.Events.DataOperationEventArgs)')
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
+  - [OnOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationFinished(System.Object,System.EventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
@@ -546,8 +547,7 @@ starting-folder entries in the history.
 
 
 
-Starting-folder pathname entries aren't added to the
-projectFileRenamerConfiguration's history
+Starting-folder pathname entries aren't added to the configuration's history
 list if an entry having the same content already exists in the history.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs-'></a>
@@ -652,6 +652,18 @@ finish an operation. Typically, the client object is the main
 application window, which should respond by dismissing any progress
 dialog that may have been previously shown during the operation and
 re-enabling user input.
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs-'></a>
+### OnOperationFinished() `method`
+
+##### Summary
+
+This method is called when the Operation Engine sends the
+`OE_PROCESSING_FINISHED` message.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String-'></a>
 ### ProfileAlreadyExist(profileName) `method`

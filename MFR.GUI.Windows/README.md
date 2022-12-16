@@ -496,7 +496,7 @@ Replace With combo boxes.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the File -> Exit menu command.
+event for the command on the menu.
 
 ##### Parameters
 

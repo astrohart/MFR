@@ -34,20 +34,20 @@ namespace MFR.Settings.Configuration
         /// and
         /// returns a reference to it.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// that holds settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        protected ConfigurationComposedObjectBase(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+        protected ConfigurationComposedObjectBase(IProjectFileRenamerConfiguration configuration)
         {
-            CurrentConfiguration = projectFileRenamerConfiguration ??
+            CurrentConfiguration = configuration ??
                             throw new ArgumentNullException(
-                                nameof(projectFileRenamerConfiguration)
+                                nameof(configuration)
                             );
         }
 
@@ -87,18 +87,18 @@ namespace MFR.Settings.Configuration
         /// </returns>
         /// <remarks>
         /// The <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// -implementing projectFileRenamerConfiguration object controls the behavior of this
+        /// -implementing configuration object controls the behavior of this
         /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public dynamic AndAttachConfiguration(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+        public dynamic AndAttachConfiguration(IProjectFileRenamerConfiguration configuration)
         {
-            CurrentConfiguration = projectFileRenamerConfiguration ??
+            CurrentConfiguration = configuration ??
                             throw new ArgumentNullException(
-                                nameof(projectFileRenamerConfiguration)
+                                nameof(configuration)
                             );
 
             return this;
@@ -131,20 +131,20 @@ namespace MFR.Settings.Configuration
                                );
 
         /// <summary>
-        /// Verifies that projectFileRenamerConfiguration has been attached to this object.
+        /// Verifies that configuration has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// If no projectFileRenamerConfiguration is attached to this object, then
+        /// If no configuration is attached to this object, then
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException" />
         /// is thrown.
         /// <para />
         /// <strong>NOTE:</strong> Child classes may override this method, e.g., to make
-        /// attaching a projectFileRenamerConfiguration object optional.
+        /// attaching a configuration object optional.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
+        /// Thrown if no configuration data is attached to this object.
         /// </exception>
         public virtual void VerifyConfigurationAttached()
         {

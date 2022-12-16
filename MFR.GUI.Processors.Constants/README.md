@@ -4,8 +4,9 @@
 ## Contents
 
 - [CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
-  - [Automated](#F-MFR-GUI-Processors-Constants-CommandLineProcessorType-Automated 'MFR.GUI.Processors.Constants.CommandLineProcessorType.Automated')
+  - [AutoStart](#F-MFR-GUI-Processors-Constants-CommandLineProcessorType-AutoStart 'MFR.GUI.Processors.Constants.CommandLineProcessorType.AutoStart')
   - [GuiDriven](#F-MFR-GUI-Processors-Constants-CommandLineProcessorType-GuiDriven 'MFR.GUI.Processors.Constants.CommandLineProcessorType.GuiDriven')
+  - [NoCommandLine](#F-MFR-GUI-Processors-Constants-CommandLineProcessorType-NoCommandLine 'MFR.GUI.Processors.Constants.CommandLineProcessorType.NoCommandLine')
   - [Unknown](#F-MFR-GUI-Processors-Constants-CommandLineProcessorType-Unknown 'MFR.GUI.Processors.Constants.CommandLineProcessorType.Unknown')
 - [Resources](#T-MFR-GUI-Processors-Constants-Properties-Resources 'MFR.GUI.Processors.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Processors-Constants-Properties-Resources-Culture 'MFR.GUI.Processors.Constants.Properties.Resources.Culture')
@@ -22,8 +23,8 @@ MFR.GUI.Processors.Constants
 
 Values to indicate how we are going to process the application's command line.
 
-<a name='F-MFR-GUI-Processors-Constants-CommandLineProcessorType-Automated'></a>
-### Automated `constants`
+<a name='F-MFR-GUI-Processors-Constants-CommandLineProcessorType-AutoStart'></a>
+### AutoStart `constants`
 
 ##### Summary
 
@@ -42,6 +43,14 @@ own.
 
 If the configuration has been specified on the command line, we'll
 fill those fields in on the user-interface for the user in advance.
+
+<a name='F-MFR-GUI-Processors-Constants-CommandLineProcessorType-NoCommandLine'></a>
+### NoCommandLine `constants`
+
+##### Summary
+
+The user launched the application but specified nothing on the application's
+command line.
 
 <a name='F-MFR-GUI-Processors-Constants-CommandLineProcessorType-Unknown'></a>
 ### Unknown `constants`

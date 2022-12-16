@@ -14,12 +14,12 @@ namespace MFR.Engines.Constants
         /// Unique identifier for the message that is sent by the Operation Engine when all
         /// of the requested file-renaming operations have been completed.
         /// </summary>
-        public static readonly Guid OE_OPERATION_FINISHED = Guid.NewGuid();
+        public static readonly Guid OE_PROCESSING_FINISHED = Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for the message that is sent by the Operation Engine when a
         /// new <see cref="T:MFR.Renamers.Files.FileRenamer" /> job is started.
         /// </summary>
-        public static readonly Guid OE_OPERATION_STARTED = Guid.NewGuid();
+        public static readonly Guid OE_PROCESSING_STARTED = Guid.NewGuid();
     }
 }

@@ -373,6 +373,13 @@ namespace MFR.GUI.Windows
         {
             base.OnShown(e);
 
+            Hide();
+            Show();
+            Hide();
+            Show();
+
+            Activate();
+
             // Automatically resize the main window for the monitor it is
             // being displayed upon
             PerformAutoScale();
@@ -597,7 +604,7 @@ namespace MFR.GUI.Windows
                 .WithMessageId(MainWindowPresenterMessages.MWP_FINISHED)
                 .AndEventHandler(OnPresenterFinished);
             NewMessageMapping.Associate.WithMessageId(
-                                 OperationEngineMessages.OE_OPERATION_STARTED
+                                 OperationEngineMessages.OE_PROCESSING_STARTED
                              )
                              .AndEventHandler(OnOperationStarted);
         }

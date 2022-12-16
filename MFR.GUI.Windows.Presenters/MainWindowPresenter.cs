@@ -31,6 +31,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
@@ -1049,7 +1050,7 @@ namespace MFR.GUI.Windows.Presenters
                        .ForMessageId(MainWindowPresenterMessages.MWP_FINISHED);
         }
 
-        protected virtual void OnOperationStarted()
+        protected virtual void OnOperationStarted(object sender, EventArgs e)
         {
             Started?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
@@ -1071,14 +1072,14 @@ namespace MFR.GUI.Windows.Presenters
         {
             if (OperationEngine == null) return;
 
-            NewMessageMapping.Associate.WithMessageId(
-                                 OperationEngineMessages.OE_OPERATION_STARTED
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
+                                 OperationEngineMessages.OE_PROCESSING_STARTED
                              )
-                             .AndHandler(new Action(OnOperationStarted));
-            NewMessageMapping.Associate.WithMessageId(
-                                 OperationEngineMessages.OE_OPERATION_FINISHED
+                             .AndHandler(new EventHandler(OnOperationStarted));
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
+                                 OperationEngineMessages.OE_PROCESSING_FINISHED
                              )
-                             .AndHandler(new Action(OnOperationFinished));
+                             .AndHandler(new EventHandler(OnOperationFinished));
         }
 
         /// <summary>
@@ -1138,10 +1139,10 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// This method is called when the Operation Engine sends the
-        /// <c>OE_OPERATION_FINISHED</c> message.
+        /// <c>OE_PROCESSING_FINISHED</c> message.
         /// </summary>
-        private void OnOperationFinished()
-            => OnFinished(); // raise the Finish event
+        private void OnOperationFinished(object sender, EventArgs e)
+            => OnFinished(); // raise the Finished event
 
         /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are

@@ -7,6 +7,8 @@
   - [Culture](#P-MFR-CommandLine-Translators-Properties-Resources-Culture 'MFR.CommandLine.Translators.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Translators-Properties-Resources-ResourceManager 'MFR.CommandLine.Translators.Properties.Resources.ResourceManager')
 - [TranslateCommandLineInfo](#T-MFR-CommandLine-Translators-TranslateCommandLineInfo 'MFR.CommandLine.Translators.TranslateCommandLineInfo')
+  - [ConfigurationProvider](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigurationProvider 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfiguration 'MFR.CommandLine.Translators.TranslateCommandLineInfo.CurrentConfiguration')
   - [ToConfiguration(cmdInfo)](#M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ToConfiguration(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 
 <a name='T-MFR-CommandLine-Translators-Properties-Resources'></a>
@@ -55,6 +57,31 @@ into instances of objects of other types, such as an instance of an object that
 implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface, for example.
+
+<a name='P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to the one and only instance of the object that
+implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that represents the currently-loaded configuration.
 
 <a name='M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
 ### ToConfiguration(cmdInfo) `method`

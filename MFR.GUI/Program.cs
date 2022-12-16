@@ -1,8 +1,8 @@
+using MFR.CommandLine.Models.Factories;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
 using MFR.CommandLine.Parsers.Interfaces;
-using MFR.CommandLine.Translators;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
 using MFR.CommandLine.Validators.Interfaces;
@@ -10,13 +10,9 @@ using MFR.Common;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
-using MFR.Engines.Constants;
-using MFR.Engines.Factories;
-using MFR.Engines.Interfaces;
+using MFR.GUI.Actions;
 using MFR.GUI.Displayers;
-using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Factories;
-using MFR.GUI.Processors.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -47,7 +43,7 @@ namespace MFR.GUI
         /// Gets a value indicating whether the application should automatically process
         /// operations requested by the user from the command line.
         /// </summary>
-        private static bool AutoStart
+        public static bool AutoStart
             => CommandLineInfo.AutoStart;
 
         /// <summary>
@@ -100,19 +96,6 @@ namespace MFR.GUI
         private static IProjectFileRenamerConfigurationProvider
             ConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets or sets a reference to the one and only instance of the object that
-        /// implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface that represents the currently-loaded configuration.
-        /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
-        {
-            get => ConfigurationProvider.CurrentConfiguration;
-            set => ConfigurationProvider.CurrentConfiguration = value;
-        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -301,7 +284,10 @@ namespace MFR.GUI
             CommandLineSpecified = args.Any();
 
             if (!args.Any())
+            {
+                CommandLineInfo = MakeNewCommandLineInfo.FromScratch();
                 return; // This app can be launched with no command-line arguments.
+            }
 
             CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
             CommandLineInfo = CommandLineParser.Parse(args);
@@ -314,58 +300,18 @@ namespace MFR.GUI
         /// Takes actions based on what arguments were passed to the application.
         /// </summary>
         private static void ProcessCommandLine()
-        {
             /*
              * If the user specified one or more argument(s) on the command line of this
              * application, translate those parameters into projectFileRenamerConfiguration settings for this
              * run.
              */
-
-            ICommandLineProcessor processor = GetCommandLineProcessor
-                                              .OfType(
-                                                  GetCommandLineProcessorType()
-                                              )
-                                              .HavingCommandLineInfo(
-                                                  CommandLineInfo
-                                              )
-                                              .AndAttachConfiguration(
-                                                  CurrentConfiguration
-                                              );
-            processor.Process();
-
-            if (CommandLineSpecified)
-            {
-                /*
-                 * If we are here, then the user specified arguments on the command line.
-                 * If Auto-Start was requested, translate the entirety of the command-line
-                 * arguments into the current projectFileRenamerConfiguration, overwriting whatever was read in
-                 * from the configuration file on the disk.
-                 *
-                 * If Auto-Start mode is not requested, then simply overwrite the Starting
-                 * Folder setting in the loaded projectFileRenamerConfiguration with the Starting Folder that
-                 * is supplied on the command line.
-                 */
-
-                CurrentConfiguration = CommandLineInfo.ToConfiguration();
-
-                if (AutoStart)
-                {
-                    IFullGuiOperationEngine engine = GetOperationEngine
-                        .OfType<IFullGuiOperationEngine>(
-                            OperationEngineType.FullGUI
-                        )
-                        .AndAttachConfiguration(CurrentConfiguration);
-
-                    engine.ProcessAll(
-                        CurrentConfiguration.StartingFolder,
-                        CurrentConfiguration.FindWhat,
-                        CurrentConfiguration.ReplaceWith
-                    );
-
-                    return;
-                }
-            }
-        }
+            => GetCommandLineProcessor.OfType(
+                                          Get.CommandLineProcessorType(
+                                              CommandLineSpecified, AutoStart
+                                          )
+                                      )
+                                      .HavingCommandLineInfo(CommandLineInfo)
+                                      .Process();
 
         /// <summary>
         /// Configures the display settings, such as DPI-awareness and visual
@@ -428,16 +374,6 @@ namespace MFR.GUI
                 message, Application.ProductName, MessageBoxButtons.OK,
                 MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
             );
-        }
-
-        private static CommandLineProcessorType GetCommandLineProcessorType()
-        {
-            if (!CommandLineSpecified)
-                return CommandLineProcessorType.NoCommandLine;
-
-            return AutoStart
-                ? CommandLineProcessorType.AutoStart
-                : CommandLineProcessorType.GuiDriven;
         }
     }
 }

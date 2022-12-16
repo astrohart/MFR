@@ -1,3 +1,4 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Models;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -42,6 +43,8 @@ namespace MFR.Settings.Configuration.Factories
             string findWhat)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
+            if (!string.IsNullOrWhiteSpace(self.FindWhat) &&
+                string.IsNullOrWhiteSpace(findWhat)) return self;
 
             self.FindWhat = findWhat;
             return self;
@@ -277,6 +280,8 @@ namespace MFR.Settings.Configuration.Factories
             string replaceWith)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
+            if (!string.IsNullOrWhiteSpace(self.ReplaceWith) &&
+                string.IsNullOrWhiteSpace(replaceWith)) return self;
 
             self.ReplaceWith = replaceWith;
             return self;
@@ -512,6 +517,8 @@ namespace MFR.Settings.Configuration.Factories
             string startingFolder)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
+            if (string.IsNullOrWhiteSpace(startingFolder)) return self;
+            if (!Directory.Exists(startingFolder)) return self;
 
             self.StartingFolder = startingFolder;
             return self;

@@ -4,6 +4,7 @@
 ## Contents
 
 - [ICommandLineProcessor](#T-MFR-GUI-Processors-Interfaces-ICommandLineProcessor 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor')
+  - [CommandLineInfo](#P-MFR-GUI-Processors-Interfaces-ICommandLineProcessor-CommandLineInfo 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor.CommandLineInfo')
   - [Type](#P-MFR-GUI-Processors-Interfaces-ICommandLineProcessor-Type 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor.Type')
   - [Process()](#M-MFR-GUI-Processors-Interfaces-ICommandLineProcessor-Process 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor.Process')
 - [Resources](#T-MFR-GUI-Processors-Interfaces-Properties-Resources 'MFR.GUI.Processors.Interfaces.Properties.Resources')
@@ -19,7 +20,17 @@ MFR.GUI.Processors.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a command-line processor object.
+Defines the publicly-exposed methods and properties of a command-line processor
+object.
+
+<a name='P-MFR-GUI-Processors-Interfaces-ICommandLineProcessor-CommandLineInfo'></a>
+### CommandLineInfo `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+from which settings should be read.
 
 <a name='P-MFR-GUI-Processors-Interfaces-ICommandLineProcessor-Type'></a>
 ### Type `property`

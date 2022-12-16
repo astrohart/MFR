@@ -84,6 +84,7 @@
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="PostSharp, Version=6.10.16.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.6.10.16\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -136,6 +137,10 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj">
+      <Project>{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}</Project>
+      <Name>MFR.CommandLine.Models.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
       <Name>MFR.CommandLine.Models.Interfaces</Name>
@@ -187,6 +192,10 @@
     <ProjectReference Include="..\MFR.Engines.Interfaces\MFR.Engines.Interfaces.csproj">
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
       <Name>MFR.Engines.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Actions\MFR.GUI.Actions.csproj">
+      <Project>{80F2209F-D7BA-4B41-A5F4-3E7FD0A939DC}</Project>
+      <Name>MFR.GUI.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>

@@ -5,8 +5,8 @@
 
 - [OperationEngineMessages](#T-MFR-Engines-Constants-OperationEngineMessages 'MFR.Engines.Constants.OperationEngineMessages')
   - [OE_OPERATION_ERROR](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_ERROR 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_ERROR')
-  - [OE_OPERATION_FINISHED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_FINISHED 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_FINISHED')
-  - [OE_OPERATION_STARTED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_STARTED 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_STARTED')
+  - [OE_PROCESSING_FINISHED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_FINISHED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_FINISHED')
+  - [OE_PROCESSING_STARTED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_STARTED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_STARTED')
 - [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType')
   - [Console](#F-MFR-Engines-Constants-OperationEngineType-Console 'MFR.Engines.Constants.OperationEngineType.Console')
   - [FullGUI](#F-MFR-Engines-Constants-OperationEngineType-FullGUI 'MFR.Engines.Constants.OperationEngineType.FullGUI')
@@ -30,16 +30,16 @@ MFR.Engines.Constants
 Unique identifier for the message that is sent by the Operation Engine when one
 of the file-renaming operations throws an exception.
 
-<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_FINISHED'></a>
-### OE_OPERATION_FINISHED `constants`
+<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_FINISHED'></a>
+### OE_PROCESSING_FINISHED `constants`
 
 ##### Summary
 
 Unique identifier for the message that is sent by the Operation Engine when all
 of the requested file-renaming operations have been completed.
 
-<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_STARTED'></a>
-### OE_OPERATION_STARTED `constants`
+<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_STARTED'></a>
+### OE_PROCESSING_STARTED `constants`
 
 ##### Summary
 

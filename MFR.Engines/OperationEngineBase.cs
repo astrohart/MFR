@@ -369,9 +369,9 @@ namespace MFR.Engines
         protected virtual void OnProcessingFinished()
         {
             ProcessingFinished?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.NoArgs()
+            SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(
-                           OperationEngineMessages.OE_OPERATION_FINISHED
+                           OperationEngineMessages.OE_PROCESSING_FINISHED
                        );
         }
 
@@ -383,9 +383,9 @@ namespace MFR.Engines
         protected virtual void OnProcessingStarted()
         {
             ProcessingStarted?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.NoArgs()
+            SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(
-                           OperationEngineMessages.OE_OPERATION_STARTED
+                           OperationEngineMessages.OE_PROCESSING_STARTED
                        );
         }
 

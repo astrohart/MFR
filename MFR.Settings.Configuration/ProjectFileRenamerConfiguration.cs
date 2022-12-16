@@ -49,7 +49,7 @@ namespace MFR.Settings.Configuration
         /// <param name="source">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
-        /// that contains existing projectFileRenamerConfiguration settings to copy into this object.
+        /// that contains existing configuration settings to copy into this object.
         /// </param>
         public ProjectFileRenamerConfiguration(IProjectFileRenamerConfiguration source)
         {
@@ -81,7 +81,7 @@ namespace MFR.Settings.Configuration
         /// specified operation(s) have been completed.
         /// </summary>
         /// <remarks>
-        /// This flag is ignored if this projectFileRenamerConfiguration did not originate from the command
+        /// This flag is ignored if this configuration did not originate from the command
         /// line.
         /// </remarks>
         public bool AutoStart
@@ -127,7 +127,7 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this projectFileRenamerConfiguration was specified by the
+        /// Gets or sets a value indicating whether this configuration was specified by the
         /// user on the command line.
         /// </summary>
         public bool IsFromCommandLine

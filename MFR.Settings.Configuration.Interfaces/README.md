@@ -79,13 +79,13 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
 is passed a `null` value. |
 
 ##### Remarks
 
 The [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
--implementing projectFileRenamerConfiguration object controls the behavior of this
+-implementing configuration object controls the behavior of this
 object by dint of the settings chosen by the user at runtime.
 
 <a name='M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
@@ -120,7 +120,7 @@ from this point forward.
 
 ##### Summary
 
-Verifies that projectFileRenamerConfiguration has been attached to this object.
+Verifies that configuration has been attached to this object.
 
 ##### Parameters
 
@@ -130,11 +130,11 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
-If no projectFileRenamerConfiguration is attached to this object, then a new
+If no configuration is attached to this object, then a new
 [ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException')
 exception is thrown.
 

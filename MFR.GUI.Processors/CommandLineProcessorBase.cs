@@ -1,7 +1,6 @@
 ﻿using MFR.CommandLine.Models.Interfaces;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
-using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -12,9 +11,7 @@ namespace MFR.GUI.Processors
     /// Defines the events, methods, properties, and behaviors for all command-line
     /// processors.
     /// </summary>
-    public abstract class
-        CommandLineProcessorBase : ConfigurationComposedObjectBase,
-            ICommandLineProcessor
+    public abstract class CommandLineProcessorBase : ICommandLineProcessor
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements the

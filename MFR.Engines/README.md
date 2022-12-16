@@ -12,11 +12,6 @@
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-Engines-ConsoleOperationEngine-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Engines.ConsoleOperationEngine.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-ConsoleOperationEngine-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.ConsoleOperationEngine.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-ConsoleOperationEngine-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.ConsoleOperationEngine.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
-- [FileRenamerJob](#T-MFR-Engines-FileRenamerJob 'MFR.Engines.FileRenamerJob')
-  - [FindWhat](#P-MFR-Engines-FileRenamerJob-FindWhat 'MFR.Engines.FileRenamerJob.FindWhat')
-  - [PathFilter](#P-MFR-Engines-FileRenamerJob-PathFilter 'MFR.Engines.FileRenamerJob.PathFilter')
-  - [ReplaceWith](#P-MFR-Engines-FileRenamerJob-ReplaceWith 'MFR.Engines.FileRenamerJob.ReplaceWith')
-  - [RootDirectory](#P-MFR-Engines-FileRenamerJob-RootDirectory 'MFR.Engines.FileRenamerJob.RootDirectory')
 - [FullGuiOperationEngine](#T-MFR-Engines-FullGuiOperationEngine 'MFR.Engines.FullGuiOperationEngine')
   - [#ctor()](#M-MFR-Engines-FullGuiOperationEngine-#ctor 'MFR.Engines.FullGuiOperationEngine.#ctor')
   - [_cancellableProgressDialog](#F-MFR-Engines-FullGuiOperationEngine-_cancellableProgressDialog 'MFR.Engines.FullGuiOperationEngine._cancellableProgressDialog')
@@ -234,53 +229,6 @@ Otherwise, the method responds by incrementing the progress dialog's
 progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
-
-<a name='T-MFR-Engines-FileRenamerJob'></a>
-## FileRenamerJob `type`
-
-##### Namespace
-
-MFR.Engines
-
-##### Summary
-
-Encapsulates the parameters for a
-[FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer') job.
-
-<a name='P-MFR-Engines-FileRenamerJob-FindWhat'></a>
-### FindWhat `property`
-
-##### Summary
-
-Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the content to be
-found in file names, folder names, and file contents.
-
-<a name='P-MFR-Engines-FileRenamerJob-PathFilter'></a>
-### PathFilter `property`
-
-##### Summary
-
-Gets or sets an instance of [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func') that points to a
-delegate, accepting the current file or folder's path as an argument, that
-returns `true` if the file should be included in the operation
-or `false` otherwise.
-
-<a name='P-MFR-Engines-FileRenamerJob-ReplaceWith'></a>
-### ReplaceWith `property`
-
-##### Summary
-
-Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value(s) that
-should be substituted for the found content in file names, folder names, and
-file contents.
-
-<a name='P-MFR-Engines-FileRenamerJob-RootDirectory'></a>
-### RootDirectory `property`
-
-##### Summary
-
-Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of the folder in which the job was ready to start.
 
 <a name='T-MFR-Engines-FullGuiOperationEngine'></a>
 ## FullGuiOperationEngine `type`
@@ -1163,14 +1111,17 @@ filtering is done. |
 
 ##### Summary
 
-Updates the `configuration` currently being used with a new value.
+Updates the `configuration` currently being used with a new
+value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface
 which has the new settings. |
 
 ##### Exceptions

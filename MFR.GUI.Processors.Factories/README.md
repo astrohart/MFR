@@ -4,6 +4,7 @@
 ## Contents
 
 - [GetCommandLineProcessor](#T-MFR-GUI-Processors-Factories-GetCommandLineProcessor 'MFR.GUI.Processors.Factories.GetCommandLineProcessor')
+  - [HavingCommandLineInfo(self,cmdInfo)](#M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-HavingCommandLineInfo-MFR-GUI-Processors-Interfaces-ICommandLineProcessor,MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Processors.Factories.GetCommandLineProcessor.HavingCommandLineInfo(MFR.GUI.Processors.Interfaces.ICommandLineProcessor,MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [OfType(type)](#M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-OfType-MFR-GUI-Processors-Constants-CommandLineProcessorType- 'MFR.GUI.Processors.Factories.GetCommandLineProcessor.OfType(MFR.GUI.Processors.Constants.CommandLineProcessorType)')
 - [Resources](#T-MFR-GUI-Processors-Factories-Properties-Resources 'MFR.GUI.Processors.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Processors-Factories-Properties-Resources-Culture 'MFR.GUI.Processors.Factories.Properties.Resources.Culture')
@@ -20,6 +21,40 @@ MFR.GUI.Processors.Factories
 
 Creates instances of objects that implement the
 [ICommandLineProcessor](#T-MFR-GUI-Processors-Factories-ICommandLineProcessor 'MFR.GUI.Processors.Factories.ICommandLineProcessor') interface.
+
+<a name='M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-HavingCommandLineInfo-MFR-GUI-Processors-Interfaces-ICommandLineProcessor,MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### HavingCommandLineInfo(self,cmdInfo) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[CommandLineInfo](#P-MFR-GUI-Processors-Interfaces-ICommandLineProcessor-CommandLineInfo 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor.CommandLineInfo')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.GUI.Processors.Interfaces.ICommandLineProcessor](#T-MFR-GUI-Processors-Interfaces-ICommandLineProcessor 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor') | (Required.) Reference to an instance of an object that implements
+the
+[ICommandLineProcessor](#T-MFR-GUI-Processors-Interfaces-ICommandLineProcessor 'MFR.GUI.Processors.Interfaces.ICommandLineProcessor')
+interface. |
+| cmdInfo | [MFR.CommandLine.Models.Interfaces.ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') | (Required.) Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+that describes the settings specified by the user on this application's command
+line. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
 
 <a name='M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-OfType-MFR-GUI-Processors-Constants-CommandLineProcessorType-'></a>
 ### OfType(type) `method`

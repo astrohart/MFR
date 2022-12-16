@@ -33,15 +33,15 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </returns>
         /// <remarks>
         /// The <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// -implementing projectFileRenamerConfiguration object controls the behavior of this
+        /// -implementing configuration object controls the behavior of this
         /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         dynamic AndAttachConfiguration(
-            IProjectFileRenamerConfiguration projectFileRenamerConfiguration);
+            IProjectFileRenamerConfiguration configuration);
 
         /// <summary>
         /// Updates the <paramref name="configuration"/> currently being used with a new value.
@@ -62,17 +62,17 @@ namespace MFR.Settings.Configuration.Interfaces
         void UpdateConfiguration(IProjectFileRenamerConfiguration configuration);
 
         /// <summary>
-        /// Verifies that projectFileRenamerConfiguration has been attached to this object.
+        /// Verifies that configuration has been attached to this object.
         /// </summary>
         /// <remarks>
-        /// If no projectFileRenamerConfiguration is attached to this object, then a new
+        /// If no configuration is attached to this object, then a new
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException" />
         /// exception is thrown.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
+        /// Thrown if no configuration data is attached to this object.
         /// </exception>
         void VerifyConfigurationAttached();
     }

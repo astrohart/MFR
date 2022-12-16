@@ -8,7 +8,7 @@ namespace MFR.GUI.Processors.Interfaces
     /// Defines the publicly-exposed methods and properties of a command-line processor
     /// object.
     /// </summary>
-    public interface ICommandLineProcessor : IConfigurationComposedObject
+    public interface ICommandLineProcessor
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements the
