@@ -10,20 +10,20 @@ namespace MFR.Operations.Descriptions
     /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription :
-            IOperationTypeStartedDescription
+        CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription :
+            IOperationStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription() { }
+        static CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription() { }
+        protected CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -32,10 +32,10 @@ namespace MFR.Operations.Descriptions
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription Instance
+        public static CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription Instance
         {
             get;
-        } = new CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription();
+        } = new CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription();
 
         /// <summary>
         /// Gets one of the

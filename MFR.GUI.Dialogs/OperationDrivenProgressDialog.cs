@@ -152,9 +152,11 @@ namespace MFR.GUI.Dialogs
         {
             base.OnLoad(e);
 
-            ProgressBar.MarqueeAnimationSpeed = 30;
-            ProgressBar.Style = ProgressBarStyle.Marquee;
-            Text = Application.ProductName;
+            InitializeStartPosition();
+
+            InitializeProgressBar();
+
+            UpdateCaption();
         }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
@@ -167,6 +169,13 @@ namespace MFR.GUI.Dialogs
             base.OnShown(e);
 
             if (Proc == null) return;
+
+            if (FormStartPosition.CenterParent == StartPosition)
+                CenterToParent();
+            else
+                CenterToScreen();
+
+            Application.DoEvents();
 
             _worker.RunWorkerAsync(Argument);
         }
@@ -190,6 +199,24 @@ namespace MFR.GUI.Dialogs
             _worker.DoWork += OnDoWork;
             _worker.RunWorkerCompleted += OnRunWorkerCompleted;
         }
+
+        private void InitializeProgressBar()
+        {
+            ProgressBar.MarqueeAnimationSpeed = 30;
+            ProgressBar.Style = ProgressBarStyle.Marquee;
+        }
+
+        /// <summary>
+        /// Sets the value of the <see cref="P:System.Windows.Forms.Form.StartPosition" />
+        /// property to either
+        /// <see cref="F:System.Windows.Forms.FormStartPosition.CenterParent" /> or
+        /// <see cref="F:System.Windows.Forms.FormStartPosition.CenterScreen" />, depending
+        /// on whether we have an owner window.
+        /// </summary>
+        private void InitializeStartPosition()
+            => StartPosition = Owner != null
+                ? FormStartPosition.CenterParent
+                : FormStartPosition.CenterScreen;
 
         /// <summary>
         /// Handles the <see cref="E:System.ComponentModel.BackgroundWorker.DoWork" />
@@ -241,6 +268,7 @@ namespace MFR.GUI.Dialogs
             Result = e.Result;
 
             DialogResult = DialogResult.OK;
+            Close();
         }
 
         /// <summary>
@@ -252,5 +280,21 @@ namespace MFR.GUI.Dialogs
             Refresh();
             Application.DoEvents();
         }
+
+        /// <summary>
+        /// Updates the window's caption to reflect the new value.
+        /// </summary>
+        /// <param name="caption">
+        /// (Optional.) A <see cref="T:System.String" /> containing the new caption text.
+        /// </param>
+        /// <remarks>
+        /// If the blank string is passed for the <paramref name="caption" />
+        /// parameter, then this method sets the window caption to match the value of the
+        /// <see cref="P:System.Windows.Forms.Application.ProductName" /> property.
+        /// </remarks>
+        private void UpdateCaption(string caption = "")
+            => Text = !string.IsNullOrWhiteSpace(caption)
+                ? caption
+                : Application.ProductName;
     }
 }

@@ -6,42 +6,45 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user during a Rename
-    /// Files in Folder operation.
+    /// Gets the descriptive text to be displayed to the user while the application is initializing itself.
     /// </summary>
     public class
-        RenameFilesInFolderOperationTypeDescription : IOperationTypeDescription
+        InitializeApplicationOperationStartedDescription :
+            IOperationStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameFilesInFolderOperationTypeDescription() { }
+        static InitializeApplicationOperationStartedDescription()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameFilesInFolderOperationTypeDescription() { }
+        protected InitializeApplicationOperationStartedDescription()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Operations.Descriptions.RenameFilesInFolderOperationTypeDescription" />
-        /// .
+        /// Gets a reference to the one and only instance of <see
+        /// cref="T:MFR.GettingListOfFilesToBeRenamedOperationStartedDescription"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderOperationTypeDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
-        } = new RenameFilesInFolderOperationTypeDescription();
+        } = new InitializeApplicationOperationStartedDescription();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.OperationType" /> values
-        /// that corresponds to the type of operation being performed.
+        /// Gets one of the <see
+        /// cref="T:MFR.OperationType"/> values that
+        /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            => OperationType.InitializeApplication;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -53,6 +56,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationDescription_RenameFilesInFolder;
+        } = Resources.OperationStartedDescription_InitializeApplication;
     }
 }

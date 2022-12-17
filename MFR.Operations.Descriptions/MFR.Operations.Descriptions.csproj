@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{97DF2C75-037A-499C-A71F-1FADC622880D}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -100,27 +101,28 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription.cs" />
-    <Compile Include="GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription.cs" />
+    <Compile Include="CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.cs" />
+    <Compile Include="GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription.cs" />
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="CloseActiveSolutionOperationTypeStartedDescription.cs" />
-    <Compile Include="FindVisualStudioOperationTypeStartedDescription.cs" />
-    <Compile Include="GettingListOfFilesToBeRenamedOperationTypeStartedDescription.cs" />
-    <Compile Include="LoadAllSolutionsInFolderOperationTypeDescription.cs" />
-    <Compile Include="OpenActiveSolutionOperationTypeStartedDescription.cs" />
+    <Compile Include="CloseActiveSolutionOperationStartedDescription.cs" />
+    <Compile Include="FindVisualStudioOperationStartedDescription.cs" />
+    <Compile Include="GettingListOfFilesToBeRenamedOperationStartedDescription.cs" />
+    <Compile Include="InitializeApplicationOperationStartedDescription.cs" />
+    <Compile Include="LoadAllSolutionsInFolderOperationDescription.cs" />
+    <Compile Include="OpenActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RenameFilesInFolderOperationTypeDescription.cs" />
-    <Compile Include="RenameFilesInFolderOperationTypeStartedDescription.cs" />
-    <Compile Include="RenameSubFoldersOperationTypeDescription.cs" />
-    <Compile Include="RenameSubFoldersOperationTypeStartedDescription.cs" />
-    <Compile Include="ReplaceTextInFilesOperationTypeDescription.cs" />
-    <Compile Include="ReplaceTextInFilesOperationTypeStartedDescription.cs" />
-    <Compile Include="UnloadAllSolutionsInFolderOperationTypeDescription.cs" />
+    <Compile Include="RenameFilesInFolderOperationDescription.cs" />
+    <Compile Include="RenameFilesInFolderOperationStartedDescription.cs" />
+    <Compile Include="RenameSubFoldersOperationDescription.cs" />
+    <Compile Include="RenameSubFoldersOperationStartedDescription.cs" />
+    <Compile Include="ReplaceTextInFilesOperationDescription.cs" />
+    <Compile Include="ReplaceTextInFilesOperationStartedDescription.cs" />
+    <Compile Include="UnloadAllSolutionsInFolderOperationDescription.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

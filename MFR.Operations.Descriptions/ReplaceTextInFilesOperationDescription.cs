@@ -6,18 +6,17 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Gets the descriptive text to be displayed to the user during a Replace
+    /// Text In Files operation.
     /// </summary>
     public class
-        OpenActiveSolutionOperationTypeStartedDescription :
-            IOperationTypeStartedDescription
+        ReplaceTextInFilesOperationDescription : IOperationDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static OpenActiveSolutionOperationTypeStartedDescription()
+        static ReplaceTextInFilesOperationDescription()
         {
         }
 
@@ -25,19 +24,18 @@ namespace MFR.Operations.Descriptions
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected OpenActiveSolutionOperationTypeStartedDescription()
+        protected ReplaceTextInFilesOperationDescription()
         {
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.OpenActiveSolutionOperationStartedDescription"/> .
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.ReplaceTextInFilesOperationDescription"/>.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static OpenActiveSolutionOperationTypeStartedDescription Instance
+        public static ReplaceTextInFilesOperationDescription Instance
         {
             get;
-        } = new OpenActiveSolutionOperationTypeStartedDescription();
+        } = new ReplaceTextInFilesOperationDescription();
 
         /// <summary>
         /// Gets one of the <see
@@ -45,7 +43,7 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.OpenActiveSolution;
+            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -57,6 +55,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_OpenActiveSolution;
+        } = Resources.OperationDescription_ReplaceTextInFiles;
     }
 }

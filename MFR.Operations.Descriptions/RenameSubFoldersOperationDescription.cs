@@ -6,36 +6,31 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Gets the descriptive text to be displayed to the user during a Rename Sub Folders Of operation.
     /// </summary>
     public class
-        RenameSubFoldersOperationTypeStartedDescription :
-            IOperationTypeStartedDescription
+        RenameSubFoldersOperationDescription : IOperationDescription
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.RenameSubFoldersOperationDescription"/>.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static RenameSubFoldersOperationDescription Instance
+        {
+            get;
+        } = new RenameSubFoldersOperationDescription();
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameSubFoldersOperationTypeStartedDescription() { }
+        static RenameSubFoldersOperationDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameSubFoldersOperationTypeStartedDescription() { }
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.RenameSubFoldersOperationStartedDescription" />
-        /// .
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static RenameSubFoldersOperationTypeStartedDescription Instance
-        {
-            get;
-        } = new RenameSubFoldersOperationTypeStartedDescription();
+        protected RenameSubFoldersOperationDescription() { }
 
         /// <summary>
         /// Gets one of the
@@ -57,6 +52,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_RenameSubFolders;
+        } = Resources.OperationDescription_RenameSubFolders;
     }
 }

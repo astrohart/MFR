@@ -10,31 +10,31 @@ namespace MFR.Operations.Descriptions
     /// All Solutions in Folder operation.
     /// </summary>
     public class
-        UnloadAllSolutionsInFolderOperationTypeDescription :
-            IOperationTypeDescription
+        UnloadAllSolutionsInFolderOperationDescription :
+            IOperationDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static UnloadAllSolutionsInFolderOperationTypeDescription() { }
+        static UnloadAllSolutionsInFolderOperationDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected UnloadAllSolutionsInFolderOperationTypeDescription() { }
+        protected UnloadAllSolutionsInFolderOperationDescription() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.Operations.Descriptions.UnloadAllSolutionsInFolderOperationTypeDescription" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static UnloadAllSolutionsInFolderOperationTypeDescription
+        public static UnloadAllSolutionsInFolderOperationDescription
             Instance
         {
             get;
-        } = new UnloadAllSolutionsInFolderOperationTypeDescription();
+        } = new UnloadAllSolutionsInFolderOperationDescription();
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.OperationType" /> values

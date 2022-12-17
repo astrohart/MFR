@@ -8,7 +8,7 @@ namespace MFR.Operations.Descriptions.Interfaces
     /// <remarks>
     /// It is up to the implementers of this interface to supply the proper text.
     /// </remarks>
-    public interface IOperationTypeStartedDescription : IOperationTypeDescription
+    public interface IOperationStartedDescription : IOperationDescription
     {
         // TODO: Add method, property, and event definitions here
     }

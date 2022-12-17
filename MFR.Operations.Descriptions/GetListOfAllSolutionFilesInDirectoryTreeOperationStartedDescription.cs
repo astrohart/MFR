@@ -6,44 +6,46 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user during a Replace
-    /// Text In Files operation.
+    /// Gets the descriptive text to be displayed to the user at the start of a
+    /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        ReplaceTextInFilesOperationTypeDescription : IOperationTypeDescription
+        GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription :
+            IOperationStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static ReplaceTextInFilesOperationTypeDescription()
-        {
-        }
+        static GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ReplaceTextInFilesOperationTypeDescription()
-        {
-        }
+        protected GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.ReplaceTextInFilesOperationDescription"/>.
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MFR.RenameSubFoldersOperationStartedDescription" />
+        /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesOperationTypeDescription Instance
+        public static GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription Instance
         {
             get;
-        } = new ReplaceTextInFilesOperationTypeDescription();
+        } = new GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription();
 
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MFR.OperationType"/> values that
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            => OperationType.GetListOfAllSolutionFilesInDirectoryTree;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -55,6 +57,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationDescription_ReplaceTextInFiles;
+        } = Resources.OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree;
     }
 }

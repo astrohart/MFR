@@ -6,36 +6,31 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Gets the descriptive text to be displayed to the user at the start of a Rename Files in Folder operation.
     /// </summary>
     public class
-        CloseActiveSolutionOperationTypeStartedDescription :
-            IOperationTypeStartedDescription
+        RenameFilesInFolderOperationStartedDescription : IOperationStartedDescription
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.RenameFilesInFolderOperationStartedDescription"/>.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static RenameFilesInFolderOperationStartedDescription Instance
+        {
+            get;
+        } = new RenameFilesInFolderOperationStartedDescription();
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static CloseActiveSolutionOperationTypeStartedDescription() { }
+        static RenameFilesInFolderOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected CloseActiveSolutionOperationTypeStartedDescription() { }
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.CloseActiveSolutionOperationStartedDescription" />
-        /// .
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static CloseActiveSolutionOperationTypeStartedDescription Instance
-        {
-            get;
-        } = new CloseActiveSolutionOperationTypeStartedDescription();
+        protected RenameFilesInFolderOperationStartedDescription() { }
 
         /// <summary>
         /// Gets one of the
@@ -45,7 +40,7 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.CloseActiveSolution;
+            => OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -57,6 +52,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_CloseActiveSolution;
+        } = Resources.OperationStartedDescription_RenameFilesInFolder;
     }
 }

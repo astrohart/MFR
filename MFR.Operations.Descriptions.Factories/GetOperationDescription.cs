@@ -38,36 +38,36 @@ namespace MFR.Operations.Descriptions.Factories
         /// specified in the <paramref name="type" /> parameter does not have a
         /// corresponding Operation Description object associated with it.
         /// </exception>
-        public static IOperationTypeDescription For(OperationType type)
+        public static IOperationDescription For(OperationType type)
         {
-            IOperationTypeDescription typeDescription;
+            IOperationDescription typeDescription;
 
             switch (type)
             {
                 case OperationType.LoadAllSolutionsInFolder:
                     typeDescription =
-                        LoadAllSolutionsInFolderOperationTypeDescription
+                        LoadAllSolutionsInFolderOperationDescription
                             .Instance;
                     break;
 
                 case OperationType.RenameFilesInFolder:
                     typeDescription =
-                        RenameFilesInFolderOperationTypeDescription.Instance;
+                        RenameFilesInFolderOperationDescription.Instance;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    typeDescription = ReplaceTextInFilesOperationTypeDescription
+                    typeDescription = ReplaceTextInFilesOperationDescription
                         .Instance;
                     break;
 
                 case OperationType.RenameSubFolders:
-                    typeDescription = RenameSubFoldersOperationTypeDescription
+                    typeDescription = RenameSubFoldersOperationDescription
                         .Instance;
                     break;
 
                 case OperationType.UnloadAllSolutionsInFolder:
                     typeDescription =
-                        UnloadAllSolutionsInFolderOperationTypeDescription
+                        UnloadAllSolutionsInFolderOperationDescription
                             .Instance;
                     break;
 

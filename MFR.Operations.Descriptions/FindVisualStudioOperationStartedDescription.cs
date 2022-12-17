@@ -6,31 +6,36 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a Rename Files in Folder operation.
+    /// Gets the descriptive text to be displayed to the user at the start of a
+    /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        RenameFilesInFolderOperationTypeStartedDescription : IOperationTypeStartedDescription
+        FindVisualStudioOperationStartedDescription :
+            IOperationStartedDescription
     {
-        /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.RenameFilesInFolderOperationStartedDescription"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderOperationTypeStartedDescription Instance
-        {
-            get;
-        } = new RenameFilesInFolderOperationTypeStartedDescription();
-
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameFilesInFolderOperationTypeStartedDescription() { }
+        static FindVisualStudioOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameFilesInFolderOperationTypeStartedDescription() { }
+        protected FindVisualStudioOperationStartedDescription() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MFR.FindVisualStudioOperationStartedDescription" />
+        /// .
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static FindVisualStudioOperationStartedDescription Instance
+        {
+            get;
+        } = new FindVisualStudioOperationStartedDescription();
 
         /// <summary>
         /// Gets one of the
@@ -40,7 +45,7 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            => OperationType.FindVisualStudio;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -52,6 +57,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_RenameFilesInFolder;
+        } = Resources.OperationStartedDescription_FindVisualStudio;
     }
 }

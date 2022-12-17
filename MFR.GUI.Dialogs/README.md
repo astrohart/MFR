@@ -76,12 +76,14 @@
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.Dispose(System.Boolean)')
   - [InitializeBackgroundWorker()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeBackgroundWorker 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeBackgroundWorker')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeComponent 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeComponent')
+  - [InitializeStartPosition()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeStartPosition 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeStartPosition')
   - [OnDoWork(sender,e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
   - [OnLoad(e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnLoad(System.EventArgs)')
   - [OnRunWorkerCompleted(sender,e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnShown(System.EventArgs)')
   - [RedrawDisplay()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-RedrawDisplay 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.RedrawDisplay')
   - [Reset()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-Reset 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.Reset')
+  - [UpdateCaption(caption)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-UpdateCaption-System-String- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.UpdateCaption(System.String)')
 - [OptionsDialog](#T-MFR-GUI-Dialogs-OptionsDialog 'MFR.GUI.Dialogs.OptionsDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-OptionsDialog-#ctor 'MFR.GUI.Dialogs.OptionsDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-OptionsDialog-components 'MFR.GUI.Dialogs.OptionsDialog.components')
@@ -954,6 +956,21 @@ the contents of this method with the code editor.
 
 This method has no parameters.
 
+<a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeStartPosition'></a>
+### InitializeStartPosition() `method`
+
+##### Summary
+
+Sets the value of the [StartPosition](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Form.StartPosition 'System.Windows.Forms.Form.StartPosition')
+property to either
+[CenterParent](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormStartPosition.CenterParent 'System.Windows.Forms.FormStartPosition.CenterParent') or
+[CenterScreen](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormStartPosition.CenterScreen 'System.Windows.Forms.FormStartPosition.CenterScreen'), depending
+on whether we have an owner window.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnDoWork-System-Object,System-ComponentModel-DoWorkEventArgs-'></a>
 ### OnDoWork(sender,e) `method`
 
@@ -1051,6 +1068,25 @@ Clears the status text and progress bar.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-UpdateCaption-System-String-'></a>
+### UpdateCaption(caption) `method`
+
+##### Summary
+
+Updates the window's caption to reflect the new value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| caption | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the new caption text. |
+
+##### Remarks
+
+If the blank string is passed for the `caption`
+parameter, then this method sets the window caption to match the value of the
+[ProductName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Application.ProductName 'System.Windows.Forms.Application.ProductName') property.
 
 <a name='T-MFR-GUI-Dialogs-OptionsDialog'></a>
 ## OptionsDialog `type`

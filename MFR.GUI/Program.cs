@@ -11,8 +11,11 @@ using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
 using MFR.GUI.Actions;
+using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Displayers;
 using MFR.GUI.Processors.Factories;
+using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Factories;
 using MFR.Renamers.Files.Factories;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -138,24 +141,29 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
-            SetDisplayParameters();
+            /*
+             * Initialize the application, displaying a "loading" progress dialog box
+             * to let the user know we're doing something.
+             */
 
-            SetUpLogging();
+            using (var dialog = MakeNewOperationDrivenProgressDialog
+                                .FromScratch()
+                                .HavingProc(arg => InitializeApplication(arg))
+                                .AndArgument(args)
+                                .AndStatusText(
+                                    GetOperationStartedDescription.For(
+                                        OperationType.InitializeApplication
+                                    )
+                                ))
+            {
+                // The dialog is automatically dismissed as soon as the
+                // InitializeApplication method is completed.
+                dialog.ShowDialog();
 
-            Register.WindowsMessageFilter();
+                Environment.Exit(-1); // abort processing (just a test)
 
-            SetUpExceptionHandling();
-
-            SetUpCommandLineValidation();
-
-            // Load the configuration from the disk.
-            ProfileProvider.Load();
-
-            ConfigurationProvider.Load();
-
-            ParseCommandLine(args);
-
-            ProcessCommandLine();
+                ProcessCommandLine();
+            }
 
             /*
              * If we're running in AutoStart mode, then run a message loop
@@ -182,6 +190,28 @@ namespace MFR.GUI
             ProfileProvider.Save();
 
             Revoke.WindowsMessageFilter();
+        }
+
+        private static bool InitializeApplication(string[] args)
+        {
+            SetDisplayParameters();
+
+            SetUpLogging();
+
+            Register.WindowsMessageFilter();
+
+            SetUpExceptionHandling();
+
+            SetUpCommandLineValidation();
+
+            // Load the configuration from the disk.
+            ProfileProvider.Load();
+
+            ConfigurationProvider.Load();
+
+            ParseCommandLine(args);
+
+            return true;
         }
 
         /// <summary>

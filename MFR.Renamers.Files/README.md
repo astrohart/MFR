@@ -10,12 +10,14 @@
   - [Dte](#P-MFR-Renamers-Files-FileRenamer-Dte 'MFR.Renamers.Files.FileRenamer.Dte')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
+  - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
   - [LastSolutionPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionPath 'MFR.Renamers.Files.FileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
   - [RootDirectoryValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryValidator')
   - [RootFolderPathManager](#P-MFR-Renamers-Files-FileRenamer-RootFolderPathManager 'MFR.Renamers.Files.FileRenamer.RootFolderPathManager')
   - [ShouldReOpenSolution](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolution')
+  - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
@@ -146,6 +148,14 @@ nothing or throw an exception.
 Gets a reference to the one and only instance of
 [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer').
 
+<a name='P-MFR-Renamers-Files-FileRenamer-IsBusy'></a>
+### IsBusy `property`
+
+##### Summary
+
+Gets a value that indicates whether this component is currently processing
+operation(s).
+
 <a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath'></a>
 ### LastSolutionFolderPath `property`
 
@@ -211,6 +221,13 @@ search should start for the operation(s) that the user wants us to process.
 Gets a value determining whether the currently-open solution
 in Visual Studio should be closed and then re-opened at the
 completion of the operation.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-SyncRoot'></a>
+### SyncRoot `property`
+
+##### Summary
+
+Synchronization root object for creating critical sections.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-#cctor'></a>
 ### #cctor() `method`

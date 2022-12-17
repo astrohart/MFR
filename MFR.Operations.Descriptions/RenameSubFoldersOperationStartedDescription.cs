@@ -10,20 +10,20 @@ namespace MFR.Operations.Descriptions
     /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription :
-            IOperationTypeStartedDescription
+        RenameSubFoldersOperationStartedDescription :
+            IOperationStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription() { }
+        static RenameSubFoldersOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription() { }
+        protected RenameSubFoldersOperationStartedDescription() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -32,10 +32,10 @@ namespace MFR.Operations.Descriptions
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription Instance
+        public static RenameSubFoldersOperationStartedDescription Instance
         {
             get;
-        } = new GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription();
+        } = new RenameSubFoldersOperationStartedDescription();
 
         /// <summary>
         /// Gets one of the
@@ -45,7 +45,7 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.GetListOfAllSolutionFilesInDirectoryTree;
+            => OperationType.RenameSubFolders;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -57,6 +57,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree;
+        } = Resources.OperationStartedDescription_RenameSubFolders;
     }
 }

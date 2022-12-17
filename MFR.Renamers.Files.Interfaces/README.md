@@ -5,6 +5,7 @@
 
 - [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
   - [Dte](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-Dte 'MFR.Renamers.Files.Interfaces.IFileRenamer.Dte')
+  - [IsBusy](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsBusy 'MFR.Renamers.Files.Interfaces.IFileRenamer.IsBusy')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionFolderPath')
   - [LastSolutionPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
@@ -53,6 +54,14 @@ This object provides a connection to an instance of Visual Studio.
 
 It is vitally important that the caller check this value for
 `null` prior to using it.
+
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsBusy'></a>
+### IsBusy `property`
+
+##### Summary
+
+Gets a value that indicates whether this component is currently processing
+operation(s).
 
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath'></a>
 ### LastSolutionFolderPath `property`

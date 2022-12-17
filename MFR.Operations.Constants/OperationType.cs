@@ -6,6 +6,11 @@ namespace MFR.Operations.Constants
     public enum OperationType
     {
         /// <summary>
+        /// The application is loading configuration and profiles and such.
+        /// </summary>
+        InitializeApplication = 12,
+
+        /// <summary>
         /// Checking the starting folder that has been selected to ensure that it or one or
         /// more of its subfolders contain Visual Studio Solution (*.sln) files.
         /// </summary>

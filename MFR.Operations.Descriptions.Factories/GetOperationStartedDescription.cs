@@ -43,56 +43,56 @@ namespace MFR.Operations.Descriptions.Factories
             switch (type)
             {
                 case OperationType.CloseActiveSolution:
-                    description =
-                        CloseActiveSolutionOperationTypeStartedDescription
-                            .Instance.Text;
+                    description = CloseActiveSolutionOperationStartedDescription
+                                  .Instance.Text;
                     break;
 
                 case OperationType.FindVisualStudio:
-                    description =
-                        FindVisualStudioOperationTypeStartedDescription.Instance
-                            .Text;
+                    description = FindVisualStudioOperationStartedDescription
+                                  .Instance.Text;
                     break;
 
                 case OperationType.GettingListOfFilesToBeRenamed:
                     description =
-                        GettingListOfFilesToBeRenamedOperationTypeStartedDescription
+                        GettingListOfFilesToBeRenamedOperationStartedDescription
+                            .Instance.Text;
+                    break;
+
+                case OperationType.InitializeApplication:
+                    description =
+                        InitializeApplicationOperationStartedDescription
                             .Instance.Text;
                     break;
 
                 case OperationType.OpenActiveSolution:
-                    description =
-                        OpenActiveSolutionOperationTypeStartedDescription
-                            .Instance.Text;
+                    description = OpenActiveSolutionOperationStartedDescription
+                                  .Instance.Text;
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    description =
-                        RenameFilesInFolderOperationTypeStartedDescription
-                            .Instance.Text;
+                    description = RenameFilesInFolderOperationStartedDescription
+                                  .Instance.Text;
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    description =
-                        ReplaceTextInFilesOperationTypeStartedDescription
-                            .Instance.Text;
+                    description = ReplaceTextInFilesOperationStartedDescription
+                                  .Instance.Text;
                     break;
 
                 case OperationType.RenameSubFolders:
-                    description =
-                        RenameSubFoldersOperationTypeStartedDescription.Instance
-                            .Text;
+                    description = RenameSubFoldersOperationStartedDescription
+                                  .Instance.Text;
                     break;
 
                 case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
                     description =
-                        GetListOfAllSolutionFilesInDirectoryTreeOperationTypeStartedDescription
+                        GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription
                             .Instance.Text;
                     break;
 
                 case OperationType.CheckingWhetherChosenFolderContainsSolutions:
                     description =
-                        CheckingWhetherChosenFolderContainsSolutionsOperationTypeStartedDescription
+                        CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription
                             .Instance.Text;
                     break;
 
