@@ -23,7 +23,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// be executed while the dialog is displayed.  When the code finishes, the dialog
         /// is dismissed.
         /// </summary>
-        Func<dynamic, dynamic> Proc
+        Delegate Proc
         {
             get;
             set;

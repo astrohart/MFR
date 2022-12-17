@@ -151,7 +151,7 @@ namespace MFR.Operations.Descriptions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loading the application&apos;s user settings and profiles....
+        ///   Looks up a localized string similar to Loading user settings....
         /// </summary>
         public static string OperationStartedDescription_InitializeApplication {
             get {

@@ -50,7 +50,7 @@ namespace MFR.GUI.Dialogs
         /// executed while the dialog is displayed.  When the code finishes, the dialog is
         /// dismissed.
         /// </summary>
-        public Func<object, object> Proc
+        public Delegate Proc
         {
             get;
             set;
@@ -240,7 +240,9 @@ namespace MFR.GUI.Dialogs
             if (Proc == null) return;
 
             // Execute the 'proc'
-            e.Result = Proc(e.Argument);
+            e.Result = Proc is Action
+                ? Proc.DynamicInvoke()
+                : Proc.DynamicInvoke(e.Argument);
         }
 
         /// <summary>

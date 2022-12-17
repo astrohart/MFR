@@ -160,8 +160,6 @@ namespace MFR.GUI
                 // InitializeApplication method is completed.
                 dialog.ShowDialog();
 
-                Environment.Exit(-1); // abort processing (just a test)
-
                 ProcessCommandLine();
             }
 

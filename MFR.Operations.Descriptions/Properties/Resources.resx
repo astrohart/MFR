@@ -148,7 +148,7 @@
     <value>Getting list of files to be renamed...</value>
   </data>
   <data name="OperationStartedDescription_InitializeApplication" xml:space="preserve">
-    <value>Loading the application's user settings and profiles...</value>
+    <value>Loading user settings...</value>
   </data>
   <data name="OperationStartedDescription_OpenActiveSolution" xml:space="preserve">
     <value>Reloading the solution containing the item(s) that were processed...</value>

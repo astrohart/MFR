@@ -127,5 +127,39 @@ namespace MFR.GUI.Dialogs.Factories
             self.Proc = proc;
             return self;
         }
+
+        /// <summary>
+        /// Builder extension method that initializes the
+        /// <see
+        ///     cref="P:MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Proc" />
+        /// property.
+        /// </summary>
+        /// <param name="self">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog" />
+        /// interface.
+        /// </param>
+        /// <param name="proc">
+        /// (Required.) A <see cref="T:System.Func" /> delegate that specifies code that is
+        /// to be executed when the dialog is to be displayed.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="self" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        public static IOperationDrivenProgressDialog HavingProc(
+            this IOperationDrivenProgressDialog self, Delegate proc)
+        {
+            if (self == null) throw new ArgumentNullException(nameof(self));
+
+            self.Proc = proc;
+            return self;
+        }
     }
 }

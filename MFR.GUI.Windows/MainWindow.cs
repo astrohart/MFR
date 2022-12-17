@@ -345,24 +345,43 @@ namespace MFR.GUI.Windows
         {
             base.OnLoad(e);
 
-            Text = FullApplicationName;
+            using (var dialog = MakeNewOperationDrivenProgressDialog
+                                .FromScratch()
+                                .HavingProc(new Action(DoLoad))
+                                .AndStatusText(
+                                    GetOperationStartedDescription.For(
+                                        OperationType.InitializeApplication
+                                    )
+                                ))
 
-            Presenter.UpdateData(false);
-
-            UpdateSize(
-                IsFolded
-                    ? FoldButton.FormFoldedSize
-                    : FoldButton.FormUnfoldedSize
-            );
-
-            FoldButton.SetFoldedStateText();
-
-            MakeButtonBitmapTransparent(switchButton);
-
-            Presenter.FillProfileDropDownList();
-
-            SetUpFindWhatComboBox();
+                // The dialog is automatically dismissed as soon as the
+                // InitializeApplication method is completed.
+                dialog.ShowDialog();
         }
+
+        private void DoLoad()
+            => this.InvokeIfRequired(
+                () =>
+                {
+                    Text = FullApplicationName;
+
+                    Presenter.UpdateData(false);
+
+                    UpdateSize(
+                        IsFolded
+                            ? FoldButton.FormFoldedSize
+                            : FoldButton.FormUnfoldedSize
+                    );
+
+                    FoldButton.SetFoldedStateText();
+
+                    MakeButtonBitmapTransparent(switchButton);
+
+                    Presenter.FillProfileDropDownList();
+
+                    SetUpFindWhatComboBox();
+                }
+            );
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
