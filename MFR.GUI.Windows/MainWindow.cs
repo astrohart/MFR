@@ -1467,6 +1467,9 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void SetUpFindWhatComboBox()
         {
+            if (!Directory.Exists(CurrentConfiguration.StartingFolder))
+                return;
+
             var findWhatAutocompleteCustomSource =
                 new AutoCompleteStringCollection();
             findWhatAutocompleteCustomSource.AddRange(
@@ -1479,7 +1482,8 @@ namespace MFR.GUI.Windows
             );
             FindWhatComboBox.AutoCompleteCustomSource =
                 findWhatAutocompleteCustomSource;
-            FindWhatComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            FindWhatComboBox.AutoCompleteMode =
+                AutoCompleteMode.SuggestAppend;
             FindWhatComboBox.AutoCompleteSource =
                 AutoCompleteSource.CustomSource;
         }
