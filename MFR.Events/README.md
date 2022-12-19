@@ -250,7 +250,7 @@ Defines the data that is passed by all events of type [FilesOrFoldersCountedEven
 
 ##### Summary
 
-Creates a new instance of [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs')
+Creates a new instance of [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs')
 and returns a reference to it.
 
 ##### Parameters

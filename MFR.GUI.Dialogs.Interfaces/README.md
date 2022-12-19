@@ -3,6 +3,7 @@
 
 ## Contents
 
+- [IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.IAutoStartCancellableProgressDialog')
 - [ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
   - [CanCancel](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CanCancel 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CanCancel')
   - [CurrentFile](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CurrentFile 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CurrentFile')
@@ -39,6 +40,19 @@
 - [Resources](#T-MFR-GUI-Dialogs-Interfaces-Properties-Resources 'MFR.GUI.Dialogs.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Interfaces-Properties-Resources-Culture 'MFR.GUI.Dialogs.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Interfaces.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Dialogs-Interfaces-IAutoStartCancellableProgressDialog'></a>
+## IAutoStartCancellableProgressDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of a dialog box that shows
+the progress of a file-rename operation that has been launched from the command
+line with the `--autoStart` flag set.
 
 <a name='T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog'></a>
 ## ICancellableProgressDialog `type`

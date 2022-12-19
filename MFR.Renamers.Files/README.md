@@ -368,7 +368,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnFilesToHaveTextReplacedCounted-MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
@@ -384,7 +384,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnFinished'></a>
@@ -425,7 +425,7 @@ Raises the [](#E-MFR-FileRenamer-OperationFinished 'MFR.FileRenamer.OperationFin
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | An [OperationFinishedEventArgs](#T-MFR-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | An [OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs-'></a>
@@ -439,7 +439,7 @@ Raises the [](#E-MFR-FileRenamer-OperationStarted 'MFR.FileRenamer.OperationStar
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs-'></a>
@@ -507,7 +507,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}-'></a>
