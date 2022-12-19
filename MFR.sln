@@ -619,6 +619,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Translators", "MFR.CommandLine.Translators\MFR.CommandLine.Translators.csproj", "{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}"
 EndProject
 Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{F64BBB81-4E26-45F6-8743-3C70926154A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1AA54DD-684F-45CC-A5B7-766AE9E75634} = {F1AA54DD-684F-45CC-A5B7-766AE9E75634}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Actions.Constants", "..\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.Constants\xyLOGIX.VisualStudio.Actions.Constants.csproj", "{F8CB79A0-20D2-4913-8008-9901D00D778F}"
 EndProject

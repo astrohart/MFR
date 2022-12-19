@@ -4,17 +4,17 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.GUI.Application")]
-[assembly: AssemblyDescription("Provides objects and functionality for ")]
+[assembly: AssemblyTitle("xyLOGIX Project File Renamer Support Library for Core Application Objects")]
+[assembly: AssemblyDescription("Provides objects and functionality for the core application functionality that defines the software's behavior.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.GUI.Application")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer Support Library for Core Application Objects")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
+"Copyright © 2022 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX MFR.  MFR is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+"This software is a component of xyLOGIX Project File Renamer.  Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
