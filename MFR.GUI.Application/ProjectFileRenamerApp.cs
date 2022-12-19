@@ -159,7 +159,7 @@ namespace MFR.GUI.Application
              * Initialize the application, displaying a "loading" progress dialog box
              * to let the user know we're doing something.
              */
-            if (IsAutoStarted(args))
+            if (!IsAutoStarted(args))
                 using (var dialog = MakeNewOperationDrivenProgressDialog
                                     .FromScratch()
                                     .HavingProc(
@@ -187,29 +187,29 @@ namespace MFR.GUI.Application
 
                     ProcessCommandLine();
 
+                    // Save changes in the configuration back out to the disk.
+                    // Also writes the path to the config file to the Registry.
+                    //
+                    // NOTE: Do NOT save the configuration settings in the event
+                    // that the user is running this app from the command line.
+                    // Ditto for profiles.
+                    ConfigurationProvider.Save();
+
+                    ProfileProvider.Save();
+
                     Revoke.WindowsMessageFilter();
-
-                    return;     // if we are here, just stop. Don't save the configuration.
                 }
+            else
+            {
+                if (!InitApplication(args))
+                    Environment.Exit(-1);
 
-            if (!InitApplication(args))
-                Environment.Exit(-1);
+                OnInitialized();
 
-            OnInitialized();
+                ProcessCommandLine();
 
-            ProcessCommandLine();
-
-            // Save changes in the configuration back out to the disk.
-            // Also writes the path to the config file to the Registry.
-            //
-            // NOTE: Do NOT save the configuration settings in the event
-            // that the user is running this app from the command line.
-            // Ditto for profiles.
-            ConfigurationProvider.Save();
-
-            ProfileProvider.Save();
-
-            Revoke.WindowsMessageFilter();
+                Revoke.WindowsMessageFilter();
+            }
         }
 
         /// <summary>
