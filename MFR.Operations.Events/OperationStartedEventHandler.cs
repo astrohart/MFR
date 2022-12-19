@@ -8,7 +8,7 @@ namespace MFR.Operations.Events
     /// Reference to the instance of the object that raised the event.
     /// </param>
     /// <param name="e">
-    /// A <see cref="T:MFR.OperationStartedEventArgs"/> that
+    /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs"/> that
     /// contains the event data.
     /// </param>
     public delegate void OperationStartedEventHandler(object sender,

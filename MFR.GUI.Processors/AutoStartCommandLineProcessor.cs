@@ -1,9 +1,8 @@
 ﻿using MFR.CommandLine.Translators;
-using MFR.Engines.Constants;
-using MFR.Engines.Factories;
-using MFR.Engines.Interfaces;
+using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
+using System.Windows.Forms;
 
 namespace MFR.GUI.Processors
 {
@@ -44,18 +43,7 @@ namespace MFR.GUI.Processors
         {
             CurrentConfiguration = CommandLineInfo.ToConfiguration();
 
-            IFullGuiOperationEngine engine = GetOperationEngine
-                                             .OfType<IFullGuiOperationEngine>(
-                                                 OperationEngineType.FullGUI
-                                             )
-                                             .AndAttachConfiguration(
-                                                 CurrentConfiguration
-                                             );
-
-            engine.ProcessAll(
-                CurrentConfiguration.StartingFolder,
-                CurrentConfiguration.FindWhat, CurrentConfiguration.ReplaceWith
-            );
+            Application.Run((Form)GetAutoStartCancellableProgressDialog.SoleInstance());
         }
     }
 }

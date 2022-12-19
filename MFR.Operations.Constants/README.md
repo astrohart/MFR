@@ -10,6 +10,7 @@
   - [GetListOfAllSolutionFilesInDirectoryTree](#F-MFR-Operations-Constants-OperationType-GetListOfAllSolutionFilesInDirectoryTree 'MFR.Operations.Constants.OperationType.GetListOfAllSolutionFilesInDirectoryTree')
   - [GetTopLevelSubFolders](#F-MFR-Operations-Constants-OperationType-GetTopLevelSubFolders 'MFR.Operations.Constants.OperationType.GetTopLevelSubFolders')
   - [GettingListOfFilesToBeRenamed](#F-MFR-Operations-Constants-OperationType-GettingListOfFilesToBeRenamed 'MFR.Operations.Constants.OperationType.GettingListOfFilesToBeRenamed')
+  - [InitializeApplication](#F-MFR-Operations-Constants-OperationType-InitializeApplication 'MFR.Operations.Constants.OperationType.InitializeApplication')
   - [LoadAllSolutionsInFolder](#F-MFR-Operations-Constants-OperationType-LoadAllSolutionsInFolder 'MFR.Operations.Constants.OperationType.LoadAllSolutionsInFolder')
   - [OpenActiveSolution](#F-MFR-Operations-Constants-OperationType-OpenActiveSolution 'MFR.Operations.Constants.OperationType.OpenActiveSolution')
   - [RenameFilesInFolder](#F-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
@@ -84,6 +85,13 @@ Gathering a list of the top-level subfolders of the current folder.
 ##### Summary
 
 The list of file system entries to be renamed is being retrieved.
+
+<a name='F-MFR-Operations-Constants-OperationType-InitializeApplication'></a>
+### InitializeApplication `constants`
+
+##### Summary
+
+The application is loading configuration and profiles and such.
 
 <a name='F-MFR-Operations-Constants-OperationType-LoadAllSolutionsInFolder'></a>
 ### LoadAllSolutionsInFolder `constants`

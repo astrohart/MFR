@@ -51,7 +51,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationFinishedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -73,7 +73,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>

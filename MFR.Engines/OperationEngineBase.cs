@@ -198,10 +198,8 @@ namespace MFR.Engines
             // write the name of the current class and method we are now
             // Check to see if the required field, _fileRenamer, is null. If it
             if (FileRenamer == null)
-
-                // the field _fileRenamer is required.
-                // stop.
                 return;
+
             NewMessageMapping<ExceptionRaisedEventArgs>.Associate
                 .WithMessageId(FileRenamerMessages.FRM_EXCEPTION_RAISED)
                 .AndHandler(
@@ -285,7 +283,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationFinishedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -306,7 +304,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -372,9 +370,10 @@ namespace MFR.Engines
         {
             ProcessingFinished?.Invoke(this, EventArgs.Empty);
             SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(
-                           OperationEngineMessages.OE_PROCESSING_FINISHED
-                       );
+                                  .ForMessageId(
+                                      OperationEngineMessages
+                                          .OE_PROCESSING_FINISHED
+                                  );
         }
 
         /// <summary>
@@ -386,13 +385,29 @@ namespace MFR.Engines
         {
             ProcessingStarted?.Invoke(this, EventArgs.Empty);
             SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(
-                           OperationEngineMessages.OE_PROCESSING_STARTED
-                       );
+                                  .ForMessageId(
+                                      OperationEngineMessages
+                                          .OE_PROCESSING_STARTED
+                                  );
         }
 
+        /// <summary>
+        /// Handles the
+        /// <see cref="E:MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate" /> event
+        /// raised by the <c>FileRenamer</c> component when it has new text to send to the
+        /// UI/UX of the application..
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.Common.StatusUpdateEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks></remarks>
         [Log(AttributeExclude = true)]
-        private static void OnFileRenamerStatusUpdate(object sender,
+        protected virtual void OnFileRenamerStatusUpdate(object sender,
             StatusUpdateEventArgs e)
         {
             // write the name of the current class and method we are now entering, into the log
@@ -432,6 +447,11 @@ namespace MFR.Engines
             );
         }
 
+        /// <summary>
+        /// Initializes the settings for the
+        /// <see cref="T:System.ComponentModel.BackgroundWorker" /> that is used to process
+        /// the file-renaming operations.
+        /// </summary>
         private void InitializeProcessingWorker()
         {
             _processingWorker = new BackgroundWorker();
@@ -448,7 +468,8 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// An <see cref="T:MFR.Events.Common.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
         /// </param>
         /// <remarks>
         /// This method responds to such an event by showing the user a message
@@ -475,7 +496,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -501,7 +522,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -545,7 +566,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>

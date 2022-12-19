@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [GetAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.Factories.GetAutoStartCancellableProgressDialog')
+  - [SoleInstance()](#M-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog-SoleInstance 'MFR.GUI.Dialogs.Factories.GetAutoStartCancellableProgressDialog.SoleInstance')
 - [MakeNewErrorReportDialog](#T-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog')
   - [AttachSendErrorReportRequestedEventHandler(self,handler)](#M-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog-AttachSendErrorReportRequestedEventHandler-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog,MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler- 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog.AttachSendErrorReportRequestedEventHandler(MFR.GUI.Dialogs.Interfaces.IErrorReportDialog,MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventHandler)')
   - [AttachViewErrorReportRequestedEventHandler(self,handler)](#M-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog-AttachViewErrorReportRequestedEventHandler-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog,MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler- 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog.AttachViewErrorReportRequestedEventHandler(MFR.GUI.Dialogs.Interfaces.IErrorReportDialog,MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventHandler)')
@@ -26,6 +28,36 @@
 - [Resources](#T-MFR-GUI-Dialogs-Factories-Properties-Resources 'MFR.GUI.Dialogs.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Factories-Properties-Resources-Culture 'MFR.GUI.Dialogs.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog'></a>
+## GetAutoStartCancellableProgressDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface.
+
+<a name='M-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface,
+and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog'></a>
 ## MakeNewErrorReportDialog `type`

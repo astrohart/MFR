@@ -1,6 +1,7 @@
 ﻿using MFR.Engines.Constants;
 using MFR.Engines.Interfaces;
 using MFR.Engines.Properties;
+using MFR.Events.Common;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.Operations.Constants;
@@ -55,7 +56,8 @@ namespace MFR.Engines
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -266,7 +268,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationFinishedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -289,7 +291,7 @@ namespace MFR.Engines
         /// Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -349,6 +351,27 @@ namespace MFR.Engines
                                        .Text, e.Entry.Path
             );
         }
+
+        /// <summary>
+        /// Handles the
+        /// <see cref="E:MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate" /> event
+        /// raised by the <c>FileRenamer</c> component when it has new text to send to the
+        /// UI/UX of the application..
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.Common.StatusUpdateEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks></remarks>
+        protected override void OnFileRenamerStatusUpdate(object sender,
+            StatusUpdateEventArgs e)
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.Status = e.Text
+            );
 
         /// <summary>
         /// Raises the
@@ -419,6 +442,7 @@ namespace MFR.Engines
         /// or <paramref name="currentFileLabelText" />,
         /// are passed blank or <see langword="null" /> string for values.
         /// </exception>
+        [Log(AttributeExclude = true)]
         private void IncrementProgressBar(string statusLabelText,
             string currentFileLabelText)
         {
@@ -478,10 +502,9 @@ namespace MFR.Engines
         /// </summary>
         [Log(AttributeExclude = true)]
         private void ResetProgressBar()
-            => _cancellableProgressDialog
-                .DoIfNotDisposed(()=>
-                    _cancellableProgressDialog.InvokeIfRequired(
-                        _cancellableProgressDialog.Reset
+            => _cancellableProgressDialog.DoIfNotDisposed(
+                () => _cancellableProgressDialog.InvokeIfRequired(
+                    _cancellableProgressDialog.Reset
                 )
             );
     }

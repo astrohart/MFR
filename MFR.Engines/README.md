@@ -26,6 +26,7 @@
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnProcessingFinished()](#M-MFR-Engines-FullGuiOperationEngine-OnProcessingFinished 'MFR.Engines.FullGuiOperationEngine.OnProcessingFinished')
   - [OnProcessingStarted()](#M-MFR-Engines-FullGuiOperationEngine-OnProcessingStarted 'MFR.Engines.FullGuiOperationEngine.OnProcessingStarted')
   - [ReinitializeProgressDialog()](#M-MFR-Engines-FullGuiOperationEngine-ReinitializeProgressDialog 'MFR.Engines.FullGuiOperationEngine.ReinitializeProgressDialog')
@@ -44,6 +45,7 @@
   - [Type](#P-MFR-Engines-OperationEngineBase-Type 'MFR.Engines.OperationEngineBase.Type')
   - [HandleFilesCountedEvent(count)](#M-MFR-Engines-OperationEngineBase-HandleFilesCountedEvent-System-Int32- 'MFR.Engines.OperationEngineBase.HandleFilesCountedEvent(System.Int32)')
   - [InitializeFileRenamer()](#M-MFR-Engines-OperationEngineBase-InitializeFileRenamer 'MFR.Engines.OperationEngineBase.InitializeFileRenamer')
+  - [InitializeProcessingWorker()](#M-MFR-Engines-OperationEngineBase-InitializeProcessingWorker 'MFR.Engines.OperationEngineBase.InitializeProcessingWorker')
   - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerExceptionRaised(System.Object,MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
@@ -51,6 +53,7 @@
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnProcessingError()](#M-MFR-Engines-OperationEngineBase-OnProcessingError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Engines.OperationEngineBase.OnProcessingError(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnProcessingFinished()](#M-MFR-Engines-OperationEngineBase-OnProcessingFinished 'MFR.Engines.OperationEngineBase.OnProcessingFinished')
@@ -162,7 +165,7 @@ by the file renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -185,7 +188,7 @@ the file-renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -412,7 +415,7 @@ by the file renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -435,7 +438,7 @@ the file-renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -479,6 +482,29 @@ Otherwise, the method responds by incrementing the progress dialog's
 progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
+
+<a name='M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
+### OnFileRenamerStatusUpdate(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Renamers-Files-Interfaces-IFileRenamer-StatusUpdate 'MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate') event
+raised by the `FileRenamer` component when it has new text to send to the
+UI/UX of the application..
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.Events.Common.StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') | A [StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+
 
 <a name='M-MFR-Engines-FullGuiOperationEngine-OnProcessingFinished'></a>
 ### OnProcessingFinished() `method`
@@ -788,6 +814,19 @@ with and subscribes to the events that it emits.
 
 This method has no parameters.
 
+<a name='M-MFR-Engines-OperationEngineBase-InitializeProcessingWorker'></a>
+### InitializeProcessingWorker() `method`
+
+##### Summary
+
+Initializes the settings for the
+[BackgroundWorker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.BackgroundWorker 'System.ComponentModel.BackgroundWorker') that is used to process
+the file-renaming operations.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
 ### OnFileRenamerExceptionRaised(sender,e) `method`
 
@@ -800,7 +839,8 @@ Handles the [](#E-MFR-IFileRenamer-ExceptionRaised 'MFR.IFileRenamer.ExceptionRa
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | An [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') that contains
+the event data. |
 
 ##### Remarks
 
@@ -823,7 +863,7 @@ set of file system entries upon which the current operation should act.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -848,7 +888,7 @@ event raised by the File Renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -893,7 +933,7 @@ by the file renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -916,7 +956,7 @@ the file-renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') that
 contains the event data. |
 
 ##### Remarks
@@ -961,6 +1001,29 @@ progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
 
+<a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
+### OnFileRenamerStatusUpdate(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Renamers-Files-Interfaces-IFileRenamer-StatusUpdate 'MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate') event
+raised by the `FileRenamer` component when it has new text to send to the
+UI/UX of the application..
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.Events.Common.StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') | A [StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+
+
 <a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
 ### OnFileRenamerSubfoldersToBeRenamedCounted(sender,e) `method`
 
@@ -975,7 +1038,7 @@ event raised by the File Renamer object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 ##### Remarks

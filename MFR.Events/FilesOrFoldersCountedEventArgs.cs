@@ -10,7 +10,7 @@ namespace MFR.Events
     {
         /// <summary>
         /// Creates a new instance of <see
-        /// cref="T:MFR.FilesOrFoldersCountedEventArgs"/>
+        /// cref="T:MFR.Events.FilesOrFoldersCountedEventArgs"/>
         /// and returns a reference to it.
         /// </summary>
         /// <param name="count">

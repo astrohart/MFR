@@ -1641,7 +1641,7 @@ namespace MFR.Renamers.Files
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
@@ -1660,7 +1660,7 @@ namespace MFR.Renamers.Files
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         private void OnFilesToHaveTextReplacedCounted(
@@ -1693,7 +1693,7 @@ namespace MFR.Renamers.Files
         /// Raises the <see cref="E:MFR.FileRenamer.OperationFinished" /> event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.OperationFinishedEventArgs" /> that
+        /// An <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
         /// contains the event data.
         /// </param>
         private void OnOperationFinished(OperationFinishedEventArgs e)
@@ -1710,7 +1710,7 @@ namespace MFR.Renamers.Files
         /// Raises the <see cref="E:MFR.FileRenamer.OperationStarted" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.OperationStartedEventArgs" /> that
+        /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs" /> that
         /// contains the event data.
         /// </param>
         private void OnOperationStarted(OperationStartedEventArgs e)
@@ -1777,7 +1777,7 @@ namespace MFR.Renamers.Files
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.FilesOrFoldersCountedEventArgs" /> that
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
         /// contains the event data.
         /// </param>
         private void OnSubfoldersToBeRenamedCounted(

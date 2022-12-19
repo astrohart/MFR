@@ -25,12 +25,6 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Raised when the user clicks the Cancel button in order to request
-        /// that the operation be aborted.
-        /// </summary>
-        public event EventHandler CancelRequested;
-
-        /// <summary>
         /// Gets or sets a value indicating whether the operation can be cancelled.
         /// </summary>
         public bool CanCancel
@@ -44,8 +38,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string CurrentFile
         {
-            [DebuggerStepThrough]
-            get => currentFileLabel.Text;
+            [DebuggerStepThrough] get => currentFileLabel.Text;
             set
                 => currentFileLabel.InvokeIfRequired(
                     () =>
@@ -60,8 +53,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public ProgressBar ProgressBar
         {
-            [DebuggerStepThrough]
-            get => progressBar;
+            [DebuggerStepThrough] get => progressBar;
         }
 
         /// <summary>
@@ -69,8 +61,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarMaximum
         {
-            [DebuggerStepThrough]
-            get => progressBar.Maximum;
+            [DebuggerStepThrough] get => progressBar.Maximum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Maximum = value
@@ -82,8 +73,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarMinimum
         {
-            [DebuggerStepThrough]
-            get => progressBar.Minimum;
+            [DebuggerStepThrough] get => progressBar.Minimum;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Minimum = value
@@ -95,8 +85,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public ProgressBarStyle ProgressBarStyle
         {
-            [DebuggerStepThrough]
-            get => progressBar.Style;
+            [DebuggerStepThrough] get => progressBar.Style;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Style = value
@@ -108,8 +97,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public int ProgressBarValue
         {
-            [DebuggerStepThrough]
-            get => progressBar.Value;
+            [DebuggerStepThrough] get => progressBar.Value;
             set
                 => progressBar.InvokeIfRequired(
                     () => progressBar.Value = value
@@ -121,10 +109,15 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string Status
         {
-            [DebuggerStepThrough]
-            get => statusLabel.Text;
+            [DebuggerStepThrough] get => statusLabel.Text;
             set => statusLabel.InvokeIfRequired(() => statusLabel.Text = value);
         }
+
+        /// <summary>
+        /// Raised when the user clicks the Cancel button in order to request
+        /// that the operation be aborted.
+        /// </summary>
+        public event EventHandler CancelRequested;
 
         /// <summary>
         /// Clears the status text and progress bar.
