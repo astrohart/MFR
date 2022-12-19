@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MFR.CommandLine.Models.Interfaces;
+using System;
 
 namespace MFR.GUI.Application.Interfaces
 {
@@ -8,6 +9,48 @@ namespace MFR.GUI.Application.Interfaces
     public interface IWinApp
     {
         /// <summary>
+        /// A <see cref="T:System.Guid" /> that uniquely identifies this product.
+        /// </summary>
+        Guid AppId
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the application should automatically process
+        /// operations requested by the user from the command line.
+        /// </summary>
+        bool AutoStart
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
+        /// </summary>
+        ICommandLineInfo CommandLineInfo
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the user specified any arguments on
+        /// this application's command line at startup or not.
+        /// </summary>
+        bool CommandLineSpecified
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Occurs when the application has been initialized, but has not yet processed the
+        /// command line.
+        /// </summary>
+        event EventHandler Initialized;
+
+        /// <summary>
         /// Called to instruct the application to begin processing.
         /// </summary>
         /// <param name="args">
@@ -16,13 +59,5 @@ namespace MFR.GUI.Application.Interfaces
         /// application's command line.
         /// </param>
         void WinInit(string[] args);
-
-        /// <summary>
-        /// A <see cref="T:System.Guid" /> that uniquely identifies this product.
-        /// </summary>
-        Guid AppId
-        {
-            get;
-        }
     }
 }
