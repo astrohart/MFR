@@ -237,7 +237,7 @@ namespace MFR.GUI.Application
         /// otherwise, it was not.
         /// </remarks>
         private static bool IsAutoStarted(IEnumerable<string> args)
-            => args.All(arg => !"--autoStart".EqualsNoCase(arg));
+            => args.Any(arg => "--autoStart".EqualsNoCase(arg));
 
         /// <summary>
         /// Handles the
