@@ -186,16 +186,18 @@ namespace MFR.GUI.Application
                     OnInitialized();
 
                     ProcessCommandLine();
+
+                    Revoke.WindowsMessageFilter();
+
+                    return;     // if we are here, just stop. Don't save the configuration.
                 }
-            else
-            {
-                if (!InitApplication(args))
-                    Environment.Exit(-1);
 
-                OnInitialized();
+            if (!InitApplication(args))
+                Environment.Exit(-1);
 
-                ProcessCommandLine();
-            }
+            OnInitialized();
+
+            ProcessCommandLine();
 
             // Save changes in the configuration back out to the disk.
             // Also writes the path to the config file to the Registry.

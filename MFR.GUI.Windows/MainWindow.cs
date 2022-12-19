@@ -92,7 +92,8 @@ namespace MFR.GUI.Windows
         /// associated with it.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -359,30 +360,6 @@ namespace MFR.GUI.Windows
                 dialog.ShowDialog();
         }
 
-        private void DoLoad()
-            => this.InvokeIfRequired(
-                () =>
-                {
-                    Text = FullApplicationName;
-
-                    Presenter.UpdateData(false);
-
-                    UpdateSize(
-                        IsFolded
-                            ? FoldButton.FormFoldedSize
-                            : FoldButton.FormUnfoldedSize
-                    );
-
-                    FoldButton.SetFoldedStateText();
-
-                    MakeButtonBitmapTransparent(switchButton);
-
-                    Presenter.FillProfileDropDownList();
-
-                    SetUpFindWhatComboBox();
-                }
-            );
-
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
         /// A <see cref="T:System.EventArgs" /> that contains the event
@@ -543,6 +520,30 @@ namespace MFR.GUI.Windows
 
             return result;
         }
+
+        private void DoLoad()
+            => this.InvokeIfRequired(
+                () =>
+                {
+                    Text = FullApplicationName;
+
+                    Presenter.UpdateData(false);
+
+                    UpdateSize(
+                        IsFolded
+                            ? FoldButton.FormFoldedSize
+                            : FoldButton.FormUnfoldedSize
+                    );
+
+                    FoldButton.SetFoldedStateText();
+
+                    MakeButtonBitmapTransparent(switchButton);
+
+                    Presenter.FillProfileDropDownList();
+
+                    SetUpFindWhatComboBox();
+                }
+            );
 
         /// <summary>
         /// Sets up the presenter object and attaches handlers to events that it exposes.
@@ -813,7 +814,7 @@ namespace MFR.GUI.Windows
             FoldButton.SetFoldedStateText();
 
             GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                                    .CurrentConfiguration.IsFolded = e.Folded;
+                .CurrentConfiguration.IsFolded = e.Folded;
         }
 
         /// <summary>
@@ -1359,8 +1360,9 @@ namespace MFR.GUI.Windows
         {
             using (var dialog = new OptionsDialog())
             {
-                dialog.ConfigPathname = GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                    .ConfigurationFilePath;
+                dialog.ConfigPathname =
+                    GetProjectFileRenamerConfigurationProvider.SoleInstance()
+                        .ConfigurationFilePath;
                 dialog.Modified += OnOptionsModified;
 
                 if (dialog.ShowDialog(this) != DialogResult.OK)
@@ -1468,22 +1470,29 @@ namespace MFR.GUI.Windows
         private void SetUpFindWhatComboBox()
         {
             if (!Directory.Exists(CurrentConfiguration.StartingFolder))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    $"*** ERROR *** The folder '{CurrentConfiguration.StartingFolder}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects."
+                );
+
+                DebugUtils.WriteLine(DebugLevel.Debug, "MainWindow.SetUpFindWhatComboBox: Done.");
                 return;
+            }
 
             var findWhatAutocompleteCustomSource =
                 new AutoCompleteStringCollection();
             findWhatAutocompleteCustomSource.AddRange(
                 Directory.EnumerateFiles(
-                             CurrentConfiguration.StartingFolder,
-                             "*.csproj", SearchOption.AllDirectories
+                             CurrentConfiguration.StartingFolder, "*.csproj",
+                             SearchOption.AllDirectories
                          )
                          .Select(Path.GetFileNameWithoutExtension)
                          .ToArray()
             );
             FindWhatComboBox.AutoCompleteCustomSource =
                 findWhatAutocompleteCustomSource;
-            FindWhatComboBox.AutoCompleteMode =
-                AutoCompleteMode.SuggestAppend;
+            FindWhatComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             FindWhatComboBox.AutoCompleteSource =
                 AutoCompleteSource.CustomSource;
         }
