@@ -128,7 +128,6 @@
     <Content Include="impossible-triangle.png" />
     <None Include="packages.config" />
     <None Include="README.md" />
-    <None Include="Resources\SwitchUpDown_16x.png" />
     <Content Include="xylogix.ICO" />
   </ItemGroup>
   <ItemGroup>
