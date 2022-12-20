@@ -623,9 +623,9 @@ namespace MFR.GUI.Windows
         }
 
         // Give the button a transparent background.
-        private void MakeButtonBitmapTransparent(Button btn)
+        private static void MakeButtonBitmapTransparent(ButtonBase button)
         {
-            var bm = (Bitmap)btn.Image;
+            var bm = (Bitmap)button.Image;
             bm.MakeTransparent(bm.GetPixel(0, 0));
         }
 
