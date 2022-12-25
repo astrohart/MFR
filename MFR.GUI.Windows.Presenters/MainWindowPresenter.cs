@@ -29,6 +29,7 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
@@ -1045,6 +1046,9 @@ namespace MFR.GUI.Windows.Presenters
         [Log(AttributeExclude = true)]
         protected virtual void OnFinished()
         {
+            Debugger.Launch();
+            Debugger.Break();
+
             Finished?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(MainWindowPresenterMessages.MWP_FINISHED);

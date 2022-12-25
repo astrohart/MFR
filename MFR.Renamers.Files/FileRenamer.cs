@@ -30,6 +30,7 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio;
+using xyLOGIX.VisualStudio.Actions;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
@@ -1558,7 +1559,7 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                Dte.Solution.Open(solutionPath);
+                Open.Solution(Dte, solutionPath);
 
                 /* Wait for the solution to be opened/loaded.
                     while (!dte.Solution.IsOpen) Thread.Sleep(50); */

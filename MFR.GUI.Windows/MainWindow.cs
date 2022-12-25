@@ -717,6 +717,11 @@ namespace MFR.GUI.Windows
         {
             try
             {
+                /* Stop user program execution at this point so we can debug. */
+
+                Debugger.Launch();
+                Debugger.Break();
+
                 Presenter.UpdateData();
 
                 if (!ValidateData()) return;
@@ -1103,6 +1108,10 @@ namespace MFR.GUI.Windows
                 {
                     UseWaitCursor = false;
                     Enabled = true;
+
+                    Update();
+                    Refresh();
+                    Application.DoEvents();
                 }
             );
 
