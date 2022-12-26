@@ -564,9 +564,9 @@ namespace MFR.GUI.Windows
                             OperationEngineType.FullGUI
                         )
                         .AndAttachConfiguration(CurrentConfiguration)
-                )
-                .AndAttachConfiguration(CurrentConfiguration);
+                );
 
+            Presenter.UpdateConfiguration(CurrentConfiguration);
             Presenter.UpdateData(false);
 
             if (Presenter == null)
@@ -717,11 +717,6 @@ namespace MFR.GUI.Windows
         {
             try
             {
-                /* Stop user program execution at this point so we can debug. */
-
-                Debugger.Launch();
-                Debugger.Break();
-
                 Presenter.UpdateData();
 
                 if (!ValidateData()) return;
