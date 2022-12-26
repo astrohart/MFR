@@ -1,5 +1,4 @@
-﻿using MFR.Common;
-using MFR.Constants;
+﻿using MFR.Constants;
 using MFR.Engines.Actions;
 using MFR.Engines.Constants;
 using MFR.Engines.Interfaces;
@@ -553,10 +552,12 @@ namespace MFR.Engines
 
         // ReSharper disable once MemberCanBeMadeStatic.Local
         private void OnFileRenamerFinished()
-        {
-            // TODO: Add code here that should execute when the FileRenamer component announces that it is finished
-        }
+            => SendMessage.Having.Args(this, EventArgs.Empty)
+                          .ForMessageId(
+                              OperationEngineMessages.OE_PROCESSING_FINISHED
+                          );
 
+        // TODO: Add code here that should execute when the FileRenamer component announces that it is finished
         /// <summary>
         /// Handles the
         /// <see
