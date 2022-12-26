@@ -7,17 +7,17 @@
   - [#ctor()](#M-MFR-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
-  - [Dte](#P-MFR-Renamers-Files-FileRenamer-Dte 'MFR.Renamers.Files.FileRenamer.Dte')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
-  - [LastSolutionPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionPath 'MFR.Renamers.Files.FileRenamer.LastSolutionPath')
+  - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
   - [RootDirectoryValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryValidator')
   - [RootFolderPathManager](#P-MFR-Renamers-Files-FileRenamer-RootFolderPathManager 'MFR.Renamers.Files.FileRenamer.RootFolderPathManager')
-  - [ShouldReOpenSolution](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolution')
+  - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
+  - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
@@ -98,23 +98,6 @@ operation has been requested.
 Gets or sets the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 enumeration value that indicates which operation is currently being performed.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-Dte'></a>
-### Dte `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[DTE](#T-EnvDTE-DTE 'EnvDTE.DTE') interface.
-
-##### Remarks
-
-This object provides a connection to an instance of Visual Studio.
-
-
-
-It is vitally important that the caller check this value for
-`null` prior to using it.
-
 <a name='P-MFR-Renamers-Files-FileRenamer-EnabledOperations'></a>
 ### EnabledOperations `property`
 
@@ -164,13 +147,19 @@ operation(s).
 Gets or sets the path to the folder in which last Visual Studio Solution that
 we have worked with most recently resides.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionPath'></a>
-### LastSolutionPath `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-LoadedSolutions'></a>
+### LoadedSolutions `property`
 
 ##### Summary
 
-Gets or sets the path to the last Visual Studio Solution that we have worked
-with most recently.
+Gets a reference to a collection, each element of which implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface.
+
+##### Remarks
+
+Each element of the collection represents a Visual Studio Solution (*.sln) that
+is loaded in a running instance of Visual Studio.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
@@ -213,8 +202,8 @@ This object manages a collection of strings.
 Individually, the strings are all taken to be the root folder of where our
 search should start for the operation(s) that the user wants us to process.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolution'></a>
-### ShouldReOpenSolution `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions'></a>
+### ShouldReOpenSolutions `property`
 
 ##### Summary
 
@@ -228,6 +217,22 @@ completion of the operation.
 ##### Summary
 
 Synchronization root object for creating critical sections.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService'></a>
+### VisualStudioSolutionService `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IVisualStudioSolutionService](#T-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+interface.
+
+##### Remarks
+
+This property allows access to an object that helps us manage the Visual Studio
+Solution(s) that may be in the starting folder, and to track which running
+instance(s), if any, have said Solution(s) open, and to command the instance(s)
+to load/unload the Solution(s).
 
 <a name='M-MFR-Renamers-Files-FileRenamer-#cctor'></a>
 ### #cctor() `method`

@@ -33,7 +33,6 @@ using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
-using Does = MFR.Managers.Solutions.Factories.Does;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
@@ -362,21 +361,30 @@ namespace MFR.Renamers.Files
 
                 result = true;
             }
-            catch (OperationAbortedException)
+            catch (OperationAbortedException ex)
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    $"*** ERROR *** The user has requested that the operation(s) be aborted immediately."
+                    "*** ERROR *** The user has requested that the operation(s) be aborted immediately."
                 );
+
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
 
                 result = false;
             }
-            catch
+            catch(Exception ex)
             {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
                 //Ignored.
+                
 
                 result = true;
             }
+
+            DebugUtils.WriteLine(DebugLevel.Info, $"FileRenamer.ProcessAll: Result = {result}");
 
             return result;
         }
@@ -949,9 +957,7 @@ namespace MFR.Renamers.Files
                 );
 
             OnOperationFinished(
-                new OperationFinishedEventArgs(
-                    OperationType.RenameSubFolders
-                )
+                new OperationFinishedEventArgs(OperationType.RenameSubFolders)
             );
 
             OnStatusUpdate(
@@ -1041,7 +1047,7 @@ namespace MFR.Renamers.Files
                     CurrentOperation
                 )
             );
-            
+
             IEnumerable<IFileSystemEntry> entryCollection =
                 GetFileSystemEntryListRetriever
                     .For(OperationType.ReplaceTextInFiles)
@@ -1166,9 +1172,7 @@ namespace MFR.Renamers.Files
             );
 
             OnOperationFinished(
-                new OperationFinishedEventArgs(
-                    OperationType.ReplaceTextInFiles
-                )
+                new OperationFinishedEventArgs(OperationType.ReplaceTextInFiles)
             );
 
             return;
@@ -1281,13 +1285,7 @@ namespace MFR.Renamers.Files
              * solution, we open the correct file.
              */
 
-            if (!LoadedSolutions.Any()) return;
-
-            if (!".sln".Equals(Path.GetExtension(e.Source))) return;
-
-            foreach (var solution in LoadedSolutions)
-                if (e.Source.Equals(solution.Path))
-                    solution.Path = e.Destination;
+            UpdateLoadedSolutionPaths(e);
         }
 
         /// <summary>
@@ -1474,6 +1472,11 @@ namespace MFR.Renamers.Files
 
                 if (!InvokeProcessing(findWhat, replaceWith, pathFilter))
                 {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The InvokeProcessing method returned FALSE."
+                    );
+
                     OnFinished();
                     return;
                 }
@@ -1557,15 +1560,23 @@ namespace MFR.Renamers.Files
                              ProcessAll(guid, replaceWith, pathFilter);
                 }
             }
-            catch (OperationAbortedException)
+            catch (OperationAbortedException ex)
             {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
                 result = false;
             }
-            catch
+            catch(Exception ex)
             {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
                 //Ignored.
                 result = true;
             }
+
+            DebugUtils.WriteLine(DebugLevel.Info, $"FileRenamer.InvokeProcessing: Result = {result}");
 
             return result;
         }
@@ -1903,6 +1914,30 @@ namespace MFR.Renamers.Files
                 new OperationFinishedEventArgs(OperationType.FindVisualStudio)
             );
             return true;
+        }
+
+        private void UpdateLoadedSolutionPaths(FileRenamedEventArgs e)
+        {
+            if (!LoadedSolutions.Any(
+                    solution => solution.Path.ToLowerInvariant()
+                                        .Equals(e.Source.ToLowerInvariant())
+                )) return;
+
+            if (string.IsNullOrWhiteSpace(e.Source)) return;
+            if (string.IsNullOrWhiteSpace(e.Destination)) return;
+
+            if (!".sln".Equals(
+                    Path.GetExtension(e.Source)
+                        .ToLowerInvariant()
+                )) return;
+            if (!".sln".Equals(
+                    Path.GetExtension(e.Destination)
+                        .ToLowerInvariant()
+                )) return;
+
+            foreach (var solution in LoadedSolutions)
+                if (e.Source.Equals(solution.Path))
+                    solution.Path = e.Destination;
         }
     }
 }
