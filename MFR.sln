@@ -669,6 +669,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Solutions.Reloaders.Fac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Solutions.Reloaders.Interfaces", "MFR.Solutions.Reloaders.Interfaces\MFR.Solutions.Reloaders.Interfaces.csproj", "{4C64E98D-1C23-4D49-B626-AD2F76631B31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Solutions.Reloaders.Models", "MFR.Solutions.Reloaders.Models\MFR.Solutions.Reloaders.Models.csproj", "{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -5926,6 +5928,22 @@ Global
 		{4C64E98D-1C23-4D49-B626-AD2F76631B31}.Release|x64.Build.0 = Release|x64
 		{4C64E98D-1C23-4D49-B626-AD2F76631B31}.Release|x86.ActiveCfg = Release|x86
 		{4C64E98D-1C23-4D49-B626-AD2F76631B31}.Release|x86.Build.0 = Release|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.All|x64.ActiveCfg = Debug|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.All|x64.Build.0 = Debug|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.All|x86.ActiveCfg = Debug|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.All|x86.Build.0 = Debug|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Debug|x64.ActiveCfg = Debug|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Debug|x64.Build.0 = Debug|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Debug|x86.ActiveCfg = Debug|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Debug|x86.Build.0 = Debug|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.DefaultBuild|x64.Build.0 = Debug|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.DefaultBuild|x86.Build.0 = Debug|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Release|x64.ActiveCfg = Release|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Release|x64.Build.0 = Release|x64
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Release|x86.ActiveCfg = Release|x86
+		{91605EBD-1DE3-4A95-BA5A-21F6B8530F06}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
