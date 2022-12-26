@@ -82,14 +82,8 @@
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
     </Reference>
-    <Reference Include="envdte, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\envdte.17.4.33103.184\lib\net472\envdte.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.4.33103.184\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
     <Reference Include="PostSharp, Version=6.10.16.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
@@ -104,15 +98,8 @@
     <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.10.16.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.16\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
-    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\stdole.16.10.31320.204\lib\net45\stdole.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -152,18 +139,6 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.Constants\xyLOGIX.VisualStudio.Actions.Constants.csproj">
-      <Project>{F8CB79A0-20D2-4913-8008-9901D00D778F}</Project>
-      <Name>xyLOGIX.VisualStudio.Actions.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
-      <Project>{BB6F2458-CBF3-43A7-9536-7D027FDED8C7}</Project>
-      <Name>xyLOGIX.VisualStudio.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
-      <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
       <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
       <Name>MFR.Directories.Validators.Factories</Name>
@@ -180,45 +155,13 @@
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
       <Name>MFR.Engines.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Errors.Reports.Commands.Constants\MFR.Errors.Reports.Commands.Constants.csproj">
-      <Project>{12421A60-E923-47AB-84B5-B8D556594C7A}</Project>
-      <Name>MFR.Errors.Reports.Commands.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Errors.Reports.Commands.Factories\MFR.Errors.Reports.Commands.Factories.csproj">
-      <Project>{469851D9-2C60-4299-9218-BCB850BAAAAD}</Project>
-      <Name>MFR.Errors.Reports.Commands.Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Controls.Extensions\MFR.GUI.Controls.Extensions.csproj">
       <Project>{C4A81E50-729F-40B8-84B6-A339C1247DBA}</Project>
       <Name>MFR.GUI.Controls.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
-      <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
-      <Name>MFR.GUI.Dialogs.Events</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.RootFolders.Factories\MFR.Managers.RootFolders.Factories.csproj">
-      <Project>{ABF085F2-3E87-46AB-AF16-7B779EFE6C1A}</Project>
-      <Name>MFR.Managers.RootFolders.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
-      <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
-      <Name>MFR.Managers.RootFolders.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
-      <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
-      <Name>MFR.Messages.Commands.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
-      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
-      <Name>MFR.Messages.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
-      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
-      <Name>MFR.Messages.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
@@ -235,10 +178,6 @@
     <ProjectReference Include="..\MFR.GUI.Controls.Interfaces\MFR.GUI.Controls.Interfaces.csproj">
       <Project>{3F9D1447-D681-4541-9E9B-049DF38040AC}</Project>
       <Name>MFR.GUI.Controls.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Dialogs.Factories\MFR.GUI.Dialogs.Factories.csproj">
-      <Project>{58F401C9-2722-4D62-8962-EDE93E43F5F7}</Project>
-      <Name>MFR.GUI.Dialogs.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Interfaces\MFR.GUI.Dialogs.Interfaces.csproj">
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
@@ -276,21 +215,9 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
-      <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-      <Name>MFR.Settings.Configuration.Providers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Constants\MFR.Constants.csproj">
-      <Project>{A9C55463-4815-4CC5-84BA-4058440521F4}</Project>
-      <Name>MFR.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
       <Name>MFR.Events.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Events\MFR.Events.csproj">
-      <Project>{FACD1C44-0214-4DF0-8969-4429C386A51A}</Project>
-      <Name>MFR.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
@@ -300,29 +227,9 @@
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
       <Name>MFR.FileSystem.Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
-      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-      <Name>MFR.FileSystem.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
-      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Operations.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Operations.Descriptions.Factories\MFR.Operations.Descriptions.Factories.csproj">
-      <Project>{0FF66CA2-92B5-4A11-AB1A-7B4A51A3981A}</Project>
-      <Name>MFR.Operations.Descriptions.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Operations.Descriptions.Interfaces\MFR.Operations.Descriptions.Interfaces.csproj">
-      <Project>{522A7534-3065-477B-B756-844F124FAE1A}</Project>
-      <Name>MFR.Operations.Descriptions.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Events\MFR.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
       <Name>MFR.Operations.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
-      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-      <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Interfaces\MFR.Renamers.Files.Interfaces.csproj">
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
@@ -351,10 +258,6 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
       <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Providers\MFR.Settings.Profiles.Providers.csproj">
-      <Project>{A20E0B5A-6BC6-4244-A8AC-6BB1726F8911}</Project>
-      <Name>MFR.Settings.Profiles.Providers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
       <Project>{9D0A59C5-A814-45CA-88B3-DAE6E6462D07}</Project>
@@ -436,12 +339,10 @@ ECHO *** DONE *** with post-build script.
 
 SET ERRORLEVEL=0</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.34\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.10.16\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.16\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.10.16\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.16\build\PostSharp.targets'))" />
     <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />

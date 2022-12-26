@@ -1046,9 +1046,6 @@ namespace MFR.GUI.Windows.Presenters
         [Log(AttributeExclude = true)]
         protected virtual void OnFinished()
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             Finished?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(MainWindowPresenterMessages.MWP_FINISHED);
@@ -1146,8 +1143,9 @@ namespace MFR.GUI.Windows.Presenters
         /// <c>OE_PROCESSING_FINISHED</c> message.
         /// </summary>
         private void OnOperationFinished(object sender, EventArgs e)
-            => OnFinished(); // raise the Finished event
+            => OnFinished();
 
+        // raise the Finished event
         /// <summary>
         /// Runs rules to ensure that the entries on the main window's form are
         /// valid. Throws a <see cref="T:System.Exception" /> if a validation
