@@ -85,7 +85,7 @@ Asserts that the
 [For](#M-MFR-Engines-Matching-Factories-GetTextExpressionMatchingEngine-For 'MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For')
 method throws [ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') when supplied
 with the
-[CloseActiveSolution](#T-MFR-Operations-Constants-OperationType-CloseActiveSolution 'MFR.Operations.Constants.OperationType.CloseActiveSolution')
+[CloseActiveSolutions](#T-MFR-Operations-Constants-OperationType-CloseActiveSolutions 'MFR.Operations.Constants.OperationType.CloseActiveSolutions')
 value,
 as this is not one of the values that a text-expression matcher object is
 available for.
@@ -138,7 +138,7 @@ Asserts that the
 [For](#M-MFR-Engines-Matching-Factories-GetTextExpressionMatchingEngine-For 'MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For')
 method throws [ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') when supplied
 with the
-[OpenActiveSolution](#T-MFR-Operations-Constants-OperationType-OpenActiveSolution 'MFR.Operations.Constants.OperationType.OpenActiveSolution')
+[OpenActiveSolutions](#T-MFR-Operations-Constants-OperationType-OpenActiveSolutions 'MFR.Operations.Constants.OperationType.OpenActiveSolutions')
 value,
 as this is not one of the values that a text-expression matcher object is
 available for.
