@@ -56,7 +56,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetFileSystemEntryValidator.For(
-                    OperationType.CloseActiveSolution
+                    OperationType.CloseActiveSolutions
                 )
             );
 
@@ -92,7 +92,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_Operation()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetFileSystemEntryValidator.For(
-                    OperationType.OpenActiveSolution
+                    OperationType.OpenActiveSolutions
                 )
             );
     }

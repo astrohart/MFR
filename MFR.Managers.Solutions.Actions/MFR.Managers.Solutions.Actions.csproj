@@ -102,13 +102,13 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.16\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Get.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="Is.cs" />
+    <Compile Include="Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +130,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
+      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
+      <Name>MFR.Managers.Solutions.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\PostSharp.6.10.16\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.16\build\PostSharp.targets')" />

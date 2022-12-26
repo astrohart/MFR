@@ -57,7 +57,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetFileSystemEntryListRetriever.For(
-                    OperationType.CloseActiveSolution
+                    OperationType.CloseActiveSolutions
                 )
             );
 
@@ -93,7 +93,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetFileSystemEntryListRetriever.For(
-                    OperationType.OpenActiveSolution
+                    OperationType.OpenActiveSolutions
                 )
             );
     }

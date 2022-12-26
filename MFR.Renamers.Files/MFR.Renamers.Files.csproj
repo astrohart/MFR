@@ -159,6 +159,10 @@
       <Project>{BB6F2458-CBF3-43A7-9536-7D027FDED8C7}</Project>
       <Name>xyLOGIX.VisualStudio.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
+      <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj">
       <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
       <Name>xyLOGIX.VisualStudio</Name>
@@ -166,6 +170,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters.csproj">
       <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
       <Name>xyLOGIX.Win32.Messages.Filters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Parsers.Interfaces\MFR.CommandLine.Parsers.Interfaces.csproj">
+      <Project>{7e6c8039-7af9-4f3a-a046-aac198d0703d}</Project>
+      <Name>MFR.CommandLine.Parsers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Validators.Factories\MFR.CommandLine.Validators.Factories.csproj">
       <Project>{DE6E68D8-6601-47FD-BB7E-21A46B6F56A9}</Project>
@@ -198,6 +206,18 @@
     <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
       <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
       <Name>MFR.Managers.RootFolders.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.Solutions.Actions\MFR.Managers.Solutions.Actions.csproj">
+      <Project>{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}</Project>
+      <Name>MFR.Managers.Solutions.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.Solutions.Factories\MFR.Managers.Solutions.Factories.csproj">
+      <Project>{DE593641-0BE4-447B-B779-CF7D1CD9DD60}</Project>
+      <Name>MFR.Managers.Solutions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
+      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
+      <Name>MFR.Managers.Solutions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>

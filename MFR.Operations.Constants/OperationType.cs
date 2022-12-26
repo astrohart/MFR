@@ -43,7 +43,7 @@ namespace MFR.Operations.Constants
         /// The "active" solution is defined as that which exists as a
         /// <c>.sln</c> file in the starting (root) folder.
         /// </remarks>
-        CloseActiveSolution = 5,
+        CloseActiveSolutions = 5,
 
         /// <summary>
         /// Finds the instance of Visual Studio that has the solution open.
@@ -65,7 +65,7 @@ namespace MFR.Operations.Constants
         /// The "active" solution is defined as that which exists as a
         /// <c>.sln</c> file in the starting (root) folder.
         /// </remarks>
-        OpenActiveSolution = 8,
+        OpenActiveSolutions = 8,
 
         /// <summary>
         /// We are replacing text values in the names of files.

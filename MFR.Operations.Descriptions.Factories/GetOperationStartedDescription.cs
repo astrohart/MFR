@@ -42,7 +42,7 @@ namespace MFR.Operations.Descriptions.Factories
 
             switch (type)
             {
-                case OperationType.CloseActiveSolution:
+                case OperationType.CloseActiveSolutions:
                     description = CloseActiveSolutionOperationStartedDescription
                                   .Instance.Text;
                     break;
@@ -64,7 +64,7 @@ namespace MFR.Operations.Descriptions.Factories
                             .Instance.Text;
                     break;
 
-                case OperationType.OpenActiveSolution:
+                case OperationType.OpenActiveSolutions:
                     description = OpenActiveSolutionOperationStartedDescription
                                   .Instance.Text;
                     break;

@@ -54,7 +54,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetMatchExpressionFactory.For(
-                    OperationType.CloseActiveSolution
+                    OperationType.CloseActiveSolutions
                 )
             );
 
@@ -90,7 +90,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetMatchExpressionFactory.For(
-                    OperationType.OpenActiveSolution
+                    OperationType.OpenActiveSolutions
                 )
             );
     }

@@ -1,15 +1,14 @@
-using MFR.FileSystem.Enumerators;
+using Alphaleonis.Win32.Filesystem;
+using MFR.Managers.Solutions.Actions;
 using MFR.Managers.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.VisualStudio;
 using xyLOGIX.VisualStudio.Solutions.Factories;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
-using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.Managers.Solutions
 {
@@ -32,6 +31,17 @@ namespace MFR.Managers.Solutions
         protected VisualStudioSolutionService() { }
 
         /// <summary>
+        /// Gets or sets the fully-qualified pathname of the folder that is to be searched
+        /// for <c>.sln</c> files.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public string FolderToSearch
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.Managers.Solutions.VisualStudioSolutionService" />.
         /// </summary>
@@ -42,15 +52,21 @@ namespace MFR.Managers.Solutions
         } = new VisualStudioSolutionService();
 
         /// <summary>
-        /// Gets or sets the fully-qualified pathname of the folder that is to be searched
-        /// for <c>.sln</c> files.
+        /// Alias for the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions" />
+        /// method.
+        /// <para />
+        /// This serves to make this class more fluent.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public string FolderToSearch
-        {
-            get;
-            set;
-        }
+        /// <returns>
+        /// This method returns the same value as the
+        /// <see
+        ///     cref="M:MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions" />
+        /// method does when a blank value is passed for its input.
+        /// </returns>
+        public bool ContainLoadedSolutions()
+            => ContainsLoadedSolutions(string.Empty);
 
         /// <summary>
         /// Determines whether the folder having path passed in the
@@ -76,57 +92,55 @@ namespace MFR.Managers.Solutions
         public bool ContainsLoadedSolutions(string folder = "")
         {
             var result = false;
-            /*
-             * If the value of the folder parameter is blank, or it
-             * contains a value that is not the fully-qualified pathname
-             * of a folder that exists on the disk, attempt to utilize
-             * the value of the FolderToSearch property.
-             *
-             * If THAT property is blank or contains a value that is
-             * not the fully-qualified pathname of a folder that exists
-             * on the disk, then unfortunately, we are screwed.
-             */
 
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"VisualStudioSolutionService.ContainsLoadedSolutions: Checking whether the folder '{folder}' exists..."
-            );
-
-            if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
+            try
             {
+                /*
+                 * If the value of the folder parameter is blank, or it
+                 * contains a value that is not the fully-qualified pathname
+                 * of a folder that exists on the disk, attempt to utilize
+                 * the value of the FolderToSearch property.
+                 *
+                 * If THAT property is blank or contains a value that is
+                 * not the fully-qualified pathname of a folder that exists
+                 * on the disk, then unfortunately, we are screwed.
+                 */
+
                 DebugUtils.WriteLine(
-                    DebugLevel.Warning,
-                    $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' could not be found.  Falling back on the value of the FolderToSearch property..."
+                    DebugLevel.Debug,
+                    $"VisualStudioSolutionService.ContainsLoadedSolutions: Checking whether the folder '{folder}' exists..."
                 );
 
-                folder = FolderToSearch;
                 if (string.IsNullOrWhiteSpace(folder) ||
                     !Directory.Exists(folder))
                 {
                     DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' cannot be located on the disk."
+                        DebugLevel.Warning,
+                        $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' could not be found.  Falling back on the value of the FolderToSearch property..."
                     );
-                    return result;
-                }
-                else
-                {
+
+                    folder = FolderToSearch;
+                    if (string.IsNullOrWhiteSpace(folder) ||
+                        !Directory.Exists(folder))
+                    {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' cannot be located on the disk."
+                        );
+                        return result;
+                    }
+
                     DebugUtils.WriteLine(
                         DebugLevel.Debug,
                         "VisualStudioSolutionService.ContainsLoadedSolutions: The folder having the path contained in the FolderToSearch property shall be used."
                     );
                 }
-            }
-            else
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "VisualStudioSolutionService.ContainsLoadedSolutions: The folder whose path was passed in the 'folder' parameter shall be used for the search."
-                );
-            }
+                else
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "VisualStudioSolutionService.ContainsLoadedSolutions: The folder whose path was passed in the 'folder' parameter shall be used for the search."
+                    );
 
-            try
-            {
                 result = GetLoadedSolutionsInFolder(folder)
                     .Any();
             }
@@ -180,12 +194,8 @@ namespace MFR.Managers.Solutions
 
             try
             {
-                var files = Enumerate.Files(
-                                         folder, "*.sln",
-                                         SearchOption.AllDirectories
-                                     )
-                                     .Where(f => !ShouldSkipFile(f))
-                                     .ToList();
+                var files = Get.SolutionPathsInFolder(folder)
+                               .ToList();
 
                 if (!files.Any())
                     return result;
@@ -251,7 +261,7 @@ namespace MFR.Managers.Solutions
             try
             {
                 foreach (var solution in
-                    solutions.Where(solt => !solt.IsLoaded))
+                         solutions.Where(solt => !solt.IsLoaded))
                     solution.Load();
             }
             catch (Exception ex)
@@ -289,38 +299,5 @@ namespace MFR.Managers.Solutions
                 DebugUtils.LogException(ex);
             }
         }
-
-        /// <summary>
-        /// Alias for the
-        /// <see
-        ///     cref="M:MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions" />
-        /// method.
-        /// <para />
-        /// This serves to make this class more fluent.
-        /// </summary>
-        /// <returns>
-        /// This method returns the same value as the
-        /// <see
-        ///     cref="M:MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions" />
-        /// method does when a blank value is passed for its input.
-        /// </returns>
-        public bool ContainLoadedSolutions()
-            => ContainsLoadedSolutions();
-
-        /// <summary>
-        /// Determines whether a file with the <paramref name="path" /> should be
-        /// skipped in a search.
-        /// </summary>
-        /// <param name="path">
-        /// (Required.) String containing the path to be checked.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the <paramref name="path" /> provided
-        /// should not be included in the results; <see langword="false" /> otherwise.
-        /// </returns>
-        private static bool ShouldSkipFile(string path)
-            => string.IsNullOrWhiteSpace(path) || !File.Exists(path) ||
-               path.Contains(".git") && path.Contains(".vs") &&
-               path.Contains("packages");
     }
 }

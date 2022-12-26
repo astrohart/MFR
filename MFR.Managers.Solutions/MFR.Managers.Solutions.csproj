@@ -156,6 +156,10 @@
       <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
       <Name>MFR.FileSystem.Retrievers.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.Solutions.Actions\MFR.Managers.Solutions.Actions.csproj">
+      <Project>{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}</Project>
+      <Name>MFR.Managers.Solutions.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Managers.Solutions.Interfaces</Name>

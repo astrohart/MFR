@@ -25,7 +25,6 @@
   - [OperationsToPerform](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFiles')
-  - [RenameSolutionFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSolutionFolders')
   - [RenameSubFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceWith')
@@ -250,8 +249,7 @@ and returns a reference to it.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
 that contains existing configuration settings to copy into this object. |
 
 <a name='F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder'></a>
@@ -360,14 +358,6 @@ operation(s) and then re-opened when the selected operation(s) are complete.
 
 Gets or sets a value that indicates whether we should rename files
 in the folders encountered.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders'></a>
-### RenameSolutionFolders `property`
-
-##### Summary
-
-Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-containing folder(s) of solution(s) contained in the search should be renamed.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders'></a>
 ### RenameSubFolders `property`

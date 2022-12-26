@@ -21,7 +21,6 @@
   - [OperationsToPerform](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFiles')
-  - [RenameSolutionFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders')
   - [RenameSubFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith')
@@ -176,8 +175,7 @@ MFR.Settings.Configuration.Interfaces
 
 ##### Summary
 
-Defines the public-exposed methods and properties of a
-projectFileRenamerConfiguration object.
+Defines the public-exposed methods and properties of a projectFileRenamerConfiguration object.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart'></a>
 ### AutoStart `property`
@@ -191,8 +189,7 @@ specified operation(s) have been completed.
 
 ##### Remarks
 
-This flag is ignored if this projectFileRenamerConfiguration did not originate
-from the command
+This flag is ignored if this projectFileRenamerConfiguration did not originate from the command
 line.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhat'></a>
@@ -228,8 +225,7 @@ that the form displays in the folded state.
 
 ##### Summary
 
-Gets or sets a value indicating whether this projectFileRenamerConfiguration
-was specified by the
+Gets or sets a value indicating whether this projectFileRenamerConfiguration was specified by the
 user on the command line.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchCase'></a>
@@ -279,14 +275,6 @@ operation(s) and then re-opened when the selected operation(s) are complete.
 
 Gets or sets a value that indicates whether we should rename files
 in the folders encountered.
-
-<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders'></a>
-### RenameSolutionFolders `property`
-
-##### Summary
-
-Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-containing folder(s) of solution(s) contained in the search should be renamed.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders'></a>
 ### RenameSubFolders `property`

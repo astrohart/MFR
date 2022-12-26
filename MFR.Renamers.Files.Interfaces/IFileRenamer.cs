@@ -1,9 +1,10 @@
-using EnvDTE;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;
 using MFR.Settings.Configuration.Interfaces;
 using System;
+using System.Collections.Generic;
+using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
 namespace MFR.Renamers.Files.Interfaces
 {
@@ -18,21 +19,6 @@ namespace MFR.Renamers.Files.Interfaces
     /// </summary>
     public interface IFileRenamer : IConfigurationComposedObject
     {
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:EnvDTE.DTE" /> interface.
-        /// </summary>
-        /// <remarks>
-        /// This object provides a connection to an instance of Visual Studio.
-        /// <para />
-        /// <b>NOTE: </b>It is vitally important that the caller check this value for
-        /// <see langword="null" /> prior to using it.
-        /// </remarks>
-        DTE Dte
-        {
-            get;
-        }
-
         /// <summary>
         /// Gets a value that indicates whether this component is currently processing
         /// operation(s).
@@ -52,10 +38,15 @@ namespace MFR.Renamers.Files.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets the path to the last Visual Studio Solution that we have worked
-        /// with most recently.
+        /// Gets a reference to a collection, each element of which implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface.
         /// </summary>
-        string LastSolutionPath
+        /// <remarks>
+        /// Each element of the collection represents a Visual Studio Solution (*.sln) that
+        /// is loaded in a running instance of Visual Studio.
+        /// </remarks>
+        IList<IVisualStudioSolution> LoadedSolutions
         {
             get;
         }
@@ -74,7 +65,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// in Visual Studio should be closed and then re-opened at the
         /// completion of the operation.
         /// </summary>
-        bool ShouldReOpenSolution
+        bool ShouldReOpenSolutions
         {
             get;
         }
@@ -173,7 +164,8 @@ namespace MFR.Renamers.Files.Interfaces
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        void ProcessAll(string findWhat, string replaceWith,
+        /// <returns><see langword="true" /> if the operations succeeded; <see langword="false" /> otherwise.</returns>
+        bool ProcessAll(string findWhat, string replaceWith,
             Predicate<string> pathFilter = null);
 
         /// <summary>

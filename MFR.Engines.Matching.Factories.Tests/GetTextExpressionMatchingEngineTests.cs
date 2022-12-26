@@ -73,7 +73,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
         /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
         /// with the
-        /// <see cref="T:MFR.Operations.Constants.OperationType.CloseActiveSolution" />
+        /// <see cref="T:MFR.Operations.Constants.OperationType.CloseActiveSolutions" />
         /// value,
         /// as this is not one of the values that a text-expression matcher object is
         /// available for.
@@ -83,7 +83,7 @@ namespace MFR.Engines.Matching.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetTextExpressionMatchingEngine.For(
-                    OperationType.CloseActiveSolution
+                    OperationType.CloseActiveSolutions
                 )
             );
 
@@ -133,7 +133,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         ///     cref="M:MFR.Engines.Matching.Factories.GetTextExpressionMatchingEngine.For" />
         /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
         /// with the
-        /// <see cref="T:MFR.Operations.Constants.OperationType.OpenActiveSolution" />
+        /// <see cref="T:MFR.Operations.Constants.OperationType.OpenActiveSolutions" />
         /// value,
         /// as this is not one of the values that a text-expression matcher object is
         /// available for.
@@ -143,7 +143,7 @@ namespace MFR.Engines.Matching.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetTextExpressionMatchingEngine.For(
-                    OperationType.OpenActiveSolution
+                    OperationType.OpenActiveSolutions
                 )
             );
     }
