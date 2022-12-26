@@ -4,6 +4,7 @@ using MFR.GUI.Dialogs.Properties;
 using MFR.GUI.Windows.Wrappers.Factories;
 using System;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Dialogs
 {
@@ -150,60 +151,131 @@ namespace MFR.GUI.Dialogs
         {
             var flag = false;
 
-            if (Environment.OSVersion.Version.Major >= 6)
+            try
             {
-                var r = new Reflector("System.Windows.Forms");
-
-                uint num = 0;
-                var typeIFileDialog = r.GetType("FileDialogNative.IFileDialog");
-                var dialog = Reflector.Call(_ofd, "CreateVistaDialog");
-                Reflector.Call(_ofd, "OnBeforeVistaDialog", dialog);
-
-                var options = (uint)Reflector.CallAs(
-                    typeof(FileDialog), _ofd, "GetOptions"
-                );
-                options |= (uint)r.GetEnum(
-                    "FileDialogNative.FOS", "FOS_PICKFOLDERS"
-                );
-                Reflector.CallAs(
-                    typeIFileDialog, dialog, "SetOptions", options
-                );
-
-                var pfde = r.New("FileDialog.VistaDialogEvents", _ofd);
-                var parameters = new[] { pfde, num };
-                Reflector.CallAs2(
-                    typeIFileDialog, dialog, "Advise", parameters
-                );
-                num = (uint)parameters[1];
-                try
+                if (_ofd == null)
                 {
-                    var num2 = (int)Reflector.CallAs(
-                        typeIFileDialog, dialog, "Show", hWndOwner
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FolderSelectDialog.InternalShowDialog: The _ofd variable is set to a null reference."
                     );
-                    flag = 0 == num2;
+                    return false;
                 }
-                finally
+
+                if (Environment.OSVersion.Version.Major >= 6)
                 {
-                    Reflector.CallAs(typeIFileDialog, dialog, "Unadvise", num);
-                    GC.KeepAlive(pfde);
+                    var r = new Reflector("System.Windows.Forms");
+                    if (r == null)
+                    {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "FolderSelectDialog.InternalShowDialog: The 'r' variable is set to a null reference."
+                        );
+                        return flag;
+                    }
+
+                    uint num = 0;
+                    var typeIFileDialog = r.GetType("FileDialogNative.IFileDialog");
+                    if (typeIFileDialog == null)
+                    {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "FolderSelectDialog.InternalShowDialog: The typeIFileDialog variable is set to a null reference."
+                        );
+                        return flag;
+                    }
+
+                    var dialog = Reflector.Call(_ofd, "CreateVistaDialog");
+                    if (dialog == null)
+                    {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "FolderSelectDialog.InternalShowDialog: The 'dialog' variable is set to a null reference."
+                        );
+
+                        return flag;
+                    }
+
+                    Reflector.Call(_ofd, "OnBeforeVistaDialog", dialog);
+
+                    var options = (uint)Reflector.CallAs(
+                        typeof(FileDialog), _ofd, "GetOptions"
+                    );
+                    options |= (uint)r.GetEnum(
+                        "FileDialogNative.FOS", "FOS_PICKFOLDERS"
+                    );
+                    Reflector.CallAs(
+                        typeIFileDialog, dialog, "SetOptions", options
+                    );
+
+                    var pfde = r.New("FileDialog.VistaDialogEvents", _ofd);
+                    if (pfde == null)
+                    {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "FolderSelectDialog.InternalShowDialog: The 'pfde' variable could not be initialized."
+                        );
+                        return flag;
+                    }
+
+                    var parameters = new[] { pfde, num };
+                    Reflector.CallAs2(
+                        typeIFileDialog, dialog, "Advise", parameters
+                    );
+                    num = (uint)parameters[1];
+                    try
+                    {
+                        var num2 = (int)Reflector.CallAs(
+                            typeIFileDialog, dialog, "Show", hWndOwner
+                        );
+                        flag = 0 == num2;
+                    }
+                    finally
+                    {
+                        Reflector.CallAs(typeIFileDialog, dialog, "Unadvise", num);
+                        GC.KeepAlive(pfde);
+                    }
+                }
+                else
+                {
+                    if (!ShowOldStyleFolderBrowserDialog(hWndOwner, ref flag))
+                        return false;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                var fbd = new FolderBrowserDialog {
-                    Description = Title,
-                    SelectedPath = InitialDirectory,
-                    ShowNewFolderButton = false
-                };
-                if (fbd.ShowDialog(
-                    MakeNewWindowWrapper.FromScratch()
-                                        .ForWindowHandle(hWndOwner)
-                ) != DialogResult.OK) return false;
-                _ofd.FileName = fbd.SelectedPath;
-                flag = true;
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+                
+                // If an exception occurs trying to display the new Folder Select dialog box,
+                // then use the old-style version instead.
+                if (!ShowOldStyleFolderBrowserDialog(hWndOwner, ref flag))
+                    return false;
             }
 
             return flag;
+        }
+
+        private bool ShowOldStyleFolderBrowserDialog(IntPtr hWndOwner,
+            ref bool flag)
+        {
+            var fbd = new FolderBrowserDialog {
+                Description = Title,
+                SelectedPath = InitialDirectory,
+                ShowNewFolderButton = false
+            };
+            if (fbd.ShowDialog(
+                    MakeNewWindowWrapper.FromScratch()
+                                        .ForWindowHandle(hWndOwner)
+                ) != DialogResult.OK)
+            {
+                flag = false;
+                return false;
+            }
+
+            _ofd.FileName = fbd.SelectedPath;
+            flag = true;
+            return true;
         }
     }
 }
