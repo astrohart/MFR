@@ -173,7 +173,7 @@ namespace MFR.Settings.Configuration
         {
             get;
             set;
-        }
+        } = new List<OperationTypeInfo>();
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
@@ -449,20 +449,7 @@ namespace MFR.Settings.Configuration
             FindWhat = ReplaceWith = string.Empty;
             StartingFolder = Directory.GetCurrentDirectory();
 
-            OperationsToPerform = new List<OperationTypeInfo> {
-                new OperationTypeInfo {
-                    Enabled = true,
-                    OperationType = OperationType.RenameFilesInFolder
-                },
-                new OperationTypeInfo {
-                    Enabled = true,
-                    OperationType = OperationType.RenameSubFolders
-                },
-                new OperationTypeInfo {
-                    Enabled = true,
-                    OperationType = OperationType.ReplaceTextInFiles
-                }
-            };
+            OperationsToPerform.Clear();
         }
 
         /// <summary>
