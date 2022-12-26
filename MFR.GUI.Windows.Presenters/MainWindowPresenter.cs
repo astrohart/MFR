@@ -705,7 +705,7 @@ namespace MFR.GUI.Windows.Presenters
             // the interim
             OnDataOperationStarted(
                 new DataOperationEventArgs(
-                    "Updating projectFileRenamerConfiguration...  Please wait."
+                    "Updating configuration...  Please wait."
                 )
             );
 
@@ -729,6 +729,9 @@ namespace MFR.GUI.Windows.Presenters
 
                 base.CurrentConfiguration.MatchExactWord = View.MatchExactWord;
 
+                base.CurrentConfiguration.RenameSolutionFolders =
+                    View.RenameSolutionFolders;
+
                 base.CurrentConfiguration.SelectedOptionTab =
                     View.SelectedOptionTab;
 
@@ -741,6 +744,9 @@ namespace MFR.GUI.Windows.Presenters
                 View.SelectedOptionTab = ConfigurationProvider
                                          .CurrentConfiguration
                                          .SelectedOptionTab;
+
+                View.RenameSolutionFolders =
+                    base.CurrentConfiguration.RenameSolutionFolders;
 
                 View.MatchExactWord = base.CurrentConfiguration.MatchExactWord;
 

@@ -86,6 +86,15 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets the value of the <b>Rename Solution Folder(s)</b> checkbox
+        /// </summary>
+        bool RenameSolutionFolders
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to the dropdown that allows the user to specify the
         /// text to replace found text with.
         /// </summary>

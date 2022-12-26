@@ -21,7 +21,8 @@ namespace MFR.Settings.Configuration
     /// the application.
     /// </remarks>
     [Log(AttributeExclude = true)]
-    public class ProjectFileRenamerConfiguration : IProjectFileRenamerConfiguration
+    public class
+        ProjectFileRenamerConfiguration : IProjectFileRenamerConfiguration
     {
         /// <summary>
         /// A <see cref="T:System.String" /> containing the fully-qualified pathname of the
@@ -48,10 +49,13 @@ namespace MFR.Settings.Configuration
         /// </summary>
         /// <param name="source">
         /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
         /// that contains existing configuration settings to copy into this object.
         /// </param>
-        public ProjectFileRenamerConfiguration(IProjectFileRenamerConfiguration source)
+        public ProjectFileRenamerConfiguration(
+            IProjectFileRenamerConfiguration source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
@@ -84,6 +88,7 @@ namespace MFR.Settings.Configuration
         /// This flag is ignored if this configuration did not originate from the command
         /// line.
         /// </remarks>
+        [JsonIgnore]
         public bool AutoStart
         {
             get;
@@ -220,6 +225,17 @@ namespace MFR.Settings.Configuration
                     DebugUtils.LogException(ex);
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.Boolean" /> value that indicates whether the
+        /// containing folder(s) of solution(s) contained in the search should be renamed.
+        /// </summary>
+        [JsonProperty("renameSolutionFolders")]
+        public bool RenameSolutionFolders
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -403,7 +419,8 @@ namespace MFR.Settings.Configuration
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
+        /// <see
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
@@ -450,7 +467,8 @@ namespace MFR.Settings.Configuration
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
+        /// <see
+        ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
         /// event.
         /// </summary>
         protected virtual void OnStartingFolderChanged()

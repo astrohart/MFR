@@ -101,6 +101,7 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
             this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
+            this.renameSolutionFoldersCheckBox = new System.Windows.Forms.CheckBox();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -447,6 +448,7 @@ namespace MFR.GUI.Windows
             // 
             // findReplaceOptionsTabPage
             // 
+            this.findReplaceOptionsTabPage.Controls.Add(this.renameSolutionFoldersCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchExactWordCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
             this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 24);
@@ -767,6 +769,16 @@ namespace MFR.GUI.Windows
             this.importConfigDialog.RestoreDirectory = true;
             this.importConfigDialog.Title = "Import Configuration";
             // 
+            // renameSolutionFoldersCheckBox
+            // 
+            this.renameSolutionFoldersCheckBox.AutoSize = true;
+            this.renameSolutionFoldersCheckBox.Location = new System.Drawing.Point(7, 58);
+            this.renameSolutionFoldersCheckBox.Name = "renameSolutionFoldersCheckBox";
+            this.renameSolutionFoldersCheckBox.Size = new System.Drawing.Size(162, 19);
+            this.renameSolutionFoldersCheckBox.TabIndex = 2;
+            this.renameSolutionFoldersCheckBox.Text = "Rename solution folder(s)";
+            this.renameSolutionFoldersCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
@@ -883,6 +895,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem viewDarkTheme;
         private System.Windows.Forms.SaveFileDialog exportConfigDialog;
         private System.Windows.Forms.OpenFileDialog importConfigDialog;
+        private System.Windows.Forms.CheckBox renameSolutionFoldersCheckBox;
     }
 }
 

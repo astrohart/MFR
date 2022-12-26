@@ -237,6 +237,15 @@ namespace MFR.GUI.Windows
             => profileListComboBox;
 
         /// <summary>
+        /// Gets or sets the value of the <b>Rename Solution Folder(s)</b> checkbox
+        /// </summary>
+        public bool RenameSolutionFolders
+        {
+            get => renameSolutionFoldersCheckBox.Checked;
+            set => renameSolutionFoldersCheckBox.Checked = value;
+        }
+
+        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to replace found text with.
         /// </summary>
@@ -388,6 +397,13 @@ namespace MFR.GUI.Windows
             Presenter.UpdateData(false);
 
             performOperationButton.PerformClick();
+        }
+
+        // Give the button a transparent background.
+        private static void MakeButtonBitmapTransparent(ButtonBase button)
+        {
+            var bm = (Bitmap)button.Image;
+            bm.MakeTransparent(bm.GetPixel(0, 0));
         }
 
         /// <summary>
@@ -620,13 +636,6 @@ namespace MFR.GUI.Windows
                                  OperationEngineMessages.OE_PROCESSING_STARTED
                              )
                              .AndEventHandler(OnOperationStarted);
-        }
-
-        // Give the button a transparent background.
-        private static void MakeButtonBitmapTransparent(ButtonBase button)
-        {
-            var bm = (Bitmap)button.Image;
-            bm.MakeTransparent(bm.GetPixel(0, 0));
         }
 
         /// <summary>
@@ -1480,7 +1489,9 @@ namespace MFR.GUI.Windows
                     $"*** ERROR *** The folder '{CurrentConfiguration.StartingFolder}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects."
                 );
 
-                DebugUtils.WriteLine(DebugLevel.Debug, "MainWindow.SetUpFindWhatComboBox: Done.");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug, "MainWindow.SetUpFindWhatComboBox: Done."
+                );
                 return;
             }
 

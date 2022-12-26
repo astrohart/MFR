@@ -5,10 +5,28 @@ using System.Collections.Generic;
 namespace MFR.Settings.Configuration.Interfaces
 {
     /// <summary>
-    /// Defines the public-exposed methods and properties of a projectFileRenamerConfiguration object.
+    /// Defines the public-exposed methods and properties of a
+    /// projectFileRenamerConfiguration object.
     /// </summary>
     public interface IProjectFileRenamerConfiguration
     {
+        /// <summary>
+        /// Gets or sets a value indicating whether the specified operation(s) should be
+        /// automatically initiated when the application starts.  If this value is set to
+        /// <see langword="true" /> then the application quits automatically after the
+        /// specified operation(s) have been completed.
+        /// </summary>
+        /// <remarks>
+        /// This flag is ignored if this projectFileRenamerConfiguration did not originate
+        /// from the command
+        /// line.
+        /// </remarks>
+        bool AutoStart
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
         /// by the user.
@@ -43,12 +61,14 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this projectFileRenamerConfiguration was specified by the
+        /// Gets or sets a value indicating whether this projectFileRenamerConfiguration
+        /// was specified by the
         /// user on the command line.
         /// </summary>
         bool IsFromCommandLine
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -78,7 +98,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         List<OperationTypeInfo> OperationsToPerform
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -86,6 +107,16 @@ namespace MFR.Settings.Configuration.Interfaces
         /// in the folders encountered.
         /// </summary>
         bool RenameFiles
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.Boolean" /> value that indicates whether the
+        /// containing folder(s) of solution(s) contained in the search should be renamed.
+        /// </summary>
+        bool RenameSolutionFolders
         {
             get;
             set;
@@ -177,20 +208,9 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the specified operation(s) should be
-        /// automatically initiated when the application starts.  If this value is set to
-        /// <see langword="true" /> then the application quits automatically after the
-        /// specified operation(s) have been completed.
-        /// </summary>
-        /// <remarks>
-        /// This flag is ignored if this projectFileRenamerConfiguration did not originate from the command
-        /// line.
-        /// </remarks>
-        bool AutoStart { get; set; }
-
-        /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
+        /// <see
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         event StartingFolderChangedEventHandler StartingFolderChanged;

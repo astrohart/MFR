@@ -53,6 +53,9 @@
   - [ProgressBarValue](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarValue 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarValue')
   - [Status](#P-MFR-GUI-Dialogs-CancellableProgressDialog-Status 'MFR.GUI.Dialogs.CancellableProgressDialog.Status')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.CancellableProgressDialog.Dispose(System.Boolean)')
+  - [DoSetProgressBarMaximum(value)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMaximum-System-Int32- 'MFR.GUI.Dialogs.CancellableProgressDialog.DoSetProgressBarMaximum(System.Int32)')
+  - [DoSetProgressBarMinimum(value)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMinimum-System-Int32- 'MFR.GUI.Dialogs.CancellableProgressDialog.DoSetProgressBarMinimum(System.Int32)')
+  - [DoSetProgressBarValue(value)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarValue-System-Int32- 'MFR.GUI.Dialogs.CancellableProgressDialog.DoSetProgressBarValue(System.Int32)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-InitializeComponent 'MFR.GUI.Dialogs.CancellableProgressDialog.InitializeComponent')
   - [OnCancel(sender,e)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-OnCancel-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.CancellableProgressDialog.OnCancel(System.Object,System.EventArgs)')
   - [OnCancelRequested()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-OnCancelRequested 'MFR.GUI.Dialogs.CancellableProgressDialog.OnCancelRequested')
@@ -846,6 +849,88 @@ Clean up any resources being used.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+
+<a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMaximum-System-Int32-'></a>
+### DoSetProgressBarMaximum(value) `method`
+
+##### Summary
+
+Sets the value of the [Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
+property but only after first checking that the argument of the
+`value` parameter falls within a valid range.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) An [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') that specifies
+the new value of the progress bar's maximum limit. |
+
+##### Remarks
+
+This method stops if (a) the argument of the `value`
+parameter is negative (i.e., we do not know what a negative maximum value means
+in the context of a progress bar), or (b) if the argument of the
+`value` parameter is less than, or equal to, the value of the
+[ProgressBarMinimum](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarMinimum 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarMinimum')
+property, or (c) if the argument of the `value` parameter is
+less than the value of the
+[ProgressBarValue](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarValue 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarValue')
+property.
+
+<a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMinimum-System-Int32-'></a>
+### DoSetProgressBarMinimum(value) `method`
+
+##### Summary
+
+Sets the value of the [Minimum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Minimum 'System.Windows.Forms.ProgressBar.Minimum')
+property but only after first checking that the argument of the
+`value` parameter falls within a valid range.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) An [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') that specifies the new value of
+the
+progress bar's minimum limit. |
+
+##### Remarks
+
+This method stops if (a) the argument of the `value`
+parameter is negative (i.e., we do not know what a negative minimum value means
+in the context of a progress bar), or (b) if the argument of the
+`value` parameter is greater than, or equal to, the value of
+the [Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum') property.
+
+<a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarValue-System-Int32-'></a>
+### DoSetProgressBarValue(value) `method`
+
+##### Summary
+
+Sets the value of the [Value](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Value 'System.Windows.Forms.ProgressBar.Value')
+property after first checking that the argument of the
+`value` parameter is in the proper range, i.e., between the
+minimum and maximum, inclusive.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) An [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') value that
+specifies the new value of the progress of an operation. |
+
+##### Remarks
+
+This method stops if any of the following are true: (a) if the argument of the
+`value` parameter is a negative number (we don't know how to
+display negative progress), or (b) if the argument of the
+`value` parameter is less than the value of the
+[ProgressBarMinimum](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarMinimum 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarMinimum')
+property, or (c) if the argument of the `value` parameter is
+greater than the value of the
+[ProgressBarMaximum](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarMaximum 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarMaximum')
+property.
 
 <a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-InitializeComponent'></a>
 ### InitializeComponent() `method`
