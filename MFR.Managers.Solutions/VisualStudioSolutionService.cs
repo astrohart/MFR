@@ -107,7 +107,7 @@ namespace MFR.Managers.Solutions
                  */
 
                 DebugUtils.WriteLine(
-                    DebugLevel.Debug,
+                    DebugLevel.Info,
                     $"VisualStudioSolutionService.ContainsLoadedSolutions: Checking whether the folder '{folder}' exists..."
                 );
 
@@ -118,6 +118,9 @@ namespace MFR.Managers.Solutions
                         DebugLevel.Warning,
                         $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' could not be found.  Falling back on the value of the FolderToSearch property..."
                     );
+
+                    // Dump the variable FolderToSearch to the log
+                    DebugUtils.WriteLine(DebugLevel.Info, $"VisualStudioSolutionService.ContainsLoadedSolutions: FolderToSearch = '{FolderToSearch}'");
 
                     folder = FolderToSearch;
                     if (string.IsNullOrWhiteSpace(folder) ||

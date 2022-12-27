@@ -1,3 +1,4 @@
+using MFR.Common;
 using MFR.Constants;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
@@ -373,18 +374,19 @@ namespace MFR.Renamers.Files
 
                 result = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
                 //Ignored.
-                
 
                 result = true;
             }
 
-            DebugUtils.WriteLine(DebugLevel.Info, $"FileRenamer.ProcessAll: Result = {result}");
+            DebugUtils.WriteLine(
+                DebugLevel.Info, $"FileRenamer.ProcessAll: Result = {result}"
+            );
 
             return result;
         }
@@ -1434,6 +1436,8 @@ namespace MFR.Renamers.Files
         private void DoProcessAll(string rootDirectoryPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter)
         {
+            ProgramFlowHelper.StartDebugger();
+
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -1451,19 +1455,11 @@ namespace MFR.Renamers.Files
 
                 RootDirectoryPath = rootDirectoryPath;
 
-                if (!RootDirectoryValidator.Validate(rootDirectoryPath))
-                {
-                    OnFinished(); // let subscribers to events know that we are done
-                    return;
-                }
+                if (!RootDirectoryValidator.Validate(rootDirectoryPath)) return;
 
                 OnStarted();
 
-                if (!SearchForLoadedSolutions())
-                {
-                    OnFinished();
-                    return;
-                }
+                if (!SearchForLoadedSolutions()) return;
 
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
@@ -1476,8 +1472,6 @@ namespace MFR.Renamers.Files
                         DebugLevel.Error,
                         "*** ERROR *** The InvokeProcessing method returned FALSE."
                     );
-
-                    OnFinished();
                     return;
                 }
 
@@ -1485,10 +1479,7 @@ namespace MFR.Renamers.Files
                 // open, then close the solution before we perform the rename operation.
                 if (!ShouldReOpenSolutions ||
                     !LoadedSolutions.Any(solution => solution.ShouldReopen))
-                {
-                    OnFinished();
                     return;
-                }
 
                 ReopenActiveSolutions();
             }
@@ -1567,7 +1558,7 @@ namespace MFR.Renamers.Files
 
                 result = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
@@ -1576,7 +1567,10 @@ namespace MFR.Renamers.Files
                 result = true;
             }
 
-            DebugUtils.WriteLine(DebugLevel.Info, $"FileRenamer.InvokeProcessing: Result = {result}");
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.InvokeProcessing: Result = {result}"
+            );
 
             return result;
         }
