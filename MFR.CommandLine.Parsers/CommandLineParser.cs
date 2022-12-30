@@ -123,7 +123,7 @@ namespace MFR.CommandLine.Parsers
                  .WithDescription(
                      "Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed."
                  )
-                 .SetDefault(false);
+                 .SetDefault(true);
 
                 p.Setup(arg => arg.MatchCase)
                  .As("matchCase")   

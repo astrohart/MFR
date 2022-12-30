@@ -1,6 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -29,25 +30,6 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the actions
-        /// associated with it.
-        /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Occurs when data is modified in this property sheet and then the
-        /// Apply button is clicked by the user.
-        /// </summary>
-        public event ModifiedEventHandler Modified;
-
-        /// <summary>
         /// Gets or sets the text of the configuration File Pathname text box.
         /// </summary>
         public string ConfigPathname
@@ -55,6 +37,30 @@ namespace MFR.GUI.Dialogs
             get => configPathnameTextBox.Text;
             set => configPathnameTextBox.Text = value;
         }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        private static IProjectFileRenamerConfiguration CurrentConfiguration
+            => ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
@@ -73,6 +79,39 @@ namespace MFR.GUI.Dialogs
         {
             get => reOpenSolutionCheckBox.Checked;
             set => reOpenSolutionCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Occurs when data is modified in this property sheet and then the
+        /// Apply button is clicked by the user.
+        /// </summary>
+        public event ModifiedEventHandler Modified;
+
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (DialogResult.OK == DialogResult) UpdateData();
+        }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            UpdateData(false); // move data from the configuration to the screen
         }
 
         /// <summary>
@@ -154,7 +193,7 @@ namespace MFR.GUI.Dialogs
             configPathBrowseBox.FileName =
                 string.IsNullOrWhiteSpace(ConfigPathname)
                     ? GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                                              .DefaultConfigFileName
+                        .DefaultConfigFileName
                     : ConfigPathname;
 
             if (configPathBrowseBox.ShowDialog(this) != DialogResult.OK)
@@ -174,7 +213,7 @@ namespace MFR.GUI.Dialogs
         /// </param>
         /// <remarks>
         /// This method is called to respond to the value of the text inside the
-        /// ProjectFileRenamerConfiguration File Pathname text box being changed. This method
+        /// CurrentConfiguration File Pathname text box being changed. This method
         /// responds to such a happenstance by updating the value of the
         /// <see
         ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />
@@ -217,5 +256,29 @@ namespace MFR.GUI.Dialogs
         /// </param>
         private void SetModifiedFlag(bool dirty = true)
             => IsModified = dirty;
+
+        /// <summary>
+        /// Moves data from this dialog's controls to the configuration object.
+        /// </summary>
+        /// <param name="bSaveAndValidate">
+        /// (Required.) A <see cref="T:System.Boolean" />
+        /// that specifies whether to save information from the screen into data variables.
+        /// <see langword="false" /> to load data to the screen.
+        /// </param>
+        private void UpdateData(bool bSaveAndValidate = true)
+        {
+            if (bSaveAndValidate)
+            {
+                CurrentConfiguration.ReOpenSolution =
+                    ShouldReOpenVisualStudioSolution;
+                ConfigurationProvider.ConfigurationFilePath = ConfigPathname;
+            }
+            else
+            {
+                ShouldReOpenVisualStudioSolution =
+                    CurrentConfiguration.ReOpenSolution;
+                ConfigPathname = ConfigurationProvider.ConfigurationFilePath;
+            }
+        }
     }
 }

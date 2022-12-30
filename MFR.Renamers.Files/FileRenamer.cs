@@ -1,4 +1,3 @@
-using MFR.Common;
 using MFR.Constants;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
@@ -1352,7 +1351,6 @@ namespace MFR.Renamers.Files
 
                 CloseActiveSolutions();
 
-                /*
                 if (!InvokeProcessing(findWhat, replaceWith, pathFilter))
                 {
                     DebugUtils.WriteLine(
@@ -1361,13 +1359,6 @@ namespace MFR.Renamers.Files
                     );
                     return;
                 }
-                */
-
-                // If Visual Studio is open and it currently has the solution
-                // open, then close the solution before we perform the rename operation.
-                if (!ShouldReOpenSolutions ||
-                    !LoadedSolutions.Any(solution => solution.ShouldReopen))
-                    return;
 
                 ReopenActiveSolutions();
             }
@@ -1928,11 +1919,13 @@ namespace MFR.Renamers.Files
 
         private void ReopenActiveSolutions()
         {
-            /*
-             * Do not reload solutions if the user has instructed us not to.
-             */
-
-            if (!CurrentConfiguration.ReOpenSolution) return;
+            // If Visual Studio is open and it currently has the solution
+            // open, then close the solution before we perform the rename operation.
+            if (!ShouldReOpenSolutions ||
+                !LoadedSolutions.Any(
+                    solution => solution.ShouldReopen
+                ))
+                return;
 
             OnOperationStarted(
                 new OperationStartedEventArgs(
@@ -2109,8 +2102,6 @@ namespace MFR.Renamers.Files
 
         private bool SearchForLoadedSolutions()
         {
-            ProgramFlowHelper.StartDebugger();
-
             OnOperationStarted(
                 new OperationStartedEventArgs(
                     OperationType.FindVisualStudio
@@ -2130,44 +2121,80 @@ namespace MFR.Renamers.Files
             // Scan the folder in which we are starting for files ending with the
             // .sln extension.  If any of them are open in Visual Studio, mark
             // them all for reloading, and then reload them.
-            if (Does.Folder(RootDirectoryPath)
-                    .ContainLoadedSolutions())
-            {
-                LoadedSolutions = new List<IVisualStudioSolution>(
-                    VisualStudioSolutionService
-                        .GetLoadedSolutionsInFolder(
-                            RootDirectoryPath
-                        )
-                );
-                if (LoadedSolutions != null &&
-                    LoadedSolutions.Any())
-                {
-                    /*
-                         * So, there are solution(s) in the root directory that are
-                         * currently loaded in running instance(s) of Visual Studio.
-                         * Determine whether they should be reopened by providing the
-                         * value of the configuration's ReOpenSolution flag.
-                         */
-                    foreach (var solution in LoadedSolutions)
-                        solution.ShouldReopen = CurrentConfiguration
-                            .ReOpenSolution;
+            LoadedSolutions = new List<IVisualStudioSolution>(
+                VisualStudioSolutionService
+                    .GetLoadedSolutionsInFolder(RootDirectoryPath)
+            );
 
-                    ShouldReOpenSolutions = LoadedSolutions.Any(
-                        solution => solution.ShouldReopen
-                    );
-                }
-                else if (!Get.SolutionPathsInFolder(
-                                 RootDirectoryPath
-                             )
-                             .Any())
+            if (LoadedSolutions != null && LoadedSolutions.Any())
+            {
+                /*
+                     * So, there are solution(s) in the root directory that are
+                     * currently loaded in running instance(s) of Visual Studio.
+                     * Determine whether they should be reopened by providing the
+                     * value of the configuration's ReOpenSolution flag.
+                     */
+
+                foreach (var solution in LoadedSolutions)
+                    solution.ShouldReopen = CurrentConfiguration
+                        .ReOpenSolution;
+
+                ShouldReOpenSolutions = LoadedSolutions.Any(
+                    solution => solution.ShouldReopen
+                );
+            }
+            else if (!Get.SolutionPathsInFolder(RootDirectoryPath)
+                         .Any())
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    string.Format(
+                        Resources.Error_NoSolutionsInRootDirectory,
+                        RootDirectoryPath
+                    )
+                );
+
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.FindVisualStudio
+                    )
+                );
+
+                return false;
+            }
+            else if (Process.GetProcessesByName("devenv")
+                            .Any())
+            {
+                /*
+                     * If we are here, then there are solutions in the root
+                     * directory folder, but there may also be open instances of
+                     * DevEnv.  In which case, we should detect if there are
+                     * any instances of DevEnv open in any event, so we can prompt
+                     * the user whether the user still wishes to proceed, so that
+                     * we may not disrupt the user's work.
+                     */
+
+                ShouldReOpenSolutions = false;
+
+                // One or more copies of VS are open, but it would seem unlikely
+                // that any of them have the solution open (unless its name
+                // differs from the convention). In this event, prompt the user
+                // that if the file(s) they are renaming are part of a solution
+                // that is currently open in Visual Studio, that the user will
+                // need to re-load the solution by hand after the operation has
+                // been completed.
+
+                if (DialogResult.No == MessageBox.Show(
+                        Resources.Confirm_PerformRename,
+                        Application.ProductName,
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Exclamation,
+                        MessageBoxDefaultButton.Button1
+                    ))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        string.Format(
-                            Resources
-                                .Error_NoSolutionsInRootDirectory,
-                            RootDirectoryPath
-                        )
+                        "FileRenamer.DoProcessAll: The user cancelled the rename operation."
                     );
 
                     OnOperationFinished(
@@ -2177,50 +2204,6 @@ namespace MFR.Renamers.Files
                     );
 
                     return false;
-                }
-                else if (Process.GetProcessesByName("devenv")
-                                .Any())
-                {
-                    /*
-                         * If we are here, then there are solutions in the root
-                         * directory folder, but there may also be open instances of
-                         * DevEnv.  In which case, we should detect if there are
-                         * any instances of DevEnv open in any event, so we can prompt
-                         * the user whether the user still wishes to proceed, so that
-                         * we may not disrupt the user's work.
-                         */
-
-                    ShouldReOpenSolutions = false;
-
-                    // One or more copies of VS are open, but it would seem unlikely
-                    // that any of them have the solution open (unless its name
-                    // differs from the convention). In this event, prompt the user
-                    // that if the file(s) they are renaming are part of a solution
-                    // that is currently open in Visual Studio, that the user will
-                    // need to re-load the solution by hand after the operation has
-                    // been completed.
-
-                    if (DialogResult.No == MessageBox.Show(
-                            Resources.Confirm_PerformRename,
-                            Application.ProductName,
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Exclamation,
-                            MessageBoxDefaultButton.Button1
-                        ))
-                    {
-                        DebugUtils.WriteLine(
-                            DebugLevel.Error,
-                            "FileRenamer.DoProcessAll: The user cancelled the rename operation."
-                        );
-
-                        OnOperationFinished(
-                            new OperationFinishedEventArgs(
-                                OperationType.FindVisualStudio
-                            )
-                        );
-
-                        return false;
-                    }
                 }
             }
 

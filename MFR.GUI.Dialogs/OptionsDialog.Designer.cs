@@ -136,9 +136,9 @@ namespace MFR.GUI.Dialogs
             this.configPathnameLabel.AutoSize = true;
             this.configPathnameLabel.Location = new System.Drawing.Point(14, 67);
             this.configPathnameLabel.Name = "configPathnameLabel";
-            this.configPathnameLabel.Size = new System.Drawing.Size(160, 15);
+            this.configPathnameLabel.Size = new System.Drawing.Size(262, 15);
             this.configPathnameLabel.TabIndex = 1;
-            this.configPathnameLabel.Text = "&ProjectFileRenamerConfiguration file pathname:";
+            this.configPathnameLabel.Text = "&CurrentConfiguration file pathname:";
             // 
             // visualStudioTabPage
             // 
@@ -181,8 +181,10 @@ namespace MFR.GUI.Dialogs
             // 
             // OptionsDialog
             // 
+            this.AcceptButton = this.okayButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(469, 431);
             this.Controls.Add(this.optionsTabControl);
             this.Controls.Add(this.okayButton);

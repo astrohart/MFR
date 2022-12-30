@@ -40,11 +40,11 @@ namespace MFR.GUI.Dialogs
             this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // detailedStatusLabel
+            // currentFileLabel
             // 
-            this.currentFileLabel.Location = new System.Drawing.Point(12, 46);
+            this.currentFileLabel.Location = new System.Drawing.Point(12, 56);
             this.currentFileLabel.Name = "currentFileLabel";
-            this.currentFileLabel.Size = new System.Drawing.Size(392, 46);
+            this.currentFileLabel.Size = new System.Drawing.Size(392, 36);
             this.currentFileLabel.TabIndex = 1;
             // 
             // progressBar
@@ -58,9 +58,9 @@ namespace MFR.GUI.Dialogs
             // 
             // statusLabel
             // 
-            this.statusLabel.Location = new System.Drawing.Point(13, 14);
+            this.statusLabel.Location = new System.Drawing.Point(13, 9);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(391, 24);
+            this.statusLabel.Size = new System.Drawing.Size(391, 47);
             this.statusLabel.TabIndex = 0;
             // 
             // cancelButton

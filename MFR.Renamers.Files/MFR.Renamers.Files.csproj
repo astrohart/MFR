@@ -112,10 +112,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -155,37 +152,9 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
-      <Project>{BB6F2458-CBF3-43A7-9536-7D027FDED8C7}</Project>
-      <Name>xyLOGIX.VisualStudio.Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj">
-      <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
-      <Name>xyLOGIX.VisualStudio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters.csproj">
-      <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
-      <Name>xyLOGIX.Win32.Messages.Filters</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Parsers.Interfaces\MFR.CommandLine.Parsers.Interfaces.csproj">
-      <Project>{7e6c8039-7af9-4f3a-a046-aac198d0703d}</Project>
-      <Name>MFR.CommandLine.Parsers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Factories\MFR.CommandLine.Validators.Factories.csproj">
-      <Project>{DE6E68D8-6601-47FD-BB7E-21A46B6F56A9}</Project>
-      <Name>MFR.CommandLine.Validators.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Interfaces\MFR.CommandLine.Validators.Interfaces.csproj">
-      <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
-      <Name>MFR.CommandLine.Validators.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
-      <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
       <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
@@ -194,10 +163,6 @@
     <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
-      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
-      <Name>MFR.FileSystem.Enumerators</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.RootFolders.Factories\MFR.Managers.RootFolders.Factories.csproj">
       <Project>{ABF085F2-3E87-46AB-AF16-7B779EFE6C1A}</Project>

@@ -279,6 +279,11 @@ parameter with the text specified by the
 parameter. A case-sensitive, not-in-exact-word
 search is performed.
 
+##### Returns
+
+`true` if the operation succeeded;
+`false` otherwise.
+
 ##### Parameters
 
 | Name | Type | Description |
