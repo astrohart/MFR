@@ -178,8 +178,8 @@ SET "GENERATED_XML_DOC_FILE_PATH=%25_TARGET_DIR%25$(TargetName).xml"
 SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
 ECHO Checking whether this is a Release build...
 IF "%25CONFIGURATION_NAME%25"=="Release" GOTO ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
-ECHO *** NOT a Release build.
-GOTO DEPLOY
+ECHO *** NOT a Release build.  Skipping deployment.
+GOTO FINALIZATION
 :ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
 ECHO This is a Release build.  Removing unneeded output files...
 ECHO Clearing the output folder of all nonessential files...
