@@ -10,6 +10,13 @@ namespace MFR.TextValues.Retrievers.Factories
     ///     cref="T:MFR.FileSystem.Retrievers.ITextValueRetriever" />
     /// interface.
     /// </summary>
+    /// <remarks>
+    /// Objects that implement the
+    /// <see cref="T:MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever" />
+    /// interface examine pathnames of files and folders, or the contents of text
+    /// files, for content in which the search term is to be searched for in a
+    /// find-and-replace operation.
+    /// </remarks>
     public static class GetTextValueRetriever
     {
         /// <summary>
@@ -31,6 +38,13 @@ namespace MFR.TextValues.Retrievers.Factories
         ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.ITextValueRetriever" />
         /// interface.
         /// </returns>
+        /// <remarks>
+        /// Objects that implement the
+        /// <see cref="T:MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever" />
+        /// interface examine pathnames of files and folders, or the contents of text
+        /// files, for content in which the search term is to be searched for in a
+        /// find-and-replace operation.
+        /// </remarks>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
         /// Thrown if the operation type specified by the
         /// <paramref

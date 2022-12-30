@@ -22,6 +22,14 @@ Creates instances of objects that implement the
 [ITextValueRetriever](#T-MFR-FileSystem-Retrievers-ITextValueRetriever 'MFR.FileSystem.Retrievers.ITextValueRetriever')
 interface.
 
+##### Remarks
+
+Objects that implement the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface examine pathnames of files and folders, or the contents of text
+files, for content in which the search term is to be searched for in a
+find-and-replace operation.
+
 <a name='M-MFR-TextValues-Retrievers-Factories-GetTextValueRetriever-For-MFR-Operations-Constants-OperationType-'></a>
 ### For(type) `method`
 
@@ -53,6 +61,14 @@ that specifies which operation is currently being performed. |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the operation type specified by the
 `type`
 parameter is not one of the supported values. |
+
+##### Remarks
+
+Objects that implement the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface examine pathnames of files and folders, or the contents of text
+files, for content in which the search term is to be searched for in a
+find-and-replace operation.
 
 <a name='T-MFR-TextValues-Retrievers-Factories-Properties-Resources'></a>
 ## Resources `type`

@@ -343,22 +343,22 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                if (CurrentConfiguration.RenameFiles)
-                    RenameFilesInFolder(
+                if (CurrentConfiguration.RenameFiles && !RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
-                    );
+                    ))
+                    return result;
 
-                if (CurrentConfiguration.RenameSubFolders)
-                    RenameSubFoldersOf(
+                if (CurrentConfiguration.RenameSubFolders &&
+                    !RenameSubFoldersOf(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
-                    );
+                    ))
+                    return result;
 
-                if (!CurrentConfiguration.ReplaceTextInFiles)
-                    return true;
-
-                ReplaceTextInFiles(
-                    RootDirectoryPath, findWhat, replaceWith, pathFilter
-                );
+                if (CurrentConfiguration.ReplaceTextInFiles &&
+                    !ReplaceTextInFiles(
+                        RootDirectoryPath, findWhat, replaceWith, pathFilter
+                    ))
+                    return result;
 
                 result = true;
             }
@@ -534,6 +534,11 @@ namespace MFR.Renamers.Files
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation was successful;
+        /// <see langword="false" /> if the operation failed or if the user cancelled the
+        /// operation.
+        /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
         /// <paramref
@@ -549,9 +554,11 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public void RenameFilesInFolder(string rootFolderPath, string findWhat,
+        public bool RenameFilesInFolder(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
         {
+            var result = false;
+
             // write the name of the current class and method we are now
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
@@ -596,8 +603,8 @@ namespace MFR.Renamers.Files
                         .GetMatchingFileSystemPaths(
                             RootDirectoryPath, pathFilter
                         );
-                var entries = entryCollection.ToList();
-                if (!entries.Any())
+                var fileSystemEntries = entryCollection.ToList();
+                if (!fileSystemEntries.Any())
                     if (!AbortRequested)
                     {
                         OnOperationFinished(
@@ -605,7 +612,7 @@ namespace MFR.Renamers.Files
                                 OperationType.GettingListOfFilesToBeRenamed
                             )
                         );
-                        return;
+                        return result;
                     }
 
                 OnOperationFinished(
@@ -616,7 +623,8 @@ namespace MFR.Renamers.Files
 
                 OnFilesToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
-                        entries.Count, OperationType.RenameFilesInFolder
+                        fileSystemEntries.Count,
+                        OperationType.RenameFilesInFolder
                     )
                 );
 
@@ -633,89 +641,19 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                foreach (var entry in entries)
-                {
-                    try
-                    {
-                        if (AbortRequested) break;
-
-                        OnProcessingOperation(
-                            new ProcessingOperationEventArgs(
-                                entry, OperationType.RenameFilesInFolder
-                            )
-                        );
-
-                        var source = entry.Path;
-                        if (string.IsNullOrWhiteSpace(source)) continue;
-                        if (!File.Exists(source)) continue;
-
-                        var destination = Path.Combine(
-                            entry.ContainingFolder,
-                            /*
-                             * OKAY, the code below is going to actually figure
-                             * out the new name of the file.  Not the entire new
-                             * PATH to the file...just the new NAME for the FILE
-                             * ITSELF.
-                             *
-                             * Since the FileInfoExtensions.RenameTo() method must
-                             * be passed the destination file as a fully-qualified,
-                             * absolute pathname, we do the combination with the
-                             * ContainingFolder property of the current
-                             * FileSystemEntry we are processing.  (The Containing
-                             * DoesFolder property is filled during its construction.)
-                             */
-                            (string)GetTextReplacementEngine.For(
-                                    OperationType.RenameFilesInFolder
-                                )
-                                .AndAttachConfiguration(CurrentConfiguration)
-                                .Replace(
-                                    GetMatchExpressionFactory.For(
-                                            OperationType.RenameFilesInFolder
-                                        )
-                                        .AndAttachConfiguration(
-                                            CurrentConfiguration
-                                        )
-                                        .ForTextValue(
-                                            GetTextValueRetriever.For(
-                                                    OperationType
-                                                        .RenameFilesInFolder
-                                                )
-                                                .GetTextValue(entry)
-                                        )
-                                        .ToFindWhat(findWhat)
-                                        .AndReplaceItWith(replaceWith)
-                                )
-                        );
-
-                        if (entry.ToFileInfo()
-                                 .RenameTo(destination))
-                            /*
-                                 * Raise an event to let other parts of the application
-                                 * know that a file has been renamed successfully.
-                                 *
-                                 * The RenameTo method above returns true if the rename
-                                 * operation succeeded.
-                                 */
-                            OnFileRenamed(
-                                new FileRenamedEventArgs(source, destination)
-                            );
-                    }
-                    catch (Exception ex)
-                    {
-                        OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
-                        continue; /* explicit continue statement */
-                    }
-
-                    if (AbortRequested)
-                        continue;
-
-                    OnOperationFinished(
-                        new OperationFinishedEventArgs(
-                            OperationType.RenameFilesInFolder
-                        )
-                    );
-                    break;
-                }
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => RenameFileInFolderForEntry(
+                                                      findWhat, replaceWith,
+                                                      entry
+                                                  )
+                                          );
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+                return result;
             }
             catch (Exception ex)
             {
@@ -739,6 +677,13 @@ namespace MFR.Renamers.Files
                     CurrentOperation, true /* operation finished */
                 )
             );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFilesInFolder: Result = {result}"
+            );
+
+            return result;
         }
 
         /// <summary>
@@ -787,9 +732,11 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public void RenameSubFoldersOf(string rootFolderPath, string findWhat,
+        public bool RenameSubFoldersOf(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
         {
+            var result = false;
+
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -835,7 +782,7 @@ namespace MFR.Renamers.Files
                         .GetMatchingFileSystemPaths(
                             RootDirectoryPath, pathFilter
                         );
-                var entries = entryCollection.ToList();
+                var fileSystemEntries = entryCollection.ToList();
 
                 /*
                 var subFolders = Directory
@@ -851,33 +798,42 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.RenameSubFoldersOf: {entries.Count} folders are to be renamed."
+                    $"FileRenamer.RenameSubFoldersOf: {fileSystemEntries.Count} folders are to be renamed."
                 );
 
-                if (!entries.Any())
-                    if (!AbortRequested)
-                    {
-                        /*
-                         * If we are here, then no subfolders were found that match
-                         * the user's search criteria, and the user has not clicked
-                         * the Cancel button in the progress dialog.  Therefore,
-                         * just report this operation as being finished, and then
-                         * exit this method.
-                         */
+                if (!fileSystemEntries.Any() && !AbortRequested)
+                {
+                    /*
+                     * If we are here, then no subfolders were found that match
+                     * the user's search criteria, and the user has not clicked
+                     * the Cancel button in the progress dialog.  Therefore,
+                     * just report this operation as being finished, and then
+                     * exit this method.
+                     */
 
-                        OnOperationFinished(
-                            new OperationFinishedEventArgs(
-                                OperationType.RenameSubFolders
-                            )
-                        );
-                        return;
-                    }
-                    else
-                        return;
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.RenameSubFolders
+                        )
+                    );
+                    return result;
+                }
+
+                /*
+                 * If, at this point, the AbortRequested property is true,
+                 * then the user must have cancelled the progress dialog.
+                 *
+                 * Therefore, we should throw OperationAbortedException.
+                 */
+
+                if (AbortRequested)
+                    throw new OperationAbortedException(
+                        "The operation has been aborted."
+                    );
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
-                        entries.Count, OperationType.RenameSubFolders
+                        fileSystemEntries.Count, OperationType.RenameSubFolders
                     )
                 );
 
@@ -888,70 +844,35 @@ namespace MFR.Renamers.Files
                  * settings specified by the user.
                  */
 
-                foreach (var entry in entries)
-                    try
-                    {
-                        if (AbortRequested) break;
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry => RenameSubFolderForEntry(
+                                                  findWhat, replaceWith, entry
+                                              )
+                                          );
 
-                        OnProcessingOperation(
-                            new ProcessingOperationEventArgs(
-                                entry, OperationType.RenameSubFolders
-                            )
-                        );
+                /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
+                result = !AbortRequested;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
 
-                        var source = entry.Path;
-
-                        var destination = (string)GetTextReplacementEngine
-                                                  .For(
-                                                      OperationType
-                                                          .RenameSubFolders
-                                                  )
-                                                  .AndAttachConfiguration(
-                                                      CurrentConfiguration
-                                                  )
-                                                  .Replace(
-                                                      (IMatchExpression)
-                                                      GetMatchExpressionFactory
-                                                          .For(
-                                                              OperationType
-                                                                  .RenameSubFolders
-                                                          )
-                                                          .AndAttachConfiguration(
-                                                              CurrentConfiguration
-                                                          )
-                                                          .ForTextValue(
-                                                              GetTextValueRetriever
-                                                                  .For(
-                                                                      OperationType
-                                                                          .RenameSubFolders
-                                                                  )
-                                                                  .GetTextValue(
-                                                                      entry
-                                                                  )
-                                                          )
-                                                          .ToFindWhat(findWhat)
-                                                          .AndReplaceItWith(
-                                                              replaceWith
-                                                          )
-                                                  );
-
-                        if (entry.ToDirectoryInfo()
-                                 .RenameTo(destination) &&
-                            !Directory.Exists(source))
-                            OnFolderRenamed(
-                                new FolderRenamedEventArgs(source, destination)
-                            );
-                    }
-                    catch (Exception ex)
-                    {
-                        OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
-                        continue; /* explicit continue statement */
-                    }
+                throw; // just bubble the exception up to the next level
             }
             catch (Exception ex)
             {
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
+
+            /*
+             * We do a check of the AbortRequested property's value, and
+             * a subsequent throw of OperationAbortedException if the
+             * property is set to true, here.
+             *
+             * We do this in case a different thread set the property
+             * before we got here.
+             */
 
             if (AbortRequested)
                 throw new OperationAbortedException(
@@ -968,6 +889,13 @@ namespace MFR.Renamers.Files
                     CurrentOperation, true /* operation finished */
                 )
             );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFoldersOf: Result = {result}"
+            );
+
+            return result; /* result should be set to TRUE at this point */
         }
 
         /// <summary>
@@ -1009,6 +937,10 @@ namespace MFR.Renamers.Files
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" /> or the
         /// <paramref name="findWhat" /> parameters are blank.
@@ -1022,9 +954,11 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public void ReplaceTextInFiles(string rootFolderPath, string findWhat,
+        public bool ReplaceTextInFiles(string rootFolderPath, string findWhat,
             string replaceWith = "", Predicate<string> pathFilter = null)
         {
+            var result = false;
+
             if (string.IsNullOrWhiteSpace(rootFolderPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -1060,23 +994,22 @@ namespace MFR.Renamers.Files
                     .AndReplaceItWith(replaceWith)
                     .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter);
             var fileSystemEntries = entryCollection.ToList();
-            if (!fileSystemEntries.Any())
-                if (!AbortRequested)
-                {
-                    OnStatusUpdate(
-                        new StatusUpdateEventArgs(
-                            $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
-                            CurrentOperation, true /* operation finished */
-                        )
-                    );
+            if (!fileSystemEntries.Any() && !AbortRequested)
+            {
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
+                        CurrentOperation, true /* operation finished */
+                    )
+                );
 
-                    OnOperationFinished(
-                        new OperationFinishedEventArgs(
-                            OperationType.ReplaceTextInFiles
-                        )
-                    );
-                    return;
-                }
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.ReplaceTextInFiles
+                    )
+                );
+                return result;
+            }
 
             OnFilesToHaveTextReplacedCounted(
                 new FilesOrFoldersCountedEventArgs(
@@ -1086,72 +1019,22 @@ namespace MFR.Renamers.Files
 
             try
             {
-                foreach (var entry in fileSystemEntries)
-                    try
-                    {
-                        if (AbortRequested) break;
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => ReplaceTextInFileForEntry(
+                                                      findWhat, replaceWith,
+                                                      entry
+                                                  )
+                                          );
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
 
-                        OnProcessingOperation(
-                            new ProcessingOperationEventArgs(
-                                entry, OperationType.ReplaceTextInFiles
-                            )
-                        );
+                result = false;
 
-                        string replacementData = GetTextReplacementEngine
-                                                 .For(
-                                                     OperationType
-                                                         .ReplaceTextInFiles
-                                                 )
-                                                 .AndAttachConfiguration(
-                                                     CurrentConfiguration
-                                                 )
-                                                 .Replace(
-                                                     (IMatchExpression)
-                                                     GetMatchExpressionFactory
-                                                         .For(
-                                                             OperationType
-                                                                 .ReplaceTextInFiles
-                                                         )
-                                                         .AndAttachConfiguration(
-                                                             CurrentConfiguration
-                                                         )
-                                                         .ForTextValue(
-                                                             GetTextValueRetriever
-                                                                 .For(
-                                                                     OperationType
-                                                                         .ReplaceTextInFiles
-                                                                 )
-                                                                 .GetTextValue(
-                                                                     entry
-                                                                 )
-                                                         )
-                                                         .ToFindWhat(findWhat)
-                                                         .AndReplaceItWith(
-                                                             replaceWith
-                                                         )
-                                                 );
-
-                        if (File.Exists(entry.Path))
-                            File.Delete(entry.Path);
-
-                        /*
-                         * OKAY, check whether the replacement file data has zero byte length.
-                         * If so, then the file-deletion operation above suffices to remove the
-                         * file whose data is being replaced.
-                         *
-                         * We only will carry out the writing of data to the file on the disk
-                         * in the event that the replacementData variable has more than zero byte
-                         * length.  We are willing to write whitespace to the file, in order to
-                         * support the Whitespace programming language.
-                         */
-                        if (!string.IsNullOrEmpty(replacementData))
-                            File.WriteAllText(entry.Path, replacementData);
-                    }
-                    catch (Exception ex)
-                    {
-                        OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
-                        continue; /* explicit continue statement */
-                    }
+                throw;
             }
             catch (Exception ex)
             {
@@ -1177,7 +1060,12 @@ namespace MFR.Renamers.Files
                 new OperationFinishedEventArgs(OperationType.ReplaceTextInFiles)
             );
 
-            return;
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFiles: Result = {result}"
+            );
+
+            return result;
         }
 
         /// <summary>
@@ -1436,8 +1324,6 @@ namespace MFR.Renamers.Files
         private void DoProcessAll(string rootDirectoryPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter)
         {
-            ProgramFlowHelper.StartDebugger();
-
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.",
@@ -1466,6 +1352,7 @@ namespace MFR.Renamers.Files
 
                 CloseActiveSolutions();
 
+                /*
                 if (!InvokeProcessing(findWhat, replaceWith, pathFilter))
                 {
                     DebugUtils.WriteLine(
@@ -1474,6 +1361,7 @@ namespace MFR.Renamers.Files
                     );
                     return;
                 }
+                */
 
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
@@ -1496,6 +1384,75 @@ namespace MFR.Renamers.Files
             {
                 OnFinished();
             }
+        }
+
+        private string GetReplacementFileName(string findWhat,
+            string replaceWith, IFileSystemEntry entry)
+        {
+            var result = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith)) return result;
+            if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                !File.Exists(entry.Path)) return result;
+            if (AbortRequested) return result;
+
+            try
+            {
+                result = GetTextReplacementEngine.For(
+                                                     OperationType
+                                                         .RenameFilesInFolder
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     CurrentConfiguration
+                                                 )
+                                                 .Replace(
+                                                     GetMatchExpressionFactory
+                                                         .For(
+                                                             OperationType
+                                                                 .RenameFilesInFolder
+                                                         )
+                                                         .AndAttachConfiguration(
+                                                             CurrentConfiguration
+                                                         )
+                                                         .ForTextValue(
+                                                             GetTextValueRetriever
+                                                                 .For(
+                                                                     OperationType
+                                                                         .RenameFilesInFolder
+                                                                 )
+                                                                 .GetTextValue(
+                                                                     entry
+                                                                 )
+                                                         )
+                                                         .ToFindWhat(findWhat)
+                                                         .AndReplaceItWith(
+                                                             replaceWith
+                                                         )
+                                                 );
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                result = string.Empty;
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.GetReplacementFileName: Result = '{result}'"
+            );
+
+            return result;
         }
 
         /// <summary>
@@ -1733,6 +1690,242 @@ namespace MFR.Renamers.Files
                 );
         }
 
+        private bool RenameFileInFolderForEntry(string findWhat,
+            string replaceWith, IFileSystemEntry entry)
+        {
+            var result = false;
+
+            /* validate inputs */
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "FileRenamer.RenameFileInFolderForEntry: Validating inputs..."
+            );
+
+            // Dump the variable findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: findWhat = '{findWhat}'"
+            );
+
+            // Dump the variable replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: replaceWith = '{replaceWith}'"
+            );
+
+            // Dump the variable entry.Path to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: entry.Path = '{entry.Path}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith)) return result;
+            if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                !File.Exists(entry.Path)) return result;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "FileRenamer.RenameFileInFolderForEntry: Checking the value of the AbortRequested property...  If it is set to true, we'll stop and return false."
+            );
+
+            // Dump the variable AbortRequested to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: AbortRequested = {AbortRequested}"
+            );
+
+            if (AbortRequested) return false;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.RenameFilesInFolder
+                    )
+                );
+
+                var source = entry.Path;
+                if (string.IsNullOrWhiteSpace(source)) return result;
+                if (!File.Exists(source)) return result;
+
+                /*
+                 * OKAY, the code below is going to actually figure
+                 * out the new name of the file.  Not the entire new
+                 * PATH to the file...just the new NAME for the FILE
+                 * ITSELF.
+                 *
+                 * Since the FileInfoExtensions.RenameTo() method must
+                 * be passed the destination file as a fully-qualified,
+                 * absolute pathname, we do the combination with the
+                 * ContainingFolder property of the current
+                 * FileSystemEntry we are processing.  (The Containing
+                 * DoesFolder property is filled during its construction.)
+                 *
+                 * This is done because we are operating under the assumption
+                 * that the file to be renamed should be left in the same
+                 * folder that we found it in.
+                 */
+
+                var newFileName = GetReplacementFileName(
+                    findWhat, replaceWith, entry
+                );
+
+                var destination = Path.Combine(
+                    entry.ContainingFolder, newFileName
+                );
+
+                if (entry.ToFileInfo()
+                         .RenameTo(destination))
+                    /*
+                     * Raise an event to let other parts of the application
+                     * know that a file has been renamed successfully.
+                     *
+                     * The RenameTo method above returns true if the rename
+                     * operation succeeded.
+                     */
+                {
+                    result = true; /* succeeded */
+                    OnFileRenamed(
+                        new FileRenamedEventArgs(source, destination)
+                    );
+                }
+            }
+            catch (OperationAbortedException)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR *** OperationAbortedException caught.  Setting AbortRequested to true."
+                );
+
+                AbortRequested = true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                return true; /* okay, an exception was caught, but
+                                 * we want to barrel through the remainder
+                                 * of the operation so we can process any other
+                                 * files that may need to be operated on.
+                                 * So, we return true here.*/
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        private bool RenameSubFolderForEntry(string findWhat,
+            string replaceWith, IFileSystemEntry entry)
+        {
+            var result = false;
+
+            // Dump the variable findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: findWhat = '{findWhat}'"
+            );
+
+            // Dump the variable replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: replaceWith = '{replaceWith}'"
+            );
+
+            // Dump the variable entry.Path to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: entry.Path = '{entry.Path}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                return result;
+            if (entry == null || !Directory.Exists(entry.Path))
+                return result;
+            if (AbortRequested) return false;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.RenameSubFolders
+                    )
+                );
+
+                var source = entry.Path;
+
+                var destination = (string)GetTextReplacementEngine
+                                          .For(OperationType.RenameSubFolders)
+                                          .AndAttachConfiguration(
+                                              CurrentConfiguration
+                                          )
+                                          .Replace(
+                                              (IMatchExpression)
+                                              GetMatchExpressionFactory
+                                                  .For(
+                                                      OperationType
+                                                          .RenameSubFolders
+                                                  )
+                                                  .AndAttachConfiguration(
+                                                      CurrentConfiguration
+                                                  )
+                                                  .ForTextValue(
+                                                      GetTextValueRetriever.For(
+                                                              OperationType
+                                                                  .RenameSubFolders
+                                                          )
+                                                          .GetTextValue(entry)
+                                                  )
+                                                  .ToFindWhat(findWhat)
+                                                  .AndReplaceItWith(replaceWith)
+                                          );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: source = '{source}'"
+                );
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: destination = '{destination}'"
+                );
+
+                if (entry.ToDirectoryInfo()
+                         .RenameTo(destination) &&
+                    !Directory.Exists(source))
+                {
+                    result = true; /* success */
+                    OnFolderRenamed(
+                        new FolderRenamedEventArgs(
+                            source, destination
+                        )
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
         private void ReopenActiveSolutions()
         {
             /*
@@ -1742,7 +1935,9 @@ namespace MFR.Renamers.Files
             if (!CurrentConfiguration.ReOpenSolution) return;
 
             OnOperationStarted(
-                new OperationStartedEventArgs(OperationType.OpenActiveSolutions)
+                new OperationStartedEventArgs(
+                    OperationType.OpenActiveSolutions
+                )
             );
 
             OnStatusUpdate(
@@ -1773,7 +1968,8 @@ namespace MFR.Renamers.Files
             {
                 if (solution == null) return;
                 if (solution.IsLoaded) return;
-                if (string.IsNullOrWhiteSpace(solution.Path)) return;
+                if (string.IsNullOrWhiteSpace(solution.Path))
+                    return;
                 if (!File.Exists(solution.Path)) return;
 
                 DebugUtils.WriteLine(
@@ -1797,10 +1993,128 @@ namespace MFR.Renamers.Files
             }
         }
 
+        private bool ReplaceTextInFileForEntry(string findWhat,
+            string replaceWith, IFileSystemEntry entry)
+        {
+            var result = false;
+
+            /* validate inputs */
+
+            // Dump the variable findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFileForEntry: findWhat = '{findWhat}'"
+            );
+
+            // Dump the variable replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFileForEntry: replaceWith = '{replaceWith}'"
+            );
+
+            // Dump the variable entry.Path to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFileForEntry: entry.Path = '{entry.Path}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                return result;
+            if (entry == null ||
+                string.IsNullOrWhiteSpace(entry.Path) ||
+                string.IsNullOrWhiteSpace(entry.UserState) ||
+                !File.Exists(entry.Path))
+                return result;
+            if (AbortRequested) return result;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.ReplaceTextInFiles
+                    )
+                );
+
+                string replacementData = GetTextReplacementEngine
+                                         .For(OperationType.ReplaceTextInFiles)
+                                         .AndAttachConfiguration(
+                                             CurrentConfiguration
+                                         )
+                                         .Replace(
+                                             (IMatchExpression)
+                                             GetMatchExpressionFactory
+                                                 .For(
+                                                     OperationType
+                                                         .ReplaceTextInFiles
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     CurrentConfiguration
+                                                 )
+                                                 .ForTextValue(
+                                                     GetTextValueRetriever.For(
+                                                             OperationType
+                                                                 .ReplaceTextInFiles
+                                                         )
+                                                         .GetTextValue(entry)
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                         );
+
+                if (File.Exists(entry.Path))
+                    File.Delete(entry.Path);
+
+                /*
+                 * OKAY, check whether the replacement file data has zero byte length.
+                 * If so, then the file-deletion operation above suffices to remove the
+                 * file whose data is being replaced.
+                 *
+                 * We only will carry out the writing of data to the file on the disk
+                 * in the event that the replacementData variable has more than zero byte
+                 * length.  We are willing to write whitespace to the file, in order to
+                 * support the Whitespace programming language.
+                 *
+                 * If the replacementData is a zero-length string, then the deletion
+                 * of the file (as performed by the code preceding this comment) will
+                 * be how the replacement of text in a file with zero-byte content is
+                 * carried out.  Meaning: if you ask us to replace a text file's
+                 * entire contents with nothing, that is the same as deleting the file
+                 * entirely.
+                 */
+                if (!string.IsNullOrEmpty(replacementData))
+                    File.WriteAllText(entry.Path, replacementData);
+
+                result = true;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+                return true;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFileForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
         private bool SearchForLoadedSolutions()
         {
+            ProgramFlowHelper.StartDebugger();
+
             OnOperationStarted(
-                new OperationStartedEventArgs(OperationType.FindVisualStudio)
+                new OperationStartedEventArgs(
+                    OperationType.FindVisualStudio
+                )
             );
 
             LoadedSolutions.Clear();
@@ -1820,11 +2134,13 @@ namespace MFR.Renamers.Files
                     .ContainLoadedSolutions())
             {
                 LoadedSolutions = new List<IVisualStudioSolution>(
-                    VisualStudioSolutionService.GetLoadedSolutionsInFolder(
-                        RootDirectoryPath
-                    )
+                    VisualStudioSolutionService
+                        .GetLoadedSolutionsInFolder(
+                            RootDirectoryPath
+                        )
                 );
-                if (LoadedSolutions != null && LoadedSolutions.Any())
+                if (LoadedSolutions != null &&
+                    LoadedSolutions.Any())
                 {
                     /*
                          * So, there are solution(s) in the root directory that are
@@ -1833,20 +2149,23 @@ namespace MFR.Renamers.Files
                          * value of the configuration's ReOpenSolution flag.
                          */
                     foreach (var solution in LoadedSolutions)
-                        solution.ShouldReopen =
-                            CurrentConfiguration.ReOpenSolution;
+                        solution.ShouldReopen = CurrentConfiguration
+                            .ReOpenSolution;
 
                     ShouldReOpenSolutions = LoadedSolutions.Any(
                         solution => solution.ShouldReopen
                     );
                 }
-                else if (!Get.SolutionPathsInFolder(RootDirectoryPath)
+                else if (!Get.SolutionPathsInFolder(
+                                 RootDirectoryPath
+                             )
                              .Any())
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
                         string.Format(
-                            Resources.Error_NoSolutionsInRootDirectory,
+                            Resources
+                                .Error_NoSolutionsInRootDirectory,
                             RootDirectoryPath
                         )
                     );
@@ -1883,7 +2202,8 @@ namespace MFR.Renamers.Files
 
                     if (DialogResult.No == MessageBox.Show(
                             Resources.Confirm_PerformRename,
-                            Application.ProductName, MessageBoxButtons.YesNo,
+                            Application.ProductName,
+                            MessageBoxButtons.YesNo,
                             MessageBoxIcon.Exclamation,
                             MessageBoxDefaultButton.Button1
                         ))
@@ -1905,16 +2225,22 @@ namespace MFR.Renamers.Files
             }
 
             OnOperationFinished(
-                new OperationFinishedEventArgs(OperationType.FindVisualStudio)
+                new OperationFinishedEventArgs(
+                    OperationType.FindVisualStudio
+                )
             );
             return true;
         }
 
-        private void UpdateLoadedSolutionPaths(FileRenamedEventArgs e)
+        private void UpdateLoadedSolutionPaths(
+            FileRenamedEventArgs e)
         {
             if (!LoadedSolutions.Any(
                     solution => solution.Path.ToLowerInvariant()
-                                        .Equals(e.Source.ToLowerInvariant())
+                                        .Equals(
+                                            e.Source
+                                             .ToLowerInvariant()
+                                        )
                 )) return;
 
             if (string.IsNullOrWhiteSpace(e.Source)) return;

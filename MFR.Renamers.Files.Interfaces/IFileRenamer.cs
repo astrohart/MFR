@@ -164,7 +164,10 @@ namespace MFR.Renamers.Files.Interfaces
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        /// <returns><see langword="true" /> if the operations succeeded; <see langword="false" /> otherwise.</returns>
+        /// <returns>
+        /// <see langword="true" /> if the operations succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
         bool ProcessAll(string findWhat, string replaceWith,
             Predicate<string> pathFilter = null);
 
@@ -232,6 +235,11 @@ namespace MFR.Renamers.Files.Interfaces
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation was successful;
+        /// <see langword="false" /> if the operation failed or if the user cancelled the
+        /// operation.
+        /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
         /// <paramref
@@ -247,7 +255,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        void RenameFilesInFolder(string rootFolderPath, string findWhat,
+        bool RenameFilesInFolder(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>
@@ -281,6 +289,10 @@ namespace MFR.Renamers.Files.Interfaces
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" />,
         /// <paramref
@@ -296,7 +308,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        void RenameSubFoldersOf(string rootFolderPath, string findWhat,
+        bool RenameSubFoldersOf(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>
@@ -338,6 +350,10 @@ namespace MFR.Renamers.Files.Interfaces
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if either the <paramref name="rootFolderPath" /> or the
         /// <paramref name="findWhat" /> parameters are blank.
@@ -351,7 +367,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        void ReplaceTextInFiles(string rootFolderPath, string findWhat,
+        bool ReplaceTextInFiles(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null);
 
         /// <summary>

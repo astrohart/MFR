@@ -97,7 +97,8 @@ property.
 
 ##### Returns
 
-`true` if the operations succeeded; `false` otherwise.
+`true` if the operations succeeded;
+`false` otherwise.
 
 ##### Parameters
 
@@ -167,6 +168,12 @@ of the folder whose pathname is specified by the
 `rootFolderPath`
 parameter.
 
+##### Returns
+
+`true` if the operation was successful;
+`false` if the operation failed or if the user cancelled the
+operation.
+
 ##### Parameters
 
 | Name | Type | Description |
@@ -214,6 +221,11 @@ Recursively renames all the subfolders in the folder having a
 pathname specified by `rootFolderPath`, replacing
 any occurrences of the text in the `findWhat`
 parameter with the values in the `replaceWith` parameter.
+
+##### Returns
+
+`true` if the operation succeeded;
+`false` otherwise.
 
 ##### Parameters
 

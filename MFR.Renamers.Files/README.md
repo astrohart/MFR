@@ -613,6 +613,12 @@ of the folder whose pathname is specified by the
 `rootFolderPath`
 parameter.
 
+##### Returns
+
+`true` if the operation was successful;
+`false` if the operation failed or if the user cancelled the
+operation.
+
 ##### Parameters
 
 | Name | Type | Description |
@@ -712,6 +718,11 @@ parameter with the text specified by the
 `replaceWith`
 parameter. A case-sensitive, not-in-exact-word
 search is performed.
+
+##### Returns
+
+`true` if the operation succeeded;
+`false` otherwise.
 
 ##### Parameters
 
