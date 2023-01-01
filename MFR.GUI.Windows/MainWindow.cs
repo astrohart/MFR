@@ -45,6 +45,7 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.UI.Dark.Forms;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
@@ -54,7 +55,7 @@ namespace MFR.GUI.Windows
     /// <summary>
     /// Displays the main window of the application.
     /// </summary>
-    public partial class MainWindow : Form, IMainWindow
+    public partial class MainWindow : DarkForm, IMainWindow
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
