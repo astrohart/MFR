@@ -21,8 +21,6 @@ namespace MFR.GUI.Dialogs
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -66,13 +64,11 @@ namespace MFR.GUI.Dialogs
             this.Name = "OperationDrivenProgressDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OperationDrivenProgressDialog";
             this.ResumeLayout(false);
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.ProgressBar progressBar;

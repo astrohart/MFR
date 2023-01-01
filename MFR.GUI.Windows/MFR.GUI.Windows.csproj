@@ -99,14 +99,9 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.16\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -153,29 +148,21 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj">
+      <Project>{597DC3E0-72ED-4CD8-AFC5-DFD099393447}</Project>
+      <Name>xyLOGIX.Forms.DarkTheme.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj">
+      <Project>{D80693BF-21A9-476A-B690-5E9E758BB4FA}</Project>
+      <Name>xyLOGIX.Forms.DarkTheme</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
-      <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
-      <Name>xyLOGIX.UI.Dark.Forms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Events\MFR.CommandLine.Validators.Events.csproj">
-      <Project>{9614BE5B-0E77-460B-A7BC-0539C27A2511}</Project>
-      <Name>MFR.CommandLine.Validators.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Factories\MFR.CommandLine.Validators.Factories.csproj">
-      <Project>{DE6E68D8-6601-47FD-BB7E-21A46B6F56A9}</Project>
-      <Name>MFR.CommandLine.Validators.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Interfaces\MFR.CommandLine.Validators.Interfaces.csproj">
-      <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
-      <Name>MFR.CommandLine.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Events\MFR.Directories.Validators.Events.csproj">
       <Project>{F4FC7296-6B39-4AEA-8285-88A9DA2E7C3D}</Project>
@@ -205,18 +192,6 @@
       <Project>{29914A76-5AEE-4A3B-BD8F-6F7AE2B0A3CA}</Project>
       <Name>MFR.FileSystem.Enumerators.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
-      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
-      <Name>MFR.FileSystem.Enumerators</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
-      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
-      <Name>MFR.FileSystem.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
-      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
-      <Name>MFR.FileSystem.Helpers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Controls.Extensions\MFR.GUI.Controls.Extensions.csproj">
       <Project>{C4A81E50-729F-40B8-84B6-A339C1247DBA}</Project>
       <Name>MFR.GUI.Controls.Extensions</Name>
@@ -232,22 +207,6 @@
     <ProjectReference Include="..\MFR.GUI.Displayers\MFR.GUI.Displayers.csproj">
       <Project>{88EE1339-FB88-453E-9517-81D51B9C1D9D}</Project>
       <Name>MFR.GUI.Displayers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Factories\MFR.GUI.Launchers.Dialogs.Factories.csproj">
-      <Project>{1633B11F-B2F3-4BA9-B9B7-C7E64A17A9C7}</Project>
-      <Name>MFR.GUI.Launchers.Dialogs.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Interfaces\MFR.GUI.Launchers.Dialogs.Interfaces.csproj">
-      <Project>{405D44E5-B6A4-456C-9EA7-96EE44DAB6F8}</Project>
-      <Name>MFR.GUI.Launchers.Dialogs.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Params.Factories\MFR.GUI.Launchers.Dialogs.Params.Factories.csproj">
-      <Project>{5B121AA3-7AD4-47EF-A71A-BE7EC28193E7}</Project>
-      <Name>MFR.GUI.Launchers.Dialogs.Params.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Params.Interfaces\MFR.GUI.Launchers.Dialogs.Params.Interfaces.csproj">
-      <Project>{344B2E14-DF98-439D-83B5-02A29BBCB070}</Project>
-      <Name>MFR.GUI.Launchers.Dialogs.Params.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs.Results.Interfaces\MFR.GUI.Launchers.Dialogs.Results.Interfaces.csproj">
       <Project>{0C682E27-057C-4BDC-89B7-5D367D5650D1}</Project>
@@ -329,10 +288,6 @@
       <Project>{39F88DD4-65A6-4625-A672-4B8638D500E0}</Project>
       <Name>MFR.GUI.Dialogs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Launchers.Dialogs\MFR.GUI.Launchers.Dialogs.csproj">
-      <Project>{44939EB3-7147-4684-9207-8F05D5E7B709}</Project>
-      <Name>MFR.GUI.Launchers.Dialogs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Presenters.Associators\MFR.GUI.Presenters.Associators.csproj">
       <Project>{85E988B0-691C-41B6-981A-9BC0AE1DDA8B}</Project>
       <Name>MFR.GUI.Presenters.Associators</Name>
@@ -361,10 +316,6 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
-      <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-      <Name>MFR.Settings.Configuration.Providers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
       <Name>MFR.Events.Common</Name>
@@ -372,14 +323,6 @@
     <ProjectReference Include="..\MFR.Operations.Events\MFR.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
       <Name>MFR.Operations.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Renamers.Files.Factories\MFR.Renamers.Files.Factories.csproj">
-      <Project>{A93C6F56-DF58-45F1-8C4B-03C63F013E7F}</Project>
-      <Name>MFR.Renamers.Files.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Renamers.Files.Interfaces\MFR.Renamers.Files.Interfaces.csproj">
-      <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
-      <Name>MFR.Renamers.Files.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Actions.Constants\MFR.Settings.Profiles.Actions.Constants.csproj">
       <Project>{15C7805D-1879-4093-B671-6C168277C448}</Project>
@@ -389,25 +332,9 @@
       <Project>{CDB376A4-19AF-4B02-B7E1-5898088C5398}</Project>
       <Name>MFR.Settings.Profiles.Actions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
-      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
-      <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Factories\MFR.Settings.Profiles.Factories.csproj">
-      <Project>{33167BC4-36DC-4E33-99B4-9CFF054B6D08}</Project>
-      <Name>MFR.Settings.Profiles.Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
       <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
       <Name>MFR.Settings.Profiles.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Factories\MFR.Settings.Profiles.Providers.Factories.csproj">
-      <Project>{61494E63-AE7D-4D4A-967B-D3B50E68858A}</Project>
-      <Name>MFR.Settings.Profiles.Providers.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
-      <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
-      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
       <Project>{9d0a59c5-a814-45ca-88b3-dae6e6462d07}</Project>
