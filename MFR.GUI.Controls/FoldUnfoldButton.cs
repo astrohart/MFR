@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Controls
 {
@@ -13,7 +14,7 @@ namespace MFR.GUI.Controls
     /// whether a form is folded or unfolded.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public class FoldUnfoldButton : Button, IFoldUnfoldButton
+    public class FoldUnfoldButton : DarkButton, IFoldUnfoldButton
     {
         /// <summary>
         /// Value indicating whether the containing form is to be in the folded state.
