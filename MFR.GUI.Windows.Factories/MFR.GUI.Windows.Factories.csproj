@@ -140,6 +140,10 @@
       <Project>{d80693bf-21a9-476a-b690-5e9e758bb4fa}</Project>
       <Name>xyLOGIX.Forms.DarkTheme</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
+      <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
+      <Name>xyLOGIX.UI.Dark.Forms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Interfaces\MFR.GUI.Windows.Interfaces.csproj">
       <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
       <Name>MFR.GUI.Windows.Interfaces</Name>
