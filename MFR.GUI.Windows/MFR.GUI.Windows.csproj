@@ -148,17 +148,17 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj">
-      <Project>{597DC3E0-72ED-4CD8-AFC5-DFD099393447}</Project>
-      <Name>xyLOGIX.Forms.DarkTheme.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj">
-      <Project>{D80693BF-21A9-476A-B690-5E9E758BB4FA}</Project>
-      <Name>xyLOGIX.Forms.DarkTheme</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
+      <Project>{A63CA76D-B2B3-42F7-A6C3-78E980B4C629}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls\xyLOGIX.UI.Dark.Controls.csproj">
+      <Project>{9190559b-fb22-4e74-9130-5bfd3ffd6dae}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
       <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>

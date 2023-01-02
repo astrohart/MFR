@@ -32,10 +32,10 @@ namespace MFR.GUI.Windows
       {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.startingFolderLabel = new System.Windows.Forms.Label();
-            this.startingFolderBrowseButton = new System.Windows.Forms.Button();
+            this.startingFolderBrowseButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.findWhatLabel = new System.Windows.Forms.Label();
             this.replaceWithLabel = new System.Windows.Forms.Label();
-            this.performOperationButton = new System.Windows.Forms.Button();
+            this.performOperationButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -95,7 +95,7 @@ namespace MFR.GUI.Windows
             this.importConfigButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.clearAllHistoryButton = new System.Windows.Forms.ToolStripButton();
-            this.switchButton = new System.Windows.Forms.Button();
+            this.switchButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.replaceWithComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
@@ -126,7 +126,6 @@ namespace MFR.GUI.Windows
             this.startingFolderBrowseButton.Size = new System.Drawing.Size(24, 27);
             this.startingFolderBrowseButton.TabIndex = 2;
             this.startingFolderBrowseButton.Text = "...";
-            this.startingFolderBrowseButton.UseVisualStyleBackColor = true;
             this.startingFolderBrowseButton.Click += new System.EventHandler(this.OnClickBrowseForStartingFolder);
             // 
             // findWhatLabel
@@ -158,7 +157,6 @@ namespace MFR.GUI.Windows
             this.performOperationButton.TabIndex = 8;
             this.performOperationButton.Text = "&Perform Operation";
             this.performOperationButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.performOperationButton.UseVisualStyleBackColor = true;
             this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
             // 
             // statusBar
@@ -712,7 +710,6 @@ namespace MFR.GUI.Windows
             this.switchButton.TabIndex = 14;
             this.switchButton.Text = "&Switch";
             this.switchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.switchButton.UseVisualStyleBackColor = false;
             this.switchButton.Click += new System.EventHandler(this.OnClickSwitchButton);
             // 
             // replaceWithComboBox
@@ -826,10 +823,10 @@ namespace MFR.GUI.Windows
       }
 
       private System.Windows.Forms.Label startingFolderLabel;
-      private System.Windows.Forms.Button startingFolderBrowseButton;
+      private xyLOGIX.UI.Dark.Controls.DarkButton startingFolderBrowseButton;
       private System.Windows.Forms.Label findWhatLabel;
       private System.Windows.Forms.Label replaceWithLabel;
-      private System.Windows.Forms.Button performOperationButton;
+      private xyLOGIX.UI.Dark.Controls.DarkButton performOperationButton;
       private MFR.GUI.Controls.FoldUnfoldButton foldButton;
       private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
       private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
@@ -888,7 +885,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripButton importConfigButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton clearAllHistoryButton;
-        private System.Windows.Forms.Button switchButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton switchButton;
         private System.Windows.Forms.ToolStripButton viewDarkThemeButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripSeparator sep2;
