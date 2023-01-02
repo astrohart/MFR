@@ -554,7 +554,6 @@ namespace MFR.GUI.Windows
             this.foldButton.Size = new System.Drawing.Size(87, 27);
             this.foldButton.TabIndex = 7;
             this.foldButton.Text = "&More >>";
-            this.foldButton.UseVisualStyleBackColor = true;
             this.foldButton.FormFolded += new MFR.GUI.Controls.Events.FormFoldedEventHandler(this.OnFormFolded);
             // 
             // hiddenFocusLabel
