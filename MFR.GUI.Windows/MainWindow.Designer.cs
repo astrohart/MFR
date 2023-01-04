@@ -31,10 +31,10 @@ namespace MFR.GUI.Windows
       private void InitializeComponent()
       {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.startingFolderLabel = new System.Windows.Forms.Label();
+            this.startingFolderLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.startingFolderBrowseButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.findWhatLabel = new System.Windows.Forms.Label();
-            this.replaceWithLabel = new System.Windows.Forms.Label();
+            this.findWhatLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.replaceWithLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.performOperationButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
@@ -69,18 +69,19 @@ namespace MFR.GUI.Windows
             this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsTabControl = new System.Windows.Forms.TabControl();
+            this.optionsTabControl = new xyLOGIX.UI.Dark.Controls.DarkTabControl();
             this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
-            this.matchExactWordCheckBox = new System.Windows.Forms.CheckBox();
-            this.matchCaseCheckBox = new System.Windows.Forms.CheckBox();
+            this.renameSolutionFoldersCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
+            this.matchExactWordCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
+            this.matchCaseCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.operationsTabPage = new System.Windows.Forms.TabPage();
-            this.tabPageInstructionLabel = new System.Windows.Forms.Label();
-            this.selectDeselectAllCheckBox = new System.Windows.Forms.CheckBox();
+            this.tabPageInstructionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.selectDeselectAllCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.operationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MFR.GUI.Controls.FoldUnfoldButton();
-            this.hiddenFocusLabel = new System.Windows.Forms.Label();
+            this.hiddenFocusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.standardToolBar = new System.Windows.Forms.ToolStrip();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.sep1 = new System.Windows.Forms.ToolStripSeparator();
@@ -101,7 +102,6 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
             this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
-            this.renameSolutionFoldersCheckBox = new System.Windows.Forms.CheckBox();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -113,6 +113,8 @@ namespace MFR.GUI.Windows
             // startingFolderLabel
             // 
             this.startingFolderLabel.AutoSize = true;
+            this.startingFolderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.startingFolderLabel.IsDarkTheme = false;
             this.startingFolderLabel.Location = new System.Drawing.Point(12, 62);
             this.startingFolderLabel.Name = "startingFolderLabel";
             this.startingFolderLabel.Size = new System.Drawing.Size(226, 15);
@@ -121,8 +123,10 @@ namespace MFR.GUI.Windows
             // 
             // startingFolderBrowseButton
             // 
+            this.startingFolderBrowseButton.IsDarkTheme = false;
             this.startingFolderBrowseButton.Location = new System.Drawing.Point(560, 78);
             this.startingFolderBrowseButton.Name = "startingFolderBrowseButton";
+            this.startingFolderBrowseButton.Padding = new System.Windows.Forms.Padding(5);
             this.startingFolderBrowseButton.Size = new System.Drawing.Size(24, 27);
             this.startingFolderBrowseButton.TabIndex = 2;
             this.startingFolderBrowseButton.Text = "...";
@@ -131,6 +135,8 @@ namespace MFR.GUI.Windows
             // findWhatLabel
             // 
             this.findWhatLabel.AutoSize = true;
+            this.findWhatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.findWhatLabel.IsDarkTheme = false;
             this.findWhatLabel.Location = new System.Drawing.Point(9, 117);
             this.findWhatLabel.Name = "findWhatLabel";
             this.findWhatLabel.Size = new System.Drawing.Size(109, 15);
@@ -140,6 +146,8 @@ namespace MFR.GUI.Windows
             // replaceWithLabel
             // 
             this.replaceWithLabel.AutoSize = true;
+            this.replaceWithLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.replaceWithLabel.IsDarkTheme = false;
             this.replaceWithLabel.Location = new System.Drawing.Point(9, 171);
             this.replaceWithLabel.Name = "replaceWithLabel";
             this.replaceWithLabel.Size = new System.Drawing.Size(64, 15);
@@ -151,8 +159,10 @@ namespace MFR.GUI.Windows
             this.performOperationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.performOperationButton.Image = ((System.Drawing.Image)(resources.GetObject("performOperationButton.Image")));
             this.performOperationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.performOperationButton.IsDarkTheme = false;
             this.performOperationButton.Location = new System.Drawing.Point(459, 219);
             this.performOperationButton.Name = "performOperationButton";
+            this.performOperationButton.Padding = new System.Windows.Forms.Padding(5);
             this.performOperationButton.Size = new System.Drawing.Size(128, 27);
             this.performOperationButton.TabIndex = 8;
             this.performOperationButton.Text = "&Perform Operation";
@@ -434,48 +444,66 @@ namespace MFR.GUI.Windows
             // 
             // optionsTabControl
             // 
+            this.optionsTabControl.ActiveTabBackColor = System.Drawing.Color.Empty;
+            this.optionsTabControl.ActiveTabTextColor = System.Drawing.Color.Empty;
             this.optionsTabControl.Controls.Add(this.findReplaceOptionsTabPage);
             this.optionsTabControl.Controls.Add(this.operationsTabPage);
             this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
             this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
+            this.optionsTabControl.InactiveTabBackColor = System.Drawing.Color.Empty;
+            this.optionsTabControl.InactiveTabTextColor = System.Drawing.Color.Empty;
+            this.optionsTabControl.IsDarkTheme = false;
+            this.optionsTabControl.ItemSize = new System.Drawing.Size(0, 18);
             this.optionsTabControl.Location = new System.Drawing.Point(15, 262);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
+            this.optionsTabControl.TabBorderColor = System.Drawing.Color.Empty;
             this.optionsTabControl.TabIndex = 11;
+            this.optionsTabControl.TabWellBackColor = System.Drawing.Color.Empty;
             // 
             // findReplaceOptionsTabPage
             // 
             this.findReplaceOptionsTabPage.Controls.Add(this.renameSolutionFoldersCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchExactWordCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
-            this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 24);
+            this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.findReplaceOptionsTabPage.Name = "findReplaceOptionsTabPage";
             this.findReplaceOptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 182);
+            this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.findReplaceOptionsTabPage.TabIndex = 0;
             this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
             this.findReplaceOptionsTabPage.UseVisualStyleBackColor = true;
             // 
+            // renameSolutionFoldersCheckBox
+            // 
+            this.renameSolutionFoldersCheckBox.AutoSize = true;
+            this.renameSolutionFoldersCheckBox.IsDarkTheme = false;
+            this.renameSolutionFoldersCheckBox.Location = new System.Drawing.Point(7, 58);
+            this.renameSolutionFoldersCheckBox.Name = "renameSolutionFoldersCheckBox";
+            this.renameSolutionFoldersCheckBox.Size = new System.Drawing.Size(162, 19);
+            this.renameSolutionFoldersCheckBox.TabIndex = 2;
+            this.renameSolutionFoldersCheckBox.Text = "Rename solution folder(s)";
+            // 
             // matchExactWordCheckBox
             // 
             this.matchExactWordCheckBox.AutoSize = true;
+            this.matchExactWordCheckBox.IsDarkTheme = false;
             this.matchExactWordCheckBox.Location = new System.Drawing.Point(7, 33);
             this.matchExactWordCheckBox.Name = "matchExactWordCheckBox";
             this.matchExactWordCheckBox.Size = new System.Drawing.Size(121, 19);
             this.matchExactWordCheckBox.TabIndex = 1;
             this.matchExactWordCheckBox.Text = "Match e&xact word";
-            this.matchExactWordCheckBox.UseVisualStyleBackColor = true;
             // 
             // matchCaseCheckBox
             // 
             this.matchCaseCheckBox.AutoSize = true;
+            this.matchCaseCheckBox.IsDarkTheme = false;
             this.matchCaseCheckBox.Location = new System.Drawing.Point(7, 7);
             this.matchCaseCheckBox.Name = "matchCaseCheckBox";
             this.matchCaseCheckBox.Size = new System.Drawing.Size(86, 19);
             this.matchCaseCheckBox.TabIndex = 0;
             this.matchCaseCheckBox.Text = "Match &case";
-            this.matchCaseCheckBox.UseVisualStyleBackColor = true;
             // 
             // operationsTabPage
             // 
@@ -493,6 +521,8 @@ namespace MFR.GUI.Windows
             // tabPageInstructionLabel
             // 
             this.tabPageInstructionLabel.AutoSize = true;
+            this.tabPageInstructionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.tabPageInstructionLabel.IsDarkTheme = false;
             this.tabPageInstructionLabel.Location = new System.Drawing.Point(8, 12);
             this.tabPageInstructionLabel.Name = "tabPageInstructionLabel";
             this.tabPageInstructionLabel.Size = new System.Drawing.Size(128, 15);
@@ -502,12 +532,12 @@ namespace MFR.GUI.Windows
             // selectDeselectAllCheckBox
             // 
             this.selectDeselectAllCheckBox.AutoSize = true;
+            this.selectDeselectAllCheckBox.IsDarkTheme = false;
             this.selectDeselectAllCheckBox.Location = new System.Drawing.Point(11, 34);
             this.selectDeselectAllCheckBox.Name = "selectDeselectAllCheckBox";
             this.selectDeselectAllCheckBox.Size = new System.Drawing.Size(120, 19);
             this.selectDeselectAllCheckBox.TabIndex = 1;
             this.selectDeselectAllCheckBox.Text = "Select/deselect all";
-            this.selectDeselectAllCheckBox.UseVisualStyleBackColor = true;
             this.selectDeselectAllCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedSelectDeselectAllCheckBox);
             // 
             // operationsCheckedListBox
@@ -549,8 +579,10 @@ namespace MFR.GUI.Windows
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 318);
             this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 544);
+            this.foldButton.IsDarkTheme = false;
             this.foldButton.Location = new System.Drawing.Point(15, 219);
             this.foldButton.Name = "foldButton";
+            this.foldButton.Padding = new System.Windows.Forms.Padding(5);
             this.foldButton.Size = new System.Drawing.Size(87, 27);
             this.foldButton.TabIndex = 7;
             this.foldButton.Text = "&More >>";
@@ -559,6 +591,8 @@ namespace MFR.GUI.Windows
             // hiddenFocusLabel
             // 
             this.hiddenFocusLabel.AutoSize = true;
+            this.hiddenFocusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.hiddenFocusLabel.IsDarkTheme = false;
             this.hiddenFocusLabel.Location = new System.Drawing.Point(648, 245);
             this.hiddenFocusLabel.Name = "hiddenFocusLabel";
             this.hiddenFocusLabel.Size = new System.Drawing.Size(0, 15);
@@ -703,8 +737,10 @@ namespace MFR.GUI.Windows
             this.switchButton.BackColor = System.Drawing.SystemColors.Control;
             this.switchButton.Image = global::MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x;
             this.switchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.switchButton.IsDarkTheme = false;
             this.switchButton.Location = new System.Drawing.Point(261, 164);
             this.switchButton.Name = "switchButton";
+            this.switchButton.Padding = new System.Windows.Forms.Padding(5);
             this.switchButton.Size = new System.Drawing.Size(75, 23);
             this.switchButton.TabIndex = 14;
             this.switchButton.Text = "&Switch";
@@ -715,11 +751,14 @@ namespace MFR.GUI.Windows
             // 
             this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.replaceWithComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.replaceWithComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.replaceWithComboBox.EnteredText = "";
             this.replaceWithComboBox.FormattingEnabled = true;
+            this.replaceWithComboBox.IsDarkTheme = false;
             this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
             this.replaceWithComboBox.Name = "replaceWithComboBox";
-            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
+            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 24);
             this.replaceWithComboBox.TabIndex = 6;
             this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
@@ -727,11 +766,14 @@ namespace MFR.GUI.Windows
             // 
             this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.findWhatcomboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.findWhatcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.findWhatcomboBox.EnteredText = "";
             this.findWhatcomboBox.FormattingEnabled = true;
+            this.findWhatcomboBox.IsDarkTheme = false;
             this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
             this.findWhatcomboBox.Name = "findWhatcomboBox";
-            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
+            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 24);
             this.findWhatcomboBox.TabIndex = 4;
             this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
@@ -739,13 +781,16 @@ namespace MFR.GUI.Windows
             // 
             this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.startingFolderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.startingFolderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.startingFolderComboBox.EnteredText = "";
             this.startingFolderComboBox.FormattingEnabled = true;
+            this.startingFolderComboBox.IsDarkTheme = false;
             this.startingFolderComboBox.Items.AddRange(new object[] {
             ""});
             this.startingFolderComboBox.Location = new System.Drawing.Point(15, 81);
             this.startingFolderComboBox.Name = "startingFolderComboBox";
-            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
+            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 24);
             this.startingFolderComboBox.TabIndex = 1;
             this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
@@ -764,16 +809,6 @@ namespace MFR.GUI.Windows
             this.importConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
             this.importConfigDialog.RestoreDirectory = true;
             this.importConfigDialog.Title = "Import Configuration";
-            // 
-            // renameSolutionFoldersCheckBox
-            // 
-            this.renameSolutionFoldersCheckBox.AutoSize = true;
-            this.renameSolutionFoldersCheckBox.Location = new System.Drawing.Point(7, 58);
-            this.renameSolutionFoldersCheckBox.Name = "renameSolutionFoldersCheckBox";
-            this.renameSolutionFoldersCheckBox.Size = new System.Drawing.Size(162, 19);
-            this.renameSolutionFoldersCheckBox.TabIndex = 2;
-            this.renameSolutionFoldersCheckBox.Text = "Rename solution folder(s)";
-            this.renameSolutionFoldersCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -821,15 +856,15 @@ namespace MFR.GUI.Windows
 
       }
 
-      private System.Windows.Forms.Label startingFolderLabel;
-      private xyLOGIX.UI.Dark.Controls.DarkButton startingFolderBrowseButton;
-      private System.Windows.Forms.Label findWhatLabel;
-      private System.Windows.Forms.Label replaceWithLabel;
-      private xyLOGIX.UI.Dark.Controls.DarkButton performOperationButton;
-      private MFR.GUI.Controls.FoldUnfoldButton foldButton;
-      private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
-      private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
-      private MFR.GUI.Controls.EntryRespectingComboBox replaceWithComboBox;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel startingFolderLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkButton startingFolderBrowseButton;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel findWhatLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel replaceWithLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkButton performOperationButton;
+        private MFR.GUI.Controls.FoldUnfoldButton foldButton;
+        private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
+        private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
+        private MFR.GUI.Controls.EntryRespectingComboBox replaceWithComboBox;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
@@ -844,20 +879,20 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem operationsMenu;
         private System.Windows.Forms.ToolStripMenuItem operationsPerform;
-        private System.Windows.Forms.TabControl optionsTabControl;
+        private xyLOGIX.UI.Dark.Controls.DarkTabControl optionsTabControl;
         private System.Windows.Forms.TabPage findReplaceOptionsTabPage;
         private System.Windows.Forms.TabPage operationsTabPage;
         private System.Windows.Forms.TabPage inclusionsTabPage;
         private System.Windows.Forms.TabPage exclusionsTabPage;
         private System.Windows.Forms.CheckedListBox operationsCheckedListBox;
-        private System.Windows.Forms.CheckBox selectDeselectAllCheckBox;
-        private System.Windows.Forms.Label tabPageInstructionLabel;
-        private System.Windows.Forms.CheckBox matchExactWordCheckBox;
-        private System.Windows.Forms.CheckBox matchCaseCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox selectDeselectAllCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel tabPageInstructionLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox matchExactWordCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox matchCaseCheckBox;
         private System.Windows.Forms.ToolStripMenuItem helpMenu;
         private System.Windows.Forms.ToolStripMenuItem helpAbout;
         private System.Windows.Forms.ToolStripProgressBar statusBarProgressBar;
-        private System.Windows.Forms.Label hiddenFocusLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel hiddenFocusLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolsConfigApplyProfile;
         private System.Windows.Forms.ToolStripMenuItem toolsConfigProfiles;
@@ -891,7 +926,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem viewDarkTheme;
         private System.Windows.Forms.SaveFileDialog exportConfigDialog;
         private System.Windows.Forms.OpenFileDialog importConfigDialog;
-        private System.Windows.Forms.CheckBox renameSolutionFoldersCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox renameSolutionFoldersCheckBox;
     }
 }
 
