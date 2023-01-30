@@ -3,13 +3,14 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Window that displays progress of an operation.
     /// </summary>
-    public partial class CancellableProgressDialog : Form,
+    public partial class CancellableProgressDialog : DarkForm,
         ICancellableProgressDialog
     {
         /// <summary>

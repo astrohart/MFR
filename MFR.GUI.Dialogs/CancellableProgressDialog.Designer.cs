@@ -32,10 +32,10 @@ namespace MFR.GUI.Dialogs
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CancellableProgressDialog));
-            this.currentFileLabel = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.currentFileLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.progressBar = new xyLOGIX.UI.Dark.Controls.DarkProgressBar();
+            this.statusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.SuspendLayout();
             // 
             // currentFileLabel
@@ -69,7 +69,6 @@ namespace MFR.GUI.Dialogs
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.OnCancel);
             // 
             // CancellableProgressDialog
@@ -96,9 +95,9 @@ namespace MFR.GUI.Dialogs
 
         }
 
-        private System.Windows.Forms.Label currentFileLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel currentFileLabel;
         private ProgressBar progressBar;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Button cancelButton;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel statusLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
     }
 }

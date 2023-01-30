@@ -28,8 +28,8 @@ namespace MFR.GUI.Dialogs
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OperationDrivenProgressDialog));
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.statusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.progressBar = new xyLOGIX.UI.Dark.Controls.DarkProgressBar();
             this.SuspendLayout();
             // 
             // statusLabel
@@ -71,6 +71,6 @@ namespace MFR.GUI.Dialogs
         }
 
         private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.ProgressBar progressBar;
+        private xyLOGIX.UI.Dark.Controls.DarkProgressBar progressBar;
     }
 }

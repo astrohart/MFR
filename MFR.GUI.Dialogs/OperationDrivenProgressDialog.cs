@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Dialogs
 {
@@ -11,7 +12,7 @@ namespace MFR.GUI.Dialogs
     /// Progress dialog that always displays a Marquee progress bar during an
     /// operation.
     /// </summary>
-    public partial class OperationDrivenProgressDialog : Form,
+    public partial class OperationDrivenProgressDialog : DarkForm,
         IOperationDrivenProgressDialog
     {
         /// <summary>

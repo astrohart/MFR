@@ -36,10 +36,10 @@ namespace MFR.GUI.Windows
             this.findWhatLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.replaceWithLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.performOperationButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.statusBar = new xyLOGIX.UI.Dark.Controls.DarkStatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.menuBar = new System.Windows.Forms.MenuStrip();
+            this.menuBar = new xyLOGIX.UI.Dark.Controls.DarkMenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,12 +77,12 @@ namespace MFR.GUI.Windows
             this.operationsTabPage = new System.Windows.Forms.TabPage();
             this.tabPageInstructionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.selectDeselectAllCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
-            this.operationsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.operationsCheckedListBox = new xyLOGIX.UI.Dark.Controls.DarkCheckedListBox();
             this.inclusionsTabPage = new System.Windows.Forms.TabPage();
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MFR.GUI.Controls.FoldUnfoldButton();
             this.hiddenFocusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
-            this.standardToolBar = new System.Windows.Forms.ToolStrip();
+            this.standardToolBar = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.sep1 = new System.Windows.Forms.ToolStripSeparator();
             this.viewDarkThemeButton = new System.Windows.Forms.ToolStripButton();
@@ -171,11 +171,16 @@ namespace MFR.GUI.Windows
             // 
             // statusBar
             // 
+            this.statusBar.AutoSize = false;
+            this.statusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.statusBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.statusBar.IsDarkTheme = false;
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarMessage,
             this.statusBarProgressBar});
             this.statusBar.Location = new System.Drawing.Point(0, 483);
             this.statusBar.Name = "statusBar";
+            this.statusBar.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.SizingGrip = false;
             this.statusBar.TabIndex = 9;
@@ -184,7 +189,7 @@ namespace MFR.GUI.Windows
             // statusBarMessage
             // 
             this.statusBarMessage.Name = "statusBarMessage";
-            this.statusBarMessage.Size = new System.Drawing.Size(581, 17);
+            this.statusBarMessage.Size = new System.Drawing.Size(596, 9);
             this.statusBarMessage.Spring = true;
             this.statusBarMessage.Text = "Ready";
             this.statusBarMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -193,12 +198,14 @@ namespace MFR.GUI.Windows
             // 
             this.statusBarProgressBar.MarqueeAnimationSpeed = 300;
             this.statusBarProgressBar.Name = "statusBarProgressBar";
-            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 8);
             this.statusBarProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.statusBarProgressBar.Visible = false;
             // 
             // menuBar
             // 
+            this.menuBar.BackColor = System.Drawing.Color.Transparent;
+            this.menuBar.IsDarkTheme = false;
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.viewMenu,
@@ -207,14 +214,17 @@ namespace MFR.GUI.Windows
             this.helpMenu});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
+            this.menuBar.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
             this.menuBar.Size = new System.Drawing.Size(596, 24);
             this.menuBar.TabIndex = 10;
             this.menuBar.Text = "menuStrip1";
             // 
             // fileMenu
             // 
+            this.fileMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileExit});
+            this.fileMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(37, 20);
             this.fileMenu.Text = "&File";
@@ -228,11 +238,13 @@ namespace MFR.GUI.Windows
             // 
             // viewMenu
             // 
+            this.viewMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewToolBar,
             this.viewStatusBar,
             this.sep2,
             this.viewDarkTheme});
+            this.viewMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(44, 20);
             this.viewMenu.Text = "&View";
@@ -274,8 +286,10 @@ namespace MFR.GUI.Windows
             // 
             // operationsMenu
             // 
+            this.operationsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.operationsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.operationsPerform});
+            this.operationsMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.operationsMenu.Name = "operationsMenu";
             this.operationsMenu.Size = new System.Drawing.Size(77, 20);
             this.operationsMenu.Text = "&Operations";
@@ -289,10 +303,12 @@ namespace MFR.GUI.Windows
             // 
             // toolsMenu
             // 
+            this.toolsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsConfigMenu,
             this.toolStripSeparator1,
             this.toolsOptions});
+            this.toolsMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
@@ -428,8 +444,10 @@ namespace MFR.GUI.Windows
             // 
             // helpMenu
             // 
+            this.helpMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.helpAbout});
+            this.helpMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(44, 20);
             this.helpMenu.Text = "&Help";
@@ -444,26 +462,27 @@ namespace MFR.GUI.Windows
             // 
             // optionsTabControl
             // 
-            this.optionsTabControl.ActiveTabBackColor = System.Drawing.Color.Empty;
-            this.optionsTabControl.ActiveTabTextColor = System.Drawing.Color.Empty;
+            this.optionsTabControl.ActiveTabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.optionsTabControl.ActiveTabTextColor = System.Drawing.SystemColors.Highlight;
             this.optionsTabControl.Controls.Add(this.findReplaceOptionsTabPage);
             this.optionsTabControl.Controls.Add(this.operationsTabPage);
             this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
             this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
             this.optionsTabControl.InactiveTabBackColor = System.Drawing.Color.Empty;
-            this.optionsTabControl.InactiveTabTextColor = System.Drawing.Color.Empty;
-            this.optionsTabControl.IsDarkTheme = false;
+            this.optionsTabControl.InactiveTabTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.optionsTabControl.IsDarkTheme = true;
             this.optionsTabControl.ItemSize = new System.Drawing.Size(0, 18);
             this.optionsTabControl.Location = new System.Drawing.Point(15, 262);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
-            this.optionsTabControl.TabBorderColor = System.Drawing.Color.Empty;
+            this.optionsTabControl.TabBorderColor = System.Drawing.SystemColors.GrayText;
             this.optionsTabControl.TabIndex = 11;
-            this.optionsTabControl.TabWellBackColor = System.Drawing.Color.Empty;
+            this.optionsTabControl.TabWellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             // 
             // findReplaceOptionsTabPage
             // 
+            this.findReplaceOptionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.findReplaceOptionsTabPage.Controls.Add(this.renameSolutionFoldersCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchExactWordCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
@@ -473,7 +492,6 @@ namespace MFR.GUI.Windows
             this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.findReplaceOptionsTabPage.TabIndex = 0;
             this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
-            this.findReplaceOptionsTabPage.UseVisualStyleBackColor = true;
             // 
             // renameSolutionFoldersCheckBox
             // 
@@ -507,6 +525,7 @@ namespace MFR.GUI.Windows
             // 
             // operationsTabPage
             // 
+            this.operationsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.operationsTabPage.Controls.Add(this.tabPageInstructionLabel);
             this.operationsTabPage.Controls.Add(this.selectDeselectAllCheckBox);
             this.operationsTabPage.Controls.Add(this.operationsCheckedListBox);
@@ -516,7 +535,6 @@ namespace MFR.GUI.Windows
             this.operationsTabPage.Size = new System.Drawing.Size(561, 184);
             this.operationsTabPage.TabIndex = 1;
             this.operationsTabPage.Text = "Operations";
-            this.operationsTabPage.UseVisualStyleBackColor = true;
             // 
             // tabPageInstructionLabel
             // 
@@ -556,23 +574,23 @@ namespace MFR.GUI.Windows
             // 
             // inclusionsTabPage
             // 
+            this.inclusionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.inclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.inclusionsTabPage.Name = "inclusionsTabPage";
             this.inclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.inclusionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.inclusionsTabPage.TabIndex = 2;
             this.inclusionsTabPage.Text = "Inclusions";
-            this.inclusionsTabPage.UseVisualStyleBackColor = true;
             // 
             // exclusionsTabPage
             // 
+            this.exclusionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.exclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.exclusionsTabPage.Name = "exclusionsTabPage";
             this.exclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.exclusionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.exclusionsTabPage.TabIndex = 3;
             this.exclusionsTabPage.Text = "Exclusions";
-            this.exclusionsTabPage.UseVisualStyleBackColor = true;
             // 
             // foldButton
             // 
@@ -601,7 +619,9 @@ namespace MFR.GUI.Windows
             // 
             // standardToolBar
             // 
+            this.standardToolBar.BackColor = System.Drawing.Color.Transparent;
             this.standardToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.standardToolBar.IsDarkTheme = false;
             this.standardToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goButton,
             this.sep1,
@@ -618,6 +638,7 @@ namespace MFR.GUI.Windows
             this.clearAllHistoryButton});
             this.standardToolBar.Location = new System.Drawing.Point(0, 24);
             this.standardToolBar.Name = "standardToolBar";
+            this.standardToolBar.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
             this.standardToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.standardToolBar.Size = new System.Drawing.Size(596, 25);
             this.standardToolBar.TabIndex = 13;
@@ -625,6 +646,8 @@ namespace MFR.GUI.Windows
             // 
             // goButton
             // 
+            this.goButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.goButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.goButton.Image = ((System.Drawing.Image)(resources.GetObject("goButton.Image")));
             this.goButton.ImageTransparentColor = System.Drawing.Color.White;
             this.goButton.Name = "goButton";
@@ -635,13 +658,18 @@ namespace MFR.GUI.Windows
             // 
             // sep1
             // 
+            this.sep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.sep1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.sep1.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.sep1.Name = "sep1";
             this.sep1.Size = new System.Drawing.Size(6, 25);
             // 
             // viewDarkThemeButton
             // 
+            this.viewDarkThemeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.viewDarkThemeButton.CheckOnClick = true;
             this.viewDarkThemeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.viewDarkThemeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.viewDarkThemeButton.Image = ((System.Drawing.Image)(resources.GetObject("viewDarkThemeButton.Image")));
             this.viewDarkThemeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.viewDarkThemeButton.Name = "viewDarkThemeButton";
@@ -651,12 +679,17 @@ namespace MFR.GUI.Windows
             // 
             // toolStripSeparator7
             // 
+            this.toolStripSeparator7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.toolStripSeparator7.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
             // 
             // newProfileButton
             // 
+            this.newProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.newProfileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.newProfileButton.Image = ((System.Drawing.Image)(resources.GetObject("newProfileButton.Image")));
             this.newProfileButton.ImageTransparentColor = System.Drawing.Color.White;
             this.newProfileButton.Name = "newProfileButton";
@@ -666,7 +699,9 @@ namespace MFR.GUI.Windows
             // 
             // saveProfileButton
             // 
+            this.saveProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.saveProfileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.saveProfileButton.Image = ((System.Drawing.Image)(resources.GetObject("saveProfileButton.Image")));
             this.saveProfileButton.ImageTransparentColor = System.Drawing.Color.White;
             this.saveProfileButton.Name = "saveProfileButton";
@@ -676,7 +711,9 @@ namespace MFR.GUI.Windows
             // 
             // manageProfilesButton
             // 
+            this.manageProfilesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.manageProfilesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.manageProfilesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.manageProfilesButton.Image = ((System.Drawing.Image)(resources.GetObject("manageProfilesButton.Image")));
             this.manageProfilesButton.ImageTransparentColor = System.Drawing.Color.White;
             this.manageProfilesButton.Name = "manageProfilesButton";
@@ -685,7 +722,9 @@ namespace MFR.GUI.Windows
             // 
             // profileListComboBox
             // 
+            this.profileListComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.profileListComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.profileListComboBox.Items.AddRange(new object[] {
             "<No profile selected>"});
             this.profileListComboBox.Name = "profileListComboBox";
@@ -694,12 +733,17 @@ namespace MFR.GUI.Windows
             // 
             // toolStripSeparator4
             // 
+            this.toolStripSeparator4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.toolStripSeparator4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // exportConfigButton
             // 
+            this.exportConfigButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.exportConfigButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.exportConfigButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.exportConfigButton.Image = ((System.Drawing.Image)(resources.GetObject("exportConfigButton.Image")));
             this.exportConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.exportConfigButton.Name = "exportConfigButton";
@@ -709,7 +753,9 @@ namespace MFR.GUI.Windows
             // 
             // importConfigButton
             // 
+            this.importConfigButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.importConfigButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.importConfigButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.importConfigButton.Image = ((System.Drawing.Image)(resources.GetObject("importConfigButton.Image")));
             this.importConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.importConfigButton.Name = "importConfigButton";
@@ -719,12 +765,17 @@ namespace MFR.GUI.Windows
             // 
             // toolStripSeparator6
             // 
+            this.toolStripSeparator6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.toolStripSeparator6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.toolStripSeparator6.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
             // clearAllHistoryButton
             // 
+            this.clearAllHistoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.clearAllHistoryButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.clearAllHistoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.clearAllHistoryButton.Image = ((System.Drawing.Image)(resources.GetObject("clearAllHistoryButton.Image")));
             this.clearAllHistoryButton.ImageTransparentColor = System.Drawing.Color.White;
             this.clearAllHistoryButton.Name = "clearAllHistoryButton";
@@ -751,14 +802,15 @@ namespace MFR.GUI.Windows
             // 
             this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.replaceWithComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.replaceWithComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.replaceWithComboBox.EnteredText = "";
+            this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithComboBox.FormattingEnabled = true;
             this.replaceWithComboBox.IsDarkTheme = false;
             this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
             this.replaceWithComboBox.Name = "replaceWithComboBox";
-            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 24);
+            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
             this.replaceWithComboBox.TabIndex = 6;
             this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
@@ -766,14 +818,15 @@ namespace MFR.GUI.Windows
             // 
             this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.findWhatcomboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.findWhatcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.findWhatcomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.findWhatcomboBox.EnteredText = "";
+            this.findWhatcomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.findWhatcomboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatcomboBox.FormattingEnabled = true;
             this.findWhatcomboBox.IsDarkTheme = false;
             this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
             this.findWhatcomboBox.Name = "findWhatcomboBox";
-            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 24);
+            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
             this.findWhatcomboBox.TabIndex = 4;
             this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
@@ -781,16 +834,17 @@ namespace MFR.GUI.Windows
             // 
             this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.startingFolderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.startingFolderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.startingFolderComboBox.EnteredText = "";
+            this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startingFolderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderComboBox.FormattingEnabled = true;
-            this.startingFolderComboBox.IsDarkTheme = false;
+            this.startingFolderComboBox.IsDarkTheme = true;
             this.startingFolderComboBox.Items.AddRange(new object[] {
             ""});
             this.startingFolderComboBox.Location = new System.Drawing.Point(15, 81);
             this.startingFolderComboBox.Name = "startingFolderComboBox";
-            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 24);
+            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
             this.startingFolderComboBox.TabIndex = 1;
             this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
@@ -865,8 +919,8 @@ namespace MFR.GUI.Windows
         private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
         private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
         private MFR.GUI.Controls.EntryRespectingComboBox replaceWithComboBox;
-        private System.Windows.Forms.StatusStrip statusBar;
-        private System.Windows.Forms.MenuStrip menuBar;
+        private xyLOGIX.UI.Dark.Controls.DarkStatusStrip statusBar;
+        private xyLOGIX.UI.Dark.Controls.DarkMenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem fileExit;
         private System.Windows.Forms.ToolStripMenuItem toolsMenu;
@@ -884,7 +938,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.TabPage operationsTabPage;
         private System.Windows.Forms.TabPage inclusionsTabPage;
         private System.Windows.Forms.TabPage exclusionsTabPage;
-        private System.Windows.Forms.CheckedListBox operationsCheckedListBox;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckedListBox operationsCheckedListBox;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox selectDeselectAllCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkLabel tabPageInstructionLabel;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox matchExactWordCheckBox;
@@ -898,7 +952,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem toolsConfigProfiles;
         private System.Windows.Forms.ToolStripMenuItem toolsSaveProfileAs;
         private System.Windows.Forms.ToolStripMenuItem toolsConfigNewProfile;
-        private System.Windows.Forms.ToolStrip standardToolBar;
+        private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolBar;
         private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripSeparator sep1;
         private System.Windows.Forms.ToolStripButton newProfileButton;
