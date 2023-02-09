@@ -342,24 +342,26 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                if (CurrentConfiguration.RenameFiles && !RenameFilesInFolder(
-                        RootDirectoryPath, findWhat, replaceWith, pathFilter
-                    ))
-                    return result;
+                var renameFilesInFolderResult = CurrentConfiguration.RenameFiles &&
+                                            RenameFilesInFolder(
+                                                RootDirectoryPath, findWhat,
+                                                replaceWith, pathFilter
+                                            );
 
-                if (CurrentConfiguration.RenameSubFolders &&
-                    !RenameSubFoldersOf(
+                var renameSubFoldersResult =
+                    CurrentConfiguration.RenameSubFolders && RenameSubFoldersOf(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
-                    ))
-                    return result;
+                    );
 
-                if (CurrentConfiguration.ReplaceTextInFiles &&
-                    !ReplaceTextInFiles(
+                var replaceTextInFilesResult =
+                    CurrentConfiguration.ReplaceTextInFiles &&
+                    ReplaceTextInFiles(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
-                    ))
-                    return result;
+                    );
 
-                result = true;
+                result = renameFilesInFolderResult
+                         && renameSubFoldersResult 
+                         && replaceTextInFilesResult;
             }
             catch (OperationAbortedException ex)
             {
