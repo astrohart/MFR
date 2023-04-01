@@ -691,19 +691,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.UI.Dark.Collections
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.UI.Dark.Collections", "..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Collections\xyLOGIX.UI.Dark.Collections.csproj", "{F1F9A9A7-047F-4ED6-83F0-6804C6CBB327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Win32.Helpers", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Win32.Helpers\xyLOGIX.Forms.DarkTheme.Win32.Helpers.csproj", "{13F0253E-71EF-4359-9D31-CA8DF0EFC91C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Win32.Helpers", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Win32.Helpers\xyLOGIX.Forms.DarkTheme.Win32.Helpers.csproj", "{13F0253E-71EF-4359-9D31-CA8DF0EFC91C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Win32", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Win32\xyLOGIX.Forms.DarkTheme.Win32.csproj", "{8C31CBC3-7086-440A-934A-22630A3917C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Win32", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Win32\xyLOGIX.Forms.DarkTheme.Win32.csproj", "{8C31CBC3-7086-440A-934A-22630A3917C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Interfaces", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj", "{597DC3E0-72ED-4CD8-AFC5-DFD099393447}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Interfaces", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj", "{597DC3E0-72ED-4CD8-AFC5-DFD099393447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Events", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Events\xyLOGIX.Forms.DarkTheme.Events.csproj", "{2C04FADF-05F9-4CF2-B8FF-0B1AA57E1FD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Events", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Events\xyLOGIX.Forms.DarkTheme.Events.csproj", "{2C04FADF-05F9-4CF2-B8FF-0B1AA57E1FD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Controls", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Controls\xyLOGIX.Forms.DarkTheme.Controls.csproj", "{D6A72CC5-D530-4204-BF5E-2B126CF28CCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Controls", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Controls\xyLOGIX.Forms.DarkTheme.Controls.csproj", "{D6A72CC5-D530-4204-BF5E-2B126CF28CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Constants", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Constants\xyLOGIX.Forms.DarkTheme.Constants.csproj", "{FFC05035-5A5A-41F6-BC97-A8434A4C1B88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme.Constants", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Constants\xyLOGIX.Forms.DarkTheme.Constants.csproj", "{FFC05035-5A5A-41F6-BC97-A8434A4C1B88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme", "..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj", "{D80693BF-21A9-476A-B690-5E9E758BB4FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Forms.DarkTheme", "..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj", "{D80693BF-21A9-476A-B690-5E9E758BB4FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
