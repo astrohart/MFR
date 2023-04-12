@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Application.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Application.Factories
 {
@@ -6,6 +7,7 @@ namespace MFR.GUI.Application.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.GUI.Application.Interfaces.IWinApp" /> interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetProjectFileRenamerApp
     {
         /// <summary>

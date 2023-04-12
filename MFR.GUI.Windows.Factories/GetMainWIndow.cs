@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Windows.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Windows.Factories
 {
@@ -6,6 +7,7 @@ namespace MFR.GUI.Windows.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetMainWindow
     {
         /// <summary>

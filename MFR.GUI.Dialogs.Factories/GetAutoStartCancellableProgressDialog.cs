@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs.Factories
 {
@@ -6,6 +7,7 @@ namespace MFR.GUI.Dialogs.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog" /> interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetAutoStartCancellableProgressDialog
     {
         /// <summary>
