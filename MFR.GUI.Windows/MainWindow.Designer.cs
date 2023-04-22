@@ -82,7 +82,7 @@ namespace MFR.GUI.Windows
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MFR.GUI.Controls.FoldUnfoldButton();
             this.hiddenFocusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
-            this.standardToolBar = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
+            this.standardToolStrip = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.sep1 = new System.Windows.Forms.ToolStripSeparator();
             this.viewDarkThemeButton = new System.Windows.Forms.ToolStripButton();
@@ -107,7 +107,7 @@ namespace MFR.GUI.Windows
             this.optionsTabControl.SuspendLayout();
             this.findReplaceOptionsTabPage.SuspendLayout();
             this.operationsTabPage.SuspendLayout();
-            this.standardToolBar.SuspendLayout();
+            this.standardToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // startingFolderLabel
@@ -617,12 +617,13 @@ namespace MFR.GUI.Windows
             this.hiddenFocusLabel.TabIndex = 12;
             this.hiddenFocusLabel.Visible = false;
             // 
-            // standardToolBar
+            // standardToolStrip
             // 
-            this.standardToolBar.BackColor = System.Drawing.Color.Transparent;
-            this.standardToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.standardToolBar.IsDarkTheme = false;
-            this.standardToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.standardToolStrip.BackColor = System.Drawing.Color.Transparent;
+            this.standardToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.standardToolStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.standardToolStrip.IsDarkTheme = true;
+            this.standardToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goButton,
             this.sep1,
             this.viewDarkThemeButton,
@@ -636,13 +637,13 @@ namespace MFR.GUI.Windows
             this.importConfigButton,
             this.toolStripSeparator6,
             this.clearAllHistoryButton});
-            this.standardToolBar.Location = new System.Drawing.Point(0, 24);
-            this.standardToolBar.Name = "standardToolBar";
-            this.standardToolBar.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.standardToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.standardToolBar.Size = new System.Drawing.Size(596, 25);
-            this.standardToolBar.TabIndex = 13;
-            this.standardToolBar.Text = "Standard";
+            this.standardToolStrip.Location = new System.Drawing.Point(0, 24);
+            this.standardToolStrip.Name = "standardToolStrip";
+            this.standardToolStrip.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
+            this.standardToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.standardToolStrip.Size = new System.Drawing.Size(596, 25);
+            this.standardToolStrip.TabIndex = 13;
+            this.standardToolStrip.Text = "Standard";
             // 
             // goButton
             // 
@@ -871,7 +872,7 @@ namespace MFR.GUI.Windows
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(596, 505);
             this.Controls.Add(this.switchButton);
-            this.Controls.Add(this.standardToolBar);
+            this.Controls.Add(this.standardToolStrip);
             this.Controls.Add(this.hiddenFocusLabel);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
@@ -903,8 +904,8 @@ namespace MFR.GUI.Windows
             this.findReplaceOptionsTabPage.PerformLayout();
             this.operationsTabPage.ResumeLayout(false);
             this.operationsTabPage.PerformLayout();
-            this.standardToolBar.ResumeLayout(false);
-            this.standardToolBar.PerformLayout();
+            this.standardToolStrip.ResumeLayout(false);
+            this.standardToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -952,7 +953,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem toolsConfigProfiles;
         private System.Windows.Forms.ToolStripMenuItem toolsSaveProfileAs;
         private System.Windows.Forms.ToolStripMenuItem toolsConfigNewProfile;
-        private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolBar;
+        private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolStrip;
         private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripSeparator sep1;
         private System.Windows.Forms.ToolStripButton newProfileButton;

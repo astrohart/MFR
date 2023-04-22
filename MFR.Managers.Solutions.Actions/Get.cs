@@ -14,10 +14,21 @@ namespace MFR.Managers.Solutions.Actions
     {
         /// <summary>
         /// Gets an enumerable collection of strings, each of which is the pathname of a
-        /// Visual Studio Solution (*.sln) file in the
+        /// Visual Studio Solution (*.sln) file in the root folder that has the specified
+        /// <paramref name="pathname" />.
         /// </summary>
-        /// <param name="pathname"></param>
-        /// <returns></returns>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a folder in which to search.
+        /// </param>
+        /// <returns>
+        /// THe empty enumerable is returned if the specified
+        /// <paramref name="pathname" /> is blank, or if an error occurs during the search
+        /// operation; otherwise, an enumerable collection of
+        /// <see cref="T:System.String" />s is returned, each element of which is the
+        /// pathname of a <c>*.sln</c> file in the folder having the specified
+        /// <paramref name="pathname" />.
+        /// </returns>
         public static IEnumerable<string> SolutionPathsInFolder(string pathname)
         {
             var result = Enumerable.Empty<string>();

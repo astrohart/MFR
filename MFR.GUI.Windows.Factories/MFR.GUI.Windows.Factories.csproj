@@ -8,7 +8,8 @@
     <TargetFrameworkProfile />
     <ProjectGuid>{97522DBA-0381-421D-A589-18CC183B1258}</ProjectGuid>
     <Deterministic>false</Deterministic>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -131,11 +132,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj">
       <Project>{597dc3e0-72ed-4cd8-afc5-dfd099393447}</Project>
       <Name>xyLOGIX.Forms.DarkTheme.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj">
       <Project>{d80693bf-21a9-476a-b690-5e9e758bb4fa}</Project>
       <Name>xyLOGIX.Forms.DarkTheme</Name>
     </ProjectReference>

@@ -72,6 +72,15 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)]
         protected MainWindow()
         {
+            SetStyle(
+                ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.ResizeRedraw |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.ContainerControl |
+                ControlStyles.SupportsTransparentBackColor, true
+            );
+            UpdateStyles();
+
             InitializeComponent();
 
             InitializePresenter();
@@ -1471,7 +1480,7 @@ namespace MFR.GUI.Windows
         /// Visible property of the Standard toolbar.
         /// </remarks>
         private void OnViewToolBar(object sender, EventArgs e)
-            => standardToolBar.Visible = !standardToolBar.Visible;
+            => standardToolStrip.Visible = !standardToolStrip.Visible;
 
         /// <summary>
         /// Configures the <b>Find What</b> combo box.
