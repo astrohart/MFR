@@ -5,6 +5,12 @@ using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Windows.Actions
 {
+    /// <summary>
+    /// Exposes methods and properties to support design of responsive forms, i.e.,
+    /// Windows Forms that automatically resize and rescale themselves when they are
+    /// dragged from a monitor with one screen resolution to another monitor having a
+    /// different screen resolution.
+    /// </summary>
     public class Responsive
     {
         private readonly float _designTimeHeight = (float)Convert.ToDouble(
@@ -57,31 +63,53 @@ namespace MFR.GUI.Windows.Actions
         public void SetMultiplicationFactor()
         {
             // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(DebugLevel.Debug, "In Responsive.SetMultiplicationFactor");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "In Responsive.SetMultiplicationFactor"
+            );
 
             // Dump the variable Resolution.Width to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Responsive.SetMultiplicationFactor: Resolution.Width = {Resolution.Width}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Responsive.SetMultiplicationFactor: Resolution.Width = {Resolution.Width}"
+            );
 
             // Dump the variable _designTimeWidth to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Responsive.SetMultiplicationFactor: _designTimeWidth = {_designTimeWidth}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Responsive.SetMultiplicationFactor: _designTimeWidth = {_designTimeWidth}"
+            );
 
             _widthMultiplicationFactor = Resolution.Width / _designTimeWidth;
 
             // Dump the variable _widthMultiplicationFactor to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Responsive.SetMultiplicationFactor: _widthMultiplicationFactor = {_widthMultiplicationFactor}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Responsive.SetMultiplicationFactor: _widthMultiplicationFactor = {_widthMultiplicationFactor}"
+            );
 
             // Dump the variable Resolution.Height to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Responsive.SetMultiplicationFactor: Resolution.Height = {Resolution.Height}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Responsive.SetMultiplicationFactor: Resolution.Height = {Resolution.Height}"
+            );
 
             // Dump the variable _designTimeHeight to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Responsive.SetMultiplicationFactor: _designTimeHeight = {_designTimeHeight}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Responsive.SetMultiplicationFactor: _designTimeHeight = {_designTimeHeight}"
+            );
 
             _heightMultiplicationFactor = Resolution.Height / _designTimeHeight;
 
             // Dump the variable _heightMultiplicationFactor to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Responsive.SetMultiplicationFactor: _heightMultiplicationFactor = {_heightMultiplicationFactor}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Responsive.SetMultiplicationFactor: _heightMultiplicationFactor = {_heightMultiplicationFactor}"
+            );
 
-            DebugUtils.WriteLine(DebugLevel.Debug, "Responsive.SetMultiplicationFactor: Done.");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, "Responsive.SetMultiplicationFactor: Done."
+            );
         }
     }
 }
