@@ -91,8 +91,6 @@ namespace MFR.GUI.Windows
             this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.sep1 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewDarkThemeButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.newProfileButton = new System.Windows.Forms.ToolStripButton();
             this.saveProfileButton = new System.Windows.Forms.ToolStripButton();
             this.manageProfilesButton = new System.Windows.Forms.ToolStripButton();
@@ -726,27 +724,6 @@ namespace MFR.GUI.Windows
             this.sep1.Name = "sep1";
             this.sep1.Size = new System.Drawing.Size(6, 25);
             // 
-            // viewDarkThemeButton
-            // 
-            this.viewDarkThemeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.viewDarkThemeButton.CheckOnClick = true;
-            this.viewDarkThemeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.viewDarkThemeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.viewDarkThemeButton.Image = ((System.Drawing.Image)(resources.GetObject("viewDarkThemeButton.Image")));
-            this.viewDarkThemeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.viewDarkThemeButton.Name = "viewDarkThemeButton";
-            this.viewDarkThemeButton.Size = new System.Drawing.Size(23, 22);
-            this.viewDarkThemeButton.Text = "toolStripButton1";
-            this.viewDarkThemeButton.Click += new System.EventHandler(this.OnViewDarkTheme);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.toolStripSeparator7.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
             // newProfileButton
             // 
             this.newProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -851,12 +828,9 @@ namespace MFR.GUI.Windows
             this.standardToolStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.standardToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.standardToolStrip.IsDarkTheme = true;
-            this.standardToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Custom;
             this.standardToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goButton,
             this.sep1,
-            this.viewDarkThemeButton,
-            this.toolStripSeparator7,
             this.newProfileButton,
             this.saveProfileButton,
             this.manageProfilesButton,
@@ -978,8 +952,6 @@ namespace MFR.GUI.Windows
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox renameSolutionFoldersCheckBox;
         private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripSeparator sep1;
-        private System.Windows.Forms.ToolStripButton viewDarkThemeButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton newProfileButton;
         private System.Windows.Forms.ToolStripButton saveProfileButton;
         private System.Windows.Forms.ToolStripButton manageProfilesButton;

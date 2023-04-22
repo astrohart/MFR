@@ -72,6 +72,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)]
         protected MainWindow()
         {
+            InitializeComponent();
+
             SetStyle(
                 ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.ResizeRedraw |
@@ -80,8 +82,6 @@ namespace MFR.GUI.Windows
                 ControlStyles.SupportsTransparentBackColor, true
             );
             UpdateStyles();
-
-            InitializeComponent();
 
             InitializePresenter();
 
