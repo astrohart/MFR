@@ -1,5 +1,6 @@
 using PostSharp.Patterns.Diagnostics;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace MFR.GUI.Windows
 {
@@ -82,7 +83,12 @@ namespace MFR.GUI.Windows
             this.exclusionsTabPage = new System.Windows.Forms.TabPage();
             this.foldButton = new MFR.GUI.Controls.FoldUnfoldButton();
             this.hiddenFocusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
-            this.standardToolStrip = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
+            this.switchButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.replaceWithComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
+            this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
+            this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
+            this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
+            this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.sep1 = new System.Windows.Forms.ToolStripSeparator();
             this.viewDarkThemeButton = new System.Windows.Forms.ToolStripButton();
@@ -96,12 +102,7 @@ namespace MFR.GUI.Windows
             this.importConfigButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.clearAllHistoryButton = new System.Windows.Forms.ToolStripButton();
-            this.switchButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.replaceWithComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
-            this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
-            this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
-            this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
-            this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
+            this.standardToolStrip = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
             this.statusBar.SuspendLayout();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
@@ -560,7 +561,10 @@ namespace MFR.GUI.Windows
             // 
             // operationsCheckedListBox
             // 
+            this.operationsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.operationsCheckedListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.operationsCheckedListBox.FormattingEnabled = true;
+            this.operationsCheckedListBox.IsDarkTheme = false;
             this.operationsCheckedListBox.Items.AddRange(new object[] {
             "Rename Files",
             "Rename Subfolders",
@@ -617,33 +621,90 @@ namespace MFR.GUI.Windows
             this.hiddenFocusLabel.TabIndex = 12;
             this.hiddenFocusLabel.Visible = false;
             // 
-            // standardToolStrip
+            // switchButton
             // 
-            this.standardToolStrip.BackColor = System.Drawing.Color.Transparent;
-            this.standardToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.standardToolStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.standardToolStrip.IsDarkTheme = true;
-            this.standardToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.goButton,
-            this.sep1,
-            this.viewDarkThemeButton,
-            this.toolStripSeparator7,
-            this.newProfileButton,
-            this.saveProfileButton,
-            this.manageProfilesButton,
-            this.profileListComboBox,
-            this.toolStripSeparator4,
-            this.exportConfigButton,
-            this.importConfigButton,
-            this.toolStripSeparator6,
-            this.clearAllHistoryButton});
-            this.standardToolStrip.Location = new System.Drawing.Point(0, 24);
-            this.standardToolStrip.Name = "standardToolStrip";
-            this.standardToolStrip.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.standardToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.standardToolStrip.Size = new System.Drawing.Size(596, 25);
-            this.standardToolStrip.TabIndex = 13;
-            this.standardToolStrip.Text = "Standard";
+            this.switchButton.BackColor = System.Drawing.SystemColors.Control;
+            this.switchButton.Image = global::MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x;
+            this.switchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.switchButton.IsDarkTheme = false;
+            this.switchButton.Location = new System.Drawing.Point(261, 164);
+            this.switchButton.Name = "switchButton";
+            this.switchButton.Padding = new System.Windows.Forms.Padding(5);
+            this.switchButton.Size = new System.Drawing.Size(75, 23);
+            this.switchButton.TabIndex = 14;
+            this.switchButton.Text = "&Switch";
+            this.switchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.switchButton.Click += new System.EventHandler(this.OnClickSwitchButton);
+            // 
+            // replaceWithComboBox
+            // 
+            this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.replaceWithComboBox.EnteredText = "";
+            this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.replaceWithComboBox.FormattingEnabled = true;
+            this.replaceWithComboBox.IsDarkTheme = false;
+            this.replaceWithComboBox.Items.AddRange(new object[] {
+            ""});
+            this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
+            this.replaceWithComboBox.Name = "replaceWithComboBox";
+            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
+            this.replaceWithComboBox.TabIndex = 6;
+            this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            // 
+            // findWhatcomboBox
+            // 
+            this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.findWhatcomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.findWhatcomboBox.EnteredText = "";
+            this.findWhatcomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.findWhatcomboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.findWhatcomboBox.FormattingEnabled = true;
+            this.findWhatcomboBox.IsDarkTheme = false;
+            this.findWhatcomboBox.Items.AddRange(new object[] {
+            ""});
+            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
+            this.findWhatcomboBox.Name = "findWhatcomboBox";
+            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
+            this.findWhatcomboBox.TabIndex = 4;
+            this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            // 
+            // startingFolderComboBox
+            // 
+            this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.startingFolderComboBox.EnteredText = "";
+            this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startingFolderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.startingFolderComboBox.FormattingEnabled = true;
+            this.startingFolderComboBox.IsDarkTheme = true;
+            this.startingFolderComboBox.Items.AddRange(new object[] {
+            ""});
+            this.startingFolderComboBox.Location = new System.Drawing.Point(15, 81);
+            this.startingFolderComboBox.Name = "startingFolderComboBox";
+            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
+            this.startingFolderComboBox.TabIndex = 1;
+            this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            // 
+            // exportConfigDialog
+            // 
+            this.exportConfigDialog.DefaultExt = "config.json";
+            this.exportConfigDialog.Filter = "Configuration File (*.config.json)|*.config.json|All Files (*.*)|*.*";
+            this.exportConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
+            this.exportConfigDialog.RestoreDirectory = true;
+            this.exportConfigDialog.Title = "Export Configuration";
+            // 
+            // importConfigDialog
+            // 
+            this.importConfigDialog.DefaultExt = "config.json";
+            this.importConfigDialog.Filter = "Configuration File (*.config.json)|*.config.json|All Files (*.*)|*.*";
+            this.importConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
+            this.importConfigDialog.RestoreDirectory = true;
+            this.importConfigDialog.Title = "Import Configuration";
             // 
             // goButton
             // 
@@ -784,86 +845,33 @@ namespace MFR.GUI.Windows
             this.clearAllHistoryButton.Text = "Clear All History";
             this.clearAllHistoryButton.Click += new System.EventHandler(this.OnToolsHistoryClearAll);
             // 
-            // switchButton
+            // standardToolStrip
             // 
-            this.switchButton.BackColor = System.Drawing.SystemColors.Control;
-            this.switchButton.Image = global::MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x;
-            this.switchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.switchButton.IsDarkTheme = false;
-            this.switchButton.Location = new System.Drawing.Point(261, 164);
-            this.switchButton.Name = "switchButton";
-            this.switchButton.Padding = new System.Windows.Forms.Padding(5);
-            this.switchButton.Size = new System.Drawing.Size(75, 23);
-            this.switchButton.TabIndex = 14;
-            this.switchButton.Text = "&Switch";
-            this.switchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.switchButton.Click += new System.EventHandler(this.OnClickSwitchButton);
-            // 
-            // replaceWithComboBox
-            // 
-            this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.replaceWithComboBox.EnteredText = "";
-            this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.replaceWithComboBox.FormattingEnabled = true;
-            this.replaceWithComboBox.IsDarkTheme = false;
-            this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
-            this.replaceWithComboBox.Name = "replaceWithComboBox";
-            this.replaceWithComboBox.Size = new System.Drawing.Size(572, 23);
-            this.replaceWithComboBox.TabIndex = 6;
-            this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
-            // 
-            // findWhatcomboBox
-            // 
-            this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.findWhatcomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.findWhatcomboBox.EnteredText = "";
-            this.findWhatcomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.findWhatcomboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.findWhatcomboBox.FormattingEnabled = true;
-            this.findWhatcomboBox.IsDarkTheme = false;
-            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
-            this.findWhatcomboBox.Name = "findWhatcomboBox";
-            this.findWhatcomboBox.Size = new System.Drawing.Size(572, 23);
-            this.findWhatcomboBox.TabIndex = 4;
-            this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
-            // 
-            // startingFolderComboBox
-            // 
-            this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.startingFolderComboBox.EnteredText = "";
-            this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startingFolderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.startingFolderComboBox.FormattingEnabled = true;
-            this.startingFolderComboBox.IsDarkTheme = true;
-            this.startingFolderComboBox.Items.AddRange(new object[] {
-            ""});
-            this.startingFolderComboBox.Location = new System.Drawing.Point(15, 81);
-            this.startingFolderComboBox.Name = "startingFolderComboBox";
-            this.startingFolderComboBox.Size = new System.Drawing.Size(539, 23);
-            this.startingFolderComboBox.TabIndex = 1;
-            this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
-            // 
-            // exportConfigDialog
-            // 
-            this.exportConfigDialog.DefaultExt = "config.json";
-            this.exportConfigDialog.Filter = "Configuration File (*.config.json)|*.config.json|All Files (*.*)|*.*";
-            this.exportConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
-            this.exportConfigDialog.RestoreDirectory = true;
-            this.exportConfigDialog.Title = "Export Configuration";
-            // 
-            // importConfigDialog
-            // 
-            this.importConfigDialog.DefaultExt = "config.json";
-            this.importConfigDialog.Filter = "Configuration File (*.config.json)|*.config.json|All Files (*.*)|*.*";
-            this.importConfigDialog.InitialDirectory = "shell:::{679f85cb-0220-4080-b29b-5540cc05aab6}";
-            this.importConfigDialog.RestoreDirectory = true;
-            this.importConfigDialog.Title = "Import Configuration";
+            this.standardToolStrip.BackColor = System.Drawing.Color.Transparent;
+            this.standardToolStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.standardToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.standardToolStrip.IsDarkTheme = true;
+            this.standardToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Custom;
+            this.standardToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.goButton,
+            this.sep1,
+            this.viewDarkThemeButton,
+            this.toolStripSeparator7,
+            this.newProfileButton,
+            this.saveProfileButton,
+            this.manageProfilesButton,
+            this.profileListComboBox,
+            this.toolStripSeparator4,
+            this.exportConfigButton,
+            this.importConfigButton,
+            this.toolStripSeparator6,
+            this.clearAllHistoryButton});
+            this.standardToolStrip.Location = new System.Drawing.Point(0, 24);
+            this.standardToolStrip.Name = "standardToolStrip";
+            this.standardToolStrip.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
+            this.standardToolStrip.Size = new System.Drawing.Size(596, 25);
+            this.standardToolStrip.TabIndex = 13;
+            this.standardToolStrip.Text = "Standard";
             // 
             // MainWindow
             // 
@@ -953,16 +961,8 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem toolsConfigProfiles;
         private System.Windows.Forms.ToolStripMenuItem toolsSaveProfileAs;
         private System.Windows.Forms.ToolStripMenuItem toolsConfigNewProfile;
-        private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolStrip;
-        private System.Windows.Forms.ToolStripButton goButton;
-        private System.Windows.Forms.ToolStripSeparator sep1;
-        private System.Windows.Forms.ToolStripButton newProfileButton;
-        private System.Windows.Forms.ToolStripButton manageProfilesButton;
-        private System.Windows.Forms.ToolStripComboBox profileListComboBox;
         private System.Windows.Forms.ToolStripMenuItem viewToolBar;
         private System.Windows.Forms.ToolStripMenuItem viewStatusBar;
-        private System.Windows.Forms.ToolStripButton saveProfileButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem toolsHistoryMenu;
         private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearMenu;
@@ -970,18 +970,26 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearFindWhatHistory;
         private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearReplaceWithHistory;
         private System.Windows.Forms.ToolStripMenuItem toolsHistoryClearAll;
-        private System.Windows.Forms.ToolStripButton exportConfigButton;
-        private System.Windows.Forms.ToolStripButton importConfigButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton clearAllHistoryButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton switchButton;
-        private System.Windows.Forms.ToolStripButton viewDarkThemeButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripSeparator sep2;
         private System.Windows.Forms.ToolStripMenuItem viewDarkTheme;
         private System.Windows.Forms.SaveFileDialog exportConfigDialog;
         private System.Windows.Forms.OpenFileDialog importConfigDialog;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox renameSolutionFoldersCheckBox;
+        private System.Windows.Forms.ToolStripButton goButton;
+        private System.Windows.Forms.ToolStripSeparator sep1;
+        private System.Windows.Forms.ToolStripButton viewDarkThemeButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton newProfileButton;
+        private System.Windows.Forms.ToolStripButton saveProfileButton;
+        private System.Windows.Forms.ToolStripButton manageProfilesButton;
+        private System.Windows.Forms.ToolStripComboBox profileListComboBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton exportConfigButton;
+        private System.Windows.Forms.ToolStripButton importConfigButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton clearAllHistoryButton;
+        private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolStrip;
     }
 }
 
