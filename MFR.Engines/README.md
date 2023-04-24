@@ -41,6 +41,8 @@
 - [OperationEngineBase](#T-MFR-Engines-OperationEngineBase 'MFR.Engines.OperationEngineBase')
   - [#ctor()](#M-MFR-Engines-OperationEngineBase-#ctor 'MFR.Engines.OperationEngineBase.#ctor')
   - [_processingWorker](#F-MFR-Engines-OperationEngineBase-_processingWorker 'MFR.Engines.OperationEngineBase._processingWorker')
+  - [ConfigurationProvider](#P-MFR-Engines-OperationEngineBase-ConfigurationProvider 'MFR.Engines.OperationEngineBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Engines-OperationEngineBase-CurrentConfiguration 'MFR.Engines.OperationEngineBase.CurrentConfiguration')
   - [FileRenamer](#P-MFR-Engines-OperationEngineBase-FileRenamer 'MFR.Engines.OperationEngineBase.FileRenamer')
   - [Type](#P-MFR-Engines-OperationEngineBase-Type 'MFR.Engines.OperationEngineBase.Type')
   - [HandleFilesCountedEvent(count)](#M-MFR-Engines-OperationEngineBase-HandleFilesCountedEvent-System-Int32- 'MFR.Engines.OperationEngineBase.HandleFilesCountedEvent(System.Int32)')
@@ -741,6 +743,31 @@ deterministically, with a
 [BackgroundWorker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.BackgroundWorker 'System.ComponentModel.BackgroundWorker'), when our operation is
 actually complete, but it can still be run in an asynchronous way that keeps
 the UI/UX of the application responsive.
+
+<a name='P-MFR-Engines-OperationEngineBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Engines-OperationEngineBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-Engines-OperationEngineBase-FileRenamer'></a>
 ### FileRenamer `property`

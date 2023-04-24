@@ -30,7 +30,7 @@
   - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerExceptionRaised(System.Object,MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFinished(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFinished 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFinished')
+  - [OnFileRenamerFinished()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFinished 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFinished')
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
@@ -506,7 +506,7 @@ property to have
 the same value as the count of file system entries.
 
 <a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFinished'></a>
-### OnFileRenamerFinished(sender,e) `method`
+### OnFileRenamerFinished() `method`
 
 ##### Summary
 
@@ -517,9 +517,7 @@ by the file renamer object.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [M:MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFinished](#T-M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFinished 'M:MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFinished') | Reference to an instance of the object that raised the event. |
+This method has no parameters.
 
 ##### Remarks
 

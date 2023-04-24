@@ -78,6 +78,8 @@
   - [SwitchUpDown_16x](#P-MFR-GUI-Windows-Properties-Resources-SwitchUpDown_16x 'MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x')
 - [ResponsiveFormBase](#T-MFR-GUI-Windows-ResponsiveFormBase 'MFR.GUI.Windows.ResponsiveFormBase')
   - [#ctor()](#M-MFR-GUI-Windows-ResponsiveFormBase-#ctor 'MFR.GUI.Windows.ResponsiveFormBase.#ctor')
+  - [_responsiveObj](#F-MFR-GUI-Windows-ResponsiveFormBase-_responsiveObj 'MFR.GUI.Windows.ResponsiveFormBase._responsiveObj')
+  - [InstallMetrics(controls)](#M-MFR-GUI-Windows-ResponsiveFormBase-InstallMetrics-System-Collections-ICollection- 'MFR.GUI.Windows.ResponsiveFormBase.InstallMetrics(System.Collections.ICollection)')
   - [OnLoad(e)](#M-MFR-GUI-Windows-ResponsiveFormBase-OnLoad-System-EventArgs- 'MFR.GUI.Windows.ResponsiveFormBase.OnLoad(System.EventArgs)')
 
 <a name='T-MFR-GUI-Windows-MainWindow-Is'></a>
@@ -1246,6 +1248,11 @@ Looks up a localized resource of type System.Drawing.Bitmap.
 
 MFR.GUI.Windows
 
+##### Summary
+
+This class is designed to be inherited from when you need a Windows Form to
+look the same on monitors of different resolutions.
+
 <a name='M-MFR-GUI-Windows-ResponsiveFormBase-#ctor'></a>
 ### #ctor() `constructor`
 
@@ -1258,6 +1265,31 @@ it.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='F-MFR-GUI-Windows-ResponsiveFormBase-_responsiveObj'></a>
+### _responsiveObj `constants`
+
+##### Summary
+
+Reference to an instance of [Responsive](#T-MFR-GUI-Windows-Actions-Responsive 'MFR.GUI.Windows.Actions.Responsive')
+that supports this form's functionality.
+
+<a name='M-MFR-GUI-Windows-ResponsiveFormBase-InstallMetrics-System-Collections-ICollection-'></a>
+### InstallMetrics(controls) `method`
+
+##### Summary
+
+Called to recursively adjust the width and height of controls according to the
+current screen metrics.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| controls | [System.Collections.ICollection](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ICollection 'System.Collections.ICollection') | (Required.) Reference to an instance of an object that implements the
+[ICollection](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ICollection 'System.Collections.ICollection') interface, and which represents
+the collection of [Control](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Control 'System.Windows.Forms.Control') instances on
+which to act. |
 
 <a name='M-MFR-GUI-Windows-ResponsiveFormBase-OnLoad-System-EventArgs-'></a>
 ### OnLoad(e) `method`
