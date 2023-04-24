@@ -84,6 +84,19 @@ namespace MFR.GUI.Windows.Presenters
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
@@ -1052,10 +1065,28 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private void InitializeConfiguration()
         {
-            CurrentConfiguration.StartingFolderChanged -=
-                OnConfigurationStartingFolderChanged;
-            CurrentConfiguration.StartingFolderChanged +=
-                OnConfigurationStartingFolderChanged;
+            try
+            {
+                if (CurrentConfiguration == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The CurrentConfiguration property has a null reference for a value."
+                    );
+
+                    return;
+                }
+
+                CurrentConfiguration.StartingFolderChanged -=
+                    OnConfigurationStartingFolderChanged;
+                CurrentConfiguration.StartingFolderChanged +=
+                    OnConfigurationStartingFolderChanged;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         private void InitializeOperationEngine()

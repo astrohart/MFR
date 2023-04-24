@@ -12,12 +12,14 @@ using MFR.FileSystem.Validators.Interfaces;
 using MFR.Invokers.Factories;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -41,17 +43,47 @@ namespace MFR.FileSystem.Retrievers
         }
 
         /// <summary>
-        /// Gets one of the
+        /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public abstract OperationType OperationType
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
         {
             get;
-        }
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Fluent bridge property that accesses the appropriate file-system
+        /// entry validator object, that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
+        /// interface, for the current operation type.
+        /// </summary>
+        /// <remarks>
+        /// The property is designed to be called as part of a fluent
+        /// criteria-evaluation expression.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private IFileSystemEntryValidator FileSystemEntryValidatorSays
+            => GetFileSystemEntryValidator.For(OperationType);
 
         /// <summary>
         /// Gets or sets a string containing the pattern to be found in the name
@@ -68,6 +100,19 @@ namespace MFR.FileSystem.Retrievers
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public abstract OperationType OperationType
+        {
+            get;
         }
 
         /// <summary>
@@ -110,21 +155,6 @@ namespace MFR.FileSystem.Retrievers
             get;
             set;
         } = "*";
-
-        /// <summary>
-        /// Fluent bridge property that accesses the appropriate file-system
-        /// entry validator object, that implements the
-        /// <see
-        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
-        /// interface, for the current operation type.
-        /// </summary>
-        /// <remarks>
-        /// The property is designed to be called as part of a fluent
-        /// criteria-evaluation expression.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private IFileSystemEntryValidator FileSystemEntryValidatorSays
-            => GetFileSystemEntryValidator.For(OperationType);
 
         /// <summary>
         /// Fluent bridge property that accesses the appropriate text-expression
@@ -236,18 +266,6 @@ namespace MFR.FileSystem.Retrievers
              */
 
             return DoGetMatchingFileSystemPaths(rootFolderPath, pathFilter);
-        }
-
-        /// <summary>
-        /// Sets the values of this class' properties to their default values.
-        /// </summary>
-        /// <remarks>
-        /// This method typically is called from a class constructor.
-        /// </remarks>
-        public virtual void Reset()
-        {
-            SearchOption = SearchOption.AllDirectories;
-            SearchPattern = "*";
         }
 
         /// <summary>
@@ -364,6 +382,18 @@ namespace MFR.FileSystem.Retrievers
         }
 
         /// <summary>
+        /// Sets the values of this class' properties to their default values.
+        /// </summary>
+        /// <remarks>
+        /// This method typically is called from a class constructor.
+        /// </remarks>
+        public virtual void Reset()
+        {
+            SearchOption = SearchOption.AllDirectories;
+            SearchPattern = "*";
+        }
+
+        /// <summary>
         /// Determines whether the data in the file-system
         /// <paramref
         ///     name="entry" />
@@ -402,7 +432,7 @@ namespace MFR.FileSystem.Retrievers
             if (entry == null) throw new ArgumentNullException(nameof(entry));
 
             return pathFilter == null || MakeNewPathFilterInvoker.For(entry)
-                                           .Passes(pathFilter);
+                .Passes(pathFilter);
         }
 
         /// <summary>

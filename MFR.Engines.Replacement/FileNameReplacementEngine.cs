@@ -105,7 +105,7 @@ namespace MFR.Engines.Replacement
                     "Value cannot be null or whitespace.", nameof(dest)
                 );
 
-            var result = value; // by default, no replacement
+            string result;
 
             try
             {

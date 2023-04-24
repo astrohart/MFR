@@ -1,5 +1,8 @@
-using MFR.Settings.Configuration;
 using MFR.Managers.History.Interfaces;
+using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
@@ -55,6 +58,34 @@ namespace MFR.Managers.History
         }
 
         /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
         /// Clears all the history objects in a projectFileRenamerConfiguration object.
         /// </summary>
         /// <returns>
@@ -72,19 +103,21 @@ namespace MFR.Managers.History
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
             var historyLists = CurrentConfiguration.GetType()
-                                            .GetProperties()
-                                            .Where(
-                                                x => x.PropertyType
-                                                        .GetActualType() !=
-                                                    x.PropertyType &&
-                                                    x.Name.Contains("History")
-                                            )
-                                            .Select(
-                                                p => p.GetValue(
-                                                    CurrentConfiguration
-                                                ) as IList
-                                            )
-                                            .ToArray();
+                                                   .GetProperties()
+                                                   .Where(
+                                                       x => x.PropertyType
+                                                               .GetActualType() !=
+                                                           x.PropertyType &&
+                                                           x.Name.Contains(
+                                                               "History"
+                                                           )
+                                                   )
+                                                   .Select(
+                                                       p => p.GetValue(
+                                                           CurrentConfiguration
+                                                       ) as IList
+                                                   )
+                                                   .ToArray();
             if (!historyLists.Any())
                 return false;
 
@@ -93,10 +126,11 @@ namespace MFR.Managers.History
 
             // Finally, clear out all the current values of the form. This is
             // basically like a "Reset Form" button on a website.
-            CurrentConfiguration.StartingFolder = CurrentConfiguration.FindWhat =
-                CurrentConfiguration.ReplaceWith = string.Empty;
+            CurrentConfiguration.StartingFolder =
+                CurrentConfiguration.FindWhat =
+                    CurrentConfiguration.ReplaceWith = string.Empty;
 
-            return true;    // success
+            return true; // success
         }
 
         /// <summary>
@@ -120,8 +154,9 @@ namespace MFR.Managers.History
                 return false;
 
             return DialogResult.Yes == MessageBox.Show(
-                _messageBoxParentWindow, "Are you sure you want to erase all the items from your search history?\n\nThis action cannot be undone.",
-                System.Windows.Forms.Application.ProductName, MessageBoxButtons.YesNo,
+                _messageBoxParentWindow,
+                "Are you sure you want to erase all the items from your search history?\n\nThis action cannot be undone.",
+                Application.ProductName, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2
             );
         }

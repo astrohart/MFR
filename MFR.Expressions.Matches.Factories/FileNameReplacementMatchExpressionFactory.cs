@@ -2,7 +2,6 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.Expressions.Matches.Factories
 {
@@ -63,9 +62,8 @@ namespace MFR.Expressions.Matches.Factories
         /// operation type.
         /// </exception>
         public override IMatchExpressionFactory ForTextValue(string value)
-        {
+
             // write the name of the current class and method we are now
-            return base.ForTextValue(Path.GetFileName(value));
-        }
+            => base.ForTextValue(Path.GetFileName(value));
     }
 }

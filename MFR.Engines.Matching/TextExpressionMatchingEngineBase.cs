@@ -1,8 +1,10 @@
-using MFR.Settings.Configuration;
-using MFR.Settings.Configuration.Interfaces;
 using MFR.Engines.Matching.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 
 namespace MFR.Engines.Matching
@@ -33,15 +35,48 @@ namespace MFR.Engines.Matching
         /// </summary>
         /// <param name="projectFileRenamerConfiguration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface that holds
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter,
+        /// <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        protected TextExpressionMatchingEngineBase(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
-            : base(projectFileRenamerConfiguration) { }
+        protected TextExpressionMatchingEngineBase(
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
+            base(projectFileRenamerConfiguration) { }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.OperationType" /> values

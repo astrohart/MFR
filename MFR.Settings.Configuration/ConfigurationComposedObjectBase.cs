@@ -1,4 +1,3 @@
-using MFR.Events.Common;
 using MFR.Settings.Configuration.Exceptions;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -23,9 +22,7 @@ namespace MFR.Settings.Configuration
         ///     cref="T:MFR.Settings.Configuration.ConfigurationComposedObjectBase.ConfigurationComposedObjectBase" />
         /// and returns a reference to it.
         /// </summary>
-        protected ConfigurationComposedObjectBase()
-        {
-        }
+        protected ConfigurationComposedObjectBase() { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -36,30 +33,37 @@ namespace MFR.Settings.Configuration
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
         /// that holds settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        protected ConfigurationComposedObjectBase(IProjectFileRenamerConfiguration configuration)
+        protected ConfigurationComposedObjectBase(
+            IProjectFileRenamerConfiguration configuration)
         {
             CurrentConfiguration = configuration ??
-                            throw new ArgumentNullException(
-                                nameof(configuration)
-                            );
+                                   throw new ArgumentNullException(
+                                       nameof(configuration)
+                                   );
         }
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface.
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
         /// </summary>
         /// <remarks>
         /// This object's properties give us access to the settings configured
         /// by the user of the application.
         /// </remarks>
-        public IProjectFileRenamerConfiguration CurrentConfiguration
+        public abstract IProjectFileRenamerConfiguration CurrentConfiguration
         {
             get;
             set;
@@ -68,7 +72,9 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Gets or sets a value indicating whether this object has been
         /// properly composed with an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface.
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
         /// </summary>
         protected bool IsConfigurationAttached
             => CurrentConfiguration != null;
@@ -86,7 +92,9 @@ namespace MFR.Settings.Configuration
         /// method, for fluent use.
         /// </returns>
         /// <remarks>
-        /// The <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// The
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// -implementing configuration object controls the behavior of this
         /// object by dint of the settings chosen by the user at runtime.
         /// </remarks>
@@ -94,22 +102,27 @@ namespace MFR.Settings.Configuration
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public dynamic AndAttachConfiguration(IProjectFileRenamerConfiguration configuration)
+        public dynamic AndAttachConfiguration(
+            IProjectFileRenamerConfiguration configuration)
         {
             CurrentConfiguration = configuration ??
-                            throw new ArgumentNullException(
-                                nameof(configuration)
-                            );
+                                   throw new ArgumentNullException(
+                                       nameof(configuration)
+                                   );
 
             return this;
         }
 
         /// <summary>
-        /// Updates the <paramref name="configuration"/> currently being used with a new value.
+        /// Updates the <paramref name="configuration" /> currently being used with a new
+        /// value.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
         /// which has the new settings.
         /// </param>
         /// <remarks>
@@ -124,11 +137,12 @@ namespace MFR.Settings.Configuration
         /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public virtual void UpdateConfiguration(IProjectFileRenamerConfiguration configuration)
+        public virtual void UpdateConfiguration(
+            IProjectFileRenamerConfiguration configuration)
             => CurrentConfiguration = configuration ??
-                               throw new ArgumentNullException(
-                                   nameof(configuration)
-                               );
+                                      throw new ArgumentNullException(
+                                          nameof(configuration)
+                                      );
 
         /// <summary>
         /// Verifies that configuration has been attached to this object.

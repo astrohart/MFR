@@ -1,7 +1,10 @@
-using MFR.Settings.Configuration;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 
 namespace MFR.Expressions.Matches.Factories
 {
@@ -17,6 +20,34 @@ namespace MFR.Expressions.Matches.Factories
             IMatchExpressionFactory
     {
         /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
         /// Gets or sets a string containing the pattern to be utilized as
         /// search criteria.
         /// </summary>
@@ -24,6 +55,18 @@ namespace MFR.Expressions.Matches.Factories
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public abstract OperationType OperationType
+        {
+            get;
         }
 
         /// <summary>
@@ -49,18 +92,6 @@ namespace MFR.Expressions.Matches.Factories
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
-        /// </summary>
-        public abstract OperationType OperationType
-        {
-            get;
         }
 
         /// <summary>

@@ -1,8 +1,10 @@
-using MFR.Settings.Configuration;
-using MFR.Settings.Configuration.Interfaces;
 using MFR.Engines.Replacement.Intefaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 
@@ -53,8 +55,37 @@ namespace MFR.Engines.Replacement
         /// value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        protected TextReplacementEngineBase(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
+        protected TextReplacementEngineBase(
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
             base(projectFileRenamerConfiguration) { }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets one of the

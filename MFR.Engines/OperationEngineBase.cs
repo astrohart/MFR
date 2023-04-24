@@ -9,6 +9,8 @@ using MFR.Renamers.Files.Factories;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
@@ -46,6 +48,34 @@ namespace MFR.Engines
         {
             InitializeProcessingWorker();
         }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -347,6 +377,36 @@ namespace MFR.Engines
             ProcessingOperationEventArgs e);
 
         /// <summary>
+        /// Handles the
+        /// <see cref="E:MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate" /> event
+        /// raised by the <c>FileRenamer</c> component when it has new text to send to the
+        /// UI/UX of the application..
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.Common.StatusUpdateEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks></remarks>
+        [Log(AttributeExclude = true)]
+        protected virtual void OnFileRenamerStatusUpdate(object sender,
+            StatusUpdateEventArgs e)
+        {
+            // write the name of the current class and method we are now entering, into the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                "In OperationEngineBase.OnFileRenamerStatusUpdate"
+            );
+
+            if (string.IsNullOrWhiteSpace(e.Text)) return;
+
+            Console.WriteLine(e.Text);
+        }
+
+        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.Engines.Interfaces.IOperationEngine.ProcessingError" />
         /// event.
@@ -389,36 +449,6 @@ namespace MFR.Engines
                                       OperationEngineMessages
                                           .OE_PROCESSING_STARTED
                                   );
-        }
-
-        /// <summary>
-        /// Handles the
-        /// <see cref="E:MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate" /> event
-        /// raised by the <c>FileRenamer</c> component when it has new text to send to the
-        /// UI/UX of the application..
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the
-        /// event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.Events.Common.StatusUpdateEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks></remarks>
-        [Log(AttributeExclude = true)]
-        protected virtual void OnFileRenamerStatusUpdate(object sender,
-            StatusUpdateEventArgs e)
-        {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                "In OperationEngineBase.OnFileRenamerStatusUpdate"
-            );
-
-            if (string.IsNullOrWhiteSpace(e.Text)) return;
-
-            Console.WriteLine(e.Text);
         }
 
         /// <summary>

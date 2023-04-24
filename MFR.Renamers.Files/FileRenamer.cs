@@ -20,6 +20,9 @@ using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
 using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -80,6 +83,34 @@ namespace MFR.Renamers.Files
             get;
             private set;
         }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
@@ -342,11 +373,10 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                var renameFilesInFolderResult = CurrentConfiguration.RenameFiles &&
-                                            RenameFilesInFolder(
-                                                RootDirectoryPath, findWhat,
-                                                replaceWith, pathFilter
-                                            );
+                var renameFilesInFolderResult =
+                    CurrentConfiguration.RenameFiles && RenameFilesInFolder(
+                        RootDirectoryPath, findWhat, replaceWith, pathFilter
+                    );
 
                 var renameSubFoldersResult =
                     CurrentConfiguration.RenameSubFolders && RenameSubFoldersOf(
@@ -359,9 +389,8 @@ namespace MFR.Renamers.Files
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
 
-                result = renameFilesInFolderResult
-                         && renameSubFoldersResult 
-                         && replaceTextInFilesResult;
+                result = renameFilesInFolderResult && renameSubFoldersResult &&
+                         replaceTextInFilesResult;
             }
             catch (OperationAbortedException ex)
             {
