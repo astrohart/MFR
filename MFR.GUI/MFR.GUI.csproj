@@ -7,7 +7,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <ProjectGuid>{F1AA54DD-684F-45CC-A5B7-766AE9E75634}</ProjectGuid>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -170,7 +171,9 @@ SET ERRORLEVEL=0</PreBuildEvent>
   <PropertyGroup>
     <PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
 SET "CONFIGURATION_NAME=$(ConfigurationName)"
+SET "DEPLOY_DIR=%25ProgramFiles%25\xyLOGIX, LLC\Project File Renamer"
 SET "GENERATED_XML_DOC_FILE_PATH=%25_TARGET_DIR%25$(TargetName).xml"
+SET "PLATFORM_NAME=$(PlatformName)"
 SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
 ECHO Checking whether this is a Release build...
 IF "%25CONFIGURATION_NAME%25"=="Release" GOTO ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
@@ -187,6 +190,12 @@ IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB +R "%25PROJECT_README_FILE_PATH
 IF EXIST "%25_TARGET_DIR%25*.xml" ERASE /F /S /Q "%25_TARGET_DIR%25*.xml"
 IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB -R "%25GENERATED_XML_DOC_FILE_PATH%25"
 IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB -R "%25PROJECT_README_FILE_PATH%25"
+:DEPLOY
+IF NOT "%25PLATFORM_NAME%25"=="x64" GOTO FINALIZATION
+ECHO Deploying to Program Files...
+IF EXIST "%25DEPLOY_DIR%25" RD /S /Q "%25DEPLOY_DIR%25"
+IF NOT EXIST "%25DEPLOY_DIR%25" MKDIR "%25DEPLOY_DIR%25"
+XCOPY "%25_TARGET_DIR%25*.*" "%25DEPLOY_DIR%25\*.*" /E /C /R /Y /H /D /J
 GOTO FINALIZATION
 :FINALIZATION
 ECHO *** DONE *** with post-build script.
