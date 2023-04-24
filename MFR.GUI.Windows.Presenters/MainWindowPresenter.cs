@@ -1053,6 +1053,18 @@ namespace MFR.GUI.Windows.Presenters
                        .ForMessageId(MainWindowPresenterMessages.MWP_FINISHED);
         }
 
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.OperationError" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.Common.ExceptionRaisedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
+            => OperationError?.Invoke(this, e);
+
         protected virtual void OnOperationStarted(object sender, EventArgs e)
         {
             Started?.Invoke(this, EventArgs.Empty);
