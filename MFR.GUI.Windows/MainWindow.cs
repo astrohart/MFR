@@ -74,14 +74,7 @@ namespace MFR.GUI.Windows
         {
             InitializeComponent();
 
-            SetStyle(
-                ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.ContainerControl |
-                ControlStyles.SupportsTransparentBackColor, true
-            );
-            UpdateStyles();
+            InitializeStyles();
 
             InitializePresenter();
 
@@ -646,6 +639,18 @@ namespace MFR.GUI.Windows
                                  OperationEngineMessages.OE_PROCESSING_STARTED
                              )
                              .AndEventHandler(OnOperationStarted);
+        }
+
+        private void InitializeStyles()
+        {
+            SetStyle(
+                ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.ResizeRedraw |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.ContainerControl |
+                ControlStyles.SupportsTransparentBackColor, true
+            );
+            UpdateStyles();
         }
 
         /// <summary>

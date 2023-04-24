@@ -29,10 +29,8 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Security.AccessControl;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
@@ -86,23 +84,10 @@ namespace MFR.GUI.Windows.Presenters
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object's properties are initialized with the currently-loaded
-        /// projectFileRenamerConfiguration.
-        /// </remarks>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
-
-        /// <summary>
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
-            => base.CurrentConfiguration is IProfile profile
+            => CurrentConfiguration is IProfile profile
                 ? profile.Name
                 : string.Empty;
 
@@ -385,7 +370,7 @@ namespace MFR.GUI.Windows.Presenters
 
             // just in case, have the file renamer object update its
             // projectFileRenamerConfiguration to match that which we have access to
-            OperationEngine.UpdateConfiguration(base.CurrentConfiguration);
+            OperationEngine.UpdateConfiguration(CurrentConfiguration);
 
             OperationEngine.ProcessAll(StartingFolder, FindWhat, ReplaceWith);
         }
@@ -530,13 +515,13 @@ namespace MFR.GUI.Windows.Presenters
         public void InitializeOperationSelections()
         {
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Files", base.CurrentConfiguration.RenameFiles
+                "Rename Files", CurrentConfiguration.RenameFiles
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders", base.CurrentConfiguration.RenameSubFolders
+                "Rename Subfolders", CurrentConfiguration.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Replace in Files", base.CurrentConfiguration.ReplaceTextInFiles
+                "Replace in Files", CurrentConfiguration.ReplaceTextInFiles
             );
         }
 
@@ -694,7 +679,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now
             // Check to see if the required property, ProjectFileRenamerConfiguration, is null. If
-            if (base.CurrentConfiguration == null)
+            if (CurrentConfiguration == null)
 
                 // the property ProjectFileRenamerConfiguration is required.
                 // stop.
@@ -711,29 +696,28 @@ namespace MFR.GUI.Windows.Presenters
 
             if (bSavingAndValidating)
             {
-                base.CurrentConfiguration.SaveCurrentStartingFolderAndHistory(
+                CurrentConfiguration.SaveCurrentStartingFolderAndHistory(
                     View.StartingFolderComboBox
                 );
 
-                base.CurrentConfiguration.SaveCurrentFindWhatAndHistory(
+                CurrentConfiguration.SaveCurrentFindWhatAndHistory(
                     View.FindWhatComboBox
                 );
 
-                base.CurrentConfiguration.SaveCurrentReplaceWithAndHistory(
+                CurrentConfiguration.SaveCurrentReplaceWithAndHistory(
                     View.ReplaceWithComboBox
                 );
 
-                base.CurrentConfiguration.IsFolded = View.IsFolded;
+                CurrentConfiguration.IsFolded = View.IsFolded;
 
-                base.CurrentConfiguration.MatchCase = View.MatchCase;
+                CurrentConfiguration.MatchCase = View.MatchCase;
 
-                base.CurrentConfiguration.MatchExactWord = View.MatchExactWord;
+                CurrentConfiguration.MatchExactWord = View.MatchExactWord;
 
-                base.CurrentConfiguration.RenameSolutionFolders =
+                CurrentConfiguration.RenameSolutionFolders =
                     View.RenameSolutionFolders;
 
-                base.CurrentConfiguration.SelectedOptionTab =
-                    View.SelectedOptionTab;
+                CurrentConfiguration.SelectedOptionTab = View.SelectedOptionTab;
 
                 SaveOperationSelections();
             }
@@ -746,30 +730,29 @@ namespace MFR.GUI.Windows.Presenters
                                          .SelectedOptionTab;
 
                 View.RenameSolutionFolders =
-                    base.CurrentConfiguration.RenameSolutionFolders;
+                    CurrentConfiguration.RenameSolutionFolders;
 
-                View.MatchExactWord = base.CurrentConfiguration.MatchExactWord;
+                View.MatchExactWord = CurrentConfiguration.MatchExactWord;
 
-                View.MatchCase = base.CurrentConfiguration.MatchCase;
+                View.MatchCase = CurrentConfiguration.MatchCase;
 
-                View.IsFolded = base.CurrentConfiguration.IsFolded;
+                View.IsFolded = CurrentConfiguration.IsFolded;
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.StartingFolderComboBox,
-                    base.CurrentConfiguration.StartingFolderHistory,
-                    base.CurrentConfiguration.StartingFolder
+                    CurrentConfiguration.StartingFolderHistory,
+                    CurrentConfiguration.StartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.FindWhatComboBox,
-                    base.CurrentConfiguration.FindWhatHistory,
-                    base.CurrentConfiguration.FindWhat
+                    View.FindWhatComboBox, CurrentConfiguration.FindWhatHistory,
+                    CurrentConfiguration.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.ReplaceWithComboBox,
-                    base.CurrentConfiguration.ReplaceWithHistory,
-                    base.CurrentConfiguration.ReplaceWith
+                    CurrentConfiguration.ReplaceWithHistory,
+                    CurrentConfiguration.ReplaceWith
                 );
             }
 
@@ -815,13 +798,13 @@ namespace MFR.GUI.Windows.Presenters
         public void SaveOperationSelections()
         {
             // write the name of the current class and method we are now
-            base.CurrentConfiguration.RenameFiles =
+            CurrentConfiguration.RenameFiles =
                 View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
-            base.CurrentConfiguration.RenameSubFolders =
+            CurrentConfiguration.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Rename Subfolders"
                 );
-            base.CurrentConfiguration.ReplaceTextInFiles =
+            CurrentConfiguration.ReplaceTextInFiles =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     "Replace in Files"
                 );
@@ -1080,13 +1063,21 @@ namespace MFR.GUI.Windows.Presenters
             if (OperationEngine == null) return;
 
             NewMessageMapping<EventArgs>.Associate.WithMessageId(
-                                 OperationEngineMessages.OE_PROCESSING_STARTED
-                             )
-                             .AndHandler(new EventHandler(OnOperationStarted));
+                                            OperationEngineMessages
+                                                .OE_PROCESSING_STARTED
+                                        )
+                                        .AndHandler(
+                                            new EventHandler(OnOperationStarted)
+                                        );
             NewMessageMapping<EventArgs>.Associate.WithMessageId(
-                                 OperationEngineMessages.OE_PROCESSING_FINISHED
-                             )
-                             .AndHandler(new EventHandler(OnOperationFinished));
+                                            OperationEngineMessages
+                                                .OE_PROCESSING_FINISHED
+                                        )
+                                        .AndHandler(
+                                            new EventHandler(
+                                                OnOperationFinished
+                                            )
+                                        );
         }
 
         /// <summary>
