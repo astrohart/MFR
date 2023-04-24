@@ -21,6 +21,8 @@ using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.Win32.Interact;
 
+#pragma warning disable IDE0060
+
 namespace MFR.GUI.Dialogs
 {
     /// <summary>
@@ -416,13 +418,6 @@ namespace MFR.GUI.Dialogs
         /// event raised
         /// by the file renamer object.
         /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
         /// <remarks>
         /// This method responds to the event by telling the progress dialog to
         /// reset the progress bar back to the starting point.
