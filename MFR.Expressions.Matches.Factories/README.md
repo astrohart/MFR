@@ -15,6 +15,8 @@
 - [GetMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory 'MFR.Expressions.Matches.Factories.GetMatchExpressionFactory')
   - [For(type)](#M-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory-For-MFR-Operations-Constants-OperationType- 'MFR.Expressions.Matches.Factories.GetMatchExpressionFactory.For(MFR.Operations.Constants.OperationType)')
 - [MatchExpressionFactoryBase](#T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase')
+  - [ConfigurationProvider](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ConfigurationProvider 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.CurrentConfiguration')
   - [FindWhat](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-FindWhat 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.FindWhat')
   - [OperationType](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-OperationType 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.OperationType')
   - [ReplaceWith](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ReplaceWith 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ReplaceWith')
@@ -336,6 +338,31 @@ Defines methods and properties that all implementations of the
 [IMatchExpressionFactory](#T-MFR-IMatchExpressionFactory 'MFR.IMatchExpressionFactory')
 interface
 have in common.
+
+<a name='P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-FindWhat'></a>
 ### FindWhat `property`

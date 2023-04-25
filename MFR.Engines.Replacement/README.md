@@ -24,6 +24,8 @@
 - [TextReplacementEngineBase](#T-MFR-Engines-Replacement-TextReplacementEngineBase 'MFR.Engines.Replacement.TextReplacementEngineBase')
   - [#ctor()](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor')
   - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [ConfigurationProvider](#P-MFR-Engines-Replacement-TextReplacementEngineBase-ConfigurationProvider 'MFR.Engines.Replacement.TextReplacementEngineBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfiguration 'MFR.Engines.Replacement.TextReplacementEngineBase.CurrentConfiguration')
   - [OperationType](#P-MFR-Engines-Replacement-TextReplacementEngineBase-OperationType 'MFR.Engines.Replacement.TextReplacementEngineBase.OperationType')
   - [Replace(value,pattern,dest)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
   - [Replace(expression)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-Replace-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
@@ -418,6 +420,31 @@ holds settings that are specified by the user. |
 parameter, `projectFileRenamerConfiguration`, is passed a
 `null`
 value. |
+
+<a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-OperationType'></a>
 ### OperationType `property`

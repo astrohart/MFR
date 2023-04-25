@@ -6,6 +6,8 @@
 - [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
   - [#ctor()](#M-MFR-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
+  - [ConfigurationProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider 'MFR.Renamers.Files.FileRenamer.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
@@ -89,6 +91,31 @@ This constructor has no parameters.
 
 Gets a value that indicates whether an abort of the current
 operation has been requested.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-CurrentOperation'></a>
 ### CurrentOperation `property`

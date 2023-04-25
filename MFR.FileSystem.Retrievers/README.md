@@ -8,6 +8,8 @@
   - [Reset()](#M-MFR-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.Reset')
 - [FileSystemEntryListRetrieverBase](#T-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
+  - [ConfigurationProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigurationProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.CurrentConfiguration')
   - [FileSystemEntryValidatorSays](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
   - [FindWhat](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
   - [OperationType](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
@@ -143,6 +145,31 @@ and returns a reference to it.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays'></a>
 ### FileSystemEntryValidatorSays `property`

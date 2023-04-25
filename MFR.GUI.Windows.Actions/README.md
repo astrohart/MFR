@@ -43,6 +43,13 @@ Returns the cached ResourceManager instance used by this class.
 
 MFR.GUI.Windows.Actions
 
+##### Summary
+
+Exposes methods and properties to support design of responsive forms, i.e.,
+Windows Forms that automatically resize and rescale themselves when they are
+dragged from a monitor with one screen resolution to another monitor having a
+different screen resolution.
+
 <a name='M-MFR-GUI-Windows-Actions-Responsive-#ctor-System-Drawing-Rectangle-'></a>
 ### #ctor() `constructor`
 

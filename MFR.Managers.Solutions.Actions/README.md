@@ -30,17 +30,24 @@ Exposes static methods, e.g., to get data sets from the system.
 ##### Summary
 
 Gets an enumerable collection of strings, each of which is the pathname of a
-Visual Studio Solution (*.sln) file in the
+Visual Studio Solution (*.sln) file in the root folder that has the specified
+`pathname`.
 
 ##### Returns
 
-
+THe empty enumerable is returned if the specified
+`pathname` is blank, or if an error occurs during the search
+operation; otherwise, an enumerable collection of
+[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')s is returned, each element of which is the
+pathname of a `*.sln` file in the folder having the specified
+`pathname`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a folder in which to search. |
 
 <a name='T-MFR-Managers-Solutions-Actions-Is'></a>
 ## Is `type`

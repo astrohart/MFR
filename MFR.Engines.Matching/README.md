@@ -19,6 +19,8 @@
 - [TextExpressionMatchingEngineBase](#T-MFR-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Engines.Matching.TextExpressionMatchingEngineBase')
   - [#ctor()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor')
   - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [ConfigurationProvider](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfiguration')
   - [OperationType](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
   - [IsMatch(expression)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
@@ -294,15 +296,43 @@ a reference to it.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface that holds
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that holds
 settings that are specified by the user. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`projectFileRenamerConfiguration`,
 is passed a `null` value. |
+
+<a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType'></a>
 ### OperationType `property`

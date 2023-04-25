@@ -43,6 +43,7 @@
   - [OnDataOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationFinished')
   - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Operations.Events.DataOperationEventArgs)')
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
+  - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationFinished(System.Object,System.EventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
@@ -122,14 +123,10 @@ associated with it.
 
 ##### Summary
 
-Gets a reference to an instance of an object that implements the
+Gets or sets a reference to an instance of an object that implements
+the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
-
-##### Remarks
-
-This object's properties are initialized with the currently-loaded
-projectFileRenamerConfiguration.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName'></a>
 ### CurrentProfileName `property`
@@ -652,6 +649,22 @@ finish an operation. Typically, the client object is the main
 application window, which should respond by dismissing any progress
 dialog that may have been previously shown during the operation and
 re-enabling user input.
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
+### OnOperationError(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-GUI-Windows-Presenters-MainWindowPresenter-OperationError 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OperationError')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs')
+that contains the event data. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs-'></a>
 ### OnOperationFinished() `method`
