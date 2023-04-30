@@ -379,9 +379,7 @@ namespace MFR.GUI.Windows
                                 .FromScratch()
                                 .HavingProc(new Action(DoLoad))
                                 .AndStatusText(
-                                    GetOperationStartedDescription.For(
-                                        OperationType.InitializeApplication
-                                    )
+                                    GetOperationStartedDescription.For(OperationType.InitializeApplication)
                                 ))
 
                 // The dialog is automatically dismissed as soon as the

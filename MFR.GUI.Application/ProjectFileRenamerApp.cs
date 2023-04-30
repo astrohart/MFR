@@ -174,9 +174,7 @@ namespace MFR.GUI.Application
                                     )
                                     .AndArgument(args)
                                     .AndStatusText(
-                                        GetOperationStartedDescription.For(
-                                            OperationType.InitializeApplication
-                                        )
+                                        @"Searching for projects and solutions..."
                                     ))
                 {
                     // The dialog is automatically dismissed as soon as the
