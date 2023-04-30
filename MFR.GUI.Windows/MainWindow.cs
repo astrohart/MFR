@@ -100,6 +100,23 @@ namespace MFR.GUI.Windows
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
+        /// Gets the required creation parameters when the control handle is
+        /// created.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.Windows.Forms.CreateParams" /> that contains the
+        /// required creation parameters when the handle to the control is created.
+        /// </returns>
+        protected override CreateParams CreateParams
+        {
+            get {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
