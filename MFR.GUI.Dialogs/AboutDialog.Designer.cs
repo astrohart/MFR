@@ -33,12 +33,12 @@ namespace MFR.GUI.Dialogs
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutDialog));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.labelProductName = new System.Windows.Forms.Label();
-            this.labelVersion = new System.Windows.Forms.Label();
-            this.labelCopyright = new System.Windows.Forms.Label();
-            this.labelCompanyName = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.okButton = new System.Windows.Forms.Button();
+            this.labelProductName = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.labelVersion = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.labelCopyright = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.labelCompanyName = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.textBoxDescription = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.okButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -181,11 +181,11 @@ namespace MFR.GUI.Dialogs
 
         private TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Label labelCopyright;
-        private System.Windows.Forms.Label labelCompanyName;
-        private System.Windows.Forms.TextBox textBoxDescription;
-        private System.Windows.Forms.Button okButton;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel labelProductName;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel labelVersion;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel labelCopyright;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel labelCompanyName;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox textBoxDescription;
+        private xyLOGIX.UI.Dark.Controls.DarkButton okButton;
     }
 }
