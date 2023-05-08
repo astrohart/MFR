@@ -43,17 +43,21 @@ namespace MFR.FileSystem.Enumerators.Actions
                 if (string.IsNullOrWhiteSpace(pattern)) return result;
 
                 result = Directory.EnumerateDirectories(
-                                      folderPathname, "*",
+                                      folderPathname,
+                                      $"*{pattern}*",   // hopefully make the search faster with wildcard filtering
                                       SearchOption.TopDirectoryOnly
                                   )
                                   .SelectMany(
                                       dir => Directory.EnumerateFiles(
-                                          dir, pattern,
+                                          dir,
+                                          $"*{pattern}*",   // hopefully make the search faster with wildcard filtering
                                           SearchOption.AllDirectories
                                       )
                                   )
                                   .Any() || Directory.EnumerateFiles(
-                        folderPathname, pattern, SearchOption.TopDirectoryOnly
+                                                folderPathname, 
+                                                $"*{pattern}*",   // hopefully make the search faster with wildcard filtering
+                                                SearchOption.TopDirectoryOnly
                     )
                     .Any();
             }

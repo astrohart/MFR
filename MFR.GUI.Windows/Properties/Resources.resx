@@ -136,4 +136,7 @@ Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  D
         R9Ve2y6xhGsAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="Error_CantSetUpFindWhatComboStartFolderNotExists" xml:space="preserve">
+      <value>*** ERROR *** The folder '{0}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects.</value>
+  </data>
 </root>

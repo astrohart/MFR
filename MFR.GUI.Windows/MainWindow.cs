@@ -305,6 +305,16 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> that is configured as the folder
+        /// in which operations are to commence.
+        /// </summary>
+        public static string StartingFolder
+        {
+            get => CurrentConfiguration.StartingFolder;
+            set => CurrentConfiguration.StartingFolder = value;
+        }
+
+        /// <summary>
         /// Gets a reference to the control that allows the user to specify the
         /// path to the starting folder.
         /// </summary>
@@ -379,7 +389,9 @@ namespace MFR.GUI.Windows
                                 .FromScratch()
                                 .HavingProc(new Action(DoLoad))
                                 .AndStatusText(
-                                    GetOperationStartedDescription.For(OperationType.InitializeApplication)
+                                    GetOperationStartedDescription.For(
+                                        OperationType.InitializeApplication
+                                    )
                                 ))
 
                 // The dialog is automatically dismissed as soon as the
@@ -1512,11 +1524,12 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void SetUpFindWhatComboBox()
         {
-            if (!Directory.Exists(CurrentConfiguration.StartingFolder))
+            if (!Directory.Exists(StartingFolder))
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    $"*** ERROR *** The folder '{CurrentConfiguration.StartingFolder}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects."
+                    Resources.Error_CantSetUpFindWhatComboStartFolderNotExists
+                             .PostfixFormat(StartingFolder)
                 );
 
                 DebugUtils.WriteLine(
@@ -1527,9 +1540,12 @@ namespace MFR.GUI.Windows
 
             var findWhatAutocompleteCustomSource =
                 new AutoCompleteStringCollection();
+
+            // Obtain a list of the names of the C# projects that are listed in the
+            // root directory (i.e., starting folder designated by the user).
             findWhatAutocompleteCustomSource.AddRange(
                 Directory.EnumerateFiles(
-                             CurrentConfiguration.StartingFolder, "*.csproj",
+                             StartingFolder, "*.csproj",
                              SearchOption.AllDirectories
                          )
                          .Select(Path.GetFileNameWithoutExtension)

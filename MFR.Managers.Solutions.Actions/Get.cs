@@ -39,7 +39,8 @@ namespace MFR.Managers.Solutions.Actions
                 if (!Is.Folder(pathname)) return result;
 
                 result = Directory.EnumerateFiles(
-                                      pathname, "*.sln",
+                                      pathname, 
+                                      "*.sln",
                                       SearchOption.AllDirectories
                                   )
                                   .Where(
