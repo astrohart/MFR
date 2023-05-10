@@ -153,4 +153,7 @@ NOTE: To show the Operations tab (if it isn't already visible), click the More b
   <data name="Error_FindWhat_ReplaceWith_Identical" xml:space="preserve">
       <value>Please type different values in the Text to Be Replaced and With What fields.</value>
   </data>
+  <data name="Info_PreparingStartOperations" xml:space="preserve">
+      <value>Getting ready to start the operations...</value>
+  </data>
 </root>

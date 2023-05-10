@@ -128,6 +128,15 @@ namespace MFR.GUI.Windows.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Getting ready to start the operations....
+        /// </summary>
+        public static string Info_PreparingStartOperations {
+            get {
+                return ResourceManager.GetString("Info_PreparingStartOperations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap SwitchUpDown_16x {

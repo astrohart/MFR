@@ -784,7 +784,7 @@ namespace MFR.GUI.Windows
                                         )
                                     )
                                     .AndStatusText(
-                                        "Searching for projects and solutions..."
+                                        Resources.Info_PreparingStartOperations
                                     ))
                     dialog.ShowDialog(this);
 
