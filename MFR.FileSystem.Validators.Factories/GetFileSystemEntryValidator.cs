@@ -1,5 +1,6 @@
 using MFR.FileSystem.Validators.Interfaces;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.FileSystem.Validators.Factories
@@ -11,6 +12,7 @@ namespace MFR.FileSystem.Validators.Factories
     /// interface
     /// that correspond to the type of file-system operation that is being performed.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetFileSystemEntryValidator
     {
         /// <summary>

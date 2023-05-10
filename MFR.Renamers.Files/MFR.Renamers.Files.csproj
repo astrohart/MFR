@@ -163,6 +163,14 @@
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
+      <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
+      <Name>MFR.FileSystem.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
+      <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
+      <Name>MFR.FileSystem.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.RootFolders.Factories\MFR.Managers.RootFolders.Factories.csproj">
       <Project>{ABF085F2-3E87-46AB-AF16-7B779EFE6C1A}</Project>
       <Name>MFR.Managers.RootFolders.Factories</Name>

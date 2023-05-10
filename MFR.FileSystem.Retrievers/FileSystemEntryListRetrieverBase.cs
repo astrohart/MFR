@@ -9,7 +9,6 @@ using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.FileSystem.Validators;
 using MFR.FileSystem.Validators.Factories;
 using MFR.FileSystem.Validators.Interfaces;
-using MFR.Invokers.Factories;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
@@ -82,7 +81,7 @@ namespace MFR.FileSystem.Retrievers
         /// criteria-evaluation expression.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private IFileSystemEntryValidator FileSystemEntryValidatorSays
+        protected IFileSystemEntryValidator FileSystemEntryValidatorSays
             => GetFileSystemEntryValidator.For(OperationType);
 
         /// <summary>
@@ -394,48 +393,6 @@ namespace MFR.FileSystem.Retrievers
         }
 
         /// <summary>
-        /// Determines whether the data in the file-system
-        /// <paramref
-        ///     name="entry" />
-        /// provided passes the additional path-filtering
-        /// criteria specified by the <paramref name="pathFilter" /> predicate.
-        /// </summary>
-        /// <param name="entry">
-        /// (Optional.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
-        /// interface that has the data to run decision-making upon. If this
-        /// parameter is <see langword="null" />, then this method returns
-        /// <see langword="false" />.
-        /// </param>
-        /// <param name="pathFilter">
-        /// (Optional.) A <see cref="T:System.Predicate" /> that points to the
-        /// logic to be executed to determine a match to the file-system
-        /// <paramref name="entry" /> passed. If this parameter is
-        /// <see
-        ///     langword="null" />
-        /// , then this method returns <see langword="true" />.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the file-system <paramref name="entry" />
-        /// passed the path-filtering criteria in <paramref name="pathFilter" />,
-        /// or if <paramref name="pathFilter" /> is <see langword="null" />;
-        /// otherwise, <see langword="false" /> is returned.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if any of the required
-        /// parameters, <paramref name="entry" />, or <paramref name="pathFilter" />, are
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        protected static bool PassesPathFilter(IFileSystemEntry entry,
-            Predicate<string> pathFilter)
-        {
-            if (entry == null) throw new ArgumentNullException(nameof(entry));
-
-            return pathFilter == null || MakeNewPathFilterInvoker.For(entry)
-                .Passes(pathFilter);
-        }
-
-        /// <summary>
         /// Provides the implementation of the
         /// <see
         ///     cref="M:MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths" />
@@ -567,6 +524,40 @@ namespace MFR.FileSystem.Retrievers
             return TextExpressionMatchingEngineSays.IsMatch(
                 ForFileSystemEntry(entry)
             );
+        }
+
+        /// <summary>
+        /// Determines whether a certain path should be executed.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file to be checked.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) A reference to an instance of
+        /// <see cref="T:System.Predicate{System.String}" /> that contains additional rules
+        /// stating whether to include files or directories.
+        /// </param>
+        /// <returns></returns>
+        [Log(AttributeExclude = true)]
+        protected bool ShouldDoPath(string path,
+            Predicate<string> pathFilter = null)
+        {
+            bool result;
+
+            try
+            {
+                result = pathFilter == null
+                    ? FileSystemEntryValidatorSays.ShouldNotSkip(path)
+                    : pathFilter(path) &&
+                      FileSystemEntryValidatorSays.ShouldNotSkip(path);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
     }
 }

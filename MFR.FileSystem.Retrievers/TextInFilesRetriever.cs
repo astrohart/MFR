@@ -1,10 +1,8 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
-using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -24,20 +22,17 @@ namespace MFR.FileSystem.Retrievers
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static TextInFilesRetriever()
-        {
-        }
+        static TextInFilesRetriever() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected TextInFilesRetriever()
-        {
-        }
+        protected TextInFilesRetriever() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.FileSystem.Retrievers.TextInFilesRetriever"/>.
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.FileSystem.Retrievers.TextInFilesRetriever" />.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static TextInFilesRetriever Instance
@@ -46,7 +41,7 @@ namespace MFR.FileSystem.Retrievers
         } = new TextInFilesRetriever();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.OperationType"/> values
+        /// Gets one of the <see cref="T:MFR.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -62,7 +57,7 @@ namespace MFR.FileSystem.Retrievers
         /// method, for fluent use.
         /// </returns>
         /// <remarks>
-        /// The value of the <paramref name="replaceWith"/> parameter may be
+        /// The value of the <paramref name="replaceWith" /> parameter may be
         /// allowed by some implementations to be blank.
         /// </remarks>
         public override IFileSystemEntryListRetriever AndReplaceItWith(
@@ -74,49 +69,56 @@ namespace MFR.FileSystem.Retrievers
         }
 
         /// <summary>
-        /// Provides the implementation of the <see
-        /// cref="M:MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths"/> method.
+        /// Provides the implementation of the
+        /// <see
+        ///     cref="M:MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths" />
+        /// method.
         /// </summary>
         /// <param name="rootFolderPath">
         /// (Required.) String containing the full pathname of the folder in
         /// which to start the search.
         /// </param>
         /// <param name="pathFilter">
-        /// (Optional.) Reference to an instance of <see cref="T:System.Func"/>
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
         /// that points to a delegate, accepting the current file or folder's
-        /// path as an argument, that returns <see langword="true"/> if the file
-        /// should be included in the operation or <see langword="false"/> otherwise.
-        /// <para/>
-        /// This parameter is <see langword="null"/> by default. This method
-        /// should return <see langword="true"/> to specify that a given
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
         /// file-system entry is to be included in the output collection --
         /// barring other inclusion/exclusion criteria.
-        /// <para/>
-        /// In the event that this parameter is <see langword="null"/>, no path
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
         /// <returns>
-        /// Collection of instances of objects that implement the <see
-        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/>
+        /// Collection of instances of objects that implement the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface that correspond to the file system entries that match the
         /// criteria specified.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="rootFolderPath"/>,
-        /// is passed a blank or <see langword="null"/> string for a value.
+        /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
+        /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         /// <remarks>
-        /// Implementers of this method have a guarantee that the <paramref
-        /// name="rootFolderPath"/> parameter contains a fully-qualified
-        /// pathname of a folder that exists on the disk, and that the <see
-        /// cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration"/>
+        /// Implementers of this method have a guarantee that the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// parameter contains a fully-qualified
+        /// pathname of a folder that exists on the disk, and that the
+        /// <see
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="rootFolderPath"/>,
-        /// is passed a blank or <see langword="null"/> string for a value.
+        /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
+        /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
@@ -140,20 +142,18 @@ namespace MFR.FileSystem.Retrievers
 
                 result = Enumerate.Files(
                                       rootFolderPath, SearchPattern,
-                                      SearchOption
+                                      SearchOption, path => ShouldDoPath(path, pathFilter)
                                   )
-                                  .Where(GetFileSystemEntryValidator.For(OperationType).ShouldNotSkip)
                                   .Select(
                                       path => MakeNewFileSystemEntry
                                               .ForPath(path)
                                               .AndHavingUserState(
-                                                  FileHelpers.GetTextContent(path)
+                                                  FileHelpers.GetTextContent(
+                                                      path
+                                                  )
                                               )
                                   )
-                                  .Where(
-                                      fse => SearchCriteriaMatch(fse) &&
-                                             PassesPathFilter(fse, pathFilter)
-                                  );
+                                  .Where(SearchCriteriaMatch);
             }
             catch (Exception ex)
             {

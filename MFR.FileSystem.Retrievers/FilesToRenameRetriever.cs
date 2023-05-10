@@ -110,13 +110,11 @@ namespace MFR.FileSystem.Retrievers
             {
                 result = Enumerate.Files(
                                       rootFolderPath, SearchPattern,
-                                      SearchOption
+                                      SearchOption, path => ShouldDoPath(path, pathFilter)
                                   )
-                                  .Where(GetFileSystemEntryValidator.For(OperationType).ShouldNotSkip)
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
-                                      fse => SearchCriteriaMatch(fse) &&
-                                             PassesPathFilter(fse, pathFilter)
+                                      SearchCriteriaMatch
                                   );
             }
             catch (Exception ex)

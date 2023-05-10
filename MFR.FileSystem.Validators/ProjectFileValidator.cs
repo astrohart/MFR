@@ -99,6 +99,7 @@ namespace MFR.FileSystem.Validators
         /// entry with the specified <paramref name="path" /> is to be skipped by
         /// the operation; otherwise, <see langword="false" />.
         /// </returns>
+        [Log(AttributeExclude = true)]
         public override bool ShouldSkip(string path)
         {
             var result = true;

@@ -12,7 +12,8 @@ namespace MFR.FileSystem.Validators
     /// for all types of file-system-entry validator object.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public abstract class FileSystemEntryValidatorBase : IFileSystemEntryValidator
+    public abstract class
+        FileSystemEntryValidatorBase : IFileSystemEntryValidator
     {
         /// <summary>
         /// Determines whether the specified file-system
@@ -32,17 +33,18 @@ namespace MFR.FileSystem.Validators
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public virtual bool DoesExist(IFileSystemEntry entry)
         {
             var result = false;
+
             // Check to see if the required parameter, entry, is null. If it is, send an
             // method.
             if (entry == null)
-            {
+
                 // the parameter entry is required.
                 // stop.
                 return result;
-            }
             if (string.IsNullOrWhiteSpace(entry.Path))
             {
                 DebugUtils.WriteLine(
@@ -51,6 +53,7 @@ namespace MFR.FileSystem.Validators
                 );
                 return result;
             }
+
             try
             {
                 result = DoesExist(entry.Path);
@@ -91,7 +94,24 @@ namespace MFR.FileSystem.Validators
         ///     name="entry" />
         /// parameter and the file cannot be located on the disk.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public abstract void IsValid(IFileSystemEntry entry);
+
+        /// <summary>
+        /// Gets a value determining whether the file system entry having the specified
+        /// <paramref name="path" /> should be not be skipped.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of a folder or a
+        /// file.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the file or folder specified should not be
+        /// skipped during the current operation; <see langword="false" /> otherwise.
+        /// </returns>
+        [Log(AttributeExclude = true)]
+        public bool ShouldNotSkip(string path)
+            => !ShouldSkip(path);
 
         /// <summary>
         /// Determines whether the file-system entry with the specified
@@ -106,6 +126,7 @@ namespace MFR.FileSystem.Validators
         /// entry with the specified <paramref name="path" /> is to be skipped by
         /// the operation; otherwise, <see langword="false" />.
         /// </returns>
+        [Log(AttributeExclude = true)]
         public virtual bool ShouldSkip(string path)
         {
             var result = true;
@@ -132,21 +153,6 @@ namespace MFR.FileSystem.Validators
         }
 
         /// <summary>
-        /// Gets a value determining whether the file system entry having the specified
-        /// <paramref name="path" /> should be not be skipped.
-        /// </summary>
-        /// <param name="path">
-        /// (Required.) String containing the fully-qualified pathname of a folder or a
-        /// file.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the file or folder specified should not be
-        /// skipped during the current operation; <see langword="false" /> otherwise.
-        /// </returns>
-        public bool ShouldNotSkip(string path)
-            => !ShouldSkip(path);
-
-        /// <summary>
         /// Determines whether the file system entry at the specified
         /// <paramref name="path" />, be it a file or a folder, exists.
         /// <para />
@@ -168,6 +174,7 @@ namespace MFR.FileSystem.Validators
         /// <see cref="M:MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldSkip" />
         /// method.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         protected virtual bool DoesExist(string path)
         {
             var result = false;

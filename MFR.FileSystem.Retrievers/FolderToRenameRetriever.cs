@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
@@ -110,13 +109,11 @@ namespace MFR.FileSystem.Retrievers
             {
                 result = Enumerate.Directories(
                                       rootFolderPath, SearchPattern,
-                                      SearchOption
+                                      SearchOption, path => ShouldDoPath(path, pathFilter)
                                   )
-                                  .Where(GetFileSystemEntryValidator.For(OperationType).ShouldNotSkip)
                                   .Select(MakeNewFileSystemEntry.ForPath)
                                   .Where(
-                                      fse => SearchCriteriaMatch(fse) &&
-                                             PassesPathFilter(fse, pathFilter)
+                                      SearchCriteriaMatch 
                                   );
             }
             catch (Exception ex)

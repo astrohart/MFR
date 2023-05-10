@@ -9,6 +9,7 @@ using MFR.Expressions.Matches.Interfaces;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
+using MFR.FileSystem.Validators.Factories;
 using MFR.Managers.RootFolders.Factories;
 using MFR.Managers.RootFolders.Interfaces;
 using MFR.Managers.Solutions.Actions;
@@ -420,6 +421,8 @@ namespace MFR.Renamers.Files
 
             return result;
         }
+
+        
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in

@@ -219,30 +219,9 @@ namespace MFR.FileSystem.Retrievers
             {
                 result = Enumerate.Files(
                                       rootFolderPath, SearchPattern,
-                                      SearchOption
+                                      SearchOption, pathFilter
                                   )
-                                  .Select(MakeNewFileSystemEntry.ForPath)
-                                  .Where(
-                                      entry => PassesPathFilter(
-                                          entry, pathFilter
-                                      )
-                                  );
-                /*
-                .Where(ShouldNotSkip)
-                .ToList() // narrow down list of elements to process
-                .Select(MakeNewFileSystemEntry.ForPath)
-                /*
-                 * Do not apply search criteria here.  We want
-                 * this method to be just a dumb, "getter of
-                 * a list of all files" method.  We will still
-                 * allow the caller to specify a path filter
-                 * delegate though, just in case.
-                 */
-                /*
-                .Where(
-                    fse => PassesPathFilter(pathFilter, fse)
-                );
-                */
+                                  .Select(MakeNewFileSystemEntry.ForPath);
             }
             catch (Exception ex)
             {

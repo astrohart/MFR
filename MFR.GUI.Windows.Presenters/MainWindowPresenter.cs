@@ -385,7 +385,10 @@ namespace MFR.GUI.Windows.Presenters
             // projectFileRenamerConfiguration to match that which we have access to
             OperationEngine.UpdateConfiguration(CurrentConfiguration);
 
-            OperationEngine.ProcessAll(StartingFolder, FindWhat, ReplaceWith);
+            OperationEngine.ProcessAll(StartingFolder, FindWhat, ReplaceWith, path => 
+                CurrentConfiguration.MatchCase?
+                path.Contains(FindWhat)
+                : path.ContainsNoCase(FindWhat));
         }
 
         /// <summary>

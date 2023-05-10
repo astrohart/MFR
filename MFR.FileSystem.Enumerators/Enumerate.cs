@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using xyLOGIX.FileSystem.Enumerable.Factories;
@@ -28,17 +29,27 @@ namespace MFR.FileSystem.Enumerators
         /// <see cref="T:System.IO.SearchOption" /> value that specifies whether the search
         /// should list results from the current folder only, or subfolders as well.
         /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of
+        /// <see cref="T:System.Predicate{System.String}" /> that determines whether a
+        /// given pathname must be included in the search results.
+        /// <para />
+        /// If this parameter is passed a <see langword="null" /> reference as an argument,
+        /// then no path filter is applied.
+        /// </param>
         /// <returns>
         /// Collection of strings that contains the fully-qualified pathnames of
         /// the folders contained within the folder whose fully-qualified pathname is
         /// passed in the <paramref name="path" />.
         /// </returns>
         public static IEnumerable<string> Directories(string path,
-            string searchPattern, SearchOption searchOption)
+            string searchPattern, SearchOption searchOption,
+            Predicate<string> pathFilter = null)
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
                                           .UsingSearchPattern(searchPattern)
                                           .AndWithSearchOption(searchOption)
+                                          .WithOptionalPathFilter(pathFilter)
                                           .ForDirectoriesOnly();
 
         /// <summary>
@@ -181,6 +192,14 @@ namespace MFR.FileSystem.Enumerators
         /// <see cref="T:System.IO.SearchOption" /> value that specifies whether the search
         /// should list results from the current folder only, or subfolders as well.
         /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of
+        /// <see cref="T:System.Predicate{System.String}" /> that determines whether a
+        /// given pathname must be included in the search results.
+        /// <para />
+        /// If this parameter is passed a <see langword="null" /> reference as an argument,
+        /// then no path filter is applied.
+        /// </param>
         /// <returns>
         /// Collection of strings that contains the fully-qualified pathnames of
         /// the files contained within the top level of the folder whose fully-qualified
@@ -191,11 +210,13 @@ namespace MFR.FileSystem.Enumerators
         /// parameter's value.
         /// </returns>
         public static IEnumerable<string> Files(string path,
-            string searchPattern, SearchOption searchOption)
+            string searchPattern, SearchOption searchOption,
+            Predicate<string> pathFilter = null)
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
                                           .UsingSearchPattern(searchPattern)
                                           .AndWithSearchOption(searchOption)
+                                          .WithOptionalPathFilter(pathFilter)
                                           .ForFilesOnly();
     }
 }
