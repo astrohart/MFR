@@ -94,7 +94,6 @@ namespace MFR.FileSystem.Validators
         ///     name="entry" />
         /// parameter and the file cannot be located on the disk.
         /// </exception>
-        [Log(AttributeExclude = true)]
         public abstract void IsValid(IFileSystemEntry entry);
 
         /// <summary>
