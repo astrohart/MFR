@@ -79,6 +79,44 @@ namespace MFR.GUI.Windows.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please provide a value for the text to be located during the search..
+        /// </summary>
+        public static string Error_FindWhat_MissingValue {
+            get {
+                return ResourceManager.GetString("Error_FindWhat_MissingValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please type different values in the Text to Be Replaced and With What fields..
+        /// </summary>
+        public static string Error_FindWhat_ReplaceWith_Identical {
+            get {
+                return ResourceManager.GetString("Error_FindWhat_ReplaceWith_Identical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select at least one operation on the Operations tab.
+        ///
+        ///NOTE: To show the Operations tab (if it isn&apos;t already visible), click the More button..
+        /// </summary>
+        public static string Error_NoOperationSelected {
+            get {
+                return ResourceManager.GetString("Error_NoOperationSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please provide a value for the replacement value to be used during the search..
+        /// </summary>
+        public static string Error_Specify_ReplaceWith {
+            get {
+                return ResourceManager.GetString("Error_Specify_ReplaceWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.
         ///
         ///Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  Don&apos;t say we did not warn you..

@@ -139,4 +139,18 @@ Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  D
   <data name="Error_CantSetUpFindWhatComboStartFolderNotExists" xml:space="preserve">
       <value>*** ERROR *** The folder '{0}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects.</value>
   </data>
+  <data name="Error_FindWhat_MissingValue" xml:space="preserve">
+      <value>Please provide a value for the text to be located during the search.</value>
+  </data>
+  <data name="Error_NoOperationSelected" xml:space="preserve">
+      <value>Please select at least one operation on the Operations tab.
+
+NOTE: To show the Operations tab (if it isn't already visible), click the More button.</value>
+  </data>
+  <data name="Error_Specify_ReplaceWith" xml:space="preserve">
+      <value>Please provide a value for the replacement value to be used during the search.</value>
+  </data>
+  <data name="Error_FindWhat_ReplaceWith_Identical" xml:space="preserve">
+      <value>Please type different values in the Text to Be Replaced and With What fields.</value>
+  </data>
 </root>

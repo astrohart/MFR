@@ -783,7 +783,9 @@ namespace MFR.GUI.Windows
                                                 ValidateData()
                                         )
                                     )
-                                    .AndStatusText("Searching for projects and solutions..."))
+                                    .AndStatusText(
+                                        "Searching for projects and solutions..."
+                                    ))
                     dialog.ShowDialog(this);
 
                 if (!validationOfDataSucceeded) return;
@@ -1615,11 +1617,8 @@ namespace MFR.GUI.Windows
 
             if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
             {
-                MessageBox.Show(
-                    this,
-                    "Please provide a value for the text to be located during the search.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                    this, Resources.Error_FindWhat_MissingValue
                 );
                 hiddenFocusLabel.Focus();
                 FindWhatComboBox.Focus();
@@ -1628,11 +1627,8 @@ namespace MFR.GUI.Windows
 
             if (OperationsCheckedListBox.NoItemsAreSelected())
             {
-                MessageBox.Show(
-                    this,
-                    "Please select at least one operation on the Operations tab.\n\nNOTE: To show the Operations tab (if it isn't already visible), click the More button.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                    this, Resources.Error_NoOperationSelected
                 );
                 hiddenFocusLabel.Focus();
                 StartingFolderComboBox.Focus();
@@ -1645,11 +1641,8 @@ namespace MFR.GUI.Windows
             if (!OnlyReplaceInFilesOperationIsEnabled &&
                 string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText))
             {
-                MessageBox.Show(
-                    this,
-                    "Please provide a value for the replacement value to be used during the search.",
-                    Application.ProductName, MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                    this, Resources.Error_Specify_ReplaceWith
                 );
                 hiddenFocusLabel.Focus();
                 ReplaceWithComboBox.Focus();
@@ -1669,11 +1662,8 @@ namespace MFR.GUI.Windows
                     ReplaceWithComboBox.EnteredText
                 )) return true;
 
-            MessageBox.Show(
-                this,
-                "Please type different values in the Text to Be Replaced and With What fields.",
-                Application.ProductName, MessageBoxButtons.OK,
-                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1
+            xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                this, Resources.Error_FindWhat_ReplaceWith_Identical
             );
             hiddenFocusLabel.Focus();
             ReplaceWithComboBox.Focus();
