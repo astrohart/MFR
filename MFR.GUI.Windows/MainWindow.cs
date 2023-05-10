@@ -770,15 +770,23 @@ namespace MFR.GUI.Windows
             {
                 Presenter.UpdateData();
 
-                if (!ValidateData()) return;
+                /* Validation of data takes awhile...show a marquee
+                 progress dialog during the operation. */
 
-                //MessageBox.Show(
-                //    this,
-                //    "For debugging purposes, the operation(s) selected have been canceled.",
-                //    Application.ProductName, MessageBoxButtons.OK,
-                //    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
-                //);
-                //return;
+                var validationOfDataSucceeded = false;
+
+                using (var dialog = MakeNewOperationDrivenProgressDialog
+                                    .FromScratch()
+                                    .HavingProc(
+                                        new Action(
+                                            () => validationOfDataSucceeded =
+                                                ValidateData()
+                                        )
+                                    )
+                                    .AndStatusText("Searching for projects and solutions..."))
+                    dialog.ShowDialog(this);
+
+                if (!validationOfDataSucceeded) return;
 
                 UseWaitCursor = true;
                 Enabled = false;
