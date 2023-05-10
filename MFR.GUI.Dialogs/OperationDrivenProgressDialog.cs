@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.UI.Dark.Forms;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI.Dialogs
 {
@@ -158,6 +159,9 @@ namespace MFR.GUI.Dialogs
             InitializeProgressBar();
 
             UpdateCaption();
+
+            MessageHelper.RequestProgressClose += OnRequestClose;
+            MessageHelper.RequestSplashOrProgressClose += OnRequestClose;
         }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
@@ -244,6 +248,16 @@ namespace MFR.GUI.Dialogs
             e.Result = Proc is Action
                 ? Proc.DynamicInvoke()
                 : Proc.DynamicInvoke(e.Argument);
+        }
+
+        /// <summary>
+        /// Closes this dialog when requested to, say, when we are about to show a message
+        /// box to the interactive user.
+        /// </summary>
+        private void OnRequestClose()
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         /// <summary>
