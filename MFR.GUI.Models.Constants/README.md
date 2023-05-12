@@ -3,11 +3,50 @@
 
 ## Contents
 
-- [Resources](#T-MFR.GUI.Models.Constants-Properties-Resources 'MFR.GUI.Models.Constants.Properties.Resources')
-  - [Culture](#P-MFR.GUI.Models.Constants-Properties-Resources-Culture 'MFR.GUI.Models.Constants.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR.GUI.Models.Constants-Properties-Resources-ResourceManager 'MFR.GUI.Models.Constants.Properties.Resources.ResourceManager')
+- [OperationNames](#T-MFR-GUI-Models-Constants-OperationNames 'MFR.GUI.Models.Constants.OperationNames')
+  - [RenameFilesInFolder](#F-MFR-GUI-Models-Constants-OperationNames-RenameFilesInFolder 'MFR.GUI.Models.Constants.OperationNames.RenameFilesInFolder')
+  - [RenameSubFolders](#F-MFR-GUI-Models-Constants-OperationNames-RenameSubFolders 'MFR.GUI.Models.Constants.OperationNames.RenameSubFolders')
+  - [ReplaceTextInFiles](#F-MFR-GUI-Models-Constants-OperationNames-ReplaceTextInFiles 'MFR.GUI.Models.Constants.OperationNames.ReplaceTextInFiles')
+- [Resources](#T-MFR-GUI-Models-Constants-Properties-Resources 'MFR.GUI.Models.Constants.Properties.Resources')
+  - [Culture](#P-MFR-GUI-Models-Constants-Properties-Resources-Culture 'MFR.GUI.Models.Constants.Properties.Resources.Culture')
+  - [OperationName_RenameFiles](#P-MFR-GUI-Models-Constants-Properties-Resources-OperationName_RenameFiles 'MFR.GUI.Models.Constants.Properties.Resources.OperationName_RenameFiles')
+  - [OperationName_RenameSubfolders](#P-MFR-GUI-Models-Constants-Properties-Resources-OperationName_RenameSubfolders 'MFR.GUI.Models.Constants.Properties.Resources.OperationName_RenameSubfolders')
+  - [OperationName_ReplaceTextInFiles](#P-MFR-GUI-Models-Constants-Properties-Resources-OperationName_ReplaceTextInFiles 'MFR.GUI.Models.Constants.Properties.Resources.OperationName_ReplaceTextInFiles')
+  - [ResourceManager](#P-MFR-GUI-Models-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Models.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR.GUI.Models.Constants-Properties-Resources'></a>
+<a name='T-MFR-GUI-Models-Constants-OperationNames'></a>
+## OperationNames `type`
+
+##### Namespace
+
+MFR.GUI.Models.Constants
+
+##### Summary
+
+Standardized names of operations.
+
+<a name='F-MFR-GUI-Models-Constants-OperationNames-RenameFilesInFolder'></a>
+### RenameFilesInFolder `constants`
+
+##### Summary
+
+Name of the `Rename Files` operation.
+
+<a name='F-MFR-GUI-Models-Constants-OperationNames-RenameSubFolders'></a>
+### RenameSubFolders `constants`
+
+##### Summary
+
+Name of the `Rename Subfolders` operation.
+
+<a name='F-MFR-GUI-Models-Constants-OperationNames-ReplaceTextInFiles'></a>
+### ReplaceTextInFiles `constants`
+
+##### Summary
+
+Name of the `Replace Text in Files` operation.
+
+<a name='T-MFR-GUI-Models-Constants-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -18,7 +57,7 @@ MFR.GUI.Models.Constants.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR.GUI.Models.Constants-Properties-Resources-Culture'></a>
+<a name='P-MFR-GUI-Models-Constants-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -26,7 +65,28 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR.GUI.Models.Constants-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-GUI-Models-Constants-Properties-Resources-OperationName_RenameFiles'></a>
+### OperationName_RenameFiles `property`
+
+##### Summary
+
+Looks up a localized string similar to Rename Files.
+
+<a name='P-MFR-GUI-Models-Constants-Properties-Resources-OperationName_RenameSubfolders'></a>
+### OperationName_RenameSubfolders `property`
+
+##### Summary
+
+Looks up a localized string similar to Rename Subfolders.
+
+<a name='P-MFR-GUI-Models-Constants-Properties-Resources-OperationName_ReplaceTextInFiles'></a>
+### OperationName_ReplaceTextInFiles `property`
+
+##### Summary
+
+Looks up a localized string similar to Replace In Files.
+
+<a name='P-MFR-GUI-Models-Constants-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary

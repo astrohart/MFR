@@ -476,9 +476,6 @@ namespace MFR.Settings.Configuration.Providers
         {
             var result = true;
 
-            Debugger.Launch();
-            Debugger.Break();
-
             try
             {
                 var fallbackPath = ConfigurationFilePath;

@@ -9,6 +9,7 @@ using MFR.Expressions.Matches.Interfaces;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
+using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.FileSystem.Validators.Factories;
 using MFR.Managers.RootFolders.Factories;
 using MFR.Managers.RootFolders.Interfaces;
@@ -625,19 +626,44 @@ namespace MFR.Renamers.Files
                  * narrow the search.
                  */
 
-                IEnumerable<IFileSystemEntry> entryCollection =
-                    GetFileSystemEntryListRetriever
-                        .For(OperationType.RenameFilesInFolder)
-                        .AndAttachConfiguration(CurrentConfiguration)
-                        .UsingSearchPattern("*")
-                        .WithSearchOption(SearchOption.AllDirectories)
-                        .ToFindWhat(findWhat)
-                        .AndReplaceItWith(replaceWith)
-                        .GetMatchingFileSystemPaths(
-                            RootDirectoryPath, pathFilter
+                Debugger.Launch();
+                Debugger.Break();
+
+                IFileSystemEntryListRetriever retriever = GetFileSystemEntryListRetriever
+                                             .For(OperationType.RenameFilesInFolder)
+                                             .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) 
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.GettingListOfFilesToBeRenamed
+                            )
                         );
+                        return result;
+                    }
+
+                var entryCollection =
+                    retriever.UsingSearchPattern("*")
+                             .WithSearchOption(SearchOption.AllDirectories)
+                             .ToFindWhat(findWhat)
+                             .AndReplaceItWith(replaceWith)
+                             .GetMatchingFileSystemPaths(
+                                 RootDirectoryPath, pathFilter
+                             );
+                if (entryCollection == null || !entryCollection.Any())
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.GettingListOfFilesToBeRenamed
+                            )
+                        );
+                        return result;
+                    }
+
                 var fileSystemEntries = entryCollection.ToList();
-                if (!fileSystemEntries.Any())
+                if (fileSystemEntries == null || !fileSystemEntries.Any())
                     if (!AbortRequested)
                     {
                         OnOperationFinished(
@@ -1511,9 +1537,6 @@ namespace MFR.Renamers.Files
 
             try
             {
-                Debugger.Launch();
-                Debugger.Break();
-
                 /*
                  * OKAY, check whether Find What and Replace With are the same,
                  * apart from case.  This means that the user wants to use the same
