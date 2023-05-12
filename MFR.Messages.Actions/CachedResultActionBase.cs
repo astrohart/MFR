@@ -108,15 +108,15 @@ namespace MFR.Messages.Actions
         protected sealed override TResult CommonExecute()
         {
             // write the name of the current class and method we are now
-            var result = default(TResult);
+            TResult result = default;
 
             // Check to see if the required field, _input, is null. If it is,
             if (Input == default(TInput))
-            {
+
                 // the field _input is required.
                 // stop.
                 return result;
-            }
+
             try
             {
                 if (TryGetCachedResult(out result) && result != null)
@@ -127,6 +127,7 @@ namespace MFR.Messages.Actions
                     );
                     return result;
                 }
+
                 result = ExecuteOperationIfNotCached();
             }
             catch (Exception ex)
@@ -134,7 +135,7 @@ namespace MFR.Messages.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = null;
+                result = default;
             }
 
             if (result != null)
@@ -142,6 +143,7 @@ namespace MFR.Messages.Actions
                     DebugLevel.Info,
                     "*** SUCCESS *** Successfully obtained the result."
                 );
+
             return result;
         }
 
@@ -151,7 +153,8 @@ namespace MFR.Messages.Actions
         /// </summary>
         /// <returns>
         /// Reference to an instance of <typeparamref name="TResult" /> that
-        /// corresponds to the current input or <see langword="null" /> if an issue occurred.
+        /// corresponds to the current input or <see langword="null" /> if an issue
+        /// occurred.
         /// </returns>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality
@@ -180,7 +183,8 @@ namespace MFR.Messages.Actions
         /// <param name="result">
         /// Reference to a memory location that will receive a reference to an
         /// instance of <typeparamref name="TResult" /> if one is found in the
-        /// result cache; otherwise, will be assigned the <see langword="null" /> reference.
+        /// result cache; otherwise, will be assigned the <see langword="null" />
+        /// reference.
         /// </param>
         /// <returns>
         /// If the current value of the
@@ -190,8 +194,10 @@ namespace MFR.Messages.Actions
         /// present in the result cache dictionary and associated with a
         /// corresponding result, then the <paramref name="result" /> parameter
         /// is filled with the corresponding value, and this method returns
-        /// <see langword="true" />; otherwise, the method returns <see langword="false" /> and the
-        /// <paramref name="result" /> parameter is assigned a <see langword="null" /> reference.
+        /// <see langword="true" />; otherwise, the method returns <see langword="false" />
+        /// and the
+        /// <paramref name="result" /> parameter is assigned a <see langword="null" />
+        /// reference.
         /// </returns>
         /// <remarks>
         /// This method really is merely an alias for the

@@ -5,6 +5,10 @@
 
 - [GetConfigurationAction](#T-MFR-Settings-Configuration-Actions-Factories-GetConfigurationAction 'MFR.Settings.Configuration.Actions.Factories.GetConfigurationAction')
   - [For\`\`2(actionType)](#M-MFR-Settings-Configuration-Actions-Factories-GetConfigurationAction-For``2-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType- 'MFR.Settings.Configuration.Actions.Factories.GetConfigurationAction.For``2(MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType)')
+- [GetLoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFilePathFromRegistryAction')
+  - [SoleInstance()](#M-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFilePathFromRegistryAction-SoleInstance 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFilePathFromRegistryAction.SoleInstance')
+- [GetLoadConfigurationFromFileAction](#T-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFromFileAction 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFromFileAction')
+  - [SoleInstance()](#M-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFromFileAction-SoleInstance 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFromFileAction.SoleInstance')
 - [Resources](#T-MFR-Settings-Configuration-Actions-Factories-Properties-Resources 'MFR.Settings.Configuration.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Actions.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Actions-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Actions.Factories.Properties.Resources.ResourceManager')
@@ -56,6 +60,70 @@ indicates what action to execute. |
 [MessageType](#T-MFR-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
 value provided
 in the `actionType` parameter. |
+
+<a name='T-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFilePathFromRegistryAction'></a>
+## GetLoadConfigurationFilePathFromRegistryAction `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Actions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IFileSystemEntry}](#T-MFR-Messages-Actions-Interfaces-ICachedResultAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}, MFR-FileSystem-Interfaces-IFileSystemEntry} 'MFR.Messages.Actions.Interfaces.ICachedResultAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}, MFR.FileSystem.Interfaces.IFileSystemEntry}')
+interface.
+
+<a name='M-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFilePathFromRegistryAction-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IFileSystemEntry}](#T-MFR-Messages-Actions-Interfaces-ICachedResultAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}, MFR-FileSystem-Interfaces-IFileSystemEntry} 'MFR.Messages.Actions.Interfaces.ICachedResultAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}, MFR.FileSystem.Interfaces.IFileSystemEntry}')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IFileSystemEntry}](#T-MFR-Messages-Actions-Interfaces-ICachedResultAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}, MFR-FileSystem-Interfaces-IFileSystemEntry} 'MFR.Messages.Actions.Interfaces.ICachedResultAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}, MFR.FileSystem.Interfaces.IFileSystemEntry}')
+interface.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFromFileAction'></a>
+## GetLoadConfigurationFromFileAction `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Actions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IProjectFileRenamerConfiguration}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}')
+interface.
+
+<a name='M-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFromFileAction-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IProjectFileRenamerConfiguration}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IProjectFileRenamerConfiguration}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}')
+interface.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-Settings-Configuration-Actions-Factories-Properties-Resources'></a>
 ## Resources `type`

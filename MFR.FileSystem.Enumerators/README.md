@@ -4,12 +4,12 @@
 ## Contents
 
 - [Enumerate](#T-MFR-FileSystem-Enumerators-Enumerate 'MFR.FileSystem.Enumerators.Enumerate')
-  - [Directories(path,searchPattern,searchOption)](#M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String,System-String,System-IO-SearchOption- 'MFR.FileSystem.Enumerators.Enumerate.Directories(System.String,System.String,System.IO.SearchOption)')
+  - [Directories(path,searchPattern,searchOption,pathFilter)](#M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String,System-String,System-IO-SearchOption,System-Predicate{System-String}- 'MFR.FileSystem.Enumerators.Enumerate.Directories(System.String,System.String,System.IO.SearchOption,System.Predicate{System.String})')
   - [Directories(path)](#M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String- 'MFR.FileSystem.Enumerators.Enumerate.Directories(System.String)')
   - [Directories(path,searchPattern)](#M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String,System-String- 'MFR.FileSystem.Enumerators.Enumerate.Directories(System.String,System.String)')
   - [Files(path)](#M-MFR-FileSystem-Enumerators-Enumerate-Files-System-String- 'MFR.FileSystem.Enumerators.Enumerate.Files(System.String)')
   - [Files(path,searchPattern)](#M-MFR-FileSystem-Enumerators-Enumerate-Files-System-String,System-String- 'MFR.FileSystem.Enumerators.Enumerate.Files(System.String,System.String)')
-  - [Files(path,searchPattern,searchOption)](#M-MFR-FileSystem-Enumerators-Enumerate-Files-System-String,System-String,System-IO-SearchOption- 'MFR.FileSystem.Enumerators.Enumerate.Files(System.String,System.String,System.IO.SearchOption)')
+  - [Files(path,searchPattern,searchOption,pathFilter)](#M-MFR-FileSystem-Enumerators-Enumerate-Files-System-String,System-String,System-IO-SearchOption,System-Predicate{System-String}- 'MFR.FileSystem.Enumerators.Enumerate.Files(System.String,System.String,System.IO.SearchOption,System.Predicate{System.String})')
 - [Resources](#T-MFR-FileSystem-Enumerators-Properties-Resources 'MFR.FileSystem.Enumerators.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Enumerators-Properties-Resources-Culture 'MFR.FileSystem.Enumerators.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Enumerators-Properties-Resources-ResourceManager 'MFR.FileSystem.Enumerators.Properties.Resources.ResourceManager')
@@ -25,8 +25,8 @@ MFR.FileSystem.Enumerators
 
 Exposes static methods to search the file system.
 
-<a name='M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String,System-String,System-IO-SearchOption-'></a>
-### Directories(path,searchPattern,searchOption) `method`
+<a name='M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String,System-String,System-IO-SearchOption,System-Predicate{System-String}-'></a>
+### Directories(path,searchPattern,searchOption,pathFilter) `method`
 
 ##### Summary
 
@@ -54,6 +54,14 @@ Each wildcard expression must be separated by a semicolon. |
 | searchOption | [System.IO.SearchOption](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.SearchOption 'System.IO.SearchOption') | (Required.) A
 [SearchOption](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.SearchOption 'System.IO.SearchOption') value that specifies whether the search
 should list results from the current folder only, or subfolders as well. |
+| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of
+[String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') that determines whether a
+given pathname must be included in the search results.
+
+
+
+If this parameter is passed a `null` reference as an argument,
+then no path filter is applied. |
 
 <a name='M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String-'></a>
 ### Directories(path) `method`
@@ -177,8 +185,8 @@ expressions for the search.
 
 Each wildcard expression must be separated by a semicolon. |
 
-<a name='M-MFR-FileSystem-Enumerators-Enumerate-Files-System-String,System-String,System-IO-SearchOption-'></a>
-### Files(path,searchPattern,searchOption) `method`
+<a name='M-MFR-FileSystem-Enumerators-Enumerate-Files-System-String,System-String,System-IO-SearchOption,System-Predicate{System-String}-'></a>
+### Files(path,searchPattern,searchOption,pathFilter) `method`
 
 ##### Summary
 
@@ -213,6 +221,14 @@ Each wildcard expression must be separated by a semicolon. |
 | searchOption | [System.IO.SearchOption](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.SearchOption 'System.IO.SearchOption') | (Required.) A
 [SearchOption](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.SearchOption 'System.IO.SearchOption') value that specifies whether the search
 should list results from the current folder only, or subfolders as well. |
+| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of
+[String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') that determines whether a
+given pathname must be included in the search results.
+
+
+
+If this parameter is passed a `null` reference as an argument,
+then no path filter is applied. |
 
 <a name='T-MFR-FileSystem-Enumerators-Properties-Resources'></a>
 ## Resources `type`

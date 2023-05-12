@@ -130,7 +130,7 @@ Type a value for this text, and then try again.</value>
   <data name="Error_RootDirectoryNotFound" xml:space="preserve">
     <value>Could not locate the folder '{0}' on the disk.
 
-Please specify a folder path of click the '...' button to browse for one.</value>
+Please specify a folder pathname of click the '...' button to browse for one.</value>
   </data>
   <data name="Error_ValueCannotBeNullOrWhiteSpace" xml:space="preserve">
       <value>Value cannot be null or whitespace.</value>
