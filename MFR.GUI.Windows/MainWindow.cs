@@ -1638,9 +1638,17 @@ namespace MFR.GUI.Windows
 
             if (OperationsCheckedListBox.NoItemsAreSelected())
             {
-                xyLOGIX.Win32.Interact.Messages.ShowStopError(
-                    this, Resources.Error_NoOperationSelected
-                );
+                if (xyLOGIX.Win32.Interact.Messages.ShowYesNoQuestion(
+                        this, Resources.Error_NoOperationSelected
+                    ) != DialogResult.No)
+                {
+                    CurrentConfiguration.OperationsToPerform.ForEach(
+                        op => op.Enabled = true
+                    );
+                    ConfigurationProvider.Save();
+                    return true;
+                }
+
                 hiddenFocusLabel.Focus();
                 StartingFolderComboBox.Focus();
                 return false;

@@ -9,6 +9,7 @@
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
+  - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
@@ -27,6 +28,7 @@
   - [RootDirectoryValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryValidator')
   - [SelectAll](#P-MFR-GUI-Windows-MainWindow-SelectAll 'MFR.GUI.Windows.MainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-MainWindow-SelectedOptionTab 'MFR.GUI.Windows.MainWindow.SelectedOptionTab')
+  - [StartingFolder](#P-MFR-GUI-Windows-MainWindow-StartingFolder 'MFR.GUI.Windows.MainWindow.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox 'MFR.GUI.Windows.MainWindow.StartingFolderComboBox')
   - [Version](#P-MFR-GUI-Windows-MainWindow-Version 'MFR.GUI.Windows.MainWindow.Version')
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
@@ -73,7 +75,13 @@
 - [Resources](#T-MFR-GUI-Windows-Properties-Resources 'MFR.GUI.Windows.Properties.Resources')
   - [AppIdle](#P-MFR-GUI-Windows-Properties-Resources-AppIdle 'MFR.GUI.Windows.Properties.Resources.AppIdle')
   - [Culture](#P-MFR-GUI-Windows-Properties-Resources-Culture 'MFR.GUI.Windows.Properties.Resources.Culture')
+  - [Error_CantSetUpFindWhatComboStartFolderNotExists](#P-MFR-GUI-Windows-Properties-Resources-Error_CantSetUpFindWhatComboStartFolderNotExists 'MFR.GUI.Windows.Properties.Resources.Error_CantSetUpFindWhatComboStartFolderNotExists')
+  - [Error_FindWhat_MissingValue](#P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_MissingValue 'MFR.GUI.Windows.Properties.Resources.Error_FindWhat_MissingValue')
+  - [Error_FindWhat_ReplaceWith_Identical](#P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_ReplaceWith_Identical 'MFR.GUI.Windows.Properties.Resources.Error_FindWhat_ReplaceWith_Identical')
+  - [Error_NoOperationSelected](#P-MFR-GUI-Windows-Properties-Resources-Error_NoOperationSelected 'MFR.GUI.Windows.Properties.Resources.Error_NoOperationSelected')
+  - [Error_Specify_ReplaceWith](#P-MFR-GUI-Windows-Properties-Resources-Error_Specify_ReplaceWith 'MFR.GUI.Windows.Properties.Resources.Error_Specify_ReplaceWith')
   - [Error_StartingFolderMustContainSolutionFile](#P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile 'MFR.GUI.Windows.Properties.Resources.Error_StartingFolderMustContainSolutionFile')
+  - [Info_PreparingStartOperations](#P-MFR-GUI-Windows-Properties-Resources-Info_PreparingStartOperations 'MFR.GUI.Windows.Properties.Resources.Info_PreparingStartOperations')
   - [ResourceManager](#P-MFR-GUI-Windows-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Properties.Resources.ResourceManager')
   - [SwitchUpDown_16x](#P-MFR-GUI-Windows-Properties-Resources-SwitchUpDown_16x 'MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x')
 - [ResponsiveFormBase](#T-MFR-GUI-Windows-ResponsiveFormBase 'MFR.GUI.Windows.ResponsiveFormBase')
@@ -167,6 +175,19 @@ interface.
 This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
+
+<a name='P-MFR-GUI-Windows-MainWindow-CreateParams'></a>
+### CreateParams `property`
+
+##### Summary
+
+Gets the required creation parameters when the control handle is
+created.
+
+##### Returns
+
+A [CreateParams](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CreateParams 'System.Windows.Forms.CreateParams') that contains the
+required creation parameters when the handle to the control is created.
 
 <a name='P-MFR-GUI-Windows-MainWindow-CurrentConfiguration'></a>
 ### CurrentConfiguration `property`
@@ -316,6 +337,14 @@ Gets or sets the value of the Select/Deselect All checkbox
 
 Gets or sets the index of the tab that is selected in the Options
 tab control.
+
+<a name='P-MFR-GUI-Windows-MainWindow-StartingFolder'></a>
+### StartingFolder `property`
+
+##### Summary
+
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that is configured as the folder
+in which operations are to commence.
 
 <a name='P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox'></a>
 ### StartingFolderComboBox `property`
@@ -1218,6 +1247,43 @@ Looks up a localized string similar to Ready.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_CantSetUpFindWhatComboStartFolderNotExists'></a>
+### Error_CantSetUpFindWhatComboStartFolderNotExists `property`
+
+##### Summary
+
+Looks up a localized string similar to *** ERROR *** The folder '{0}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_MissingValue'></a>
+### Error_FindWhat_MissingValue `property`
+
+##### Summary
+
+Looks up a localized string similar to Please provide a value for the text to be located during the search..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_ReplaceWith_Identical'></a>
+### Error_FindWhat_ReplaceWith_Identical `property`
+
+##### Summary
+
+Looks up a localized string similar to Please type different values in the Text to Be Replaced and With What fields..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_NoOperationSelected'></a>
+### Error_NoOperationSelected `property`
+
+##### Summary
+
+Looks up a localized string similar to Please select at least one operation on the Operations tab.
+
+NOTE: To show the Operations tab (if it isn't already visible), click the More button..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_Specify_ReplaceWith'></a>
+### Error_Specify_ReplaceWith `property`
+
+##### Summary
+
+Looks up a localized string similar to Please provide a value for the replacement value to be used during the search..
+
 <a name='P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile'></a>
 ### Error_StartingFolderMustContainSolutionFile `property`
 
@@ -1226,6 +1292,13 @@ Overrides the current thread's CurrentUICulture property for all
 Looks up a localized string similar to Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.
 
 Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  Don't say we did not warn you..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Info_PreparingStartOperations'></a>
+### Info_PreparingStartOperations `property`
+
+##### Summary
+
+Looks up a localized string similar to Getting ready to start the operations....
 
 <a name='P-MFR-GUI-Windows-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

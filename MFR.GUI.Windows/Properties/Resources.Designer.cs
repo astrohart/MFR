@@ -98,8 +98,9 @@ namespace MFR.GUI.Windows.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Please select at least one operation on the Operations tab.
+        ///NOTE: To show the Operations tab (if it isn&apos;t already visible), click the More button.
         ///
-        ///NOTE: To show the Operations tab (if it isn&apos;t already visible), click the More button..
+        ///Would you like to select all operations now, and try again?.
         /// </summary>
         public static string Error_NoOperationSelected {
             get {
