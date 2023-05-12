@@ -1,12 +1,15 @@
 using MFR.FileSystem.Helpers;
+using MFR.GUI.Models.Extensions;
 using MFR.Settings.Configuration.Converters;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Serializers.Properties;
 using System;
 using System.IO;
+using System.Linq;
 using xyLOGIX.Core.Debug;
 using File = Alphaleonis.Win32.Filesystem.File;
+using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration.Serializers
 {
@@ -57,7 +60,7 @@ namespace MFR.Settings.Configuration.Serializers
                     pathname
                 );
 
-            IProjectFileRenamerConfiguration result;
+            IProjectFileRenamerConfiguration result = default;
 
             try
             {
@@ -69,13 +72,23 @@ namespace MFR.Settings.Configuration.Serializers
                 result = string.IsNullOrWhiteSpace(content)
                     ? MakeNewProjectFileRenamerConfiguration.FromScratch()
                     : ConvertConfiguration.FromJson(content);
+
+                if (result == null) return result;
+                
+                /*
+                 * If, for some reason, the loaded configuration object contains no
+                 * operations to perform, initialize the list with the defaults.
+                 */
+
+                if (!result.OperationsToPerform.HasAnyOperations())
+                    result.OperationsToPerform = Initialize.OperationList();
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = null;
+                result = default;
             }
 
             return result;

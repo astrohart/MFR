@@ -254,6 +254,7 @@ namespace MFR.FileSystem.Helpers
                     string
                         .Empty; // set the result to blank if an exception is thrown.
             }
+
             return result;
         }
     }

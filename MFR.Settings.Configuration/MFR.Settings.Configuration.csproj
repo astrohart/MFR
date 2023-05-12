@@ -100,10 +100,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -130,9 +127,9 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
-      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
-      <Name>MFR.Events.Common</Name>
+    <ProjectReference Include="..\MFR.GUI.Models.Actions\MFR.GUI.Models.Actions.csproj">
+      <Project>{0c26f537-5909-44b9-97d0-27d503df6d10}</Project>
+      <Name>MFR.GUI.Models.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Models.Extensions\MFR.GUI.Models.Extensions.csproj">
       <Project>{5F49F367-FF7D-40F4-973B-DC2942823A43}</Project>

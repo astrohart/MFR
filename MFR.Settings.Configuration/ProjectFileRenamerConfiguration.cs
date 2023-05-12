@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration
 {
@@ -433,23 +434,40 @@ namespace MFR.Settings.Configuration
         /// </remarks>
         public void Reset()
         {
-            IsFromCommandLine = false;
+            try
+            {
+                IsFromCommandLine = false;
 
-            ReOpenSolution = true;
+                ReOpenSolution = true;
 
-            RenameFiles = RenameSubFolders = ReplaceTextInFiles = true;
+                RenameFiles = RenameSubFolders = ReplaceTextInFiles = true;
 
-            MatchCase = true;
-            MatchExactWord = false;
+                MatchCase = true;
+                MatchExactWord = false;
 
-            StartingFolderHistory.Clear();
-            FindWhatHistory.Clear();
-            ReplaceWithHistory.Clear();
+                StartingFolderHistory.Clear();
+                FindWhatHistory.Clear();
+                ReplaceWithHistory.Clear();
 
-            FindWhat = ReplaceWith = string.Empty;
-            StartingFolder = Directory.GetCurrentDirectory();
+                FindWhat = ReplaceWith = string.Empty;
+                StartingFolder = Directory.GetCurrentDirectory();
 
-            OperationsToPerform.Clear();
+                OperationsToPerform.Clear();
+
+                /*
+                 * If, by some chance, we end up here and we've blanked out the
+                 * list of operations that the user has requested that this application
+                 * perform, then initialize the list with the defaults.
+                 */
+
+                if (!OperationsToPerform.HasAnyOperations())
+                    OperationsToPerform = Initialize.OperationList();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
