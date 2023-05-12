@@ -1534,38 +1534,49 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void SetUpFindWhatComboBox()
         {
-            if (!Directory.Exists(StartingFolder))
+            try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    Resources.Error_CantSetUpFindWhatComboStartFolderNotExists
-                             .PostfixFormat(StartingFolder)
-                );
+                if (!Directory.Exists(StartingFolder))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        Resources
+                            .Error_CantSetUpFindWhatComboStartFolderNotExists
+                            .PostfixFormat(StartingFolder)
+                    );
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug, "MainWindow.SetUpFindWhatComboBox: Done."
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "MainWindow.SetUpFindWhatComboBox: Done."
+                    );
+                    return;
+                }
+
+                var findWhatAutocompleteCustomSource =
+                    new AutoCompleteStringCollection();
+
+                // Obtain a list of the names of the C# projects that are listed in the
+                // root directory (i.e., starting folder designated by the user).
+                findWhatAutocompleteCustomSource.AddRange(
+                    Directory.EnumerateFiles(
+                                 StartingFolder, "*.csproj",
+                                 SearchOption.AllDirectories
+                             )
+                             .Select(Path.GetFileNameWithoutExtension)
+                             .ToArray()
                 );
-                return;
+                FindWhatComboBox.AutoCompleteCustomSource =
+                    findWhatAutocompleteCustomSource;
+                FindWhatComboBox.AutoCompleteMode =
+                    AutoCompleteMode.SuggestAppend;
+                FindWhatComboBox.AutoCompleteSource =
+                    AutoCompleteSource.CustomSource;
             }
-
-            var findWhatAutocompleteCustomSource =
-                new AutoCompleteStringCollection();
-
-            // Obtain a list of the names of the C# projects that are listed in the
-            // root directory (i.e., starting folder designated by the user).
-            findWhatAutocompleteCustomSource.AddRange(
-                Directory.EnumerateFiles(
-                             StartingFolder, "*.csproj",
-                             SearchOption.AllDirectories
-                         )
-                         .Select(Path.GetFileNameWithoutExtension)
-                         .ToArray()
-            );
-            FindWhatComboBox.AutoCompleteCustomSource =
-                findWhatAutocompleteCustomSource;
-            FindWhatComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            FindWhatComboBox.AutoCompleteSource =
-                AutoCompleteSource.CustomSource;
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
