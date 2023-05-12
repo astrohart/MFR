@@ -67,7 +67,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // only whitespace, then return a blank ProjectFileRenamerConfiguration instance
                 // with its properties all set to default values.
                 result = string.IsNullOrWhiteSpace(content)
-                    ? MakeNewConfiguration.FromScratch()
+                    ? MakeNewProjectFileRenamerConfiguration.FromScratch()
                     : ConvertConfiguration.FromJson(content);
             }
             catch (Exception ex)

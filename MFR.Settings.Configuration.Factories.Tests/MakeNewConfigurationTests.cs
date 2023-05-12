@@ -5,7 +5,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
-    /// <see cref="T:MFR.Settings.Configuration.Factories.MakeNewConfiguration" />
+    /// <see cref="T:MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -14,7 +14,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewConfiguration.FromScratch" />
+        ///     cref="M:MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch" />
         /// method returns a reference to an instance of an object that is (a) non-
         /// <see langword="null" />, (b) an instance of the
         /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> class, and (c)
@@ -25,7 +25,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
         [Test]
         public void Test_MakeNewConfiguraton_FromScratch_Method_Works()
         {
-            var result = MakeNewConfiguration.FromScratch();
+            var result = MakeNewProjectFileRenamerConfiguration.FromScratch();
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result, Is.AssignableFrom(typeof(ProjectFileRenamerConfiguration)));

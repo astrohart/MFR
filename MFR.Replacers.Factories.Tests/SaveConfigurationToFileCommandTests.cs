@@ -36,7 +36,7 @@ namespace MFR.Replacers.Factories.Tests
         private static IProjectFileRenamerConfiguration ProjectFileRenamerConfigurationData
         {
             get;
-        } = MakeNewConfiguration.FromScratch();
+        } = MakeNewProjectFileRenamerConfiguration.FromScratch();
 
         /// <summary>
         /// TODO: Add unit test documentation here

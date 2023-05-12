@@ -114,7 +114,7 @@ namespace MFR.Settings.Configuration.Providers
         {
             get;
             set;
-        } = MakeNewConfiguration.FromScratch();
+        } = MakeNewProjectFileRenamerConfiguration.FromScratch();
 
         /// <summary>
         /// Gets the default folder for the configuration file.
@@ -321,12 +321,19 @@ namespace MFR.Settings.Configuration.Providers
 
             try
             {
-                CurrentConfiguration = GetConfigurationAction
-                                       .For<IFileSystemEntry,
-                                           IProjectFileRenamerConfiguration>(
-                                           ConfigurationActionType
-                                               .LoadConfigurationFromFile
-                                       )
+                var loadConfigurationAction = GetConfigurationAction
+                    .For<IFileSystemEntry,
+                        IProjectFileRenamerConfiguration>(
+                        ConfigurationActionType
+                            .LoadConfigurationFromFile
+                    );
+                if (loadConfigurationAction == null)
+                {
+                    CurrentConfiguration = MakeNewProjectFileRenamerConfiguration.FromScratch();
+                    return;
+                }
+
+                CurrentConfiguration = loadConfigurationAction
                                        .WithInput(
                                            MakeNewFileSystemEntry.ForPath(
                                                pathname
@@ -339,7 +346,7 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
                 CurrentConfiguration =
-                    MakeNewConfiguration
+                    MakeNewProjectFileRenamerConfiguration
                         .FromScratch(); // make a default config if can't be loaded
             }
 
