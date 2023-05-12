@@ -1,4 +1,5 @@
 using MFR.GUI.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -13,6 +14,7 @@ namespace MFR.GUI.Dialogs
     /// Progress dialog that always displays a Marquee progress bar during an
     /// operation.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public partial class OperationDrivenProgressDialog : DarkForm,
         IOperationDrivenProgressDialog
     {

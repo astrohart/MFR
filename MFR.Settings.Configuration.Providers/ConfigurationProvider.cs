@@ -66,12 +66,13 @@ namespace MFR.Settings.Configuration.Providers
                 {
                     if (string.IsNullOrWhiteSpace(value)) return;
 
-                    GetSaveConfigPathCommand.ForPath(
-                                                ConfigurationFilePathKeyName,
-                                                ConfigurationFilePathValueName,
-                                                value
-                                            )
-                                            .Execute();
+                    var saveCommand = GetSaveConfigPathCommand.ForPath(
+                        ConfigurationFilePathKeyName,
+                        ConfigurationFilePathValueName, value
+                    );
+                    if (saveCommand == null) return;
+
+                    saveCommand.Execute();
 
                     /* Clear out the cache of previously-loaded paths
                      for this same operation. */
