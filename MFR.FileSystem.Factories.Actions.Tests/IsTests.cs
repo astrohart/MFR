@@ -34,6 +34,10 @@ namespace MFR.FileSystem.Factories.Actions.Tests
                                 .ToString("N") + ".txt"
         );
 
+        /// <summary>
+        /// A <see cref="T:System.String" /> that holds the pathname of a file tht is
+        /// guaranteed to exist.
+        /// </summary>
         private static readonly string FILE_THAT_EXISTS = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.Windows),
             @"System32\cmd.exe"
