@@ -1274,8 +1274,9 @@ Looks up a localized string similar to Please type different values in the Text 
 ##### Summary
 
 Looks up a localized string similar to Please select at least one operation on the Operations tab.
+NOTE: To show the Operations tab (if it isn't already visible), click the More button.
 
-NOTE: To show the Operations tab (if it isn't already visible), click the More button..
+Would you like to select all operations now, and try again?.
 
 <a name='P-MFR-GUI-Windows-Properties-Resources-Error_Specify_ReplaceWith'></a>
 ### Error_Specify_ReplaceWith `property`

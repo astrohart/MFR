@@ -12,6 +12,7 @@
   - [AssemblyProduct](#P-MFR-GUI-Dialogs-AboutDialog-AssemblyProduct 'MFR.GUI.Dialogs.AboutDialog.AssemblyProduct')
   - [AssemblyTitle](#P-MFR-GUI-Dialogs-AboutDialog-AssemblyTitle 'MFR.GUI.Dialogs.AboutDialog.AssemblyTitle')
   - [AssemblyVersion](#P-MFR-GUI-Dialogs-AboutDialog-AssemblyVersion 'MFR.GUI.Dialogs.AboutDialog.AssemblyVersion')
+  - [CreateParams](#P-MFR-GUI-Dialogs-AboutDialog-CreateParams 'MFR.GUI.Dialogs.AboutDialog.CreateParams')
   - [Display(owner)](#M-MFR-GUI-Dialogs-AboutDialog-Display-System-Windows-Forms-IWin32Window- 'MFR.GUI.Dialogs.AboutDialog.Display(System.Windows.Forms.IWin32Window)')
   - [Dispose()](#M-MFR-GUI-Dialogs-AboutDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.AboutDialog.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-AboutDialog-InitializeComponent 'MFR.GUI.Dialogs.AboutDialog.InitializeComponent')
@@ -108,6 +109,7 @@
   - [InitializeStartPosition()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeStartPosition 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeStartPosition')
   - [OnDoWork(sender,e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
   - [OnLoad(e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnLoad(System.EventArgs)')
+  - [OnRequestClose()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRequestClose 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnRequestClose')
   - [OnRunWorkerCompleted(sender,e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnShown(System.EventArgs)')
   - [RedrawDisplay()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-RedrawDisplay 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.RedrawDisplay')
@@ -172,7 +174,9 @@ Dialog box that displays information about this application to the user.
 
 ##### Summary
 
-Constructs a new instance of [AboutDialog](#T-MFR-GUI-Dialogs-AboutDialog 'MFR.GUI.Dialogs.AboutDialog') and returns a reference
+Constructs a new instance of
+[AboutDialog](#T-MFR-GUI-Dialogs-AboutDialog 'MFR.GUI.Dialogs.AboutDialog')
+and returns a reference
 to it.
 
 ##### Parameters
@@ -227,6 +231,19 @@ Gets the title string for this application.
 ##### Summary
 
 Gets the full version of the application.
+
+<a name='P-MFR-GUI-Dialogs-AboutDialog-CreateParams'></a>
+### CreateParams `property`
+
+##### Summary
+
+Gets the required creation parameters when the control handle is
+created.
+
+##### Returns
+
+A [CreateParams](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CreateParams 'System.Windows.Forms.CreateParams') that contains the
+required creation parameters when the handle to the control is created.
 
 <a name='M-MFR-GUI-Dialogs-AboutDialog-Display-System-Windows-Forms-IWin32Window-'></a>
 ### Display(owner) `method`
@@ -1607,6 +1624,18 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 | ---- | ---- | ----------- |
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
 data. |
+
+<a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRequestClose'></a>
+### OnRequestClose() `method`
+
+##### Summary
+
+Closes this dialog when requested to, say, when we are about to show a message
+box to the interactive user.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs-'></a>
 ### OnRunWorkerCompleted(sender,e) `method`
