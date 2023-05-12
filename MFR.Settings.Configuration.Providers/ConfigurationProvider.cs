@@ -319,9 +319,6 @@ namespace MFR.Settings.Configuration.Providers
             if (!CanLoad(ref pathname))
                 return;
 
-            Debugger.Launch();
-            Debugger.Break();
-
             try
             {
                 CurrentConfiguration = GetConfigurationAction
@@ -471,6 +468,9 @@ namespace MFR.Settings.Configuration.Providers
         private bool CanLoad(ref string pathname)
         {
             var result = true;
+
+            Debugger.Launch();
+            Debugger.Break();
 
             try
             {

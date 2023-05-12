@@ -76,7 +76,8 @@ to the configuration file.
 ##### Summary
 
 Gets a reference to the instance of the object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface
 and which
 exposes settings changed by the user in order to modify the
 application's behavior.
@@ -240,7 +241,8 @@ application's projectFileRenamerConfiguration object.
 
 
 
-Then, the method saves the new data out to the master projectFileRenamerConfiguration file.
+Then, the method saves the new data out to the master
+projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
