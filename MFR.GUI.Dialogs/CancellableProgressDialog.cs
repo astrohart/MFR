@@ -1,4 +1,5 @@
 using MFR.GUI.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -10,6 +11,7 @@ namespace MFR.GUI.Dialogs
     /// <summary>
     /// Window that displays progress of an operation.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public partial class CancellableProgressDialog : DarkForm,
         ICancellableProgressDialog
     {

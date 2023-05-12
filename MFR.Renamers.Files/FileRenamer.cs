@@ -1511,6 +1511,9 @@ namespace MFR.Renamers.Files
 
             try
             {
+                Debugger.Launch();
+                Debugger.Break();
+
                 /*
                  * OKAY, check whether Find What and Replace With are the same,
                  * apart from case.  This means that the user wants to use the same
