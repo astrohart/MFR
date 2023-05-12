@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -50,6 +51,8 @@ namespace MFR.FileSystem.Factories
             try
             {
                 if (string.IsNullOrWhiteSpace(pathname))
+                    return result;
+                if (!Does.FileSystemEntryExist(pathname))
                     return result;
 
                 result = new FileSystemEntry(pathname);
