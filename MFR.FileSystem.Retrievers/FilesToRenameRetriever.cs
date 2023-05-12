@@ -104,18 +104,15 @@ namespace MFR.FileSystem.Retrievers
             DoGetMatchingFileSystemPaths(string rootFolderPath,
                 Predicate<string> pathFilter = null)
         {
-            var result = Enumerable.Empty<IFileSystemEntry>();
-
-            try 
+            var result = new List<IFileSystemEntry>();
+            try
             {
-                result = Enumerate.Files(
-                                      rootFolderPath, SearchPattern,
-                                      SearchOption, path => ShouldDoPath(path, pathFilter)
-                                  )
-                                  .Select(MakeNewFileSystemEntry.ForPath)
-                                  .Where(
-                                      SearchCriteriaMatch
-                                  );
+                result.AddRange(
+                    Enumerate.Files(rootFolderPath, SearchPattern, SearchOption, path => ShouldDoPath(path, pathFilter))
+                             .Select(MakeNewFileSystemEntry.ForPath)
+                             .Where(entry => entry != null)
+                             .Where(SearchCriteriaMatch)
+                );
             }
             catch (Exception ex)
             {

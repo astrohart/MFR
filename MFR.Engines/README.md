@@ -27,6 +27,7 @@
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
   - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
+  - [OnProcessingError()](#M-MFR-Engines-FullGuiOperationEngine-OnProcessingError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnProcessingError(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnProcessingFinished()](#M-MFR-Engines-FullGuiOperationEngine-OnProcessingFinished 'MFR.Engines.FullGuiOperationEngine.OnProcessingFinished')
   - [OnProcessingStarted()](#M-MFR-Engines-FullGuiOperationEngine-OnProcessingStarted 'MFR.Engines.FullGuiOperationEngine.OnProcessingStarted')
   - [ReinitializeProgressDialog()](#M-MFR-Engines-FullGuiOperationEngine-ReinitializeProgressDialog 'MFR.Engines.FullGuiOperationEngine.ReinitializeProgressDialog')
@@ -66,6 +67,7 @@
   - [UpdateConfiguration(configuration)](#M-MFR-Engines-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.OperationEngineBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [Resources](#T-MFR-Engines-Properties-Resources 'MFR.Engines.Properties.Resources')
   - [Culture](#P-MFR-Engines-Properties-Resources-Culture 'MFR.Engines.Properties.Resources.Culture')
+  - [Error_OperationFailed](#P-MFR-Engines-Properties-Resources-Error_OperationFailed 'MFR.Engines.Properties.Resources.Error_OperationFailed')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-Engines-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.Engines.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
   - [ResourceManager](#P-MFR-Engines-Properties-Resources-ResourceManager 'MFR.Engines.Properties.Resources.ResourceManager')
 
@@ -507,6 +509,19 @@ contains the event data. |
 ##### Remarks
 
 
+
+<a name='M-MFR-Engines-FullGuiOperationEngine-OnProcessingError-MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
+### OnProcessingError() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Engines-Interfaces-IOperationEngine-ProcessingError 'MFR.Engines.Interfaces.IOperationEngine.ProcessingError')
+event.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Engines-FullGuiOperationEngine-OnProcessingFinished'></a>
 ### OnProcessingFinished() `method`
@@ -1250,6 +1265,15 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Engines-Properties-Resources-Error_OperationFailed'></a>
+### Error_OperationFailed `property`
+
+##### Summary
+
+Looks up a localized string similar to Failed to perform the requested operations due to an unknown error.
+
+Retry the operation.  The error has been logged..
 
 <a name='P-MFR-Engines-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace'></a>
 ### Error_ValueCannotBeNullOrWhiteSpace `property`

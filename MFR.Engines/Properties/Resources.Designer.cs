@@ -61,6 +61,17 @@ namespace MFR.Engines.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to perform the requested operations due to an unknown error.
+        ///
+        ///Retry the operation.  The error has been logged..
+        /// </summary>
+        internal static string Error_OperationFailed {
+            get {
+                return ResourceManager.GetString("Error_OperationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value cannot be null or whitespace..
         /// </summary>
         internal static string Error_ValueCannotBeNullOrWhiteSpace {

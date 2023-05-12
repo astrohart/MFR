@@ -4,6 +4,7 @@ using MFR.Expressions.Matches;
 using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.FileSystem.Factories;
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.FileSystem.Validators;
@@ -18,7 +19,9 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -520,10 +523,53 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         protected bool SearchCriteriaMatch(IFileSystemEntry entry)
         {
-            if (entry == null) throw new ArgumentNullException(nameof(entry));
-            return TextExpressionMatchingEngineSays.IsMatch(
-                ForFileSystemEntry(entry)
+            Debugger.Launch();
+            Debugger.Break();
+
+            var result = false;
+
+            try
+            {
+                if (entry == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The entry parameter was passed a null reference in the FileSystemEntryListRetrieverBase.SearchCriteriaMatch method."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"FileSystemEntryListRetrieverBase.SearchCriteriaMatch: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                // Dump the variable entry.Path to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileSystemEntryListRetrieverBase.SearchCriteriaMatch: entry.Path = '{entry.Path}'"
+                );
+
+                if (!Does.FileSystemEntryExist(entry.Path)) return result;
+
+                result = TextExpressionMatchingEngineSays.IsMatch(
+                    ForFileSystemEntry(entry)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileSystemEntryListRetrieverBase.SearchCriteriaMatch: Result = {result}"
             );
+
+            return result;
         }
 
         /// <summary>
@@ -543,6 +589,9 @@ namespace MFR.FileSystem.Retrievers
         protected bool ShouldDoPath(string path,
             Predicate<string> pathFilter = null)
         {
+            Debugger.Launch();
+            Debugger.Break();
+
             bool result;
 
             try

@@ -14,6 +14,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.Engines
 {
@@ -372,6 +373,20 @@ namespace MFR.Engines
             => _cancellableProgressDialog.DoIfNotDisposed(
                 () => _cancellableProgressDialog.Status = e.Text
             );
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Engines.Interfaces.IOperationEngine.ProcessingError" />
+        /// event.
+        /// </summary>
+        protected override void OnProcessingError(ExceptionRaisedEventArgs e)
+        {
+            base.OnProcessingError(e);
+
+            Messages.ShowStopError(
+                Resources.Error_OperationFailed
+            );
+        }
 
         /// <summary>
         /// Raises the

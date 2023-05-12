@@ -34,7 +34,8 @@ namespace MFR.FileSystem.Factories.Actions
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
 
                 // get the file attributes for file or directory
-                var attr = File.GetAttributes(@"c:\Temp");
+                var attr = File.GetAttributes(pathname);
+                if (attr == null) return result;
 
                 //detect whether its a directory or file
                 result = (attr & FileAttributes.Directory) ==

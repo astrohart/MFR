@@ -3,6 +3,7 @@ using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using xyLOGIX.Core.Debug;
 
@@ -46,6 +47,9 @@ namespace MFR.FileSystem.Factories
         /// </remarks>
         public static IFileSystemEntry ForPath(string pathname)
         {
+            Debugger.Launch();
+            Debugger.Break();
+
             IFileSystemEntry result = default;
 
             try
