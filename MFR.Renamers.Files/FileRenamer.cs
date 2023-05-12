@@ -626,9 +626,6 @@ namespace MFR.Renamers.Files
                  * narrow the search.
                  */
 
-                Debugger.Launch();
-                Debugger.Break();
-
                 IFileSystemEntryListRetriever retriever = GetFileSystemEntryListRetriever
                                              .For(OperationType.RenameFilesInFolder)
                                              .AndAttachConfiguration(CurrentConfiguration);

@@ -5,6 +5,7 @@ using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Serializers.Properties;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -111,6 +112,10 @@ namespace MFR.Settings.Configuration.Serializers
         public static void Save(string pathname,
             IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
+            Debugger.Launch();
+            Debugger.Break();
+
+
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
 
