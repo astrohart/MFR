@@ -112,10 +112,6 @@ namespace MFR.Settings.Configuration.Serializers
         public static void Save(string pathname,
             IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
-
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
 

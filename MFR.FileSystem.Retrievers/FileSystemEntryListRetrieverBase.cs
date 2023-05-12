@@ -523,9 +523,6 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         protected bool SearchCriteriaMatch(IFileSystemEntry entry)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             var result = false;
 
             try
@@ -589,9 +586,6 @@ namespace MFR.FileSystem.Retrievers
         protected bool ShouldDoPath(string path,
             Predicate<string> pathFilter = null)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             bool result;
 
             try

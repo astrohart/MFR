@@ -47,9 +47,6 @@ namespace MFR.FileSystem.Factories
         /// </remarks>
         public static IFileSystemEntry ForPath(string pathname)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             IFileSystemEntry result = default;
 
             try
