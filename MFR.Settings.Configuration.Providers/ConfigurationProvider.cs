@@ -62,17 +62,27 @@ namespace MFR.Settings.Configuration.Providers
                 return result;
             }
             set {
-                GetSaveConfigPathCommand.ForPath(
-                                            ConfigurationFilePathKeyName,
-                                            ConfigurationFilePathValueName,
-                                            value
-                                        )
-                                        .Execute();
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(value)) return;
 
-                /* Clear out the cache of previously-loaded paths
-                 for this same operation. */
-                LoadConfigPathAction.AsCachedResultAction()
-                                    .ClearResultCache();
+                    GetSaveConfigPathCommand.ForPath(
+                                                ConfigurationFilePathKeyName,
+                                                ConfigurationFilePathValueName,
+                                                value
+                                            )
+                                            .Execute();
+
+                    /* Clear out the cache of previously-loaded paths
+                     for this same operation. */
+                    LoadConfigPathAction.AsCachedResultAction()
+                                        .ClearResultCache();
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 
@@ -305,11 +315,11 @@ namespace MFR.Settings.Configuration.Providers
              * still return false), then fall back to the default config file path.
              */
 
-            Debugger.Launch();
-            Debugger.Break();
-
             if (!CanLoad(ref pathname))
                 return;
+
+            Debugger.Launch();
+            Debugger.Break();
 
             try
             {
@@ -459,16 +469,46 @@ namespace MFR.Settings.Configuration.Providers
         /// </returns>
         private bool CanLoad(ref string pathname)
         {
-            var fallbackPath = ConfigurationFilePath;
+            var result = true;
 
-            if (File.Exists(pathname))
-                return true;
+            try
+            {
+                var fallbackPath = ConfigurationFilePath;
 
-            if (!File.Exists(fallbackPath))
-                return false;
+                // Dump the variable fallbackPath to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ConfigurationProvider.CanLoad: fallbackPath = '{fallbackPath}'"
+                );
 
-            pathname = fallbackPath;
-            return true;
+                // Dump the variable pathname to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ConfigurationProvider.CanLoad: pathname = '{pathname}'"
+                );
+
+                if (File.Exists(pathname))
+                    return result;
+
+                if (!File.Exists(fallbackPath))
+                    return false;
+
+                pathname = fallbackPath;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ConfigurationProvider.CanLoad: Result = {result}"
+            );
+
+            return result;
         }
     }
 }
