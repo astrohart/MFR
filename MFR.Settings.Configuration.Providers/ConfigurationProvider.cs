@@ -25,7 +25,8 @@ namespace MFR.Settings.Configuration.Providers
     /// Provides shared functionality for obtaining and storing the path to the
     /// user's projectFileRenamerConfiguration file.
     /// </summary>
-    public class ConfigurationProvider : IProjectFileRenamerConfigurationProvider
+    public class
+        ConfigurationProvider : IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -42,9 +43,24 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         public string ConfigurationFilePath
         {
-            get
-                => LoadConfigPathAction.Execute()
-                                       .Path;
+            get {
+                var result = string.Empty;
+
+                try
+                {
+                    result = LoadConfigPathAction.Execute()
+                                                 .Path;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
             set {
                 GetSaveConfigPathCommand.ForPath(
                                             ConfigurationFilePathKeyName,
@@ -76,7 +92,9 @@ namespace MFR.Settings.Configuration.Providers
 
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
         /// and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
@@ -126,25 +144,47 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadConfigPathAction
-            => GetConfigurationAction
-               .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                   ConfigurationActionType.LoadStringFromRegistry
-               )
-               .WithInput(
-                   MakeNewRegQueryExpression.FromScatch<string>()
-                                            .ForKeyPath(
-                                                ConfigurationFilePathKeyName
-                                            )
-                                            .AndValueName(
-                                                ConfigurationFilePathValueName
-                                            )
-                                            .WithDefaultValue(
-                                                Path.Combine(
-                                                    DefaultConfigDir,
-                                                    DefaultConfigFileName
-                                                )
-                                            )
-               );
+        {
+            get {
+                IAction<IRegQueryExpression<string>, IFileSystemEntry> result =
+                    default;
+
+                try
+                {
+                    var regQueryExpression = MakeNewRegQueryExpression
+                                             .FromScatch<string>()
+                                             .ForKeyPath(
+                                                 ConfigurationFilePathKeyName
+                                             )
+                                             .AndValueName(
+                                                 ConfigurationFilePathValueName
+                                             )
+                                             .WithDefaultValue(
+                                                 Path.Combine(
+                                                     DefaultConfigDir,
+                                                     DefaultConfigFileName
+                                                 )
+                                             );
+                    if (regQueryExpression == null) return result;
+
+                    result = GetConfigurationAction
+                             .For<IRegQueryExpression<string>,
+                                 IFileSystemEntry>(
+                                 ConfigurationActionType.LoadStringFromRegistry
+                             )
+                             .WithInput(regQueryExpression);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = default;
+                }
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Exports projectFileRenamerConfiguration data to a file other than the master
@@ -207,7 +247,8 @@ namespace MFR.Settings.Configuration.Providers
         /// First, this method loads the data from the file specified into the
         /// application's projectFileRenamerConfiguration object.
         /// <para />
-        /// Then, the method saves the new data out to the master projectFileRenamerConfiguration file.
+        /// Then, the method saves the new data out to the master
+        /// projectFileRenamerConfiguration file.
         /// </remarks>
         public void Import(string sourceFilePath)
         {
@@ -267,14 +308,14 @@ namespace MFR.Settings.Configuration.Providers
             Debugger.Launch();
             Debugger.Break();
 
-
             if (!CanLoad(ref pathname))
                 return;
 
             try
             {
                 CurrentConfiguration = GetConfigurationAction
-                                       .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
+                                       .For<IFileSystemEntry,
+                                           IProjectFileRenamerConfiguration>(
                                            ConfigurationActionType
                                                .LoadConfigurationFromFile
                                        )
@@ -294,11 +335,12 @@ namespace MFR.Settings.Configuration.Providers
                         .FromScratch(); // make a default config if can't be loaded
             }
 
-            if (CurrentConfiguration == null) 
+            if (CurrentConfiguration == null)
                 return;
 
             DebugUtils.WriteLine(
-                DebugLevel.Info, "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
+                DebugLevel.Info,
+                "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
             );
 
             // store the pathname in the pathname parameter into the ConfigurationFilePath property
@@ -356,8 +398,8 @@ namespace MFR.Settings.Configuration.Providers
             // Check to see if the required property, ProjectFileRenamerConfiguration, is null. If
             if (CurrentConfiguration == null) return;
 
-            if (CurrentConfiguration.IsFromCommandLine
-                && CurrentConfiguration.AutoStart)
+            if (CurrentConfiguration.IsFromCommandLine &&
+                CurrentConfiguration.AutoStart)
                 return;
 
             try
