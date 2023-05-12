@@ -29,6 +29,7 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;

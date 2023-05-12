@@ -12,6 +12,7 @@ using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -263,6 +264,10 @@ namespace MFR.Settings.Configuration.Providers
              * still return false), then fall back to the default config file path.
              */
 
+            Debugger.Launch();
+            Debugger.Break();
+
+
             if (!CanLoad(ref pathname))
                 return;
 
@@ -289,15 +294,15 @@ namespace MFR.Settings.Configuration.Providers
                         .FromScratch(); // make a default config if can't be loaded
             }
 
-            if (CurrentConfiguration != null)
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info, "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
-                );
+            if (CurrentConfiguration == null) 
+                return;
 
-                // store the pathname in the pathname parameter into the ConfigurationFilePath property
-                ConfigurationFilePath = pathname;
-            }
+            DebugUtils.WriteLine(
+                DebugLevel.Info, "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
+            );
+
+            // store the pathname in the pathname parameter into the ConfigurationFilePath property
+            ConfigurationFilePath = pathname;
         }
 
         /// <summary>

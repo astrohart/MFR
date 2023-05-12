@@ -1,11 +1,12 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Settings.Configuration.Actions.Constants;
-using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Serializers;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
+using MFR.Settings.Configuration.Actions.Constants;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Serializers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -16,9 +17,8 @@ namespace MFR.Settings.Configuration.Actions
     /// Accesses a key and value in the system Registry to load the pathname of
     /// the master projectFileRenamerConfiguration file.
     /// </summary>
-    public class
-        LoadConfigurationFromFileAction : ActionBase<IFileSystemEntry,
-            IProjectFileRenamerConfiguration>
+    public class LoadConfigurationFromFileAction : ActionBase<IFileSystemEntry,
+        IProjectFileRenamerConfiguration>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -39,7 +39,8 @@ namespace MFR.Settings.Configuration.Actions
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadConfigurationFromFileAction Instance
+        public static
+            IAction<IFileSystemEntry, IProjectFileRenamerConfiguration> Instance
         {
             get;
         } = new LoadConfigurationFromFileAction();
@@ -74,13 +75,12 @@ namespace MFR.Settings.Configuration.Actions
         {
             IProjectFileRenamerConfiguration result = null;
 
-            // Check to see if the required field, _input, is null. If it is,
+            // Check to see if the required field, _input, is null. If it is, stop.
             if (Input == null)
-            {
+
                 // the field _input is required.
                 // stop.
                 return result;
-            }
             try
             {
                 Input.Path = FileHelpers.CreateOrOpenTextFile(
@@ -95,6 +95,7 @@ namespace MFR.Settings.Configuration.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+
             return result;
         }
     }

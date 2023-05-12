@@ -21,9 +21,9 @@
   - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
   - [ForFileSystemEntry(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ForFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-  - [PassesPathFilter(entry,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-PassesPathFilter-MFR-FileSystem-Interfaces-IFileSystemEntry,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.PassesPathFilter(MFR.FileSystem.Interfaces.IFileSystemEntry,System.Predicate{System.String})')
   - [Reset()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.Reset')
   - [SearchCriteriaMatch(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchCriteriaMatch-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchCriteriaMatch(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [ShouldDoPath(path,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldDoPath-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ShouldDoPath(System.String,System.Predicate{System.String})')
   - [ToFindWhat(findWhat)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ToFindWhat(System.String)')
   - [UsingSearchPattern()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.UsingSearchPattern(System.String)')
   - [WithSearchOption(option)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-WithSearchOption-System-IO-SearchOption- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.WithSearchOption(System.IO.SearchOption)')
@@ -437,46 +437,6 @@ is passed a blank or `null` string for a value. |
 `rootFolderPath`
 ' parameter cannot be located on the disk. |
 
-<a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-PassesPathFilter-MFR-FileSystem-Interfaces-IFileSystemEntry,System-Predicate{System-String}-'></a>
-### PassesPathFilter(entry,pathFilter) `method`
-
-##### Summary
-
-Determines whether the data in the file-system
-`entry`
-provided passes the additional path-filtering
-criteria specified by the `pathFilter` predicate.
-
-##### Returns
-
-`true` if the file-system `entry`
-passed the path-filtering criteria in `pathFilter`,
-or if `pathFilter` is `null`;
-otherwise, `false` is returned.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Optional.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
-interface that has the data to run decision-making upon. If this
-parameter is `null`, then this method returns
-`false`. |
-| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) A [Predicate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate') that points to the
-logic to be executed to determine a match to the file-system
-`entry` passed. If this parameter is
-`null`
-, then this method returns `true`. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if any of the required
-parameters, `entry`, or `pathFilter`, are
-passed a `null` value. |
-
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset'></a>
 ### Reset() `method`
 
@@ -521,6 +481,27 @@ interface that has the data for the matching process. |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
+
+<a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldDoPath-System-String,System-Predicate{System-String}-'></a>
+### ShouldDoPath(path,pathFilter) `method`
+
+##### Summary
+
+Determines whether a certain path should be executed.
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to be checked. |
+| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) A reference to an instance of
+[String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') that contains additional rules
+stating whether to include files or directories. |
 
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String-'></a>
 ### ToFindWhat(findWhat) `method`
@@ -1151,7 +1132,8 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever').
+Gets a reference to the one and only instance of
+[TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever').
 
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType'></a>
 ### OperationType `property`
@@ -1199,11 +1181,14 @@ allowed by some implementations to be blank.
 
 ##### Summary
 
-Provides the implementation of the [GetMatchingFileSystemPaths](#M-MFR-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths') method.
+Provides the implementation of the
+[GetMatchingFileSystemPaths](#M-MFR-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths')
+method.
 
 ##### Returns
 
-Collection of instances of objects that implement the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+Collection of instances of objects that implement the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that correspond to the file system entries that match the
 criteria specified.
 
@@ -1242,6 +1227,9 @@ is passed a blank or `null` string for a value. |
 
 ##### Remarks
 
-Implementers of this method have a guarantee that the `rootFolderPath` parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the [ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
+Implementers of this method have a guarantee that the
+`rootFolderPath`
+parameter contains a fully-qualified
+pathname of a folder that exists on the disk, and that the
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.

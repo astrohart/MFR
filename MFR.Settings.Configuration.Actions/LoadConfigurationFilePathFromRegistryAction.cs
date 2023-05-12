@@ -4,6 +4,7 @@ using MFR.Expressions.Registry.Validators.Factories;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Registry.Loaders.Factories;
 using PostSharp.Patterns.Diagnostics;
@@ -15,7 +16,7 @@ namespace MFR.Settings.Configuration.Actions
     /// the master projectFileRenamerConfiguration file.
     /// </summary>
     public class LoadConfigurationFilePathFromRegistryAction : CachedResultActionBase<
-        IRegQueryExpression<string>, IFileSystemEntry>
+        IRegQueryExpression<string>, IFileSystemEntry>, ICachedResultAction<IRegQueryExpression<string>, IFileSystemEntry>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -38,7 +39,7 @@ namespace MFR.Settings.Configuration.Actions
         /// cref="T:MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadConfigurationFilePathFromRegistryAction Instance
+        public static ICachedResultAction<IRegQueryExpression<string>, IFileSystemEntry> Instance
         {
             get;
         } = new LoadConfigurationFilePathFromRegistryAction();
