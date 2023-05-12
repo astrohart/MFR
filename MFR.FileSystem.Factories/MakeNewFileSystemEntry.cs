@@ -51,7 +51,6 @@ namespace MFR.FileSystem.Factories
             {
                 if (string.IsNullOrWhiteSpace(pathname))
                     return result;
-                if (!File.Exists(pathname)) return result;
 
                 result = new FileSystemEntry(pathname);
             }

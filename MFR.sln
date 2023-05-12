@@ -730,6 +730,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Models.Converters",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Models.Constants", "MFR.GUI.Models.Constants\MFR.GUI.Models.Constants.csproj", "{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Factories.Actions", "MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj", "{0CACCBC8-35E7-408A-8A12-970D402D695E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -6470,6 +6472,22 @@ Global
 		{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}.Release|x64.Build.0 = Release|x64
 		{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}.Release|x86.ActiveCfg = Release|x86
 		{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}.Release|x86.Build.0 = Release|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.All|x64.ActiveCfg = Debug|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.All|x64.Build.0 = Debug|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.All|x86.ActiveCfg = Debug|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.All|x86.Build.0 = Debug|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Debug|x64.ActiveCfg = Debug|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Debug|x64.Build.0 = Debug|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Debug|x86.ActiveCfg = Debug|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Debug|x86.Build.0 = Debug|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.DefaultBuild|x64.Build.0 = Debug|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.DefaultBuild|x86.Build.0 = Debug|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Release|x64.ActiveCfg = Release|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Release|x64.Build.0 = Release|x64
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Release|x86.ActiveCfg = Release|x86
+		{0CACCBC8-35E7-408A-8A12-970D402D695E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
