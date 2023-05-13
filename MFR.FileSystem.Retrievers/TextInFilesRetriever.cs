@@ -34,7 +34,7 @@ namespace MFR.FileSystem.Retrievers
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see
         ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
-        /// interface.
+        /// interface that represents an object that is capable of searching text in files.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IFileSystemEntryListRetriever Instance
