@@ -21,7 +21,7 @@ namespace MFR.TextValues.Retrievers.Interfaces
         /// <summary>
         /// Gets a string containing the text to be searched, from the
         /// file-system <paramref name="entry" /> provided, given the current
-        /// <see cref="T:MFR.OperationType"/> now being processed.
+        /// <see cref="T:MFR.Operations.Constants.OperationType"/> now being processed.
         /// </summary>
         /// <param name="entry">
         /// Reference to an instance of an object that implements the

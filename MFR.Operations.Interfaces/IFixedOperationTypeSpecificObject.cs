@@ -7,7 +7,7 @@ namespace MFR.Operations.Interfaces
     /// Defines the public-exposed methods and properties of an object that is
     /// tagged with one of the
     /// <see
-    ///     cref="T:MFR.OperationType" />
+    ///     cref="T:MFR.Operations.Constants.OperationType" />
     /// values.
     /// </summary>
     /// <remarks>
@@ -18,7 +18,7 @@ namespace MFR.Operations.Interfaces
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

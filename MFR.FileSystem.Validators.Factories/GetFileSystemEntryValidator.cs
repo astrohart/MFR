@@ -21,12 +21,12 @@ namespace MFR.FileSystem.Validators.Factories
         ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntryValidator" />
         /// interface corresponding to the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// value that is
         /// provided in the <paramref name="type" /> parameter.
         /// </summary>
         /// <param name="type">
-        /// One of the <see cref="T:MFR.OperationType" />
+        /// One of the <see cref="T:MFR.Operations.Constants.OperationType" />
         /// values that specifies the type of file-system operation that is
         /// being performed.
         /// </param>

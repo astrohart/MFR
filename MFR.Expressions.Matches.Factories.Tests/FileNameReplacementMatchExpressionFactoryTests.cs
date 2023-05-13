@@ -300,7 +300,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// The specific match-expression factory in use is that which is keyed
         /// to the
         /// <see
-        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
         /// operation type.
         /// </remarks>
         private static IMatchExpressionFactory

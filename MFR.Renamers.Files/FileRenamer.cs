@@ -127,7 +127,7 @@ namespace MFR.Renamers.Files
         /// <summary>
         /// Gets a reference to a collection of of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values.
         /// </summary>
         /// <remarks>

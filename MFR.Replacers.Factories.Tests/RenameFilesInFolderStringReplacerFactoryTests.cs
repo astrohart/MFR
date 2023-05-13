@@ -67,7 +67,7 @@ namespace MFR.Replacers.Factories.Tests
         ///     cref="M:MFR.IStringReplacerFactory.AndTextMatchingConfiguration" />
         /// method for the
         /// <see
-        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
         /// value implements the
         /// <see
         ///     cref="T:MFR.IStringReplacer" />
@@ -165,7 +165,7 @@ namespace MFR.Replacers.Factories.Tests
         /// value, and
         /// for the
         /// <see
-        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
         /// value, is set to that value.
         /// </summary>
         [Test]

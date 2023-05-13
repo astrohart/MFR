@@ -21,7 +21,7 @@ namespace MFR.Operations.Descriptions.Factories
         /// and returns a reference to it.
         /// </summary>
         /// <param name="type">
-        /// (Required.) One of the <see cref="T:MFR.OperationType" />
+        /// (Required.) One of the <see cref="T:MFR.Operations.Constants.OperationType" />
         /// values that specifies the operation type you want the descriptive
         /// text for.
         /// </param>
@@ -34,7 +34,7 @@ namespace MFR.Operations.Descriptions.Factories
         /// <see langword="null" /> if no such object can be located.
         /// </returns>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <see cref="T:MFR.OperationType" /> value
+        /// Thrown if the <see cref="T:MFR.Operations.Constants.OperationType" /> value
         /// specified in the <paramref name="type" /> parameter does not have a
         /// corresponding Operation Description object associated with it.
         /// </exception>

@@ -67,7 +67,7 @@ namespace MFR.Matchers.Factories.Tests
         ///     cref="M:MFR.IStringMatcherFactory.AndTextMatchingConfiguration" />
         /// method for the
         /// <see
-        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
         /// value implements the
         /// <see
         ///     cref="T:MFR.IStringMatcher" />
@@ -165,7 +165,7 @@ namespace MFR.Matchers.Factories.Tests
         /// value, and
         /// for the
         /// <see
-        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
         /// value, is set to that value.
         /// </summary>
         [Test]

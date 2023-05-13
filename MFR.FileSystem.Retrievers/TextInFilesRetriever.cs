@@ -31,17 +31,19 @@ namespace MFR.FileSystem.Retrievers
         protected TextInFilesRetriever() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Retrievers.TextInFilesRetriever" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static TextInFilesRetriever Instance
+        public static IFileSystemEntryListRetriever Instance
         {
             get;
         } = new TextInFilesRetriever();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

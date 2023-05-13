@@ -23,7 +23,7 @@ namespace MFR.Operations.Events
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// specifies the operation being performed.
         /// </param>

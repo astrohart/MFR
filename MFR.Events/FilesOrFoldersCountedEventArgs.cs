@@ -19,7 +19,7 @@ namespace MFR.Events
         /// </param>
         /// <param name="operationType">
         /// (Required.) One of the <see
-        /// cref="T:MFR.OperationType"/> values that
+        /// cref="T:MFR.Operations.Constants.OperationType"/> values that
         /// specifies the operation being performed.
         /// </param>
         public FilesOrFoldersCountedEventArgs(int count, OperationType operationType) : base(operationType)

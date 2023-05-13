@@ -60,7 +60,7 @@ namespace MFR.Engines.Replacement.Tests
         /// specified operation <paramref name="type" />.
         /// </summary>
         /// <param name="type">
-        /// One of the <see cref="T:MFR.OperationType" /> values that
+        /// One of the <see cref="T:MFR.Operations.Constants.OperationType" /> values that
         /// specifies which operation to create a data-matcher object for.
         /// </param>
         /// <exception cref="T:System.ArgumentOutOfRangeException">

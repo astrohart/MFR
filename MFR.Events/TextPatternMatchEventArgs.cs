@@ -24,7 +24,7 @@ namespace MFR.Events
         /// This is typically the fully-qualified pathname of a file or folder;
         /// however, if we are doing the
         /// <see
-        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
         /// operation, then this is the text of the current file before
         /// find-and-replace has been done.
         /// </param>
@@ -38,13 +38,13 @@ namespace MFR.Events
         /// <para />
         /// NOTE: This parameter may be blank for the
         /// <see
-        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
         /// operation type.
         /// </param>
         /// <param name="operationType">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// describes what operation is being performed.
         /// </param>
@@ -95,7 +95,7 @@ namespace MFR.Events
         /// <param name="operationType">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// specifies the operation being performed.
         /// </param>

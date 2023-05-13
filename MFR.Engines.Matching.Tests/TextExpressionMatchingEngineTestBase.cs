@@ -798,7 +798,7 @@ namespace MFR.Engines.Matching.Tests
         /// </summary>
         /// <param
         ///     name="type">
-        /// One of the <see cref="T:MFR.OperationType" />
+        /// One of the <see cref="T:MFR.Operations.Constants.OperationType" />
         /// values that specifies which operation to create a data-matcher
         /// object for.
         /// </param>

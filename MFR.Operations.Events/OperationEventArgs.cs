@@ -19,14 +19,14 @@ namespace MFR.Operations.Events
         /// <param name="operationType">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// specifies the operation being performed.
         /// </param>
         /// <exception cref="T:System.NotSupportedException">
         /// Thrown if
         /// <see
-        ///     cref="T:MFR.OperationType.Unknown" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.Unknown" />
         /// is passed
         /// for the <paramref name="operationType" /> parameter.
         /// </exception>

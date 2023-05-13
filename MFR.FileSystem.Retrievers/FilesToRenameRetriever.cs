@@ -47,7 +47,7 @@ namespace MFR.FileSystem.Retrievers
         } = new FilesToRenameRetriever();
 
         /// <summary>
-        /// Gets one of the <see cref="T:MFR.OperationType" /> values
+        /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

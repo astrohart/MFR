@@ -60,7 +60,7 @@ namespace MFR.Expressions.Matches.Factories
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>

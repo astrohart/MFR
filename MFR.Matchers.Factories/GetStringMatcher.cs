@@ -19,13 +19,13 @@ namespace MFR.Matchers.Factories
         /// interface and
         /// returns a reference to it, for the given
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// value.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </param>

@@ -19,13 +19,13 @@ namespace MFR.Engines.Replacement.Factories
         /// interface
         /// corresponding to the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// specified.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// specifies which operation is being performed.
         /// </param>

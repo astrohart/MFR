@@ -23,7 +23,7 @@ namespace MFR.Engines.Matching.Factories
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// specifies the operation currently being performed.
         /// </param>

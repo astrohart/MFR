@@ -12,7 +12,7 @@ namespace MFR.Operations
         /// <summary>
         /// Gets one of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
@@ -28,14 +28,14 @@ namespace MFR.Operations
         ///     cref="P:MFR.IOperationSpecificObject.OperationType" />
         /// property with the specific
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// value that
         /// corresponds to the type of operation being performed.
         /// </summary>
         /// <param name="type">
         /// (Required.) One of the
         /// <see
-        ///     cref="T:MFR.OperationType" />
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values that
         /// specifies the type of operation being performed.
         /// </param>

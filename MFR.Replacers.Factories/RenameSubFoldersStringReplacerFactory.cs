@@ -44,7 +44,7 @@ namespace MFR.Replacers.Factories
 
         /// <summary>
         /// Gets one of the <see
-        /// cref="T:MFR.OperationType"/> values that
+        /// cref="T:MFR.Operations.Constants.OperationType"/> values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]

@@ -22,7 +22,7 @@ namespace MFR.Replacers.Factories.Tests
         /// <see cref="T:MFR.IStringReplacerFactory" />
         /// interface when the
         /// <see
-        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
         /// value is passed for its argument.
         /// </summary>
         [Test]
@@ -43,7 +43,7 @@ namespace MFR.Replacers.Factories.Tests
         ///     cref="T:MFR.RenameFilesInFolderStringReplacerFactory" />
         /// when the
         /// <see
-        ///     cref="T:MFR.OperationType.RenameFilesInFolder" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.RenameFilesInFolder" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -63,7 +63,7 @@ namespace MFR.Replacers.Factories.Tests
         ///     cref="T:MFR.RenameSubFoldersStringReplacerFactory" />
         /// when the
         /// <see
-        ///     cref="T:MFR.OperationType.RenameSubFolders" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.RenameSubFolders" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
@@ -83,7 +83,7 @@ namespace MFR.Replacers.Factories.Tests
         ///     cref="T:MFR.ReplaceTextInFilesStringReplacerFactory" />
         /// when the
         /// <see
-        ///     cref="T:MFR.OperationType.ReplaceTextInFiles" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
         /// enumeration value is passed as its argument.
         /// </summary>
         [Test]
