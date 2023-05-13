@@ -89,8 +89,10 @@ namespace MFR.Engines.Matching
         ///     langword="false" />
         /// if no matches are found.
         /// </returns>
-        public override bool IsMatch(string value, string findWhat,
-            string replaceWith = "")
+        public override bool IsMatch(
+            [NotLogged] string value,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith = "")
         {
             base.IsMatch(value, findWhat, replaceWith);
 

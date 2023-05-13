@@ -104,9 +104,9 @@ namespace MFR.Engines.Matching
         /// default result of <see langword="false" />.
         /// </remarks>
         public override bool IsMatch(
-            string value, /* data from a file, encoded as a string of bytes */
-            string findWhat, /* the pattern to search against, which may contain whitespace chars */
-            string replaceWith =
+            [NotLogged] string value, /* data from a file, encoded as a string of bytes */
+            [NotLogged] string findWhat, /* the pattern to search against, which may contain whitespace chars */
+            [NotLogged] string replaceWith =
                 "" /* optional replacement value; blank erases text. */
         )
         {

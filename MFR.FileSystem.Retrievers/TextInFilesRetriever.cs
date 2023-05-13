@@ -125,7 +125,7 @@ namespace MFR.FileSystem.Retrievers
             DoGetMatchingFileSystemPaths(string rootFolderPath,
                 Predicate<string> pathFilter = null)
         {
-            var result = Enumerable.Empty<IFileSystemEntry>();
+            var result = new List<IFileSystemEntry>();
 
             try
             {
@@ -139,28 +139,27 @@ namespace MFR.FileSystem.Retrievers
                  * very efficient at managing memory so long as you do not
                  * call ToList etc.
                  */
-
-                result = Enumerate.Files(
-                                      rootFolderPath, SearchPattern,
-                                      SearchOption, path => ShouldDoPath(path, pathFilter)
-                                  )
-                                  .Select(
-                                      path => MakeNewFileSystemEntry
-                                              .ForPath(path)
-                                              .AndHavingUserState(
-                                                  FileHelpers.GetTextContent(
-                                                      path
-                                                  )
-                                              )
-                                  )
-                                  .Where(SearchCriteriaMatch);
+                result.AddRange(
+                    Enumerate.Files(
+                                 rootFolderPath, SearchPattern, SearchOption,
+                                 path => ShouldDoPath(path, pathFilter)
+                             )
+                             .AsParallel()
+                             .Select(
+                                 path => MakeNewFileSystemEntry.ForPath(path)
+                                     .AndHavingUserState(
+                                         FileHelpers.GetTextContent(path)
+                                     )
+                             )
+                             .Where(SearchCriteriaMatch)
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = Enumerable.Empty<IFileSystemEntry>();
+                result = new List<IFileSystemEntry>();
             }
 
             return result;

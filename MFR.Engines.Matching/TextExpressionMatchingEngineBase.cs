@@ -5,6 +5,7 @@ using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Engines.Matching
@@ -120,8 +121,10 @@ namespace MFR.Engines.Matching
         /// NOTE: Implementers of this object must override this method and the
         /// override must start by calling the base class.
         /// </remarks>
-        public virtual bool IsMatch(string value, string findWhat,
-            string replaceWith = "")
+        public virtual bool IsMatch(
+            [NotLogged] string value, 
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith = "")
         {
             VerifyConfigurationAttached();
 
