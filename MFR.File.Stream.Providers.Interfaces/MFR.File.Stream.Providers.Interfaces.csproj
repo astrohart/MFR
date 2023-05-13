@@ -127,6 +127,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Events\MFR.File.Stream.Providers.Events.csproj">
+      <Project>{84DAD0BC-CF38-4A68-BA05-EDB73DABBD52}</Project>
+      <Name>MFR.File.Stream.Providers.Events</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
