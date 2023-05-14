@@ -1,6 +1,7 @@
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -28,11 +29,12 @@ namespace MFR.FileSystem.Validators
         protected ProjectFileValidator() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
+        /// interface that validates project files.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ProjectFileValidator Instance
+        public static IFileSystemEntryValidator Instance
         {
             get;
         } = new ProjectFileValidator();

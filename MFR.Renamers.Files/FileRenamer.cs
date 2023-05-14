@@ -205,7 +205,7 @@ namespace MFR.Renamers.Files
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -213,8 +213,8 @@ namespace MFR.Renamers.Files
         /// pathname passed to it is that of a folder that exists on disk, and that
         /// contains a <c>.sln</c> file.
         /// </remarks>
-        private static IRootDirectoryValidator RootDirectoryValidator
-            => GetRootDirectoryValidator.SoleInstance();
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+            => GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -1397,7 +1397,7 @@ namespace MFR.Renamers.Files
 
                 RootDirectoryPath = rootDirectoryPath;
 
-                if (!RootDirectoryValidator.Validate(rootDirectoryPath)) return;
+                if (!RootDirectoryPathValidator.Validate(rootDirectoryPath)) return;
 
                 OnStarted();
 

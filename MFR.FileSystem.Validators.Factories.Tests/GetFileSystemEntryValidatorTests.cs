@@ -18,10 +18,10 @@ namespace MFR.FileSystem.Validators.Factories.Tests
         /// </summary>
         [Test]
         public void
-            Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation()
+            Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation()
             => Assert.IsTrue(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
-                    is DirectoryValidator
+                    is DirectoryPathValidator
             );
 
         /// <summary>

@@ -58,7 +58,7 @@ namespace MFR.FileSystem.Validators.Factories
 
                 case OperationType.GetTopLevelSubFolders:
                 case OperationType.RenameSubFolders:
-                    validator = DirectoryValidator.Instance;
+                    validator = GetDirectoryPathValidator.SoleInstance();
                     break;
 
                 default:

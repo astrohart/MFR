@@ -23,10 +23,10 @@ namespace MFR.CommandLine.Validators
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
-        private IRootDirectoryValidator _rootDirectoryValidator;
+        private IRootDirectoryPathValidator _rootDirectoryPathValidator;
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -87,14 +87,14 @@ namespace MFR.CommandLine.Validators
         /// <summary>
         /// Associates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface with this validator object.
         /// </summary>
-        /// <param name="rootDirectoryValidator">
+        /// <param name="rootDirectoryPathValidator">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </param>
         /// <returns>
@@ -104,15 +104,15 @@ namespace MFR.CommandLine.Validators
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
         /// <paramref
-        ///     name="rootDirectoryValidator" />
+        ///     name="rootDirectoryPathValidator" />
         /// , is passed a <see langword="null" /> value.
         /// </exception>
-        public ICommandLineValidator AssociateWithRootDirectoryValidator(
-            IRootDirectoryValidator rootDirectoryValidator)
+        public ICommandLineValidator AssociateWithRootDirectoryPathValidator(
+            IRootDirectoryPathValidator rootDirectoryPathValidator)
         {
-            _rootDirectoryValidator = rootDirectoryValidator ??
+            _rootDirectoryPathValidator = rootDirectoryPathValidator ??
                                       throw new ArgumentNullException(
-                                          nameof(rootDirectoryValidator)
+                                          nameof(rootDirectoryPathValidator)
                                       );
 
             return this;
@@ -174,12 +174,12 @@ namespace MFR.CommandLine.Validators
                  * Therefore, if the validation fails here, we simply increment
                  * the count of validation failures but otherwise do nothing.
                  */
-                if (!_rootDirectoryValidator?.Validate(cmdInfo.StartingFolder) ??
+                if (!_rootDirectoryPathValidator?.Validate(cmdInfo.StartingFolder) ??
                     false)
                 {
                     ValidationFailures +=
-                        _rootDirectoryValidator?.ValidationFailures ?? 1;
-                    Errors = Errors.Concat(_rootDirectoryValidator.Errors)
+                        _rootDirectoryPathValidator?.ValidationFailures ?? 1;
+                    Errors = Errors.Concat(_rootDirectoryPathValidator.Errors)
                                    .ToList();
                 }
             }

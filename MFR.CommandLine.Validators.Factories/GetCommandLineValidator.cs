@@ -31,8 +31,8 @@ namespace MFR.CommandLine.Validators.Factories
         /// </exception>
         public static ICommandLineValidator SoleInstance()
             => CommandLineValidator.Instance
-                                   .AssociateWithRootDirectoryValidator(
-                                       GetRootDirectoryValidator.SoleInstance()
+                                   .AssociateWithRootDirectoryPathValidator(
+                                       GetRootDirectoryPathValidator.SoleInstance()
                                    );
     }
 }

@@ -8,7 +8,7 @@ namespace MFR.Directories.Validators.Interfaces
     /// validates the pathnames of root directories; i.e., the folder where the
     /// project-rename operation starts..
     /// </summary>
-    public interface  IRootDirectoryValidator : IValidator
+    public interface  IRootDirectoryPathValidator : IValidator
     {
         /// <summary>
         /// Occurs when validation rules have determined that the value of the
@@ -45,7 +45,7 @@ namespace MFR.Directories.Validators.Interfaces
         /// <remarks>
         /// In the event that validation fails, this method raises the
         /// <see
-        ///     cref="E:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event.
         /// </remarks>
         bool Validate(string rootDirectory);

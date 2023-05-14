@@ -141,11 +141,11 @@ namespace MFR.GUI.Application
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
-        private IRootDirectoryValidator RootDirectoryValidator
-            => GetRootDirectoryValidator.SoleInstance();
+        private IRootDirectoryPathValidator RootDirectoryPathValidator
+            => GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Occurs when the application has been initialized, but has not yet processed the
@@ -300,7 +300,7 @@ namespace MFR.GUI.Application
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event raised by the root-directory validator object.
         /// </summary>
         /// <param name="sender">
@@ -527,7 +527,7 @@ namespace MFR.GUI.Application
         {
             CommandLineValidator.CommandLineInfoInvalid +=
                 OnCommandLineInfoInvalid;
-            RootDirectoryValidator.RootDirectoryInvalid +=
+            RootDirectoryPathValidator.RootDirectoryInvalid +=
                 OnRootDirectoryInvalid;
         }
     }

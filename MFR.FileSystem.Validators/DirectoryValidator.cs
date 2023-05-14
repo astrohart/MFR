@@ -1,4 +1,5 @@
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -10,29 +11,28 @@ namespace MFR.FileSystem.Validators
     /// <summary>
     /// Defines an object that validates the paths of folders.
     /// </summary>
-    public class DirectoryValidator : FileSystemEntryValidatorBase
+    [Log(AttributeExclude = true)]
+    public class DirectoryPathValidator : FileSystemEntryValidatorBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        static DirectoryValidator() { }
+        static DirectoryPathValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        protected DirectoryValidator() { }
+        protected DirectoryPathValidator() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Validators.DirectoryValidator" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
+        /// interface that validates directory paths, specifically.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public static DirectoryValidator Instance
+        public static IFileSystemEntryValidator Instance
         {
             get;
-        } = new DirectoryValidator();
+        } = new DirectoryPathValidator();
 
         /// <summary>
         /// Determines whether the specified file-system
@@ -52,7 +52,6 @@ namespace MFR.FileSystem.Validators
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        [Log(AttributeExclude = true)]
         public override bool DoesExist(IFileSystemEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));

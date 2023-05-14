@@ -22,14 +22,14 @@ namespace MFR.CommandLine.Validators.Interfaces
         /// <summary>
         /// Associates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface with this validator object.
         /// </summary>
-        /// <param name="rootDirectoryValidator">
+        /// <param name="rootDirectoryPathValidator">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </param>
         /// <returns>
@@ -37,11 +37,11 @@ namespace MFR.CommandLine.Validators.Interfaces
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="rootDirectoryValidator" />,
+        /// Thrown if the required parameter, <paramref name="rootDirectoryPathValidator" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        ICommandLineValidator AssociateWithRootDirectoryValidator(
-            IRootDirectoryValidator rootDirectoryValidator);
+        ICommandLineValidator AssociateWithRootDirectoryPathValidator(
+            IRootDirectoryPathValidator rootDirectoryPathValidator);
 
         /// <summary>
         /// Gets a value indicating whether the specified

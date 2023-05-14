@@ -15,19 +15,19 @@ namespace MFR.Directories.Validators
     /// <summary>
     /// Validates the root directory of a project-rename operation.
     /// </summary>
-    public class RootDirectoryValidator : IRootDirectoryValidator
+    public class RootDirectoryPathValidator : IRootDirectoryPathValidator
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RootDirectoryValidator() { }
+        static RootDirectoryPathValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RootDirectoryValidator() { }
+        protected RootDirectoryPathValidator() { }
 
         /// <summary>
         /// Gets a collection of strings, each of which contains an error message.
@@ -39,13 +39,13 @@ namespace MFR.Directories.Validators
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Directories.Validators.RootDirectoryValidator" />.
+        /// <see cref="T:MFR.Directories.Validators.RootDirectoryPathValidator" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static IRootDirectoryValidator Instance
+        public static IRootDirectoryPathValidator Instance
         {
             get;
-        } = new RootDirectoryValidator();
+        } = new RootDirectoryPathValidator();
 
         /// <summary>
         /// Gets a count of validation failures that occurred the last time the
@@ -102,7 +102,7 @@ namespace MFR.Directories.Validators
         /// <remarks>
         /// In the event that validation fails, this method raises the
         /// <see
-        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event.
         /// </remarks>
         public bool Validate(string rootDirectory)
@@ -177,7 +177,7 @@ namespace MFR.Directories.Validators
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.CommandLine.Validators.RootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.CommandLine.Validators.RootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event.
         /// </summary>
         /// <param name="e">

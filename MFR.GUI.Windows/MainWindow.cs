@@ -79,7 +79,7 @@ namespace MFR.GUI.Windows
             InitializePresenter();
 
             Application.Idle += OnUpdateCmdUI;
-            RootDirectoryValidator.RootDirectoryInvalid +=
+            RootDirectoryPathValidator.RootDirectoryInvalid +=
                 OnRootDirectoryInvalid;
         }
 
@@ -277,11 +277,11 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
-        private static IRootDirectoryValidator RootDirectoryValidator
-            => GetRootDirectoryValidator.SoleInstance();
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+            => GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Gets or sets the value of the Select/Deselect All checkbox
@@ -1187,7 +1187,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Handles the
         /// <see
-        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid" />
+        ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event raised by the <c>Root Directory Validator</c> component.
         /// </summary>
         /// <param name="sender">
@@ -1617,7 +1617,7 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private bool ValidateData()
         {
-            if (!RootDirectoryValidator.Validate(
+            if (!RootDirectoryPathValidator.Validate(
                     StartingFolderComboBox.EnteredText
                 ))
             {

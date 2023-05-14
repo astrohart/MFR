@@ -184,11 +184,11 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryValidator" />
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
-        private static IRootDirectoryValidator RootDirectoryValidator
-            => GetRootDirectoryValidator.SoleInstance();
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+            => GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Gets the path to the starting folder of the search.
@@ -1173,7 +1173,7 @@ namespace MFR.GUI.Windows.Presenters
             EventArgs e)
         {
             // Make sure we're getting a valid folder
-            if (!RootDirectoryValidator.Validate(
+            if (!RootDirectoryPathValidator.Validate(
                     CurrentConfiguration.StartingFolder
                 )) return;
 

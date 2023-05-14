@@ -253,7 +253,7 @@ namespace MFR.FileSystem.Retrievers
              * object for it and then validating the path of the entry thus
              * created.  We do not utilize the factory object
              * GetFileSystemEntryValidator here, but instead, we simply grab
-             * the singleton Instance of the DirectoryValidator class.
+             * the singleton Instance of the DirectoryPathValidator class.
              *
              * This is because the factory uses the OperationType to grab a
              * file-validator or folder-validator object.  Here, we know for
@@ -261,7 +261,7 @@ namespace MFR.FileSystem.Retrievers
              * therefore, we cut right to the chase and grab a directory
              * validator object instance.
              */
-            DirectoryValidator.Instance.IsValid(
+            DirectoryPathValidator.Instance.IsValid(
                 MakeNewFileSystemEntry.ForPath(rootFolderPath)
             );
 
