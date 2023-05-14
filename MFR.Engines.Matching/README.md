@@ -22,6 +22,7 @@
   - [ConfigurationProvider](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfiguration')
   - [OperationType](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
+  - [GetOperationMatcher()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-GetOperationMatcher 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.GetOperationMatcher')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
   - [IsMatch(expression)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
 - [TextInFilesMatchingEngine](#T-MFR-Engines-Matching-TextInFilesMatchingEngine 'MFR.Engines.Matching.TextInFilesMatchingEngine')
@@ -140,7 +141,8 @@ MFR.Engines.Matching
 ##### Summary
 
 Searches for matches to textual-search criteria patterns and regexes in
-the pathnames of folders, according to rules specified by projectFileRenamerConfiguration
+the pathnames of folders, according to rules specified by
+projectFileRenamerConfiguration
 settings.
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
@@ -160,7 +162,8 @@ This constructor has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`projectFileRenamerConfiguration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor'></a>
@@ -342,6 +345,25 @@ interface.
 Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
+<a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-GetOperationMatcher'></a>
+### GetOperationMatcher() `method`
+
+##### Summary
+
+Attempts to obtain a reference to an instance of an object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface for the
+current operation.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that
+corresponds to the current operation and matching configuration.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String-'></a>
 ### IsMatch(value,findWhat,replaceWith) `method`
 
@@ -442,7 +464,8 @@ This constructor has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`projectFileRenamerConfiguration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor'></a>
