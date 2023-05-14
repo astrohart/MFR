@@ -47,7 +47,7 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// Raised when this object has successfully processed a request to open a stream
         /// on a particular file.
         /// </summary>
-        event FileStreamDisposedEventHandler FileStreamOpened;
+        event FileStreamOpenedEventHandler FileStreamOpened;
 
         /// <summary>
         /// Batch-disposes the open file streams that correspond to the
@@ -90,7 +90,7 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// <see langword="null" /> or the empty collection, then this method returns the
         /// empty collection.
         /// </remarks>
-        ICollection<Guid> BatchOpenStreams(
+        IReadOnlyCollection<Guid> BatchOpenStreams(
             IReadOnlyCollection<string> pathnames);
 
         /// <summary>

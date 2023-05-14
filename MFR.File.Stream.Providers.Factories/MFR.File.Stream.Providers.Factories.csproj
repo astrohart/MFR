@@ -103,6 +103,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetFileStreamProvider.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Interfaces\MFR.File.Stream.Providers.Interfaces.csproj">
+      <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
+      <Name>MFR.File.Stream.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers\MFR.File.Stream.Providers.csproj">
+      <Project>{B7864325-ECDC-46B3-AC8A-57273D2E8778}</Project>
+      <Name>MFR.File.Stream.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

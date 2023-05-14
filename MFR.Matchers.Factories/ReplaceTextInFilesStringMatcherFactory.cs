@@ -1,7 +1,7 @@
-using MFR.Settings.Configuration.Constants;
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
@@ -13,8 +13,7 @@ namespace MFR.Matchers.Factories
     /// Sub Folders type of operation, for the various combinations of
     /// Match Case and Match Exact Word.
     /// </summary>
-    public class
-        ReplaceTextInFilesStringMatcherFactory : IStringMatcherFactory
+    public class ReplaceTextInFilesStringMatcherFactory : IStringMatcherFactory
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -29,13 +28,14 @@ namespace MFR.Matchers.Factories
         protected ReplaceTextInFilesStringMatcherFactory() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
+        /// interface that represents an entity for the
+        /// <see cref="F:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
+        /// operation.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesStringMatcherFactory Instance
+        public static IStringMatcherFactory Instance
         {
             get;
         } = new ReplaceTextInFilesStringMatcherFactory();
@@ -93,7 +93,9 @@ namespace MFR.Matchers.Factories
         public IStringMatcher AndTextMatchingConfiguration(
             TextMatchingConfiguration matchingConfig)
         {
-            if (!Enum.IsDefined(typeof(TextMatchingConfiguration), matchingConfig))
+            if (!Enum.IsDefined(
+                    typeof(TextMatchingConfiguration), matchingConfig
+                ))
                 throw new InvalidEnumArgumentException(
                     nameof(matchingConfig), (int)matchingConfig,
                     typeof(TextMatchingConfiguration)

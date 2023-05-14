@@ -132,6 +132,14 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
+      <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
+      <Name>MFR.File.Stream.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Interfaces\MFR.File.Stream.Providers.Interfaces.csproj">
+      <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
+      <Name>MFR.File.Stream.Providers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
       <Name>MFR.FileSystem.Enumerators</Name>
