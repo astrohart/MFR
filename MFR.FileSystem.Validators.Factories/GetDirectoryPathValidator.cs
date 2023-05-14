@@ -19,7 +19,7 @@ namespace MFR.FileSystem.Validators.Factories
         /// <returns>
         /// Reference to the one, and only, instance of the object that implements the
         /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
-        /// interface.
+        /// interface  that validates whether directories exist on the disk.
         /// </returns>
         public static IFileSystemEntryValidator SoleInstance()
             => DirectoryPathValidator.Instance;

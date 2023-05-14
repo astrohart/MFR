@@ -103,7 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetDirectoryValidator.cs" />
+    <Compile Include="GetDirectoryPathValidator.cs" />
     <Compile Include="GetProjectFileValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="GetFileSystemEntryValidator.cs" />

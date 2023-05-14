@@ -103,7 +103,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetRootDirectoryValidator.cs" />
+    <Compile Include="GetRootDirectoryPathValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

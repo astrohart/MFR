@@ -104,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="DirectoryValidator.cs" />
+    <Compile Include="DirectoryPathValidator.cs" />
     <Compile Include="FileSystemEntryValidator.cs" />
     <Compile Include="FileSystemEntryValidatorBase.cs" />
     <Compile Include="ProjectFileValidator.cs" />
