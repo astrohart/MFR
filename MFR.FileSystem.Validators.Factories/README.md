@@ -31,7 +31,7 @@ that correspond to the type of file-system operation that is being performed.
 Gets a reference to an instance of an object implementing the
 [IFileSystemEntryValidator](#T-MFR-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Interfaces.IFileSystemEntryValidator')
 interface corresponding to the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 value that is
 provided in the `type` parameter.
 
@@ -46,7 +46,7 @@ specified by the `type` parameter.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that specifies the type of file-system operation that is
 being performed. |
 

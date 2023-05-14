@@ -1,7 +1,5 @@
-using MFR.Settings.Configuration.Helpers;
-using MFR.Settings.Configuration.Interfaces;
-using MFR.Matchers.Factories;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -10,7 +8,8 @@ namespace MFR.Engines.Matching
 {
     /// <summary>
     /// Searches for matches to textual-search criteria patterns and regexes in
-    /// the pathnames of folders, according to rules specified by projectFileRenamerConfiguration
+    /// the pathnames of folders, according to rules specified by
+    /// projectFileRenamerConfiguration
     /// settings.
     /// </summary>
     public class FolderNameMatchingEngine : TextExpressionMatchingEngineBase
@@ -23,13 +22,14 @@ namespace MFR.Engines.Matching
         /// and returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter,
+        /// <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public FolderNameMatchingEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
-            projectFileRenamerConfiguration
-        ) { }
+        public FolderNameMatchingEngine(
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
+            base(projectFileRenamerConfiguration) { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -91,36 +91,23 @@ namespace MFR.Engines.Matching
         ///     langword="false" />
         /// if no matches are found.
         /// </returns>
-        public override bool IsMatch(
-            [NotLogged] string value, 
-            [NotLogged] string findWhat,
-            [NotLogged] string replaceWith = "")
+        public override bool IsMatch([NotLogged] string value,
+            [NotLogged] string findWhat, [NotLogged] string replaceWith = "")
         {
-            base.IsMatch(value, findWhat, replaceWith);
-
-            if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(value)
-                );
-            if (string.IsNullOrWhiteSpace(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(findWhat)
-                );
-            if (string.IsNullOrWhiteSpace(replaceWith))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(replaceWith)
-                );
-
-            bool result;
+            var result = base.IsMatch(value, findWhat, replaceWith);
 
             try
             {
-                result = GetStringMatcher.For(OperationType.RenameSubFolders)
-                                         .AndTextMatchingConfiguration(
-                                             CurrentConfiguration
-                                                 .GetTextMatchingConfiguration()
-                                         )
-                                         .IsMatch(value, findWhat, replaceWith);
+                if (string.IsNullOrWhiteSpace(value)) return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+                if (string.IsNullOrWhiteSpace(replaceWith))
+                    return result;
+
+                var matcher = GetOperationMatcher();
+                if (matcher == null) return result;
+
+                result = matcher.IsMatch(value, findWhat, replaceWith);
             }
             catch (Exception ex)
             {

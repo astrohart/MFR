@@ -46,7 +46,7 @@ Implements functionality common to retrievers of data for both files and folders
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#T-MFR-OperationType 'MFR.OperationType') now being processed.
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') now being processed.
 
 ##### Returns
 
@@ -100,7 +100,7 @@ Gets a reference to the one and only instance of [FilenameTextValueRetriever](#T
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-TextValues-Retrievers-FilenameTextValueRetriever-#cctor'></a>
@@ -150,7 +150,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-TextValues-Retrievers-FolderTextValueRetriever-#cctor'></a>
@@ -226,7 +226,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -288,7 +288,7 @@ Defines the events, methods, properties, and behaviors for all `Text
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>

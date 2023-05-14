@@ -12,6 +12,7 @@
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
   - [ConfigurationProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigurationProvider')
+  - [FileStreamProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileStreamProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
   - [RootDirectoryValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryValidator')
@@ -121,6 +122,15 @@ interface.
 This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
+
+<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider'></a>
+### FileStreamProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
 
 <a name='P-MFR-GUI-Application-ProjectFileRenamerApp-Instance'></a>
 ### Instance `property`

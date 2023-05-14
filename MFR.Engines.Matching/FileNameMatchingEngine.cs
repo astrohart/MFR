@@ -94,7 +94,7 @@ namespace MFR.Engines.Matching
             [NotLogged] string findWhat,
             [NotLogged] string replaceWith = "")
         {
-            base.IsMatch(value, findWhat, replaceWith);
+            var result = base.IsMatch(value, findWhat, replaceWith);
 
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(
@@ -104,21 +104,19 @@ namespace MFR.Engines.Matching
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(findWhat)
                 );
-            if (string.IsNullOrWhiteSpace(replaceWith))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(replaceWith)
-                );
-
-            bool result;
 
             try
             {
-                result = GetStringMatcher.For(OperationType.RenameFilesInFolder)
-                                         .AndTextMatchingConfiguration(
-                                             CurrentConfiguration
-                                                 .GetTextMatchingConfiguration()
-                                         )
-                                         .IsMatch(value, findWhat, replaceWith);
+                if (string.IsNullOrWhiteSpace(value))
+                    return result;
+
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+
+                var matcher = GetOperationMatcher();
+                if (matcher == null) return result;
+
+                result = matcher.IsMatch(value, findWhat, replaceWith);
             }
             catch (Exception ex)
             {

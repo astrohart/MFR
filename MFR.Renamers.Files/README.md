@@ -131,7 +131,7 @@ enumeration value that indicates which operation is currently being performed.
 ##### Summary
 
 Gets a reference to a collection of of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values.
 
 ##### Remarks

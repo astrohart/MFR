@@ -6,7 +6,6 @@ using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.FileSystem.Validators
@@ -108,10 +107,11 @@ namespace MFR.FileSystem.Validators
 
             try
             {
-                result = base.ShouldSkip(path)
-                         || string.IsNullOrWhiteSpace(Path.GetExtension(path)) 
-                         || MakeNewFileInfo.ForPath(path)
-                             .IsZeroLengthFile() || Path.GetExtension(path)
+                result = base.ShouldSkip(path) ||
+                         string.IsNullOrWhiteSpace(Path.GetExtension(path)) ||
+                         MakeNewFileInfo.ForPath(path)
+                                        .IsZeroLengthFile() || Path
+                             .GetExtension(path)
                              .IsAnyOf(
                                  ".exe", ".bat", ".com", ".pif", ".rar", ".zip"
                              );

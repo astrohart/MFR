@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -153,17 +154,17 @@ namespace MFR.FileSystem.Validators
 
         /// <summary>
         /// Determines whether the file system entry at the specified
-        /// <paramref name="path" />, be it a file or a folder, exists.
+        /// <paramref name="pathname" />, be it a file or a folder, exists.
         /// <para />
         /// Since a different API is used to determine whether files or directories exist,
         /// this method must be overriden by child classes.
         /// </summary>
-        /// <param name="path">
+        /// <param name="pathname">
         /// (Required.) String containing the fully-qualified pathname
         /// of the resource whose existence must be checked.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the resource exists at the path specified;
+        /// <see langword="true" /> if the resource exists at the pathname specified;
         /// <see langword="false" /> otherwise.
         /// </returns>
         /// <remarks>
@@ -174,15 +175,15 @@ namespace MFR.FileSystem.Validators
         /// method.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        protected virtual bool DoesExist(string path)
+        protected virtual bool DoesExist(string pathname)
         {
             var result = false;
 
-            if (string.IsNullOrWhiteSpace(path)) return result;
-
             try
             {
-                result = File.Exists(path);
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+
+                result = Does.FileSystemEntryExist(pathname);
             }
             catch (Exception ex)
             {

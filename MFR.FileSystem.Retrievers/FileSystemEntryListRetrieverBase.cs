@@ -1,7 +1,7 @@
 using MFR.Engines.Matching.Factories;
 using MFR.Engines.Matching.Interfaces;
-using MFR.Expressions.Matches;
 using MFR.Expressions.Matches.Factories;
+using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
@@ -21,6 +21,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using xyLOGIX.Core.Debug;
 
@@ -505,20 +506,50 @@ namespace MFR.FileSystem.Retrievers
                 VerifyConfigurationAttached();
 
                 var fileData = GetFileDataForReplaceInFiles(entry);
+                if (OperationType == OperationType.ReplaceTextInFiles
+                    && string.IsNullOrWhiteSpace(fileData))
+                    return result;
 
-                result = (MatchExpression)GetMatchExpressionFactory
-                                          .For(OperationType)
-                                          .AndAttachConfiguration(
-                                              CurrentConfiguration
-                                          )
-                                          .ForTextValue(
-                                              OperationType ==
-                                              OperationType.ReplaceTextInFiles
-                                                  ? fileData
-                                                  : entry.Path
-                                          )
-                                          .ToFindWhat(FindWhat)
-                                          .AndReplaceItWith(ReplaceWith);
+                if (entry.Path.Contains("Foo"))
+                {
+                    Debugger.Launch();
+                    Debugger.Break();
+                }
+
+                var matchExpressionFactory =
+                    GetMatchExpressionFactoryForOperation();
+                if (matchExpressionFactory == null) return result;
+
+                result = matchExpressionFactory.ForTextValue(
+                                                   GetTextValueForOperation(
+                                                       entry, fileData
+                                                   )
+                                               )
+                                               .ToFindWhat(FindWhat)
+                                               .AndReplaceItWith(ReplaceWith);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
+
+        protected IMatchExpressionFactory
+            GetMatchExpressionFactoryForOperation()
+        {
+            IMatchExpressionFactory result;
+
+            try
+            {
+                result = GetMatchExpressionFactory.For(OperationType)
+                                                  .AndAttachConfiguration(
+                                                      CurrentConfiguration
+                                                  );
             }
             catch (Exception ex)
             {
@@ -637,15 +668,17 @@ namespace MFR.FileSystem.Retrievers
         {
             var result = string.Empty;
 
-            if (OperationType == OperationType.ReplaceTextInFiles)
-                return result;
-
             try
             {
+                /*
+                 * Can only run this method if we are replacing text in files.
+                 */
+                if (OperationType != OperationType.ReplaceTextInFiles)
+                    return result;
+
                 if (entry == null) return result;
                 if (string.IsNullOrWhiteSpace(entry.Path)) return result;
-                if (!Alphaleonis.Win32.Filesystem.File.Exists(entry.Path))
-                    return result;
+                if (!Does.FileSystemEntryExist(entry.Path)) return result;
 
                 if (Guid.Empty.Equals(entry.UserState)) return result;
 
@@ -656,6 +689,36 @@ namespace MFR.FileSystem.Retrievers
                 result = stream.ReadToEnd();
 
                 FileStreamProvider.DisposeStream(entry.UserState);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
+
+        private string GetTextValueForOperation(IFileSystemEntry entry,
+            string fileData)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                if (OperationType == OperationType.ReplaceTextInFiles)
+                {
+                    result = fileData;
+                    return result;
+                }
+
+                if (entry == null) return result;
+                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
+                if (!Does.FileSystemEntryExist(entry.Path)) return result;
+
+                result = entry.Path;
             }
             catch (Exception ex)
             {

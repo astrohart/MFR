@@ -8,13 +8,13 @@
   - [Instance](#P-MFR-FileSystem-Validators-DirectoryValidator-Instance 'MFR.FileSystem.Validators.DirectoryValidator.Instance')
   - [#cctor()](#M-MFR-FileSystem-Validators-DirectoryValidator-#cctor 'MFR.FileSystem.Validators.DirectoryValidator.#cctor')
   - [DoesExist(entry)](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [DoesExist(path)](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-System-String- 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist(System.String)')
+  - [DoesExist(pathname)](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-System-String- 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist(System.String)')
   - [IsValid(entry)](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.DirectoryValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FileSystemEntryValidator](#T-MFR-FileSystem-Validators-FileSystemEntryValidator 'MFR.FileSystem.Validators.FileSystemEntryValidator')
   - [ValidateFileSystemEntry(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidator-ValidateFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidator.ValidateFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FileSystemEntryValidatorBase](#T-MFR-FileSystem-Validators-FileSystemEntryValidatorBase 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase')
   - [DoesExist(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [DoesExist(path)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(System.String)')
+  - [DoesExist(pathname)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(System.String)')
   - [IsValid(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ShouldNotSkip(path)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldNotSkip-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldNotSkip(System.String)')
   - [ShouldSkip(path)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldSkip-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldSkip(System.String)')
@@ -104,12 +104,12 @@ the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSy
 passed a `null` value. |
 
 <a name='M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-System-String-'></a>
-### DoesExist(path) `method`
+### DoesExist(pathname) `method`
 
 ##### Summary
 
 Determines whether the file system entry at the specified
-`path`, be it a file or a folder, exists.
+`pathname`, be it a file or a folder, exists.
 
 
 
@@ -118,14 +118,14 @@ this method must be overriden by child classes.
 
 ##### Returns
 
-`true` if the resource exists at the path specified;
+`true` if the resource exists at the pathname specified;
 `false` otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
 of the resource whose existence must be checked. |
 
 ##### Remarks
@@ -168,14 +168,14 @@ parameter and the file cannot be located on the disk. |
 ##### Remarks
 
 If the properties of the `entry` have valid data
-and the path stored in the entry refers to a file-system object that
+and the pathname stored in the entry refers to a file-system object that
 exists on the disk, then this method does nothing.
 
 
 
 If an object instance variable or property has a
 `null`
-reference, or if the path stored in the entry
+reference, or if the pathname stored in the entry
 refers to a file-system object that does not exist on the disk, then
 an exception is thrown.
 
@@ -259,12 +259,12 @@ the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSy
 passed a `null` value. |
 
 <a name='M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String-'></a>
-### DoesExist(path) `method`
+### DoesExist(pathname) `method`
 
 ##### Summary
 
 Determines whether the file system entry at the specified
-`path`, be it a file or a folder, exists.
+`pathname`, be it a file or a folder, exists.
 
 
 
@@ -273,14 +273,14 @@ this method must be overriden by child classes.
 
 ##### Returns
 
-`true` if the resource exists at the path specified;
+`true` if the resource exists at the pathname specified;
 `false` otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
 of the resource whose existence must be checked. |
 
 ##### Remarks

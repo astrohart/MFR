@@ -46,7 +46,7 @@ that can tell if data matches a value.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies the operation currently being performed. |
 

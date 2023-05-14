@@ -10,6 +10,7 @@
   - [#ctor()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
   - [ConfigurationProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigurationProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.CurrentConfiguration')
+  - [FileStreamProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileStreamProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileStreamProvider')
   - [FileSystemEntryValidatorSays](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
   - [FindWhat](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
   - [OperationType](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
@@ -55,6 +56,7 @@
   - [VerifyConfigurationAttached()](#M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-VerifyConfigurationAttached 'MFR.FileSystem.Retrievers.SolutionFilePathRetriever.VerifyConfigurationAttached')
 - [TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#ctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#ctor')
+  - [FileStreamProvider](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-FileStreamProvider 'MFR.FileSystem.Retrievers.TextInFilesRetriever.FileStreamProvider')
   - [Instance](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance 'MFR.FileSystem.Retrievers.TextInFilesRetriever.Instance')
   - [OperationType](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType 'MFR.FileSystem.Retrievers.TextInFilesRetriever.OperationType')
   - [#cctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#cctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#cctor')
@@ -171,6 +173,15 @@ the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
+<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileStreamProvider'></a>
+### FileStreamProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
+
 <a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays'></a>
 ### FileSystemEntryValidatorSays `property`
 
@@ -207,7 +218,7 @@ method.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -656,7 +667,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-FileSystem-Retrievers-FilesToRenameRetriever-#cctor'></a>
@@ -761,7 +772,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-FileSystem-Retrievers-FolderToRenameRetriever-#cctor'></a>
@@ -893,7 +904,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -1127,20 +1138,30 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
+<a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-FileStreamProvider'></a>
+### FileStreamProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
+
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever').
+Gets a reference to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that represents an object that is capable of searching text in files.
 
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#cctor'></a>

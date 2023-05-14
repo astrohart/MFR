@@ -34,7 +34,7 @@ namespace MFR.Matchers.Factories
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderStringMatcherFactory Instance
+        public static IStringMatcherFactory Instance
         {
             get;
         } = new RenameFilesInFolderStringMatcherFactory();

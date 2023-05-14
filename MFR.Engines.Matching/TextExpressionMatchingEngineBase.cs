@@ -1,12 +1,16 @@
 using MFR.Engines.Matching.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
+using MFR.Matchers.Factories;
+using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Matching
 {
@@ -121,10 +125,8 @@ namespace MFR.Engines.Matching
         /// NOTE: Implementers of this object must override this method and the
         /// override must start by calling the base class.
         /// </remarks>
-        public virtual bool IsMatch(
-            [NotLogged] string value, 
-            [NotLogged] string findWhat,
-            [NotLogged] string replaceWith = "")
+        public virtual bool IsMatch([NotLogged] string value,
+            [NotLogged] string findWhat, [NotLogged] string replaceWith = "")
         {
             VerifyConfigurationAttached();
 
@@ -164,6 +166,37 @@ namespace MFR.Engines.Matching
             return IsMatch(
                 expression.Value, expression.FindWhat, expression.ReplaceWith
             );
+        }
+
+        /// <summary>
+        /// Attempts to obtain a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface for the
+        /// current operation.
+        /// </summary>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface that
+        /// corresponds to the current operation and matching configuration.
+        /// </returns>
+        protected IStringMatcher GetOperationMatcher()
+        {
+            IStringMatcher result = default;
+
+            try
+            {
+                result = GetStringMatcherFactory.For(OperationType)
+                                         .AndTextMatchingConfiguration(
+                                             CurrentConfiguration
+                                                 .GetTextMatchingConfiguration()
+                                         );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
+            return result;
         }
     }
 }

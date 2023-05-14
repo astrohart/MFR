@@ -109,7 +109,7 @@ namespace MFR.FileSystem.Retrievers
             {
                 result.AddRange(
                     Enumerate.Files(rootFolderPath, SearchPattern, SearchOption, path => ShouldDoPath(path, pathFilter))
-                             .AsParallel()
+                             //.AsParallel()
                              .Select(MakeNewFileSystemEntry.ForPath)
                              .Where(entry => entry != null)
                              .Where(SearchCriteriaMatch)

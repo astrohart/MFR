@@ -102,13 +102,13 @@ namespace MFR.FileSystem.Validators
         /// </exception>
         /// <remarks>
         /// If the properties of the <paramref name="entry" /> have valid data
-        /// and the path stored in the entry refers to a file-system object that
+        /// and the pathname stored in the entry refers to a file-system object that
         /// exists on the disk, then this method does nothing.
         /// <para />
         /// If an object instance variable or property has a
         /// <see
         ///     langword="null" />
-        /// reference, or if the path stored in the entry
+        /// reference, or if the pathname stored in the entry
         /// refers to a file-system object that does not exist on the disk, then
         /// an exception is thrown.
         /// </remarks>
@@ -119,23 +119,23 @@ namespace MFR.FileSystem.Validators
 
             if (!DoesExist(entry))
                 throw new DirectoryNotFoundException(
-                    $"The system cannot find the folder with path '{entry.Path}' on the disk."
+                    $"The system cannot find the folder with pathname '{entry.Path}' on the disk."
                 );
         }
 
         /// <summary>
         /// Determines whether the file system entry at the specified
-        /// <paramref name="path" />, be it a file or a folder, exists.
+        /// <paramref name="pathname" />, be it a file or a folder, exists.
         /// <para />
         /// Since a different API is used to determine whether files or directories exist,
         /// this method must be overriden by child classes.
         /// </summary>
-        /// <param name="path">
+        /// <param name="pathname">
         /// (Required.) String containing the fully-qualified pathname
         /// of the resource whose existence must be checked.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the resource exists at the path specified;
+        /// <see langword="true" /> if the resource exists at the pathname specified;
         /// <see langword="false" /> otherwise.
         /// </returns>
         /// <remarks>
@@ -145,15 +145,15 @@ namespace MFR.FileSystem.Validators
         /// <see cref="M:MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldSkip" />
         /// method.
         /// </remarks>
-        protected override bool DoesExist(string path)
+        protected override bool DoesExist(string pathname)
         {
             var result = false;
 
-            if (string.IsNullOrWhiteSpace(path)) return result;
+            if (string.IsNullOrWhiteSpace(pathname)) return result;
 
             try
             {
-                result = Directory.Exists(path);
+                result = Directory.Exists(pathname);
             }
             catch (Exception ex)
             {

@@ -112,7 +112,7 @@ namespace MFR.FileSystem.Retrievers
                                  rootFolderPath, SearchPattern, SearchOption,
                                  path => ShouldDoPath(path, pathFilter)
                              )
-                             .AsParallel()
+                             //.AsParallel()
                              .Select(MakeNewFileSystemEntry.ForPath)
                              .Where(SearchCriteriaMatch)
                 );

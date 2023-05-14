@@ -156,7 +156,7 @@ namespace MFR.FileSystem.Retrievers
                                  rootFolderPath, SearchPattern, SearchOption,
                                  path => ShouldDoPath(path, pathFilter)
                              )
-                             .AsParallel()
+                             //.AsParallel()
                              .Select(
                                  path => MakeNewFileSystemEntry.ForPath(path)
                                      .AndHavingUserState(

@@ -1,9 +1,8 @@
-using MFR.Settings.Configuration.Helpers;
-using MFR.Settings.Configuration.Interfaces;
-using MFR.Matchers.Factories;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Matching
@@ -20,13 +19,14 @@ namespace MFR.Engines.Matching
         /// and returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter,
+        /// <paramref name="projectFileRenamerConfiguration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public TextInFilesMatchingEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
-            projectFileRenamerConfiguration
-        ) { }
+        public TextInFilesMatchingEngine(
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
+            base(projectFileRenamerConfiguration) { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -104,36 +104,38 @@ namespace MFR.Engines.Matching
         /// default result of <see langword="false" />.
         /// </remarks>
         public override bool IsMatch(
-            [NotLogged] string value, /* data from a file, encoded as a string of bytes */
-            [NotLogged] string findWhat, /* the pattern to search against, which may contain whitespace chars */
+            [NotLogged]
+            string value, /* data from a file, encoded as a string of bytes */
+            [NotLogged]
+            string findWhat, /* the pattern to search against, which may contain whitespace chars */
             [NotLogged] string replaceWith =
                 "" /* optional replacement value; blank erases text. */
         )
         {
-            base.IsMatch(value, findWhat, replaceWith);
+            var result = base.IsMatch(value, findWhat, replaceWith);
 
-            // can't match if there is no data against which to search. BUT if
-            // the file whose content is being passed in the 'source' parameter
-            // contains only whitespace, then this is OK to match against.
-            if (string.IsNullOrEmpty(value))
-                return false;
-
-            if (string.IsNullOrEmpty(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or the empty string. It CAN be whitespace, however.",
-                    nameof(findWhat)
-                );
-
-            bool result;
+            Debugger.Launch();
+            Debugger.Break();
 
             try
             {
-                result = GetStringMatcher.For(OperationType.ReplaceTextInFiles)
-                                         .AndTextMatchingConfiguration(
-                                             CurrentConfiguration
-                                                 .GetTextMatchingConfiguration()
-                                         )
-                                         .IsMatch(value, findWhat, replaceWith);
+                // can't match if there is no data against which to search. BUT if
+                // the file whose content is being passed in the 'source' parameter
+                // contains only whitespace, then this is OK to match against.
+                if (string.IsNullOrEmpty(value))
+                    return result;
+
+                if (string.IsNullOrEmpty(findWhat))
+                    return result;
+
+                var matcher = GetOperationMatcher();
+                if (matcher == null) return result;
+
+                /*
+                 * Ask the matcher if the search criteria are a match or not.
+                 */
+
+                result = matcher.IsMatch(value, findWhat, replaceWith);
             }
             catch (Exception ex)
             {

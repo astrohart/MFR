@@ -30,28 +30,28 @@ namespace MFR.Matchers.Factories.Tests
             Test_AndTextMatchingConfiguration_Returns_AppropriateMatcher_ForEach_TextMatchingConfigurationValue()
         {
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseOnly
                                 ),
                 Is.InstanceOf<MatchCaseOnlyFolderNameStringMatcher>()
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchExactWordOnly
                                 ),
                 Is.InstanceOf<MatchExactWordOnlyFolderNameStringMatcher>()
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                 ),
                 Is.InstanceOf<MatchCaseAndExactWordFolderNameStringMatcher>()
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration
                                         .NeitherMatchCaseNorExactWord
@@ -78,25 +78,25 @@ namespace MFR.Matchers.Factories.Tests
             Test_AndTextMatchingConfiguration_Returns_ImplementerOf_IStringMatcher()
         {
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseOnly
                                 ), Is.InstanceOf<IStringMatcher>()
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchExactWordOnly
                                 ), Is.InstanceOf<IStringMatcher>()
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                 ), Is.InstanceOf<IStringMatcher>()
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration
                                         .NeitherMatchCaseNorExactWord
@@ -118,7 +118,7 @@ namespace MFR.Matchers.Factories.Tests
             Test_TextMatchingConfiguration_OfEachConcreteMatcherType_HasCorrectValue()
         {
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseOnly
                                 )
@@ -126,7 +126,7 @@ namespace MFR.Matchers.Factories.Tests
                 Is.EqualTo(TextMatchingConfiguration.MatchCaseOnly)
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchExactWordOnly
                                 )
@@ -134,7 +134,7 @@ namespace MFR.Matchers.Factories.Tests
                 Is.EqualTo(TextMatchingConfiguration.MatchExactWordOnly)
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                 )
@@ -142,7 +142,7 @@ namespace MFR.Matchers.Factories.Tests
                 Is.EqualTo(TextMatchingConfiguration.MatchCaseAndExactWord)
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration
                                         .NeitherMatchCaseNorExactWord
@@ -172,7 +172,7 @@ namespace MFR.Matchers.Factories.Tests
         public void Test_OperationType_Property_IsSetTo_RenameSubFolders()
         {
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseOnly
                                 )
@@ -180,7 +180,7 @@ namespace MFR.Matchers.Factories.Tests
                 Is.EqualTo(OperationType.RenameSubFolders)
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchExactWordOnly
                                 )
@@ -188,7 +188,7 @@ namespace MFR.Matchers.Factories.Tests
                 Is.EqualTo(OperationType.RenameSubFolders)
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration.MatchCaseAndExactWord
                                 )
@@ -196,7 +196,7 @@ namespace MFR.Matchers.Factories.Tests
                 Is.EqualTo(OperationType.RenameSubFolders)
             );
             Assert.That(
-                GetStringMatcher.For(OperationType.RenameSubFolders)
+                GetStringMatcherFactory.For(OperationType.RenameSubFolders)
                                 .AndTextMatchingConfiguration(
                                     TextMatchingConfiguration
                                         .NeitherMatchCaseNorExactWord

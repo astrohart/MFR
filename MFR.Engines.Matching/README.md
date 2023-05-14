@@ -91,7 +91,7 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-FileNameMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
@@ -192,7 +192,7 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
@@ -339,7 +339,7 @@ interface.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String-'></a>
@@ -474,7 +474,7 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
