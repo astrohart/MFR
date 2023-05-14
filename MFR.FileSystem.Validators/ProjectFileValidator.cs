@@ -14,18 +14,17 @@ namespace MFR.FileSystem.Validators
     /// <summary>
     /// Defines an object that validates the paths of files.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class ProjectFileValidator : FileSystemEntryValidatorBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
         static ProjectFileValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
         protected ProjectFileValidator() { }
 
         /// <summary>
@@ -33,7 +32,6 @@ namespace MFR.FileSystem.Validators
         /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
         /// interface that validates project files.
         /// </summary>
-        [Log(AttributeExclude = true)]
         public static IFileSystemEntryValidator Instance
         {
             get;
@@ -100,7 +98,6 @@ namespace MFR.FileSystem.Validators
         /// entry with the specified <paramref name="path" /> is to be skipped by
         /// the operation; otherwise, <see langword="false" />.
         /// </returns>
-        [Log(AttributeExclude = true)]
         public override bool ShouldSkip(string path)
         {
             var result = true;

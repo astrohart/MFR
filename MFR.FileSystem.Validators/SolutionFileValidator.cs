@@ -1,6 +1,7 @@
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -14,30 +15,26 @@ namespace MFR.FileSystem.Validators
     /// Defines an object that validates the paths of Visual Studio Solution (those
     /// whose names have the extension <c>.sln</c>) files.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class SolutionFileValidator : FileSystemEntryValidatorBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        static SolutionFileValidator()
-        {
-        }
+        static SolutionFileValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        protected SolutionFileValidator()
-        {
-        }
+        protected SolutionFileValidator() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Validators.SolutionFileValidator" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
+        /// interface and which validates the pathnames of Visual Studio Solution (*.sln)
+        /// files.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public static SolutionFileValidator Instance
+        public static IFileSystemEntryValidator Instance
         {
             get;
         } = new SolutionFileValidator();
