@@ -10,13 +10,13 @@ using MFR.Common;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
+using MFR.File.Stream.Providers.Factories;
+using MFR.File.Stream.Providers.Interfaces;
 using MFR.GUI.Actions;
 using MFR.GUI.Application.Interfaces;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Displayers;
 using MFR.GUI.Processors.Factories;
-using MFR.Operations.Constants;
-using MFR.Operations.Descriptions.Factories;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
@@ -115,6 +115,14 @@ namespace MFR.GUI.Application
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// interface.
+        /// </summary>
+        private static IFileStreamProvider FileStreamProvider
+            => GetFileStreamProvider.SoleInstance();
+
+        /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.GUI.Application.ProjectFileRenamerApp" />.
         /// </summary>
@@ -185,6 +193,10 @@ namespace MFR.GUI.Application
 
                     ProcessCommandLine();
 
+                    // When we are here, the application has been closed by the user.
+
+                    FileStreamProvider.DisposeAll();
+
                     // Save changes in the configuration back out to the disk.
                     // Also writes the path to the config file to the Registry.
                     //
@@ -205,6 +217,10 @@ namespace MFR.GUI.Application
                 OnInitialized();
 
                 ProcessCommandLine();
+
+                // When we are here, the application has been closed by the user.
+
+                FileStreamProvider.DisposeAll();
 
                 Revoke.WindowsMessageFilter();
             }
@@ -382,7 +398,7 @@ namespace MFR.GUI.Application
         /// </summary>
         private static void SetUpLogging()
             => LogFileManager.InitializeLogging(
-                true, infrastructureType: LoggingInfrastructureType.PostSharp
+                infrastructureType: LoggingInfrastructureType.PostSharp
             );
 
         /// <summary>
