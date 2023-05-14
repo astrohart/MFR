@@ -195,8 +195,6 @@ namespace MFR.GUI.Application
 
                     // When we are here, the application has been closed by the user.
 
-                    FileStreamProvider.DisposeAll();
-
                     // Save changes in the configuration back out to the disk.
                     // Also writes the path to the config file to the Registry.
                     //
@@ -206,8 +204,6 @@ namespace MFR.GUI.Application
                     ConfigurationProvider.Save();
 
                     ProfileProvider.Save();
-
-                    Revoke.WindowsMessageFilter();
                 }
             else
             {
@@ -219,11 +215,11 @@ namespace MFR.GUI.Application
                 ProcessCommandLine();
 
                 // When we are here, the application has been closed by the user.
-
-                FileStreamProvider.DisposeAll();
-
-                Revoke.WindowsMessageFilter();
             }
+
+            FileStreamProvider.DisposeAll();
+
+            Revoke.WindowsMessageFilter();
         }
 
         /// <summary>
