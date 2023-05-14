@@ -28,11 +28,6 @@ namespace MFR.FileSystem.Factories.Actions
         {
             var result = false;
 
-            // Dump the variable pathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, $"Is.Folder: pathname = '{pathname}'"
-            );
-
             try
             {
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
@@ -52,10 +47,6 @@ namespace MFR.FileSystem.Factories.Actions
 
                 result = false;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, $"Is.Folder: Result = {result}"
-            );
 
             return result;
         }
