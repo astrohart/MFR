@@ -76,7 +76,7 @@ the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-
 
 The specific match-expression factory in use is that which is keyed
 to the
-[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
 operation type.
 
 <a name='M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Initialize'></a>

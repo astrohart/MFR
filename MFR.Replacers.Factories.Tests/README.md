@@ -57,7 +57,7 @@ method
 returns a reference to an instance of an object that implements the
 [IStringReplacerFactory](#T-MFR-IStringReplacerFactory 'MFR.IStringReplacerFactory')
 interface when the
-[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
 value is passed for its argument.
 
 ##### Parameters
@@ -75,7 +75,7 @@ method
 returns a reference to an instance of
 [RenameFilesInFolderStringReplacerFactory](#T-MFR-RenameFilesInFolderStringReplacerFactory 'MFR.RenameFilesInFolderStringReplacerFactory')
 when the
-[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -93,7 +93,7 @@ method
 returns a reference to an instance of
 [RenameSubFoldersStringReplacerFactory](#T-MFR-RenameSubFoldersStringReplacerFactory 'MFR.RenameSubFoldersStringReplacerFactory')
 when the
-[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -111,7 +111,7 @@ method
 returns a reference to an instance of
 [ReplaceTextInFilesStringReplacerFactory](#T-MFR-ReplaceTextInFilesStringReplacerFactory 'MFR.ReplaceTextInFilesStringReplacerFactory')
 when the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -156,7 +156,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringReplacerFactory-AndTextMatchingConfiguration 'MFR.IStringReplacerFactory.AndTextMatchingConfiguration')
 method for the
-[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
 value implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface.
@@ -178,7 +178,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
 value, is set to that value.
 
 ##### Parameters
@@ -238,7 +238,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringReplacerFactory-AndTextMatchingConfiguration 'MFR.IStringReplacerFactory.AndTextMatchingConfiguration')
 method for the
-[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
 value implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface.
@@ -260,7 +260,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
 value, is set to that value.
 
 ##### Parameters
@@ -320,7 +320,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringReplacerFactory-AndTextMatchingConfiguration 'MFR.IStringReplacerFactory.AndTextMatchingConfiguration')
 method for the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 value implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface.
@@ -342,7 +342,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 value, is set to that value.
 
 ##### Parameters
