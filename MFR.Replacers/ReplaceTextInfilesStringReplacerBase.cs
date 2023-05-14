@@ -1,6 +1,7 @@
-using MFR.Settings.Configuration.Constants;
 using MFR.Operations.Constants;
 using MFR.Replacers.Interfaces;
+using MFR.Settings.Configuration.Constants;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Replacers
 {
@@ -13,6 +14,16 @@ namespace MFR.Replacers
         /// <summary>
         /// Gets one of the
         /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values that
+        /// corresponds to the type of operation being performed.
+        /// </summary>
+        public OperationType OperationType
+            => OperationType.ReplaceTextInFiles;
+
+        /// <summary>
+        /// Gets one of the
+        /// <see
         ///     cref="T:MFR.TextMatchingConfiguration" />
         /// values that
         /// corresponds to the type of operation being performed.
@@ -21,16 +32,6 @@ namespace MFR.Replacers
         {
             get;
         }
-
-        /// <summary>
-        /// Gets one of the
-        /// <see
-        ///     cref="T:MFR.Operations.Constants.OperationType" />
-        /// values that
-        /// corresponds to the type of operation being performed.
-        /// </summary>
-        public OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by
@@ -61,7 +62,8 @@ namespace MFR.Replacers
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
-        public abstract string Replace(string value, string pattern,
-            string dest = "");
+        [return: NotLogged]
+        public abstract string Replace([NotLogged] string value,
+            [NotLogged] string pattern, [NotLogged] string dest = "");
     }
 }

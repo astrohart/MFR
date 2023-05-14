@@ -81,18 +81,12 @@ namespace MFR.Replacers
         /// <b>NOTE:</b> For this search, a blank value is allowed for the
         /// <paramref name="dest" /> parameter.
         /// </exception>
-        public override string Replace(string value, string pattern,
-            string dest = "")
+        [return: NotLogged]
+        public override string Replace(
+            [NotLogged] string value,
+            [NotLogged] string pattern, 
+            [NotLogged] string dest = "")
         {
-            if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(value)
-                );
-            if (string.IsNullOrWhiteSpace(pattern))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pattern)
-                );
-
             /*
              * OKAY, the source parameter holds the current content of the file in
              * which we are to replace text.  The pattern parameter holds the value
@@ -103,10 +97,15 @@ namespace MFR.Replacers
              * text in the destination file.
              */
 
-            var result = value;    // no replacement in the event of an exception
+            var result = value; // no replacement in the event of an exception
 
             try
             {
+                if (string.IsNullOrEmpty(value))
+                    return result;
+                if (string.IsNullOrEmpty(pattern))
+                    return result;
+
                 result = value.Replace(pattern, dest);
             }
             catch (Exception ex)
@@ -114,7 +113,7 @@ namespace MFR.Replacers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = value;    // no replacement in the event of an exception
+                result = value; // no replacement in the event of an exception
             }
 
             return result;

@@ -79,24 +79,21 @@ namespace MFR.Replacers
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
-        public override string Replace(string value, string pattern,
-            string dest = "")
+        [return: NotLogged]
+        public override string Replace(
+            [NotLogged] string value, 
+            [NotLogged] string pattern,
+            [NotLogged] string dest = "")
         {
-            if (string.IsNullOrEmpty(value))
-                throw new ArgumentException(
-                    "Source cannot be null or the empty string.  It CAN be whitespace, however.",
-                    nameof(value)
-                );
+            var result = string.Empty;
 
-            if (string.IsNullOrEmpty(pattern))
-                throw new ArgumentException(
-                    "The pattern cannot be null or the empty string.  It CAN be whitespace, however.",
-                    nameof(pattern)
-                );
-
-            string result;
             try
             {
+                if (string.IsNullOrEmpty(value))
+                    return result;
+                if (string.IsNullOrEmpty(pattern))
+                    return result;
+
                 result = value.ReplaceNoCase(pattern, dest);
             }
             catch (Exception ex)
