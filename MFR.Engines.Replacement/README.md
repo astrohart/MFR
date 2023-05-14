@@ -84,7 +84,7 @@ is passed a `null` value. |
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String-'></a>
@@ -181,7 +181,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -308,7 +308,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -452,7 +452,7 @@ interface.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 

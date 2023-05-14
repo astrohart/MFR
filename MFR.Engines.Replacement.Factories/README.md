@@ -31,7 +31,7 @@ Gets an instance of the object that implements the
 [ITextReplacementEngine](#T-MFR-ITextReplacementEngine 'MFR.ITextReplacementEngine')
 interface
 corresponding to the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 specified.
 
 ##### Returns
@@ -48,7 +48,7 @@ specified, or `null` if no object supports the specified
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies which operation is being performed. |
 

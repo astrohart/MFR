@@ -15,7 +15,7 @@
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
   - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
-  - [RootDirectoryValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryValidator')
+  - [RootDirectoryPathValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathValidator')
   - [RootFolderPathManager](#P-MFR-Renamers-Files-FileRenamer-RootFolderPathManager 'MFR.Renamers.Files.FileRenamer.RootFolderPathManager')
   - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
@@ -196,13 +196,13 @@ is loaded in a running instance of Visual Studio.
 Gets a string containing the full pathname of the folder where all
 operations start.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 ##### Remarks

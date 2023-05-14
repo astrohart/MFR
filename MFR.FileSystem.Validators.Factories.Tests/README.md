@@ -4,7 +4,7 @@
 ## Contents
 
 - [GetFileSystemEntryValidatorTests](#T-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests')
-  - [Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation()](#M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation')
+  - [Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation()](#M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation')
   - [Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation()](#M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation')
   - [Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation()](#M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation()](#M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation 'MFR.FileSystem.Validators.Factories.Tests.GetFileSystemEntryValidatorTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_Operation')
@@ -28,8 +28,8 @@ Provides unit tests for the methods, properties, and events of the
 [GetFileSystemEntryValidator](#T-MFR-GetFileSystemEntryValidator 'MFR.GetFileSystemEntryValidator')
 class.
 
-<a name='M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation'></a>
-### Test_For_ReturnsDirectoryValidator_For_RenameSubFolders_Operation() `method`
+<a name='M-MFR-FileSystem-Validators-Factories-Tests-GetFileSystemEntryValidatorTests-Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation'></a>
+### Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation() `method`
 
 ##### Summary
 

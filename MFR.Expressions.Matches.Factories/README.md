@@ -200,7 +200,7 @@ operation.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Expressions-Matches-Factories-FileNameReplacementMatchExpressionFactory-ForTextValue-System-String-'></a>
@@ -268,7 +268,7 @@ operation type.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='T-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory'></a>
@@ -304,7 +304,7 @@ interface.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | The [OperationType](#T-MFR-OperationType 'MFR.OperationType') value that
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | The [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') value that
 corresponds to the type of operation being performed.
 
 
@@ -315,14 +315,14 @@ NOTE: Not all operation types are supported. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the [OperationType](#T-MFR-OperationType 'MFR.OperationType')
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 value passed in the `type` parameter does not
 correspond to an operation type for which a match expression object
 can be created.
 
 
 
-Not all [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Not all [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 are supported. |
 
 <a name='T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase'></a>
@@ -378,7 +378,7 @@ search criteria.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -546,7 +546,7 @@ MFR.Expressions.Matches.Factories
 Defines the method of building an instance of an object that implements
 the [IMatchExpression](#T-MFR-IMatchExpression 'MFR.IMatchExpression') interface
 interface that correspond to the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 operation type.
 
 <a name='P-MFR-Expressions-Matches-Factories-ReplaceTextInFileMatchExpressionFactory-OperationType'></a>
@@ -555,7 +555,7 @@ operation type.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 

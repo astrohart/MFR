@@ -7,6 +7,7 @@
   - [DIRECTORY_THAT_EXISTS](#F-MFR-FileSystem-Factories-Actions-Tests-IsTests-DIRECTORY_THAT_EXISTS 'MFR.FileSystem.Factories.Actions.Tests.IsTests.DIRECTORY_THAT_EXISTS')
   - [FAKE_DIRECTORY](#F-MFR-FileSystem-Factories-Actions-Tests-IsTests-FAKE_DIRECTORY 'MFR.FileSystem.Factories.Actions.Tests.IsTests.FAKE_DIRECTORY')
   - [FAKE_FILE](#F-MFR-FileSystem-Factories-Actions-Tests-IsTests-FAKE_FILE 'MFR.FileSystem.Factories.Actions.Tests.IsTests.FAKE_FILE')
+  - [FILE_THAT_EXISTS](#F-MFR-FileSystem-Factories-Actions-Tests-IsTests-FILE_THAT_EXISTS 'MFR.FileSystem.Factories.Actions.Tests.IsTests.FILE_THAT_EXISTS')
   - [Test_IsFolder_ReturnsFalse_For_FakeDirectory()](#M-MFR-FileSystem-Factories-Actions-Tests-IsTests-Test_IsFolder_ReturnsFalse_For_FakeDirectory 'MFR.FileSystem.Factories.Actions.Tests.IsTests.Test_IsFolder_ReturnsFalse_For_FakeDirectory')
   - [Test_IsFolder_ReturnsFalse_For_FakeFile()](#M-MFR-FileSystem-Factories-Actions-Tests-IsTests-Test_IsFolder_ReturnsFalse_For_FakeFile 'MFR.FileSystem.Factories.Actions.Tests.IsTests.Test_IsFolder_ReturnsFalse_For_FakeFile')
   - [Test_IsFolder_ReturnsFalse_For_FileThatExists()](#M-MFR-FileSystem-Factories-Actions-Tests-IsTests-Test_IsFolder_ReturnsFalse_For_FileThatExists 'MFR.FileSystem.Factories.Actions.Tests.IsTests.Test_IsFolder_ReturnsFalse_For_FileThatExists')
@@ -50,6 +51,14 @@ a folder that does not exist.
 
 A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that holds the pathname of a file that is
 guaranteed not to exist.
+
+<a name='F-MFR-FileSystem-Factories-Actions-Tests-IsTests-FILE_THAT_EXISTS'></a>
+### FILE_THAT_EXISTS `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that holds the pathname of a file tht is
+guaranteed to exist.
 
 <a name='M-MFR-FileSystem-Factories-Actions-Tests-IsTests-Test_IsFolder_ReturnsFalse_For_FakeDirectory'></a>
 ### Test_IsFolder_ReturnsFalse_For_FakeDirectory() `method`

@@ -18,7 +18,7 @@
   - [ProfileProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileProvider')
   - [ReplaceWith](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWith 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWithComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWithComboBox')
-  - [RootDirectoryValidator](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryValidator 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RootDirectoryValidator')
+  - [RootDirectoryPathValidator](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryPathValidator 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RootDirectoryPathValidator')
   - [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolderComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolderComboBox')
   - [View](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-View 'MFR.GUI.Windows.Presenters.MainWindowPresenter.View')
@@ -216,13 +216,13 @@ Gets a reference to an instance of an object that implements the
 [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') interface
 that plays the role of the Replace With combo box on the main user interface.
 
-<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder'></a>
