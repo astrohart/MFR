@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Validators.Interfaces;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using PostSharp.Patterns.Diagnostics;
@@ -22,7 +23,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <remarks>
         /// This property is meant for fluent use.
         /// </remarks>
-        private static ProjectFileValidator ThatTheProjectFileValidatorSays
+        private static IFileSystemEntryValidator ThatTheProjectFileValidatorSays
             => ProjectFileValidator.Instance;
 
         /// <summary>
