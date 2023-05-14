@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using File = Alphaleonis.Win32.Filesystem.File;
@@ -8,6 +9,7 @@ namespace MFR.FileSystem.Factories.Actions
     /// <summary>
     /// Exposes static methods to determine whether certain conditions are met by data.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class Is
     {
         /// <summary>
@@ -27,7 +29,9 @@ namespace MFR.FileSystem.Factories.Actions
             var result = false;
 
             // Dump the variable pathname to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Is.Folder: pathname = '{pathname}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, $"Is.Folder: pathname = '{pathname}'"
+            );
 
             try
             {
@@ -49,7 +53,9 @@ namespace MFR.FileSystem.Factories.Actions
                 result = false;
             }
 
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Is.Folder: Result = {result}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, $"Is.Folder: Result = {result}"
+            );
 
             return result;
         }

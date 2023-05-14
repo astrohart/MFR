@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -7,6 +8,7 @@ namespace MFR.FileSystem.Factories.Actions
     /// <summary>
     /// Determines whether data meets certain conditions.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Does
     {
         /// <summary>
