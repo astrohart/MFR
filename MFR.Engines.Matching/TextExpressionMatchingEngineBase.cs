@@ -153,19 +153,28 @@ namespace MFR.Engines.Matching
         ///     langword="false" />
         /// otherwise.
         /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
         public bool IsMatch(IMatchExpression expression)
         {
-            if (expression == null)
-                throw new ArgumentNullException(nameof(expression));
+            var result = false;
 
-            // delegate to the other overload of this method
-            return IsMatch(
-                expression.Value, expression.FindWhat, expression.ReplaceWith
-            );
+            try
+            {
+                if (expression == null) return result;
+
+                // delegate to the other overload of this method
+                result = IsMatch(
+                    expression.Value, expression.FindWhat, expression.ReplaceWith
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>

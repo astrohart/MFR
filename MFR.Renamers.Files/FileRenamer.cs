@@ -6,7 +6,10 @@ using MFR.Engines.Replacement.Intefaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Expressions.Matches.Factories;
+using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
+using MFR.File.Stream.Providers.Factories;
+using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -19,6 +22,7 @@ using MFR.Managers.Solutions.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
+using MFR.Renamers.Files.Actions;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
 using MFR.Settings.Configuration;
@@ -37,8 +41,9 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
+using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
-using File = Alphaleonis.Win32.Filesystem.File;
+using Does = MFR.FileSystem.Factories.Actions.Does;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Renamers.Files
@@ -147,6 +152,14 @@ namespace MFR.Renamers.Files
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// interface.
+        /// </summary>
+        private static IFileStreamProvider FileStreamProvider
+            => GetFileStreamProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -1041,16 +1054,23 @@ namespace MFR.Renamers.Files
                 )
             );
 
-            IEnumerable<IFileSystemEntry> entryCollection =
+            IFileSystemEntryListRetriever retriever =
                 GetFileSystemEntryListRetriever
                     .For(OperationType.ReplaceTextInFiles)
-                    .AndAttachConfiguration(CurrentConfiguration)
-                    .UsingSearchPattern("*")
-                    .WithSearchOption(SearchOption.AllDirectories)
-                    .ToFindWhat(findWhat)
-                    .AndReplaceItWith(replaceWith)
-                    .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter);
-            var fileSystemEntries = entryCollection.ToList();
+                    .AndAttachConfiguration(CurrentConfiguration);
+            if (retriever == null) return result;
+
+            var fileSystemEntries = retriever.UsingSearchPattern("*")
+                                             .WithSearchOption(
+                                                 SearchOption.AllDirectories
+                                             )
+                                             .ToFindWhat(findWhat)
+                                             .AndReplaceItWith(replaceWith)
+                                             .GetMatchingFileSystemPaths(
+                                                 RootDirectoryPath, pathFilter
+                                             )
+                                             .ToList();
+
             if (!fileSystemEntries.Any() && !AbortRequested)
             {
                 OnStatusUpdate(
@@ -1099,6 +1119,11 @@ namespace MFR.Renamers.Files
                 DebugUtils.LogException(ex);
 
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+            finally
+            {
+                // free memory resources from the Replace Text In Files operation
+                FileStreamProvider.DisposeAll();
             }
 
             if (AbortRequested)
@@ -1318,7 +1343,7 @@ namespace MFR.Renamers.Files
                 if (solution == null) return;
                 if (!solution.IsLoaded) return;
                 if (string.IsNullOrWhiteSpace(solution.Path)) return;
-                if (!File.Exists(solution.Path)) return;
+                if (!Does.FileExist(solution.Path)) return;
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
@@ -1444,7 +1469,7 @@ namespace MFR.Renamers.Files
             if (string.IsNullOrWhiteSpace(findWhat)) return result;
             if (string.IsNullOrWhiteSpace(replaceWith)) return result;
             if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-                !File.Exists(entry.Path)) return result;
+                !Does.FileExist(entry.Path)) return result;
             if (AbortRequested) return result;
 
             try
@@ -1505,12 +1530,18 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private string GetTextInFileReplacementData()
+        private string GetTextInFileReplacementData(IFileSystemEntry entry,
+            string findWhat, string replaceWith)
         {
             var result = string.Empty;
 
             try
             {
+                if (entry == null) return result;
+                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
+                if (!Does.FileSystemEntryExist(entry.Path)) return result;
+                if (string.IsNullOrWhiteSpace(findWhat)) return result;
+
                 ITextReplacementEngine engine = GetTextReplacementEngine
                                                 .For(
                                                     OperationType
@@ -1521,15 +1552,28 @@ namespace MFR.Renamers.Files
                                                 );
                 if (engine == null) return result;
 
-                IMatchExpression expression = GetMatchExpressionFactory
-                                              .For(
-                                                  OperationType
-                                                      .ReplaceTextInFiles
-                                              )
+                IMatchExpressionFactory matchExpressionFactory =
+                    GetMatchExpressionFactory
+                        .For(OperationType.ReplaceTextInFiles)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (matchExpressionFactory == null) return result;
+
+                var textToBeSearched = GetTextValueRetriever.For(
+                        OperationType.ReplaceTextInFiles
+                    )
+                    .GetTextValue(entry);
+                if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
+
+                IMatchExpression expression = matchExpressionFactory
+                                              .ForTextValue(textToBeSearched)
                                               .AndAttachConfiguration(
                                                   CurrentConfiguration
-                                              );
+                                              )
+                                              .ToFindWhat(findWhat)
+                                              .AndReplaceItWith(replaceWith);
                 if (expression == null) return result;
+
+                result = engine.Replace(expression);
             }
             catch (Exception ex)
             {
@@ -1810,7 +1854,7 @@ namespace MFR.Renamers.Files
             if (string.IsNullOrWhiteSpace(findWhat)) return result;
             if (string.IsNullOrWhiteSpace(replaceWith)) return result;
             if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-                !File.Exists(entry.Path)) return result;
+                !Does.FileExist(entry.Path)) return result;
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -1835,7 +1879,7 @@ namespace MFR.Renamers.Files
 
                 var source = entry.Path;
                 if (string.IsNullOrWhiteSpace(source)) return result;
-                if (!File.Exists(source)) return result;
+                if (!Does.FileExist(source)) return result;
 
                 /*
                  * OKAY, the code below is going to actually figure
@@ -2064,7 +2108,7 @@ namespace MFR.Renamers.Files
                 if (solution.IsLoaded) return;
                 if (string.IsNullOrWhiteSpace(solution.Path))
                     return;
-                if (!File.Exists(solution.Path)) return;
+                if (!Does.FileExist(solution.Path)) return;
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
@@ -2106,72 +2150,34 @@ namespace MFR.Renamers.Files
         {
             var result = false;
 
-            /* validate inputs */
-
-            // Dump the variable findWhat to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileRenamer.ReplaceTextInFileForEntry: findWhat = '{findWhat}'"
-            );
-
-            // Dump the variable replaceWith to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileRenamer.ReplaceTextInFileForEntry: replaceWith = '{replaceWith}'"
-            );
-
-            // Dump the variable entry.Path to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileRenamer.ReplaceTextInFileForEntry: entry.Path = '{entry.Path}'"
-            );
-
-            if (string.IsNullOrWhiteSpace(findWhat)) return result;
-            if (string.IsNullOrWhiteSpace(replaceWith))
-                return result;
-            if (entry == null ||
-                string.IsNullOrWhiteSpace(entry.Path) ||
-                string.IsNullOrWhiteSpace(entry.UserState) ||
-                !File.Exists(entry.Path))
-                return result;
-            if (AbortRequested) return result;
-
             try
             {
+                /* validate inputs */
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+                if (string.IsNullOrWhiteSpace(replaceWith))
+                    return result;
+                if (entry == null ||
+                    string.IsNullOrWhiteSpace(entry.Path) ||
+                    Guid.Empty.Equals(entry.UserState) ||
+                    !Does.FileExist(entry.Path))
+                    return result;
+                if (AbortRequested) return result;
+
                 OnProcessingOperation(
                     new ProcessingOperationEventArgs(
                         entry, OperationType.ReplaceTextInFiles
                     )
                 );
 
-                string replacementData = GetTextReplacementEngine
-                                         .For(OperationType.ReplaceTextInFiles)
-                                         .AndAttachConfiguration(
-                                             CurrentConfiguration
-                                         )
-                                         .Replace(
-                                             (IMatchExpression)
-                                             GetMatchExpressionFactory
-                                                 .For(
-                                                     OperationType
-                                                         .ReplaceTextInFiles
-                                                 )
-                                                 .AndAttachConfiguration(
-                                                     CurrentConfiguration
-                                                 )
-                                                 .ForTextValue(
-                                                     GetTextValueRetriever.For(
-                                                             OperationType
-                                                                 .ReplaceTextInFiles
-                                                         )
-                                                         .GetTextValue(entry)
-                                                 )
-                                                 .ToFindWhat(findWhat)
-                                                 .AndReplaceItWith(replaceWith)
-                                         );
+                var replacementData = GetTextInFileReplacementData(
+                    entry, findWhat, replaceWith
+                );
+                if (string.IsNullOrWhiteSpace(replacementData))
+                    return result;
 
-                if (File.Exists(entry.Path))
-                    File.Delete(entry.Path);
+                if (Does.FileExist(entry.Path))
+                    Delete.File(entry.Path);
 
                 /*
                  * OKAY, check whether the replacement file data has zero byte length.
@@ -2191,7 +2197,7 @@ namespace MFR.Renamers.Files
                  * entirely.
                  */
                 if (!string.IsNullOrEmpty(replacementData))
-                    File.WriteAllText(entry.Path, replacementData);
+                    Write.FileContent(entry.Path, replacementData);
 
                 result = true;
             }

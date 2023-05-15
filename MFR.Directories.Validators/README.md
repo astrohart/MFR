@@ -6,15 +6,15 @@
 - [Resources](#T-MFR-Directories-Validators-Properties-Resources 'MFR.Directories.Validators.Properties.Resources')
   - [Culture](#P-MFR-Directories-Validators-Properties-Resources-Culture 'MFR.Directories.Validators.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Directories-Validators-Properties-Resources-ResourceManager 'MFR.Directories.Validators.Properties.Resources.ResourceManager')
-- [RootDirectoryValidator](#T-MFR-Directories-Validators-RootDirectoryValidator 'MFR.Directories.Validators.RootDirectoryValidator')
-  - [#ctor()](#M-MFR-Directories-Validators-RootDirectoryValidator-#ctor 'MFR.Directories.Validators.RootDirectoryValidator.#ctor')
-  - [Errors](#P-MFR-Directories-Validators-RootDirectoryValidator-Errors 'MFR.Directories.Validators.RootDirectoryValidator.Errors')
-  - [Instance](#P-MFR-Directories-Validators-RootDirectoryValidator-Instance 'MFR.Directories.Validators.RootDirectoryValidator.Instance')
-  - [VWarnings](#P-MFR-Directories-Validators-RootDirectoryValidator-VWarnings 'MFR.Directories.Validators.RootDirectoryValidator.VWarnings')
-  - [ValidationFailures](#P-MFR-Directories-Validators-RootDirectoryValidator-ValidationFailures 'MFR.Directories.Validators.RootDirectoryValidator.ValidationFailures')
-  - [#cctor()](#M-MFR-Directories-Validators-RootDirectoryValidator-#cctor 'MFR.Directories.Validators.RootDirectoryValidator.#cctor')
-  - [OnRootDirectoryInvalid(e)](#M-MFR-Directories-Validators-RootDirectoryValidator-OnRootDirectoryInvalid-MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.Directories.Validators.RootDirectoryValidator.OnRootDirectoryInvalid(MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
-  - [Validate(rootDirectory)](#M-MFR-Directories-Validators-RootDirectoryValidator-Validate-System-String- 'MFR.Directories.Validators.RootDirectoryValidator.Validate(System.String)')
+- [RootDirectoryPathValidator](#T-MFR-Directories-Validators-RootDirectoryPathValidator 'MFR.Directories.Validators.RootDirectoryPathValidator')
+  - [#ctor()](#M-MFR-Directories-Validators-RootDirectoryPathValidator-#ctor 'MFR.Directories.Validators.RootDirectoryPathValidator.#ctor')
+  - [Errors](#P-MFR-Directories-Validators-RootDirectoryPathValidator-Errors 'MFR.Directories.Validators.RootDirectoryPathValidator.Errors')
+  - [Instance](#P-MFR-Directories-Validators-RootDirectoryPathValidator-Instance 'MFR.Directories.Validators.RootDirectoryPathValidator.Instance')
+  - [VWarnings](#P-MFR-Directories-Validators-RootDirectoryPathValidator-VWarnings 'MFR.Directories.Validators.RootDirectoryPathValidator.VWarnings')
+  - [ValidationFailures](#P-MFR-Directories-Validators-RootDirectoryPathValidator-ValidationFailures 'MFR.Directories.Validators.RootDirectoryPathValidator.ValidationFailures')
+  - [#cctor()](#M-MFR-Directories-Validators-RootDirectoryPathValidator-#cctor 'MFR.Directories.Validators.RootDirectoryPathValidator.#cctor')
+  - [OnRootDirectoryInvalid(e)](#M-MFR-Directories-Validators-RootDirectoryPathValidator-OnRootDirectoryInvalid-MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.Directories.Validators.RootDirectoryPathValidator.OnRootDirectoryInvalid(MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
+  - [Validate(rootDirectory)](#M-MFR-Directories-Validators-RootDirectoryPathValidator-Validate-System-String- 'MFR.Directories.Validators.RootDirectoryPathValidator.Validate(System.String)')
 
 <a name='T-MFR-Directories-Validators-Properties-Resources'></a>
 ## Resources `type`
@@ -42,8 +42,8 @@ Overrides the current thread's CurrentUICulture property for all
 
 Returns the cached ResourceManager instance used by this class.
 
-<a name='T-MFR-Directories-Validators-RootDirectoryValidator'></a>
-## RootDirectoryValidator `type`
+<a name='T-MFR-Directories-Validators-RootDirectoryPathValidator'></a>
+## RootDirectoryPathValidator `type`
 
 ##### Namespace
 
@@ -53,7 +53,7 @@ MFR.Directories.Validators
 
 Validates the root directory of a project-rename operation.
 
-<a name='M-MFR-Directories-Validators-RootDirectoryValidator-#ctor'></a>
+<a name='M-MFR-Directories-Validators-RootDirectoryPathValidator-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -64,29 +64,29 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='P-MFR-Directories-Validators-RootDirectoryValidator-Errors'></a>
+<a name='P-MFR-Directories-Validators-RootDirectoryPathValidator-Errors'></a>
 ### Errors `property`
 
 ##### Summary
 
 Gets a collection of strings, each of which contains an error message.
 
-<a name='P-MFR-Directories-Validators-RootDirectoryValidator-Instance'></a>
+<a name='P-MFR-Directories-Validators-RootDirectoryPathValidator-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
 Gets a reference to the one and only instance of
-[RootDirectoryValidator](#T-MFR-Directories-Validators-RootDirectoryValidator 'MFR.Directories.Validators.RootDirectoryValidator').
+[RootDirectoryPathValidator](#T-MFR-Directories-Validators-RootDirectoryPathValidator 'MFR.Directories.Validators.RootDirectoryPathValidator').
 
-<a name='P-MFR-Directories-Validators-RootDirectoryValidator-VWarnings'></a>
+<a name='P-MFR-Directories-Validators-RootDirectoryPathValidator-VWarnings'></a>
 ### VWarnings `property`
 
 ##### Summary
 
 Gets a collection of strings, each of which contains a warning message.
 
-<a name='P-MFR-Directories-Validators-RootDirectoryValidator-ValidationFailures'></a>
+<a name='P-MFR-Directories-Validators-RootDirectoryPathValidator-ValidationFailures'></a>
 ### ValidationFailures `property`
 
 ##### Summary
@@ -95,7 +95,7 @@ Gets a count of validation failures that occurred the last time the
 [IsValid](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-IsValid 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.IsValid')
 method was called.
 
-<a name='M-MFR-Directories-Validators-RootDirectoryValidator-#cctor'></a>
+<a name='M-MFR-Directories-Validators-RootDirectoryPathValidator-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -106,13 +106,13 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-Directories-Validators-RootDirectoryValidator-OnRootDirectoryInvalid-MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs-'></a>
+<a name='M-MFR-Directories-Validators-RootDirectoryPathValidator-OnRootDirectoryInvalid-MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs-'></a>
 ### OnRootDirectoryInvalid(e) `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-CommandLine-Validators-RootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.RootDirectoryValidator.RootDirectoryInvalid')
+[](#E-MFR-CommandLine-Validators-RootDirectoryPathValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.RootDirectoryPathValidator.RootDirectoryInvalid')
 event.
 
 ##### Parameters
@@ -130,7 +130,7 @@ that contains the event data. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
 parameter, `e`, is passed a `null` value. |
 
-<a name='M-MFR-Directories-Validators-RootDirectoryValidator-Validate-System-String-'></a>
+<a name='M-MFR-Directories-Validators-RootDirectoryPathValidator-Validate-System-String-'></a>
 ### Validate(rootDirectory) `method`
 
 ##### Summary
@@ -166,5 +166,5 @@ otherwise.
 ##### Remarks
 
 In the event that validation fails, this method raises the
-[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
+[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryPathValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid')
 event.

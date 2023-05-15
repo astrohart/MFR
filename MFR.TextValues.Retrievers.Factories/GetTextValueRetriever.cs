@@ -1,5 +1,6 @@
 using MFR.Operations.Constants;
 using MFR.TextValues.Retrievers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.TextValues.Retrievers.Factories
@@ -17,6 +18,7 @@ namespace MFR.TextValues.Retrievers.Factories
     /// files, for content in which the search term is to be searched for in a
     /// find-and-replace operation.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public static class GetTextValueRetriever
     {
         /// <summary>
@@ -53,20 +55,20 @@ namespace MFR.TextValues.Retrievers.Factories
         /// </exception>
         public static ITextValueRetriever For(OperationType type)
         {
-            ITextValueRetriever retriever = null;
+            ITextValueRetriever retriever;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    retriever = FilenameTextValueRetriever.Instance;
+                    retriever = GetFilenameTextValueRetriever.SoleInstance();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    retriever = TextInFileTextValueRetriever.Instance;
+                    retriever = GetTextInFileTextValueRetriever.SoleInstance();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    retriever = FolderTextValueRetriever.Instance;
+                    retriever = GetFolderTextValueRetriever.SoleInstance();
                     break;
 
                 default:

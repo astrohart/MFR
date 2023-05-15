@@ -9,7 +9,6 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
-using MFR.FileSystem.Validators;
 using MFR.FileSystem.Validators.Factories;
 using MFR.FileSystem.Validators.Interfaces;
 using MFR.Operations.Constants;
@@ -17,12 +16,14 @@ using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.TextValues.Retrievers.Actions;
+using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Retrievers
@@ -31,6 +32,7 @@ namespace MFR.FileSystem.Retrievers
     /// Contains functionality that is shared by all file-system-entry-list
     /// retriever objects across all types of operations.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public abstract class FileSystemEntryListRetrieverBase :
         ConfigurationComposedObjectBase, IFileSystemEntryListRetriever
     {
@@ -93,7 +95,6 @@ namespace MFR.FileSystem.Retrievers
         /// The property is designed to be called as part of a fluent
         /// criteria-evaluation expression.
         /// </remarks>
-        [Log(AttributeExclude = true)]
         protected IFileSystemEntryValidator FileSystemEntryValidatorSays
             => GetFileSystemEntryValidator.For(OperationType);
 
@@ -248,36 +249,53 @@ namespace MFR.FileSystem.Retrievers
         public IEnumerable<IFileSystemEntry> GetMatchingFileSystemPaths(
             string rootFolderPath, Predicate<string> pathFilter = null)
         {
-            /*
-             * Validate the rootFolderPath by creating a file-system entry
-             * object for it and then validating the path of the entry thus
-             * created.  We do not utilize the factory object
-             * GetFileSystemEntryValidator here, but instead, we simply grab
-             * the singleton Instance of the DirectoryPathValidator class.
-             *
-             * This is because the factory uses the OperationType to grab a
-             * file-validator or folder-validator object.  Here, we know for
-             * certain that we expect rootFolderPath to be a directory path;
-             * therefore, we cut right to the chase and grab a directory
-             * validator object instance.
-             */
-            DirectoryPathValidator.Instance.IsValid(
-                MakeNewFileSystemEntry.ForPath(rootFolderPath)
-            );
+            var result = Enumerable.Empty<IFileSystemEntry>();
 
-            VerifyConfigurationAttached();
+            try
+            {
+                /*
+                 * Validate the rootFolderPath by creating a file-system entry
+                 * object for it and then validating the path of the entry thus
+                 * created.  We do not utilize the factory object
+                 * GetFileSystemEntryValidator here, but instead, we simply grab
+                 * the singleton Instance of the DirectoryPathValidator class.
+                 *
+                 * This is because the factory uses the OperationType to grab a
+                 * file-validator or folder-validator object.  Here, we know for
+                 * certain that we expect rootFolderPath to be a directory path;
+                 * therefore, we cut right to the chase and grab a directory
+                 * validator object instance.
+                 */
 
-            /*
-             * This method is merely a template to ensure that the rootFolderPath
-             * is verified to be referencing a folder that actually exists on the
-             * disk, and we ensure the configuration object is attached.
-             *
-             * The "meat" is done in the DoGetMatchingFileSystemPaths template
-             * method.  This method is declared abstract, so it must be implemented
-             * by children of this class.
-             */
+                if (string.IsNullOrWhiteSpace(rootFolderPath)) return result;
+                if (!Does.FileSystemEntryExist(rootFolderPath)) return result;
 
-            return DoGetMatchingFileSystemPaths(rootFolderPath, pathFilter);
+                var entry = MakeNewFileSystemEntry.ForPath(rootFolderPath);
+                if (!FileSystemEntryValidatorSays.IsValid(entry)) return result;
+
+                VerifyConfigurationAttached();
+
+                /*
+                 * This method is merely a template to ensure that the rootFolderPath
+                 * is verified to be referencing a folder that actually exists on the
+                 * disk, and we ensure the configuration object is attached.
+                 *
+                 * The "meat" is done in the DoGetMatchingFileSystemPaths template
+                 * method.  This method is declared abstract, so it must be implemented
+                 * by children of this class.
+                 */
+
+                result = DoGetMatchingFileSystemPaths(rootFolderPath, pathFilter);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = Enumerable.Empty<IFileSystemEntry>();
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -501,14 +519,10 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
-                FileSystemEntryValidatorSays.IsValid(entry);
+                if (!FileSystemEntryValidatorSays.IsValid(entry)) 
+                    return result;
 
                 VerifyConfigurationAttached();
-
-                var fileData = GetFileDataForReplaceInFiles(entry);
-                if (OperationType == OperationType.ReplaceTextInFiles &&
-                    string.IsNullOrWhiteSpace(fileData))
-                    return result;
 
                 var matchExpressionFactory =
                     GetMatchExpressionFactoryForOperation();
@@ -516,7 +530,7 @@ namespace MFR.FileSystem.Retrievers
 
                 result = matchExpressionFactory.ForTextValue(
                                                    GetTextValueForOperation(
-                                                       entry, fileData
+                                                       entry
                                                    )
                                                )
                                                .ToFindWhat(FindWhat)
@@ -634,61 +648,17 @@ namespace MFR.FileSystem.Retrievers
             return result;
         }
 
-        private string GetFileDataForReplaceInFiles(IFileSystemEntry entry)
+        private string GetTextValueForOperation(IFileSystemEntry entry)
         {
             var result = string.Empty;
 
             try
             {
-                /*
-                 * Can only run this method if we are replacing text in files.
-                 */
-                if (OperationType != OperationType.ReplaceTextInFiles)
-                    return result;
+                var retriever =
+                    GetTextValueRetriever.For(OperationType);
+                if (retriever == null) return result;
 
-                if (entry == null) return result;
-                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
-                if (!Does.FileSystemEntryExist(entry.Path)) return result;
-
-                if (Guid.Empty.Equals(entry.UserState)) return result;
-
-                if (!(FileStreamProvider.RedeemTicket(entry.UserState) is
-                        TextReader stream))
-                    return result;
-
-                result = stream.ReadToEnd();
-
-                FileStreamProvider.DisposeStream(entry.UserState);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = string.Empty;
-            }
-
-            return result;
-        }
-
-        private string GetTextValueForOperation(IFileSystemEntry entry,
-            string fileData)
-        {
-            var result = string.Empty;
-
-            try
-            {
-                if (OperationType == OperationType.ReplaceTextInFiles)
-                {
-                    result = fileData;
-                    return result;
-                }
-
-                if (entry == null) return result;
-                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
-                if (!Does.FileSystemEntryExist(entry.Path)) return result;
-
-                result = entry.Path;
+                result = retriever.GetTextValue(entry);
             }
             catch (Exception ex)
             {

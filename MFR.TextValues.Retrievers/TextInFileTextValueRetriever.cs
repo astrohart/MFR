@@ -1,34 +1,36 @@
 using MFR.FileSystem.Interfaces;
-using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
+using MFR.Renamers.Files.Actions;
+using MFR.TextValues.Retrievers.Actions;
+using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.TextValues.Retrievers
 {
     /// <summary>
     /// Retrieves the text content of a file.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class TextInFileTextValueRetriever : TextValueRetrieverBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
         static TextInFileTextValueRetriever() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
         protected TextInFileTextValueRetriever() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.TextValues.Retrievers.TextInFileTextValueRetriever" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever" />
+        /// interface for retrieving the text from files on the filesystem.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public static TextInFileTextValueRetriever Instance
+        public static ITextValueRetriever Instance
         {
             get;
         } = new TextInFileTextValueRetriever();
@@ -40,7 +42,6 @@ namespace MFR.TextValues.Retrievers
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        [Log(AttributeExclude = true)]
         public override OperationType OperationType
             => OperationType.ReplaceTextInFiles;
 
@@ -67,17 +68,29 @@ namespace MFR.TextValues.Retrievers
         /// </exception>
         public override string GetTextValue(IFileSystemEntry entry)
         {
-            if (entry == null) throw new ArgumentNullException(nameof(entry));
+            var result = string.Empty;
 
-            GetFileSystemEntryValidator.For(OperationType)
-                                       .IsValid(entry);
+            try
+            {
+                if (entry == null) return result;
+                if (!FileSystemEntryValidatorSays.IsValid(entry)) return result;
+                if (Guid.Empty.Equals(entry.UserState)) return result;
 
-            if (entry.UserState == null)
-                throw new InvalidOperationException(
-                    $"The entry's UserState variable has a null reference for a value.  It's supposed to contain the text of the file having path '{entry.Path}'."
-                );
+                // Here, the entry.UserState property is expected to be a globally-unique
+                // identifier, or GUID, value that serves as a ticket to refer to a currently-
+                // open file stream.
 
-            return entry.UserState as string;
+                result = Get.FileData(entry.UserState);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
         }
     }
 }

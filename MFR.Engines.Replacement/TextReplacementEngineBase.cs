@@ -7,6 +7,7 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Replacement
 {
@@ -144,18 +145,27 @@ namespace MFR.Engines.Replacement
         /// <returns>
         /// String containing the new data.
         /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="expression" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
         public string Replace(IMatchExpression expression)
         {
-            if (expression == null)
-                throw new ArgumentNullException(nameof(expression));
+            var result = string.Empty;
 
-            return Replace(
-                expression.Value, expression.FindWhat, expression.ReplaceWith
-            );
+            try
+            {
+                if (expression == null) return result;
+
+                result = Replace(
+                    expression.Value, expression.FindWhat, expression.ReplaceWith
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
         }
     }
 }

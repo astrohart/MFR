@@ -42,35 +42,20 @@ namespace MFR.FileSystem.Validators.Interfaces
         /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface containing information about the entry to be checked.
         /// </param>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the pathname to a folder is passed in the
-        /// <paramref
-        ///     name="entry" />
-        /// parameter and the folder cannot be located on the disk.
-        /// </exception>
-        /// <exception cref="T:System.IO.DirectoryNotFoundException">
-        /// Thrown if the pathname to a file is passed in the
-        /// <paramref
-        ///     name="entry" />
-        /// parameter and the file cannot be located on the disk.
-        /// </exception>
+        /// <returns><see langword="true" /> if the provided filesystem <paramref name="entry"/> is valid; <see langword="false" /> otherwise.</returns>
         /// <remarks>
         /// If the properties of the <paramref name="entry" /> have valid data
         /// and the path stored in the entry refers to a file-system object that
-        /// exists on the disk, then this method does nothing.
+        /// exists on the disk, then this method returns <see langword="true" />.
         /// <para />
         /// If an object instance variable or property has a
         /// <see
         ///     langword="null" />
         /// reference, or if the path stored in the entry
         /// refers to a file-system object that does not exist on the disk, then
-        /// an exception is thrown.
+        /// this method returns <see langword="false" />.
         /// </remarks>
-        void IsValid(IFileSystemEntry entry);
+        bool IsValid(IFileSystemEntry entry);
 
         /// <summary>
         /// Determines whether the file-system entry with the specified

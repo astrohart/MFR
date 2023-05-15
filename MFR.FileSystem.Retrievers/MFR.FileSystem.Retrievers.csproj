@@ -98,10 +98,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -172,17 +169,9 @@
       <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
       <Name>MFR.Expressions.Matches.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Expressions.Matches\MFR.Expressions.Matches.csproj">
-      <Project>{C699FEDC-522A-4332-BF4F-A31B48B70241}</Project>
-      <Name>MFR.Expressions.Matches</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
       <Name>MFR.FileSystem.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
-      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
-      <Name>MFR.FileSystem.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
@@ -199,18 +188,6 @@
     <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
       <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
       <Name>MFR.FileSystem.Validators.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Validators\MFR.FileSystem.Validators.csproj">
-      <Project>{22D86888-ACAC-4E15-B860-10461CF0C079}</Project>
-      <Name>MFR.FileSystem.Validators</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Invokers.Factories\MFR.Invokers.Factories.csproj">
-      <Project>{8D903CE7-2DBF-49ED-BD9E-A2BF31EB8ADB}</Project>
-      <Name>MFR.Invokers.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Invokers.Interfaces\MFR.Invokers.Interfaces.csproj">
-      <Project>{05DD474A-352F-4BC2-BF0D-FB2D5823D2A3}</Project>
-      <Name>MFR.Invokers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
@@ -231,6 +208,18 @@
     <ProjectReference Include="..\MFR.Settings.Configuration\MFR.Settings.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Settings.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
+      <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>
+      <Name>MFR.TextValues.Retrievers.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
+      <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
+      <Name>MFR.TextValues.Retrievers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
+      <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
+      <Name>MFR.TextValues.Retrievers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

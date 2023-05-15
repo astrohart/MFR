@@ -1,7 +1,6 @@
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -23,17 +22,13 @@ namespace MFR.FileSystem.Retrievers
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FolderToRenameRetriever()
-        {
-        }
+        static FolderToRenameRetriever() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected FolderToRenameRetriever()
-        {
-        }
+        protected FolderToRenameRetriever() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -96,7 +91,8 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
@@ -112,7 +108,7 @@ namespace MFR.FileSystem.Retrievers
                                  rootFolderPath, SearchPattern, SearchOption,
                                  path => ShouldDoPath(path, pathFilter)
                              )
-                             //.AsParallel()
+                             .AsParallel()
                              .Select(MakeNewFileSystemEntry.ForPath)
                              .Where(SearchCriteriaMatch)
                 );

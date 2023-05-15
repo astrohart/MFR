@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetRootDirectoryValidator](#T-MFR-Directories-Validators-Factories-GetRootDirectoryValidator 'MFR.Directories.Validators.Factories.GetRootDirectoryValidator')
-  - [SoleInstance()](#M-MFR-Directories-Validators-Factories-GetRootDirectoryValidator-SoleInstance 'MFR.Directories.Validators.Factories.GetRootDirectoryValidator.SoleInstance')
+- [GetRootDirectoryPathValidator](#T-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator 'MFR.Directories.Validators.Factories.GetRootDirectoryPathValidator')
+  - [SoleInstance()](#M-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator-SoleInstance 'MFR.Directories.Validators.Factories.GetRootDirectoryPathValidator.SoleInstance')
 - [Resources](#T-MFR-Directories-Validators-Factories-Properties-Resources 'MFR.Directories.Validators.Factories.Properties.Resources')
   - [Culture](#P-MFR-Directories-Validators-Factories-Properties-Resources-Culture 'MFR.Directories.Validators.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Directories-Validators-Factories-Properties-Resources-ResourceManager 'MFR.Directories.Validators.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Directories-Validators-Factories-GetRootDirectoryValidator'></a>
-## GetRootDirectoryValidator `type`
+<a name='T-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator'></a>
+## GetRootDirectoryPathValidator `type`
 
 ##### Namespace
 
@@ -19,23 +19,23 @@ MFR.Directories.Validators.Factories
 ##### Summary
 
 Provides access to the sole instance of the object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
-<a name='M-MFR-Directories-Validators-Factories-GetRootDirectoryValidator-SoleInstance'></a>
+<a name='M-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator-SoleInstance'></a>
 ### SoleInstance() `method`
 
 ##### Summary
 
 Provides access to the sole instance of the object that implements
 the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 ##### Parameters

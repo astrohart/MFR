@@ -1,0 +1,306 @@
+<a name='assembly'></a>
+# MFR.File.Stream.Providers
+
+## Contents
+
+- [FileStreamProvider](#T-MFR-File-Stream-Providers-FileStreamProvider 'MFR.File.Stream.Providers.FileStreamProvider')
+  - [#ctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#ctor 'MFR.File.Stream.Providers.FileStreamProvider.#ctor')
+  - [Count](#P-MFR-File-Stream-Providers-FileStreamProvider-Count 'MFR.File.Stream.Providers.FileStreamProvider.Count')
+  - [Instance](#P-MFR-File-Stream-Providers-FileStreamProvider-Instance 'MFR.File.Stream.Providers.FileStreamProvider.Instance')
+  - [InternalFileStreamCollection](#P-MFR-File-Stream-Providers-FileStreamProvider-InternalFileStreamCollection 'MFR.File.Stream.Providers.FileStreamProvider.InternalFileStreamCollection')
+  - [#cctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#cctor 'MFR.File.Stream.Providers.FileStreamProvider.#cctor')
+  - [BatchDispose(tickets)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchDispose(System.Collections.Generic.IReadOnlyCollection{System.Guid})')
+  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
+  - [DisposeAll()](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeAll 'MFR.File.Stream.Providers.FileStreamProvider.DisposeAll')
+  - [DisposeStream(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.DisposeStream(System.Guid)')
+  - [OnCountChanged()](#M-MFR-File-Stream-Providers-FileStreamProvider-OnCountChanged 'MFR.File.Stream.Providers.FileStreamProvider.OnCountChanged')
+  - [OnFileStreamDisposed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamDisposed(MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
+  - [OnFileStreamOpened(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpened(MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
+  - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.OpenStreamFor(System.String)')
+  - [RedeemTicket(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RedeemTicket-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RedeemTicket(System.Guid)')
+- [Resources](#T-MFR-File-Stream-Providers-Properties-Resources 'MFR.File.Stream.Providers.Properties.Resources')
+  - [Culture](#P-MFR-File-Stream-Providers-Properties-Resources-Culture 'MFR.File.Stream.Providers.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-File-Stream-Providers-Properties-Resources-ResourceManager 'MFR.File.Stream.Providers.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-File-Stream-Providers-FileStreamProvider'></a>
+## FileStreamProvider `type`
+
+##### Namespace
+
+MFR.File.Stream.Providers
+
+##### Summary
+
+Manages a collection of file streams open on a large group of text files.
+
+
+
+Allows disparate parts of the application to access these file streams through
+a ticket system.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-Count'></a>
+### Count `property`
+
+##### Summary
+
+Gets the count of file streams that are currently available.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-InternalFileStreamCollection'></a>
+### InternalFileStreamCollection `property`
+
+##### Summary
+
+Dictionary that maps a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value (serving as a
+`ticket`) to a reference to an instance of
+[TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') that can be used to access a text file.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}-'></a>
+### BatchDispose(tickets) `method`
+
+##### Summary
+
+Batch-disposes the open file streams that correspond to the
+`tickets` provided.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tickets | [System.Collections.Generic.IReadOnlyCollection{System.Guid}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{System.Guid}') | (Required.) A collection of one or more [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') values
+that represent the file stream(s) to be disposed. |
+
+##### Remarks
+
+If the `tickets` is `null` or
+contains zero elements, then this method does nothing.
+
+
+
+Users of this object who want to dispose of all the file streams
+that this object manages in one go should use the
+[DisposeAll](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeAll 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeAll')
+method instead.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}-'></a>
+### BatchOpenStreams(pathnames) `method`
+
+##### Summary
+
+Opens file streams for the files specified in the `pathnames`
+collection, in batch.  Returns a collection of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
+values, each of which represents the corresponding opened file stream.  If a
+
+##### Returns
+
+A collection of one or more [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') values, each
+of which corresponds in a 1-to-1 fashion to the file(s) that have been
+specified.  If a particular file could not be opened, its corresponding entry
+in the returned collection will be the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty')
+value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathnames | [System.Collections.Generic.IReadOnlyCollection{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{System.String}') | (Required.) A collection of one or more [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values,
+each of which represents a file to be opened. |
+
+##### Remarks
+
+If the `pathnames` collection is
+`null` or the empty collection, then this method returns the
+empty collection.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-DisposeAll'></a>
+### DisposeAll() `method`
+
+##### Summary
+
+Removes all allocated [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') instances
+allocated thus far, from memory, and frees resources associated with them.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+After calling this method, all tickets will be invalid.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid-'></a>
+### DisposeStream(ticket) `method`
+
+##### Summary
+
+Disposes, i.e., closes the file and releases all resources, for the file stream
+that corresponds to the specified `ticket`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that corresponds to
+the file stream you wish to close. |
+
+##### Remarks
+
+If the Zero GUID is passed as the argument of the `ticket`
+parameter, or if the specified `ticket` is not present in the
+internal list.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnCountChanged'></a>
+### OnCountChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-File-Stream-Providers-FileStreamProvider-CountChanged 'MFR.File.Stream.Providers.FileStreamProvider.CountChanged')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-'></a>
+### OnFileStreamDisposed(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-File-Stream-Providers-FileStreamProvider-FileStreamDisposed 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamDisposed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs') | A
+[FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
+that contains the event data. |
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs-'></a>
+### OnFileStreamOpened(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-File-Stream-Providers-FileStreamProvider-FileStreamOpened 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamOpened')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs') | A
+[FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
+that contains the event data. |
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String-'></a>
+### OpenStreamFor(pathname) `method`
+
+##### Summary
+
+Opens a file stream, represented by a [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+instance, on the text file having the specified `pathname`.
+
+##### Returns
+
+A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that represents a `ticket` that can
+be redeemed later on with the
+[RedeemTicket](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-RedeemTicket 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.RedeemTicket')
+method to access the corresponding file stream, or
+[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty') if the file could not be accessed or if the
+`pathname` parameters' argument is the blank or
+`null`[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String'), or if the
+`pathname` does not refer to a file or the file that is
+referred to does not exist..
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to have a stream opened for it. |
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-RedeemTicket-System-Guid-'></a>
+### RedeemTicket(ticket) `method`
+
+##### Summary
+
+Provides a reference to an instance of [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+that corresponds to the specified `ticket`.
+
+##### Returns
+
+Reference to an instance of [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+that corresponds to the specified `ticket`, or
+`null` if either no corresponding
+[TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') can be found in the internal
+collection, or if the corresponding [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+instance has already been disposed or removed from the internal collection.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that
+represents a `ticket` that can be redeemed for a particular
+[TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') instance that corresponds to a file
+stream. |
+
+<a name='T-MFR-File-Stream-Providers-Properties-Resources'></a>
+## Resources `type`
+
+##### Namespace
+
+MFR.File.Stream.Providers.Properties
+
+##### Summary
+
+A strongly-typed resource class, for looking up localized strings, etc.
+
+<a name='P-MFR-File-Stream-Providers-Properties-Resources-Culture'></a>
+### Culture `property`
+
+##### Summary
+
+Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-File-Stream-Providers-Properties-Resources-ResourceManager'></a>
+### ResourceManager `property`
+
+##### Summary
+
+Returns the cached ResourceManager instance used by this class.

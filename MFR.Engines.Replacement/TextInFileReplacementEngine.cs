@@ -2,6 +2,7 @@ using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories;
+using MFR.Replacers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
@@ -122,15 +123,15 @@ namespace MFR.Engines.Replacement
 
             try
             {
-                Debugger.Launch();
-                Debugger.Break();
+                var replacer = GetStringReplacer
+                               .For(OperationType.ReplaceTextInFiles)
+                               .AndTextMatchingConfiguration(
+                                   CurrentConfiguration
+                                       .GetTextMatchingConfiguration()
+                               );
+                if (replacer == null) return result;
 
-                result = GetStringReplacer.For(OperationType.ReplaceTextInFiles)
-                                          .AndTextMatchingConfiguration(
-                                              CurrentConfiguration
-                                                  .GetTextMatchingConfiguration()
-                                          )
-                                          .Replace(value, pattern, dest);
+                result = replacer.Replace(value, pattern, dest);
             }
             catch (Exception ex)
             {

@@ -163,6 +163,18 @@
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
+      <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
+      <Name>MFR.File.Stream.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Interfaces\MFR.File.Stream.Providers.Interfaces.csproj">
+      <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
+      <Name>MFR.File.Stream.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
+      <Project>{0caccbc8-35e7-408a-8a12-970d402d695e}</Project>
+      <Name>MFR.FileSystem.Factories.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
       <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
       <Name>MFR.FileSystem.Validators.Factories</Name>
@@ -190,6 +202,10 @@
     <ProjectReference Include="..\MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Managers.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Actions\MFR.Renamers.Files.Actions.csproj">
+      <Project>{49d0e080-cb0e-4548-981b-7fbf33ba981c}</Project>
+      <Name>MFR.Renamers.Files.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>

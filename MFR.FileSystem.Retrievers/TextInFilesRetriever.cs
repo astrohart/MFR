@@ -1,11 +1,9 @@
-using MFR.File.Stream.Providers.Factories;
-using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
-using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
+using MFR.TextValues.Retrievers.Actions;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -31,14 +29,6 @@ namespace MFR.FileSystem.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         protected TextInFilesRetriever() { }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
-        /// interface.
-        /// </summary>
-        private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -152,22 +142,18 @@ namespace MFR.FileSystem.Retrievers
                  * call ToList etc.
                  */
 
-                foreach (var path in Enumerate.Files(
-                             rootFolderPath, SearchPattern, SearchOption,
-                             path => ShouldDoPath(path, pathFilter)
-                         ))
-                {
-                    var entry = MakeNewFileSystemEntry.ForPath(path);
-                    if (entry == null) continue;
-
-                    entry.AndHavingUserState(
-                        FileStreamProvider.OpenStreamFor(path)
-                    );
-
-                    if (!SearchCriteriaMatch(entry)) continue;
-
-                    result.Add(entry);
-                }
+                result.AddRange(
+                    Enumerate.Files(
+                                 rootFolderPath, SearchPattern, SearchOption,
+                                 path => ShouldDoPath(path, pathFilter)
+                             )
+                             .AsParallel()
+                             .Select(
+                                 path => MakeNewFileSystemEntry.ForPath(path)
+                                     .AndHavingUserState(Get.FileTicket(path))
+                             )
+                             .Where(entry => entry != null)
+                );
             }
             catch (Exception ex)
             {
