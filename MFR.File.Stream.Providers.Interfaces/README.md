@@ -8,7 +8,7 @@
   - [BatchDispose(tickets)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchDispose(System.Collections.Generic.IReadOnlyCollection{System.Guid})')
   - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
   - [DisposeAll()](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeAll 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeAll')
-  - [DisposeStream(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeStream-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeStream(System.Guid)')
+  - [DisposeStream(ticket,remove)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeStream-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeStream(System.Guid,System.Boolean)')
   - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.OpenStreamFor(System.String)')
   - [RedeemTicket(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-RedeemTicket-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.RedeemTicket(System.Guid)')
 - [Resources](#T-MFR-File-Stream-Providers-Interfaces-Properties-Resources 'MFR.File.Stream.Providers.Interfaces.Properties.Resources')
@@ -121,8 +121,8 @@ This method has no parameters.
 
 After calling this method, all tickets will be invalid.
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeStream-System-Guid-'></a>
-### DisposeStream(ticket) `method`
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeStream-System-Guid,System-Boolean-'></a>
+### DisposeStream(ticket,remove) `method`
 
 ##### Summary
 
@@ -135,6 +135,14 @@ that corresponds to the specified `ticket`.
 | ---- | ---- | ----------- |
 | ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that corresponds to
 the file stream you wish to close. |
+| remove | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) Indicates whether to remove the disposed stream from our internal
+collection.  `true` is the default. |
+
+##### Remarks
+
+If the Zero GUID is passed as the argument of the `ticket`
+parameter, or if the specified `ticket` is not present in the
+internal list.
 
 <a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-OpenStreamFor-System-String-'></a>
 ### OpenStreamFor(pathname) `method`

@@ -73,7 +73,7 @@ namespace MFR.Expressions.Matches.Factories
         /// Gets or sets a string containing the text that all occurrences of
         /// the pattern in the
         /// <see
-        ///     cref="P:MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.FindWhat" />
+        ///     cref="P:MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ToFindWhat" />
         /// property get replaced with in the
         /// <see
         ///     cref="P:MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.Value" />

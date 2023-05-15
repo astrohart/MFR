@@ -12,7 +12,7 @@
   - [BatchDispose(tickets)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchDispose(System.Collections.Generic.IReadOnlyCollection{System.Guid})')
   - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
   - [DisposeAll()](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeAll 'MFR.File.Stream.Providers.FileStreamProvider.DisposeAll')
-  - [DisposeStream(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.DisposeStream(System.Guid)')
+  - [DisposeStream(ticket,remove)](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.FileStreamProvider.DisposeStream(System.Guid,System.Boolean)')
   - [OnCountChanged()](#M-MFR-File-Stream-Providers-FileStreamProvider-OnCountChanged 'MFR.File.Stream.Providers.FileStreamProvider.OnCountChanged')
   - [OnFileStreamDisposed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamDisposed(MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
   - [OnFileStreamOpened(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpened(MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
@@ -72,7 +72,7 @@ interface.
 
 Dictionary that maps a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value (serving as a
 `ticket`) to a reference to an instance of
-[TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') that can be used to access a text file.
+[StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') that can be used to access a text file.
 
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-#cctor'></a>
 ### #cctor() `method`
@@ -147,7 +147,7 @@ empty collection.
 
 ##### Summary
 
-Removes all allocated [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') instances
+Removes all allocated [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') instances
 allocated thus far, from memory, and frees resources associated with them.
 
 ##### Parameters
@@ -158,8 +158,8 @@ This method has no parameters.
 
 After calling this method, all tickets will be invalid.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid-'></a>
-### DisposeStream(ticket) `method`
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid,System-Boolean-'></a>
+### DisposeStream(ticket,remove) `method`
 
 ##### Summary
 
@@ -172,6 +172,8 @@ that corresponds to the specified `ticket`.
 | ---- | ---- | ----------- |
 | ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that corresponds to
 the file stream you wish to close. |
+| remove | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) Indicates whether to remove the disposed stream from our internal
+collection.  `true` is the default. |
 
 ##### Remarks
 
@@ -231,7 +233,7 @@ that contains the event data. |
 
 ##### Summary
 
-Opens a file stream, represented by a [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+Opens a file stream, represented by a [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader')
 instance, on the text file having the specified `pathname`.
 
 ##### Returns
@@ -258,16 +260,16 @@ pathname of a file to have a stream opened for it. |
 
 ##### Summary
 
-Provides a reference to an instance of [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+Provides a reference to an instance of [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader')
 that corresponds to the specified `ticket`.
 
 ##### Returns
 
-Reference to an instance of [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+Reference to an instance of [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader')
 that corresponds to the specified `ticket`, or
 `null` if either no corresponding
-[TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') can be found in the internal
-collection, or if the corresponding [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader')
+[StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') can be found in the internal
+collection, or if the corresponding [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader')
 instance has already been disposed or removed from the internal collection.
 
 ##### Parameters
@@ -276,7 +278,7 @@ instance has already been disposed or removed from the internal collection.
 | ---- | ---- | ----------- |
 | ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that
 represents a `ticket` that can be redeemed for a particular
-[TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') instance that corresponds to a file
+[StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') instance that corresponds to a file
 stream. |
 
 <a name='T-MFR-File-Stream-Providers-Properties-Resources'></a>

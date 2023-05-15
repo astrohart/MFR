@@ -104,7 +104,7 @@ namespace MFR.Expressions.Matches.Factories
         /// passed either the empty or <see langword="null" /> string for a value.
         /// Whitespace is allowed ONLY for the Replace Text in Files operation type.
         /// </exception>
-        public override IMatchExpressionFactory ForTextValue(string value)
+        public override IMatchExpressionFactory ForTextValue([NotLogged] string value)
         {
             Value = value;
 

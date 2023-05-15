@@ -30,6 +30,7 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.TextValues.Retrievers.Factories;
+using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -805,28 +806,22 @@ namespace MFR.Renamers.Files
         public bool RenameSubFoldersOf(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
         {
-            var result = false;
+            Debugger.Launch();
+            Debugger.Break();
 
-            if (string.IsNullOrWhiteSpace(rootFolderPath))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(rootFolderPath)
-                );
-            if (!Directory.Exists(rootFolderPath))
-                throw new DirectoryNotFoundException(
-                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
-                );
-            if (string.IsNullOrWhiteSpace(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(findWhat)
-                );
-            if (string.IsNullOrWhiteSpace(replaceWith))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(replaceWith)
-                );
+            var result = false;
 
             try
             {
+                if (string.IsNullOrWhiteSpace(rootFolderPath))
+                    return result;
+                if (!Directory.Exists(rootFolderPath))
+                    return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+                if (string.IsNullOrWhiteSpace(replaceWith))
+                    return result;
+                
                 OnOperationStarted(
                     new OperationStartedEventArgs(
                         OperationType.RenameSubFolders
@@ -840,36 +835,24 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                // Build list of folders to be processed
-                IEnumerable<IFileSystemEntry> entryCollection =
+                IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSubFolders)
-                        .AndAttachConfiguration(CurrentConfiguration)
-                        .UsingSearchPattern("*")
-                        .WithSearchOption(SearchOption.AllDirectories)
-                        .ToFindWhat(findWhat)
-                        .AndReplaceItWith(replaceWith)
-                        .GetMatchingFileSystemPaths(
-                            RootDirectoryPath, pathFilter
-                        );
-                var fileSystemEntries = entryCollection.ToList();
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
 
-                /*
-                var subFolders = Directory
-                    .GetDirectories(
-                        rootFolderPath, "*", SearchOption.AllDirectories
-                    ).Where(
-                        dir => !ShouldSkipFolder(dir) &&
-                               dir.Contains(findWhat) &&
-                               !dir.Contains(replaceWith) &&
-                               (pathFilter == null || pathFilter(dir))
-                    ).ToList();
-                */
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.RenameSubFoldersOf: {fileSystemEntries.Count} folders are to be renamed."
-                );
+                // Build list of folders to be processed
+                var fileSystemEntries = retriever.UsingSearchPattern("*")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath,
+                                                     pathFilter
+                                                 )
+                                                 .ToList();
 
                 if (!fileSystemEntries.Any() && !AbortRequested)
                 {
@@ -1564,6 +1547,10 @@ namespace MFR.Renamers.Files
                     .GetTextValue(entry);
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
 
+                // release the stream or the OS won't let us perform the
+                // text replacement operation
+                FileStreamProvider.DisposeStream(entry.UserState);  
+
                 IMatchExpression expression = matchExpressionFactory
                                               .ForTextValue(textToBeSearched)
                                               .AndAttachConfiguration(
@@ -1993,42 +1980,45 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var source = entry.Path;
+                var destination = string.Empty;
 
-                var destination = (string)GetTextReplacementEngine
-                                          .For(OperationType.RenameSubFolders)
-                                          .AndAttachConfiguration(
-                                              CurrentConfiguration
-                                          )
-                                          .Replace(
-                                              (IMatchExpression)
-                                              GetMatchExpressionFactory
-                                                  .For(
-                                                      OperationType
-                                                          .RenameSubFolders
-                                                  )
-                                                  .AndAttachConfiguration(
-                                                      CurrentConfiguration
-                                                  )
-                                                  .ForTextValue(
-                                                      GetTextValueRetriever.For(
-                                                              OperationType
-                                                                  .RenameSubFolders
-                                                          )
-                                                          .GetTextValue(entry)
-                                                  )
-                                                  .ToFindWhat(findWhat)
-                                                  .AndReplaceItWith(replaceWith)
-                                          );
+                ITextReplacementEngine engine = GetTextReplacementEngine
+                                                .For(
+                                                    OperationType
+                                                        .RenameSubFolders
+                                                )
+                                                .AndAttachConfiguration(
+                                                    CurrentConfiguration
+                                                );
+                if (engine == null) return result;
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: source = '{source}'"
-                );
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: destination = '{destination}'"
-                );
+                IMatchExpressionFactory matchExpressionFactory = GetMatchExpressionFactory
+                                              .For(
+                                                  OperationType.RenameSubFolders
+                                              )
+                                              .AndAttachConfiguration(
+                                                  CurrentConfiguration
+                                              );
+                if (matchExpressionFactory == null) return result;
+
+                var retriever =
+                    GetTextValueRetriever.For(OperationType.RenameSubFolders);
+                if (retriever == null) return result;
+
+                var source = retriever.GetTextValue(entry);
+                if (string.IsNullOrWhiteSpace(source))
+                    return result;
+                if (!Directory.Exists(source)) return result;
+
+                var expression = matchExpressionFactory
+                                 .ForTextValue(source)
+                                 .ToFindWhat(findWhat)
+                                 .AndReplaceItWith(replaceWith);
+                if (expression == null) return result;
+
+                destination = engine.Replace(expression);
+                if (string.IsNullOrWhiteSpace(destination))
+                    return result;
 
                 if (entry.ToDirectoryInfo()
                          .RenameTo(destination) &&

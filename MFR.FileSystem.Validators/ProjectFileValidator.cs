@@ -18,50 +18,6 @@ namespace MFR.FileSystem.Validators
     public class ProjectFileValidator : FileSystemEntryValidatorBase
     {
         /// <summary>
-        /// Determines whether a file system <paramref name="entry" /> exists on
-        /// the disk at the pathname indicated.
-        /// </summary>
-        /// <param name="entry">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
-        /// interface containing information about the entry to be checked.
-        /// </param>
-        /// <returns><see langword="true" /> if the provided filesystem <paramref name="entry"/> is valid; <see langword="false" /> otherwise.</returns>
-        /// <remarks>
-        /// If the properties of the <paramref name="entry" /> have valid data
-        /// and the path stored in the entry refers to a file-system object that
-        /// exists on the disk, then this method returns <see langword="true" />.
-        /// <para />
-        /// If an object instance variable or property has a
-        /// <see
-        ///     langword="null" />
-        /// reference, or if the path stored in the entry
-        /// refers to a file-system object that does not exist on the disk, then
-        /// this method returns <see langword="false" />.
-        /// </remarks>
-        public override bool IsValid(IFileSystemEntry entry)
-        {
-            var result = false;
-
-            try
-            {
-                if (!base.IsValid(entry)) return result;
-
-                // only files have that have a nonzero length are valid!
-                result = new FileInfo(entry.Path).Length > 0;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         static ProjectFileValidator() { }

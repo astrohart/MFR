@@ -45,12 +45,12 @@ namespace MFR.File.Stream.Providers
         /// <summary>
         /// Dictionary that maps a <see cref="T:System.Guid" /> value (serving as a
         /// <c>ticket</c>) to a reference to an instance of
-        /// <see cref="T:System.IO.TextReader" /> that can be used to access a text file.
+        /// <see cref="T:System.IO.StreamReader" /> that can be used to access a text file.
         /// </summary>
-        private IDictionary<Guid, TextReader> InternalFileStreamCollection
+        private IDictionary<Guid, StreamReader> InternalFileStreamCollection
         {
             get;
-        } = new Dictionary<Guid, TextReader>();
+        } = new Dictionary<Guid, StreamReader>();
 
         /// <summary>
         /// Raised when the value of the
@@ -153,7 +153,7 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Removes all allocated <see cref="T:System.IO.TextReader" /> instances
+        /// Removes all allocated <see cref="T:System.IO.StreamReader" /> instances
         /// allocated thus far, from memory, and frees resources associated with them.
         /// </summary>
         /// <remarks>After calling this method, all tickets will be invalid.</remarks>
@@ -223,7 +223,7 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Opens a file stream, represented by a <see cref="T:System.IO.TextReader" />
+        /// Opens a file stream, represented by a <see cref="T:System.IO.StreamReader" />
         /// instance, on the text file having the specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
@@ -255,8 +255,7 @@ namespace MFR.File.Stream.Providers
                 // Create a ticket that can be used to access this file stream
                 result = Guid.NewGuid();
 
-                var newReader =
-                    TextReader.Synchronized(new StreamReader(pathname));
+                var newReader = new StreamReader(pathname);
 
                 InternalFileStreamCollection[result] = newReader;
 
@@ -276,26 +275,26 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Provides a reference to an instance of <see cref="T:System.IO.TextReader" />
+        /// Provides a reference to an instance of <see cref="T:System.IO.StreamReader" />
         /// that corresponds to the specified <paramref name="ticket" />.
         /// </summary>
         /// <param name="ticket">
         /// (Required.) A <see cref="T:System.Guid" /> value that
         /// represents a <c>ticket</c> that can be redeemed for a particular
-        /// <see cref="T:System.IO.TextReader" /> instance that corresponds to a file
+        /// <see cref="T:System.IO.StreamReader" /> instance that corresponds to a file
         /// stream.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.TextReader" />
+        /// Reference to an instance of <see cref="T:System.IO.StreamReader" />
         /// that corresponds to the specified <paramref name="ticket" />, or
         /// <see langword="null" /> if either no corresponding
-        /// <see cref="T:System.IO.TextReader" /> can be found in the internal
-        /// collection, or if the corresponding <see cref="T:System.IO.TextReader" />
+        /// <see cref="T:System.IO.StreamReader" /> can be found in the internal
+        /// collection, or if the corresponding <see cref="T:System.IO.StreamReader" />
         /// instance has already been disposed or removed from the internal collection.
         /// </returns>
-        public TextReader RedeemTicket(Guid ticket)
+        public StreamReader RedeemTicket(Guid ticket)
         {
-            TextReader result = default;
+            StreamReader result = default;
 
             try
             {

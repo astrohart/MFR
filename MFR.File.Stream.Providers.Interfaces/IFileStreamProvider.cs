@@ -159,6 +159,6 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// collection, or if the corresponding <see cref="T:System.IO.TextReader" />
         /// instance has already been disposed or removed from the internal collection.
         /// </returns>
-        TextReader RedeemTicket(Guid ticket);
+        StreamReader RedeemTicket(Guid ticket);
     }
 }

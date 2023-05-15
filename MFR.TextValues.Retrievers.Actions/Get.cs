@@ -1,6 +1,7 @@
 ﻿using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories.Actions;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Debug;
@@ -26,12 +27,18 @@ namespace MFR.TextValues.Retrievers.Actions
         /// serves a <c>ticket</c> that can be used to extract the data from a stream that
         /// is open on the corresponding file.
         /// </param>
+        /// <param name="dispose">
+        /// (Optional.) Indicates whether the underlying file stream
+        /// should be disposed when this method has finished executing;
+        /// <see langword="false" /> is the default.
+        /// </param>
         /// <returns>
         /// A <see cref="T:System.String" /> containing the content of the
         /// corresponding file, or <see cref="F:System.String.Empty" /> if the content
         /// could not be obtained.
         /// </returns>
-        public static string FileData(Guid ticket)
+        [return: NotLogged]
+        public static string FileData(Guid ticket, bool dispose = false)
         {
             var result = string.Empty;
 
@@ -43,6 +50,19 @@ namespace MFR.TextValues.Retrievers.Actions
                 if (stream == null) return result;
 
                 result = stream.ReadToEnd();
+
+                /*
+                 * Reset the stream to the beginning
+                 * and discard the buffered data.
+                 */
+
+                if (!dispose && stream.EndOfStream)
+                {
+                    stream.BaseStream.Position = 0L;
+                    stream.DiscardBufferedData();
+                }
+
+                if (dispose) FileStreamProvider.DisposeStream(ticket, true /* remove from the collection */);
             }
             catch (Exception ex)
             {

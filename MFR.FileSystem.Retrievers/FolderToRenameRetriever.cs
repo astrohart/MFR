@@ -103,15 +103,18 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
-                result.AddRange(
-                    Enumerate.Directories(
-                                 rootFolderPath, SearchPattern, SearchOption,
-                                 path => ShouldDoPath(path, pathFilter)
-                             )
-                             .AsParallel()
-                             .Select(MakeNewFileSystemEntry.ForPath)
-                             .Where(SearchCriteriaMatch)
-                );
+                // ReSharper disable once LoopCanBeConvertedToQuery
+                foreach (var path in Enumerate.Directories(
+                             rootFolderPath, SearchPattern, SearchOption,
+                             path => ShouldDoPath(path, pathFilter)
+                         ).AsParallel())
+                {
+                    var entry = MakeNewFileSystemEntry.ForPath(path);
+                    if (entry == null) continue;
+                    if (!SearchCriteriaMatch(entry)) continue;
+
+                    result.Add(entry);
+                }
             }
             catch (Exception ex)
             {

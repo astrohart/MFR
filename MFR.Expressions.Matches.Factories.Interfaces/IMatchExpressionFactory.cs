@@ -33,7 +33,7 @@ namespace MFR.Expressions.Matches.Factories.Interfaces
         /// Gets or sets a string containing the text that all occurrences of
         /// the pattern in the
         /// <see
-        ///     cref="P:MFR.MatchExpressionFactoryBase.FindWhat" />
+        ///     cref="P:MFR.MatchExpressionFactoryBase.ToFindWhat" />
         /// property get replaced with in the
         /// <see
         ///     cref="P:MFR.MatchExpressionFactoryBase.Value" />
