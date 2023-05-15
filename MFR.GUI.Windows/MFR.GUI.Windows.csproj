@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
+    <None Include="Resources\SwitchUpDown_16x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
