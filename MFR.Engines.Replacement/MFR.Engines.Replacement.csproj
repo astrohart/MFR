@@ -134,18 +134,6 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions.Providers.Factories\xyLOGIX.Core.Extensions.Providers.Factories.csproj">
-      <Project>{ea3a9ab0-6afd-456d-bb58-f50e5c8001dd}</Project>
-      <Name>xyLOGIX.Core.Extensions.Providers.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions.Providers.Interfaces\xyLOGIX.Core.Extensions.Providers.Interfaces.csproj">
-      <Project>{1ff580e3-d9c2-48b7-917e-53c340bf16ec}</Project>
-      <Name>xyLOGIX.Core.Extensions.Providers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions.Providers\xyLOGIX.Core.Extensions.Providers.csproj">
-      <Project>{ea03d76a-0a2f-4bde-9690-92f82af551d7}</Project>
-      <Name>xyLOGIX.Core.Extensions.Providers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>

@@ -49,11 +49,6 @@ could not be obtained.
 serves a `ticket` that can be used to extract the data from a stream that
 is open on the corresponding file. |
 
-##### Remarks
-
-The `ticket` becomes invalid once this method is
-called.
-
 <a name='M-MFR-TextValues-Retrievers-Actions-Get-FileTicket-System-String-'></a>
 ### FileTicket(pathname) `method`
 

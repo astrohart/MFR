@@ -10,6 +10,7 @@
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
+  - [FileStreamProvider](#P-MFR-Renamers-Files-FileRenamer-FileStreamProvider 'MFR.Renamers.Files.FileRenamer.FileStreamProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
@@ -150,13 +151,22 @@ If the list is empty when the
 method is called, do
 nothing or throw an exception.
 
+<a name='P-MFR-Renamers-Files-FileRenamer-FileStreamProvider'></a>
+### FileStreamProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
+
 <a name='P-MFR-Renamers-Files-FileRenamer-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer').
+Gets a reference to the one and only instance of the object that implements the
+[IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-IsBusy'></a>
 ### IsBusy `property`

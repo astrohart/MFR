@@ -16,6 +16,8 @@ namespace MFR.FileSystem.Validators
     public abstract class
         FileSystemEntryValidatorBase : IFileSystemEntryValidator
     {
+        
+
         /// <summary>
         /// Determines whether the specified file-system
         /// <paramref

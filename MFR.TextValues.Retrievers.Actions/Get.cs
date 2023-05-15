@@ -43,11 +43,6 @@ namespace MFR.TextValues.Retrievers.Actions
                 if (stream == null) return result;
 
                 result = stream.ReadToEnd();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** INFO: {result.Length} character(s) read from file."
-                );
             }
             catch (Exception ex)
             {

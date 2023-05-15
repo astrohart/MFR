@@ -10,7 +10,6 @@
   - [#ctor()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
   - [ConfigurationProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigurationProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.CurrentConfiguration')
-  - [FileStreamProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileStreamProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileStreamProvider')
   - [FileSystemEntryValidatorSays](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
   - [FindWhat](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
   - [OperationType](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
@@ -170,15 +169,6 @@ associated with it.
 Gets or sets a reference to an instance of an object that implements
 the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
-
-<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileStreamProvider'></a>
-### FileStreamProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
 interface.
 
 <a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays'></a>

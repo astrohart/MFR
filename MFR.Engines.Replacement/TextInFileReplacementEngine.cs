@@ -1,11 +1,9 @@
-using MFR.Settings.Configuration.Helpers;
-using MFR.Settings.Configuration.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories;
-using MFR.Replacers.Interfaces;
+using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Replacement
@@ -52,9 +50,9 @@ namespace MFR.Engines.Replacement
         ///     langword="null" />
         /// value.
         /// </exception>
-        public TextInFileReplacementEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
-            projectFileRenamerConfiguration
-        ) { }
+        public TextInFileReplacementEngine(
+            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
+            base(projectFileRenamerConfiguration) { }
 
         /// <summary>
         /// Gets one of the
@@ -110,19 +108,13 @@ namespace MFR.Engines.Replacement
         public override string Replace(string value, string pattern,
             string dest = "")
         {
-            // return the empty string if no text to be replaced is provided.
-            if (string.IsNullOrEmpty(value))
-                return string.Empty;
-
-            if (string.IsNullOrWhiteSpace(pattern))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(pattern)
-                );
-
             var result = value; // no replacement if error
 
             try
             {
+                if (string.IsNullOrWhiteSpace(value)) return result;
+                if (string.IsNullOrWhiteSpace(pattern)) return result;
+
                 var replacer = GetStringReplacer
                                .For(OperationType.ReplaceTextInFiles)
                                .AndTextMatchingConfiguration(
