@@ -34,7 +34,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
@@ -149,8 +148,8 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Renamers.Files.FileRenamer" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IFileRenamer Instance
@@ -1530,7 +1529,6 @@ namespace MFR.Renamers.Files
                                                   CurrentConfiguration
                                               );
                 if (expression == null) return result;
-
             }
             catch (Exception ex)
             {
