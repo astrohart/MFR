@@ -429,13 +429,6 @@ otherwise.
 the [IMatchExpression](#T-MFR-IMatchExpression 'MFR.IMatchExpression') interface and whose
 properties contain the match and pattern data. |
 
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `expression`, is
-passed a `null` value. |
-
 <a name='T-MFR-Engines-Matching-TextInFilesMatchingEngine'></a>
 ## TextInFilesMatchingEngine `type`
 

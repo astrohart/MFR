@@ -3,11 +3,113 @@
 
 ## Contents
 
+- [GetFilenameTextValueRetriever](#T-MFR-TextValues-Retrievers-Factories-GetFilenameTextValueRetriever 'MFR.TextValues.Retrievers.Factories.GetFilenameTextValueRetriever')
+  - [SoleInstance()](#M-MFR-TextValues-Retrievers-Factories-GetFilenameTextValueRetriever-SoleInstance 'MFR.TextValues.Retrievers.Factories.GetFilenameTextValueRetriever.SoleInstance')
+- [GetFolderTextValueRetriever](#T-MFR-TextValues-Retrievers-Factories-GetFolderTextValueRetriever 'MFR.TextValues.Retrievers.Factories.GetFolderTextValueRetriever')
+  - [SoleInstance()](#M-MFR-TextValues-Retrievers-Factories-GetFolderTextValueRetriever-SoleInstance 'MFR.TextValues.Retrievers.Factories.GetFolderTextValueRetriever.SoleInstance')
+- [GetTextInFileTextValueRetriever](#T-MFR-TextValues-Retrievers-Factories-GetTextInFileTextValueRetriever 'MFR.TextValues.Retrievers.Factories.GetTextInFileTextValueRetriever')
+  - [SoleInstance()](#M-MFR-TextValues-Retrievers-Factories-GetTextInFileTextValueRetriever-SoleInstance 'MFR.TextValues.Retrievers.Factories.GetTextInFileTextValueRetriever.SoleInstance')
 - [GetTextValueRetriever](#T-MFR-TextValues-Retrievers-Factories-GetTextValueRetriever 'MFR.TextValues.Retrievers.Factories.GetTextValueRetriever')
   - [For(type)](#M-MFR-TextValues-Retrievers-Factories-GetTextValueRetriever-For-MFR-Operations-Constants-OperationType- 'MFR.TextValues.Retrievers.Factories.GetTextValueRetriever.For(MFR.Operations.Constants.OperationType)')
 - [Resources](#T-MFR-TextValues-Retrievers-Factories-Properties-Resources 'MFR.TextValues.Retrievers.Factories.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Factories-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-TextValues-Retrievers-Factories-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-TextValues-Retrievers-Factories-GetFilenameTextValueRetriever'></a>
+## GetFilenameTextValueRetriever `type`
+
+##### Namespace
+
+MFR.TextValues.Retrievers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface.
+
+<a name='M-MFR-TextValues-Retrievers-Factories-GetFilenameTextValueRetriever-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-TextValues-Retrievers-Factories-GetFolderTextValueRetriever'></a>
+## GetFolderTextValueRetriever `type`
+
+##### Namespace
+
+MFR.TextValues.Retrievers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface for obtaining the pathname of a folder.
+
+<a name='M-MFR-TextValues-Retrievers-Factories-GetFolderTextValueRetriever-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface for obtaining the pathname of a folder.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-TextValues-Retrievers-Factories-GetTextInFileTextValueRetriever'></a>
+## GetTextInFileTextValueRetriever `type`
+
+##### Namespace
+
+MFR.TextValues.Retrievers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface.
+
+<a name='M-MFR-TextValues-Retrievers-Factories-GetTextInFileTextValueRetriever-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface for retrieving the text content from a file.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-TextValues-Retrievers-Factories-GetTextValueRetriever'></a>
 ## GetTextValueRetriever `type`

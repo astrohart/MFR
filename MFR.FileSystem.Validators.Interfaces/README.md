@@ -66,6 +66,10 @@ passed a `null` value. |
 Determines whether a file system `entry` exists on
 the disk at the pathname indicated.
 
+##### Returns
+
+`true` if the provided filesystem `entry` is valid; `false` otherwise.
+
 ##### Parameters
 
 | Name | Type | Description |
@@ -74,24 +78,11 @@ the disk at the pathname indicated.
 the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface containing information about the entry to be checked. |
 
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
-passed a `null` value. |
-| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a folder is passed in the
-`entry`
-parameter and the folder cannot be located on the disk. |
-| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a file is passed in the
-`entry`
-parameter and the file cannot be located on the disk. |
-
 ##### Remarks
 
 If the properties of the `entry` have valid data
 and the path stored in the entry refers to a file-system object that
-exists on the disk, then this method does nothing.
+exists on the disk, then this method returns `true`.
 
 
 
@@ -99,7 +90,7 @@ If an object instance variable or property has a
 `null`
 reference, or if the path stored in the entry
 refers to a file-system object that does not exist on the disk, then
-an exception is thrown.
+this method returns `false`.
 
 <a name='M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldNotSkip-System-String-'></a>
 ### ShouldNotSkip(path) `method`

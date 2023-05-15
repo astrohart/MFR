@@ -56,7 +56,6 @@
   - [VerifyConfigurationAttached()](#M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-VerifyConfigurationAttached 'MFR.FileSystem.Retrievers.SolutionFilePathRetriever.VerifyConfigurationAttached')
 - [TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#ctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#ctor')
-  - [FileStreamProvider](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-FileStreamProvider 'MFR.FileSystem.Retrievers.TextInFilesRetriever.FileStreamProvider')
   - [Instance](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance 'MFR.FileSystem.Retrievers.TextInFilesRetriever.Instance')
   - [OperationType](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType 'MFR.FileSystem.Retrievers.TextInFilesRetriever.OperationType')
   - [#cctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#cctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#cctor')
@@ -1137,15 +1136,6 @@ Empty, protected constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This constructor has no parameters.
-
-<a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-FileStreamProvider'></a>
-### FileStreamProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
-interface.
 
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance'></a>
 ### Instance `property`

@@ -509,10 +509,3 @@ String containing the new data.
 [MatchExpression](#T-MFR-MatchExpression 'MFR.MatchExpression')
 that contains the
 replacement data. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `expression`, is
-passed a `null` value. |

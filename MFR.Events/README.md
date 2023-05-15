@@ -259,7 +259,7 @@ and returns a reference to it.
 | ---- | ---- | ----------- |
 | count | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) A zero or positive integer specifying the number of
 files to be processed by the operation. |
-| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 specifies the operation being performed. |
 
 <a name='P-MFR-Events-FilesOrFoldersCountedEventArgs-Count'></a>
@@ -465,7 +465,7 @@ the pattern in `findWhat`.
 
 This is typically the fully-qualified pathname of a file or folder;
 however, if we are doing the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 operation, then this is the text of the current file before
 find-and-replace has been done. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the textual criteria for the match. |
@@ -476,10 +476,10 @@ be replaced with.
 
 
 NOTE: This parameter may be blank for the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 operation type. |
 | operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 describes what operation is being performed. |
 
@@ -508,7 +508,7 @@ reference to it.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies the operation being performed. |
 

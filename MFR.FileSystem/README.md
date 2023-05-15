@@ -62,7 +62,7 @@ Gets or sets the pathname of the parent folder of this file system entry.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 

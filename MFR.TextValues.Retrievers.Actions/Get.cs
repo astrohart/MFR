@@ -31,10 +31,6 @@ namespace MFR.TextValues.Retrievers.Actions
         /// corresponding file, or <see cref="F:System.String.Empty" /> if the content
         /// could not be obtained.
         /// </returns>
-        /// <remarks>
-        /// The <paramref name="ticket" /> becomes invalid once this method is
-        /// called.
-        /// </remarks>
         public static string FileData(Guid ticket)
         {
             var result = string.Empty;
