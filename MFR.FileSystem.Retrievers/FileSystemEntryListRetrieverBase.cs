@@ -510,12 +510,6 @@ namespace MFR.FileSystem.Retrievers
                     string.IsNullOrWhiteSpace(fileData))
                     return result;
 
-                if (entry.Path.Contains("Foo"))
-                {
-                    Debugger.Launch();
-                    Debugger.Break();
-                }
-
                 var matchExpressionFactory =
                     GetMatchExpressionFactoryForOperation();
                 if (matchExpressionFactory == null) return result;

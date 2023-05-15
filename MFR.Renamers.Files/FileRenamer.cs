@@ -2,6 +2,7 @@ using MFR.Constants;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Replacement.Factories;
+using MFR.Engines.Replacement.Intefaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Expressions.Matches.Factories;
@@ -10,7 +11,6 @@ using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;
-using MFR.FileSystem.Validators.Factories;
 using MFR.Managers.RootFolders.Factories;
 using MFR.Managers.RootFolders.Interfaces;
 using MFR.Managers.Solutions.Actions;
@@ -388,7 +388,8 @@ namespace MFR.Renamers.Files
                 var replaceTextInFilesResult =
                     CurrentConfiguration.ReplaceTextInFiles &&
                     ReplaceTextInFiles(
-                        RootDirectoryPath, findWhat, replaceWith /* filtering paths (besides the default) makes no sense for this operation */
+                        RootDirectoryPath, findWhat,
+                        replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
                 result = renameFilesInFolderResult && renameSubFoldersResult &&
@@ -422,8 +423,6 @@ namespace MFR.Renamers.Files
 
             return result;
         }
-
-        
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
@@ -626,10 +625,11 @@ namespace MFR.Renamers.Files
                  * narrow the search.
                  */
 
-                IFileSystemEntryListRetriever retriever = GetFileSystemEntryListRetriever
-                                             .For(OperationType.RenameFilesInFolder)
-                                             .AndAttachConfiguration(CurrentConfiguration);
-                if (retriever == null) 
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameFilesInFolder)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null)
                     if (!AbortRequested)
                     {
                         OnOperationFinished(
@@ -640,14 +640,15 @@ namespace MFR.Renamers.Files
                         return result;
                     }
 
-                var entryCollection =
-                    retriever.UsingSearchPattern("*")
-                             .WithSearchOption(SearchOption.AllDirectories)
-                             .ToFindWhat(findWhat)
-                             .AndReplaceItWith(replaceWith)
-                             .GetMatchingFileSystemPaths(
-                                 RootDirectoryPath, pathFilter
-                             );
+                var entryCollection = retriever.UsingSearchPattern("*")
+                                               .WithSearchOption(
+                                                   SearchOption.AllDirectories
+                                               )
+                                               .ToFindWhat(findWhat)
+                                               .AndReplaceItWith(replaceWith)
+                                               .GetMatchingFileSystemPaths(
+                                                   RootDirectoryPath, pathFilter
+                                               );
                 if (entryCollection == null || !entryCollection.Any())
                     if (!AbortRequested)
                     {
@@ -1397,7 +1398,8 @@ namespace MFR.Renamers.Files
 
                 RootDirectoryPath = rootDirectoryPath;
 
-                if (!RootDirectoryPathValidator.Validate(rootDirectoryPath)) return;
+                if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
+                    return;
 
                 OnStarted();
 
@@ -1499,6 +1501,44 @@ namespace MFR.Renamers.Files
                 DebugLevel.Info,
                 $"FileRenamer.GetReplacementFileName: Result = '{result}'"
             );
+
+            return result;
+        }
+
+        private string GetTextInFileReplacementData()
+        {
+            var result = string.Empty;
+
+            try
+            {
+                ITextReplacementEngine engine = GetTextReplacementEngine
+                                                .For(
+                                                    OperationType
+                                                        .ReplaceTextInFiles
+                                                )
+                                                .AndAttachConfiguration(
+                                                    CurrentConfiguration
+                                                );
+                if (engine == null) return result;
+
+                IMatchExpression expression = GetMatchExpressionFactory
+                                              .For(
+                                                  OperationType
+                                                      .ReplaceTextInFiles
+                                              )
+                                              .AndAttachConfiguration(
+                                                  CurrentConfiguration
+                                              );
+                if (expression == null) return result;
+
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
 
             return result;
         }
@@ -2014,9 +2054,10 @@ namespace MFR.Renamers.Files
 
         private void ReopenSolution(IVisualStudioSolution solution)
         {
-            var numTries = 0;       // number of times we've attempted to open the solution thus far
-            const int MAX_RETRIES = 10;     // we will only try 10 times.
-
+            var numTries =
+                0; // number of times we've attempted to open the solution thus far
+            const int
+                MAX_RETRIES = 10; // we will only try 10 times.
 
             try
             {
@@ -2039,7 +2080,6 @@ namespace MFR.Renamers.Files
                 );
 
                 while (!solution.IsLoaded && numTries < MAX_RETRIES)
-                {
                     try
                     {
                         numTries++;
@@ -2054,9 +2094,6 @@ namespace MFR.Renamers.Files
                         // otherwise, continue to try
                         continue;
                     }
-                }
-
-                
             }
             catch (Exception ex)
             {

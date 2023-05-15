@@ -4,6 +4,7 @@ using MFR.Operations.Constants;
 using MFR.Replacers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Replacement
@@ -12,6 +13,7 @@ namespace MFR.Engines.Replacement
     /// Replaces text in a file. Here, we represent the file's contents as
     /// simply the source string of methods.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class TextInFileReplacementEngine : TextReplacementEngineBase
     {
         /// <summary>
@@ -21,7 +23,6 @@ namespace MFR.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
-        [Log(AttributeExclude = true)]
         public TextInFileReplacementEngine()
         {
             // TODO: Add default object initialization here
@@ -50,7 +51,6 @@ namespace MFR.Engines.Replacement
         ///     langword="null" />
         /// value.
         /// </exception>
-        [Log(AttributeExclude = true)]
         public TextInFileReplacementEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
             projectFileRenamerConfiguration
         ) { }
@@ -62,7 +62,6 @@ namespace MFR.Engines.Replacement
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        [Log(AttributeExclude = true)]
         public override OperationType OperationType
             => OperationType.ReplaceTextInFiles;
 
@@ -123,6 +122,9 @@ namespace MFR.Engines.Replacement
 
             try
             {
+                Debugger.Launch();
+                Debugger.Break();
+
                 result = GetStringReplacer.For(OperationType.ReplaceTextInFiles)
                                           .AndTextMatchingConfiguration(
                                               CurrentConfiguration
