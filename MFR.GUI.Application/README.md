@@ -15,7 +15,7 @@
   - [FileStreamProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileStreamProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
-  - [RootDirectoryValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryValidator')
+  - [RootDirectoryPathValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryPathValidator')
   - [#cctor()](#M-MFR-GUI-Application-ProjectFileRenamerApp-#cctor 'MFR.GUI.Application.ProjectFileRenamerApp.#cctor')
   - [InitApplication(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-InitApplication-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.InitApplication(System.String[])')
   - [IsAutoStarted(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-IsAutoStarted-System-Collections-Generic-IEnumerable{System-String}- 'MFR.GUI.Application.ProjectFileRenamerApp.IsAutoStarted(System.Collections.Generic.IEnumerable{System.String})')
@@ -149,13 +149,13 @@ Gets a reference to an instance of an object that implements the
 [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
 interface.
 
-<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
+<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 <a name='M-MFR-GUI-Application-ProjectFileRenamerApp-#cctor'></a>
@@ -277,7 +277,7 @@ This method has no parameters.
 ##### Summary
 
 Handles the
-[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
+[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryPathValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid')
 event raised by the root-directory validator object.
 
 ##### Parameters

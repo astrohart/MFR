@@ -3,29 +3,29 @@
 
 ## Contents
 
-- [DirectoryValidatorTests](#T-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests')
-  - [Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists')
-  - [Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists')
-  - [Test_DoesExist_ThrowsArgumentException_ForBlankPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ThrowsArgumentException_ForBlankPath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_DoesExist_ThrowsArgumentException_ForBlankPath')
-  - [Test_DoesExist_ThrowsArgumentException_ForNullPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ThrowsArgumentException_ForNullPath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_DoesExist_ThrowsArgumentException_ForNullPath')
-  - [Test_DoesExist_ThrowsArgumentException_ForWhitespacePath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ThrowsArgumentException_ForWhitespacePath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_DoesExist_ThrowsArgumentException_ForWhitespacePath')
-  - [Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder')
-  - [Test_IsValid_ThrowsArgumentException_ForBlankPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsArgumentException_ForBlankPath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_IsValid_ThrowsArgumentException_ForBlankPath')
-  - [Test_IsValid_ThrowsArgumentException_ForNullPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsArgumentException_ForNullPath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_IsValid_ThrowsArgumentException_ForNullPath')
-  - [Test_IsValid_ThrowsArgumentException_ForWhitespacePath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsArgumentException_ForWhitespacePath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_IsValid_ThrowsArgumentException_ForWhitespacePath')
-  - [Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder')
-  - [Test_ShouldSkip_ReturnsFalse_ForAllowedDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsFalse_ForAllowedDir 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsFalse_ForAllowedDir')
-  - [Test_ShouldSkip_ReturnsTrue_ForBlankPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForBlankPath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForBlankPath')
-  - [Test_ShouldSkip_ReturnsTrue_ForDotfolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForDotfolder 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForDotfolder')
-  - [Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir')
-  - [Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir')
-  - [Test_ShouldSkip_ReturnsTrue_ForNullInput()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullInput 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForNullInput')
-  - [Test_ShouldSkip_ReturnsTrue_ForNullPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullPath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForNullPath')
-  - [Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder')
-  - [Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir')
-  - [Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir')
-  - [Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir')
-  - [Test_ShouldSkip_ReturnsTrue_ForWhitespacePath()](#M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForWhitespacePath 'MFR.FileSystem.Validators.Tests.DirectoryValidatorTests.Test_ShouldSkip_ReturnsTrue_ForWhitespacePath')
+- [DirectoryPathValidatorTests](#T-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests')
+  - [Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists')
+  - [Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists')
+  - [Test_DoesExist_ThrowsArgumentException_ForBlankPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ThrowsArgumentException_ForBlankPath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_DoesExist_ThrowsArgumentException_ForBlankPath')
+  - [Test_DoesExist_ThrowsArgumentException_ForNullPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ThrowsArgumentException_ForNullPath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_DoesExist_ThrowsArgumentException_ForNullPath')
+  - [Test_DoesExist_ThrowsArgumentException_ForWhitespacePath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ThrowsArgumentException_ForWhitespacePath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_DoesExist_ThrowsArgumentException_ForWhitespacePath')
+  - [Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder')
+  - [Test_IsValid_ThrowsArgumentException_ForBlankPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsArgumentException_ForBlankPath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_IsValid_ThrowsArgumentException_ForBlankPath')
+  - [Test_IsValid_ThrowsArgumentException_ForNullPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsArgumentException_ForNullPath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_IsValid_ThrowsArgumentException_ForNullPath')
+  - [Test_IsValid_ThrowsArgumentException_ForWhitespacePath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsArgumentException_ForWhitespacePath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_IsValid_ThrowsArgumentException_ForWhitespacePath')
+  - [Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder')
+  - [Test_ShouldSkip_ReturnsFalse_ForAllowedDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsFalse_ForAllowedDir 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsFalse_ForAllowedDir')
+  - [Test_ShouldSkip_ReturnsTrue_ForBlankPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForBlankPath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForBlankPath')
+  - [Test_ShouldSkip_ReturnsTrue_ForDotfolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForDotfolder 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForDotfolder')
+  - [Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir')
+  - [Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir')
+  - [Test_ShouldSkip_ReturnsTrue_ForNullInput()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullInput 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForNullInput')
+  - [Test_ShouldSkip_ReturnsTrue_ForNullPath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullPath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForNullPath')
+  - [Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder')
+  - [Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir')
+  - [Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir')
+  - [Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir')
+  - [Test_ShouldSkip_ReturnsTrue_ForWhitespacePath()](#M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForWhitespacePath 'MFR.FileSystem.Validators.Tests.DirectoryPathValidatorTests.Test_ShouldSkip_ReturnsTrue_ForWhitespacePath')
 - [ProjectFileValidatorTests](#T-MFR-FileSystem-Validators-Tests-ProjectFileValidatorTests 'MFR.FileSystem.Validators.Tests.ProjectFileValidatorTests')
   - [ThatTheProjectFileValidatorSays](#P-MFR-FileSystem-Validators-Tests-ProjectFileValidatorTests-ThatTheProjectFileValidatorSays 'MFR.FileSystem.Validators.Tests.ProjectFileValidatorTests.ThatTheProjectFileValidatorSays')
   - [Test_ShouldSkip_ReturnsFalse_ForAllowedFile()](#M-MFR-FileSystem-Validators-Tests-ProjectFileValidatorTests-Test_ShouldSkip_ReturnsFalse_ForAllowedFile 'MFR.FileSystem.Validators.Tests.ProjectFileValidatorTests.Test_ShouldSkip_ReturnsFalse_ForAllowedFile')
@@ -45,8 +45,8 @@
   - [Culture](#P-MFR-FileSystem-Validators-Tests-Properties-Resources-Culture 'MFR.FileSystem.Validators.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Validators-Tests-Properties-Resources-ResourceManager 'MFR.FileSystem.Validators.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests'></a>
-## DirectoryValidatorTests `type`
+<a name='T-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests'></a>
+## DirectoryPathValidatorTests `type`
 
 ##### Namespace
 
@@ -58,13 +58,13 @@ Provides unit tests for the methods, properties, and events of the
 [ProjectFileValidator](#T-MFR-FileSystem-Validators-ProjectFileValidator 'MFR.FileSystem.Validators.ProjectFileValidator')
 class.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists'></a>
 ### Test_DoesExist_ReturnsFalse_WhenProvidedFolderPath_NotExists() `method`
 
 ##### Summary
 
 Asserts that the
-[DoesExist](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist')
+[DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method returns `false` when the folder path provided
 to the method as its argument does not, in fact, exist on the disk.
 
@@ -72,13 +72,13 @@ to the method as its argument does not, in fact, exist on the disk.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists'></a>
 ### Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists() `method`
 
 ##### Summary
 
 Asserts that the
-[DoesExist](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist')
+[DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method returns `true` when provided with the path to
 a folder on the disk that is guaranteed to exist.
 
@@ -86,13 +86,13 @@ a folder on the disk that is guaranteed to exist.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ThrowsArgumentException_ForBlankPath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ThrowsArgumentException_ForBlankPath'></a>
 ### Test_DoesExist_ThrowsArgumentException_ForBlankPath() `method`
 
 ##### Summary
 
 Asserts that the
-[DoesExist](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist')
+[DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') when passed a
 blank value for its parameter.
 
@@ -100,13 +100,13 @@ blank value for its parameter.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ThrowsArgumentException_ForNullPath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ThrowsArgumentException_ForNullPath'></a>
 ### Test_DoesExist_ThrowsArgumentException_ForNullPath() `method`
 
 ##### Summary
 
 Asserts that the
-[DoesExist](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist')
+[DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') when passed a
 `null` value for its parameter.
 
@@ -114,13 +114,13 @@ method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?ap
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_DoesExist_ThrowsArgumentException_ForWhitespacePath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_DoesExist_ThrowsArgumentException_ForWhitespacePath'></a>
 ### Test_DoesExist_ThrowsArgumentException_ForWhitespacePath() `method`
 
 ##### Summary
 
 Asserts that the
-[DoesExist](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist')
+[DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') when passed a
 whitespace value for its parameter.
 
@@ -128,13 +128,13 @@ whitespace value for its parameter.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder'></a>
 ### Test_IsValid_DoesNotThrowException_ForWindowsSystemFolder() `method`
 
 ##### Summary
 
 Asserts that the
-[IsValid](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid 'MFR.FileSystem.Validators.DirectoryValidator.IsValid')
+[IsValid](#M-MFR-FileSystem-Validators-DirectoryPathValidator-IsValid 'MFR.FileSystem.Validators.DirectoryPathValidator.IsValid')
 method does not throw any exceptions when passed the pathname of the
 C:\WINDOWS\System32 folder (which is guaranteed to always be valid).
 
@@ -142,13 +142,13 @@ C:\WINDOWS\System32 folder (which is guaranteed to always be valid).
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsArgumentException_ForBlankPath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsArgumentException_ForBlankPath'></a>
 ### Test_IsValid_ThrowsArgumentException_ForBlankPath() `method`
 
 ##### Summary
 
 Asserts that the
-[IsValid](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid 'MFR.FileSystem.Validators.DirectoryValidator.IsValid')
+[IsValid](#M-MFR-FileSystem-Validators-DirectoryPathValidator-IsValid 'MFR.FileSystem.Validators.DirectoryPathValidator.IsValid')
 method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') when passed a
 blank string for its parameter.
 
@@ -156,13 +156,13 @@ blank string for its parameter.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsArgumentException_ForNullPath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsArgumentException_ForNullPath'></a>
 ### Test_IsValid_ThrowsArgumentException_ForNullPath() `method`
 
 ##### Summary
 
 Asserts that the
-[IsValid](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid 'MFR.FileSystem.Validators.DirectoryValidator.IsValid')
+[IsValid](#M-MFR-FileSystem-Validators-DirectoryPathValidator-IsValid 'MFR.FileSystem.Validators.DirectoryPathValidator.IsValid')
 method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') when passed a
 `null` string for its parameter.
 
@@ -170,13 +170,13 @@ method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?ap
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsArgumentException_ForWhitespacePath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsArgumentException_ForWhitespacePath'></a>
 ### Test_IsValid_ThrowsArgumentException_ForWhitespacePath() `method`
 
 ##### Summary
 
 Asserts that the
-[IsValid](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid 'MFR.FileSystem.Validators.DirectoryValidator.IsValid')
+[IsValid](#M-MFR-FileSystem-Validators-DirectoryPathValidator-IsValid 'MFR.FileSystem.Validators.DirectoryPathValidator.IsValid')
 method throws [ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') when passed
 whitespace for its parameter.
 
@@ -184,13 +184,13 @@ whitespace for its parameter.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder'></a>
 ### Test_IsValid_ThrowsDirectoryNotFoundException_ForNonexistentFolder() `method`
 
 ##### Summary
 
 Asserts that the
-[IsValid](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid 'MFR.FileSystem.Validators.DirectoryValidator.IsValid')
+[IsValid](#M-MFR-FileSystem-Validators-DirectoryPathValidator-IsValid 'MFR.FileSystem.Validators.DirectoryPathValidator.IsValid')
 method throws [DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException')
 when passed the path to a folder that is guaranteed not to actually
 exist on the machine's hard disk.
@@ -199,13 +199,13 @@ exist on the machine's hard disk.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsFalse_ForAllowedDir'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsFalse_ForAllowedDir'></a>
 ### Test_ShouldSkip_ReturnsFalse_ForAllowedDir() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `false` when passed the path to a
 folder that matches the operational criteria.
 
@@ -213,13 +213,13 @@ folder that matches the operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForBlankPath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForBlankPath'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForBlankPath() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` when passed a blank string for
 its argument.
 
@@ -227,13 +227,13 @@ its argument.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForDotfolder'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForDotfolder'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForDotfolder() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` when passed the pathname to a
 dotfolder (a folder whose name begins with a period), as such a
 folder does not meet the operational criteria.
@@ -242,13 +242,13 @@ folder does not meet the operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForFolderInBinDir() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` for a folder named `bin`,
 which does not meet the operational criteria.
 
@@ -256,13 +256,13 @@ which does not meet the operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForFolderInObjDir() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` for a folder named `obj`,
 which does not meet the operational criteria.
 
@@ -270,13 +270,13 @@ which does not meet the operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullInput'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullInput'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForNullInput() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` when passed the
 `null`
 string for its argument.
@@ -285,13 +285,13 @@ string for its argument.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullPath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForNullPath'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForNullPath() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` when passed the
 `null`
 string for its argument.
@@ -300,13 +300,13 @@ string for its argument.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFolder() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` when passed the pathname of a
 folder that is known not to exist.
 
@@ -314,13 +314,13 @@ folder that is known not to exist.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForSubfolderOfGitDir() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` for a folder named
 `.git`, or a subfolder thereof, which does not meet the
 operational criteria.
@@ -329,13 +329,13 @@ operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForSubfolderOfPackagesDir() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` for a folder named
 `packages`, or a subfolder thereof, which does not meet the
 operational criteria.
@@ -344,13 +344,13 @@ operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForSubfolderOfVsDir() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` for a folder named `.vs`,
 or a subfolder thereof, which does not meet the operational criteria.
 
@@ -358,13 +358,13 @@ or a subfolder thereof, which does not meet the operational criteria.
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Validators-Tests-DirectoryValidatorTests-Test_ShouldSkip_ReturnsTrue_ForWhitespacePath'></a>
+<a name='M-MFR-FileSystem-Validators-Tests-DirectoryPathValidatorTests-Test_ShouldSkip_ReturnsTrue_ForWhitespacePath'></a>
 ### Test_ShouldSkip_ReturnsTrue_ForWhitespacePath() `method`
 
 ##### Summary
 
 Asserts that the
-[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryValidator.ShouldSkip')
+[ShouldSkip](#M-MFR-FileSystem-Validators-DirectoryPathValidator-ShouldSkip 'MFR.FileSystem.Validators.DirectoryPathValidator.ShouldSkip')
 method returns `true` when passed whitespace for its argument.
 
 ##### Parameters

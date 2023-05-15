@@ -151,20 +151,23 @@ namespace MFR.FileSystem.Retrievers
                  * very efficient at managing memory so long as you do not
                  * call ToList etc.
                  */
-                result.AddRange(
-                    Enumerate.Files(
-                                 rootFolderPath, SearchPattern, SearchOption,
-                                 path => ShouldDoPath(path, pathFilter)
-                             )
-                             //.AsParallel()
-                             .Select(
-                                 path => MakeNewFileSystemEntry.ForPath(path)
-                                     .AndHavingUserState(
-                                         FileStreamProvider.OpenStreamFor(path)
-                                     )
-                             )
-                             .Where(SearchCriteriaMatch)
-                );
+
+                foreach (var path in Enumerate.Files(
+                             rootFolderPath, SearchPattern, SearchOption,
+                             path => ShouldDoPath(path, pathFilter)
+                         ))
+                {
+                    var entry = MakeNewFileSystemEntry.ForPath(path);
+                    if (entry == null) continue;
+
+                    entry.AndHavingUserState(
+                        FileStreamProvider.OpenStreamFor(path)
+                    );
+
+                    if (!SearchCriteriaMatch(entry)) continue;
+
+                    result.Add(entry);
+                }
             }
             catch (Exception ex)
             {

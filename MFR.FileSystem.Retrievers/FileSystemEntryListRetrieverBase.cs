@@ -506,8 +506,8 @@ namespace MFR.FileSystem.Retrievers
                 VerifyConfigurationAttached();
 
                 var fileData = GetFileDataForReplaceInFiles(entry);
-                if (OperationType == OperationType.ReplaceTextInFiles
-                    && string.IsNullOrWhiteSpace(fileData))
+                if (OperationType == OperationType.ReplaceTextInFiles &&
+                    string.IsNullOrWhiteSpace(fileData))
                     return result;
 
                 if (entry.Path.Contains("Foo"))
@@ -587,27 +587,8 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
-                if (entry == null)
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        "*** ERROR *** The entry parameter was passed a null reference in the FileSystemEntryListRetrieverBase.SearchCriteriaMatch method."
-                    );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"FileSystemEntryListRetrieverBase.SearchCriteriaMatch: Result = {result}"
-                    );
-
-                    return result;
-                }
-
-                // Dump the variable entry.Path to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileSystemEntryListRetrieverBase.SearchCriteriaMatch: entry.Path = '{entry.Path}'"
-                );
-
+                if (entry == null) return result;
+                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
                 if (!Does.FileSystemEntryExist(entry.Path)) return result;
 
                 result = TextExpressionMatchingEngineSays.IsMatch(
@@ -621,11 +602,6 @@ namespace MFR.FileSystem.Retrievers
 
                 result = false;
             }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileSystemEntryListRetrieverBase.SearchCriteriaMatch: Result = {result}"
-            );
 
             return result;
         }

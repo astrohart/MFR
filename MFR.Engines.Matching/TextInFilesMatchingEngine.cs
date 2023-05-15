@@ -114,9 +114,6 @@ namespace MFR.Engines.Matching
         {
             var result = base.IsMatch(value, findWhat, replaceWith);
 
-            Debugger.Launch();
-            Debugger.Break();
-
             try
             {
                 // can't match if there is no data against which to search. BUT if

@@ -25,7 +25,7 @@
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ProfileCollectionComboBox')
   - [RenameSolutionFolders](#P-MFR-GUI-Windows-MainWindow-RenameSolutionFolders 'MFR.GUI.Windows.MainWindow.RenameSolutionFolders')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.MainWindow.ReplaceWithComboBox')
-  - [RootDirectoryValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryValidator')
+  - [RootDirectoryPathValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryPathValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryPathValidator')
   - [SelectAll](#P-MFR-GUI-Windows-MainWindow-SelectAll 'MFR.GUI.Windows.MainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-MainWindow-SelectedOptionTab 'MFR.GUI.Windows.MainWindow.SelectedOptionTab')
   - [StartingFolder](#P-MFR-GUI-Windows-MainWindow-StartingFolder 'MFR.GUI.Windows.MainWindow.StartingFolder')
@@ -314,13 +314,13 @@ Gets or sets the value of the checkbox
 Gets a reference to the text box control that allows the user to
 specify the text to replace found text with.
 
-<a name='P-MFR-GUI-Windows-MainWindow-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
+<a name='P-MFR-GUI-Windows-MainWindow-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 <a name='P-MFR-GUI-Windows-MainWindow-SelectAll'></a>
@@ -878,7 +878,7 @@ This method toggles UI state and dismisses the progress dialog.
 ##### Summary
 
 Handles the
-[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
+[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryPathValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid')
 event raised by the `Root Directory Validator` component.
 
 ##### Parameters
