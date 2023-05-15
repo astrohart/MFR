@@ -34,6 +34,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
