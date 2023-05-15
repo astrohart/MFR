@@ -2,6 +2,7 @@
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories.Actions;
 using System;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.TextValues.Retrievers.Actions
@@ -47,7 +48,10 @@ namespace MFR.TextValues.Retrievers.Actions
 
                 result = stream.ReadToEnd();
 
-                FileStreamProvider.DisposeStream(ticket);
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: {result.Length} character(s) read from file."
+                );
             }
             catch (Exception ex)
             {
@@ -55,6 +59,9 @@ namespace MFR.TextValues.Retrievers.Actions
                 DebugUtils.LogException(ex);
 
                 result = string.Empty;
+
+                Debugger.Launch();
+                Debugger.Break();
             }
 
             return result;

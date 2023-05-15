@@ -112,7 +112,7 @@ namespace MFR.FileSystem
         /// Thrown if the required parameter, <paramref name="userState" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public IFileSystemEntry AndHavingUserState(dynamic userState)
+        public IFileSystemEntry SetUserState(dynamic userState)
         {
             UserState = userState ??
                         throw new ArgumentNullException(nameof(userState));

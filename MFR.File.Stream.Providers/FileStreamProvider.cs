@@ -163,13 +163,21 @@ namespace MFR.File.Stream.Providers
             {
                 if (!InternalFileStreamCollection.Any()) return;
 
-                foreach (var ticket in InternalFileStreamCollection.Keys)
-                    DisposeStream(ticket);
+                // Read the keys backwards
+                foreach (var ticket in
+                         InternalFileStreamCollection.Keys.Reverse())
+                    DisposeStream(ticket, false);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+            }
+            finally
+            {
+                if (Count > 0)
+                    InternalFileStreamCollection
+                        .Clear(); // get rid of any stragglers
             }
         }
 
@@ -181,12 +189,16 @@ namespace MFR.File.Stream.Providers
         /// A <see cref="T:System.Guid" /> value that corresponds to
         /// the file stream you wish to close.
         /// </param>
+        /// <param name="remove">
+        /// (Optional.) Indicates whether to remove the disposed stream from our internal
+        /// collection.  <see langword="true" /> is the default.
+        /// </param>
         /// <remarks>
         /// If the Zero GUID is passed as the argument of the <paramref name="ticket" />
         /// parameter, or if the specified <paramref name="ticket" /> is not present in the
         /// internal list.
         /// </remarks>
-        public void DisposeStream(Guid ticket)
+        public void DisposeStream(Guid ticket, bool remove = true)
         {
             try
             {
@@ -197,10 +209,9 @@ namespace MFR.File.Stream.Providers
                 if (correspondingReader == null)
                     return;
 
-                correspondingReader.Close();
                 correspondingReader.Dispose();
 
-                InternalFileStreamCollection.Remove(ticket);
+                if (remove) InternalFileStreamCollection.Remove(ticket);
 
                 OnFileStreamDisposed(new FileStreamDisposedEventArgs(ticket));
             }

@@ -351,7 +351,7 @@ namespace MFR.Settings.Profiles.Providers
                                                         */
                                                        pathname
                                                    )
-                                                   .AndHavingUserState(
+                                                   .SetUserState(
                                                        /*
                                                         * What needs to be saved?
                                                         * The list of profiles, which

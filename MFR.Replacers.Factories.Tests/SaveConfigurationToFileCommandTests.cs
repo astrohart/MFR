@@ -54,7 +54,7 @@ namespace MFR.Replacers.Factories.Tests
                       )
                       .WithInput(
                           MakeNewFileSystemEntry.ForPath(FILE_PATH)
-                                                .AndHavingUserState(
+                                                .SetUserState(
                                                     ProjectFileRenamerConfigurationData
                                                 )
                       )

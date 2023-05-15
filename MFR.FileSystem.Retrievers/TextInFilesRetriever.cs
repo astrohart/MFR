@@ -142,18 +142,22 @@ namespace MFR.FileSystem.Retrievers
                  * call ToList etc.
                  */
 
-                result.AddRange(
-                    Enumerate.Files(
-                                 rootFolderPath, SearchPattern, SearchOption,
-                                 path => ShouldDoPath(path, pathFilter)
-                             )
-                             .AsParallel()
-                             .Select(
-                                 path => MakeNewFileSystemEntry.ForPath(path)
-                                     .AndHavingUserState(Get.FileTicket(path))
-                             )
-                             .Where(entry => entry != null)
-                );
+                foreach (var path in Enumerate.Files(
+                             rootFolderPath, SearchPattern, SearchOption,
+                             path => ShouldDoPath(path, pathFilter)
+                         ).AsParallel())
+                {
+                    var entry = MakeNewFileSystemEntry.ForPath(path);
+                    if (entry == null) continue;
+
+                    entry.SetUserState(
+                        Get.FileTicket(entry.Path)
+                    );
+
+                    if (!SearchCriteriaMatch(entry)) continue;
+
+                    result.Add(entry);
+                }
             }
             catch (Exception ex)
             {

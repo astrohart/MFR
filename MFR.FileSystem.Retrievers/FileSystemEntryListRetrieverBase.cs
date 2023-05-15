@@ -3,8 +3,6 @@ using MFR.Engines.Matching.Interfaces;
 using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
-using MFR.File.Stream.Providers.Factories;
-using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
@@ -16,7 +14,6 @@ using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
-using MFR.TextValues.Retrievers.Actions;
 using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -75,14 +72,6 @@ namespace MFR.FileSystem.Retrievers
             get;
             set;
         } = ConfigurationProvider.CurrentConfiguration;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
-        /// interface.
-        /// </summary>
-        private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
 
         /// <summary>
         /// Fluent bridge property that accesses the appropriate file-system
@@ -285,7 +274,9 @@ namespace MFR.FileSystem.Retrievers
                  * by children of this class.
                  */
 
-                result = DoGetMatchingFileSystemPaths(rootFolderPath, pathFilter);
+                result = DoGetMatchingFileSystemPaths(
+                    rootFolderPath, pathFilter
+                );
             }
             catch (Exception ex)
             {
@@ -519,7 +510,7 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
-                if (!FileSystemEntryValidatorSays.IsValid(entry)) 
+                if (!FileSystemEntryValidatorSays.IsValid(entry))
                     return result;
 
                 VerifyConfigurationAttached();
@@ -654,8 +645,7 @@ namespace MFR.FileSystem.Retrievers
 
             try
             {
-                var retriever =
-                    GetTextValueRetriever.For(OperationType);
+                var retriever = GetTextValueRetriever.For(OperationType);
                 if (retriever == null) return result;
 
                 result = retriever.GetTextValue(entry);

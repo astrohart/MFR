@@ -426,7 +426,7 @@ namespace MFR.Settings.Configuration.Providers
                                        .WithInput(
                                            MakeNewFileSystemEntry
                                                .ForPath(pathname)
-                                               .AndHavingUserState(
+                                               .SetUserState(
                                                    CurrentConfiguration
                                                )
                                        )

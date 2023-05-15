@@ -56,6 +56,6 @@ namespace MFR.FileSystem.Interfaces
         /// Thrown if the required parameter, <paramref name="userState" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        IFileSystemEntry AndHavingUserState(dynamic userState);
+        IFileSystemEntry SetUserState(dynamic userState);
     }
 }

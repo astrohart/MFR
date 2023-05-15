@@ -108,7 +108,16 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// A <see cref="T:System.Guid" /> value that corresponds to
         /// the file stream you wish to close.
         /// </param>
-        void DisposeStream(Guid ticket);
+        /// <param name="remove">
+        /// (Optional.) Indicates whether to remove the disposed stream from our internal
+        /// collection.  <see langword="true" /> is the default.
+        /// </param>
+        /// <remarks>
+        /// If the Zero GUID is passed as the argument of the <paramref name="ticket" />
+        /// parameter, or if the specified <paramref name="ticket" /> is not present in the
+        /// internal list.
+        /// </remarks>
+        void DisposeStream(Guid ticket, bool remove = true);
 
         /// <summary>
         /// Opens a file stream, represented by a <see cref="T:System.IO.TextReader" />
