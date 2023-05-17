@@ -70,9 +70,6 @@ namespace MFR.TextValues.Retrievers.Actions
                 DebugUtils.LogException(ex);
 
                 result = string.Empty;
-
-                Debugger.Launch();
-                Debugger.Break();
             }
 
             return result;

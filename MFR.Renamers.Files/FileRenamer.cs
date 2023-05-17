@@ -806,9 +806,6 @@ namespace MFR.Renamers.Files
         public bool RenameSubFoldersOf(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
         {
-            Debugger.Launch();
-            Debugger.Break();
-
             var result = false;
 
             try
