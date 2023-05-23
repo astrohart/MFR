@@ -41,6 +41,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -1168,6 +1169,11 @@ namespace MFR.GUI.Windows
                     Update();
                     Refresh();
                     Application.DoEvents();
+
+                    Thread.Sleep(5 * 50);
+
+                    if (CurrentConfiguration.AutoQuitOnCompletion)
+                        Close();
                 }
             );
 
@@ -1425,9 +1431,12 @@ namespace MFR.GUI.Windows
         {
             using (var dialog = new OptionsDialog())
             {
+                dialog.AutoQuitOnCompletion =
+                    CurrentConfiguration.AutoQuitOnCompletion;
                 dialog.ConfigPathname =
-                    GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                        .ConfigurationFilePath;
+                    ConfigurationProvider.ConfigurationFilePath;
+                dialog.ReOpenSolution =
+                    CurrentConfiguration.ReOpenSolution;
                 dialog.Modified += OnOptionsModified;
 
                 if (dialog.ShowDialog(this) != DialogResult.OK)

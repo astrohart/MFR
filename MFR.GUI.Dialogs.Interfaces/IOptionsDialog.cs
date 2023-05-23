@@ -10,17 +10,22 @@ namespace MFR.GUI.Dialogs.Interfaces
     public interface IOptionsDialog : IForm
     {
         /// <summary>
-        /// Occurs when data is modified in this property sheet and then the
-        /// Apply button is clicked by the user.
+        /// Gets or sets the value of the
+        /// <b>Exit the Application When Operations Are Complete</b> checkbox.
         /// </summary>
-        event ModifiedEventHandler Modified;
+        bool AutoQuitOnCompletion
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the text of the Configuration File Pathname text box.
         /// </summary>
         string ConfigPathname
         {
-            get; set;
+            get;
+            set;
         }
 
         /// <summary>
@@ -35,9 +40,16 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// <summary>
         /// Gets or sets the value of the Reopen Visual Studio Solution checkbox
         /// </summary>
-        bool ShouldReOpenVisualStudioSolution
+        bool ReOpenSolution
         {
-            get; set;
+            get;
+            set;
         }
+
+        /// <summary>
+        /// Occurs when data is modified in this property sheet and then the
+        /// Apply button is clicked by the user.
+        /// </summary>
+        event ModifiedEventHandler Modified;
     }
 }

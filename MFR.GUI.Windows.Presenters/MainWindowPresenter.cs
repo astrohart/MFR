@@ -599,9 +599,11 @@ namespace MFR.GUI.Windows.Presenters
                                )
                                .RenameTo(dialog.ConfigPathname);
 
+            ConfigurationProvider.CurrentConfiguration.AutoQuitOnCompletion =
+                dialog.AutoQuitOnCompletion;
             ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
             ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
-                dialog.ShouldReOpenVisualStudioSolution;
+                dialog.ReOpenSolution;
             UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
         }
 

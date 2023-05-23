@@ -66,7 +66,7 @@ namespace MFR.Settings.Configuration
             if (source == null) throw new ArgumentNullException(nameof(source));
 
             AutoStart = source.AutoStart;
-            AutoQuitWhenRunInteractively = source.AutoQuitWhenRunInteractively;
+            AutoQuitOnCompletion = source.AutoQuitOnCompletion;
             FindWhat = source.FindWhat;
             FindWhatHistory = source.FindWhatHistory;
             IsFolded = source.IsFolded;
@@ -91,7 +91,7 @@ namespace MFR.Settings.Configuration
         /// are complete.
         /// </summary>
         [JsonProperty("autoQuitWhenRunInteractively")]
-        public bool AutoQuitWhenRunInteractively
+        public bool AutoQuitOnCompletion
         {
             get;
             set;
@@ -454,7 +454,7 @@ namespace MFR.Settings.Configuration
         {
             try
             {
-                AutoQuitWhenRunInteractively = true;
+                AutoQuitOnCompletion = true;
 
                 IsFromCommandLine = false;
 

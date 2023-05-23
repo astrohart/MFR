@@ -15,7 +15,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// application should automatically terminate once the user's requested operations
         /// are complete.
         /// </summary>
-        bool AutoQuitWhenRunInteractively
+        bool AutoQuitOnCompletion
         {
             get;
             set;

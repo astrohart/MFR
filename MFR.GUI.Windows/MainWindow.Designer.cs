@@ -484,12 +484,13 @@ namespace MFR.GUI.Windows
             // 
             // optionsTabControl
             // 
-            this.optionsTabControl.ActiveTabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.optionsTabControl.ActiveTabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.optionsTabControl.ActiveTabTextColor = System.Drawing.SystemColors.Highlight;
             this.optionsTabControl.Controls.Add(this.findReplaceOptionsTabPage);
             this.optionsTabControl.Controls.Add(this.operationsTabPage);
             this.optionsTabControl.Controls.Add(this.inclusionsTabPage);
             this.optionsTabControl.Controls.Add(this.exclusionsTabPage);
+            this.optionsTabControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.optionsTabControl.InactiveTabBackColor = System.Drawing.Color.Empty;
             this.optionsTabControl.InactiveTabTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.optionsTabControl.IsDarkTheme = true;
@@ -498,13 +499,13 @@ namespace MFR.GUI.Windows
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
-            this.optionsTabControl.TabBorderColor = System.Drawing.SystemColors.GrayText;
+            this.optionsTabControl.TabBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.optionsTabControl.TabIndex = 11;
-            this.optionsTabControl.TabWellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.optionsTabControl.TabWellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
             // 
             // findReplaceOptionsTabPage
             // 
-            this.findReplaceOptionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.findReplaceOptionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.findReplaceOptionsTabPage.Controls.Add(this.renameSolutionFoldersCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchExactWordCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
@@ -547,7 +548,7 @@ namespace MFR.GUI.Windows
             // 
             // operationsTabPage
             // 
-            this.operationsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.operationsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.operationsTabPage.Controls.Add(this.tabPageInstructionLabel);
             this.operationsTabPage.Controls.Add(this.selectDeselectAllCheckBox);
             this.operationsTabPage.Controls.Add(this.operationsCheckedListBox);
@@ -585,7 +586,7 @@ namespace MFR.GUI.Windows
             this.operationsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
             this.operationsCheckedListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.operationsCheckedListBox.FormattingEnabled = true;
-            this.operationsCheckedListBox.IsDarkTheme = false;
+            this.operationsCheckedListBox.IsDarkTheme = true;
             this.operationsCheckedListBox.Items.AddRange(new object[] {
             "Rename Files",
             "Rename Subfolders",
@@ -599,7 +600,7 @@ namespace MFR.GUI.Windows
             // 
             // inclusionsTabPage
             // 
-            this.inclusionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.inclusionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.inclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.inclusionsTabPage.Name = "inclusionsTabPage";
             this.inclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -609,7 +610,7 @@ namespace MFR.GUI.Windows
             // 
             // exclusionsTabPage
             // 
-            this.exclusionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.exclusionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.exclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.exclusionsTabPage.Name = "exclusionsTabPage";
             this.exclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);

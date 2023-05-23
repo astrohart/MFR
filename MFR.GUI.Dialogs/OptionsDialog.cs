@@ -31,6 +31,16 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
+        /// Gets or sets the value of the
+        /// <b>Exit the Application When Operations Are Complete</b> checkbox.
+        /// </summary>
+        public bool AutoQuitOnCompletion
+        {
+            get => autoQuitOnCompletionCheckBox.Checked;
+            set => autoQuitOnCompletionCheckBox.Checked = value;
+        }
+
+        /// <summary>
         /// Gets or sets the text of the configuration File Pathname text box.
         /// </summary>
         public string ConfigPathname
@@ -76,7 +86,7 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Gets or sets the value of the Reopen Visual Studio Solution checkbox
         /// </summary>
-        public bool ShouldReOpenVisualStudioSolution
+        public bool ReOpenSolution
         {
             get => reOpenSolutionCheckBox.Checked;
             set => reOpenSolutionCheckBox.Checked = value;
@@ -270,15 +280,19 @@ namespace MFR.GUI.Dialogs
         {
             if (bSaveAndValidate)
             {
+                CurrentConfiguration.AutoQuitOnCompletion =
+                    AutoQuitOnCompletion;
                 CurrentConfiguration.ReOpenSolution =
-                    ShouldReOpenVisualStudioSolution;
+                    ReOpenSolution;
                 ConfigurationProvider.ConfigurationFilePath = ConfigPathname;
             }
             else
             {
-                ShouldReOpenVisualStudioSolution =
+                ReOpenSolution =
                     CurrentConfiguration.ReOpenSolution;
                 ConfigPathname = ConfigurationProvider.ConfigurationFilePath;
+                AutoQuitOnCompletion =
+                    CurrentConfiguration.AutoQuitOnCompletion;
             }
         }
     }

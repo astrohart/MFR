@@ -100,6 +100,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="xyLOGIX.Forms.DarkTheme.Constants">
+      <HintPath>..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Constants\bin\x86\Release\xyLOGIX.Forms.DarkTheme.Constants.dll</HintPath>
+    </Reference>
+    <Reference Include="xyLOGIX.Forms.DarkTheme.Events">
+      <HintPath>..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Events\bin\x86\Release\xyLOGIX.Forms.DarkTheme.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="xyLOGIX.Forms.DarkTheme.Interfaces">
+      <HintPath>..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Interfaces\bin\x86\Release\xyLOGIX.Forms.DarkTheme.Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoStartCancellableProgressDialog.cs">
@@ -199,6 +208,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Controls\xyLOGIX.Forms.DarkTheme.Controls.csproj">
+      <Project>{D6A72CC5-D530-4204-BF5E-2B126CF28CCA}</Project>
+      <Name>xyLOGIX.Forms.DarkTheme.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
