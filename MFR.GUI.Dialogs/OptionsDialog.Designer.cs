@@ -32,21 +32,22 @@ namespace MFR.GUI.Dialogs
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsDialog));
-            this.applyButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.okayButton = new System.Windows.Forms.Button();
-            this.optionsTabControl = new System.Windows.Forms.TabControl();
-            this.generalTabPage = new System.Windows.Forms.TabPage();
-            this.configPathnamePromptLabel = new System.Windows.Forms.Label();
-            this.configPathnameTextBox = new System.Windows.Forms.TextBox();
-            this.configPathnameBrowseButton = new System.Windows.Forms.Button();
-            this.configPathnameLabel = new System.Windows.Forms.Label();
+            this.applyButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.okayButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.optionsTabControl = new xyLOGIX.UI.Dark.Controls.DarkTabControl();
+            this.configurationTabPage = new System.Windows.Forms.TabPage();
+            this.configPathnamePromptLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.configPathnameTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.configPathnameBrowseButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.configPathnameLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.visualStudioTabPage = new System.Windows.Forms.TabPage();
-            this.reOpenSolutionLabel = new System.Windows.Forms.Label();
+            this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new System.Windows.Forms.CheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
+            this.generalTabPage = new System.Windows.Forms.TabPage();
             this.optionsTabControl.SuspendLayout();
-            this.generalTabPage.SuspendLayout();
+            this.configurationTabPage.SuspendLayout();
             this.visualStudioTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,6 @@ namespace MFR.GUI.Dialogs
             this.applyButton.Size = new System.Drawing.Size(87, 27);
             this.applyButton.TabIndex = 3;
             this.applyButton.Text = "&Apply";
-            this.applyButton.UseVisualStyleBackColor = true;
             this.applyButton.Click += new System.EventHandler(this.OnClickApply);
             // 
             // cancelButton
@@ -69,7 +69,6 @@ namespace MFR.GUI.Dialogs
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // okayButton
             // 
@@ -79,31 +78,31 @@ namespace MFR.GUI.Dialogs
             this.okayButton.Size = new System.Drawing.Size(87, 27);
             this.okayButton.TabIndex = 1;
             this.okayButton.Text = "OK";
-            this.okayButton.UseVisualStyleBackColor = true;
             // 
             // optionsTabControl
             // 
-            this.optionsTabControl.Controls.Add(this.generalTabPage);
+            this.optionsTabControl.Controls.Add(this.configurationTabPage);
             this.optionsTabControl.Controls.Add(this.visualStudioTabPage);
+            this.optionsTabControl.Controls.Add(this.generalTabPage);
             this.optionsTabControl.Location = new System.Drawing.Point(13, 13);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(444, 373);
             this.optionsTabControl.TabIndex = 0;
             // 
-            // generalTabPage
+            // configurationTabPage
             // 
-            this.generalTabPage.Controls.Add(this.configPathnamePromptLabel);
-            this.generalTabPage.Controls.Add(this.configPathnameTextBox);
-            this.generalTabPage.Controls.Add(this.configPathnameBrowseButton);
-            this.generalTabPage.Controls.Add(this.configPathnameLabel);
-            this.generalTabPage.Location = new System.Drawing.Point(4, 24);
-            this.generalTabPage.Name = "generalTabPage";
-            this.generalTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.generalTabPage.Size = new System.Drawing.Size(436, 345);
-            this.generalTabPage.TabIndex = 0;
-            this.generalTabPage.Text = "General";
-            this.generalTabPage.UseVisualStyleBackColor = true;
+            this.configurationTabPage.Controls.Add(this.configPathnamePromptLabel);
+            this.configurationTabPage.Controls.Add(this.configPathnameTextBox);
+            this.configurationTabPage.Controls.Add(this.configPathnameBrowseButton);
+            this.configurationTabPage.Controls.Add(this.configPathnameLabel);
+            this.configurationTabPage.Location = new System.Drawing.Point(4, 24);
+            this.configurationTabPage.Name = "configurationTabPage";
+            this.configurationTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.configurationTabPage.Size = new System.Drawing.Size(436, 345);
+            this.configurationTabPage.TabIndex = 0;
+            this.configurationTabPage.Text = "Configuration";
+            this.configurationTabPage.UseVisualStyleBackColor = true;
             // 
             // configPathnamePromptLabel
             // 
@@ -128,7 +127,6 @@ namespace MFR.GUI.Dialogs
             this.configPathnameBrowseButton.Size = new System.Drawing.Size(25, 23);
             this.configPathnameBrowseButton.TabIndex = 3;
             this.configPathnameBrowseButton.Text = "...";
-            this.configPathnameBrowseButton.UseVisualStyleBackColor = true;
             this.configPathnameBrowseButton.Click += new System.EventHandler(this.OnClickConfigPathnameBrowseButton);
             // 
             // configPathnameLabel
@@ -136,7 +134,7 @@ namespace MFR.GUI.Dialogs
             this.configPathnameLabel.AutoSize = true;
             this.configPathnameLabel.Location = new System.Drawing.Point(14, 67);
             this.configPathnameLabel.Name = "configPathnameLabel";
-            this.configPathnameLabel.Size = new System.Drawing.Size(262, 15);
+            this.configPathnameLabel.Size = new System.Drawing.Size(200, 15);
             this.configPathnameLabel.TabIndex = 1;
             this.configPathnameLabel.Text = "&CurrentConfiguration file pathname:";
             // 
@@ -179,6 +177,16 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
+            // generalTabPage
+            // 
+            this.generalTabPage.Location = new System.Drawing.Point(4, 24);
+            this.generalTabPage.Name = "generalTabPage";
+            this.generalTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.generalTabPage.Size = new System.Drawing.Size(436, 345);
+            this.generalTabPage.TabIndex = 2;
+            this.generalTabPage.Text = "General";
+            this.generalTabPage.UseVisualStyleBackColor = true;
+            // 
             // OptionsDialog
             // 
             this.AcceptButton = this.okayButton;
@@ -201,8 +209,8 @@ namespace MFR.GUI.Dialogs
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Options";
             this.optionsTabControl.ResumeLayout(false);
-            this.generalTabPage.ResumeLayout(false);
-            this.generalTabPage.PerformLayout();
+            this.configurationTabPage.ResumeLayout(false);
+            this.configurationTabPage.PerformLayout();
             this.visualStudioTabPage.ResumeLayout(false);
             this.visualStudioTabPage.PerformLayout();
             this.ResumeLayout(false);
@@ -211,18 +219,19 @@ namespace MFR.GUI.Dialogs
 
         #endregion
 
-        private System.Windows.Forms.Button applyButton;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button okayButton;
-        private System.Windows.Forms.TabControl optionsTabControl;
-        private System.Windows.Forms.TabPage generalTabPage;
-        private System.Windows.Forms.Label configPathnameLabel;
-        private System.Windows.Forms.TextBox configPathnameTextBox;
-        private System.Windows.Forms.Button configPathnameBrowseButton;
-        private System.Windows.Forms.Label configPathnamePromptLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkButton applyButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton okayButton;
+        private xyLOGIX.UI.Dark.Controls.DarkTabControl optionsTabControl;
+        private System.Windows.Forms.TabPage configurationTabPage;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel configPathnameLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox configPathnameTextBox;
+        private xyLOGIX.UI.Dark.Controls.DarkButton configPathnameBrowseButton;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel configPathnamePromptLabel;
         private System.Windows.Forms.OpenFileDialog configPathBrowseBox;
         private System.Windows.Forms.TabPage visualStudioTabPage;
         private System.Windows.Forms.CheckBox reOpenSolutionCheckBox;
-        private System.Windows.Forms.Label reOpenSolutionLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel reOpenSolutionLabel;
+        private TabPage generalTabPage;
     }
 }

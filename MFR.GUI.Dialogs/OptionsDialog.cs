@@ -7,6 +7,7 @@ using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Dialogs
 {
@@ -14,7 +15,7 @@ namespace MFR.GUI.Dialogs
     /// Provides options to the user that allow the user to modify the
     /// application's behavior.
     /// </summary>
-    public partial class OptionsDialog : Form, IOptionsDialog
+    public partial class OptionsDialog : DarkForm, IOptionsDialog
     {
         /// <summary>
         /// Constructs a new instance of
