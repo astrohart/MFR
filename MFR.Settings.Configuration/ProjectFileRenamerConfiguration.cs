@@ -55,12 +55,18 @@ namespace MFR.Settings.Configuration
         /// interface
         /// that contains existing configuration settings to copy into this object.
         /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="source" />, is passed a <see langword="null" />
+        /// value.
+        /// </exception>
         public ProjectFileRenamerConfiguration(
             IProjectFileRenamerConfiguration source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
             AutoStart = source.AutoStart;
+            AutoQuitWhenRunInteractively = source.AutoQuitWhenRunInteractively;
             FindWhat = source.FindWhat;
             FindWhatHistory = source.FindWhatHistory;
             IsFolded = source.IsFolded;
@@ -77,6 +83,18 @@ namespace MFR.Settings.Configuration
             SelectedOptionTab = source.SelectedOptionTab;
             StartingFolder = source.StartingFolder;
             StartingFolderHistory = source.StartingFolderHistory;
+        }
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.Boolean" /> value indicating whether the
+        /// application should automatically terminate once the user's requested operations
+        /// are complete.
+        /// </summary>
+        [JsonProperty("autoQuitWhenRunInteractively")]
+        public bool AutoQuitWhenRunInteractively
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -436,6 +454,8 @@ namespace MFR.Settings.Configuration
         {
             try
             {
+                AutoQuitWhenRunInteractively = true;
+
                 IsFromCommandLine = false;
 
                 ReOpenSolution = true;

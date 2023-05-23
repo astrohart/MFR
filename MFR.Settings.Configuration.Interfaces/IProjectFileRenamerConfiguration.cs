@@ -11,6 +11,17 @@ namespace MFR.Settings.Configuration.Interfaces
     public interface IProjectFileRenamerConfiguration
     {
         /// <summary>
+        /// Gets or sets a <see cref="T:System.Boolean" /> value indicating whether the
+        /// application should automatically terminate once the user's requested operations
+        /// are complete.
+        /// </summary>
+        bool AutoQuitWhenRunInteractively
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the specified operation(s) should be
         /// automatically initiated when the application starts.  If this value is set to
         /// <see langword="true" /> then the application quits automatically after the
