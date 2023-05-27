@@ -40,7 +40,7 @@ This constructor has no parameters.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -52,7 +52,7 @@ corresponds to the type of operation being performed.
 Initializes the
 [OperationType](#P-MFR-IOperationSpecificObject-OperationType 'MFR.IOperationSpecificObject.OperationType')
 property with the specific
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 value that
 corresponds to the type of operation being performed.
 
@@ -66,7 +66,7 @@ method, for fluent use.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies the type of operation being performed. |
 

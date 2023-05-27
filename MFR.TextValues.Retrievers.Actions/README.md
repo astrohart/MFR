@@ -5,7 +5,7 @@
 
 - [Get](#T-MFR-TextValues-Retrievers-Actions-Get 'MFR.TextValues.Retrievers.Actions.Get')
   - [FileStreamProvider](#P-MFR-TextValues-Retrievers-Actions-Get-FileStreamProvider 'MFR.TextValues.Retrievers.Actions.Get.FileStreamProvider')
-  - [FileData(ticket)](#M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid- 'MFR.TextValues.Retrievers.Actions.Get.FileData(System.Guid)')
+  - [FileData(ticket,dispose)](#M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid,System-Boolean- 'MFR.TextValues.Retrievers.Actions.Get.FileData(System.Guid,System.Boolean)')
   - [FileTicket(pathname)](#M-MFR-TextValues-Retrievers-Actions-Get-FileTicket-System-String- 'MFR.TextValues.Retrievers.Actions.Get.FileTicket(System.String)')
 - [Resources](#T-MFR-TextValues-Retrievers-Actions-Properties-Resources 'MFR.TextValues.Retrievers.Actions.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Actions-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Actions.Properties.Resources.Culture')
@@ -27,8 +27,8 @@ Gets a reference to an instance of an object that implements the
 [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
 interface.
 
-<a name='M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid-'></a>
-### FileData(ticket) `method`
+<a name='M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid,System-Boolean-'></a>
+### FileData(ticket,dispose) `method`
 
 ##### Summary
 
@@ -48,6 +48,9 @@ could not be obtained.
 | ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that
 serves a `ticket` that can be used to extract the data from a stream that
 is open on the corresponding file. |
+| dispose | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) Indicates whether the underlying file stream
+should be disposed when this method has finished executing;
+`false` is the default. |
 
 <a name='M-MFR-TextValues-Retrievers-Actions-Get-FileTicket-System-String-'></a>
 ### FileTicket(pathname) `method`

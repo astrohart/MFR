@@ -22,7 +22,7 @@ MFR.Operations.Interfaces
 
 Defines the public-exposed methods and properties of an object that is
 tagged with one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values.
 
 ##### Remarks
@@ -35,7 +35,7 @@ This interface represents an object for which the operation type is immutable.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -59,7 +59,7 @@ behavior varies depending on the type of operation being performed.
 Initializes the
 [OperationType](#P-MFR-IOperationSpecificObject-OperationType 'MFR.IOperationSpecificObject.OperationType')
 property with the specific
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 value that
 corresponds to the type of operation being performed.
 
@@ -73,7 +73,7 @@ method, for fluent use.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies the type of operation being performed. |
 

@@ -150,7 +150,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -215,7 +215,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -280,7 +280,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -345,7 +345,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -407,7 +407,7 @@ Gets a reference to the one and only instance of [GettingListOfFilesToBeRenamedO
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-GettingListOfFilesToBeRenamedOperationStartedDescription-Text'></a>
@@ -467,7 +467,7 @@ Gets a reference to the one and only instance of [GettingListOfFilesToBeRenamedO
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-InitializeApplicationOperationStartedDescription-Text'></a>
@@ -530,7 +530,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-LoadAllSolutionsInFolderOperationDescription-Text'></a>
@@ -591,7 +591,7 @@ Gets a reference to the one and only instance of [OpenActiveSolutionOperationSta
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-OpenActiveSolutionOperationStartedDescription-Text'></a>
@@ -654,7 +654,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-RenameFilesInFolderOperationDescription-Text'></a>
@@ -715,7 +715,7 @@ Gets a reference to the one and only instance of [RenameFilesInFolderOperationSt
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -777,7 +777,7 @@ Gets a reference to the one and only instance of [RenameSubFoldersOperationDescr
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -842,7 +842,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -904,7 +904,7 @@ Gets a reference to the one and only instance of [ReplaceTextInFilesOperationDes
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-ReplaceTextInFilesOperationDescription-Text'></a>
@@ -965,7 +965,7 @@ Gets a reference to the one and only instance of [ReplaceTextInFilesOperationSta
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-ReplaceTextInFilesOperationStartedDescription-Text'></a>
@@ -1158,7 +1158,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='P-MFR-Operations-Descriptions-UnloadAllSolutionsInFolderOperationDescription-Text'></a>

@@ -49,7 +49,7 @@ search criteria.
 
 Gets or sets a string containing the text that all occurrences of
 the pattern in the
-[FindWhat](#P-MFR-MatchExpressionFactoryBase-FindWhat 'MFR.MatchExpressionFactoryBase.FindWhat')
+[ToFindWhat](#P-MFR-MatchExpressionFactoryBase-ToFindWhat 'MFR.MatchExpressionFactoryBase.ToFindWhat')
 property get replaced with in the
 [Value](#P-MFR-MatchExpressionFactoryBase-Value 'MFR.MatchExpressionFactoryBase.Value')
 property.
