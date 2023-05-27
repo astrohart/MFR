@@ -46,6 +46,7 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.UI.Dark.Controls;
 using xyLOGIX.UI.Dark.Forms;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
@@ -254,7 +255,7 @@ namespace MFR.GUI.Windows
         /// that has a drop-down list of the profiles that the user has created.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public ToolStripComboBox ProfileCollectionComboBox
+        public DarkToolStripComboBox ProfileCollectionComboBox
             => profileListComboBox;
 
         /// <summary>

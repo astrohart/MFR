@@ -93,7 +93,7 @@ namespace MFR.GUI.Windows
             this.newProfileButton = new System.Windows.Forms.ToolStripButton();
             this.saveProfileButton = new System.Windows.Forms.ToolStripButton();
             this.manageProfilesButton = new System.Windows.Forms.ToolStripButton();
-            this.profileListComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.profileListComboBox = new xyLOGIX.UI.Dark.Controls.DarkToolStripComboBox();
             this.toolStripSeparator4 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
             this.exportConfigButton = new System.Windows.Forms.ToolStripButton();
             this.importConfigButton = new System.Windows.Forms.ToolStripButton();
@@ -770,7 +770,8 @@ namespace MFR.GUI.Windows
             // 
             // profileListComboBox
             // 
-            this.profileListComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.profileListComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.profileListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.profileListComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.profileListComboBox.Items.AddRange(new object[] {
@@ -980,7 +981,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripButton newProfileButton;
         private System.Windows.Forms.ToolStripButton saveProfileButton;
         private System.Windows.Forms.ToolStripButton manageProfilesButton;
-        private System.Windows.Forms.ToolStripComboBox profileListComboBox;
+        private xyLOGIX.UI.Dark.Controls.DarkToolStripComboBox profileListComboBox;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton exportConfigButton;
         private System.Windows.Forms.ToolStripButton importConfigButton;

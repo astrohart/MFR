@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Controls.Extensions
 {
@@ -10,19 +11,19 @@ namespace MFR.GUI.Controls.Extensions
     public static class ToolStripComboBoxExtensions
     {
         /// <summary>
-        /// Selects the first item in the <paramref name="comboBox" /> specified.
+        /// Selects the first item in the <paramref name="control" /> specified.
         /// <para />
-        /// Does nothing is the specified <paramref name="comboBox" /> contains no items.
+        /// Does nothing is the specified <paramref name="control" /> contains no items.
         /// </summary>
-        /// <param name="comboBox">
-        /// (Required.) The <see cref="T:System.Windows.Forms.ToolStripComboBox" /> to
+        /// <param name="control">
+        /// (Required.) The <see cref="T:System.Windows.Forms.ToolStripControlHost" /> to
         /// operate on.
         /// </param>
-        public static void SelectFirstItem(this ToolStripComboBox comboBox)
+        public static void SelectFirstItem(this ToolStripControlHost control)
         {
-            if (comboBox == null || comboBox.Items == null ||
-                comboBox.Items.Count == 0) return;
+            if (!(control is DarkToolStripComboBox comboBox)) return;
 
+            if (comboBox.Items == null || comboBox.Items.Count == 0) return;
             comboBox.SelectedIndex = 0;
 
             Application.DoEvents();
@@ -32,16 +33,17 @@ namespace MFR.GUI.Controls.Extensions
         /// Finds the first item in the list having the specified <paramref name="name" />;
         /// if found, the item is selected.
         /// </summary>
-        /// <param name="comboBox">
+        /// <param name="control">
         /// (Required.) The
-        /// <see cref="T:System.Windows.Forms.ToolStripComboBox" /> to operate on.
+        /// <see cref="T:System.Windows.Forms.ToolStripControlHost" /> to operate on.
         /// </param>
         /// <param name="name">(Required.) String containing the name to search for.</param>
-        public static void SelectFirstItemNamed(this ToolStripComboBox comboBox,
-            string name)
+        public static void SelectFirstItemNamed(
+            this ToolStripControlHost control, string name)
         {
-            if (comboBox == null || comboBox.Items == null ||
-                comboBox.Items.Count == 0) return;
+            if (!(control is DarkToolStripComboBox comboBox)) return;
+
+            if (comboBox.Items == null || comboBox.Items.Count == 0) return;
 
             comboBox.SelectedIndex = 0;
 

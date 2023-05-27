@@ -2,6 +2,7 @@ using MFR.GUI.Controls;
 using MFR.GUI.Controls.Interfaces;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Windows.Interfaces
 {
@@ -80,7 +81,7 @@ namespace MFR.GUI.Windows.Interfaces
         /// Gets a reference to a <see cref="T:System.Windows.Forms.ToolStripComboBox" />
         /// that has a drop-down list of the profiles that the user has created.
         /// </summary>
-        ToolStripComboBox ProfileCollectionComboBox
+        DarkToolStripComboBox ProfileCollectionComboBox
         {
             get;
         }
