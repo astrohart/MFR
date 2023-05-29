@@ -15,6 +15,7 @@
   - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [_startingFolder](#F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration._startingFolder')
+  - [AutoQuitOnCompletion](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoQuitOnCompletion 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoQuitOnCompletion')
   - [AutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhatHistory')
@@ -263,6 +264,14 @@ and returns a reference to it.
 interface
 that contains existing configuration settings to copy into this object. |
 
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `source`, is passed a `null`
+value. |
+
 <a name='F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder'></a>
 ### _startingFolder `constants`
 
@@ -270,6 +279,15 @@ that contains existing configuration settings to copy into this object. |
 
 A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname of the
 folder in which the selected operation(s) should be initiated.
+
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoQuitOnCompletion'></a>
+### AutoQuitOnCompletion `property`
+
+##### Summary
+
+Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value indicating whether the
+application should automatically terminate once the user's requested operations
+are complete.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart'></a>
 ### AutoStart `property`

@@ -11,6 +11,7 @@
 - [IFixedTextMatchingConfigurationSpecificObject](#T-MFR-Settings-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject 'MFR.Settings.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject')
   - [TextMatchingConfiguration](#P-MFR-Settings-Configuration-Interfaces-IFixedTextMatchingConfigurationSpecificObject-TextMatchingConfiguration 'MFR.Settings.Configuration.Interfaces.IFixedTextMatchingConfigurationSpecificObject.TextMatchingConfiguration')
 - [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+  - [AutoQuitOnCompletion](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoQuitOnCompletion 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoQuitOnCompletion')
   - [AutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
@@ -178,6 +179,15 @@ MFR.Settings.Configuration.Interfaces
 
 Defines the public-exposed methods and properties of a
 projectFileRenamerConfiguration object.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoQuitOnCompletion'></a>
+### AutoQuitOnCompletion `property`
+
+##### Summary
+
+Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value indicating whether the
+application should automatically terminate once the user's requested operations
+are complete.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart'></a>
 ### AutoStart `property`

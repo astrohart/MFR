@@ -118,11 +118,12 @@
 - [OptionsDialog](#T-MFR-GUI-Dialogs-OptionsDialog 'MFR.GUI.Dialogs.OptionsDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-OptionsDialog-#ctor 'MFR.GUI.Dialogs.OptionsDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-OptionsDialog-components 'MFR.GUI.Dialogs.OptionsDialog.components')
+  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.OptionsDialog.AutoQuitOnCompletion')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialog.ConfigPathname')
   - [ConfigurationProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
   - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialog-IsModified 'MFR.GUI.Dialogs.OptionsDialog.IsModified')
-  - [ShouldReOpenVisualStudioSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldReOpenVisualStudioSolution 'MFR.GUI.Dialogs.OptionsDialog.ShouldReOpenVisualStudioSolution')
+  - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-OptionsDialog-InitializeComponent 'MFR.GUI.Dialogs.OptionsDialog.InitializeComponent')
   - [OnClickApply(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickApply-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickApply(System.Object,System.EventArgs)')
@@ -1749,6 +1750,14 @@ This constructor has no parameters.
 
 Required designer variable.
 
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion'></a>
+### AutoQuitOnCompletion `property`
+
+##### Summary
+
+Gets or sets the value of the
+checkbox.
+
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`
 
@@ -1788,8 +1797,8 @@ interface.
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialog-ShouldReOpenVisualStudioSolution'></a>
-### ShouldReOpenVisualStudioSolution `property`
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution'></a>
+### ReOpenSolution `property`
 
 ##### Summary
 
