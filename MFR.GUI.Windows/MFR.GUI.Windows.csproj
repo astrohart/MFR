@@ -152,6 +152,10 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Actions\xyLOGIX.UI.Dark.Controls.Actions.csproj">
+      <Project>{78a87eaf-e342-4318-ab26-d44015633243}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
       <Project>{A63CA76D-B2B3-42F7-A6C3-78E980B4C629}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
