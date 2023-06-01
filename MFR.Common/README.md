@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [ProgramFlowHelper](#T-MFR-Common-ProgramFlowHelper 'MFR.Common.ProgramFlowHelper')
-  - [StartDebugger()](#M-MFR-Common-ProgramFlowHelper-StartDebugger 'MFR.Common.ProgramFlowHelper.StartDebugger')
 - [Reflector](#T-MFR-Common-Reflector 'MFR.Common.Reflector')
   - [#ctor(targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String- 'MFR.Common.Reflector.#ctor(System.String)')
   - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String,System-String- 'MFR.Common.Reflector.#ctor(System.String,System.String)')
@@ -26,38 +24,6 @@
   - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
 - [Revoke](#T-MFR-Common-Revoke 'MFR.Common.Revoke')
   - [WindowsMessageFilter()](#M-MFR-Common-Revoke-WindowsMessageFilter 'MFR.Common.Revoke.WindowsMessageFilter')
-
-<a name='T-MFR-Common-ProgramFlowHelper'></a>
-## ProgramFlowHelper `type`
-
-##### Namespace
-
-MFR.Common
-
-##### Summary
-
-Defines methods and properties to aid in controlling the flow of the program.
-
-<a name='M-MFR-Common-ProgramFlowHelper-StartDebugger'></a>
-### StartDebugger() `method`
-
-##### Summary
-
-Launches the Visual Studio Debugger.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Remarks
-
-This method should be called only as necessary to automatically
-launch the Visual Studio Debugger, attached to the currently-running
-process instance.
-
-
-
-Such calls should be commented out or deleted when no longer needed.
 
 <a name='T-MFR-Common-Reflector'></a>
 ## Reflector `type`

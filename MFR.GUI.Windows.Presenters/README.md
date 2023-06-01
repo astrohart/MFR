@@ -5,75 +5,56 @@
 
 - [MainWindowPresenter](#T-MFR-GUI-Windows-Presenters-MainWindowPresenter 'MFR.GUI.Windows.Presenters.MainWindowPresenter')
   - [#ctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#ctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#ctor')
-  - [_cancellableProgressDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_cancellableProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._cancellableProgressDialog')
-  - [_exportConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_exportConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._exportConfigDialog')
-  - [_fileRenamer](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_fileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter._fileRenamer')
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
-  - [_importConfigDialog](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter._importConfigDialog')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
   - [Does](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Does')
+  - [FileRenamer](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileRenamer')
   - [FindWhat](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhatComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhatComboBox')
   - [IsProfileLoaded](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-IsProfileLoaded 'MFR.GUI.Windows.Presenters.MainWindowPresenter.IsProfileLoaded')
+  - [OperationEngine](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-OperationEngine 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OperationEngine')
   - [ProfileProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileProvider')
   - [ReplaceWith](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWith 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWithComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWithComboBox')
+  - [RootDirectoryPathValidator](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryPathValidator 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RootDirectoryPathValidator')
   - [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolderComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolderComboBox')
   - [View](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-View 'MFR.GUI.Windows.Presenters.MainWindowPresenter.View')
   - [AddProfile(name)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AddProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfile(System.String)')
   - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AndHistoryManager-MFR-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ClearAllHistory')
-  - [CloseProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CloseProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CloseProgressDialog')
-  - [CommenceRenameOperation()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommenceRenameOperation 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommenceRenameOperation')
   - [DoSelectedOperations()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-DoSelectedOperations 'MFR.GUI.Windows.Presenters.MainWindowPresenter.DoSelectedOperations')
-  - [ExportConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ExportConfiguration')
+  - [ExportConfiguration(pathname)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ExportConfiguration(System.String)')
   - [FillProfileDropDownList()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FillProfileDropDownList 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FillProfileDropDownList')
-  - [HandleFilesCountedEvent(count)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HandleFilesCountedEvent-System-Int32- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.HandleFilesCountedEvent(System.Int32)')
   - [HavingWindowReference(view)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HavingWindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.HavingWindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
-  - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ImportConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ImportConfiguration')
-  - [IncrementProgressBar(statusLabelText,currentFileLabelText)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-IncrementProgressBar-System-String,System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.IncrementProgressBar(System.String,System.String)')
-  - [InitializeComponents()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeComponents 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeComponents')
-  - [InitializeFileRenamer()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeFileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeFileRenamer')
+  - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ImportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ImportConfiguration(System.String)')
+  - [InitializeConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeConfiguration')
   - [InitializeOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.InitializeOperationSelections')
   - [OnAddProfileFailed(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnAddProfileFailed-MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnAddProfileFailed(MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs)')
   - [OnAllHistoryCleared()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnAllHistoryCleared 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnAllHistoryCleared')
   - [OnCancellableProgressDialogRequestedCancel(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCancellableProgressDialogRequestedCancel-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCancellableProgressDialogRequestedCancel(System.Object,System.EventArgs)')
   - [OnConfigurationExported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationExported(MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs)')
   - [OnConfigurationImported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationImported(MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs)')
+  - [OnConfigurationStartingFolderChanged(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationStartingFolderChanged-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationStartingFolderChanged(System.Object,System.EventArgs)')
   - [OnCreateNewBlankProfileRequested(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCreateNewBlankProfileRequested(MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs)')
   - [OnDataOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationError-MFR-Operations-Events-DataOperationErrorEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationError(MFR.Operations.Events.DataOperationErrorEventArgs)')
   - [OnDataOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationFinished')
   - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Operations.Events.DataOperationEventArgs)')
-  - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerExceptionRaised(System.Object,MFR.Events.Common.ExceptionRaisedEventArgs)')
-  - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerFinished')
-  - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
-  - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
-  - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
-  - [OnFileRenamerStarted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerStarted(System.Object,System.EventArgs)')
-  - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
   - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Events.Common.ExceptionRaisedEventArgs)')
+  - [OnOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationFinished(System.Object,System.EventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
-  - [ReinitializeProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReinitializeProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReinitializeProgressDialog')
-  - [ResetProgressBar()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ResetProgressBar 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ResetProgressBar')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
   - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
-  - [ShowCalculatingProgressBar(text,canCancel)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowCalculatingProgressBar-System-String,System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowCalculatingProgressBar(System.String,System.Boolean)')
-  - [ShowProgressDialog(canCancel)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog(System.Boolean)')
-  - [ShowProgressDialog(owner)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog(System.Windows.Forms.IWin32Window)')
-  - [ShowProgressDialog(owner,canCancel)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window,System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog(System.Windows.Forms.IWin32Window,System.Boolean)')
-  - [ShowProgressDialog()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ShowProgressDialog')
-  - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
   - [WindowReference(mainWindow)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
-  - [WithFileRenamer(fileRenamer)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithFileRenamer-MFR-Renamers-Files-Interfaces-IFileRenamer- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithFileRenamer(MFR.Renamers.Files.Interfaces.IFileRenamer)')
+  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithOperationEngine(MFR.Engines.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Properties-Resources 'MFR.GUI.Windows.Presenters.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Properties.Resources.Culture')
   - [Error_FindWhatRequired](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Error_FindWhatRequired 'MFR.GUI.Windows.Presenters.Properties.Resources.Error_FindWhatRequired')
@@ -107,38 +88,6 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_cancellableProgressDialog'></a>
-### _cancellableProgressDialog `constants`
-
-##### Summary
-
-Reference to an instance of an object that implements the
-[ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
-interface.
-
-<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_exportConfigDialog'></a>
-### _exportConfigDialog `constants`
-
-##### Summary
-
-Reference to an instance of a
-[SaveFileDialog](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.SaveFileDialog 'System.Windows.Forms.SaveFileDialog')
-that allows the user
-to choose where they want to export the configuration data.
-
-<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_fileRenamer'></a>
-### _fileRenamer `constants`
-
-##### Summary
-
-Reference to an instance of an object that implements the
-[IFileRenamer](#T-MFR-IFileRenamer 'MFR.IFileRenamer')
-interface.
-
-##### Remarks
-
-THis object provides the core services that this application offers.
-
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager'></a>
 ### _historyManager `constants`
 
@@ -151,22 +100,8 @@ interface.
 ##### Remarks
 
 This object's sole purpose in life is to provide the service of
-maintaining the history lists in the configuration data source.
-
-<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_importConfigDialog'></a>
-### _importConfigDialog `constants`
-
-##### Summary
-
-Reference to an instance of
-[OpenFileDialog](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.OpenFileDialog 'System.Windows.Forms.OpenFileDialog')
-that allows the user
-to choose a filename on the disk.
-
-##### Remarks
-
-The file chosen by this dialog is to be used for importing
-configuration data.
+maintaining the history lists in the configuration data
+source.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
@@ -174,13 +109,24 @@ configuration data.
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the actions
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
 associated with it.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName'></a>
 ### CurrentProfileName `property`
@@ -199,6 +145,19 @@ Gets a reference to this object instance.
 ##### Remarks
 
 This property is here to maintain method call semantics.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer'></a>
+### FileRenamer `property`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[IFileRenamer](#T-MFR-IFileRenamer 'MFR.IFileRenamer')
+interface.
+
+##### Remarks
+
+THis object provides the core services that this application offers.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat'></a>
 ### FindWhat `property`
@@ -222,6 +181,15 @@ that plays the role of the Find What combo box.
 ##### Summary
 
 Gets a value that indicates whether a Profile is currently loaded.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-OperationEngine'></a>
+### OperationEngine `property`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface and
+which actually performs the behavior of this Presenter.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileProvider'></a>
 ### ProfileProvider `property`
@@ -247,6 +215,15 @@ Gets the replacement text to be used during the operations.
 Gets a reference to an instance of an object that implements the
 [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') interface
 that plays the role of the Replace With combo box on the main user interface.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
+interface.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder'></a>
 ### StartingFolder `property`
@@ -283,7 +260,8 @@ This object provides the functionality of the main window of the application.
 
 ##### Summary
 
-Creates a 'profile' (really a way of saving a group of configuration
+Creates a 'profile' (really a way of saving a group of
+projectFileRenamerConfiguration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -342,28 +320,6 @@ Clears all the history lists in the configuration.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CloseProgressDialog'></a>
-### CloseProgressDialog() `method`
-
-##### Summary
-
-Dismisses the progress dialog.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommenceRenameOperation'></a>
-### CommenceRenameOperation() `method`
-
-##### Summary
-
-Actually begins the rename process.
-
-##### Parameters
-
-This method has no parameters.
-
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-DoSelectedOperations'></a>
 ### DoSelectedOperations() `method`
 
@@ -375,16 +331,26 @@ Begins the rename operation.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration'></a>
-### ExportConfiguration() `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration-System-String-'></a>
+### ExportConfiguration(pathname) `method`
 
 ##### Summary
 
-Exports the current configuration data to a file on the user's hard drive.
+Exports the current projectFileRenamerConfiguration data to a file on the
+user's hard drive.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to which the configuration should be exported. |
+
+##### Remarks
+
+If a file having the specified `pathname` already
+exists on the disk at the time the export operation is performed, it will be
+overwritten.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FillProfileDropDownList'></a>
 ### FillProfileDropDownList() `method`
@@ -396,35 +362,6 @@ This method is called to populate the Profiles combo box.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HandleFilesCountedEvent-System-Int32-'></a>
-### HandleFilesCountedEvent(count) `method`
-
-##### Summary
-
-Called when the count of files to be processed in a given operation
-is computed.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| count | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) Integer value specifying the count of files that are to
-be processed in the current operation. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the `count` parameter is zero or
-negative. This parameter describes a count of files; therefore, it
-is expected that it should be 1 or greater. |
-
-##### Remarks
-
-Takes the message of resetting the progress dialog and reconfiguring
-the progress bar such that the `count` parameter
-specifies the new maximum value of the progress bar.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HavingWindowReference-MFR-GUI-Windows-Interfaces-IMainWindow-'></a>
 ### HavingWindowReference(view) `method`
@@ -454,7 +391,7 @@ with this presenter. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `view`, is passed
 a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ImportConfiguration'></a>
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ImportConfiguration-System-String-'></a>
 ### ImportConfiguration() `method`
 
 ##### Summary
@@ -470,53 +407,12 @@ This method has no parameters.
 The data is presumed to be located inside of a JSON-formatted file
 that exists on the user's hard drive and has the `.json` extension.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-IncrementProgressBar-System-String,System-String-'></a>
-### IncrementProgressBar(statusLabelText,currentFileLabelText) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeConfiguration'></a>
+### InitializeConfiguration() `method`
 
 ##### Summary
 
-Increments the value of the progress bar. Also updates the status
-text and the label that is displaying the pathname to the file that
-is currently being processed.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| statusLabelText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the text that is to be displayed on
-the top line of the progress dialog. This text serves to inform the
-user as to which operation is currently being performed. |
-| currentFileLabelText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname to the file that is
-currently being processed. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
-`statusLabelText`
-or `currentFileLabelText`,
-are passed blank or `null` string for values. |
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeComponents'></a>
-### InitializeComponents() `method`
-
-##### Summary
-
-Initializes the values of those dependencies which are not
-configurable by use of fluent-builder methods.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-InitializeFileRenamer'></a>
-### InitializeFileRenamer() `method`
-
-##### Summary
-
-Sets the properties of the FileRenamer object that we are working
-with and subscribes to the events that it emits.
+Initializes the currently-loaded projectFileRenamerConfiguration object.
 
 ##### Parameters
 
@@ -528,7 +424,7 @@ This method has no parameters.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on configuration settings.
+based on projectFileRenamerConfiguration settings.
 
 ##### Parameters
 
@@ -622,6 +518,35 @@ event.
 | e | [MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs') | A [ConfigurationImportedEventArgs](#T-MFR-Settings-ConfigurationImportedEventArgs 'MFR.Settings.ConfigurationImportedEventArgs') that
 contains the event data. |
 
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationStartingFolderChanged-System-Object,System-EventArgs-'></a>
+### OnConfigurationStartingFolderChanged(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
+event raised by the configuration object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by checking whether the entry is a valid folder
+pathname; if so, then the folder pathname is added to the history of
+starting-folder entries in the history.
+
+
+
+Starting-folder pathname entries aren't added to the configuration's history
+list if an entry having the same content already exists in the history.
+
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs-'></a>
 ### OnCreateNewBlankProfileRequested(e) `method`
 
@@ -674,7 +599,8 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation, is
+projectFileRenamerConfiguration data source, while a mildly lengthy operation,
+is
 nowhere near as involved as the file operations we would normally undertake.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs-'></a>
@@ -699,229 +625,9 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation, is
+projectFileRenamerConfiguration data source, while a mildly lengthy operation,
+is
 nowhere near as involved as the file operations we would normally undertake.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
-### OnFileRenamerExceptionRaised(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-MFR-IFileRenamer-ExceptionRaised 'MFR.IFileRenamer.ExceptionRaised') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This method responds to such an event by showing the user a message
-box, logging the error, and then aborting the operation.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerFilesToBeRenamedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-FilesToBeRenamedCounted 'MFR.IFileRenamer.FilesToBeRenamedCounted')
-event
-raised by the file renamer object when it's finished determining the
-set of file system entries upon which the current operation should act.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerFilesToHaveTextReplacedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-FilesToHaveTextReplacedCounted 'MFR.IFileRenamer.FilesToHaveTextReplacedCounted')
-event raised by the File Renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerFinished'></a>
-### OnFileRenamerFinished() `method`
-
-##### Summary
-
-Handles the [](#E-MFR-IFileRenamer-Finished 'MFR.IFileRenamer.Finished') event
-raised by the File Renamer object. This event is raised when the
-rename operations are all completed.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Remarks
-
-This method responds merely by raising the
-[](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPresenter.Finished')
-event in turn.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs-'></a>
-### OnFileRenamerOperationFinished(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-OperationFinished 'MFR.IFileRenamer.OperationFinished')
-event raised
-by the file renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds to the event by telling the progress dialog to
-reset the progress bar back to the starting point.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs-'></a>
-### OnFileRenamerOperationStarted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-OperationStarted 'MFR.IFileRenamer.OperationStarted')
-event raised by
-the file-renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds to the event by telling the progress dialog to
-show the marquee progress bar for the operation type whose
-processing is now being started.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs-'></a>
-### OnFileRenamerProcessingOperation(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-ProcessingOperation 'MFR.IFileRenamer.ProcessingOperation')
-event raised
-by the File Renamer object when it moves on to processing the next
-file system entry in its list.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by first checking the values passed in the
-[ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs')
-for valid values.
-
-
-
-If the checks fail, then this method does nothing.
-
-
-
-Otherwise, the method responds by incrementing the progress dialog's
-progress bar to the next notch, and updating the text of the lower
-status label in the progress dialog to contain the path to the file
-currently being worked on.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerStarted-System-Object,System-EventArgs-'></a>
-### OnFileRenamerStarted(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-MFR-IFileRenamer-Started 'MFR.IFileRenamer.Started') event
-raised by the File Renamer object. This event is raised when the
-rename operations are all completed.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to the instance of the object that raised this event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This method responds merely by raising the
-[](#E-MFR-GUI-IMainWindowPresenter-Started 'MFR.GUI.IMainWindowPresenter.Started')
-event, in turn.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerSubfoldersToBeRenamedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-SubfoldersToBeRenamedCounted 'MFR.IFileRenamer.SubfoldersToBeRenamedCounted')
-event raised by the File Renamer object when it has finished
-calculating how many subfolders are to be renamed.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished'></a>
 ### OnFinished() `method`
@@ -950,15 +656,27 @@ re-enabling user input.
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-MainWindowPresenter-OperationError 'MFR.GUI.MainWindowPresenter.OperationError')
+[](#E-MFR-GUI-Windows-Presenters-MainWindowPresenter-OperationError 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OperationError')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-ExceptionRaisedEventArgs 'MFR.ExceptionRaisedEventArgs') that contains
-the event data. |
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs')
+that contains the event data. |
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs-'></a>
+### OnOperationFinished() `method`
+
+##### Summary
+
+This method is called when the Operation Engine sends the
+`OE_PROCESSING_FINISHED` message.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String-'></a>
 ### ProfileAlreadyExist(profileName) `method`
@@ -992,34 +710,13 @@ to search for. |
 `profileName`, is passed a blank or `null`
 string for a value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReinitializeProgressDialog'></a>
-### ReinitializeProgressDialog() `method`
-
-##### Summary
-
-Sets the progress dialog and/or reinitializes it from prior use.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ResetProgressBar'></a>
-### ResetProgressBar() `method`
-
-##### Summary
-
-Resets the progress bar back to the beginning.
-
-##### Parameters
-
-This method has no parameters.
-
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration'></a>
 ### SaveConfiguration() `method`
 
 ##### Summary
 
-Saves data from the screen control and then saves the configuration to the
+Saves data from the screen control and then saves the
+projectFileRenamerConfiguration to the
 persistence location.
 
 ##### Parameters
@@ -1054,7 +751,7 @@ passed a `null` value. |
 ##### Summary
 
 Transforms the current value of the
-[Configuration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration')
 property into a Profile with the `profileName` specified.
 
 
@@ -1075,122 +772,29 @@ new Profile. |
 ##### Summary
 
 Saves the selections made in the Operations to Perform checked list
-box into the [Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration') object.
+box into the
+[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
+object.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowCalculatingProgressBar-System-String,System-Boolean-'></a>
-### ShowCalculatingProgressBar(text,canCancel) `method`
-
-##### Summary
-
-Shows a marquee progress bar that indicates the application is
-performing work but of an indeterminate length, such as calculating
-the amount of files to process.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the text to display in the progress dialog. |
-| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) `true` to show a button in
-the progress dialog; `false` to hide it. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `text`, is passed
-a blank or `null` string for a value. |
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Boolean-'></a>
-### ShowProgressDialog(canCancel) `method`
-
-##### Summary
-
-Shows the progress window.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that controls whether the
-button is displayed by the dialog box.
-
-
-
-Set this parameter to `true` to display the button;
-`false` to hide it. |
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window-'></a>
-### ShowProgressDialog(owner) `method`
-
-##### Summary
-
-Shows the progress window.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
-[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface.
-
-
-
-This object plays the role of the parent window of the dialog box. |
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window,System-Boolean-'></a>
-### ShowProgressDialog(owner,canCancel) `method`
-
-##### Summary
-
-Shows the progress window.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
-[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface.
-
-
-
-This object plays the role of the parent window of the dialog box. |
-| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that controls whether the
-button is displayed by the dialog box.
-
-
-
-Set this parameter to `true` to display the button;
-`false` to hide it. |
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ShowProgressDialog'></a>
-### ShowProgressDialog() `method`
-
-##### Summary
-
-Shows the progress window.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
 ### UpdateConfiguration(configuration) `method`
 
 ##### Summary
 
-Updates the configuration currently being used with a new value.
+Updates the configuration currently being used with a new
+value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface which has
 the new settings. |
 
@@ -1198,7 +802,8 @@ the new settings. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`configuration`,
 is passed a `null` value. |
 
 ##### Remarks
@@ -1297,12 +902,14 @@ represents the main window of the application. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `mainWindow`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithFileRenamer-MFR-Renamers-Files-Interfaces-IFileRenamer-'></a>
-### WithFileRenamer(fileRenamer) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine-'></a>
+### WithOperationEngine(operationEngine) `method`
 
 ##### Summary
 
-Fluent-builder method for composing a file-renamer object with this presenter.
+Fluent-builder method for initializing the operation engine object.  This is
+the object that actually schedules and runs the file-renaming tasks and
+provides user feedback.
 
 ##### Returns
 
@@ -1313,15 +920,17 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fileRenamer | [MFR.Renamers.Files.Interfaces.IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') | (Required.) Reference to an instance of an object that implements
-the [IFileRenamer](#T-MFR-IFileRenamer 'MFR.IFileRenamer') interface. |
+| operationEngine | [MFR.Engines.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface on
+which this Presenter should depend. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `fileRenamer`, is
-passed a `null` value. |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `operationEngine`, is passed a
+`null` value. |
 
 <a name='T-MFR-GUI-Windows-Presenters-Properties-Resources'></a>
 ## Resources `type`

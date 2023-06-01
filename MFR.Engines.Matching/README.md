@@ -4,12 +4,12 @@
 ## Contents
 
 - [FileNameMatchingEngine](#T-MFR-Engines-Matching-FileNameMatchingEngine 'MFR.Engines.Matching.FileNameMatchingEngine')
-  - [#ctor()](#M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Matching.FileNameMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [#ctor()](#M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.FileNameMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [#ctor()](#M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor 'MFR.Engines.Matching.FileNameMatchingEngine.#ctor')
   - [OperationType](#P-MFR-Engines-Matching-FileNameMatchingEngine-OperationType 'MFR.Engines.Matching.FileNameMatchingEngine.OperationType')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-FileNameMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.FileNameMatchingEngine.IsMatch(System.String,System.String,System.String)')
 - [FolderNameMatchingEngine](#T-MFR-Engines-Matching-FolderNameMatchingEngine 'MFR.Engines.Matching.FolderNameMatchingEngine')
-  - [#ctor()](#M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Matching.FolderNameMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [#ctor()](#M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.FolderNameMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [#ctor()](#M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor 'MFR.Engines.Matching.FolderNameMatchingEngine.#ctor')
   - [OperationType](#P-MFR-Engines-Matching-FolderNameMatchingEngine-OperationType 'MFR.Engines.Matching.FolderNameMatchingEngine.OperationType')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-FolderNameMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.FolderNameMatchingEngine.IsMatch(System.String,System.String,System.String)')
@@ -18,12 +18,15 @@
   - [ResourceManager](#P-MFR-Engines-Matching-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Properties.Resources.ResourceManager')
 - [TextExpressionMatchingEngineBase](#T-MFR-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Engines.Matching.TextExpressionMatchingEngineBase')
   - [#ctor()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor')
-  - [#ctor(configuration)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [ConfigurationProvider](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfiguration')
   - [OperationType](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
+  - [GetOperationMatcher()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-GetOperationMatcher 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.GetOperationMatcher')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
   - [IsMatch(expression)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
 - [TextInFilesMatchingEngine](#T-MFR-Engines-Matching-TextInFilesMatchingEngine 'MFR.Engines.Matching.TextInFilesMatchingEngine')
-  - [#ctor()](#M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Matching.TextInFilesMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [#ctor()](#M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.TextInFilesMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [#ctor()](#M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor 'MFR.Engines.Matching.TextInFilesMatchingEngine.#ctor')
   - [OperationType](#P-MFR-Engines-Matching-TextInFilesMatchingEngine-OperationType 'MFR.Engines.Matching.TextInFilesMatchingEngine.OperationType')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-TextInFilesMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.TextInFilesMatchingEngine.IsMatch(System.String,System.String,System.String)')
@@ -39,7 +42,7 @@ MFR.Engines.Matching
 
 Applies criteria to match file names against textual expressions.
 
-<a name='M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+<a name='M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -57,7 +60,7 @@ This constructor has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor'></a>
@@ -89,7 +92,7 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-FileNameMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
@@ -138,10 +141,11 @@ MFR.Engines.Matching
 ##### Summary
 
 Searches for matches to textual-search criteria patterns and regexes in
-the pathnames of folders, according to rules specified by configuration
+the pathnames of folders, according to rules specified by
+projectFileRenamerConfiguration
 settings.
 
-<a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+<a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -158,7 +162,8 @@ This constructor has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`projectFileRenamerConfiguration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor'></a>
@@ -190,7 +195,7 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
@@ -279,8 +284,8 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
-### #ctor(configuration) `constructor`
+<a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### #ctor(projectFileRenamerConfiguration) `constructor`
 
 ##### Summary
 
@@ -293,24 +298,71 @@ a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface that holds
+| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that holds
 settings that are specified by the user. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`projectFileRenamerConfiguration`,
 is passed a `null` value. |
+
+<a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
+
+<a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-GetOperationMatcher'></a>
+### GetOperationMatcher() `method`
+
+##### Summary
+
+Attempts to obtain a reference to an instance of an object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface for the
+current operation.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that
+corresponds to the current operation and matching configuration.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String-'></a>
 ### IsMatch(value,findWhat,replaceWith) `method`
@@ -360,7 +412,7 @@ Determines whether data and a search patterned, bound up together in
 the form of the `expression` provided, contain a
 data match according to rules specified by the user in the object, a
 reference to which is specified in the
-[Configuration](#P-MFR-ITextExpressionMatchingEngine-Configuration 'MFR.ITextExpressionMatchingEngine.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-ITextExpressionMatchingEngine-ProjectFileRenamerConfiguration 'MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfiguration')
 property.
 
 ##### Returns
@@ -377,13 +429,6 @@ otherwise.
 the [IMatchExpression](#T-MFR-IMatchExpression 'MFR.IMatchExpression') interface and whose
 properties contain the match and pattern data. |
 
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `expression`, is
-passed a `null` value. |
-
 <a name='T-MFR-Engines-Matching-TextInFilesMatchingEngine'></a>
 ## TextInFilesMatchingEngine `type`
 
@@ -395,7 +440,7 @@ MFR.Engines.Matching
 
 Matches text in a file that is to be (eventually) replaced.
 
-<a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+<a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -412,7 +457,8 @@ This constructor has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`projectFileRenamerConfiguration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor'></a>
@@ -444,7 +490,7 @@ use the `public` constructor.
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>

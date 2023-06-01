@@ -8,6 +8,8 @@
   - [Reset()](#M-MFR-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.Reset')
 - [FileSystemEntryListRetrieverBase](#T-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
+  - [ConfigurationProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigurationProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.CurrentConfiguration')
   - [FileSystemEntryValidatorSays](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
   - [FindWhat](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
   - [OperationType](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
@@ -19,9 +21,9 @@
   - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
   - [ForFileSystemEntry(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ForFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
-  - [PassesPathFilter(entry,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-PassesPathFilter-MFR-FileSystem-Interfaces-IFileSystemEntry,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.PassesPathFilter(MFR.FileSystem.Interfaces.IFileSystemEntry,System.Predicate{System.String})')
   - [Reset()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.Reset')
   - [SearchCriteriaMatch(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchCriteriaMatch-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchCriteriaMatch(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [ShouldDoPath(path,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldDoPath-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ShouldDoPath(System.String,System.Predicate{System.String})')
   - [ToFindWhat(findWhat)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ToFindWhat(System.String)')
   - [UsingSearchPattern()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.UsingSearchPattern(System.String)')
   - [WithSearchOption(option)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-WithSearchOption-System-IO-SearchOption- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.WithSearchOption(System.IO.SearchOption)')
@@ -144,6 +146,31 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
+
 <a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays'></a>
 ### FileSystemEntryValidatorSays `property`
 
@@ -180,7 +207,7 @@ method.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -229,7 +256,7 @@ Fluent bridge property that accesses the appropriate text-expression
 matcher object, that implements the
 [ITextExpressionMatchingEngine](#T-MFR-ITextExpressionMatchingEngine 'MFR.ITextExpressionMatchingEngine')
 interface,
-for the current operation type and configuration.
+for the current operation type and projectFileRenamerConfiguration.
 
 ##### Remarks
 
@@ -303,7 +330,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -311,7 +338,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
@@ -354,7 +381,7 @@ the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSy
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that the
 [Path](#P-MFR-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property of
@@ -405,50 +432,10 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
 `rootFolderPath`
 ' parameter cannot be located on the disk. |
-
-<a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-PassesPathFilter-MFR-FileSystem-Interfaces-IFileSystemEntry,System-Predicate{System-String}-'></a>
-### PassesPathFilter(entry,pathFilter) `method`
-
-##### Summary
-
-Determines whether the data in the file-system
-`entry`
-provided passes the additional path-filtering
-criteria specified by the `pathFilter` predicate.
-
-##### Returns
-
-`true` if the file-system `entry`
-passed the path-filtering criteria in `pathFilter`,
-or if `pathFilter` is `null`;
-otherwise, `false` is returned.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Optional.) Reference to an instance of an object that implements
-the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
-interface that has the data to run decision-making upon. If this
-parameter is `null`, then this method returns
-`false`. |
-| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) A [Predicate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate') that points to the
-logic to be executed to determine a match to the file-system
-`entry` passed. If this parameter is
-`null`
-, then this method returns `true`. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if any of the required
-parameters, `entry`, or `pathFilter`, are
-passed a `null` value. |
 
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset'></a>
 ### Reset() `method`
@@ -472,7 +459,7 @@ This method typically is called from a class constructor.
 
 Determines whether the path and/or user-state data in the specified
 file system `entry` object matches search and
-configuration criteria specified by the user.
+projectFileRenamerConfiguration criteria specified by the user.
 
 ##### Returns
 
@@ -494,6 +481,27 @@ interface that has the data for the matching process. |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
+
+<a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldDoPath-System-String,System-Predicate{System-String}-'></a>
+### ShouldDoPath(path,pathFilter) `method`
+
+##### Summary
+
+Determines whether a certain path should be executed.
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to be checked. |
+| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) A reference to an instance of
+[String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') that contains additional rules
+stating whether to include files or directories. |
 
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String-'></a>
 ### ToFindWhat(findWhat) `method`
@@ -648,7 +656,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-FileSystem-Retrievers-FilesToRenameRetriever-#cctor'></a>
@@ -706,7 +714,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -714,7 +722,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='T-MFR-FileSystem-Retrievers-FolderToRenameRetriever'></a>
@@ -753,7 +761,7 @@ Gets a reference to the one and only instance of
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-FileSystem-Retrievers-FolderToRenameRetriever-#cctor'></a>
@@ -811,7 +819,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -819,7 +827,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='T-MFR-FileSystem-Retrievers-Properties-Resources'></a>
@@ -885,7 +893,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -993,7 +1001,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
@@ -1001,7 +1009,7 @@ Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
 pathname of a folder that exists on the disk, and that the
-[Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.
 
 <a name='M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-Reset'></a>
@@ -1069,7 +1077,7 @@ then the default value will be utilized.
 
 ##### Summary
 
-Verifies that configuration has been attached to this object.
+Verifies that projectFileRenamerConfiguration has been attached to this object.
 
 ##### Parameters
 
@@ -1079,18 +1087,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
-If no configuration is attached to this object, then
+If no projectFileRenamerConfiguration is attached to this object, then
 [ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException')
 is thrown.
 
 
 
 Child classes may override this method, e.g., to make
-attaching a configuration object optional.
+attaching a projectFileRenamerConfiguration object optional.
 
 
 
@@ -1124,14 +1132,16 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever').
+Gets a reference to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that represents an object that is capable of searching text in files.
 
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#cctor'></a>
@@ -1172,11 +1182,14 @@ allowed by some implementations to be blank.
 
 ##### Summary
 
-Provides the implementation of the [GetMatchingFileSystemPaths](#M-MFR-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths') method.
+Provides the implementation of the
+[GetMatchingFileSystemPaths](#M-MFR-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths 'MFR.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths')
+method.
 
 ##### Returns
 
-Collection of instances of objects that implement the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+Collection of instances of objects that implement the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that correspond to the file system entries that match the
 criteria specified.
 
@@ -1211,10 +1224,13 @@ filtering is done. |
 is passed a blank or `null` string for a value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
 
 ##### Remarks
 
-Implementers of this method have a guarantee that the `rootFolderPath` parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the [Configuration](#P-MFR-Settings-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.ConfigurationComposedObjectBase.Configuration')
+Implementers of this method have a guarantee that the
+`rootFolderPath`
+parameter contains a fully-qualified
+pathname of a folder that exists on the disk, and that the
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
 property is set to a valid object instance reference.

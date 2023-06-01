@@ -3,15 +3,15 @@
 
 ## Contents
 
-- [IOperationTypeDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription')
-  - [Text](#P-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text 'MFR.Operations.Descriptions.Interfaces.IOperationTypeDescription.Text')
-- [IOperationTypeStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationTypeStartedDescription')
+- [IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+  - [Text](#P-MFR-Operations-Descriptions-Interfaces-IOperationDescription-Text 'MFR.Operations.Descriptions.Interfaces.IOperationDescription.Text')
+- [IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
 - [Resources](#T-MFR-Operations-Descriptions-Interfaces-Properties-Resources 'MFR.Operations.Descriptions.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-Operations-Descriptions-Interfaces-Properties-Resources-Culture 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Operations-Descriptions-Interfaces-Properties-Resources-ResourceManager 'MFR.Operations.Descriptions.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription'></a>
-## IOperationTypeDescription `type`
+<a name='T-MFR-Operations-Descriptions-Interfaces-IOperationDescription'></a>
+## IOperationDescription `type`
 
 ##### Namespace
 
@@ -22,7 +22,7 @@ MFR.Operations.Descriptions.Interfaces
 Defines the publicly-exposed methods and properties of an operation
 description object.
 
-<a name='P-MFR-Operations-Descriptions-Interfaces-IOperationTypeDescription-Text'></a>
+<a name='P-MFR-Operations-Descriptions-Interfaces-IOperationDescription-Text'></a>
 ### Text `property`
 
 ##### Summary
@@ -34,8 +34,8 @@ current type of operation that is currently being performed.
 
 It is up to the implementers of this interface to supply the proper text.
 
-<a name='T-MFR-Operations-Descriptions-Interfaces-IOperationTypeStartedDescription'></a>
-## IOperationTypeStartedDescription `type`
+<a name='T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription'></a>
+## IOperationStartedDescription `type`
 
 ##### Namespace
 

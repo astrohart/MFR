@@ -174,7 +174,7 @@ parameter cannot be found on the disk. |
 ##### Remarks
 
 The file whose pathname is passed must not be the actual
-configuration file, but a separate file.
+projectFileRenamerConfiguration file, but a separate file.
 
 <a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String-'></a>
 ### Save(pathname) `method`

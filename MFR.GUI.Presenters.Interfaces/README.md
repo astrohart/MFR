@@ -4,9 +4,7 @@
 ## Contents
 
 - [IPresenter\`2](#T-MFR-GUI-Presenters-Interfaces-IPresenter`2 'MFR.GUI.Presenters.Interfaces.IPresenter`2')
-  - [CloseProgressDialog()](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-CloseProgressDialog 'MFR.GUI.Presenters.Interfaces.IPresenter`2.CloseProgressDialog')
   - [HavingWindowReference(view)](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-HavingWindowReference-`0- 'MFR.GUI.Presenters.Interfaces.IPresenter`2.HavingWindowReference(`0)')
-  - [ShowProgressDialog()](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-ShowProgressDialog 'MFR.GUI.Presenters.Interfaces.IPresenter`2.ShowProgressDialog')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Presenters-Interfaces-IPresenter`2-UpdateData-System-Boolean- 'MFR.GUI.Presenters.Interfaces.IPresenter`2.UpdateData(System.Boolean)')
 - [Resources](#T-MFR-GUI-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Presenters.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Presenters-Interfaces-Properties-Resources-Culture 'MFR.GUI.Presenters.Interfaces.Properties.Resources.Culture')
@@ -23,17 +21,6 @@ MFR.GUI.Presenters.Interfaces
 
 Defines the publicly-exposed methods and properties of any object that
 has functionality common to all presenters.
-
-<a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-CloseProgressDialog'></a>
-### CloseProgressDialog() `method`
-
-##### Summary
-
-Dismisses the progress dialog.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-HavingWindowReference-`0-'></a>
 ### HavingWindowReference(view) `method`
@@ -61,17 +48,6 @@ that is to be associated with this presenter. |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `view`, is passed
 a `null` value. |
-
-<a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-ShowProgressDialog'></a>
-### ShowProgressDialog() `method`
-
-##### Summary
-
-Shows the progress window.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-MFR-GUI-Presenters-Interfaces-IPresenter`2-UpdateData-System-Boolean-'></a>
 ### UpdateData(bSavingAndValidating) `method`

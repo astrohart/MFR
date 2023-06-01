@@ -7,7 +7,7 @@
   - [ContainingFolder](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
   - [Path](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
   - [UserState](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.FileSystem.Interfaces.IFileSystemEntry.UserState')
-  - [AndHavingUserState(userState)](#M-MFR-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object- 'MFR.FileSystem.Interfaces.IFileSystemEntry.AndHavingUserState(System.Object)')
+  - [SetUserState(userState)](#M-MFR-FileSystem-Interfaces-IFileSystemEntry-SetUserState-System-Object- 'MFR.FileSystem.Interfaces.IFileSystemEntry.SetUserState(System.Object)')
 - [Resources](#T-MFR-FileSystem-Interfaces-Properties-Resources 'MFR.FileSystem.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Interfaces-Properties-Resources-Culture 'MFR.FileSystem.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Interfaces-Properties-Resources-ResourceManager 'MFR.FileSystem.Interfaces.Properties.Resources.ResourceManager')
@@ -51,8 +51,8 @@ For example, if the file-system entry is representing a text file,
 then this property might contain the file's contents from them
 having been previously read in.
 
-<a name='M-MFR-FileSystem-Interfaces-IFileSystemEntry-AndHavingUserState-System-Object-'></a>
-### AndHavingUserState(userState) `method`
+<a name='M-MFR-FileSystem-Interfaces-IFileSystemEntry-SetUserState-System-Object-'></a>
+### SetUserState(userState) `method`
 
 ##### Summary
 

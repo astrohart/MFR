@@ -29,7 +29,7 @@ MFR.Settings.Configuration.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master configuration file.
+the master projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -47,7 +47,9 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [LoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction') .
+Gets a reference to the one and only instance of
+[LoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction')
+.
 
 <a name='P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-MessageType'></a>
 ### MessageType `property`
@@ -78,7 +80,8 @@ the result cache.
 
 ##### Returns
 
-Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that corresponds to the result of executing the action.
 
 ##### Parameters
@@ -93,7 +96,9 @@ of the request.
 
 
 This is a template method, the call to which is wrapped in a robust
-and fault-tolerant override of the [CommonExecute](#M-MFR-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute') method.
+and fault-tolerant override of the
+[CommonExecute](#M-MFR-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute')
+method.
 
 
 
@@ -111,7 +116,7 @@ MFR.Settings.Configuration.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master configuration file.
+the master projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFromFileAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -162,7 +167,7 @@ Executes this message.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface that is initialized with the values read in from the
 specified file.
 

@@ -3,6 +3,10 @@
 
 ## Contents
 
+- [ErrorEventArgs](#T-MFR-Events-ErrorEventArgs 'MFR.Events.ErrorEventArgs')
+  - [#ctor(message)](#M-MFR-Events-ErrorEventArgs-#ctor-System-String- 'MFR.Events.ErrorEventArgs.#ctor(System.String)')
+  - [Message](#P-MFR-Events-ErrorEventArgs-Message 'MFR.Events.ErrorEventArgs.Message')
+- [ErrorEventHandler](#T-MFR-Events-ErrorEventHandler 'MFR.Events.ErrorEventHandler')
 - [FileRenamedEventArgs](#T-MFR-Events-FileRenamedEventArgs 'MFR.Events.FileRenamedEventArgs')
   - [#ctor(source,destination)](#M-MFR-Events-FileRenamedEventArgs-#ctor-System-String,System-String- 'MFR.Events.FileRenamedEventArgs.#ctor(System.String,System.String)')
   - [Destination](#P-MFR-Events-FileRenamedEventArgs-Destination 'MFR.Events.FileRenamedEventArgs.Destination')
@@ -30,6 +34,80 @@
   - [FindWhat](#P-MFR-Events-TextPatternMatchEventArgs-FindWhat 'MFR.Events.TextPatternMatchEventArgs.FindWhat')
   - [ReplaceWith](#P-MFR-Events-TextPatternMatchEventArgs-ReplaceWith 'MFR.Events.TextPatternMatchEventArgs.ReplaceWith')
   - [Source](#P-MFR-Events-TextPatternMatchEventArgs-Source 'MFR.Events.TextPatternMatchEventArgs.Source')
+
+<a name='T-MFR-Events-ErrorEventArgs'></a>
+## ErrorEventArgs `type`
+
+##### Namespace
+
+MFR.Events
+
+##### Summary
+
+Provides information for `Error` event handlers.
+
+##### Remarks
+
+The `Error` event is typically raised when an error occurs that's not
+triggered by an actual [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception').
+
+<a name='M-MFR-Events-ErrorEventArgs-#ctor-System-String-'></a>
+### #ctor(message) `constructor`
+
+##### Summary
+
+Constructs a new instance of [ErrorEventArgs](#T-MFR-Events-ErrorEventArgs 'MFR.Events.ErrorEventArgs') and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the message that
+describes the error. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
+`message`, is passed a blank or `null`
+string for a value. |
+
+<a name='P-MFR-Events-ErrorEventArgs-Message'></a>
+### Message `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the message that describes the
+error.
+
+<a name='T-MFR-Events-ErrorEventHandler'></a>
+## ErrorEventHandler `type`
+
+##### Namespace
+
+MFR.Events
+
+##### Summary
+
+Represents a handler for a `Error` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Events.ErrorEventHandler](#T-T-MFR-Events-ErrorEventHandler 'T:MFR.Events.ErrorEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+The `Error` event is typically raised when an error occurs that's not
+triggered by an actual [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception').
+
+
+
+This delegate merely specifies the signature of all methods that handle the
+`Error` event.
 
 <a name='T-MFR-Events-FileRenamedEventArgs'></a>
 ## FileRenamedEventArgs `type`
@@ -172,7 +250,7 @@ Defines the data that is passed by all events of type [FilesOrFoldersCountedEven
 
 ##### Summary
 
-Creates a new instance of [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs')
+Creates a new instance of [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs')
 and returns a reference to it.
 
 ##### Parameters
@@ -181,7 +259,7 @@ and returns a reference to it.
 | ---- | ---- | ----------- |
 | count | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) A zero or positive integer specifying the number of
 files to be processed by the operation. |
-| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
 specifies the operation being performed. |
 
 <a name='P-MFR-Events-FilesOrFoldersCountedEventArgs-Count'></a>
@@ -387,7 +465,7 @@ the pattern in `findWhat`.
 
 This is typically the fully-qualified pathname of a file or folder;
 however, if we are doing the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 operation, then this is the text of the current file before
 find-and-replace has been done. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the textual criteria for the match. |
@@ -398,10 +476,10 @@ be replaced with.
 
 
 NOTE: This parameter may be blank for the
-[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
 operation type. |
 | operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 describes what operation is being performed. |
 
@@ -430,7 +508,7 @@ reference to it.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies the operation being performed. |
 

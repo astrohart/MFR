@@ -46,7 +46,7 @@ that can tell if data matches a value.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 specifies the operation currently being performed. |
 
@@ -57,7 +57,7 @@ then invoke the fluent
 [WithConfiguration](#M-MFR-ITextExpressionMatchingEngine-WithConfiguration 'MFR.ITextExpressionMatchingEngine.WithConfiguration')
 method on the result of this method in order to attach an object
 that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface to the
 new object instance.
 

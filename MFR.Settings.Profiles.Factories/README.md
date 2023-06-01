@@ -6,7 +6,7 @@
 - [MakeNewProfile](#T-MFR-Settings-Profiles-Factories-MakeNewProfile 'MFR.Settings.Profiles.Factories.MakeNewProfile')
   - [FromScratch()](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-FromScratch 'MFR.Settings.Profiles.Factories.MakeNewProfile.FromScratch')
   - [HavingName(profile,name)](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-HavingName-MFR-Settings-Profiles-Interfaces-IProfile,System-String- 'MFR.Settings.Profiles.Factories.MakeNewProfile.HavingName(MFR.Settings.Profiles.Interfaces.IProfile,System.String)')
-  - [ToProfile(configuration,name)](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IConfiguration,System-String- 'MFR.Settings.Profiles.Factories.MakeNewProfile.ToProfile(MFR.Settings.Configuration.Interfaces.IConfiguration,System.String)')
+  - [ToProfile(projectFileRenamerConfiguration,name)](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Profiles.Factories.MakeNewProfile.ToProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Factories-Properties-Resources 'MFR.Settings.Profiles.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Factories.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-Settings-Profiles-Factories-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.Settings.Profiles.Factories.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
@@ -92,17 +92,17 @@ Along with assigning the specified `profile` a new name, this
 method also generates a new GUID to use to identify the profile by.  This is
 done because only one profile can be saved having the same name.
 
-<a name='M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IConfiguration,System-String-'></a>
-### ToProfile(configuration,name) `method`
+<a name='M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String-'></a>
+### ToProfile(projectFileRenamerConfiguration,name) `method`
 
 ##### Summary
 
-Extension method that converts the specified `configuration`
+Extension method that converts the specified `projectFileRenamerConfiguration`
 object to a profile object.
 
 
 
-The configuration settings in the source are copied to the new profile, and the
+the configuration settings in the source are copied to the new profile, and the
 specified `name` is also assigned to the new profile.
 
 ##### Returns
@@ -115,9 +115,9 @@ Reference to an instance of an object that implements the
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object
+| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
 that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the name to be assigned to the
 new profile. |
@@ -127,7 +127,7 @@ new profile. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `configuration`, is passed a
+parameter, `projectFileRenamerConfiguration`, is passed a
 `null` value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
 `name`, is passed a blank or `null` string

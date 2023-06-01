@@ -3,8 +3,14 @@
 
 ## Contents
 
-- [GetStringMatcher](#T-MFR-Matchers-Factories-GetStringMatcher 'MFR.Matchers.Factories.GetStringMatcher')
-  - [For(type)](#M-MFR-Matchers-Factories-GetStringMatcher-For-MFR-Operations-Constants-OperationType- 'MFR.Matchers.Factories.GetStringMatcher.For(MFR.Operations.Constants.OperationType)')
+- [GetRenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory')
+  - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory.SoleInstance')
+- [GetRenameSubFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.GetRenameSubFoldersStringMatcherFactory')
+  - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameSubFoldersStringMatcherFactory.SoleInstance')
+- [GetReplaceTextInFilesStringMatcherFactory](#T-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory 'MFR.Matchers.Factories.GetReplaceTextInFilesStringMatcherFactory')
+  - [SoleInstance()](#M-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetReplaceTextInFilesStringMatcherFactory.SoleInstance')
+- [GetStringMatcherFactory](#T-MFR-Matchers-Factories-GetStringMatcherFactory 'MFR.Matchers.Factories.GetStringMatcherFactory')
+  - [For(type)](#M-MFR-Matchers-Factories-GetStringMatcherFactory-For-MFR-Operations-Constants-OperationType- 'MFR.Matchers.Factories.GetStringMatcherFactory.For(MFR.Operations.Constants.OperationType)')
 - [RenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
   - [#ctor()](#M-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-#ctor 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.#ctor')
   - [Instance](#P-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-Instance 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.Instance')
@@ -27,8 +33,104 @@
   - [Culture](#P-MFR-Matchers-Factories-Properties-Resources-Culture 'MFR.Matchers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Matchers-Factories-Properties-Resources-ResourceManager 'MFR.Matchers.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Matchers-Factories-GetStringMatcher'></a>
-## GetStringMatcher `type`
+<a name='T-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory'></a>
+## GetRenameFilesInFolderStringMatcherFactory `type`
+
+##### Namespace
+
+MFR.Matchers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface for renaming the files contained within a parent folder.
+
+<a name='M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface for renaming the files contained within a parent folder.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory'></a>
+## GetRenameSubFoldersStringMatcherFactory `type`
+
+##### Namespace
+
+MFR.Matchers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface for renaming sub-folders of a parent folder.
+
+<a name='M-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface for renaming sub-folders of a parent folder.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory'></a>
+## GetReplaceTextInFilesStringMatcherFactory `type`
+
+##### Namespace
+
+MFR.Matchers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface for replacing values within the text of a file.
+
+<a name='M-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface for replacing values within the text of a file.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Matchers-Factories-GetStringMatcherFactory'></a>
+## GetStringMatcherFactory `type`
 
 ##### Namespace
 
@@ -37,25 +139,25 @@ MFR.Matchers.Factories
 ##### Summary
 
 Creates instances of objects that implement the
-[IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
 interface.
 
-<a name='M-MFR-Matchers-Factories-GetStringMatcher-For-MFR-Operations-Constants-OperationType-'></a>
+<a name='M-MFR-Matchers-Factories-GetStringMatcherFactory-For-MFR-Operations-Constants-OperationType-'></a>
 ### For(type) `method`
 
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
 interface and
 returns a reference to it, for the given
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 value.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
 interface that corresponds to the specified type of operation.
 
 ##### Parameters
@@ -63,7 +165,7 @@ interface that corresponds to the specified type of operation.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed. |
 
@@ -106,7 +208,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -202,7 +304,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -288,9 +390,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[ReplaceTextInFilesStringMatcherFactory](#T-MFR-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that represents an entity for the
+[ReplaceTextInFiles](#F-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+operation.
 
 <a name='P-MFR-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
@@ -298,7 +402,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values that
 corresponds to the type of operation being performed.
 

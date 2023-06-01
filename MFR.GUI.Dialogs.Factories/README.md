@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [GetAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.Factories.GetAutoStartCancellableProgressDialog')
+  - [SoleInstance()](#M-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog-SoleInstance 'MFR.GUI.Dialogs.Factories.GetAutoStartCancellableProgressDialog.SoleInstance')
 - [MakeNewErrorReportDialog](#T-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog')
   - [AttachSendErrorReportRequestedEventHandler(self,handler)](#M-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog-AttachSendErrorReportRequestedEventHandler-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog,MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler- 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog.AttachSendErrorReportRequestedEventHandler(MFR.GUI.Dialogs.Interfaces.IErrorReportDialog,MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventHandler)')
   - [AttachViewErrorReportRequestedEventHandler(self,handler)](#M-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog-AttachViewErrorReportRequestedEventHandler-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog,MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler- 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog.AttachViewErrorReportRequestedEventHandler(MFR.GUI.Dialogs.Interfaces.IErrorReportDialog,MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventHandler)')
@@ -17,6 +19,7 @@
   - [AndStatusText(self,statusText)](#M-MFR-GUI-Dialogs-Factories-MakeNewOperationDrivenProgressDialog-AndStatusText-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog,System-String- 'MFR.GUI.Dialogs.Factories.MakeNewOperationDrivenProgressDialog.AndStatusText(MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog,System.String)')
   - [FromScratch()](#M-MFR-GUI-Dialogs-Factories-MakeNewOperationDrivenProgressDialog-FromScratch 'MFR.GUI.Dialogs.Factories.MakeNewOperationDrivenProgressDialog.FromScratch')
   - [HavingProc(self,proc)](#M-MFR-GUI-Dialogs-Factories-MakeNewOperationDrivenProgressDialog-HavingProc-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog,System-Func{System-Object,System-Object}- 'MFR.GUI.Dialogs.Factories.MakeNewOperationDrivenProgressDialog.HavingProc(MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog,System.Func{System.Object,System.Object})')
+  - [HavingProc(self,proc)](#M-MFR-GUI-Dialogs-Factories-MakeNewOperationDrivenProgressDialog-HavingProc-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog,System-Delegate- 'MFR.GUI.Dialogs.Factories.MakeNewOperationDrivenProgressDialog.HavingProc(MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog,System.Delegate)')
 - [MakeNewProfileNameDialog](#T-MFR-GUI-Dialogs-Factories-MakeNewProfileNameDialog 'MFR.GUI.Dialogs.Factories.MakeNewProfileNameDialog')
   - [ForProfileCreateOperationType(self,type)](#M-MFR-GUI-Dialogs-Factories-MakeNewProfileNameDialog-ForProfileCreateOperationType-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog,MFR-GUI-Dialogs-Constants-ProfileCreateOperationType- 'MFR.GUI.Dialogs.Factories.MakeNewProfileNameDialog.ForProfileCreateOperationType(MFR.GUI.Dialogs.Interfaces.IProfileNameDialog,MFR.GUI.Dialogs.Constants.ProfileCreateOperationType)')
   - [FromScratch()](#M-MFR-GUI-Dialogs-Factories-MakeNewProfileNameDialog-FromScratch 'MFR.GUI.Dialogs.Factories.MakeNewProfileNameDialog.FromScratch')
@@ -25,6 +28,36 @@
 - [Resources](#T-MFR-GUI-Dialogs-Factories-Properties-Resources 'MFR.GUI.Dialogs.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Factories-Properties-Resources-Culture 'MFR.GUI.Dialogs.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog'></a>
+## GetAutoStartCancellableProgressDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface.
+
+<a name='M-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface,
+and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog'></a>
 ## MakeNewErrorReportDialog `type`
@@ -363,6 +396,38 @@ the
 [IOperationDrivenProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog')
 interface. |
 | proc | [System.Func{System.Object,System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,System.Object}') | (Required.) A [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func') delegate that specifies code that is
+to be executed when the dialog is to be displayed. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
+
+<a name='M-MFR-GUI-Dialogs-Factories-MakeNewOperationDrivenProgressDialog-HavingProc-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog,System-Delegate-'></a>
+### HavingProc(self,proc) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[Proc](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Proc 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Proc')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog') | (Required.) Reference to an instance of an object that implements
+the
+[IOperationDrivenProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog')
+interface. |
+| proc | [System.Delegate](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Delegate 'System.Delegate') | (Required.) A [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func') delegate that specifies code that is
 to be executed when the dialog is to be displayed. |
 
 ##### Exceptions

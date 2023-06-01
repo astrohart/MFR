@@ -6,14 +6,21 @@
 - [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
   - [#ctor()](#M-MFR-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
+  - [ConfigurationProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider 'MFR.Renamers.Files.FileRenamer.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
+  - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
+  - [FileStreamProvider](#P-MFR-Renamers-Files-FileRenamer-FileStreamProvider 'MFR.Renamers.Files.FileRenamer.FileStreamProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
+  - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
-  - [LastSolutionPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionPath 'MFR.Renamers.Files.FileRenamer.LastSolutionPath')
+  - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
-  - [RootDirectoryValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryValidator')
+  - [RootDirectoryPathValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathValidator')
   - [RootFolderPathManager](#P-MFR-Renamers-Files-FileRenamer-RootFolderPathManager 'MFR.Renamers.Files.FileRenamer.RootFolderPathManager')
-  - [ShouldReOpenSolution](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolution')
+  - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
+  - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
+  - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
@@ -28,6 +35,7 @@
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
+  - [OnStarting()](#M-MFR-Renamers-Files-FileRenamer-OnStarting 'MFR.Renamers.Files.FileRenamer.OnStarting')
   - [OnStatusUpdate(e)](#M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnSubfoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSubfoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
@@ -40,6 +48,7 @@
 - [Resources](#T-MFR-Renamers-Files-Properties-Resources 'MFR.Renamers.Files.Properties.Resources')
   - [Confirm_PerformRename](#P-MFR-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Renamers.Files.Properties.Resources.Confirm_PerformRename')
   - [Culture](#P-MFR-Renamers-Files-Properties-Resources-Culture 'MFR.Renamers.Files.Properties.Resources.Culture')
+  - [Error_NoSolutionsInRootDirectory](#P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory 'MFR.Renamers.Files.Properties.Resources.Error_NoSolutionsInRootDirectory')
   - [ResourceManager](#P-MFR-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Renamers-Files-FileRenamer'></a>
@@ -57,7 +66,7 @@ Provides file- and folder-rename services.
 
 NOTE: Instances of this class must be composed with an instance of an
 object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
 
@@ -84,13 +93,46 @@ This constructor has no parameters.
 Gets a value that indicates whether an abort of the current
 operation has been requested.
 
+<a name='P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user projectFileRenamerConfiguration and the
+actions
+associated with it.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-CurrentOperation'></a>
+### CurrentOperation `property`
+
+##### Summary
+
+Gets or sets the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+enumeration value that indicates which operation is currently being performed.
+
 <a name='P-MFR-Renamers-Files-FileRenamer-EnabledOperations'></a>
 ### EnabledOperations `property`
 
 ##### Summary
 
 Gets a reference to a collection of of the
-[OperationType](#T-MFR-OperationType 'MFR.OperationType')
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values.
 
 ##### Remarks
@@ -109,13 +151,30 @@ If the list is empty when the
 method is called, do
 nothing or throw an exception.
 
+<a name='P-MFR-Renamers-Files-FileRenamer-FileStreamProvider'></a>
+### FileStreamProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
+
 <a name='P-MFR-Renamers-Files-FileRenamer-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer').
+Gets a reference to the one and only instance of the object that implements the
+[IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') interface.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-IsBusy'></a>
+### IsBusy `property`
+
+##### Summary
+
+Gets a value that indicates whether this component is currently processing
+operation(s).
 
 <a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath'></a>
 ### LastSolutionFolderPath `property`
@@ -125,13 +184,19 @@ Gets a reference to the one and only instance of
 Gets or sets the path to the folder in which last Visual Studio Solution that
 we have worked with most recently resides.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionPath'></a>
-### LastSolutionPath `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-LoadedSolutions'></a>
+### LoadedSolutions `property`
 
 ##### Summary
 
-Gets or sets the path to the last Visual Studio Solution that we have worked
-with most recently.
+Gets a reference to a collection, each element of which implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface.
+
+##### Remarks
+
+Each element of the collection represents a Visual Studio Solution (*.sln) that
+is loaded in a running instance of Visual Studio.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
@@ -141,13 +206,13 @@ with most recently.
 Gets a string containing the full pathname of the folder where all
 operations start.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 ##### Remarks
@@ -174,14 +239,37 @@ This object manages a collection of strings.
 Individually, the strings are all taken to be the root folder of where our
 search should start for the operation(s) that the user wants us to process.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolution'></a>
-### ShouldReOpenSolution `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions'></a>
+### ShouldReOpenSolutions `property`
 
 ##### Summary
 
 Gets a value determining whether the currently-open solution
 in Visual Studio should be closed and then re-opened at the
 completion of the operation.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-SyncRoot'></a>
+### SyncRoot `property`
+
+##### Summary
+
+Synchronization root object for creating critical sections.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService'></a>
+### VisualStudioSolutionService `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IVisualStudioSolutionService](#T-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService')
+interface.
+
+##### Remarks
+
+This property allows access to an object that helps us manage the Visual Studio
+Solution(s) that may be in the starting folder, and to track which running
+instance(s), if any, have said Solution(s) open, and to command the instance(s)
+to load/unload the Solution(s).
 
 <a name='M-MFR-Renamers-Files-FileRenamer-#cctor'></a>
 ### #cctor() `method`
@@ -322,7 +410,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnFilesToHaveTextReplacedCounted-MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
@@ -338,7 +426,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnFinished'></a>
@@ -379,7 +467,7 @@ Raises the [](#E-MFR-FileRenamer-OperationFinished 'MFR.FileRenamer.OperationFin
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | An [OperationFinishedEventArgs](#T-MFR-OperationFinishedEventArgs 'MFR.OperationFinishedEventArgs') that
+| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | An [OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs-'></a>
@@ -393,7 +481,7 @@ Raises the [](#E-MFR-FileRenamer-OperationStarted 'MFR.FileRenamer.OperationStar
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-OperationStartedEventArgs 'MFR.OperationStartedEventArgs') that
+| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs-'></a>
@@ -418,6 +506,17 @@ contains the event data. |
 Raises the
 [](#E-MFR-Renamers-Files-FileRenamer-Started 'MFR.Renamers.Files.FileRenamer.Started')
 event.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnStarting'></a>
+### OnStarting() `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-Starting 'MFR.Renamers.Files.FileRenamer.Starting') event.
 
 ##### Parameters
 
@@ -450,7 +549,7 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-FilesOrFoldersCountedEventArgs 'MFR.FilesOrFoldersCountedEventArgs') that
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}-'></a>
@@ -526,6 +625,15 @@ filtering is done. |
 
 | Name | Description |
 | ---- | ----------- |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the value of the
+[CurrentConfiguration](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration')
+property has not been set prior to calling this method.
+
+
+
+Call the
+[UpdateConfiguration](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration')
+method on this object prior to calling this method. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
 `rootDirectoryPath`
 , is passed a blank or
@@ -541,6 +649,12 @@ Renames all the files in the all the subfolders etc., recursively,
 of the folder whose pathname is specified by the
 `rootFolderPath`
 parameter.
+
+##### Returns
+
+`true` if the operation was successful;
+`false` if the operation failed or if the user cancelled the
+operation.
 
 ##### Parameters
 
@@ -641,6 +755,11 @@ parameter with the text specified by the
 `replaceWith`
 parameter. A case-sensitive, not-in-exact-word
 search is performed.
+
+##### Returns
+
+`true` if the operation succeeded;
+`false` otherwise.
 
 ##### Parameters
 
@@ -757,6 +876,13 @@ Choose File -> Reopen Workspace when the selected rename operation(s) have compl
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory'></a>
+### Error_NoSolutionsInRootDirectory `property`
+
+##### Summary
+
+Looks up a localized string similar to FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder '{0}'.  Stopping..
 
 <a name='P-MFR-Renamers-Files-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

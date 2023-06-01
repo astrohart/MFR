@@ -3,6 +3,7 @@
 
 ## Contents
 
+- [IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.IAutoStartCancellableProgressDialog')
 - [ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
   - [CanCancel](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CanCancel 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CanCancel')
   - [CurrentFile](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CurrentFile 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CurrentFile')
@@ -22,9 +23,10 @@
   - [Proc](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Proc 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Proc')
   - [Result](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Result 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Result')
 - [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog')
+  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.AutoQuitOnCompletion')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ConfigPathname')
   - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.IsModified')
-  - [ShouldReOpenVisualStudioSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldReOpenVisualStudioSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldReOpenVisualStudioSolution')
+  - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ReOpenSolution')
 - [IProfileNameDialog](#T-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog')
   - [OperationType](#P-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog-OperationType 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog.OperationType')
   - [ProfileName](#P-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog-ProfileName 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog.ProfileName')
@@ -39,6 +41,19 @@
 - [Resources](#T-MFR-GUI-Dialogs-Interfaces-Properties-Resources 'MFR.GUI.Dialogs.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Interfaces-Properties-Resources-Culture 'MFR.GUI.Dialogs.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Interfaces.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Dialogs-Interfaces-IAutoStartCancellableProgressDialog'></a>
+## IAutoStartCancellableProgressDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of a dialog box that shows
+the progress of a file-rename operation that has been launched from the command
+line with the `--autoStart` flag set.
 
 <a name='T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog'></a>
 ## ICancellableProgressDialog `type`
@@ -255,6 +270,14 @@ MFR.GUI.Dialogs.Interfaces
 Defines the publicly-exposed methods and properties of a dialog box that
 allows the user to configure the application.
 
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-AutoQuitOnCompletion'></a>
+### AutoQuitOnCompletion `property`
+
+##### Summary
+
+Gets or sets the value of the
+checkbox.
+
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`
 
@@ -270,8 +293,8 @@ Gets or sets the text of the Configuration File Pathname text box.
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
-<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldReOpenVisualStudioSolution'></a>
-### ShouldReOpenVisualStudioSolution `property`
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution'></a>
+### ReOpenSolution `property`
 
 ##### Summary
 
