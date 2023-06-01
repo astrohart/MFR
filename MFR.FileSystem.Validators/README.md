@@ -3,15 +3,18 @@
 
 ## Contents
 
-- [DirectoryPathValidator](#T-MFR-FileSystem-Validators-DirectoryPathValidator 'MFR.FileSystem.Validators.DirectoryPathValidator')
-  - [#ctor()](#M-MFR-FileSystem-Validators-DirectoryPathValidator-#ctor 'MFR.FileSystem.Validators.DirectoryPathValidator.#ctor')
-  - [Instance](#P-MFR-FileSystem-Validators-DirectoryPathValidator-Instance 'MFR.FileSystem.Validators.DirectoryPathValidator.Instance')
-  - [#cctor()](#M-MFR-FileSystem-Validators-DirectoryPathValidator-#cctor 'MFR.FileSystem.Validators.DirectoryPathValidator.#cctor')
+- [DirectoryValidator](#T-MFR-FileSystem-Validators-DirectoryValidator 'MFR.FileSystem.Validators.DirectoryValidator')
+  - [#ctor()](#M-MFR-FileSystem-Validators-DirectoryValidator-#ctor 'MFR.FileSystem.Validators.DirectoryValidator.#ctor')
+  - [Instance](#P-MFR-FileSystem-Validators-DirectoryValidator-Instance 'MFR.FileSystem.Validators.DirectoryValidator.Instance')
+  - [#cctor()](#M-MFR-FileSystem-Validators-DirectoryValidator-#cctor 'MFR.FileSystem.Validators.DirectoryValidator.#cctor')
+  - [DoesExist(entry)](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [DoesExist(path)](#M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-System-String- 'MFR.FileSystem.Validators.DirectoryValidator.DoesExist(System.String)')
+  - [IsValid(entry)](#M-MFR-FileSystem-Validators-DirectoryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.DirectoryValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FileSystemEntryValidator](#T-MFR-FileSystem-Validators-FileSystemEntryValidator 'MFR.FileSystem.Validators.FileSystemEntryValidator')
   - [ValidateFileSystemEntry(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidator-ValidateFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidator.ValidateFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FileSystemEntryValidatorBase](#T-MFR-FileSystem-Validators-FileSystemEntryValidatorBase 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase')
   - [DoesExist(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [DoesExist(pathname)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(System.String)')
+  - [DoesExist(path)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(System.String)')
   - [IsValid(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ShouldNotSkip(path)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldNotSkip-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldNotSkip(System.String)')
   - [ShouldSkip(path)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldSkip-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldSkip(System.String)')
@@ -19,6 +22,7 @@
   - [#ctor()](#M-MFR-FileSystem-Validators-ProjectFileValidator-#ctor 'MFR.FileSystem.Validators.ProjectFileValidator.#ctor')
   - [Instance](#P-MFR-FileSystem-Validators-ProjectFileValidator-Instance 'MFR.FileSystem.Validators.ProjectFileValidator.Instance')
   - [#cctor()](#M-MFR-FileSystem-Validators-ProjectFileValidator-#cctor 'MFR.FileSystem.Validators.ProjectFileValidator.#cctor')
+  - [IsValid(entry)](#M-MFR-FileSystem-Validators-ProjectFileValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.ProjectFileValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ShouldSkip(path)](#M-MFR-FileSystem-Validators-ProjectFileValidator-ShouldSkip-System-String- 'MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip(System.String)')
 - [Resources](#T-MFR-FileSystem-Validators-Properties-Resources 'MFR.FileSystem.Validators.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Validators-Properties-Resources-Culture 'MFR.FileSystem.Validators.Properties.Resources.Culture')
@@ -27,10 +31,11 @@
   - [#ctor()](#M-MFR-FileSystem-Validators-SolutionFileValidator-#ctor 'MFR.FileSystem.Validators.SolutionFileValidator.#ctor')
   - [Instance](#P-MFR-FileSystem-Validators-SolutionFileValidator-Instance 'MFR.FileSystem.Validators.SolutionFileValidator.Instance')
   - [#cctor()](#M-MFR-FileSystem-Validators-SolutionFileValidator-#cctor 'MFR.FileSystem.Validators.SolutionFileValidator.#cctor')
+  - [IsValid(entry)](#M-MFR-FileSystem-Validators-SolutionFileValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.SolutionFileValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ShouldSkip(path)](#M-MFR-FileSystem-Validators-SolutionFileValidator-ShouldSkip-System-String- 'MFR.FileSystem.Validators.SolutionFileValidator.ShouldSkip(System.String)')
 
-<a name='T-MFR-FileSystem-Validators-DirectoryPathValidator'></a>
-## DirectoryPathValidator `type`
+<a name='T-MFR-FileSystem-Validators-DirectoryValidator'></a>
+## DirectoryValidator `type`
 
 ##### Namespace
 
@@ -40,7 +45,7 @@ MFR.FileSystem.Validators
 
 Defines an object that validates the paths of folders.
 
-<a name='M-MFR-FileSystem-Validators-DirectoryPathValidator-#ctor'></a>
+<a name='M-MFR-FileSystem-Validators-DirectoryValidator-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -51,16 +56,15 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='P-MFR-FileSystem-Validators-DirectoryPathValidator-Instance'></a>
+<a name='P-MFR-FileSystem-Validators-DirectoryValidator-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-interface that validates directory paths, specifically.
+Gets a reference to the one and only instance of
+[DirectoryValidator](#T-MFR-FileSystem-Validators-DirectoryValidator 'MFR.FileSystem.Validators.DirectoryValidator').
 
-<a name='M-MFR-FileSystem-Validators-DirectoryPathValidator-#cctor'></a>
+<a name='M-MFR-FileSystem-Validators-DirectoryValidator-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -70,6 +74,110 @@ Empty, static constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### DoesExist(entry) `method`
+
+##### Summary
+
+Determines whether the specified file-system
+`entry`
+exists on the disk.
+
+##### Returns
+
+`true` if the file-system `entry`
+exists on the disk; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+
+<a name='M-MFR-FileSystem-Validators-DirectoryValidator-DoesExist-System-String-'></a>
+### DoesExist(path) `method`
+
+##### Summary
+
+Determines whether the file system entry at the specified
+`path`, be it a file or a folder, exists.
+
+
+
+Since a different API is used to determine whether files or directories exist,
+this method must be overriden by child classes.
+
+##### Returns
+
+`true` if the resource exists at the path specified;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
+of the resource whose existence must be checked. |
+
+##### Remarks
+
+The purpose of this method is really to provide resource-existence detection
+services to the public overload of this method, and so it can be used in the
+body of, e.g., the
+[ShouldSkip](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldSkip 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.ShouldSkip')
+method.
+
+<a name='M-MFR-FileSystem-Validators-DirectoryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### IsValid(entry) `method`
+
+##### Summary
+
+Determines whether a file system `entry` exists on
+the disk at the pathname indicated.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface containing information about the entry to be checked. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a folder is passed in the
+`entry`
+parameter and the folder cannot be located on the disk. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a file is passed in the
+`entry`
+parameter and the file cannot be located on the disk. |
+
+##### Remarks
+
+If the properties of the `entry` have valid data
+and the path stored in the entry refers to a file-system object that
+exists on the disk, then this method does nothing.
+
+
+
+If an object instance variable or property has a
+`null`
+reference, or if the path stored in the entry
+refers to a file-system object that does not exist on the disk, then
+an exception is thrown.
 
 <a name='T-MFR-FileSystem-Validators-FileSystemEntryValidator'></a>
 ## FileSystemEntryValidator `type`
@@ -151,12 +259,12 @@ the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSy
 passed a `null` value. |
 
 <a name='M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String-'></a>
-### DoesExist(pathname) `method`
+### DoesExist(path) `method`
 
 ##### Summary
 
 Determines whether the file system entry at the specified
-`pathname`, be it a file or a folder, exists.
+`path`, be it a file or a folder, exists.
 
 
 
@@ -165,14 +273,14 @@ this method must be overriden by child classes.
 
 ##### Returns
 
-`true` if the resource exists at the pathname specified;
+`true` if the resource exists at the path specified;
 `false` otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname
 of the resource whose existence must be checked. |
 
 ##### Remarks
@@ -191,10 +299,6 @@ method.
 Determines whether a file system `entry` exists on
 the disk at the pathname indicated.
 
-##### Returns
-
-`true` if the provided filesystem `entry` is valid; `false` otherwise.
-
 ##### Parameters
 
 | Name | Type | Description |
@@ -203,19 +307,18 @@ the disk at the pathname indicated.
 the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface containing information about the entry to be checked. |
 
-##### Remarks
+##### Exceptions
 
-If the properties of the `entry` have valid data
-and the path stored in the entry refers to a file-system object that
-exists on the disk, then this method returns `true`.
-
-
-
-If an object instance variable or property has a
-`null`
-reference, or if the path stored in the entry
-refers to a file-system object that does not exist on the disk, then
-this method returns `false`.
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a folder is passed in the
+`entry`
+parameter and the folder cannot be located on the disk. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a file is passed in the
+`entry`
+parameter and the file cannot be located on the disk. |
 
 <a name='M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldNotSkip-System-String-'></a>
 ### ShouldNotSkip(path) `method`
@@ -285,9 +388,8 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-interface that validates project files.
+Gets a reference to the one and only instance of
+[ProjectFileValidator](#T-MFR-FileSystem-Validators-ProjectFileValidator 'MFR.FileSystem.Validators.ProjectFileValidator').
 
 <a name='M-MFR-FileSystem-Validators-ProjectFileValidator-#cctor'></a>
 ### #cctor() `method`
@@ -299,6 +401,49 @@ Empty, static constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-FileSystem-Validators-ProjectFileValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### IsValid(entry) `method`
+
+##### Summary
+
+Determines whether a file system `entry` exists on
+the disk at the pathname indicated.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface containing information about the entry to be checked. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a folder is passed in the
+`entry`
+parameter and the folder cannot be located on the disk. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a file is passed in the
+`entry`
+parameter and the file cannot be located on the disk. |
+
+##### Remarks
+
+If the properties of the `entry` have valid data
+and the path stored in the entry refers to a file-system object that
+exists on the disk, then this method does nothing.
+
+
+
+If an object instance variable or property has a
+`null`
+reference, or if the path stored in the entry
+refers to a file-system object that does not exist on the disk, then
+an exception is thrown.
 
 <a name='M-MFR-FileSystem-Validators-ProjectFileValidator-ShouldSkip-System-String-'></a>
 ### ShouldSkip(path) `method`
@@ -375,10 +520,8 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-interface and which validates the pathnames of Visual Studio Solution (*.sln)
-files.
+Gets a reference to the one and only instance of
+[SolutionFileValidator](#T-MFR-FileSystem-Validators-SolutionFileValidator 'MFR.FileSystem.Validators.SolutionFileValidator').
 
 <a name='M-MFR-FileSystem-Validators-SolutionFileValidator-#cctor'></a>
 ### #cctor() `method`
@@ -390,6 +533,49 @@ Empty, static constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-FileSystem-Validators-SolutionFileValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### IsValid(entry) `method`
+
+##### Summary
+
+Determines whether a file system `entry` exists on
+the disk at the pathname indicated.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
+the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface containing information about the entry to be checked. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a folder is passed in the
+`entry`
+parameter and the folder cannot be located on the disk. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the pathname to a file is passed in the
+`entry`
+parameter and the file cannot be located on the disk. |
+
+##### Remarks
+
+If the properties of the `entry` have valid data
+and the path stored in the entry refers to a file-system object that
+exists on the disk, then this method does nothing.
+
+
+
+If an object instance variable or property has a
+`null`
+reference, or if the path stored in the entry
+refers to a file-system object that does not exist on the disk, then
+an exception is thrown.
 
 <a name='M-MFR-FileSystem-Validators-SolutionFileValidator-ShouldSkip-System-String-'></a>
 ### ShouldSkip(path) `method`

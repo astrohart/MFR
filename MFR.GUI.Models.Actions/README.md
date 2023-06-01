@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [Initialize](#T-MFR-GUI-Models-Actions-Initialize 'MFR.GUI.Models.Actions.Initialize')
-  - [OperationList()](#M-MFR-GUI-Models-Actions-Initialize-OperationList 'MFR.GUI.Models.Actions.Initialize.OperationList')
+- [ConvertOperationType](#T-MFR-GUI-Models-Actions-ConvertOperationType 'MFR.GUI.Models.Actions.ConvertOperationType')
+  - [ToString(type)](#M-MFR-GUI-Models-Actions-ConvertOperationType-ToString-MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Actions.ConvertOperationType.ToString(MFR.Operations.Constants.OperationType)')
 - [Resources](#T-MFR-GUI-Models-Actions-Properties-Resources 'MFR.GUI.Models.Actions.Properties.Resources')
   - [Culture](#P-MFR-GUI-Models-Actions-Properties-Resources-Culture 'MFR.GUI.Models.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Models-Actions-Properties-Resources-ResourceManager 'MFR.GUI.Models.Actions.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Models-Actions-Initialize'></a>
-## Initialize `type`
+<a name='T-MFR-GUI-Models-Actions-ConvertOperationType'></a>
+## ConvertOperationType `type`
 
 ##### Namespace
 
@@ -18,24 +18,33 @@ MFR.GUI.Models.Actions
 
 ##### Summary
 
-Exposes static methods to initialize data sets.
+Methods for converting [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values to descriptive strings.
 
-<a name='M-MFR-GUI-Models-Actions-Initialize-OperationList'></a>
-### OperationList() `method`
+<a name='M-MFR-GUI-Models-Actions-ConvertOperationType-ToString-MFR-Operations-Constants-OperationType-'></a>
+### ToString(type) `method`
 
 ##### Summary
 
-Provides the initial (default) value of the list of operations that are to be
-performed.
+Converts the specified [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+value into a descriptive string, e.g., for display in a GUI.
 
 ##### Returns
 
-The initial (default) value of the list of operations that are to be
-performed.
+If a supported [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+value is passed for the `type` parameter, then a descriptive
+string corresponding to it is returned.
+
+
+
+Otherwise, the return value is the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the supported
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values. |
 
 <a name='T-MFR-GUI-Models-Actions-Properties-Resources'></a>
 ## Resources `type`

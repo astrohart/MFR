@@ -1186,7 +1186,7 @@ objects for the Rename Files in Folder operation type have in common.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -1253,7 +1253,7 @@ objects for the Rename Sub Folders operation type have in common.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -1320,7 +1320,7 @@ objects for the Replace Text in Files operation type have in common.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 

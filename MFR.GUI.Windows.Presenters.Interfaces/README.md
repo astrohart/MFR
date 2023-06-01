@@ -9,15 +9,19 @@
   - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AndHistoryManager-MFR-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ClearAllHistory')
   - [DoSelectedOperations()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-DoSelectedOperations 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.DoSelectedOperations')
-  - [ExportConfiguration(pathname)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ExportConfiguration(System.String)')
+  - [ExportConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ExportConfiguration')
   - [FillProfileDropDownList()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-FillProfileDropDownList 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.FillProfileDropDownList')
-  - [ImportConfiguration(pathname)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ImportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ImportConfiguration(System.String)')
+  - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ImportConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ImportConfiguration')
   - [InitializeOperationSelections()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-InitializeOperationSelections 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.InitializeOperationSelections')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ProfileAlreadyExist(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
   - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
-  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithOperationEngine(MFR.Engines.Interfaces.IFullGuiOperationEngine)')
+  - [ShowCalculatingProgressBar(text,canCancel)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowCalculatingProgressBar-System-String,System-Boolean- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ShowCalculatingProgressBar(System.String,System.Boolean)')
+  - [ShowProgressDialog(canCancel)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowProgressDialog-System-Boolean- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ShowProgressDialog(System.Boolean)')
+  - [ShowProgressDialog(owner)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ShowProgressDialog(System.Windows.Forms.IWin32Window)')
+  - [ShowProgressDialog(owner,canCancel)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window,System-Boolean- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.ShowProgressDialog(System.Windows.Forms.IWin32Window,System.Boolean)')
+  - [WithFileRenamer(fileRenamer)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithFileRenamer-MFR-Renamers-Files-Interfaces-IFileRenamer- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithFileRenamer(MFR.Renamers.Files.Interfaces.IFileRenamer)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.ResourceManager')
@@ -46,8 +50,7 @@ Gets a value that indicates whether a Profile is currently loaded.
 
 ##### Summary
 
-Creates a 'profile' (really a way of saving a group of
-projectFileRenamerConfiguration
+Creates a 'profile' (really a way of saving a group of configuration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -117,26 +120,16 @@ Executes the operations selected by the user.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration-System-String-'></a>
-### ExportConfiguration(pathname) `method`
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ExportConfiguration'></a>
+### ExportConfiguration() `method`
 
 ##### Summary
 
-Exports the current projectFileRenamerConfiguration data to the file on the
-user's hard drive having the specified `pathname`.
+Exports the current configuration data to a file on the user's hard drive.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file to which the configuration should be exported. |
-
-##### Remarks
-
-If a file having the specified `pathname` already
-exists on the disk at the time the export operation is performed, it will be
-overwritten.
+This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-FillProfileDropDownList'></a>
 ### FillProfileDropDownList() `method`
@@ -149,20 +142,16 @@ This method is called to populate the Profiles combo box.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ImportConfiguration-System-String-'></a>
-### ImportConfiguration(pathname) `method`
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ImportConfiguration'></a>
+### ImportConfiguration() `method`
 
 ##### Summary
 
-Imports the configuration data for this application from the file with the
-specified `pathname`.
+Imports the configuration data for this application.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file from which the configuration should be imported. |
+This method has no parameters.
 
 ##### Remarks
 
@@ -175,7 +164,7 @@ that exists on the user's hard drive and has the `.json` extension.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on projectFileRenamerConfiguration settings.
+based on configuration settings.
 
 ##### Parameters
 
@@ -218,8 +207,7 @@ string for a value. |
 
 ##### Summary
 
-Saves data from the screen control and then saves the
-projectFileRenamerConfiguration to the persistence location.
+Saves data from the screen control and then saves the configuration to the persistence location.
 
 ##### Parameters
 
@@ -253,7 +241,7 @@ passed a `null` value. |
 ##### Summary
 
 Transforms the current value of the
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration')
+[Configuration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-Configuration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.Configuration')
 property into a Profile with the `profileName` specified.
 
 
@@ -268,12 +256,99 @@ nothing.
 | profileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the name to give the
 new Profile. |
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine-'></a>
-### WithOperationEngine(operationEngine) `method`
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowCalculatingProgressBar-System-String,System-Boolean-'></a>
+### ShowCalculatingProgressBar(text,canCancel) `method`
 
 ##### Summary
 
-Fluent-builder method for initializing the operation engine object.  This is the object that actually schedules and runs the file-renaming tasks and provides user feedback.
+Shows a marquee progress bar that indicates the application is
+performing work but of an indeterminate length, such as calculating
+the amount of files to process.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the text to display in the progress dialog. |
+| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) `true` to show a button in
+the progress dialog; `false` to hide it. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `text`, is passed
+a blank or `null` string for a value. |
+
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowProgressDialog-System-Boolean-'></a>
+### ShowProgressDialog(canCancel) `method`
+
+##### Summary
+
+Shows the progress window.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that controls whether the
+button is displayed by the dialog box.
+
+
+
+Set this parameter to `true` to display the button;
+`false` to hide it. |
+
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window-'></a>
+### ShowProgressDialog(owner) `method`
+
+##### Summary
+
+Shows the progress window.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface.
+
+
+
+This object plays the role of the parent window of the dialog box. |
+
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-ShowProgressDialog-System-Windows-Forms-IWin32Window,System-Boolean-'></a>
+### ShowProgressDialog(owner,canCancel) `method`
+
+##### Summary
+
+Shows the progress window.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface.
+
+
+
+This object plays the role of the parent window of the dialog box. |
+| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that controls whether the
+button is displayed by the dialog box.
+
+
+
+Set this parameter to `true` to display the button;
+`false` to hide it. |
+
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithFileRenamer-MFR-Renamers-Files-Interfaces-IFileRenamer-'></a>
+### WithFileRenamer(fileRenamer) `method`
+
+##### Summary
+
+Fluent-builder method for composing a file-renamer object with this
+presenter.
 
 ##### Returns
 
@@ -284,7 +359,15 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationEngine | [MFR.Engines.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the [IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface on which this Presenter should depend. |
+| fileRenamer | [MFR.Renamers.Files.Interfaces.IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') | (Required.) Reference to an instance of an object that implements
+the [IFileRenamer](#T-MFR-IFileRenamer 'MFR.IFileRenamer') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `fileRenamer`, is
+passed a `null` value. |
 
 <a name='T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources'></a>
 ## Resources `type`

@@ -48,8 +48,8 @@ MFR.Settings.Configuration.Commands
 
 ##### Summary
 
-Saves a projectFileRenamerConfiguration object, i.e., one that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+Saves a configuration object, i.e., one that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface, to a JSON file.
 
 ##### Remarks

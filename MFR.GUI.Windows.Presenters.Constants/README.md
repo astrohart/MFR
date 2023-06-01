@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [Folders](#T-MFR-GUI-Windows-Presenters-Constants-Folders 'MFR.GUI.Windows.Presenters.Constants.Folders')
-  - [QuickAccess](#F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess 'MFR.GUI.Windows.Presenters.Constants.Folders.QuickAccess')
 - [MainWindowPresenterMessages](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages')
   - [MWP_ADD_NEW_PROFILE_FAILED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ADD_NEW_PROFILE_FAILED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE_FAILED')
   - [MWP_ALL_HISTORY_CLEARED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ALL_HISTORY_CLEARED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED')
@@ -15,29 +13,12 @@
   - [MWP_DATA_OPERATION_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_FINISHED')
   - [MWP_DATA_OPERATION_STARTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_STARTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED')
   - [MWP_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_FINISHED')
+  - [MWP_OPERATION_ERROR](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_OPERATION_ERROR 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_OPERATION_ERROR')
   - [MWP_OPERATION_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_OPERATION_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_OPERATION_FINISHED')
   - [MWP_STARTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_STARTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_STARTED')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Constants-Properties-Resources 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.ResourceManager')
-
-<a name='T-MFR-GUI-Windows-Presenters-Constants-Folders'></a>
-## Folders `type`
-
-##### Namespace
-
-MFR.GUI.Windows.Presenters.Constants
-
-##### Summary
-
-Provides string constants that allow access to special folders.
-
-<a name='F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess'></a>
-### QuickAccess `constants`
-
-##### Summary
-
-Path to the area of Windows.
 
 <a name='T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages'></a>
 ## MainWindowPresenterMessages `type`
@@ -131,6 +112,15 @@ designed to perform), is newly started.
 Unique identifier for the message that is sent by the Presenter of
 the main application window when all of the file-rename operations
 have finished.
+
+<a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_OPERATION_ERROR'></a>
+### MWP_OPERATION_ERROR `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Presenter of
+the main application window when one of the file-rename operations
+throws an exception.
 
 <a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_OPERATION_FINISHED'></a>
 ### MWP_OPERATION_FINISHED `constants`

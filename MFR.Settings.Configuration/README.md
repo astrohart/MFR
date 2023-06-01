@@ -3,42 +3,227 @@
 
 ## Contents
 
+- [Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
+  - [#ctor()](#M-MFR-Settings-Configuration-Configuration-#ctor 'MFR.Settings.Configuration.Configuration.#ctor')
+  - [#ctor(source)](#M-MFR-Settings-Configuration-Configuration-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.Configuration.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [FindWhat](#P-MFR-Settings-Configuration-Configuration-FindWhat 'MFR.Settings.Configuration.Configuration.FindWhat')
+  - [FindWhatHistory](#P-MFR-Settings-Configuration-Configuration-FindWhatHistory 'MFR.Settings.Configuration.Configuration.FindWhatHistory')
+  - [IsFolded](#P-MFR-Settings-Configuration-Configuration-IsFolded 'MFR.Settings.Configuration.Configuration.IsFolded')
+  - [MatchCase](#P-MFR-Settings-Configuration-Configuration-MatchCase 'MFR.Settings.Configuration.Configuration.MatchCase')
+  - [MatchExactWord](#P-MFR-Settings-Configuration-Configuration-MatchExactWord 'MFR.Settings.Configuration.Configuration.MatchExactWord')
+  - [OperationsToPerform](#P-MFR-Settings-Configuration-Configuration-OperationsToPerform 'MFR.Settings.Configuration.Configuration.OperationsToPerform')
+  - [ReOpenSolution](#P-MFR-Settings-Configuration-Configuration-ReOpenSolution 'MFR.Settings.Configuration.Configuration.ReOpenSolution')
+  - [RenameFiles](#P-MFR-Settings-Configuration-Configuration-RenameFiles 'MFR.Settings.Configuration.Configuration.RenameFiles')
+  - [RenameSubFolders](#P-MFR-Settings-Configuration-Configuration-RenameSubFolders 'MFR.Settings.Configuration.Configuration.RenameSubFolders')
+  - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-Configuration-ReplaceTextInFiles 'MFR.Settings.Configuration.Configuration.ReplaceTextInFiles')
+  - [ReplaceWith](#P-MFR-Settings-Configuration-Configuration-ReplaceWith 'MFR.Settings.Configuration.Configuration.ReplaceWith')
+  - [ReplaceWithHistory](#P-MFR-Settings-Configuration-Configuration-ReplaceWithHistory 'MFR.Settings.Configuration.Configuration.ReplaceWithHistory')
+  - [SelectedOptionTab](#P-MFR-Settings-Configuration-Configuration-SelectedOptionTab 'MFR.Settings.Configuration.Configuration.SelectedOptionTab')
+  - [StartingFolder](#P-MFR-Settings-Configuration-Configuration-StartingFolder 'MFR.Settings.Configuration.Configuration.StartingFolder')
+  - [StartingFolderHistory](#P-MFR-Settings-Configuration-Configuration-StartingFolderHistory 'MFR.Settings.Configuration.Configuration.StartingFolderHistory')
+  - [Reset()](#M-MFR-Settings-Configuration-Configuration-Reset 'MFR.Settings.Configuration.Configuration.Reset')
 - [ConfigurationComposedObjectBase](#T-MFR-Settings-Configuration-ConfigurationComposedObjectBase 'MFR.Settings.Configuration.ConfigurationComposedObjectBase')
   - [#ctor()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.#ctor')
-  - [#ctor(configuration)](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration')
+  - [#ctor(configuration)](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [Configuration](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-Configuration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.Configuration')
   - [IsConfigurationAttached](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-IsConfigurationAttached 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.IsConfigurationAttached')
-  - [AndAttachConfiguration()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.AndAttachConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [UpdateConfiguration(configuration)](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [AndAttachConfiguration()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.AndAttachConfiguration(MFR.Settings.Configuration.Interfaces.IConfiguration)')
+  - [UpdateConfiguration(configuration)](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IConfiguration)')
   - [VerifyConfigurationAttached()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-VerifyConfigurationAttached 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.VerifyConfigurationAttached')
-- [ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
-  - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor')
-  - [#ctor(source)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [_startingFolder](#F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration._startingFolder')
-  - [AutoQuitOnCompletion](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoQuitOnCompletion 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoQuitOnCompletion')
-  - [AutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoStart')
-  - [FindWhat](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhat')
-  - [FindWhatHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhatHistory')
-  - [IsFolded](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFolded')
-  - [IsFromCommandLine](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFromCommandLine')
-  - [MatchCase](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchCase')
-  - [MatchExactWord](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchExactWord')
-  - [OperationsToPerform](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OperationsToPerform')
-  - [ReOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReOpenSolution')
-  - [RenameFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFiles')
-  - [RenameSolutionFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSolutionFolders')
-  - [RenameSubFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSubFolders')
-  - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceTextInFiles')
-  - [ReplaceWith](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceWith')
-  - [ReplaceWithHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceWithHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceWithHistory')
-  - [SelectedOptionTab](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.SelectedOptionTab')
-  - [StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder')
-  - [StartingFolderHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolderHistory')
-  - [OnStartingFolderChanged()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged')
-  - [Reset()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Reset')
 - [Resources](#T-MFR-Settings-Configuration-Properties-Resources 'MFR.Settings.Configuration.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Properties-Resources-Culture 'MFR.Settings.Configuration.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Settings-Configuration-Configuration'></a>
+## Configuration `type`
+
+##### Namespace
+
+MFR.Settings.Configuration
+
+##### Summary
+
+Contains properties whose values are set by the user.
+
+##### Remarks
+
+The values of this class' properties are used to affect the behavior of
+the application.
+
+<a name='M-MFR-Settings-Configuration-Configuration-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
+and returns a reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-MFR-Settings-Configuration-Configuration-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(source) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| source | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements the
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
+that contains existing configuration settings to copy into this object. |
+
+<a name='P-MFR-Settings-Configuration-Configuration-FindWhat'></a>
+### FindWhat `property`
+
+##### Summary
+
+Gets or sets the text to be found that was most-recently specified
+by the user.
+
+<a name='P-MFR-Settings-Configuration-Configuration-FindWhatHistory'></a>
+### FindWhatHistory `property`
+
+##### Summary
+
+Gets or sets a collection of strings consisting of the most-recently
+utilized values for Find What.
+
+<a name='P-MFR-Settings-Configuration-Configuration-IsFolded'></a>
+### IsFolded `property`
+
+##### Summary
+
+Gets a value indicating whether the form is in the Folded state.
+
+##### Remarks
+
+If this value is `true` when the form is loaded, then ensure
+that the form displays in the folded state.
+
+<a name='P-MFR-Settings-Configuration-Configuration-MatchCase'></a>
+### MatchCase `property`
+
+##### Summary
+
+Gets or sets a value indicating whether we should match the case on
+found text.
+
+<a name='P-MFR-Settings-Configuration-Configuration-MatchExactWord'></a>
+### MatchExactWord `property`
+
+##### Summary
+
+Gets or sets a value indicating whether we should match the whole
+word on found text.
+
+<a name='P-MFR-Settings-Configuration-Configuration-OperationsToPerform'></a>
+### OperationsToPerform `property`
+
+##### Summary
+
+Gets or sets a reference to a collection of instances of
+[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that can turn the
+operations to be performed on or off.
+
+<a name='P-MFR-Settings-Configuration-Configuration-ReOpenSolution'></a>
+### ReOpenSolution `property`
+
+##### Summary
+
+Gets or sets a flag that indicates whether to attempt to close and
+then re-open the Visual Studio solution, if open, that contains the
+project(s) being renamed.
+
+##### Remarks
+
+If this is set to `true`, and the containing solution is open,
+then the solution will be closed prior to the start of the selected
+operation(s) and then re-opened when the selected operation(s) are complete.
+
+<a name='P-MFR-Settings-Configuration-Configuration-RenameFiles'></a>
+### RenameFiles `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we should rename files
+in the folders encountered.
+
+<a name='P-MFR-Settings-Configuration-Configuration-RenameSubFolders'></a>
+### RenameSubFolders `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we should rename subfolders.
+
+<a name='P-MFR-Settings-Configuration-Configuration-ReplaceTextInFiles'></a>
+### ReplaceTextInFiles `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we should replace text
+in files.
+
+<a name='P-MFR-Settings-Configuration-Configuration-ReplaceWith'></a>
+### ReplaceWith `property`
+
+##### Summary
+
+Gets or sets the text that found text should be replaced with.
+
+<a name='P-MFR-Settings-Configuration-Configuration-ReplaceWithHistory'></a>
+### ReplaceWithHistory `property`
+
+##### Summary
+
+Gets or sets a collection of strings that correspond to the
+most-recently-used values for Replace With.
+
+<a name='P-MFR-Settings-Configuration-Configuration-SelectedOptionTab'></a>
+### SelectedOptionTab `property`
+
+##### Summary
+
+Gets or sets a number from 0...N, where N is the number of option
+tabs, of the one that is currently selected.
+
+<a name='P-MFR-Settings-Configuration-Configuration-StartingFolder'></a>
+### StartingFolder `property`
+
+##### Summary
+
+Gets or sets a string containing the path to the starting folder of
+the search.
+
+<a name='P-MFR-Settings-Configuration-Configuration-StartingFolderHistory'></a>
+### StartingFolderHistory `property`
+
+##### Summary
+
+Gets or sets a collection of strings that correspond to the
+most-recently-used values for Starting Folder.
+
+<a name='M-MFR-Settings-Configuration-Configuration-Reset'></a>
+### Reset() `method`
+
+##### Summary
+
+Sets the values of this class' properties to their default values.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This method typically is called from a class constructor.
 
 <a name='T-MFR-Settings-Configuration-ConfigurationComposedObjectBase'></a>
 ## ConfigurationComposedObjectBase `type`
@@ -51,7 +236,7 @@ MFR.Settings.Configuration
 
 Provides common functionality for all those objects that get composed
 with another object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface.
 
 <a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor'></a>
@@ -60,14 +245,14 @@ interface.
 ##### Summary
 
 Constructs a new instance of
-[ConfigurationComposedObjectBase](#T-MFR-Settings-Configuration-ConfigurationComposedObjectBase-ConfigurationComposedObjectBase 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.ConfigurationComposedObjectBase')
+[ConfigurationComposedObjectBase](#T-MFR-Settings-ConfigurationComposedObjectBase 'MFR.Settings.ConfigurationComposedObjectBase')
 and returns a reference to it.
 
 ##### Parameters
 
 This constructor has no parameters.
 
-<a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+<a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
 ### #ctor(configuration) `constructor`
 
 ##### Summary
@@ -81,10 +266,8 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
 that holds settings that are specified by the user. |
 
 ##### Exceptions
@@ -94,15 +277,13 @@ that holds settings that are specified by the user. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
 is passed a `null` value. |
 
-<a name='P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-Configuration'></a>
+### Configuration `property`
 
 ##### Summary
 
 Gets or sets a reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
+the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface.
 
 ##### Remarks
 
@@ -116,17 +297,16 @@ by the user of the application.
 
 Gets or sets a value indicating whether this object has been
 properly composed with an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface.
 
-<a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+<a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
 ### AndAttachConfiguration() `method`
 
 ##### Summary
 
 Associates user settings, in the form of an instance of an object
 that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface, with
 this matcher.
 
@@ -148,27 +328,23 @@ is passed a `null` value. |
 
 ##### Remarks
 
-The
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+The [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 -implementing configuration object controls the behavior of this
 object by dint of the settings chosen by the user at runtime.
 
-<a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+<a name='M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
 ### UpdateConfiguration(configuration) `method`
 
 ##### Summary
 
-Updates the `configuration` currently being used with a new
-value.
+Updates the configuration currently being used with a new value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
 which has the new settings. |
 
 ##### Exceptions
@@ -216,267 +392,6 @@ is thrown.
 
 Child classes may override this method, e.g., to make
 attaching a configuration object optional.
-
-<a name='T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration'></a>
-## ProjectFileRenamerConfiguration `type`
-
-##### Namespace
-
-MFR.Settings.Configuration
-
-##### Summary
-
-Contains properties whose values are set by the user.
-
-##### Remarks
-
-The values of this class' properties are used to affect the behavior of
-the application.
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
-and returns a reference to it.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### #ctor(source) `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
-and returns a reference to it.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| source | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface
-that contains existing configuration settings to copy into this object. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `source`, is passed a `null`
-value. |
-
-<a name='F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder'></a>
-### _startingFolder `constants`
-
-##### Summary
-
-A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname of the
-folder in which the selected operation(s) should be initiated.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoQuitOnCompletion'></a>
-### AutoQuitOnCompletion `property`
-
-##### Summary
-
-Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value indicating whether the
-application should automatically terminate once the user's requested operations
-are complete.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart'></a>
-### AutoStart `property`
-
-##### Summary
-
-Gets or sets a value indicating whether the specified operation(s) should be
-automatically initiated when the application starts.  If this value is set to
-`true` then the application quits automatically after the
-specified operation(s) have been completed.
-
-##### Remarks
-
-This flag is ignored if this configuration did not originate from the command
-line.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhat'></a>
-### FindWhat `property`
-
-##### Summary
-
-Gets or sets the text to be found that was most-recently specified
-by the user.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhatHistory'></a>
-### FindWhatHistory `property`
-
-##### Summary
-
-Gets or sets a collection of strings consisting of the most-recently
-utilized values for Find What.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFolded'></a>
-### IsFolded `property`
-
-##### Summary
-
-Gets a value indicating whether the form is in the Folded state.
-
-##### Remarks
-
-If this value is `true` when the form is loaded, then ensure
-that the form displays in the folded state.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFromCommandLine'></a>
-### IsFromCommandLine `property`
-
-##### Summary
-
-Gets or sets a value indicating whether this configuration was specified by the
-user on the command line.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchCase'></a>
-### MatchCase `property`
-
-##### Summary
-
-Gets or sets a value indicating whether we should match the case on
-found text.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchExactWord'></a>
-### MatchExactWord `property`
-
-##### Summary
-
-Gets or sets a value indicating whether we should match the whole
-word on found text.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform'></a>
-### OperationsToPerform `property`
-
-##### Summary
-
-Gets or sets a reference to a collection of instances of
-[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that can turn the
-operations to be performed on or off.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution'></a>
-### ReOpenSolution `property`
-
-##### Summary
-
-Gets or sets a flag that indicates whether to attempt to close and
-then re-open the Visual Studio solution, if open, that contains the
-project(s) being renamed.
-
-##### Remarks
-
-If this is set to `true`, and the containing solution is open,
-then the solution will be closed prior to the start of the selected
-operation(s) and then re-opened when the selected operation(s) are complete.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles'></a>
-### RenameFiles `property`
-
-##### Summary
-
-Gets or sets a value that indicates whether we should rename files
-in the folders encountered.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders'></a>
-### RenameSolutionFolders `property`
-
-##### Summary
-
-Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-containing folder(s) of solution(s) contained in the search should be renamed.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders'></a>
-### RenameSubFolders `property`
-
-##### Summary
-
-Gets or sets a value that indicates whether we should rename subfolders.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceTextInFiles'></a>
-### ReplaceTextInFiles `property`
-
-##### Summary
-
-Gets or sets a value that indicates whether we should replace text
-in files.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceWith'></a>
-### ReplaceWith `property`
-
-##### Summary
-
-Gets or sets the text that found text should be replaced with.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceWithHistory'></a>
-### ReplaceWithHistory `property`
-
-##### Summary
-
-Gets or sets a collection of strings that correspond to the
-most-recently-used values for Replace With.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-SelectedOptionTab'></a>
-### SelectedOptionTab `property`
-
-##### Summary
-
-Gets or sets a number from 0...N, where N is the number of option
-tabs, of the one that is currently selected.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolder'></a>
-### StartingFolder `property`
-
-##### Summary
-
-Gets or sets a string containing the path to the starting folder of
-the search.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolderHistory'></a>
-### StartingFolderHistory `property`
-
-##### Summary
-
-Gets or sets a collection of strings that correspond to the
-most-recently-used values for Starting Folder.
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged'></a>
-### OnStartingFolderChanged() `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-Settings-ProjectFileRenamerConfiguration-ProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged')
-event.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset'></a>
-### Reset() `method`
-
-##### Summary
-
-Sets the values of this class' properties to their default values.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Remarks
-
-This method typically is called from a class constructor.
 
 <a name='T-MFR-Settings-Configuration-Properties-Resources'></a>
 ## Resources `type`

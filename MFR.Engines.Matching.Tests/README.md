@@ -12,7 +12,7 @@
   - [Culture](#P-MFR-Engines-Matching-Tests-Properties-Resources-Culture 'MFR.Engines.Matching.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Matching-Tests-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Tests.Properties.Resources.ResourceManager')
 - [TextExpressionMatchingEngineTestBase](#T-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase')
-  - [ProjectFileRenamerConfiguration](#F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-ProjectFileRenamerConfiguration 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.ProjectFileRenamerConfiguration')
+  - [_configuration](#F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_configuration 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase._configuration')
   - [_matcher](#F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_matcher 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase._matcher')
   - [CreateMatchingEngineFor(type)](#M-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-CreateMatchingEngineFor-MFR-Operations-Constants-OperationType- 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.CreateMatchingEngineFor(MFR.Operations.Constants.OperationType)')
   - [Initialize()](#M-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-Initialize 'MFR.Engines.Matching.Tests.TextExpressionMatchingEngineTestBase.Initialize')
@@ -151,13 +151,13 @@ MFR.Engines.Matching.Tests
 Provides default implementations for unit tests and abstract methods for
 mandatory implementation details.
 
-<a name='F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-ProjectFileRenamerConfiguration'></a>
-### ProjectFileRenamerConfiguration `constants`
+<a name='F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_configuration'></a>
+### _configuration `constants`
 
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface.
 
 <a name='F-MFR-Engines-Matching-Tests-TextExpressionMatchingEngineTestBase-_matcher'></a>
@@ -183,7 +183,7 @@ the specified operation `type`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that specifies which operation to create a data-matcher
 object for. |
 

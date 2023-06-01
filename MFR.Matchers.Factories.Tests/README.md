@@ -3,11 +3,11 @@
 
 ## Contents
 
-- [GetStringMatcherFactoryTests](#T-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests 'MFR.Matchers.Factories.Tests.GetStringMatcherFactoryTests')
-  - [Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherFactoryTests.Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType')
-  - [Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherFactoryTests.Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType')
-  - [Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherFactoryTests.Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType')
-  - [Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherFactoryTests.Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType')
+- [GetStringMatcherTests](#T-MFR-Matchers-Factories-Tests-GetStringMatcherTests 'MFR.Matchers.Factories.Tests.GetStringMatcherTests')
+  - [Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherTests.Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType')
+  - [Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherTests.Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType')
+  - [Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherTests.Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType')
+  - [Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType()](#M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType 'MFR.Matchers.Factories.Tests.GetStringMatcherTests.Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType')
 - [RenameFilesInFolderStringMatcherFactoryTests](#T-MFR-Matchers-Factories-Tests-RenameFilesInFolderStringMatcherFactoryTests 'MFR.Matchers.Factories.Tests.RenameFilesInFolderStringMatcherFactoryTests')
   - [Test_AndTextMatchingConfiguration_Returns_AppropriateMatcher_ForEach_TextMatchingConfigurationValue()](#M-MFR-Matchers-Factories-Tests-RenameFilesInFolderStringMatcherFactoryTests-Test_AndTextMatchingConfiguration_Returns_AppropriateMatcher_ForEach_TextMatchingConfigurationValue 'MFR.Matchers.Factories.Tests.RenameFilesInFolderStringMatcherFactoryTests.Test_AndTextMatchingConfiguration_Returns_AppropriateMatcher_ForEach_TextMatchingConfigurationValue')
   - [Test_AndTextMatchingConfiguration_Returns_ImplementerOf_IStringMatcher()](#M-MFR-Matchers-Factories-Tests-RenameFilesInFolderStringMatcherFactoryTests-Test_AndTextMatchingConfiguration_Returns_ImplementerOf_IStringMatcher 'MFR.Matchers.Factories.Tests.RenameFilesInFolderStringMatcherFactoryTests.Test_AndTextMatchingConfiguration_Returns_ImplementerOf_IStringMatcher')
@@ -27,8 +27,8 @@
   - [Culture](#P-MFR-Matchers-Factories-Tests-Properties-Resources-Culture 'MFR.Matchers.Factories.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Matchers-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Matchers.Factories.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests'></a>
-## GetStringMatcherFactoryTests `type`
+<a name='T-MFR-Matchers-Factories-Tests-GetStringMatcherTests'></a>
+## GetStringMatcherTests `type`
 
 ##### Namespace
 
@@ -37,19 +37,19 @@ MFR.Matchers.Factories.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[GetStringMatcherFactory](#T-MFR-GetStringMatcherFactory 'MFR.GetStringMatcherFactory')
+[GetStringMatcher](#T-MFR-GetStringMatcher 'MFR.GetStringMatcher')
 class.
 
-<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType'></a>
+<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType'></a>
 ### Test_For_Returns_ImplementerOf_IStringMatcherFactory_When_RenameFilesInFolder_IsOperationType() `method`
 
 ##### Summary
 
-Asserts that the [For](#M-MFR-GetStringMatcherFactory-For 'MFR.GetStringMatcherFactory.For')
+Asserts that the [For](#M-MFR-GetStringMatcher-For 'MFR.GetStringMatcher.For')
 method returns a reference to an instance of an object that
 implements the [IStringMatcherFactory](#T-MFR-IStringMatcherFactory 'MFR.IStringMatcherFactory')
 interface when the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 value is
 passed for its argument.
 
@@ -57,48 +57,48 @@ passed for its argument.
 
 This method has no parameters.
 
-<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType'></a>
+<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType'></a>
 ### Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType() `method`
 
 ##### Summary
 
-Asserts that the [For](#M-MFR-GetStringMatcherFactory-For 'MFR.GetStringMatcherFactory.For')
+Asserts that the [For](#M-MFR-GetStringMatcher-For 'MFR.GetStringMatcher.For')
 method returns a reference to an instance of
 [RenameFilesInFolderStringMatcherFactory](#T-MFR-RenameFilesInFolderStringMatcherFactory 'MFR.RenameFilesInFolderStringMatcherFactory')
 when
-the [RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+the [RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 enumeration value is passed as its argument.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType'></a>
+<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType'></a>
 ### Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType() `method`
 
 ##### Summary
 
-Asserts that the [For](#M-MFR-GetStringMatcherFactory-For 'MFR.GetStringMatcherFactory.For')
+Asserts that the [For](#M-MFR-GetStringMatcher-For 'MFR.GetStringMatcher.For')
 method returns a reference to an instance of
 [RenameSubFoldersStringMatcherFactory](#T-MFR-RenameSubFoldersStringMatcherFactory 'MFR.RenameSubFoldersStringMatcherFactory')
 when the
-[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
 enumeration value is passed as its argument.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherFactoryTests-Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType'></a>
+<a name='M-MFR-Matchers-Factories-Tests-GetStringMatcherTests-Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType'></a>
 ### Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType() `method`
 
 ##### Summary
 
-Asserts that the [For](#M-MFR-GetStringMatcherFactory-For 'MFR.GetStringMatcherFactory.For')
+Asserts that the [For](#M-MFR-GetStringMatcher-For 'MFR.GetStringMatcher.For')
 method returns a reference to an instance of
 [ReplaceTextInFilesStringMatcherFactory](#T-MFR-ReplaceTextInFilesStringMatcherFactory 'MFR.ReplaceTextInFilesStringMatcherFactory')
 when
-the [ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+the [ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -143,7 +143,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringMatcherFactory-AndTextMatchingConfiguration 'MFR.IStringMatcherFactory.AndTextMatchingConfiguration')
 method for the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 value implements the
 [IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
 interface.
@@ -165,7 +165,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 value, is set to that value.
 
 ##### Parameters
@@ -225,7 +225,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringMatcherFactory-AndTextMatchingConfiguration 'MFR.IStringMatcherFactory.AndTextMatchingConfiguration')
 method for the
-[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
 value implements the
 [IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
 interface.
@@ -247,7 +247,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
 value, is set to that value.
 
 ##### Parameters
@@ -307,7 +307,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringMatcherFactory-AndTextMatchingConfiguration 'MFR.IStringMatcherFactory.AndTextMatchingConfiguration')
 method for the
-[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
 value implements the
 [IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
 interface.
@@ -329,7 +329,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
 value, is set to that value.
 
 ##### Parameters

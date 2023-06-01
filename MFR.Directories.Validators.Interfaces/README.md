@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
-  - [Validate(rootDirectory)](#M-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-Validate-System-String- 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator.Validate(System.String)')
+- [IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+  - [Validate(rootDirectory)](#M-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator-Validate-System-String- 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator.Validate(System.String)')
 - [Resources](#T-MFR-Directories-Validators-Interfaces-Properties-Resources 'MFR.Directories.Validators.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-Directories-Validators-Interfaces-Properties-Resources-Culture 'MFR.Directories.Validators.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Directories-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.Directories.Validators.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator'></a>
-## IRootDirectoryPathValidator `type`
+<a name='T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator'></a>
+## IRootDirectoryValidator `type`
 
 ##### Namespace
 
@@ -22,7 +22,7 @@ Defines the publicly-exposed methods and properties of an object that
 validates the pathnames of root directories; i.e., the folder where the
 project-rename operation starts..
 
-<a name='M-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-Validate-System-String-'></a>
+<a name='M-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator-Validate-System-String-'></a>
 ### Validate(rootDirectory) `method`
 
 ##### Summary
@@ -58,7 +58,7 @@ otherwise.
 ##### Remarks
 
 In the event that validation fails, this method raises the
-[](#E-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-RootDirectoryInvalid 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid')
+[](#E-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
 event.
 
 <a name='T-MFR-Directories-Validators-Interfaces-Properties-Resources'></a>

@@ -9,7 +9,7 @@
   - [OperationType](#P-MFR-FileSystem-FileSystemEntry-OperationType 'MFR.FileSystem.FileSystemEntry.OperationType')
   - [Path](#P-MFR-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path')
   - [UserState](#P-MFR-FileSystem-FileSystemEntry-UserState 'MFR.FileSystem.FileSystemEntry.UserState')
-  - [SetUserState(userState)](#M-MFR-FileSystem-FileSystemEntry-SetUserState-System-Object- 'MFR.FileSystem.FileSystemEntry.SetUserState(System.Object)')
+  - [AndHavingUserState(userState)](#M-MFR-FileSystem-FileSystemEntry-AndHavingUserState-System-Object- 'MFR.FileSystem.FileSystemEntry.AndHavingUserState(System.Object)')
 - [Resources](#T-MFR-FileSystem-Properties-Resources 'MFR.FileSystem.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Properties-Resources-Culture 'MFR.FileSystem.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Properties-Resources-ResourceManager 'MFR.FileSystem.Properties.Resources.ResourceManager')
@@ -62,7 +62,7 @@ Gets or sets the pathname of the parent folder of this file system entry.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -86,8 +86,8 @@ For example, if the file-system entry is representing a text file,
 then this property might contain the file's contents from them
 having been previously read in.
 
-<a name='M-MFR-FileSystem-FileSystemEntry-SetUserState-System-Object-'></a>
-### SetUserState(userState) `method`
+<a name='M-MFR-FileSystem-FileSystemEntry-AndHavingUserState-System-Object-'></a>
+### AndHavingUserState(userState) `method`
 
 ##### Summary
 

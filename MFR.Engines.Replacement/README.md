@@ -5,12 +5,12 @@
 
 - [FileNameReplacementEngine](#T-MFR-Engines-Replacement-FileNameReplacementEngine 'MFR.Engines.Replacement.FileNameReplacementEngine')
   - [#ctor()](#M-MFR-Engines-Replacement-FileNameReplacementEngine-#ctor 'MFR.Engines.Replacement.FileNameReplacementEngine.#ctor')
-  - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.FileNameReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [#ctor(configuration)](#M-MFR-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.FileNameReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Engines-Replacement-FileNameReplacementEngine-OperationType 'MFR.Engines.Replacement.FileNameReplacementEngine.OperationType')
   - [Replace(value,pattern,dest)](#M-MFR-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.FileNameReplacementEngine.Replace(System.String,System.String,System.String)')
 - [FolderNameReplacementEngine](#T-MFR-Engines-Replacement-FolderNameReplacementEngine 'MFR.Engines.Replacement.FolderNameReplacementEngine')
   - [#ctor()](#M-MFR-Engines-Replacement-FolderNameReplacementEngine-#ctor 'MFR.Engines.Replacement.FolderNameReplacementEngine.#ctor')
-  - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.FolderNameReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [#ctor(configuration)](#M-MFR-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.FolderNameReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Engines-Replacement-FolderNameReplacementEngine-OperationType 'MFR.Engines.Replacement.FolderNameReplacementEngine.OperationType')
   - [Replace(value,pattern,dest)](#M-MFR-Engines-Replacement-FolderNameReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.FolderNameReplacementEngine.Replace(System.String,System.String,System.String)')
 - [Resources](#T-MFR-Engines-Replacement-Properties-Resources 'MFR.Engines.Replacement.Properties.Resources')
@@ -18,14 +18,12 @@
   - [ResourceManager](#P-MFR-Engines-Replacement-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Properties.Resources.ResourceManager')
 - [TextInFileReplacementEngine](#T-MFR-Engines-Replacement-TextInFileReplacementEngine 'MFR.Engines.Replacement.TextInFileReplacementEngine')
   - [#ctor()](#M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor')
-  - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [#ctor(configuration)](#M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Engines-Replacement-TextInFileReplacementEngine-OperationType 'MFR.Engines.Replacement.TextInFileReplacementEngine.OperationType')
   - [Replace(value,pattern,dest)](#M-MFR-Engines-Replacement-TextInFileReplacementEngine-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.TextInFileReplacementEngine.Replace(System.String,System.String,System.String)')
 - [TextReplacementEngineBase](#T-MFR-Engines-Replacement-TextReplacementEngineBase 'MFR.Engines.Replacement.TextReplacementEngineBase')
   - [#ctor()](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor')
-  - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [ConfigurationProvider](#P-MFR-Engines-Replacement-TextReplacementEngineBase-ConfigurationProvider 'MFR.Engines.Replacement.TextReplacementEngineBase.ConfigurationProvider')
-  - [CurrentConfiguration](#P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfiguration 'MFR.Engines.Replacement.TextReplacementEngineBase.CurrentConfiguration')
+  - [#ctor(configuration)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IConfiguration)')
   - [OperationType](#P-MFR-Engines-Replacement-TextReplacementEngineBase-OperationType 'MFR.Engines.Replacement.TextReplacementEngineBase.OperationType')
   - [Replace(value,pattern,dest)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
   - [Replace(expression)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-Replace-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
@@ -54,8 +52,8 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='M-MFR-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### #ctor(projectFileRenamerConfiguration) `constructor`
+<a name='M-MFR-Engines-Replacement-FileNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
 
 ##### Summary
 
@@ -68,15 +66,15 @@ reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface that holds
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+the [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface that holds
 settings that are specified by the user. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
 is passed a `null` value. |
 
 <a name='P-MFR-Engines-Replacement-FileNameReplacementEngine-OperationType'></a>
@@ -84,7 +82,7 @@ is passed a `null` value. |
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-Engines-Replacement-FileNameReplacementEngine-Replace-System-String,System-String,System-String-'></a>
@@ -146,8 +144,8 @@ returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='M-MFR-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### #ctor(projectFileRenamerConfiguration) `constructor`
+<a name='M-MFR-Engines-Replacement-FolderNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
 
 ##### Summary
 
@@ -160,9 +158,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
 instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface that
 holds settings that are specified by the user. |
 
@@ -171,7 +169,7 @@ holds settings that are specified by the user. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `projectFileRenamerConfiguration`, is passed a
+parameter, `configuration`, is passed a
 `null`
 value. |
 
@@ -181,7 +179,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -273,8 +271,8 @@ returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### #ctor(projectFileRenamerConfiguration) `constructor`
+<a name='M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
 
 ##### Summary
 
@@ -287,9 +285,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
 instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface that
 holds settings that are specified by the user. |
 
@@ -298,7 +296,7 @@ holds settings that are specified by the user. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `projectFileRenamerConfiguration`, is passed a
+parameter, `configuration`, is passed a
 `null`
 value. |
 
@@ -308,7 +306,7 @@ value. |
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -392,8 +390,8 @@ returns a reference to it.
 
 This constructor has no parameters.
 
-<a name='M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### #ctor(projectFileRenamerConfiguration) `constructor`
+<a name='M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+### #ctor(configuration) `constructor`
 
 ##### Summary
 
@@ -406,9 +404,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an
 instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface that
 holds settings that are specified by the user. |
 
@@ -417,34 +415,9 @@ holds settings that are specified by the user. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `projectFileRenamerConfiguration`, is passed a
+parameter, `configuration`, is passed a
 `null`
 value. |
-
-<a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
-
-##### Summary
-
-Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
-interface.
-
-##### Remarks
-
-This object allows access to the user projectFileRenamerConfiguration and the
-actions
-associated with it.
-
-<a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
-
-##### Summary
-
-Gets or sets a reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
 
 <a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-OperationType'></a>
 ### OperationType `property`
@@ -452,7 +425,7 @@ interface.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -509,3 +482,10 @@ String containing the new data.
 [MatchExpression](#T-MFR-MatchExpression 'MFR.MatchExpression')
 that contains the
 replacement data. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `expression`, is
+passed a `null` value. |

@@ -10,7 +10,7 @@
   - [Culture](#P-MFR-Engines-Replacement-Tests-Properties-Resources-Culture 'MFR.Engines.Replacement.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Replacement-Tests-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Tests.Properties.Resources.ResourceManager')
 - [TextReplacementEngineTestBase](#T-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase')
-  - [ProjectFileRenamerConfiguration](#P-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-ProjectFileRenamerConfiguration 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.ProjectFileRenamerConfiguration')
+  - [Configuration](#P-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-Configuration 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.Configuration')
   - [Replacer](#P-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-Replacer 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.Replacer')
   - [CreateReplacementEngineFor(type)](#M-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-CreateReplacementEngineFor-MFR-Operations-Constants-OperationType- 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.CreateReplacementEngineFor(MFR.Operations.Constants.OperationType)')
   - [Initialize()](#M-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-Initialize 'MFR.Engines.Replacement.Tests.TextReplacementEngineTestBase.Initialize')
@@ -88,13 +88,13 @@ MFR.Engines.Replacement.Tests
 Provides default implementations for unit tests and abstract methods for
 mandatory implementation details.
 
-<a name='P-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-ProjectFileRenamerConfiguration'></a>
-### ProjectFileRenamerConfiguration `property`
+<a name='P-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-Configuration'></a>
+### Configuration `property`
 
 ##### Summary
 
 Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface.
 
 <a name='P-MFR-Engines-Replacement-Tests-TextReplacementEngineTestBase-Replacer'></a>
@@ -120,7 +120,7 @@ specified operation `type`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
 specifies which operation to create a data-matcher object for. |
 
 ##### Exceptions

@@ -11,9 +11,7 @@
   - [Culture](#P-MFR-Events-Common-Properties-Resources-Culture 'MFR.Events.Common.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Events-Common-Properties-Resources-ResourceManager 'MFR.Events.Common.Properties.Resources.ResourceManager')
 - [StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs')
-  - [#ctor(text,operationType,operationFinished)](#M-MFR-Events-Common-StatusUpdateEventArgs-#ctor-System-String,MFR-Operations-Constants-OperationType,System-Boolean- 'MFR.Events.Common.StatusUpdateEventArgs.#ctor(System.String,MFR.Operations.Constants.OperationType,System.Boolean)')
-  - [OperationFinished](#P-MFR-Events-Common-StatusUpdateEventArgs-OperationFinished 'MFR.Events.Common.StatusUpdateEventArgs.OperationFinished')
-  - [OperationType](#P-MFR-Events-Common-StatusUpdateEventArgs-OperationType 'MFR.Events.Common.StatusUpdateEventArgs.OperationType')
+  - [#ctor(text)](#M-MFR-Events-Common-StatusUpdateEventArgs-#ctor-System-String- 'MFR.Events.Common.StatusUpdateEventArgs.#ctor(System.String)')
   - [Text](#P-MFR-Events-Common-StatusUpdateEventArgs-Text 'MFR.Events.Common.StatusUpdateEventArgs.Text')
 - [StatusUpdateEventHandler](#T-MFR-Events-Common-StatusUpdateEventHandler 'MFR.Events.Common.StatusUpdateEventHandler')
 
@@ -114,17 +112,14 @@ MFR.Events.Common
 
 ##### Summary
 
-Defines the data that is passed by all events of type
-[StatusUpdateEventHandler](#T-MFR-Events-Common-StatusUpdateEventHandler 'MFR.Events.Common.StatusUpdateEventHandler').
+Defines the data that is passed by all events of type [StatusUpdateEventHandler](#T-MFR-Events-Common-StatusUpdateEventHandler 'MFR.Events.Common.StatusUpdateEventHandler').
 
-<a name='M-MFR-Events-Common-StatusUpdateEventArgs-#ctor-System-String,MFR-Operations-Constants-OperationType,System-Boolean-'></a>
-### #ctor(text,operationType,operationFinished) `constructor`
+<a name='M-MFR-Events-Common-StatusUpdateEventArgs-#ctor-System-String-'></a>
+### #ctor(text) `constructor`
 
 ##### Summary
 
-Constructs a new instance of
-[StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs')
-and returns
+Constructs a new instance of [StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') and returns
 a reference to it.
 
 ##### Parameters
@@ -133,31 +128,6 @@ a reference to it.
 | ---- | ---- | ----------- |
 | text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the status message text that is meant
 for display to the user. |
-| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
-enumeration values that describes the operation that is currently being
-performed. |
-| operationFinished | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-operation is finished.
-
-
-
-Default value is `false`. |
-
-<a name='P-MFR-Events-Common-StatusUpdateEventArgs-OperationFinished'></a>
-### OperationFinished `property`
-
-##### Summary
-
-Gets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-operation has completed.
-
-<a name='P-MFR-Events-Common-StatusUpdateEventArgs-OperationType'></a>
-### OperationType `property`
-
-##### Summary
-
-Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
-enumeration values that indicates what operation is currently being performed.
 
 <a name='P-MFR-Events-Common-StatusUpdateEventArgs-Text'></a>
 ### Text `property`

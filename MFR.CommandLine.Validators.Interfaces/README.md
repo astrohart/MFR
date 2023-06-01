@@ -4,7 +4,7 @@
 ## Contents
 
 - [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
-  - [AssociateWithRootDirectoryPathValidator(rootDirectoryPathValidator)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryPathValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.AssociateWithRootDirectoryPathValidator(MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator)')
+  - [AssociateWithRootDirectoryValidator(rootDirectoryValidator)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.AssociateWithRootDirectoryValidator(MFR.Directories.Validators.Interfaces.IRootDirectoryValidator)')
   - [Validate(cmdInfo)](#M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-Validate-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator.Validate(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 - [Resources](#T-MFR-CommandLine-Validators-Interfaces-Properties-Resources 'MFR.CommandLine.Validators.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Validators-Interfaces-Properties-Resources-Culture 'MFR.CommandLine.Validators.Interfaces.Properties.Resources.Culture')
@@ -25,13 +25,13 @@ Defines the publicly-exposed methods and properties of a
             `
 object.
 
-<a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryPathValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-'></a>
-### AssociateWithRootDirectoryPathValidator(rootDirectoryPathValidator) `method`
+<a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-AssociateWithRootDirectoryValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator-'></a>
+### AssociateWithRootDirectoryValidator(rootDirectoryValidator) `method`
 
 ##### Summary
 
 Associates an instance of an object that implements the
-[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
+[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
 interface with this validator object.
 
 ##### Returns
@@ -43,16 +43,16 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| rootDirectoryPathValidator | [MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator') | (Required.) Reference to an instance of an object that implements
+| rootDirectoryValidator | [MFR.Directories.Validators.Interfaces.IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator') | (Required.) Reference to an instance of an object that implements
 the
-[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
+[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
 interface. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `rootDirectoryPathValidator`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `rootDirectoryValidator`,
 is passed a `null` value. |
 
 <a name='M-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator-Validate-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>

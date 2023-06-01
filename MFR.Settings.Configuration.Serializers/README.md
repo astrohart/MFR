@@ -5,7 +5,7 @@
 
 - [ConfigurationSerializer](#T-MFR-Settings-Configuration-Serializers-ConfigurationSerializer 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer')
   - [Load(pathname)](#M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Load-System-String- 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer.Load(System.String)')
-  - [Save(pathname,projectFileRenamerConfiguration)](#M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [Save(pathname,configuration)](#M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IConfiguration- 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Settings.Configuration.Interfaces.IConfiguration)')
 - [Resources](#T-MFR-Settings-Configuration-Serializers-Properties-Resources 'MFR.Settings.Configuration.Serializers.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Serializers-Properties-Resources-Culture 'MFR.Settings.Configuration.Serializers.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-Settings-Configuration-Serializers-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.Settings.Configuration.Serializers.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
@@ -21,7 +21,7 @@ MFR.Settings.Configuration.Serializers
 ##### Summary
 
 Provides helper methods for storing the configuration data to, and
-loading it from, a file on the disk.
+    loading it from, a file on the disk.
 
 <a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Load-System-String-'></a>
 ### Load(pathname) `method`
@@ -29,51 +29,51 @@ loading it from, a file on the disk.
 ##### Summary
 
 Loads the configuration data from the file on the disk that has the
-specified `pathname`.
+    specified `pathname`.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
-interface that has been
-initialized with the data present in the file; or
-`null`
-if a problem occurred.
+    [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
+    interface that has been
+    initialized with the data present in the file; or
+    `null`
+    if a problem occurred.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a
-JSON-formatted data file on the disk that contains the configuration data. |
+    JSON-formatted data file on the disk that contains the configuration data. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `pathname`, is
-passed a blank or `null` string for a value. |
+    passed a blank or `null` string for a value. |
 | [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
-`pathname`
-parameter, cannot be located on the disk. |
+    `pathname`
+    parameter, cannot be located on the disk. |
 
-<a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### Save(pathname,projectFileRenamerConfiguration) `method`
+<a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IConfiguration-'></a>
+### Save(pathname,configuration) `method`
 
 ##### Summary
 
-Saves projectFileRenamerConfiguration data to a file.
+Saves configuration data to a file.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of the file that the data
-is to be saved to. |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface. |
+    is to be saved to. |
+| configuration | [MFR.Settings.Configuration.Interfaces.IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') | (Required.) Reference to an instance of an object that implements
+    the
+    [IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+    interface. |
 
 <a name='T-MFR-Settings-Configuration-Serializers-Properties-Resources'></a>
 ## Resources `type`

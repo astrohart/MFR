@@ -24,11 +24,11 @@ Defines the publicly-exposed methods and properties of a `Profile` object.
 ##### Remarks
 
 `Profile` objects are basically hot-swappable variations on the
-`ProjectFileRenamerConfiguration` object.
+`Configuration` object.
 
 
 
-Whereas `ProjectFileRenamerConfiguration` objects have to be loaded from/saved to a
+Whereas `Configuration` objects have to be loaded from/saved to a
 persistent store, such as a database or a file, `Profile` s have
 this capability as well, but are also named with unique identifiers --
 meaning we can allow the user to create profiles so they can hot-swap

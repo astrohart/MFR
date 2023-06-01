@@ -194,12 +194,12 @@ class.
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the actions
+This object allows access to the user configuration and the actions
 associated with it.
 
 <a name='M-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Cleanup'></a>

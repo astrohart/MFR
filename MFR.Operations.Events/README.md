@@ -163,7 +163,7 @@ reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
 specifies the operation being performed. |
 
 <a name='P-MFR-Operations-Events-OperationCancelEventArgs-OperationType'></a>
@@ -200,7 +200,7 @@ reference to it.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 specifies the operation being performed. |
 
@@ -209,7 +209,7 @@ specifies the operation being performed. |
 | Name | Description |
 | ---- | ----------- |
 | [System.NotSupportedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotSupportedException 'System.NotSupportedException') | Thrown if
-[Unknown](#T-MFR-Operations-Constants-OperationType-Unknown 'MFR.Operations.Constants.OperationType.Unknown')
+[Unknown](#T-MFR-OperationType-Unknown 'MFR.OperationType.Unknown')
 is passed
 for the `operationType` parameter. |
 
@@ -243,7 +243,7 @@ reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
 specifies the operation being performed. |
 
 <a name='T-MFR-Operations-Events-OperationFinishedEventHandler'></a>
@@ -291,7 +291,7 @@ reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
 specifies the operation being performed. |
 
 <a name='T-MFR-Operations-Events-OperationStartedEventHandler'></a>
@@ -340,7 +340,7 @@ returns a reference to it.
 | entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements
 the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 specifies the operation being performed. |
 

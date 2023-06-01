@@ -5,14 +5,13 @@
 
 - [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
   - [CheckingWhetherChosenFolderContainsSolutions](#F-MFR-Operations-Constants-OperationType-CheckingWhetherChosenFolderContainsSolutions 'MFR.Operations.Constants.OperationType.CheckingWhetherChosenFolderContainsSolutions')
-  - [CloseActiveSolutions](#F-MFR-Operations-Constants-OperationType-CloseActiveSolutions 'MFR.Operations.Constants.OperationType.CloseActiveSolutions')
+  - [CloseActiveSolution](#F-MFR-Operations-Constants-OperationType-CloseActiveSolution 'MFR.Operations.Constants.OperationType.CloseActiveSolution')
   - [FindVisualStudio](#F-MFR-Operations-Constants-OperationType-FindVisualStudio 'MFR.Operations.Constants.OperationType.FindVisualStudio')
   - [GetListOfAllSolutionFilesInDirectoryTree](#F-MFR-Operations-Constants-OperationType-GetListOfAllSolutionFilesInDirectoryTree 'MFR.Operations.Constants.OperationType.GetListOfAllSolutionFilesInDirectoryTree')
   - [GetTopLevelSubFolders](#F-MFR-Operations-Constants-OperationType-GetTopLevelSubFolders 'MFR.Operations.Constants.OperationType.GetTopLevelSubFolders')
   - [GettingListOfFilesToBeRenamed](#F-MFR-Operations-Constants-OperationType-GettingListOfFilesToBeRenamed 'MFR.Operations.Constants.OperationType.GettingListOfFilesToBeRenamed')
-  - [InitializeApplication](#F-MFR-Operations-Constants-OperationType-InitializeApplication 'MFR.Operations.Constants.OperationType.InitializeApplication')
   - [LoadAllSolutionsInFolder](#F-MFR-Operations-Constants-OperationType-LoadAllSolutionsInFolder 'MFR.Operations.Constants.OperationType.LoadAllSolutionsInFolder')
-  - [OpenActiveSolutions](#F-MFR-Operations-Constants-OperationType-OpenActiveSolutions 'MFR.Operations.Constants.OperationType.OpenActiveSolutions')
+  - [OpenActiveSolution](#F-MFR-Operations-Constants-OperationType-OpenActiveSolution 'MFR.Operations.Constants.OperationType.OpenActiveSolution')
   - [RenameFilesInFolder](#F-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
   - [RenameSubFolders](#F-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
   - [ReplaceTextInFiles](#F-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
@@ -41,8 +40,8 @@ Specifies the type of operation now being performed.
 Checking the starting folder that has been selected to ensure that it or one or
 more of its subfolders contain Visual Studio Solution (*.sln) files.
 
-<a name='F-MFR-Operations-Constants-OperationType-CloseActiveSolutions'></a>
-### CloseActiveSolutions `constants`
+<a name='F-MFR-Operations-Constants-OperationType-CloseActiveSolution'></a>
+### CloseActiveSolution `constants`
 
 ##### Summary
 
@@ -86,13 +85,6 @@ Gathering a list of the top-level subfolders of the current folder.
 
 The list of file system entries to be renamed is being retrieved.
 
-<a name='F-MFR-Operations-Constants-OperationType-InitializeApplication'></a>
-### InitializeApplication `constants`
-
-##### Summary
-
-The application is loading configuration and profiles and such.
-
 <a name='F-MFR-Operations-Constants-OperationType-LoadAllSolutionsInFolder'></a>
 ### LoadAllSolutionsInFolder `constants`
 
@@ -106,8 +98,8 @@ it.
 For each `*.sln` file found, opens it in its own separate instance of
 Visual Studio.
 
-<a name='F-MFR-Operations-Constants-OperationType-OpenActiveSolutions'></a>
-### OpenActiveSolutions `constants`
+<a name='F-MFR-Operations-Constants-OperationType-OpenActiveSolution'></a>
+### OpenActiveSolution `constants`
 
 ##### Summary
 

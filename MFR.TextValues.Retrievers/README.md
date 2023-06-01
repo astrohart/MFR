@@ -25,7 +25,6 @@
   - [#cctor()](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.#cctor')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [TextValueRetrieverBase](#T-MFR-TextValues-Retrievers-TextValueRetrieverBase 'MFR.TextValues.Retrievers.TextValueRetrieverBase')
-  - [FileSystemEntryValidatorSays](#P-MFR-TextValues-Retrievers-TextValueRetrieverBase-FileSystemEntryValidatorSays 'MFR.TextValues.Retrievers.TextValueRetrieverBase.FileSystemEntryValidatorSays')
   - [OperationType](#P-MFR-TextValues-Retrievers-TextValueRetrieverBase-OperationType 'MFR.TextValues.Retrievers.TextValueRetrieverBase.OperationType')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 
@@ -47,7 +46,7 @@ Implements functionality common to retrievers of data for both files and folders
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') now being processed.
+[OperationType](#T-MFR-OperationType 'MFR.OperationType') now being processed.
 
 ##### Returns
 
@@ -59,6 +58,13 @@ operation type, or the empty string if the data source has no data.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
 
 <a name='T-MFR-TextValues-Retrievers-FilenameTextValueRetriever'></a>
 ## FilenameTextValueRetriever `type`
@@ -87,18 +93,14 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
-interface for retrieving the pathname of a file.
+Gets a reference to the one and only instance of [FilenameTextValueRetriever](#T-MFR-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.TextValues.Retrievers.FilenameTextValueRetriever').
 
 <a name='P-MFR-TextValues-Retrievers-FilenameTextValueRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
-values that
+Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-TextValues-Retrievers-FilenameTextValueRetriever-#cctor'></a>
@@ -140,16 +142,15 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
-interface for retrieving the pathname of a folder.
+Gets a reference to the one and only instance of
+[FolderTextValueRetriever](#T-MFR-TextValues-Retrievers-FolderTextValueRetriever 'MFR.TextValues.Retrievers.FolderTextValueRetriever').
 
 <a name='P-MFR-TextValues-Retrievers-FolderTextValueRetriever-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-TextValues-Retrievers-FolderTextValueRetriever-#cctor'></a>
@@ -216,9 +217,8 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
-interface for retrieving the text from files on the filesystem.
+Gets a reference to the one and only instance of
+[TextInFileTextValueRetriever](#T-MFR-TextValues-Retrievers-TextInFileTextValueRetriever 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever').
 
 <a name='P-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-OperationType'></a>
 ### OperationType `property`
@@ -226,7 +226,7 @@ interface for retrieving the text from files on the filesystem.
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -283,27 +283,12 @@ MFR.TextValues.Retrievers
 Defines the events, methods, properties, and behaviors for all `Text
             Value Retriever` objects.
 
-<a name='P-MFR-TextValues-Retrievers-TextValueRetrieverBase-FileSystemEntryValidatorSays'></a>
-### FileSystemEntryValidatorSays `property`
-
-##### Summary
-
-Fluent bridge property that accesses the appropriate file-system
-entry validator object, that implements the
-[IFileSystemEntryValidator](#T-MFR-FileSystem-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Interfaces.IFileSystemEntryValidator')
-interface, for the current operation type.
-
-##### Remarks
-
-The property is designed to be called as part of a fluent
-criteria-evaluation expression.
-
 <a name='P-MFR-TextValues-Retrievers-TextValueRetrieverBase-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values
 that corresponds to the type of operation being performed.
 
 <a name='M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>

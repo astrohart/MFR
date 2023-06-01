@@ -12,36 +12,9 @@
   - [AssemblyProduct](#P-MFR-GUI-Dialogs-AboutDialog-AssemblyProduct 'MFR.GUI.Dialogs.AboutDialog.AssemblyProduct')
   - [AssemblyTitle](#P-MFR-GUI-Dialogs-AboutDialog-AssemblyTitle 'MFR.GUI.Dialogs.AboutDialog.AssemblyTitle')
   - [AssemblyVersion](#P-MFR-GUI-Dialogs-AboutDialog-AssemblyVersion 'MFR.GUI.Dialogs.AboutDialog.AssemblyVersion')
-  - [CreateParams](#P-MFR-GUI-Dialogs-AboutDialog-CreateParams 'MFR.GUI.Dialogs.AboutDialog.CreateParams')
   - [Display(owner)](#M-MFR-GUI-Dialogs-AboutDialog-Display-System-Windows-Forms-IWin32Window- 'MFR.GUI.Dialogs.AboutDialog.Display(System.Windows.Forms.IWin32Window)')
   - [Dispose()](#M-MFR-GUI-Dialogs-AboutDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.AboutDialog.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-AboutDialog-InitializeComponent 'MFR.GUI.Dialogs.AboutDialog.InitializeComponent')
-- [AutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog')
-  - [#ctor()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#ctor 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.#ctor')
-  - [_processingWorker](#F-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-_processingWorker 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog._processingWorker')
-  - [ConfigurationProvider](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigurationProvider 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.ConfigurationProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfiguration 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.CurrentConfiguration')
-  - [FileRenamer](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-FileRenamer 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.FileRenamer')
-  - [Instance](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-Instance 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.Instance')
-  - [#cctor()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#cctor 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.#cctor')
-  - [HandleFilesCountedEvent(count)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-HandleFilesCountedEvent-System-Int32- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.HandleFilesCountedEvent(System.Int32)')
-  - [IncrementProgressBar(statusLabelText,currentFileLabelText)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-IncrementProgressBar-System-String,System-String- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.IncrementProgressBar(System.String,System.String)')
-  - [InitializeFileRenamer()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-InitializeFileRenamer 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.InitializeFileRenamer')
-  - [InitializeProcessingWorker()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-InitializeProcessingWorker 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.InitializeProcessingWorker')
-  - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerExceptionRaised(System.Object,MFR.Events.Common.ExceptionRaisedEventArgs)')
-  - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFinished()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFinished 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerFinished')
-  - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
-  - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
-  - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
-  - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
-  - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnProcessingWorkerDoWork(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnProcessingWorkerDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnProcessingWorkerDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
-  - [OnProcessingWorkerRunWorkerCompleted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnProcessingWorkerRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnProcessingWorkerRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)')
-  - [OnShown(e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnShown(System.EventArgs)')
-  - [ResetProgressBar()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ResetProgressBar 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.ResetProgressBar')
-  - [ShowCalculatingProgressBar(text,canCancel)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ShowCalculatingProgressBar-System-String,System-Boolean- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.ShowCalculatingProgressBar(System.String,System.Boolean)')
 - [CancellableProgressDialog](#T-MFR-GUI-Dialogs-CancellableProgressDialog 'MFR.GUI.Dialogs.CancellableProgressDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-#ctor 'MFR.GUI.Dialogs.CancellableProgressDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-CancellableProgressDialog-components 'MFR.GUI.Dialogs.CancellableProgressDialog.components')
@@ -54,9 +27,6 @@
   - [ProgressBarValue](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarValue 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarValue')
   - [Status](#P-MFR-GUI-Dialogs-CancellableProgressDialog-Status 'MFR.GUI.Dialogs.CancellableProgressDialog.Status')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.CancellableProgressDialog.Dispose(System.Boolean)')
-  - [DoSetProgressBarMaximum(value)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMaximum-System-Int32- 'MFR.GUI.Dialogs.CancellableProgressDialog.DoSetProgressBarMaximum(System.Int32)')
-  - [DoSetProgressBarMinimum(value)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMinimum-System-Int32- 'MFR.GUI.Dialogs.CancellableProgressDialog.DoSetProgressBarMinimum(System.Int32)')
-  - [DoSetProgressBarValue(value)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarValue-System-Int32- 'MFR.GUI.Dialogs.CancellableProgressDialog.DoSetProgressBarValue(System.Int32)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-InitializeComponent 'MFR.GUI.Dialogs.CancellableProgressDialog.InitializeComponent')
   - [OnCancel(sender,e)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-OnCancel-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.CancellableProgressDialog.OnCancel(System.Object,System.EventArgs)')
   - [OnCancelRequested()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-OnCancelRequested 'MFR.GUI.Dialogs.CancellableProgressDialog.OnCancelRequested')
@@ -106,36 +76,28 @@
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.Dispose(System.Boolean)')
   - [InitializeBackgroundWorker()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeBackgroundWorker 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeBackgroundWorker')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeComponent 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeComponent')
-  - [InitializeStartPosition()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeStartPosition 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.InitializeStartPosition')
   - [OnDoWork(sender,e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
   - [OnLoad(e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnLoad(System.EventArgs)')
-  - [OnRequestClose()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRequestClose 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnRequestClose')
   - [OnRunWorkerCompleted(sender,e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.OnShown(System.EventArgs)')
   - [RedrawDisplay()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-RedrawDisplay 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.RedrawDisplay')
   - [Reset()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-Reset 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.Reset')
-  - [UpdateCaption(caption)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-UpdateCaption-System-String- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.UpdateCaption(System.String)')
 - [OptionsDialog](#T-MFR-GUI-Dialogs-OptionsDialog 'MFR.GUI.Dialogs.OptionsDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-OptionsDialog-#ctor 'MFR.GUI.Dialogs.OptionsDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-OptionsDialog-components 'MFR.GUI.Dialogs.OptionsDialog.components')
-  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.OptionsDialog.AutoQuitOnCompletion')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialog.ConfigPathname')
   - [ConfigurationProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigurationProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
   - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialog-IsModified 'MFR.GUI.Dialogs.OptionsDialog.IsModified')
-  - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
+  - [ShouldReOpenVisualStudioSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldReOpenVisualStudioSolution 'MFR.GUI.Dialogs.OptionsDialog.ShouldReOpenVisualStudioSolution')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-OptionsDialog-InitializeComponent 'MFR.GUI.Dialogs.OptionsDialog.InitializeComponent')
   - [OnClickApply(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickApply-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickApply(System.Object,System.EventArgs)')
   - [OnClickConfigPathnameBrowseButton(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickConfigPathnameBrowseButton(System.Object,System.EventArgs)')
-  - [OnFormClosing(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
-  - [OnLoad(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnLoad(System.EventArgs)')
   - [OnModified(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnModified(MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnShown(System.EventArgs)')
   - [OnTextChangedConfiguraitonFilePathname(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnTextChangedConfiguraitonFilePathname(System.Object,System.EventArgs)')
   - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnUpdateCmdUI(System.Object,System.EventArgs)')
   - [SetModifiedFlag(dirty)](#M-MFR-GUI-Dialogs-OptionsDialog-SetModifiedFlag-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.SetModifiedFlag(System.Boolean)')
-  - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Dialogs-OptionsDialog-UpdateData-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.UpdateData(System.Boolean)')
 - [ProfileManagementDialogBox](#T-MFR-GUI-Dialogs-ProfileManagementDialogBox 'MFR.GUI.Dialogs.ProfileManagementDialogBox')
   - [#ctor()](#M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor 'MFR.GUI.Dialogs.ProfileManagementDialogBox.#ctor')
   - [components](#F-MFR-GUI-Dialogs-ProfileManagementDialogBox-components 'MFR.GUI.Dialogs.ProfileManagementDialogBox.components')
@@ -155,7 +117,6 @@
   - [OnLoad(e)](#M-MFR-GUI-Dialogs-ProfileNameDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.ProfileNameDialog.OnLoad(System.EventArgs)')
 - [Resources](#T-MFR-GUI-Dialogs-Properties-Resources 'MFR.GUI.Dialogs.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Properties-Resources-Culture 'MFR.GUI.Dialogs.Properties.Resources.Culture')
-  - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-GUI-Dialogs-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.GUI.Dialogs.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
   - [FolderSelectDialogFIlters](#P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFIlters 'MFR.GUI.Dialogs.Properties.Resources.FolderSelectDialogFIlters')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Properties.Resources.ResourceManager')
 
@@ -175,9 +136,7 @@ Dialog box that displays information about this application to the user.
 
 ##### Summary
 
-Constructs a new instance of
-[AboutDialog](#T-MFR-GUI-Dialogs-AboutDialog 'MFR.GUI.Dialogs.AboutDialog')
-and returns a reference
+Constructs a new instance of [AboutDialog](#T-MFR-GUI-Dialogs-AboutDialog 'MFR.GUI.Dialogs.AboutDialog') and returns a reference
 to it.
 
 ##### Parameters
@@ -233,19 +192,6 @@ Gets the title string for this application.
 
 Gets the full version of the application.
 
-<a name='P-MFR-GUI-Dialogs-AboutDialog-CreateParams'></a>
-### CreateParams `property`
-
-##### Summary
-
-Gets the required creation parameters when the control handle is
-created.
-
-##### Returns
-
-A [CreateParams](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CreateParams 'System.Windows.Forms.CreateParams') that contains the
-required creation parameters when the handle to the control is created.
-
 <a name='M-MFR-GUI-Dialogs-AboutDialog-Display-System-Windows-Forms-IWin32Window-'></a>
 ### Display(owner) `method`
 
@@ -284,490 +230,6 @@ the contents of this method with the code editor.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='T-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog'></a>
-## AutoStartCancellableProgressDialog `type`
-
-##### Namespace
-
-MFR.GUI.Dialogs
-
-##### Summary
-
-Variant of the [CancellableProgressDialog](#T-MFR-GUI-Dialogs-CancellableProgressDialog 'MFR.GUI.Dialogs.CancellableProgressDialog') that
-can be used when the user specifies the `--autoStart` flag on the command
-line.
-
-##### Remarks
-
-This class hosts a `FileRenamer` component that can perform the
-user's requested operations itself.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Empty, protected constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='F-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-_processingWorker'></a>
-### _processingWorker `constants`
-
-##### Summary
-
-Reference to an instance of
-[BackgroundWorker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.BackgroundWorker 'System.ComponentModel.BackgroundWorker') that runs the
-`FileRenamer` component in a worker thread.
-
-<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
-interface.
-
-<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the currently-loaded configuration.
-
-<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-FileRenamer'></a>
-### FileRenamer `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer') interface.
-
-<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-Instance'></a>
-### Instance `property`
-
-##### Summary
-
-Gets a reference to the one and only instance of the object that implements the
-[IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#cctor'></a>
-### #cctor() `method`
-
-##### Summary
-
-Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-HandleFilesCountedEvent-System-Int32-'></a>
-### HandleFilesCountedEvent(count) `method`
-
-##### Summary
-
-Called when the count of files to be processed in a given operation
-is computed.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| count | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) Integer value specifying the count of files that are to
-be processed in the current operation. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the `count` parameter is zero or
-negative. This parameter describes a count of files; therefore, it
-is expected that it should be 1 or greater. |
-
-##### Remarks
-
-Takes the message of resetting the progress dialog and reconfiguring
-the progress bar such that the `count` parameter
-specifies the new maximum value of the progress bar.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-IncrementProgressBar-System-String,System-String-'></a>
-### IncrementProgressBar(statusLabelText,currentFileLabelText) `method`
-
-##### Summary
-
-Increments the value of the progress bar. Also updates the status
-text and the label that is displaying the pathname to the file that
-is currently being processed.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| statusLabelText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the text that is to be displayed on
-the top line of the progress dialog. This text serves to inform the
-user as to which operation is currently being performed. |
-| currentFileLabelText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname to the file that is
-currently being processed. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
-`statusLabelText`
-or `currentFileLabelText`,
-are passed blank or `null` string for values. |
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-InitializeFileRenamer'></a>
-### InitializeFileRenamer() `method`
-
-##### Summary
-
-Sets the properties of the [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
-object that we are working
-with and subscribes to the events that it emits.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-InitializeProcessingWorker'></a>
-### InitializeProcessingWorker() `method`
-
-##### Summary
-
-Initializes the settings for the
-[BackgroundWorker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.BackgroundWorker 'System.ComponentModel.BackgroundWorker') that is used to process
-the file-renaming operations.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
-### OnFileRenamerExceptionRaised(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-MFR-IFileRenamer-ExceptionRaised 'MFR.IFileRenamer.ExceptionRaised') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | An [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') that contains
-the event data. |
-
-##### Remarks
-
-This method responds to such an event by showing the user a message
-box, logging the error, and then aborting the operation.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerFilesToBeRenamedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-FilesToBeRenamedCounted 'MFR.IFileRenamer.FilesToBeRenamedCounted')
-event
-raised by the file renamer object when it's finished determining the
-set of file system entries upon which the current operation should act.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerFilesToHaveTextReplacedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-FilesToHaveTextReplacedCounted 'MFR.IFileRenamer.FilesToHaveTextReplacedCounted')
-event raised by the File Renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerFinished'></a>
-### OnFileRenamerFinished() `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-OperationFinished 'MFR.IFileRenamer.OperationFinished')
-event raised
-by the file renamer object.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Remarks
-
-This method responds to the event by telling the progress dialog to
-reset the progress bar back to the starting point.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs-'></a>
-### OnFileRenamerOperationFinished(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-OperationFinished 'MFR.IFileRenamer.OperationFinished')
-event raised
-by the file renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') | A [OperationFinishedEventArgs](#T-MFR-Operations-Events-OperationFinishedEventArgs 'MFR.Operations.Events.OperationFinishedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds to the event by telling the progress dialog to
-reset the progress bar back to the starting point.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs-'></a>
-### OnFileRenamerOperationStarted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-OperationStarted 'MFR.IFileRenamer.OperationStarted')
-event raised by
-the file-renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') | A [OperationStartedEventArgs](#T-MFR-Operations-Events-OperationStartedEventArgs 'MFR.Operations.Events.OperationStartedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds to the event by telling the progress dialog to
-show the marquee progress bar for the operation type whose
-processing is now being started.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs-'></a>
-### OnFileRenamerProcessingOperation(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-IFileRenamer-ProcessingOperation 'MFR.IFileRenamer.ProcessingOperation')
-event raised
-by the File Renamer object when it moves on to processing the next
-file system entry in its list.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by first checking the values passed in the
-[ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs')
-for valid values.
-
-
-
-If the checks fail, then this method does nothing.
-
-
-
-Otherwise, the method responds by incrementing the progress dialog's
-progress bar to the next notch, and updating the text of the lower
-status label in the progress dialog to contain the path to the file
-currently being worked on.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
-### OnFileRenamerStatusUpdate(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-Renamers-Files-Interfaces-IFileRenamer-StatusUpdate 'MFR.Renamers.Files.Interfaces.IFileRenamer.StatusUpdate') event
-raised by the `FileRenamer` component when it has new text to send to the
-UI/UX of the application..
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [MFR.Events.Common.StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') | A [StatusUpdateEventArgs](#T-MFR-Events-Common-StatusUpdateEventArgs 'MFR.Events.Common.StatusUpdateEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerSubfoldersToBeRenamedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-Renamers-Files-Interfaces-IFileRenamer-SubfoldersToBeRenamedCounted 'MFR.Renamers.Files.Interfaces.IFileRenamer.SubfoldersToBeRenamedCounted')
-event raised by the File Renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnProcessingWorkerDoWork-System-Object,System-ComponentModel-DoWorkEventArgs-'></a>
-### OnProcessingWorkerDoWork(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-System-ComponentModel-BackgroundWorker-DoWork 'System.ComponentModel.BackgroundWorker.DoWork')
-event raised by the Processing Worker that invokes the File Renamer.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [System.ComponentModel.DoWorkEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.DoWorkEventArgs 'System.ComponentModel.DoWorkEventArgs') | A [DoWorkEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.DoWorkEventArgs 'System.ComponentModel.DoWorkEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method is called to process a File Renamer job in a background
-thread.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnProcessingWorkerRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs-'></a>
-### OnProcessingWorkerRunWorkerCompleted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-System-ComponentModel-BackgroundWorker-RunWorkerCompleted 'System.ComponentModel.BackgroundWorker.RunWorkerCompleted')
-event raised by the Processing Worker that actually invokes the File Renamer.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [System.ComponentModel.RunWorkerCompletedEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.RunWorkerCompletedEventArgs 'System.ComponentModel.RunWorkerCompletedEventArgs') | A
-[RunWorkerCompletedEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.RunWorkerCompletedEventArgs 'System.ComponentModel.RunWorkerCompletedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by raising the
-[](#E-MFR-Engines-Interfaces-IOperationEngine-ProcessingFinished 'MFR.Engines.Interfaces.IOperationEngine.ProcessingFinished')
-event and associated message.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnShown-System-EventArgs-'></a>
-### OnShown(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Shown') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
-data. |
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ResetProgressBar'></a>
-### ResetProgressBar() `method`
-
-##### Summary
-
-Resets the progress bar back to the beginning.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ShowCalculatingProgressBar-System-String,System-Boolean-'></a>
-### ShowCalculatingProgressBar(text,canCancel) `method`
-
-##### Summary
-
-Shows a marquee progress bar that indicates the application is
-performing work but of an indeterminate length, such as calculating
-the amount of files to process.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the text to display in the progress dialog. |
-| canCancel | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) `true` to show a button in
-the progress dialog; `false` to hide it. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `text`, is passed
-a blank or `null` string for a value. |
 
 <a name='T-MFR-GUI-Dialogs-CancellableProgressDialog'></a>
 ## CancellableProgressDialog `type`
@@ -869,88 +331,6 @@ Clean up any resources being used.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
-
-<a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMaximum-System-Int32-'></a>
-### DoSetProgressBarMaximum(value) `method`
-
-##### Summary
-
-Sets the value of the [Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property but only after first checking that the argument of the
-`value` parameter falls within a valid range.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) An [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') that specifies
-the new value of the progress bar's maximum limit. |
-
-##### Remarks
-
-This method stops if (a) the argument of the `value`
-parameter is negative (i.e., we do not know what a negative maximum value means
-in the context of a progress bar), or (b) if the argument of the
-`value` parameter is less than, or equal to, the value of the
-[ProgressBarMinimum](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarMinimum 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarMinimum')
-property, or (c) if the argument of the `value` parameter is
-less than the value of the
-[ProgressBarValue](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarValue 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarValue')
-property.
-
-<a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarMinimum-System-Int32-'></a>
-### DoSetProgressBarMinimum(value) `method`
-
-##### Summary
-
-Sets the value of the [Minimum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Minimum 'System.Windows.Forms.ProgressBar.Minimum')
-property but only after first checking that the argument of the
-`value` parameter falls within a valid range.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) An [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') that specifies the new value of
-the
-progress bar's minimum limit. |
-
-##### Remarks
-
-This method stops if (a) the argument of the `value`
-parameter is negative (i.e., we do not know what a negative minimum value means
-in the context of a progress bar), or (b) if the argument of the
-`value` parameter is greater than, or equal to, the value of
-the [Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum') property.
-
-<a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-DoSetProgressBarValue-System-Int32-'></a>
-### DoSetProgressBarValue(value) `method`
-
-##### Summary
-
-Sets the value of the [Value](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Value 'System.Windows.Forms.ProgressBar.Value')
-property after first checking that the argument of the
-`value` parameter is in the proper range, i.e., between the
-minimum and maximum, inclusive.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | (Required.) An [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') value that
-specifies the new value of the progress of an operation. |
-
-##### Remarks
-
-This method stops if any of the following are true: (a) if the argument of the
-`value` parameter is a negative number (we don't know how to
-display negative progress), or (b) if the argument of the
-`value` parameter is less than the value of the
-[ProgressBarMinimum](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarMinimum 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarMinimum')
-property, or (c) if the argument of the `value` parameter is
-greater than the value of the
-[ProgressBarMaximum](#P-MFR-GUI-Dialogs-CancellableProgressDialog-ProgressBarMaximum 'MFR.GUI.Dialogs.CancellableProgressDialog.ProgressBarMaximum')
-property.
 
 <a name='M-MFR-GUI-Dialogs-CancellableProgressDialog-InitializeComponent'></a>
 ### InitializeComponent() `method`
@@ -1574,21 +954,6 @@ the contents of this method with the code editor.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-InitializeStartPosition'></a>
-### InitializeStartPosition() `method`
-
-##### Summary
-
-Sets the value of the [StartPosition](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Form.StartPosition 'System.Windows.Forms.Form.StartPosition')
-property to either
-[CenterParent](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormStartPosition.CenterParent 'System.Windows.Forms.FormStartPosition.CenterParent') or
-[CenterScreen](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormStartPosition.CenterScreen 'System.Windows.Forms.FormStartPosition.CenterScreen'), depending
-on whether we have an owner window.
-
-##### Parameters
-
-This method has no parameters.
-
 <a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnDoWork-System-Object,System-ComponentModel-DoWorkEventArgs-'></a>
 ### OnDoWork(sender,e) `method`
 
@@ -1625,18 +990,6 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 | ---- | ---- | ----------- |
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
 data. |
-
-<a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRequestClose'></a>
-### OnRequestClose() `method`
-
-##### Summary
-
-Closes this dialog when requested to, say, when we are about to show a message
-box to the interactive user.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-OnRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs-'></a>
 ### OnRunWorkerCompleted(sender,e) `method`
@@ -1699,25 +1052,6 @@ Clears the status text and progress bar.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-UpdateCaption-System-String-'></a>
-### UpdateCaption(caption) `method`
-
-##### Summary
-
-Updates the window's caption to reflect the new value.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| caption | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the new caption text. |
-
-##### Remarks
-
-If the blank string is passed for the `caption`
-parameter, then this method sets the window caption to match the value of the
-[ProductName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Application.ProductName 'System.Windows.Forms.Application.ProductName') property.
-
 <a name='T-MFR-GUI-Dialogs-OptionsDialog'></a>
 ## OptionsDialog `type`
 
@@ -1750,20 +1084,12 @@ This constructor has no parameters.
 
 Required designer variable.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion'></a>
-### AutoQuitOnCompletion `property`
-
-##### Summary
-
-Gets or sets the value of the
-checkbox.
-
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`
 
 ##### Summary
 
-Gets or sets the text of the configuration File Pathname text box.
+Gets or sets the text of the Configuration File Pathname text box.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
@@ -1771,23 +1097,13 @@ Gets or sets the text of the configuration File Pathname text box.
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
-actions
+This object allows access to the user configuration and the actions
 associated with it.
-
-<a name='P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-IsModified'></a>
 ### IsModified `property`
@@ -1797,8 +1113,8 @@ interface.
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution'></a>
-### ReOpenSolution `property`
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ShouldReOpenVisualStudioSolution'></a>
+### ShouldReOpenVisualStudioSolution `property`
 
 ##### Summary
 
@@ -1857,7 +1173,7 @@ the client of this dialog box to update data.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-Control-Click 'System.Windows.Forms.Control.Click') event
-for the Browse button on the configuration File Pathname text box..
+for the Browse button on the Configuration File Pathname text box..
 
 ##### Parameters
 
@@ -1870,36 +1186,7 @@ for the Browse button on the configuration File Pathname text box..
 
 This method responds to a click of the '...' button that lies next
 to the text box that accepts the pathname of the application's
-projectFileRenamerConfiguration file.
-
-<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
-### OnFormClosing(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-FormClosing 'System.Windows.Forms.Form.FormClosing')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.Windows.Forms.FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') | A [FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs')
-that contains the event data. |
-
-<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnLoad-System-EventArgs-'></a>
-### OnLoad(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
-data. |
+configuration file.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs-'></a>
 ### OnModified(e) `method`
@@ -1952,7 +1239,7 @@ Handles the [](#E-System-Windows-Forms-Control-TextChanged 'System.Windows.Forms
 ##### Remarks
 
 This method is called to respond to the value of the text inside the
-CurrentConfiguration File Pathname text box being changed. This method
+Configuration File Pathname text box being changed. This method
 responds to such a happenstance by updating the value of the
 [IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified')
 property to be
@@ -1994,21 +1281,6 @@ Sets the dirty state of the data of this dialog box.
 `false`
 otherwise. Default is `true`. |
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialog-UpdateData-System-Boolean-'></a>
-### UpdateData(bSaveAndValidate) `method`
-
-##### Summary
-
-Moves data from this dialog's controls to the configuration object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| bSaveAndValidate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
-that specifies whether to save information from the screen into data variables.
-`false` to load data to the screen. |
-
 <a name='T-MFR-GUI-Dialogs-ProfileManagementDialogBox'></a>
 ## ProfileManagementDialogBox `type`
 
@@ -2018,7 +1290,7 @@ MFR.GUI.Dialogs
 
 ##### Summary
 
-Dialog box to assist the user in managing projectFileRenamerConfiguration profiles.
+Dialog box to assist the user in managing configuration profiles.
 
 <a name='M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor'></a>
 ### #ctor() `constructor`
@@ -2254,13 +1526,6 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
-
-<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace'></a>
-### Error_ValueCannotBeNullOrWhiteSpace `property`
-
-##### Summary
-
-Looks up a localized string similar to Value cannot be null or whitespace..
 
 <a name='P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFIlters'></a>
 ### FolderSelectDialogFIlters `property`

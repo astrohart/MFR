@@ -49,7 +49,7 @@ Creates a new instance of an object that implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface and
 returns a reference to it, for the given
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 value.
 
 ##### Returns
@@ -63,7 +63,7 @@ interface that corresponds to the specified type of operation.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed. |
 
@@ -106,7 +106,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 
@@ -199,7 +199,7 @@ Gets a reference to the one and only instance of [RenameSubFoldersStringReplacer
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
+Gets one of the [OperationType](#T-MFR-OperationType 'MFR.OperationType') values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory-#cctor'></a>
@@ -282,7 +282,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets one of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+[OperationType](#T-MFR-OperationType 'MFR.OperationType')
 values that
 corresponds to the type of operation being performed.
 

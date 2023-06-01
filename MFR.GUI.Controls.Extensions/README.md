@@ -7,8 +7,8 @@
   - [Culture](#P-MFR-GUI-Controls-Extensions-Properties-Resources-Culture 'MFR.GUI.Controls.Extensions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Extensions-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Extensions.Properties.Resources.ResourceManager')
 - [ToolStripComboBoxExtensions](#T-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions 'MFR.GUI.Controls.Extensions.ToolStripComboBoxExtensions')
-  - [SelectFirstItem(control)](#M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItem-System-Windows-Forms-ToolStripControlHost- 'MFR.GUI.Controls.Extensions.ToolStripComboBoxExtensions.SelectFirstItem(System.Windows.Forms.ToolStripControlHost)')
-  - [SelectFirstItemNamed(control,name)](#M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItemNamed-System-Windows-Forms-ToolStripControlHost,System-String- 'MFR.GUI.Controls.Extensions.ToolStripComboBoxExtensions.SelectFirstItemNamed(System.Windows.Forms.ToolStripControlHost,System.String)')
+  - [SelectFirstItem(comboBox)](#M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItem-System-Windows-Forms-ToolStripComboBox- 'MFR.GUI.Controls.Extensions.ToolStripComboBoxExtensions.SelectFirstItem(System.Windows.Forms.ToolStripComboBox)')
+  - [SelectFirstItemNamed(comboBox,name)](#M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItemNamed-System-Windows-Forms-ToolStripComboBox,System-String- 'MFR.GUI.Controls.Extensions.ToolStripComboBoxExtensions.SelectFirstItemNamed(System.Windows.Forms.ToolStripComboBox,System.String)')
 
 <a name='T-MFR-GUI-Controls-Extensions-Properties-Resources'></a>
 ## Resources `type`
@@ -49,26 +49,26 @@ Helper methods to allow us to use a
 [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox') control in a fluent
 manner.
 
-<a name='M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItem-System-Windows-Forms-ToolStripControlHost-'></a>
-### SelectFirstItem(control) `method`
+<a name='M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItem-System-Windows-Forms-ToolStripComboBox-'></a>
+### SelectFirstItem(comboBox) `method`
 
 ##### Summary
 
-Selects the first item in the `control` specified.
+Selects the first item in the `comboBox` specified.
 
 
 
-Does nothing is the specified `control` contains no items.
+Does nothing is the specified `comboBox` contains no items.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| control | [System.Windows.Forms.ToolStripControlHost](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripControlHost 'System.Windows.Forms.ToolStripControlHost') | (Required.) The [ToolStripControlHost](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripControlHost 'System.Windows.Forms.ToolStripControlHost') to
+| comboBox | [System.Windows.Forms.ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox') | (Required.) The [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox') to
 operate on. |
 
-<a name='M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItemNamed-System-Windows-Forms-ToolStripControlHost,System-String-'></a>
-### SelectFirstItemNamed(control,name) `method`
+<a name='M-MFR-GUI-Controls-Extensions-ToolStripComboBoxExtensions-SelectFirstItemNamed-System-Windows-Forms-ToolStripComboBox,System-String-'></a>
+### SelectFirstItemNamed(comboBox,name) `method`
 
 ##### Summary
 
@@ -79,6 +79,6 @@ if found, the item is selected.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| control | [System.Windows.Forms.ToolStripControlHost](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripControlHost 'System.Windows.Forms.ToolStripControlHost') | (Required.) The
-[ToolStripControlHost](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripControlHost 'System.Windows.Forms.ToolStripControlHost') to operate on. |
+| comboBox | [System.Windows.Forms.ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox') | (Required.) The
+[ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox') to operate on. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the name to search for. |

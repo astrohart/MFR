@@ -19,7 +19,7 @@ MFR.Settings.Configuration.Factories.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[MakeNewProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration')
+[MakeNewConfiguration](#T-MFR-Settings-Configuration-Factories-MakeNewConfiguration 'MFR.Settings.Configuration.Factories.MakeNewConfiguration')
 class.
 
 <a name='M-MFR-Settings-Configuration-Factories-Tests-MakeNewConfigurationTests-Test_MakeNewConfiguraton_FromScratch_Method_Works'></a>
@@ -28,12 +28,12 @@ class.
 ##### Summary
 
 Asserts that the
-[FromScratch](#M-MFR-Settings-ProjectFileRenamerConfiguration-Factories-MakeNewProjectFileRenamerConfiguration-FromScratch 'MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch')
+[FromScratch](#M-MFR-Settings-Configuration-Factories-MakeNewConfiguration-FromScratch 'MFR.Settings.Configuration.Factories.MakeNewConfiguration.FromScratch')
 method returns a reference to an instance of an object that is (a) non-
 `null`, (b) an instance of the
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration') class, and (c)
+[Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration') class, and (c)
 implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
 interface.
 
 ##### Parameters

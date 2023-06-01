@@ -15,7 +15,6 @@
   - [FRM_OPERATION_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
   - [FRM_PROCESSING_OPERATION](#F-MFR-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
   - [FRM_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Constants.FileRenamerMessages.FRM_STARTED')
-  - [FRM_STARTING](#F-MFR-Constants-FileRenamerMessages-FRM_STARTING 'MFR.Constants.FileRenamerMessages.FRM_STARTING')
   - [FRM_STATUS_UPDATE](#F-MFR-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
   - [FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED')
 - [Resources](#T-MFR-Constants-Properties-Resources 'MFR.Constants.Properties.Resources')
@@ -119,14 +118,6 @@ operation is being processed.
 
 Unique identifier for a message that indicates that the set of all
 requested File Renamer operations has started.
-
-<a name='F-MFR-Constants-FileRenamerMessages-FRM_STARTING'></a>
-### FRM_STARTING `constants`
-
-##### Summary
-
-Unique identifier for a message that indicates that the set of all
-requested File Renamer operations are about to begin.
 
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_STATUS_UPDATE'></a>
 ### FRM_STATUS_UPDATE `constants`

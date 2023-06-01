@@ -15,6 +15,7 @@
   - [ContainsLoadedSolutions(folder)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Managers.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
   - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Managers.Solutions.VisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
   - [LoadAll(solutions)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Managers.Solutions.VisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
+  - [ShouldSkipFile(path)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ShouldSkipFile-System-String- 'MFR.Managers.Solutions.VisualStudioSolutionService.ShouldSkipFile(System.String)')
   - [UnloadAll(solutions)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Managers.Solutions.VisualStudioSolutionService.UnloadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
 
 <a name='T-MFR-Managers-Solutions-Properties-Resources'></a>
@@ -202,6 +203,25 @@ time, to load them again.
 objects that implement the
 [IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface that represent the solution(s) to be loaded. |
+
+<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-ShouldSkipFile-System-String-'></a>
+### ShouldSkipFile(path) `method`
+
+##### Summary
+
+Determines whether a file with the `path` should be
+skipped in a search.
+
+##### Returns
+
+`true` if the `path` provided
+should not be included in the results; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the path to be checked. |
 
 <a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
 ### UnloadAll(solutions) `method`

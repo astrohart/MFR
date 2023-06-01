@@ -363,8 +363,7 @@ the result cache.
 ##### Returns
 
 Reference to an instance of `TResult` that
-corresponds to the current input or `null` if an issue
-occurred.
+corresponds to the current input or `null` if an issue occurred.
 
 ##### Parameters
 
@@ -419,10 +418,8 @@ field is
 present in the result cache dictionary and associated with a
 corresponding result, then the `result` parameter
 is filled with the corresponding value, and this method returns
-`true`; otherwise, the method returns `false`
-and the
-`result` parameter is assigned a `null`
-reference.
+`true`; otherwise, the method returns `false` and the
+`result` parameter is assigned a `null` reference.
 
 ##### Parameters
 
@@ -430,8 +427,7 @@ reference.
 | ---- | ---- | ----------- |
 | result | [\`1@](#T-`1@ '`1@') | Reference to a memory location that will receive a reference to an
 instance of `TResult` if one is found in the
-result cache; otherwise, will be assigned the `null`
-reference. |
+result cache; otherwise, will be assigned the `null` reference. |
 
 ##### Remarks
 

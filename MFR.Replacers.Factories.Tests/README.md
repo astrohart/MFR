@@ -28,7 +28,7 @@
   - [ResourceManager](#P-MFR-Replacers-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Replacers.Factories.Tests.Properties.Resources.ResourceManager')
 - [SaveConfigurationToFileCommandTests](#T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests')
   - [FILE_PATH](#F-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
-  - [ProjectFileRenamerConfigurationData](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.ProjectFileRenamerConfigurationData')
+  - [CONFIGURATION_DATA](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-CONFIGURATION_DATA 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.CONFIGURATION_DATA')
   - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
 - [SaveStringToRegistryCommandTests](#T-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests')
   - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
@@ -57,7 +57,7 @@ method
 returns a reference to an instance of an object that implements the
 [IStringReplacerFactory](#T-MFR-IStringReplacerFactory 'MFR.IStringReplacerFactory')
 interface when the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 value is passed for its argument.
 
 ##### Parameters
@@ -75,7 +75,7 @@ method
 returns a reference to an instance of
 [RenameFilesInFolderStringReplacerFactory](#T-MFR-RenameFilesInFolderStringReplacerFactory 'MFR.RenameFilesInFolderStringReplacerFactory')
 when the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -93,7 +93,7 @@ method
 returns a reference to an instance of
 [RenameSubFoldersStringReplacerFactory](#T-MFR-RenameSubFoldersStringReplacerFactory 'MFR.RenameSubFoldersStringReplacerFactory')
 when the
-[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -111,7 +111,7 @@ method
 returns a reference to an instance of
 [ReplaceTextInFilesStringReplacerFactory](#T-MFR-ReplaceTextInFilesStringReplacerFactory 'MFR.ReplaceTextInFilesStringReplacerFactory')
 when the
-[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
 enumeration value is passed as its argument.
 
 ##### Parameters
@@ -156,7 +156,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringReplacerFactory-AndTextMatchingConfiguration 'MFR.IStringReplacerFactory.AndTextMatchingConfiguration')
 method for the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 value implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface.
@@ -178,7 +178,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[RenameFilesInFolder](#T-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
+[RenameFilesInFolder](#T-MFR-OperationType-RenameFilesInFolder 'MFR.OperationType.RenameFilesInFolder')
 value, is set to that value.
 
 ##### Parameters
@@ -238,7 +238,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringReplacerFactory-AndTextMatchingConfiguration 'MFR.IStringReplacerFactory.AndTextMatchingConfiguration')
 method for the
-[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
 value implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface.
@@ -260,7 +260,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[RenameSubFolders](#T-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
+[RenameSubFolders](#T-MFR-OperationType-RenameSubFolders 'MFR.OperationType.RenameSubFolders')
 value, is set to that value.
 
 ##### Parameters
@@ -320,7 +320,7 @@ This method has no parameters.
 Asserts that each object reference returned by the
 [AndTextMatchingConfiguration](#M-MFR-IStringReplacerFactory-AndTextMatchingConfiguration 'MFR.IStringReplacerFactory.AndTextMatchingConfiguration')
 method for the
-[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
 value implements the
 [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
 interface.
@@ -342,7 +342,7 @@ method for each
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value, and
 for the
-[ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+[ReplaceTextInFiles](#T-MFR-OperationType-ReplaceTextInFiles 'MFR.OperationType.ReplaceTextInFiles')
 value, is set to that value.
 
 ##### Parameters
@@ -405,7 +405,7 @@ class.
 
 ##### Remarks
 
-This class enables callers to provide a filename and a projectFileRenamerConfiguration
+This class enables callers to provide a filename and a configuration
 object reference, bundled together inside a File System Entry POCO, and
 it is serialized to disk.
 
@@ -416,12 +416,12 @@ it is serialized to disk.
 
 File in the root of the C: drive where the data is to be saved.
 
-<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData'></a>
-### ProjectFileRenamerConfigurationData `property`
+<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-CONFIGURATION_DATA'></a>
+### CONFIGURATION_DATA `property`
 
 ##### Summary
 
-Empty projectFileRenamerConfiguration object for testing.
+Empty configuration object for testing.
 
 <a name='M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs'></a>
 ### Test_SaveConfigurationToFile_Works_ForvalidInputs() `method`

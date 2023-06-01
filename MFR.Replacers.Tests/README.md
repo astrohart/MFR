@@ -32,7 +32,7 @@ Asserts that the
 method,
 when the
 [MatchCaseAndExactWord](#T-MFR-TextMatchingConfiguration-MatchCaseAndExactWord 'MFR.TextMatchingConfiguration.MatchCaseAndExactWord')
-matching projectFileRenamerConfiguration is used, properly does replacement in folder
+matching configuration is used, properly does replacement in folder
 names using an exact-word match.
 
 ##### Parameters

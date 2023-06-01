@@ -4,11 +4,10 @@
 ## Contents
 
 - [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
-  - [IsBusy](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsBusy 'MFR.Renamers.Files.Interfaces.IFileRenamer.IsBusy')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionFolderPath')
-  - [LoadedSolutions](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LoadedSolutions 'MFR.Renamers.Files.Interfaces.IFileRenamer.LoadedSolutions')
+  - [LastSolutionPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionPath')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
-  - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.Interfaces.IFileRenamer.ShouldReOpenSolutions')
+  - [ShouldReOpenSolution](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolution 'MFR.Renamers.Files.Interfaces.IFileRenamer.ShouldReOpenSolution')
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
@@ -37,35 +36,20 @@ Defines the publicly-exposed methods and properties of a
 object. Such an object is directly responsible for
 processing the file operations of this application.
 
-<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsBusy'></a>
-### IsBusy `property`
-
-##### Summary
-
-Gets a value that indicates whether this component is currently processing
-operation(s).
-
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath'></a>
 ### LastSolutionFolderPath `property`
 
 ##### Summary
 
-Gets or sets the path to the folder in which last Visual Studio Solution that
-we have worked with most recently resides.
+Gets or sets the path to the folder in which last Visual Studio Solution that we have worked with most recently resides.
 
-<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LoadedSolutions'></a>
-### LoadedSolutions `property`
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionPath'></a>
+### LastSolutionPath `property`
 
 ##### Summary
 
-Gets a reference to a collection, each element of which implements the
-[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
-interface.
-
-##### Remarks
-
-Each element of the collection represents a Visual Studio Solution (*.sln) that
-is loaded in a running instance of Visual Studio.
+Gets or sets the path to the last Visual Studio Solution that we have worked
+with most recently.
 
 <a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
@@ -75,8 +59,8 @@ is loaded in a running instance of Visual Studio.
 Gets a string containing the full pathname of the folder where all
 operations start.
 
-<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolutions'></a>
-### ShouldReOpenSolutions `property`
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-ShouldReOpenSolution'></a>
+### ShouldReOpenSolution `property`
 
 ##### Summary
 
@@ -94,11 +78,6 @@ Files operation on all the folders and files in the root folder with
 the pathname stored in the
 [RootDirectoryPath](#P-MFR-FileRenamer-RootDirectoryPath 'MFR.FileRenamer.RootDirectoryPath')
 property.
-
-##### Returns
-
-`true` if the operations succeeded;
-`false` otherwise.
 
 ##### Parameters
 
@@ -168,12 +147,6 @@ of the folder whose pathname is specified by the
 `rootFolderPath`
 parameter.
 
-##### Returns
-
-`true` if the operation was successful;
-`false` if the operation failed or if the user cancelled the
-operation.
-
 ##### Parameters
 
 | Name | Type | Description |
@@ -221,11 +194,6 @@ Recursively renames all the subfolders in the folder having a
 pathname specified by `rootFolderPath`, replacing
 any occurrences of the text in the `findWhat`
 parameter with the values in the `replaceWith` parameter.
-
-##### Returns
-
-`true` if the operation succeeded;
-`false` otherwise.
 
 ##### Parameters
 
@@ -278,11 +246,6 @@ parameter with the text specified by the
 `replaceWith`
 parameter. A case-sensitive, not-in-exact-word
 search is performed.
-
-##### Returns
-
-`true` if the operation succeeded;
-`false` otherwise.
 
 ##### Parameters
 

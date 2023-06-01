@@ -80,7 +80,7 @@ MFR.Tests.Common
 ##### Summary
 
 Builds instances of fake
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
+[Configuration](#T-MFR-Settings-Configuration-Configuration 'MFR.Settings.Configuration.Configuration')
 objects in a fluent
 manner, initialized for unit tests.
 
@@ -193,9 +193,9 @@ configured as specified for the current use case.
 Reference to an instance of an object that implements the
 [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
 interface whose
-[IConfigurationMatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase')
 and
-[IConfigurationMatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord')
 properties are set to the same values as were passed for the
 `matchCase` and `matchExactWord`
 parameters.
@@ -253,7 +253,7 @@ String containing the fully-qualified pathname of a folder that stores the confi
 
 ##### Summary
 
-String containing the name of a projectFileRenamerConfiguration file.
+String containing the name of a configuration file.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH'></a>
 ### CONFIG_FILE_PATH `constants`
@@ -261,11 +261,11 @@ String containing the name of a projectFileRenamerConfiguration file.
 ##### Summary
 
 String containing the fully-qualified pathname of the master
-projectFileRenamerConfiguration file.
+configuration file.
 
 ##### Remarks
 
-The master projectFileRenamerConfiguration file is defined to be that file, containing
+The master configuration file is defined to be that file, containing
 a JSON representation of an object that implements the [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface, exists
 in the centralized location that is used by the application.
 
@@ -279,7 +279,7 @@ in the centralized location that is used by the application.
 ##### Summary
 
 Fully-qualified pathname to where we expect that the path to the
-projectFileRenamerConfiguration file has been written to.
+configuration file has been written to.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-VALUE_NAME'></a>
 ### VALUE_NAME `constants`
@@ -287,7 +287,7 @@ projectFileRenamerConfiguration file has been written to.
 ##### Summary
 
 Name of the Registry value under which the path to the application's
-projectFileRenamerConfiguration file is to be stored.
+configuration file is to be stored.
 
 <a name='T-MFR-Tests-Common-Properties-Resources'></a>
 ## Resources `type`

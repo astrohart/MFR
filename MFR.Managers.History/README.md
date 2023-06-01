@@ -6,8 +6,6 @@
 - [HistoryManager](#T-MFR-Managers-History-HistoryManager 'MFR.Managers.History.HistoryManager')
   - [#ctor(messageBoxParentWindow)](#M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
   - [_messageBoxParentWindow](#F-MFR-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
-  - [ConfigurationProvider](#P-MFR-Managers-History-HistoryManager-ConfigurationProvider 'MFR.Managers.History.HistoryManager.ConfigurationProvider')
-  - [CurrentConfiguration](#P-MFR-Managers-History-HistoryManager-CurrentConfiguration 'MFR.Managers.History.HistoryManager.CurrentConfiguration')
   - [CanClearAll()](#M-MFR-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
   - [ClearAll()](#M-MFR-Managers-History-HistoryManager-ClearAll 'MFR.Managers.History.HistoryManager.ClearAll')
 - [Resources](#T-MFR-Managers-History-Properties-Resources 'MFR.Managers.History.Properties.Resources')
@@ -66,31 +64,6 @@ interface.
 This field is supposed to be filled with a reference to an object
 that represents the main window of the application.
 
-<a name='P-MFR-Managers-History-HistoryManager-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
-
-##### Summary
-
-Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
-interface.
-
-##### Remarks
-
-This object allows access to the user projectFileRenamerConfiguration and the
-actions
-associated with it.
-
-<a name='P-MFR-Managers-History-HistoryManager-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
-
-##### Summary
-
-Gets or sets a reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
-
 <a name='M-MFR-Managers-History-HistoryManager-CanClearAll'></a>
 ### CanClearAll() `method`
 
@@ -119,7 +92,7 @@ means that there is nothing to do.
 
 ##### Summary
 
-Clears all the history objects in a projectFileRenamerConfiguration object.
+Clears all the history objects in a configuration object.
 
 ##### Returns
 

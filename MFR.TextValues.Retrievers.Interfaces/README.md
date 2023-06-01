@@ -42,7 +42,7 @@ the other.
 
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') now being processed.
+[OperationType](#T-MFR-OperationType 'MFR.OperationType') now being processed.
 
 ##### Returns
 
