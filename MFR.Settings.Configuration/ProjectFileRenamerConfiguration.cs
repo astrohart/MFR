@@ -255,7 +255,7 @@ namespace MFR.Settings.Configuration
         {
             get;
             set;
-        }
+        } = true;
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.

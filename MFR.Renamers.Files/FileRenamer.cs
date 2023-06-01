@@ -10,6 +10,7 @@ using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
+using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -850,6 +851,19 @@ namespace MFR.Renamers.Files
                                                      pathFilter
                                                  )
                                                  .ToList();
+                /*
+                 * Check to see whether the user has requested to rename the
+                 * folder that contains the Solution.  We are assuming here
+                 * that the Root Directory is that folder.
+                 */
+
+                if (CurrentConfiguration.RenameSolutionFolders)
+                {
+                    var rootDirectoryFileSystemEntry =
+                        MakeNewFileSystemEntry.ForPath(RootDirectoryPath);
+                    if (rootDirectoryFileSystemEntry != null)
+                        fileSystemEntries.Add(rootDirectoryFileSystemEntry);
+                }
 
                 if (!fileSystemEntries.Any() && !AbortRequested)
                 {

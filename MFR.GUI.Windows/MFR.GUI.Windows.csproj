@@ -152,17 +152,81 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Collections.Events\xyLOGIX.UI.Dark.Collections.Events.csproj">
+      <Project>{81fc6400-8c3c-4be5-80a0-ee4a76973684}</Project>
+      <Name>xyLOGIX.UI.Dark.Collections.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Collections.Interfaces\xyLOGIX.UI.Dark.Collections.Interfaces.csproj">
+      <Project>{be12e205-8416-44c4-88e8-c6c3b2de313a}</Project>
+      <Name>xyLOGIX.UI.Dark.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Collections\xyLOGIX.UI.Dark.Collections.csproj">
+      <Project>{f1f9a9a7-047f-4ed6-83f0-6804c6cbb327}</Project>
+      <Name>xyLOGIX.UI.Dark.Collections</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Actions\xyLOGIX.UI.Dark.Controls.Actions.csproj">
       <Project>{78a87eaf-e342-4318-ab26-d44015633243}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Collections.Events\xyLOGIX.UI.Dark.Controls.Collections.Events.csproj">
+      <Project>{260d9f6e-08ba-4a20-bd4c-fe3e208307ec}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Collections.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Collections\xyLOGIX.UI.Dark.Controls.Collections.csproj">
+      <Project>{11917ee0-79f6-469b-abd2-9fb078fe083e}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Collections</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Constants\xyLOGIX.UI.Dark.Controls.Constants.csproj">
       <Project>{c06bccca-01db-4e59-8ba5-6941ae345a92}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Events\xyLOGIX.UI.Dark.Controls.Events.csproj">
+      <Project>{d7f88717-5e46-49e8-9e82-62d31fe1ecb8}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Extensions\xyLOGIX.UI.Dark.Controls.Extensions.csproj">
+      <Project>{c4044803-195b-43de-93bc-9891695348fe}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Factories\xyLOGIX.UI.Dark.Controls.Factories.csproj">
+      <Project>{30c27905-201d-4ea9-b714-8360dd24e74a}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Icons\xyLOGIX.UI.Dark.Controls.Icons.csproj">
+      <Project>{d4f8cabc-167c-4cda-9516-c0e18b4acf52}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Icons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
       <Project>{A63CA76D-B2B3-42F7-A6C3-78E980B4C629}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Renderers.Actions\xyLOGIX.UI.Dark.Controls.Renderers.Actions.csproj">
+      <Project>{e0ec09b0-a0e2-4d28-b98b-f7b218784123}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Renderers.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Renderers.Factories\xyLOGIX.UI.Dark.Controls.Renderers.Factories.csproj">
+      <Project>{9a8032fb-1a94-4e6a-9a2d-ce4aa8c39cc3}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Renderers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Renderers.Interfaces\xyLOGIX.UI.Dark.Controls.Renderers.Interfaces.csproj">
+      <Project>{9670b5a5-3d99-4b0b-965d-3037dc1c3983}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Renderers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Renderers\xyLOGIX.UI.Dark.Controls.Renderers.csproj">
+      <Project>{6b3e1d9d-830a-4d28-9ad7-e95cf46218b0}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Renderers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Win32.Constants\xyLOGIX.UI.Dark.Controls.Win32.Constants.csproj">
+      <Project>{0198c4d0-cefe-4e45-9c31-2478befca680}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Win32.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Win32.Translators\xyLOGIX.UI.Dark.Controls.Win32.Translators.csproj">
+      <Project>{8680340c-9bbd-4e47-bfce-5ae0ea93943b}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Win32.Translators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Win32\xyLOGIX.UI.Dark.Controls.Win32.csproj">
+      <Project>{b30c2321-bbc4-41c3-bb4f-beb237355b05}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Win32</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls\xyLOGIX.UI.Dark.Controls.csproj">
       <Project>{9190559b-fb22-4e74-9130-5bfd3ffd6dae}</Project>
@@ -171,6 +235,14 @@
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
       <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
       <Name>xyLOGIX.UI.Dark.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Win32.Constants\xyLOGIX.UI.Dark.Win32.Constants.csproj">
+      <Project>{1b621ce5-6424-459d-8044-e7cc3cc5a9f2}</Project>
+      <Name>xyLOGIX.UI.Dark.Win32.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Win32\xyLOGIX.UI.Dark.Win32.csproj">
+      <Project>{d05762ce-79e2-4647-8aeb-bf3a0df912ee}</Project>
+      <Name>xyLOGIX.UI.Dark.Win32</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
