@@ -156,6 +156,10 @@
       <Project>{78a87eaf-e342-4318-ab26-d44015633243}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Constants\xyLOGIX.UI.Dark.Controls.Constants.csproj">
+      <Project>{c06bccca-01db-4e59-8ba5-6941ae345a92}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
       <Project>{A63CA76D-B2B3-42F7-A6C3-78E980B4C629}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
