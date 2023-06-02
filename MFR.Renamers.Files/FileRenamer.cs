@@ -1698,6 +1698,12 @@ namespace MFR.Renamers.Files
             lock (SyncRoot)
                 IsBusy = false;
 
+            /*
+             * If the user has requested that we rename the Solution's
+             * folder, here is the time to do it.
+             */
+
+
             Finished?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.NoArgs()
                        .ForMessageId(FileRenamerMessages.FRM_FINISHED);

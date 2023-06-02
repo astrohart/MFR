@@ -5,7 +5,7 @@ using System;
 namespace MFR.Settings.Profiles.Actions.Constants
 {
     /// <summary>
-    /// Available actions for use when working with configuration.
+    /// Available actions for use when working with configuration profiles.
     /// </summary>
     [Log(AttributeExclude = true)]
     public class ProfileCollectionActionType : ActionType

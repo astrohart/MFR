@@ -13,7 +13,7 @@ namespace MFR.Settings.Profiles.Actions.Factories
     /// <remarks>
     /// In our parlance, an Action is a process that has both an input and an output.
     /// </remarks>
-    public static class GetProfileCollectionActionType
+    public static class GetProfileCollectionAction
     {
         /// <summary>
         /// Creates a new instance of an object that implements the

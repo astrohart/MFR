@@ -94,7 +94,7 @@ namespace MFR.Settings.Profiles.Providers
         /// </summary>
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadProfileCollectionPathAction
-            => GetProfileCollectionActionType
+            => GetProfileCollectionAction
                .For<IRegQueryExpression<string>, IFileSystemEntry>(
                    ProfileCollectionActionType.LoadStringFromRegistry
                )
@@ -252,7 +252,7 @@ namespace MFR.Settings.Profiles.Providers
             try
 
             {
-                Profiles = GetProfileCollectionActionType
+                Profiles = GetProfileCollectionAction
                            .For<IFileSystemEntry, IProfileCollection>(
                                ProfileCollectionActionType
                                    .LoadProfileCollectionFromFile
