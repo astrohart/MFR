@@ -31,6 +31,7 @@ namespace MFR.FileSystem.Factories.Actions
             try
             {
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
+                if (!Does.FileSystemEntryExist(pathname)) return result;   
 
                 // get the file attributes for file or directory
                 var attr = File.GetAttributes(pathname);
