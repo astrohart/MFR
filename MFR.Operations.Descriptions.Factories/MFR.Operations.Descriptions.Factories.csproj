@@ -108,6 +108,7 @@
     <Compile Include="GetCloseActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="GetFindVisualStudioOperationStartedDescription.cs" />
     <Compile Include="GetLoadAllSolutionsInFolderOperationDescription.cs" />
+    <Compile Include="GetOpenActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="GetOperationDescriptionText.cs" />
     <Compile Include="GetOperationStartedDescription.cs" />
     <Compile Include="GetRenameFilesInFolderOperationDescription.cs" />

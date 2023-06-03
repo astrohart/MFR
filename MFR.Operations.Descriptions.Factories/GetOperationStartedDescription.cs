@@ -73,6 +73,11 @@ namespace MFR.Operations.Descriptions.Factories
                         .SoleInstance();
                     break;
 
+                case OperationType.OpenActiveSolutions:
+                    result = GetOpenActiveSolutionOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
                 case OperationType.ScanDirectoryTreeForSolutionFiles:
                     result =
                         GetScanDirectoryTreeForSolutionFilesOperationStartedDescription

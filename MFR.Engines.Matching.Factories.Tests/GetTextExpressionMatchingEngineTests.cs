@@ -123,7 +123,7 @@ namespace MFR.Engines.Matching.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetTextExpressionMatchingEngine.For(
-                    OperationType.GettingListOfFilesToBeRenamed
+                    OperationType.CalculateListOfFilesToBeRenamed
                 )
             );
 

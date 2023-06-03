@@ -81,7 +81,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetFileSystemEntryListRetriever.For(
-                    OperationType.GettingListOfFilesToBeRenamed
+                    OperationType.CalculateListOfFilesToBeRenamed
                 )
             );
 

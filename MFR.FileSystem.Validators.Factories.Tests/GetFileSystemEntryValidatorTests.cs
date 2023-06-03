@@ -80,7 +80,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
             Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_Operation()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetFileSystemEntryValidator.For(
-                    OperationType.GettingListOfFilesToBeRenamed
+                    OperationType.CalculateListOfFilesToBeRenamed
                 )
             );
 
