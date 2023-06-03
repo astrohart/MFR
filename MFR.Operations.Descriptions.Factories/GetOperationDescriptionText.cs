@@ -9,7 +9,6 @@ namespace MFR.Operations.Descriptions.Factories
     /// Obtains descriptive text <see cref="T:System.String" /> values that explain the
     /// type of operation that is now being performed by the application.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class GetOperationDescriptionText
     {
         /// <summary>
