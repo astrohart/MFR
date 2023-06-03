@@ -67,8 +67,8 @@ namespace MFR.Operations.Descriptions.Factories
                     break;
 
                 case OperationType.UnloadAllSolutionsInFolder:
-                    result = UnloadAllSolutionsInFolderOperationDescription
-                        .Instance;
+                    result = GetUnloadAllSolutionsInFolderOperationDescription
+                        .SoleInstance();
                     break;
 
                 default:

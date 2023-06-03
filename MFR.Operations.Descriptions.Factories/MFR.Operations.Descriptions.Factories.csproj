@@ -114,6 +114,7 @@
     <Compile Include="GetRenameSubFoldersOperationDescription.cs" />
     <Compile Include="GetReplaceTextInFilesOperationDescription.cs" />
     <Compile Include="GetScanDirectoryTreeForSolutionFilesOperationStartedDescription.cs" />
+    <Compile Include="GetUnloadAllSolutionsInFolderOperationDescription.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="GetOperationDescription.cs" />
     <Compile Include="GetOperationStartedDescriptionText.cs" />

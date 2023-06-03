@@ -10,8 +10,7 @@ namespace MFR.Operations.Descriptions
     /// All Solutions in Folder operation.
     /// </summary>
     public class
-        UnloadAllSolutionsInFolderOperationDescription :
-            IOperationDescription
+        UnloadAllSolutionsInFolderOperationDescription : IOperationDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -26,12 +25,14 @@ namespace MFR.Operations.Descriptions
         protected UnloadAllSolutionsInFolderOperationDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Operations.Descriptions.UnloadAllSolutionsInFolderOperationTypeDescription" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Operations.Descriptions.Interfaces.IOperationDescription" />
+        /// interface and which provides user-friendly text that explains that the
+        /// application is currently attempting to close all the instances of Visual Studio
+        /// Solution(s) that this application may be working on.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static UnloadAllSolutionsInFolderOperationDescription
-            Instance
+        public static IOperationDescription Instance
         {
             get;
         } = new UnloadAllSolutionsInFolderOperationDescription();
