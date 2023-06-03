@@ -6,20 +6,13 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a Rename Files in Folder operation.
+    /// Gets the descriptive text to be displayed to the user at the start of a Rename
+    /// Files in Folder operation.
     /// </summary>
     public class
-        RenameFilesInFolderOperationStartedDescription : IOperationStartedDescription
+        RenameFilesInFolderOperationStartedDescription :
+            IOperationStartedDescription
     {
-        /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.RenameFilesInFolderOperationStartedDescription"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderOperationStartedDescription Instance
-        {
-            get;
-        } = new RenameFilesInFolderOperationStartedDescription();
-
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -31,6 +24,20 @@ namespace MFR.Operations.Descriptions
         /// </summary>
         [Log(AttributeExclude = true)]
         protected RenameFilesInFolderOperationStartedDescription() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface that explains that the application is beginning the process of
+        /// renaming files in a folder according to the search-and-replace parameters that
+        /// the user has requested.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IOperationStartedDescription Instance
+        {
+            get;
+        } = new RenameFilesInFolderOperationStartedDescription();
 
         /// <summary>
         /// Gets one of the
