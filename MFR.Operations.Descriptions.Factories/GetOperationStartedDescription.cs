@@ -78,6 +78,11 @@ namespace MFR.Operations.Descriptions.Factories
                         .SoleInstance();
                     break;
 
+                case OperationType.RenameFilesInFolder:
+                    result = GetRenameFilesInFolderOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
                 case OperationType.ScanDirectoryTreeForSolutionFiles:
                     result =
                         GetScanDirectoryTreeForSolutionFilesOperationStartedDescription

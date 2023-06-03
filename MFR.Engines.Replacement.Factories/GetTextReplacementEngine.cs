@@ -44,20 +44,20 @@ namespace MFR.Engines.Replacement.Factories
         /// </exception>
         public static ITextReplacementEngine For(OperationType type)
         {
-            ITextReplacementEngine engine;
+            ITextReplacementEngine result;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    engine = new FileNameReplacementEngine();
+                    result = MakeNewFileNameReplacementEngine.FromScratch();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    engine = new TextInFileReplacementEngine();
+                    result = MakeNewTextInFileReplacementEngine.FromScratch();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    engine = new FolderNameReplacementEngine();
+                    result = MakeNewFolderNameReplacementEngine.FromScratch();
                     break;
 
                 default:
@@ -67,7 +67,7 @@ namespace MFR.Engines.Replacement.Factories
                     );
             }
 
-            return engine;
+            return result;
         }
     }
 }
