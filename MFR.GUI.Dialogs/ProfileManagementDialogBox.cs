@@ -3,7 +3,7 @@ using System.Windows.Forms;
 namespace MFR.GUI.Dialogs
 {
     /// <summary>
-    /// Dialog box to assist the user in managing projectFileRenamerConfiguration profiles.
+    /// Dialog box to assist the user in managing configuration profiles.
     /// </summary>
     public partial class ProfileManagementDialogBox : Form
     {

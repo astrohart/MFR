@@ -125,7 +125,7 @@ namespace MFR.Matchers.Factories
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(matchingConfig), matchingConfig,
-                        $"There are no string matcher objects defined for the Rename Files in Folder operation type that support the '{matchingConfig}' matching projectFileRenamerConfiguration."
+                        $"There are no string matcher objects defined for the Rename Files in Folder operation type that support the '{matchingConfig}' matching configuration."
                     );
             }
 

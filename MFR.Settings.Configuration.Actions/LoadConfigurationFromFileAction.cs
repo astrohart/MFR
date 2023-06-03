@@ -15,7 +15,7 @@ namespace MFR.Settings.Configuration.Actions
 {
     /// <summary>
     /// Accesses a key and value in the system Registry to load the pathname of
-    /// the master projectFileRenamerConfiguration file.
+    /// the master configuration file.
     /// </summary>
     public class LoadConfigurationFromFileAction : ActionBase<IFileSystemEntry,
         IProjectFileRenamerConfiguration>

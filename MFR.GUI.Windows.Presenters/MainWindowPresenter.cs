@@ -76,7 +76,7 @@ namespace MFR.GUI.Windows.Presenters
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -282,7 +282,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of
-        /// projectFileRenamerConfiguration
+        /// configuration
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -383,7 +383,7 @@ namespace MFR.GUI.Windows.Presenters
             ValidateInputs();
 
             // just in case, have the file renamer object update its
-            // projectFileRenamerConfiguration to match that which we have access to
+            // configuration to match that which we have access to
             OperationEngine.UpdateConfiguration(CurrentConfiguration);
 
             OperationEngine.ProcessAll(StartingFolder, FindWhat, ReplaceWith, path => 
@@ -393,7 +393,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Exports the current projectFileRenamerConfiguration data to a file on the
+        /// Exports the current configuration data to a file on the
         /// user's hard drive.
         /// </summary>
         /// <param name="pathname">
@@ -527,7 +527,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
-        /// based on projectFileRenamerConfiguration settings.
+        /// based on configuration settings.
         /// </summary>
         public void InitializeOperationSelections()
         {
@@ -567,7 +567,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Saves data from the screen control and then saves the
-        /// projectFileRenamerConfiguration to the
+        /// configuration to the
         /// persistence location.
         /// </summary>
         public void SaveConfiguration()
@@ -635,7 +635,7 @@ namespace MFR.GUI.Windows.Presenters
 
             /*
              * Make the new Profile the same as the currently-
-             * loaded projectFileRenamerConfiguration.
+             * loaded configuration.
              */
 
             ConfigurationProvider.CurrentConfiguration = newProfile;
@@ -995,7 +995,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
         /// the user to use the GUI. This is because moving data to and from the
-        /// projectFileRenamerConfiguration data source, while a mildly lengthy operation,
+        /// configuration data source, while a mildly lengthy operation,
         /// is
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
@@ -1024,7 +1024,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
         /// the user to use the GUI. This is because moving data to and from the
-        /// projectFileRenamerConfiguration data source, while a mildly lengthy operation,
+        /// configuration data source, while a mildly lengthy operation,
         /// is
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
@@ -1079,7 +1079,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Initializes the currently-loaded projectFileRenamerConfiguration object.
+        /// Initializes the currently-loaded configuration object.
         /// </summary>
         private void InitializeConfiguration()
         {

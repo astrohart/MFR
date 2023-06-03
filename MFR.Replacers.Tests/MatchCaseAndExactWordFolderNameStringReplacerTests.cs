@@ -23,7 +23,7 @@ namespace MFR.Replacers.Tests
         /// when the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
-        /// matching projectFileRenamerConfiguration is used, properly does replacement in folder
+        /// matching configuration is used, properly does replacement in folder
         /// names using an exact-word match.
         /// </summary>
         [Test]

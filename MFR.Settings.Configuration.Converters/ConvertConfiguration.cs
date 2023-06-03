@@ -72,7 +72,7 @@ namespace MFR.Settings.Configuration.Converters
         /// interface into a
         /// JSON-formatted string and returns the resultant string.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
         /// that is to be converted into JSON-formatted text.
@@ -80,20 +80,20 @@ namespace MFR.Settings.Configuration.Converters
         /// <returns>
         /// String containing the JSON equivalent of the
         /// <paramref
-        ///     name="projectFileRenamerConfiguration" />
+        ///     name="configuration" />
         /// object fed in.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [return:NotLogged]
-        public static string ToJson(IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+        public static string ToJson(IProjectFileRenamerConfiguration configuration)
         {
-            if (projectFileRenamerConfiguration == null)
-                throw new ArgumentNullException(nameof(projectFileRenamerConfiguration));
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
             return JsonConvert.SerializeObject(
-                projectFileRenamerConfiguration as ProjectFileRenamerConfiguration, Settings
+                configuration as ProjectFileRenamerConfiguration, Settings
             );
         }
     }

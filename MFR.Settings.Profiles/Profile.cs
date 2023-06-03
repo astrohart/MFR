@@ -62,7 +62,7 @@ namespace MFR.Settings.Profiles
         /// <param name="source">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
-        /// that contains projectFileRenamerConfiguration settings to copy into this object.
+        /// that contains configuration settings to copy into this object.
         /// </param>
         /// <param name="name">
         /// (Required.) String containing the descriptive name that the user wants to use

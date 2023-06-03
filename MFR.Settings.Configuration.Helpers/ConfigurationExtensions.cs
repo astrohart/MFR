@@ -19,10 +19,10 @@ namespace MFR.Settings.Configuration.Helpers
     public static class ConfigurationExtensions
     {
         /// <summary>
-        /// Allows us to work with the specified <paramref name="projectFileRenamerConfiguration" /> object
+        /// Allows us to work with the specified <paramref name="configuration" /> object
         /// as if it were a Profile.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object
         /// that implements the
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
@@ -31,21 +31,21 @@ namespace MFR.Settings.Configuration.Helpers
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Profiles.Interfaces.IProfile" /> interface that
-        /// represents the specified <paramref name="projectFileRenamerConfiguration" />.
+        /// represents the specified <paramref name="configuration" />.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="projectFileRenamerConfiguration" />, is passed a
+        /// parameter, <paramref name="configuration" />, is passed a
         /// <see langword="null" /> value.
         /// </exception>
-        public static IProfile AsProfile(this IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+        public static IProfile AsProfile(this IProjectFileRenamerConfiguration configuration)
         {
-            if (projectFileRenamerConfiguration == null)
-                throw new ArgumentNullException(nameof(projectFileRenamerConfiguration));
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
 
-            return projectFileRenamerConfiguration is IProfile profile
+            return configuration is IProfile profile
                 ? profile
-                : projectFileRenamerConfiguration.ToProfile(
+                : configuration.ToProfile(
                     "tmp_" + Guid.NewGuid()
                                  .ToString("B")
                                  .ToUpperInvariant()
@@ -102,11 +102,11 @@ namespace MFR.Settings.Configuration.Helpers
         }
 
         /// <summary>
-        /// Determines whether the specified <paramref name="projectFileRenamerConfiguration" /> actually
+        /// Determines whether the specified <paramref name="configuration" /> actually
         /// refers to a bona fide <c>Profile</c> or whether it was simply transformed into
         /// a transient <c>Profile</c> object (having a name beginning with <c>_tmp</c>).
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object
         /// that implements the
         /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
@@ -114,14 +114,14 @@ namespace MFR.Settings.Configuration.Helpers
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified
-        /// <paramref name="projectFileRenamerConfiguration" /> is merely a transient <c>Profile</c> object;
+        /// <paramref name="configuration" /> is merely a transient <c>Profile</c> object;
         /// <see langword="false" /> otherwise.
         /// </returns>
-        public static bool IsTransientProfile(this IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+        public static bool IsTransientProfile(this IProjectFileRenamerConfiguration configuration)
         {
-            if (projectFileRenamerConfiguration == null) return true;
+            if (configuration == null) return true;
 
-            var correspondingProfile = projectFileRenamerConfiguration.AsProfile();
+            var correspondingProfile = configuration.AsProfile();
 
             return string.IsNullOrWhiteSpace(correspondingProfile.Name) ||
                    correspondingProfile.Name.StartsWith("tmp_");

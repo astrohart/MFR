@@ -18,7 +18,7 @@ namespace MFR.Replacers.Factories.Tests
     /// class.
     /// </summary>
     /// <remarks>
-    /// This class enables callers to provide a filename and a projectFileRenamerConfiguration
+    /// This class enables callers to provide a filename and a configuration
     /// object reference, bundled together inside a File System Entry POCO, and
     /// it is serialized to disk.
     /// </remarks>
@@ -31,7 +31,7 @@ namespace MFR.Replacers.Factories.Tests
         private const string FILE_PATH = @"C:\config.json";
 
         /// <summary>
-        /// Empty projectFileRenamerConfiguration object for testing.
+        /// Empty configuration object for testing.
         /// </summary>
         private static IProjectFileRenamerConfiguration ProjectFileRenamerConfigurationData
         {

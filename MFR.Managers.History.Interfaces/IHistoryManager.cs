@@ -9,7 +9,7 @@ namespace MFR.Managers.History.Interfaces
     public interface IHistoryManager : IConfigurationComposedObject
     {
         /// <summary>
-        /// Clears all the history objects in a projectFileRenamerConfiguration object.
+        /// Clears all the history objects in a configuration object.
         /// </summary>
         /// <returns>
         /// <see langword="true" /> if the Clear operation was carried out

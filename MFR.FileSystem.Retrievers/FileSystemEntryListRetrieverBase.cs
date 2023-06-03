@@ -52,7 +52,7 @@ namespace MFR.FileSystem.Retrievers
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -164,7 +164,7 @@ namespace MFR.FileSystem.Retrievers
         /// <see
         ///     cref="T:MFR.ITextExpressionMatchingEngine" />
         /// interface,
-        /// for the current operation type and projectFileRenamerConfiguration.
+        /// for the current operation type and configuration.
         /// </summary>
         /// <remarks>
         /// The property is designed to be called as part of a fluent
@@ -227,7 +227,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
+        /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder whose pathname is specified by the '
@@ -461,7 +461,7 @@ namespace MFR.FileSystem.Retrievers
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
+        /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(string rootFolderPath,
@@ -494,7 +494,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
+        /// Thrown if no configuration data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown in the event that the
@@ -564,7 +564,7 @@ namespace MFR.FileSystem.Retrievers
         /// <summary>
         /// Determines whether the path and/or user-state data in the specified
         /// file system <paramref name="entry" /> object matches search and
-        /// projectFileRenamerConfiguration criteria specified by the user.
+        /// configuration criteria specified by the user.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements

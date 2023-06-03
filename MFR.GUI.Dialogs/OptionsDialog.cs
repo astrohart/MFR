@@ -56,7 +56,7 @@ namespace MFR.GUI.Dialogs
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -192,7 +192,7 @@ namespace MFR.GUI.Dialogs
         /// <remarks>
         /// This method responds to a click of the '...' button that lies next
         /// to the text box that accepts the pathname of the application's
-        /// projectFileRenamerConfiguration file.
+        /// configuration file.
         /// </remarks>
         private void OnClickConfigPathnameBrowseButton(object sender,
             EventArgs e)

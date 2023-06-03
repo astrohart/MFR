@@ -64,7 +64,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.Pass();
 
             /*
-            var projectFileRenamerConfiguration =
+            var configuration =
                 ConfigurationBuilder.BuildConfigurationForUseCase(
                     true, /* match case
                     true
@@ -137,7 +137,7 @@ namespace MFR.FileSystem.Helpers.Tests
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the actions
+        /// This object allows access to the user configuration and the actions
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigurationProvider ConfigurationProvider

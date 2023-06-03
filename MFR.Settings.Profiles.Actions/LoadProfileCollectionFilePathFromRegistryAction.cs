@@ -12,7 +12,7 @@ namespace MFR.Settings.Profiles.Actions
 {
     /// <summary>
     /// Accesses a key and value in the system Registry to load the pathname of
-    /// the master projectFileRenamerConfiguration file.
+    /// the master configuration file.
     /// </summary>
     public class LoadProfileCollectionFilePathFromRegistryAction : CachedResultActionBase<
         IRegQueryExpression<string>, IFileSystemEntry>

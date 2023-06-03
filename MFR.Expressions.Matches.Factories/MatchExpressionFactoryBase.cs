@@ -26,7 +26,7 @@ namespace MFR.Expressions.Matches.Factories
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>

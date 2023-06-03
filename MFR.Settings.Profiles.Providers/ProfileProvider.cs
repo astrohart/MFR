@@ -208,7 +208,7 @@ namespace MFR.Settings.Profiles.Providers
         /// </param>
         /// <remarks>
         /// The file whose pathname is passed must not be the actual
-        /// projectFileRenamerConfiguration file, but a separate file.
+        /// configuration file, but a separate file.
         /// </remarks>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file whose pathname is passed in the

@@ -23,7 +23,7 @@ namespace MFR.Settings.Configuration.Providers
 {
     /// <summary>
     /// Provides shared functionality for obtaining and storing the path to the
-    /// user's projectFileRenamerConfiguration file.
+    /// user's configuration file.
     /// </summary>
     public class
         ConfigurationProvider : IProjectFileRenamerConfigurationProvider
@@ -89,7 +89,7 @@ namespace MFR.Settings.Configuration.Providers
 
         /// <summary>
         /// Gets a string whose value is the pathname of the system Registry key in which
-        /// projectFileRenamerConfiguration settings are stored.
+        /// configuration settings are stored.
         /// </summary>
         public string ConfigurationFilePathKeyName
             => ConfigurationPathRegistry.KeyName;
@@ -198,14 +198,14 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
-        /// Exports projectFileRenamerConfiguration data to a file other than the master
-        /// projectFileRenamerConfiguration file.
+        /// Exports configuration data to a file other than the master
+        /// configuration file.
         /// </summary>
         /// <param name="exportFileName">
         /// </param>
         /// <remarks>
         /// Before performing the export, the method first saves the latest
-        /// settings out to the master projectFileRenamerConfiguration file.
+        /// settings out to the master configuration file.
         /// <para />
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
@@ -237,7 +237,7 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
-        /// Imports projectFileRenamerConfiguration data from a file whose path is
+        /// Imports configuration data from a file whose path is
         /// <paramref name="sourceFilePath" />.
         /// </summary>
         /// <param name="sourceFilePath">
@@ -256,10 +256,10 @@ namespace MFR.Settings.Configuration.Providers
         /// </exception>
         /// <remarks>
         /// First, this method loads the data from the file specified into the
-        /// application's projectFileRenamerConfiguration object.
+        /// application's configuration object.
         /// <para />
         /// Then, the method saves the new data out to the master
-        /// projectFileRenamerConfiguration file.
+        /// configuration file.
         /// </remarks>
         public void Import(string sourceFilePath)
         {
@@ -275,7 +275,7 @@ namespace MFR.Settings.Configuration.Providers
                 );
 
             Load(sourceFilePath);
-            Save(); /* save projectFileRenamerConfiguration data out to the master file */
+            Save(); /* save configuration data out to the master file */
         }
 
         /// <summary>
@@ -363,7 +363,7 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
-        /// Saves projectFileRenamerConfiguration data to a file on the disk having path
+        /// Saves configuration data to a file on the disk having path
         /// <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
@@ -387,7 +387,7 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
-        /// Saves projectFileRenamerConfiguration data to a file on the disk having path
+        /// Saves configuration data to a file on the disk having path
         /// <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">

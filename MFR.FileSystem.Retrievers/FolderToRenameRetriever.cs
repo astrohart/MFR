@@ -93,7 +93,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no projectFileRenamerConfiguration data is attached to this object.
+        /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(string rootFolderPath,

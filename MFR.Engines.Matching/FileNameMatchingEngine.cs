@@ -21,12 +21,12 @@ namespace MFR.Engines.Matching
         /// returns a reference to it.
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="projectFileRenamerConfiguration" />,
+        /// Thrown if the required parameter, <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public FileNameMatchingEngine(IProjectFileRenamerConfiguration projectFileRenamerConfiguration) : base(
-            projectFileRenamerConfiguration
+        public FileNameMatchingEngine(IProjectFileRenamerConfiguration configuration) : base(
+            configuration
         ) { }
 
         /// <summary>

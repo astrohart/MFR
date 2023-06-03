@@ -96,13 +96,13 @@ namespace MFR.Settings.Configuration.Serializers
         }
 
         /// <summary>
-        /// Saves projectFileRenamerConfiguration data to a file.
+        /// Saves configuration data to a file.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) String containing the pathname of the file that the data
         /// is to be saved to.
         /// </param>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
@@ -110,19 +110,19 @@ namespace MFR.Settings.Configuration.Serializers
         /// interface.
         /// </param>
         public static void Save(string pathname,
-            IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+            IProjectFileRenamerConfiguration configuration)
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
 
-            if (projectFileRenamerConfiguration == null)
+            if (configuration == null)
                 return;
 
             try
             {
                 var content =
                     ConvertConfiguration.ToJson(
-                        projectFileRenamerConfiguration
+                        configuration
                     );
 
                 if (string.IsNullOrWhiteSpace(content))

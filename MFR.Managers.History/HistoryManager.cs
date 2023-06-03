@@ -64,7 +64,7 @@ namespace MFR.Managers.History
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -86,7 +86,7 @@ namespace MFR.Managers.History
         } = ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
-        /// Clears all the history objects in a projectFileRenamerConfiguration object.
+        /// Clears all the history objects in a configuration object.
         /// </summary>
         /// <returns>
         /// <see langword="true" /> if the Clear operation was carried out
@@ -98,7 +98,7 @@ namespace MFR.Managers.History
             if (!CanClearAll())
                 return false;
 
-            // Since this projectFileRenamerConfiguration object may have god knows how many
+            // Since this configuration object may have god knows how many
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.

@@ -34,7 +34,7 @@ namespace MFR.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
@@ -45,14 +45,14 @@ namespace MFR.Engines.Replacement
         /// <exception
         ///     cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="projectFileRenamerConfiguration" />, is passed a
+        /// parameter, <paramref name="configuration" />, is passed a
         /// <see
         ///     langword="null" />
         /// value.
         /// </exception>
         public TextInFileReplacementEngine(
-            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
-            base(projectFileRenamerConfiguration) { }
+            IProjectFileRenamerConfiguration configuration) :
+            base(configuration) { }
 
         /// <summary>
         /// Gets one of the

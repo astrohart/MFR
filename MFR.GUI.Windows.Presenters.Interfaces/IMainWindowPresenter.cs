@@ -88,7 +88,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of
-        /// projectFileRenamerConfiguration
+        /// configuration
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -147,7 +147,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void DoSelectedOperations();
 
         /// <summary>
-        /// Exports the current projectFileRenamerConfiguration data to the file on the
+        /// Exports the current configuration data to the file on the
         /// user's hard drive having the specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
@@ -183,7 +183,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
-        /// based on projectFileRenamerConfiguration settings.
+        /// based on configuration settings.
         /// </summary>
         void InitializeOperationSelections();
 
@@ -210,7 +210,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Saves data from the screen control and then saves the
-        /// projectFileRenamerConfiguration to the persistence location.
+        /// configuration to the persistence location.
         /// </summary>
         void SaveConfiguration();
 

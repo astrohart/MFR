@@ -282,10 +282,10 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// <see cref="T:MFR.IMatchExpressionFactory" />
         /// interface and that is configured according to the
         /// <paramref
-        ///     name="projectFileRenamerConfiguration" />
+        ///     name="configuration" />
         /// instance specified.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface.
         /// </param>
@@ -294,7 +294,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// <see
         ///     cref="T:MFR.IMatchExpressionFactory" />
         /// interface
-        /// that has the specified <paramref name="projectFileRenamerConfiguration" /> attached.
+        /// that has the specified <paramref name="configuration" /> attached.
         /// </returns>
         /// <remarks>
         /// The specific match-expression factory in use is that which is keyed
@@ -305,8 +305,8 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// </remarks>
         private static IMatchExpressionFactory
             GetMatchExpressionFactoryConfiguredAccordingTo(
-                IProjectFileRenamerConfiguration projectFileRenamerConfiguration)
+                IProjectFileRenamerConfiguration configuration)
             => GetMatchExpressionFactory.For(OperationType.RenameFilesInFolder)
-                                        .AndAttachConfiguration(projectFileRenamerConfiguration);
+                                        .AndAttachConfiguration(configuration);
     }
 }

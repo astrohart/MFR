@@ -106,7 +106,7 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -508,7 +508,7 @@ namespace MFR.GUI.Application
         private void ProcessCommandLine()
             /*
              * If the user specified one or more argument(s) on the command line of this
-             * application, translate those parameters into projectFileRenamerConfiguration settings for this
+             * application, translate those parameters into configuration settings for this
              * run.
              */
             => GetCommandLineProcessor.OfType(

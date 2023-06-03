@@ -98,7 +98,7 @@ namespace MFR.Renamers.Files
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -1167,7 +1167,7 @@ namespace MFR.Renamers.Files
             /*
              * We do not perform any input validation here.  This is because
              * this value may be being initialized from a default (blank)
-             * projectFileRenamerConfiguration.   the configuration may be blank for a number of
+             * configuration.   the configuration may be blank for a number of
              * reasons, but one of these is the issue that the configuration
              * file on the disk may have gotten corrupted or erased.
              */

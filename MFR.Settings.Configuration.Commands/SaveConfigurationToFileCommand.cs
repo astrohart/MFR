@@ -11,7 +11,7 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Settings.Configuration.Commands
 {
     /// <summary>
-    /// Saves a projectFileRenamerConfiguration object, i.e., one that implements the
+    /// Saves a configuration object, i.e., one that implements the
     /// <see
     ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface, to a JSON file.

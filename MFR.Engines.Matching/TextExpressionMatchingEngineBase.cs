@@ -38,7 +38,7 @@ namespace MFR.Engines.Matching
         /// and returns
         /// a reference to it.
         /// </summary>
-        /// <param name="projectFileRenamerConfiguration">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
@@ -48,12 +48,12 @@ namespace MFR.Engines.Matching
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="projectFileRenamerConfiguration" />,
+        /// <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         protected TextExpressionMatchingEngineBase(
-            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
-            base(projectFileRenamerConfiguration) { }
+            IProjectFileRenamerConfiguration configuration) :
+            base(configuration) { }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -62,7 +62,7 @@ namespace MFR.Engines.Matching
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>

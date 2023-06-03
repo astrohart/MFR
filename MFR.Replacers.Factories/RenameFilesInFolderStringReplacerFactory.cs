@@ -126,7 +126,7 @@ namespace MFR.Replacers.Factories
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(matchingConfig), matchingConfig,
-                        $"There are no string replacer objects defined for the Rename Files in Folder operation type that support the '{matchingConfig}' matching projectFileRenamerConfiguration."
+                        $"There are no string replacer objects defined for the Rename Files in Folder operation type that support the '{matchingConfig}' matching configuration."
                     );
             }
 

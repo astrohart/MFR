@@ -28,7 +28,7 @@ namespace MFR.CommandLine.Translators
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -91,7 +91,7 @@ namespace MFR.CommandLine.Translators
                                        .SetIsFromCommandLine(true)  // flag the configuration as being from the command line
                                        .ShouldAutoStart(
                                            cmdInfo.AutoStart
-                                       ); // mark this as a command-line specified projectFileRenamerConfiguration
+                                       ); // mark this as a command-line specified configuration
         }
     }
 }

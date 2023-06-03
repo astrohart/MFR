@@ -92,7 +92,7 @@ namespace MFR.GUI.Windows
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user projectFileRenamerConfiguration and the
+        /// This object allows access to the user configuration and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -420,7 +420,7 @@ namespace MFR.GUI.Windows
              *
              * However, if the configuration did come from the command-line options chosen
              * by the user, then we should update the screen with the values from the
-             * projectFileRenamerConfiguration, and then "click" the Perform Operation button.
+             * configuration, and then "click" the Perform Operation button.
              */
             if (!CurrentConfiguration.IsFromCommandLine ||
                 !CurrentConfiguration.AutoStart)
@@ -480,7 +480,7 @@ namespace MFR.GUI.Windows
                     .Execute();
 
                 ConfigurationProvider.CurrentConfiguration =
-                    result; // set the newly-created profile as the new projectFileRenamerConfiguration.
+                    result; // set the newly-created profile as the new configuration.
             }
             catch (Exception ex)
             {
@@ -1335,7 +1335,7 @@ namespace MFR.GUI.Windows
         private void OnToolsConfigurationNewProfile(object sender, EventArgs e)
         {
             // Creating a new profile will blank out the application screen.
-            // Save the current projectFileRenamerConfiguration settings.
+            // Save the current configuration settings.
             var results =
                 Display.ProfileNameDialogBox(ProfileCreateOperationType.New);
             if (DialogResult.Cancel == results.DialogResult)

@@ -6,7 +6,7 @@ namespace MFR.Settings.Configuration.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a
-    /// projectFileRenamerConfiguration object.
+    /// configuration object.
     /// </summary>
     public interface IProjectFileRenamerConfiguration
     {
@@ -28,7 +28,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// specified operation(s) have been completed.
         /// </summary>
         /// <remarks>
-        /// This flag is ignored if this projectFileRenamerConfiguration did not originate
+        /// This flag is ignored if this configuration did not originate
         /// from the command
         /// line.
         /// </remarks>
@@ -72,7 +72,7 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this projectFileRenamerConfiguration
+        /// Gets or sets a value indicating whether this configuration
         /// was specified by the
         /// user on the command line.
         /// </summary>

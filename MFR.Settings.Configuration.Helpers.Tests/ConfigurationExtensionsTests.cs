@@ -20,7 +20,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
-        /// enum value for a projectFileRenamerConfiguration object whose
+        /// enum value for a configuration object whose
         /// <see
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
@@ -49,7 +49,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseOnly" />
         /// enum
-        /// value for a projectFileRenamerConfiguration object whose
+        /// value for a configuration object whose
         /// <see
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
@@ -77,7 +77,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchExactWordOnly" />
-        /// enum value for a projectFileRenamerConfiguration object whose
+        /// enum value for a configuration object whose
         /// <see
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
@@ -105,7 +105,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
-        /// enum value for a projectFileRenamerConfiguration object whose
+        /// enum value for a configuration object whose
         /// <see
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
         /// property is set to

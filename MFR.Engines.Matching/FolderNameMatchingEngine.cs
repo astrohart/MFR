@@ -9,7 +9,7 @@ namespace MFR.Engines.Matching
     /// <summary>
     /// Searches for matches to textual-search criteria patterns and regexes in
     /// the pathnames of folders, according to rules specified by
-    /// projectFileRenamerConfiguration
+    /// configuration
     /// settings.
     /// </summary>
     public class FolderNameMatchingEngine : TextExpressionMatchingEngineBase
@@ -23,13 +23,13 @@ namespace MFR.Engines.Matching
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="projectFileRenamerConfiguration" />,
+        /// <paramref name="configuration" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
         public FolderNameMatchingEngine(
-            IProjectFileRenamerConfiguration projectFileRenamerConfiguration) :
-            base(projectFileRenamerConfiguration) { }
+            IProjectFileRenamerConfiguration configuration) :
+            base(configuration) { }
 
         /// <summary>
         /// Constructs a new instance of
