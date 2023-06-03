@@ -46,7 +46,7 @@ namespace MFR.FileSystem.Retrievers.Tests
 
             Assert.DoesNotThrow(
                 () => paths = GetFileSystemEntryListRetriever.For(
-                        OperationType.GetListOfAllSolutionFilesInDirectoryTree
+                        OperationType.ScanDirectoryTreeForSolutionFiles
                     )
                     .WithSearchOption(SearchOption.AllDirectories)
                     .GetMatchingFileSystemPaths(ROOT_FOLDER)

@@ -6,7 +6,8 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user while the application is initializing itself.
+    /// Gets the descriptive text to be displayed to the user while the application is
+    /// initializing itself.
     /// </summary>
     public class
         InitializeApplicationOperationStartedDescription :
@@ -16,21 +17,20 @@ namespace MFR.Operations.Descriptions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static InitializeApplicationOperationStartedDescription()
-        {
-        }
+        static InitializeApplicationOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected InitializeApplicationOperationStartedDescription()
-        {
-        }
+        protected InitializeApplicationOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.GettingListOfFilesToBeRenamedOperationStartedDescription"/> .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface that provides user-friendly text that indicates we are initializing
+        /// the application when it is launched.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IOperationStartedDescription Instance
@@ -39,8 +39,10 @@ namespace MFR.Operations.Descriptions
         } = new InitializeApplicationOperationStartedDescription();
 
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MFR.Operations.Constants.OperationType"/> values that
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType

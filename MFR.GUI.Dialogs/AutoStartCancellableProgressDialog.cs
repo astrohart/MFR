@@ -475,7 +475,7 @@ namespace MFR.GUI.Dialogs
             if (e.OperationType == OperationType.Unknown) return;
 
             ShowCalculatingProgressBar(
-                GetOperationStartedDescription.For(e.OperationType)
+                GetOperationStartedDescriptionText.For(e.OperationType)
             );
         }
 
@@ -513,12 +513,15 @@ namespace MFR.GUI.Dialogs
         {
             if (e.OperationType == OperationType.Unknown) return;
             if (e.Entry == null) return;
-            if (string.IsNullOrWhiteSpace(e.Entry.Path)) return;
+            
+            var currentFilePathname = e.Entry.Path;
+            if (string.IsNullOrWhiteSpace(currentFilePathname)) return;
 
-            IncrementProgressBar(
-                GetOperationDescription.For(e.OperationType)
-                                       .Text, e.Entry.Path
-            );
+            var statusLabelText =
+                GetOperationDescriptionText.For(e.OperationType);
+            if (string.IsNullOrWhiteSpace(statusLabelText)) return;
+
+            IncrementProgressBar(statusLabelText, currentFilePathname);
         }
 
         /// <summary>

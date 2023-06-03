@@ -1,107 +1,92 @@
-using MFR.Operations.Constants;
+﻿using MFR.Operations.Constants;
+using MFR.Operations.Descriptions.Interfaces;
+using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace MFR.Operations.Descriptions.Factories
 {
     /// <summary>
-    /// Creates instances of objects that implement the
+    /// Obtains references to instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.IOperationStartedDescription" />
-    /// interface.
+    ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+    /// interface that change depending on the strategy desired.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetOperationStartedDescription
     {
         /// <summary>
-        /// Creates a new instance of an object that implements the
+        /// Obtains a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.IOperationStartedDescription" />
-        /// interface,
-        /// corresponding to the specified operation <paramref name="type" /> ,
-        /// and returns a reference to it.
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface which corresponds to the specified meeting <paramref name="type" />.
         /// </summary>
         /// <param name="type">
-        /// (Required.) One of the <see cref="T:MFR.Operations.Constants.OperationType" />
-        /// values that specifies the operation type you want the descriptive
-        /// text for.
+        /// (Required.) One of the
+        /// <see cref="T:MFR.Operations.Constants.OperationType" /> enumeration values that
+        /// describes the type of operation that is to be performed by the application..
         /// </param>
         /// <returns>
-        /// String containing the text to describe the operation, or blank if a
-        /// handler corresponding to the specified
+        /// Reference to the instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Operations.Constants.OperationType" />
-        /// value can
-        /// be found.
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface which corresponds to the specific enumeration value that is specified
+        /// for the argument of the <paramref name="type" /> parameter.
         /// </returns>
+        /// <remarks>
+        /// This method will throw an exception if there are no types implemented
+        /// that correspond to the enumeration value passed for the argument of the
+        /// <paramref name="type" /> parameter.
+        /// </remarks>
         /// <exception cref="T:System.ArgumentOutOfRangeException">
-        /// Thrown if the <see cref="T:MFR.Operations.Constants.OperationType" /> value
-        /// specified in the <paramref name="type" /> parameter does not have a
-        /// corresponding Operation Started Description object associated with it.
+        /// Thrown if there is no corresponding concrete type defined that implements the
+        /// <see
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface and which corresponds to the specific enumeration value that was
+        /// passed for the argument of the <paramref name="type" /> parameter, if it is not
+        /// supported.
         /// </exception>
-        public static string For(OperationType type)
+        public static IOperationStartedDescription For(OperationType type)
         {
-            string description;
+            IOperationStartedDescription result;
 
             switch (type)
             {
-                case OperationType.CloseActiveSolutions:
-                    description = CloseActiveSolutionOperationStartedDescription
-                                  .Instance.Text;
-                    break;
-
-                case OperationType.FindVisualStudio:
-                    description = FindVisualStudioOperationStartedDescription
-                                  .Instance.Text;
-                    break;
-
-                case OperationType.GettingListOfFilesToBeRenamed:
-                    description =
-                        GettingListOfFilesToBeRenamedOperationStartedDescription
-                            .Instance.Text;
-                    break;
-
-                case OperationType.InitializeApplication:
-                    description =
-                        InitializeApplicationOperationStartedDescription
-                            .Instance.Text;
-                    break;
-
-                case OperationType.OpenActiveSolutions:
-                    description = OpenActiveSolutionOperationStartedDescription
-                                  .Instance.Text;
-                    break;
-
-                case OperationType.RenameFilesInFolder:
-                    description = RenameFilesInFolderOperationStartedDescription
-                                  .Instance.Text;
-                    break;
-
-                case OperationType.ReplaceTextInFiles:
-                    description = ReplaceTextInFilesOperationStartedDescription
-                                  .Instance.Text;
-                    break;
-
-                case OperationType.RenameSubFolders:
-                    description = RenameSubFoldersOperationStartedDescription
-                                  .Instance.Text;
-                    break;
-
-                case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
-                    description =
-                        GetListOfAllSolutionFilesInDirectoryTreeOperationStartedDescription
-                            .Instance.Text;
+                case OperationType.CalculateListOfFilesToBeRenamed:
+                    result =
+                        GetCalculateListOfFilesToBeRenamedOperationStartedDescription
+                            .SoleInstance();
                     break;
 
                 case OperationType.CheckingWhetherChosenFolderContainsSolutions:
-                    description =
-                        CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription
-                            .Instance.Text;
+                    result =
+                        GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription
+                            .SoleInstance();
+                    break;
+
+                case OperationType.CloseActiveSolutions:
+                    result = GetCloseActiveSolutionOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
+                case OperationType.FindVisualStudio:
+                    result = GetFindVisualStudioOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
+                case OperationType.ScanDirectoryTreeForSolutionFiles:
+                    result =
+                        GetScanDirectoryTreeForSolutionFilesOperationStartedDescription
+                            .SoleInstance();
                     break;
 
                 default:
-                    description = string.Empty;
-                    break;
+                    throw new ArgumentOutOfRangeException(
+                        nameof(type), type,
+                        $"The type of operation to be performed, '{type}', is not supported."
+                    );
             }
 
-            return description;
+            return result;
         }
     }
 }

@@ -17,25 +17,31 @@ namespace MFR.Operations.Descriptions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription() { }
+        static
+            CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription() { }
+        protected
+            CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
+        /// Gets a reference to the one and only instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.RenameSubFoldersOperationStartedDescription" />
-        /// .
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface that provides a message that we display to the user when the
+        /// operation of checking whether a given folder even contains Visual Studio
+        /// Solutions, is starting.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
-        } = new CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription();
+        } =
+            new
+                CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription();
 
         /// <summary>
         /// Gets one of the
@@ -57,6 +63,7 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions;
+        } = Resources
+            .OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions;
     }
 }

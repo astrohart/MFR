@@ -6,35 +6,15 @@ namespace MFR.Operations.Constants
     public enum OperationType
     {
         /// <summary>
-        /// The application is loading configuration and profiles and such.
+        /// The list of file system entries to be renamed is being retrieved.
         /// </summary>
-        InitializeApplication = 12,
+        CalculateListOfFilesToBeRenamed = 7,
 
         /// <summary>
         /// Checking the starting folder that has been selected to ensure that it or one or
         /// more of its subfolders contain Visual Studio Solution (*.sln) files.
         /// </summary>
         CheckingWhetherChosenFolderContainsSolutions = 11,
-
-        /// <summary>
-        /// Gathering a list of the top-level subfolders of the current folder.
-        /// </summary>
-        GetTopLevelSubFolders = 10,
-
-        /// <summary>
-        /// Searches a specified folder for the paths of all the <c>*.sln</c> files within
-        /// it.
-        /// <para />
-        /// For each <c>*.sln</c> file found, opens it in its own separate instance of
-        /// Visual Studio.
-        /// </summary>
-        LoadAllSolutionsInFolder = 3,
-
-        /// <summary>
-        /// Unloads all <c>*.sln</c> files in a given folder, that are currently loaded
-        /// in running instances of Visual Studio.
-        /// </summary>
-        UnloadAllSolutionsInFolder = 4,
 
         /// <summary>
         /// Closes the active solution in Visual Studio.
@@ -54,9 +34,29 @@ namespace MFR.Operations.Constants
         FindVisualStudio = 6,
 
         /// <summary>
-        /// The list of file system entries to be renamed is being retrieved.
+        /// The application is loading configuration and profiles and such.
         /// </summary>
-        GettingListOfFilesToBeRenamed = 7,
+        InitializeApplication = 12,
+
+        /// <summary>
+        /// Gathering a list of the top-level subfolders of the current folder.
+        /// </summary>
+        ListTopLevelSubFolders = 10,
+
+        /// <summary>
+        /// Searches a specified folder for the paths of all the <c>*.sln</c> files within
+        /// it.
+        /// <para />
+        /// For each <c>*.sln</c> file found, opens it in its own separate instance of
+        /// Visual Studio.
+        /// </summary>
+        LoadAllSolutionsInFolder = 3,
+
+        /// <summary>
+        /// Unloads all <c>*.sln</c> files in a given folder, that are currently loaded
+        /// in running instances of Visual Studio.
+        /// </summary>
+        UnloadAllSolutionsInFolder = 4,
 
         /// <summary>
         /// Open the solution back up in Visual Studio.
@@ -83,10 +83,15 @@ namespace MFR.Operations.Constants
         RenameSubFolders = 1,
 
         /// <summary>
+        /// The folder in which the containing Solution is itself being renamed.
+        /// </summary>
+        RenameSolutionFolder = 13,
+
+        /// <summary>
         /// We are searching for ALL files with the extension *.sln in a specific directory
         /// tree.
         /// </summary>
-        GetListOfAllSolutionFilesInDirectoryTree = 9,
+        ScanDirectoryTreeForSolutionFiles = 9,
 
         /// <summary>
         /// Unknown operation type.

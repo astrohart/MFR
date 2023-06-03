@@ -47,7 +47,7 @@ namespace MFR.FileSystem.Validators.Factories
 
             switch (type)
             {
-                case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
+                case OperationType.ScanDirectoryTreeForSolutionFiles:
                     validator = GetSolutionFileValidator.SoleInstance();
                     break;
 
@@ -56,7 +56,7 @@ namespace MFR.FileSystem.Validators.Factories
                     validator = GetProjectFileValidator.SoleInstance();
                     break;
 
-                case OperationType.GetTopLevelSubFolders:
+                case OperationType.ListTopLevelSubFolders:
                 case OperationType.RenameSubFolders:
                     validator = GetDirectoryPathValidator.SoleInstance();
                     break;

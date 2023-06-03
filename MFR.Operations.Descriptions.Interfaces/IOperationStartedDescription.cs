@@ -10,6 +10,5 @@ namespace MFR.Operations.Descriptions.Interfaces
     /// </remarks>
     public interface IOperationStartedDescription : IOperationDescription
     {
-        // TODO: Add method, property, and event definitions here
     }
 }

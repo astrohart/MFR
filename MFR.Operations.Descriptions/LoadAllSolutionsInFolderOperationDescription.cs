@@ -10,8 +10,7 @@ namespace MFR.Operations.Descriptions
     /// Solutions in Folder operation.
     /// </summary>
     public class
-        LoadAllSolutionsInFolderOperationDescription :
-            IOperationDescription
+        LoadAllSolutionsInFolderOperationDescription : IOperationDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -26,13 +25,14 @@ namespace MFR.Operations.Descriptions
         protected LoadAllSolutionsInFolderOperationDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Operations.Descriptions.LoadAllSolutionsInFolderOperationDescription" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Operations.Descriptions.Interfaces.IOperationDescription" />
+        /// interface that provides a descriptive text string that explains to the user of
+        /// the application that we are scanning a directory tree for (<c>*.sln</c>) files
+        /// that are within it, and then are opening each of them in Visual Studio.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadAllSolutionsInFolderOperationDescription Instance
+        public static IOperationDescription Instance
         {
             get;
         } = new LoadAllSolutionsInFolderOperationDescription();

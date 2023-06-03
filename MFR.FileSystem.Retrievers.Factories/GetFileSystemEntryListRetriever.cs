@@ -49,7 +49,7 @@ namespace MFR.FileSystem.Retrievers.Factories
 
             switch (type)
             {
-                case OperationType.GetListOfAllSolutionFilesInDirectoryTree:
+                case OperationType.ScanDirectoryTreeForSolutionFiles:
                     retriever = SolutionFilePathRetriever.Instance;
                     break;
 

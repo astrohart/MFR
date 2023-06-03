@@ -6,8 +6,9 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Gets the descriptive text to be displayed to the user at the start of an
+    /// operation that closes the active Solution containing the project(s) and file(s)
+    /// that are to be processed, before we begin moving files and renaming things.
     /// </summary>
     public class
         CloseActiveSolutionOperationStartedDescription :
@@ -26,13 +27,15 @@ namespace MFR.Operations.Descriptions
         protected CloseActiveSolutionOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
+        /// Gets a reference to the one and only instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.CloseActiveSolutionOperationStartedDescription" />
-        /// .
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface that provides a message that we display to the user when the
+        /// operation of closing the active Solution that is open in a running instance of
+        /// Visual Studio before we begin processing it.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static CloseActiveSolutionOperationStartedDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
         } = new CloseActiveSolutionOperationStartedDescription();

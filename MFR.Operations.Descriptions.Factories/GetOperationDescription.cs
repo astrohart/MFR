@@ -1,5 +1,6 @@
 using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Operations.Descriptions.Factories
@@ -10,6 +11,7 @@ namespace MFR.Operations.Descriptions.Factories
     ///     cref="T:MFR.IOperationDescription" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetOperationDescription
     {
         /// <summary>

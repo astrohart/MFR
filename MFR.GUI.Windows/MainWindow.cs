@@ -391,7 +391,7 @@ namespace MFR.GUI.Windows
                                 .FromScratch()
                                 .HavingProc(new Action(DoLoad))
                                 .AndStatusText(
-                                    GetOperationStartedDescription.For(
+                                    GetOperationStartedDescriptionText.For(
                                         OperationType.InitializeApplication
                                     )
                                 ))
@@ -541,7 +541,7 @@ namespace MFR.GUI.Windows
                                        )
                                        .AndArgument(path)
                                        .AndStatusText(
-                                           GetOperationStartedDescription.For(
+                                           GetOperationStartedDescriptionText.For(
                                                OperationType
                                                    .CheckingWhetherChosenFolderContainsSolutions
                                            )

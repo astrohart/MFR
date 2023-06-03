@@ -47,7 +47,7 @@ namespace MFR.FileSystem.Retrievers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
-            => OperationType.GetListOfAllSolutionFilesInDirectoryTree;
+            => OperationType.ScanDirectoryTreeForSolutionFiles;
 
         /// <summary>
         /// Gets or sets a string that contains a wildcard search pattern.

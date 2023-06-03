@@ -307,7 +307,7 @@ namespace MFR.Engines
             if (e.OperationType == OperationType.Unknown) return;
 
             ShowCalculatingProgressBar(
-                GetOperationStartedDescription.For(e.OperationType)
+                GetOperationStartedDescriptionText.For(e.OperationType)
             );
         }
 

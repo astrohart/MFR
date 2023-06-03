@@ -26,13 +26,16 @@ namespace MFR.Operations.Descriptions
         protected FindVisualStudioOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
+        /// Gets a reference to the one and only instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.FindVisualStudioOperationStartedDescription" />
-        /// .
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface that provides a user-friendly text status message that tells the user
+        /// that the application is beginning the process of determining whether the
+        /// Solution containing the project(s) and file(s) to be processed is currently
+        /// open in a running instance of Visual Studio.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static FindVisualStudioOperationStartedDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
         } = new FindVisualStudioOperationStartedDescription();

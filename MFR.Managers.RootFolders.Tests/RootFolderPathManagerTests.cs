@@ -270,7 +270,7 @@ namespace MFR.Managers.RootFolders.Tests
                                   .Where(
                                       s => GetFileSystemEntryValidator.For(
                                               OperationType
-                                                  .GetTopLevelSubFolders
+                                                  .ListTopLevelSubFolders
                                           )
                                           .ShouldNotSkip(s)
                                   );
