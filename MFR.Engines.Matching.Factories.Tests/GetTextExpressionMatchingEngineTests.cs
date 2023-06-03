@@ -113,14 +113,14 @@ namespace MFR.Engines.Matching.Factories.Tests
         /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
         /// with the
         /// <see
-        ///     cref="T:MFR.Operations.Constants.OperationType.GettingListOfFilesToBeRenamed" />
+        ///     cref="T:MFR.Operations.Constants.OperationType.CalculateListOfFilesToBeRenamed" />
         /// value,
         /// as this is not one of the values that a text-expression matcher object is
         /// available for.
         /// </summary>
         [Test]
         public void
-            Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()
+            Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetTextExpressionMatchingEngine.For(
                     OperationType.CalculateListOfFilesToBeRenamed

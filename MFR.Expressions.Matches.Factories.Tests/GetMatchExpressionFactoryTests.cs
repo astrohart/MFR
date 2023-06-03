@@ -75,7 +75,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// </summary>
         [Test]
         public void
-            Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()
+            Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType()
             => Assert.Throws<ArgumentOutOfRangeException>(
                 () => GetMatchExpressionFactory.For(
                     OperationType.CalculateListOfFilesToBeRenamed

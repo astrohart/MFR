@@ -41,7 +41,7 @@ namespace MFR.Replacers.Factories
             
             switch (type)
             {
-                case OperationType.GettingListOfFilesToBeRenamed:
+                case OperationType.CalculateListOfFilesToBeRenamed:
                     break;
                 case OperationType.RenameFilesInFolder:
                     factory = RenameFilesInFolderStringReplacerFactory.Instance;

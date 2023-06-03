@@ -59,6 +59,6 @@ namespace MFR.Operations.Descriptions
         public string Text
         {
             get;
-        } = Resources.OperationStartedDescription_GettingListOfFilesToBeRenamed;
+        } = Resources.OperationStartedDescription_CalculateListOfFilesToBeRenamed;
     }
 }

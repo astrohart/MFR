@@ -132,6 +132,9 @@
   <data name="OperationDescription_UnloadAllSolutionsInFolder" xml:space="preserve">
     <value>Unloading all currenty-open Visual Studio Solutions in the starting folder...</value>
   </data>
+  <data name="OperationStartedDescription_CalculateListOfFilesToBeRenamed" xml:space="preserve">
+    <value>Getting list of files to be renamed...</value>
+  </data>
   <data name="OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions" xml:space="preserve">
     <value>Chekcing whether the folder you selected (or its subfolders) contains a Visual Studio Solution (*.sln) file...</value>
   </data>
@@ -144,14 +147,11 @@
   <data name="OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree" xml:space="preserve">
     <value>Scanning directory tree for Visual Studio Solution (*.sln) files...</value>
   </data>
-  <data name="OperationStartedDescription_GettingListOfFilesToBeRenamed" xml:space="preserve">
-    <value>Getting list of files to be renamed...</value>
-  </data>
   <data name="OperationStartedDescription_InitializeApplication" xml:space="preserve">
     <value>Loading user settings...</value>
   </data>
   <data name="OperationStartedDescription_OpenActiveSolution" xml:space="preserve">
-      <value>Reloading the solution(s) containing the item(s) that were processed...</value>
+    <value>Reloading the solution(s) containing the item(s) that were processed...</value>
   </data>
   <data name="OperationStartedDescription_RenameFilesInFolder" xml:space="preserve">
     <value>Calculating files to be renamed..</value>

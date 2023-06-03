@@ -106,6 +106,15 @@ namespace MFR.Operations.Descriptions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Getting list of files to be renamed....
+        /// </summary>
+        public static string OperationStartedDescription_CalculateListOfFilesToBeRenamed {
+            get {
+                return ResourceManager.GetString("OperationStartedDescription_CalculateListOfFilesToBeRenamed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chekcing whether the folder you selected (or its subfolders) contains a Visual Studio Solution (*.sln) file....
         /// </summary>
         public static string OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions {
@@ -138,15 +147,6 @@ namespace MFR.Operations.Descriptions.Properties {
         public static string OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree {
             get {
                 return ResourceManager.GetString("OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Getting list of files to be renamed....
-        /// </summary>
-        public static string OperationStartedDescription_GettingListOfFilesToBeRenamed {
-            get {
-                return ResourceManager.GetString("OperationStartedDescription_GettingListOfFilesToBeRenamed", resourceCulture);
             }
         }
         
