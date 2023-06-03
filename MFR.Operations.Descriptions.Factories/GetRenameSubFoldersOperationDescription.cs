@@ -1,4 +1,5 @@
 ﻿using MFR.Operations.Descriptions.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Operations.Descriptions.Factories
 {
@@ -9,6 +10,7 @@ namespace MFR.Operations.Descriptions.Factories
     /// application is currently in the process of renaming subfolders of the root
     /// directory.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetRenameSubFoldersOperationDescription
     {
         /// <summary>

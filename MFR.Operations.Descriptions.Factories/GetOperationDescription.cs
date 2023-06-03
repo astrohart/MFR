@@ -62,7 +62,8 @@ namespace MFR.Operations.Descriptions.Factories
                     break;
 
                 case OperationType.RenameSubFolders:
-                    result = RenameSubFoldersOperationDescription.Instance;
+                    result = GetRenameSubFoldersOperationDescription
+                        .SoleInstance();
                     break;
 
                 case OperationType.UnloadAllSolutionsInFolder:
