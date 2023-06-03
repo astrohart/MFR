@@ -151,7 +151,7 @@
     <value>Loading user settings...</value>
   </data>
   <data name="OperationStartedDescription_OpenActiveSolution" xml:space="preserve">
-    <value>Reloading the solution containing the item(s) that were processed...</value>
+      <value>Reloading the solution(s) containing the item(s) that were processed...</value>
   </data>
   <data name="OperationStartedDescription_RenameFilesInFolder" xml:space="preserve">
     <value>Calculating files to be renamed..</value>

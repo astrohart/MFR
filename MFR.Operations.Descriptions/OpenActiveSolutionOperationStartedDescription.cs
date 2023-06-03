@@ -17,31 +17,33 @@ namespace MFR.Operations.Descriptions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static OpenActiveSolutionOperationStartedDescription()
-        {
-        }
+        static OpenActiveSolutionOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected OpenActiveSolutionOperationStartedDescription()
-        {
-        }
+        protected OpenActiveSolutionOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.OpenActiveSolutionOperationStartedDescription"/> .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface and which emits user-friendly text that explains that the application
+        /// is starting the operation of reloading the Visual Studio Solution(s) that
+        /// contain the item(s) that were processed.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static OpenActiveSolutionOperationStartedDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
         } = new OpenActiveSolutionOperationStartedDescription();
 
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MFR.Operations.Constants.OperationType"/> values that
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType

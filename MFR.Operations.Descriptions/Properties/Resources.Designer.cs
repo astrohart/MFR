@@ -160,7 +160,7 @@ namespace MFR.Operations.Descriptions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reloading the solution containing the item(s) that were processed....
+        ///   Looks up a localized string similar to Reloading the solution(s) containing the item(s) that were processed....
         /// </summary>
         public static string OperationStartedDescription_OpenActiveSolution {
             get {
