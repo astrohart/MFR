@@ -107,8 +107,12 @@
     <Compile Include="GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.cs" />
     <Compile Include="GetCloseActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="GetFindVisualStudioOperationStartedDescription.cs" />
+    <Compile Include="GetLoadAllSolutionsInFolderOperationDescription.cs" />
     <Compile Include="GetOperationDescriptionText.cs" />
     <Compile Include="GetOperationStartedDescription.cs" />
+    <Compile Include="GetRenameFilesInFolderOperationDescription.cs" />
+    <Compile Include="GetRenameSubFoldersOperationDescription.cs" />
+    <Compile Include="GetReplaceTextInFilesOperationDescription.cs" />
     <Compile Include="GetScanDirectoryTreeForSolutionFilesOperationStartedDescription.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="GetOperationDescription.cs" />

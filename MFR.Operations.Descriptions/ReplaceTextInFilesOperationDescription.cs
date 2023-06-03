@@ -9,37 +9,38 @@ namespace MFR.Operations.Descriptions
     /// Gets the descriptive text to be displayed to the user during a Replace
     /// Text In Files operation.
     /// </summary>
-    public class
-        ReplaceTextInFilesOperationDescription : IOperationDescription
+    public class ReplaceTextInFilesOperationDescription : IOperationDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static ReplaceTextInFilesOperationDescription()
-        {
-        }
+        static ReplaceTextInFilesOperationDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ReplaceTextInFilesOperationDescription()
-        {
-        }
+        protected ReplaceTextInFilesOperationDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.ReplaceTextInFilesOperationDescription"/>.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Operations.Descriptions.Interfaces.IOperationDescription" />
+        /// interface and which provides user-friendly text that describes that the
+        /// operation of replacing the text in the individual files that are contained
+        /// within a given folder is proceeding.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesOperationDescription Instance
+        public static IOperationDescription Instance
         {
             get;
         } = new ReplaceTextInFilesOperationDescription();
 
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MFR.Operations.Constants.OperationType"/> values that
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType

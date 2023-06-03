@@ -6,20 +6,11 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user during a Rename Sub Folders Of operation.
+    /// Gets the descriptive text to be displayed to the user during a Rename Sub
+    /// Folders Of operation.
     /// </summary>
-    public class
-        RenameSubFoldersOperationDescription : IOperationDescription
+    public class RenameSubFoldersOperationDescription : IOperationDescription
     {
-        /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.RenameSubFoldersOperationDescription"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static RenameSubFoldersOperationDescription Instance
-        {
-            get;
-        } = new RenameSubFoldersOperationDescription();
-
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -31,6 +22,19 @@ namespace MFR.Operations.Descriptions
         /// </summary>
         [Log(AttributeExclude = true)]
         protected RenameSubFoldersOperationDescription() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Operations.Descriptions.Interfaces.IOperationDescription" />
+        /// interface and which provides user-friendly text that explains that the
+        /// application is currently in the process of renaming subfolders of the root
+        /// directory.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IOperationDescription Instance
+        {
+            get;
+        } = new RenameSubFoldersOperationDescription();
 
         /// <summary>
         /// Gets one of the

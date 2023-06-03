@@ -42,35 +42,32 @@ namespace MFR.Operations.Descriptions.Factories
         /// </exception>
         public static IOperationDescription For(OperationType type)
         {
-            IOperationDescription typeDescription;
+            IOperationDescription result;
 
             switch (type)
             {
                 case OperationType.LoadAllSolutionsInFolder:
-                    typeDescription =
-                        LoadAllSolutionsInFolderOperationDescription
-                            .Instance;
+                    result = GetLoadAllSolutionsInFolderOperationDescription
+                        .SoleInstance();
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    typeDescription =
-                        RenameFilesInFolderOperationDescription.Instance;
+                    result = GetRenameFilesInFolderOperationDescription
+                        .SoleInstance();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    typeDescription = ReplaceTextInFilesOperationDescription
-                        .Instance;
+                    result = GetReplaceTextInFilesOperationDescription
+                        .SoleInstance();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    typeDescription = RenameSubFoldersOperationDescription
-                        .Instance;
+                    result = RenameSubFoldersOperationDescription.Instance;
                     break;
 
                 case OperationType.UnloadAllSolutionsInFolder:
-                    typeDescription =
-                        UnloadAllSolutionsInFolderOperationDescription
-                            .Instance;
+                    result = UnloadAllSolutionsInFolderOperationDescription
+                        .Instance;
                     break;
 
                 default:
@@ -80,7 +77,7 @@ namespace MFR.Operations.Descriptions.Factories
                     );
             }
 
-            return typeDescription;
+            return result;
         }
     }
 }
