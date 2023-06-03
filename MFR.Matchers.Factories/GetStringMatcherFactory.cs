@@ -41,8 +41,6 @@ namespace MFR.Matchers.Factories
             
             switch (type)
             {
-                case OperationType.GettingListOfFilesToBeRenamed:
-                    break;
                 case OperationType.RenameFilesInFolder:
                     factory = GetRenameFilesInFolderStringMatcherFactory
                         .SoleInstance();

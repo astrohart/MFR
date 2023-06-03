@@ -10,7 +10,6 @@ using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
-using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -31,7 +30,6 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.TextValues.Retrievers.Factories;
-using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -630,7 +628,7 @@ namespace MFR.Renamers.Files
             {
                 OnOperationStarted(
                     new OperationStartedEventArgs(
-                        OperationType.GettingListOfFilesToBeRenamed
+                        OperationType.CalculateListOfFilesToBeRenamed
                     )
                 );
 
@@ -649,7 +647,7 @@ namespace MFR.Renamers.Files
                     {
                         OnOperationFinished(
                             new OperationFinishedEventArgs(
-                                OperationType.GettingListOfFilesToBeRenamed
+                                OperationType.CalculateListOfFilesToBeRenamed
                             )
                         );
                         return result;
@@ -669,7 +667,7 @@ namespace MFR.Renamers.Files
                     {
                         OnOperationFinished(
                             new OperationFinishedEventArgs(
-                                OperationType.GettingListOfFilesToBeRenamed
+                                OperationType.CalculateListOfFilesToBeRenamed
                             )
                         );
                         return result;
@@ -681,7 +679,7 @@ namespace MFR.Renamers.Files
                     {
                         OnOperationFinished(
                             new OperationFinishedEventArgs(
-                                OperationType.GettingListOfFilesToBeRenamed
+                                OperationType.CalculateListOfFilesToBeRenamed
                             )
                         );
                         return result;
@@ -689,7 +687,7 @@ namespace MFR.Renamers.Files
 
                 OnOperationFinished(
                     new OperationFinishedEventArgs(
-                        OperationType.GettingListOfFilesToBeRenamed
+                        OperationType.CalculateListOfFilesToBeRenamed
                     )
                 );
 
@@ -819,7 +817,7 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
-                
+
                 OnOperationStarted(
                     new OperationStartedEventArgs(
                         OperationType.RenameSubFolders
@@ -1547,7 +1545,7 @@ namespace MFR.Renamers.Files
 
                 // release the stream or the OS won't let us perform the
                 // text replacement operation
-                FileStreamProvider.DisposeStream(entry.UserState);  
+                FileStreamProvider.DisposeStream(entry.UserState);
 
                 IMatchExpression expression = matchExpressionFactory
                                               .ForTextValue(textToBeSearched)
@@ -1702,7 +1700,6 @@ namespace MFR.Renamers.Files
              * If the user has requested that we rename the Solution's
              * folder, here is the time to do it.
              */
-
 
             Finished?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.NoArgs()
@@ -1986,27 +1983,27 @@ namespace MFR.Renamers.Files
 
                 var destination = string.Empty;
 
-                ITextReplacementEngine engine = GetTextReplacementEngine
-                                                .For(
-                                                    OperationType
-                                                        .RenameSubFolders
-                                                )
-                                                .AndAttachConfiguration(
-                                                    CurrentConfiguration
-                                                );
+                ITextReplacementEngine engine =
+                    GetTextReplacementEngine.For(
+                                                OperationType.RenameSubFolders
+                                            )
+                                            .AndAttachConfiguration(
+                                                CurrentConfiguration
+                                            );
                 if (engine == null) return result;
 
-                IMatchExpressionFactory matchExpressionFactory = GetMatchExpressionFactory
-                                              .For(
-                                                  OperationType.RenameSubFolders
-                                              )
-                                              .AndAttachConfiguration(
-                                                  CurrentConfiguration
-                                              );
+                IMatchExpressionFactory matchExpressionFactory =
+                    GetMatchExpressionFactory.For(
+                                                 OperationType.RenameSubFolders
+                                             )
+                                             .AndAttachConfiguration(
+                                                 CurrentConfiguration
+                                             );
                 if (matchExpressionFactory == null) return result;
 
-                var retriever =
-                    GetTextValueRetriever.For(OperationType.RenameSubFolders);
+                var retriever = GetTextValueRetriever.For(
+                    OperationType.RenameSubFolders
+                );
                 if (retriever == null) return result;
 
                 var source = retriever.GetTextValue(entry);
