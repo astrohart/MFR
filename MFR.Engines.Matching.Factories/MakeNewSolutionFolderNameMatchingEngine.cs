@@ -6,8 +6,8 @@ namespace MFR.Engines.Matching.Factories
     /// Creates new instances of objects that implement the
     /// <see cref="T:MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine" />
     /// interface that searches for matches to textual-search criteria patterns and
-    /// regexes in the pathnames of folders, according to rules specified by
-    /// configuration settings.
+    /// regexes in the pathnames of folders that contain Visual Studio Solution (
+    /// <c>*.sln</c>) files, according to rules specified by configuration settings.
     /// </summary>
     public static class MakeNewSolutionFolderNameMatchingEngine
     {
@@ -20,8 +20,8 @@ namespace MFR.Engines.Matching.Factories
         /// Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine" />
         /// interface that searches for matches to textual-search criteria patterns and
-        /// regexes in the pathnames of folders, according to rules specified by
-        /// configuration settings.
+        /// regexes in the pathnames of folders that contain Visual Studio Solution (
+        /// <c>*.sln</c>) files, according to rules specified by configuration settings.
         /// </returns>
         public static ITextExpressionMatchingEngine FromScratch()
             => new SolutionFolderNameMatchingEngine();
