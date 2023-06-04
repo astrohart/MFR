@@ -51,10 +51,6 @@ namespace MFR.FileSystem.Retrievers.Factories
 
             switch (type)
             {
-                case OperationType.ScanDirectoryTreeForSolutionFiles:
-                    result = GetSolutionFilePathRetriever.SoleInstance();
-                    break;
-
                 case OperationType.RenameFilesInFolder:
                     result = GetFilesToRenameRetriever.SoleInstance();
                     break;
@@ -67,7 +63,13 @@ namespace MFR.FileSystem.Retrievers.Factories
                     result = GetFolderToRenameRetriever.SoleInstance();
                     break;
 
+                case OperationType.RenameSolutionFolders:
+                    result = GetSolutionFoldersToRenameRetriever.SoleInstance();
+                    break;
 
+                case OperationType.ScanDirectoryTreeForSolutionFiles:
+                    result = GetSolutionFilePathRetriever.SoleInstance();
+                    break;
 
                 default:
                     throw new ArgumentOutOfRangeException(
