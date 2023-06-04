@@ -757,6 +757,62 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Iterates through the directory tree that is topped by the folder having the
+        /// specified <paramref name="rootFolderPath" />, and, for all Visual Studio
+        /// Solution (<c>*.sln</c>) file(s) found in the directory tree, renames them
+        /// according to the text-replacement pattern specified by the arguments of the
+        /// <paramref name="findWhat" /> and <paramref name="replaceWith" /> parameters.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a folder in which the operation is to start.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) Text to be found in each file contained in the directory tree.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) A <see cref="T:System.String" /> containing the text that the text
+        /// specified by the argument of the <paramref name="findWhat" /> parameter is to
+        /// be replaced with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public bool RenameSolutionFolders(string rootFolderPath, string findWhat,
+            string replaceWith, Predicate<string> pathFilter = null)
+        { 
+            
+        }
+
+        /// <summary>
         /// Recursively renames all the subfolders in the folder having a
         /// pathname specified by <paramref name="rootFolderPath" />, replacing
         /// any occurrences of the text in the <paramref name="findWhat" />
