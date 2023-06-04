@@ -1,3 +1,4 @@
+using MFR.Engines.Matching.Factories.Properties;
 using MFR.Engines.Matching.Interfaces;
 using MFR.Operations.Constants;
 using System;
@@ -65,9 +66,17 @@ namespace MFR.Engines.Matching.Factories
                     result = MakeNewTextInFilesMatchingEngine.FromScratch();
                     break;
 
+                case OperationType.RenameSolutionFolders:
+                    result =
+                        MakeNewSolutionFolderNameMatchingEngine.FromScratch();
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(
-                        nameof(type), type, null
+                        nameof(type), type,
+                        string.Format(
+                            Resources.Exception_OperationTypeNotSupported, type
+                        )
                     );
             }
 
