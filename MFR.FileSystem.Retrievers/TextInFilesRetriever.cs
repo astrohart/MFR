@@ -34,7 +34,8 @@ namespace MFR.FileSystem.Retrievers
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see
         ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
-        /// interface that represents an object that is capable of searching text in files.
+        /// interface that represents an object that is capable of retrieving the list of
+        /// all those files on the filesystem that contain a specific text pattern.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IFileSystemEntryListRetriever Instance
@@ -143,16 +144,18 @@ namespace MFR.FileSystem.Retrievers
                  */
 
                 foreach (var path in Enumerate.Files(
-                             rootFolderPath, SearchPattern, SearchOption,
-                             path => ShouldDoPath(path, pathFilter)
-                         ).AsParallel())
+                                                  rootFolderPath, SearchPattern,
+                                                  SearchOption,
+                                                  path => ShouldDoPath(
+                                                      path, pathFilter
+                                                  )
+                                              )
+                                              .AsParallel())
                 {
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
 
-                    entry.SetUserState(
-                        Get.FileTicket(entry.Path)
-                    );
+                    entry.SetUserState(Get.FileTicket(entry.Path));
 
                     if (!SearchCriteriaMatch(entry)) continue;
 

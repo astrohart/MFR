@@ -1,7 +1,7 @@
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.FileSystem.Validators.Factories;
+using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -23,24 +23,24 @@ namespace MFR.FileSystem.Retrievers
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FilesToRenameRetriever()
-        {
-        }
+        static FilesToRenameRetriever() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected FilesToRenameRetriever()
-        {
-        }
+        protected FilesToRenameRetriever() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Retrievers.FilesToRenameRetriever" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface that globs a directory tree for the set of all files that must be
+        /// renamed because their filenames match a search pattern that is defined by the
+        /// user.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static FilesToRenameRetriever Instance
+        public static IFileSystemEntryListRetriever Instance
         {
             get;
         } = new FilesToRenameRetriever();
@@ -96,7 +96,8 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="rootFolderPath" />,
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
-        /// <exception cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
+        /// <exception
+        ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
@@ -107,7 +108,10 @@ namespace MFR.FileSystem.Retrievers
             try
             {
                 result.AddRange(
-                    Enumerate.Files(rootFolderPath, SearchPattern, SearchOption, path => ShouldDoPath(path, pathFilter))
+                    Enumerate.Files(
+                                 rootFolderPath, SearchPattern, SearchOption,
+                                 path => ShouldDoPath(path, pathFilter)
+                             )
                              .AsParallel()
                              .Select(MakeNewFileSystemEntry.ForPath)
                              .Where(entry => entry != null)

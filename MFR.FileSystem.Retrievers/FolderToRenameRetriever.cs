@@ -1,6 +1,7 @@
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -31,11 +32,15 @@ namespace MFR.FileSystem.Retrievers
         protected FolderToRenameRetriever() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Retrievers.FolderToRenameRetriever" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface that obtains a list of all those folders in a directory tree whose
+        /// names match a search pattern that is specified by the user for the renaming
+        /// process.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static FolderToRenameRetriever Instance
+        public static IFileSystemEntryListRetriever Instance
         {
             get;
         } = new FolderToRenameRetriever();
@@ -105,9 +110,13 @@ namespace MFR.FileSystem.Retrievers
             {
                 // ReSharper disable once LoopCanBeConvertedToQuery
                 foreach (var path in Enumerate.Directories(
-                             rootFolderPath, SearchPattern, SearchOption,
-                             path => ShouldDoPath(path, pathFilter)
-                         ).AsParallel())
+                                                  rootFolderPath, SearchPattern,
+                                                  SearchOption,
+                                                  path => ShouldDoPath(
+                                                      path, pathFilter
+                                                  )
+                                              )
+                                              .AsParallel())
                 {
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;

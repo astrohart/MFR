@@ -30,11 +30,15 @@ namespace MFR.FileSystem.Retrievers
         protected SolutionFilePathRetriever() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.FileSystem.Retrievers.SolutionFilePathRetriever" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
+        /// interface that searches a particular directory tree of the file system for the
+        /// pathnames of any Visual Studio Solution (<c>*.sln</c>) files that may be
+        /// present within it.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static SolutionFilePathRetriever Instance
+        public static IFileSystemEntryListRetriever Instance
         {
             get;
         } = new SolutionFilePathRetriever();

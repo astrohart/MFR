@@ -45,24 +45,24 @@ namespace MFR.FileSystem.Retrievers.Factories
         /// </exception>
         public static IFileSystemEntryListRetriever For(OperationType type)
         {
-            IFileSystemEntryListRetriever retriever;
+            IFileSystemEntryListRetriever result;
 
             switch (type)
             {
                 case OperationType.ScanDirectoryTreeForSolutionFiles:
-                    retriever = SolutionFilePathRetriever.Instance;
+                    result = GetSolutionFilePathRetriever.SoleInstance();
                     break;
 
                 case OperationType.RenameFilesInFolder:
-                    retriever = FilesToRenameRetriever.Instance;
+                    result = GetFilesToRenameRetriever.SoleInstance();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    retriever = TextInFilesRetriever.Instance;
+                    result = GetTextInFilesRetriever.SoleInstance();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    retriever = FolderToRenameRetriever.Instance;
+                    result = GetFolderToRenameRetriever.SoleInstance();
                     break;
 
                 default:
@@ -72,7 +72,7 @@ namespace MFR.FileSystem.Retrievers.Factories
                     );
             }
 
-            return retriever;
+            return result;
         }
     }
 }
