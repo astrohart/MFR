@@ -74,7 +74,9 @@ namespace MFR.Renamers.Files
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static FileRenamer() { }
+        static FileRenamer()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
@@ -87,208 +89,6 @@ namespace MFR.Renamers.Files
             // Remove any extra list elements from memory
             ((List<IVisualStudioSolution>)LoadedSolutions).TrimExcess();
         }
-
-        /// <summary>
-        /// Gets a value that indicates whether an abort of the current
-        /// operation has been requested.
-        /// </summary>
-        public bool AbortRequested
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the
-        /// actions
-        /// associated with it.
-        /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets or sets a reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface.
-        /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
-        {
-            get;
-            set;
-        } = ConfigurationProvider.CurrentConfiguration;
-
-        /// <summary>
-        /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
-        /// enumeration value that indicates which operation is currently being performed.
-        /// </summary>
-        public OperationType CurrentOperation
-        {
-            get => _currentOperation;
-            set {
-                var changed = _currentOperation != value;
-                _currentOperation = value;
-                if (changed)
-                    OnCurrentOperationChanged(
-                        new CurrentOperationChangedEventArgs(value)
-                    );
-            }
-        }
-
-        /// <summary>
-        /// Gets a reference to a collection of of the
-        /// <see
-        ///     cref="T:MFR.Operations.Constants.OperationType" />
-        /// values.
-        /// </summary>
-        /// <remarks>
-        /// All the values in this collection identify operations that the user
-        /// wishes to perform.
-        /// <para />
-        /// This list should be cleared after every run.
-        /// <para />
-        /// If the list is empty when the
-        /// <see
-        ///     cref="M:MFR.FileRenamer.ProcessAll" />
-        /// method is called, do
-        /// nothing or throw an exception.
-        /// </remarks>
-        protected IList<OperationType> EnabledOperations
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
-        /// interface.
-        /// </summary>
-        private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of the object that implements the
-        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static IFileRenamer Instance
-        {
-            get;
-        } = new FileRenamer();
-
-        /// <summary>
-        /// Gets a value that indicates whether this component is currently processing
-        /// operation(s).
-        /// </summary>
-        public bool IsBusy
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets or sets the path to the folder in which last Visual Studio Solution that
-        /// we have worked with most recently resides.
-        /// </summary>
-        public string LastSolutionFolderPath
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to a collection, each element of which implements the
-        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// Each element of the collection represents a Visual Studio Solution (*.sln) that
-        /// is loaded in a running instance of Visual Studio.
-        /// </remarks>
-        public IList<IVisualStudioSolution> LoadedSolutions
-        {
-            get;
-            set;
-        } = new List<IVisualStudioSolution>();
-
-        /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
-        /// operations start.
-        /// </summary>
-        public string RootDirectoryPath
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object runs validation rules to ensure, among other things, that the
-        /// pathname passed to it is that of a folder that exists on disk, and that
-        /// contains a <c>.sln</c> file.
-        /// </remarks>
-        private static IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object manages a collection of strings.
-        /// <para />
-        /// Individually, the strings are all taken to be the root folder of where our
-        /// search should start for the operation(s) that the user wants us to process.
-        /// </remarks>
-        private static IRootFolderPathManager RootFolderPathManager
-            => GetRootFolderPathManager.SoleInstance();
-
-        /// <summary>
-        /// Gets a value determining whether the currently-open solution
-        /// in Visual Studio should be closed and then re-opened at the
-        /// completion of the operation.
-        /// </summary>
-        public bool ShouldReOpenSolutions
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Synchronization root object for creating critical sections.
-        /// </summary>
-        private static object SyncRoot
-        {
-            get;
-        } = new object();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This property allows access to an object that helps us manage the Visual Studio
-        /// Solution(s) that may be in the starting folder, and to track which running
-        /// instance(s), if any, have said Solution(s) open, and to command the instance(s)
-        /// to load/unload the Solution(s).
-        /// </remarks>
-        private static IVisualStudioSolutionService VisualStudioSolutionService
-            => GetVisualStudioSolutionService.SoleInstance();
 
         /// <summary>
         /// Occurs when the value of the
@@ -345,6 +145,12 @@ namespace MFR.Renamers.Files
         public event ProcessingOperationEventHandler ProcessingOperation;
 
         /// <summary>
+        /// Occurs when solution folders that are to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SolutionFoldersToBeRenamedCounted;
+
+        /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
         public event EventHandler Started;
@@ -364,6 +170,241 @@ namespace MFR.Renamers.Files
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
             SubfoldersToBeRenamedCounted;
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IFileRenamer Instance
+        {
+            get;
+        } = new FileRenamer();
+
+        /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration value that indicates which operation is currently being performed.
+        /// </summary>
+        public OperationType CurrentOperation
+        {
+            get => _currentOperation;
+            set {
+                var changed = _currentOperation != value;
+                _currentOperation = value;
+                if (changed)
+                    OnCurrentOperationChanged(
+                        new CurrentOperationChangedEventArgs(value)
+                    );
+            }
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether this component is currently processing
+        /// operation(s).
+        /// </summary>
+        public bool IsBusy
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the folder in which last Visual Studio Solution that
+        /// we have worked with most recently resides.
+        /// </summary>
+        public string LastSolutionFolderPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection, each element of which implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// Each element of the collection represents a Visual Studio Solution (*.sln) that
+        /// is loaded in a running instance of Visual Studio.
+        /// </remarks>
+        public IList<IVisualStudioSolution> LoadedSolutions
+        {
+            get;
+            set;
+        } = new List<IVisualStudioSolution>();
+
+        /// <summary>
+        /// Gets a string containing the full pathname of the folder where all
+        /// operations start.
+        /// </summary>
+        public string RootDirectoryPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        public bool ShouldReOpenSolutions
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
+        /// method is called, do
+        /// nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// interface.
+        /// </summary>
+        private static IFileStreamProvider FileStreamProvider
+            => GetFileStreamProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object runs validation rules to ensure, among other things, that the
+        /// pathname passed to it is that of a folder that exists on disk, and that
+        /// contains a <c>.sln</c> file.
+        /// </remarks>
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+            => GetRootDirectoryPathValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object manages a collection of strings.
+        /// <para />
+        /// Individually, the strings are all taken to be the root folder of where our
+        /// search should start for the operation(s) that the user wants us to process.
+        /// </remarks>
+        private static IRootFolderPathManager RootFolderPathManager
+            => GetRootFolderPathManager.SoleInstance();
+
+        /// <summary>
+        /// Synchronization root object for creating critical sections.
+        /// </summary>
+        private static object SyncRoot
+        {
+            get;
+        } = new object();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This property allows access to an object that helps us manage the Visual Studio
+        /// Solution(s) that may be in the starting folder, and to track which running
+        /// instance(s), if any, have said Solution(s) open, and to command the instance(s)
+        /// to load/unload the Solution(s).
+        /// </remarks>
+        private static IVisualStudioSolutionService VisualStudioSolutionService
+            => GetVisualStudioSolutionService.SoleInstance();
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ExceptionRaised" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
+        }
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
@@ -1425,45 +1466,6 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Occurs when solution folders that are to be renamed have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler
-            SolutionFoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ExceptionRaised" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
-        }
-
-        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.Renamers.Files.FileRenamer.CurrentOperationChanged" />
         /// event.
@@ -2210,13 +2212,13 @@ namespace MFR.Renamers.Files
 
                 if (entry.ToFileInfo()
                          .RenameTo(destination))
-                    /*
-                     * Raise an event to let other parts of the application
-                     * know that a file has been renamed successfully.
-                     *
-                     * The RenameTo method above returns true if the rename
-                     * operation succeeded.
-                     */
+                /*
+                 * Raise an event to let other parts of the application
+                 * know that a file has been renamed successfully.
+                 *
+                 * The RenameTo method above returns true if the rename
+                 * operation succeeded.
+                 */
                 {
                     result = true; /* succeeded */
                     OnFileRenamed(
@@ -2255,6 +2257,9 @@ namespace MFR.Renamers.Files
 
             return result;
         }
+
+        private bool RenameSolutionFolderForEntry(string findWhat, string replaceWith, IFileSystemEntry entry)
+            => throw new NotImplementedException();
 
         private bool RenameSubFolderForEntry(string findWhat,
             string replaceWith, IFileSystemEntry entry)
