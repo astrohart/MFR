@@ -11,6 +11,8 @@
   - [SoleInstance()](#M-MFR-FileSystem-Retrievers-Factories-GetFolderToRenameRetriever-SoleInstance 'MFR.FileSystem.Retrievers.Factories.GetFolderToRenameRetriever.SoleInstance')
 - [GetSolutionFilePathRetriever](#T-MFR-FileSystem-Retrievers-Factories-GetSolutionFilePathRetriever 'MFR.FileSystem.Retrievers.Factories.GetSolutionFilePathRetriever')
   - [SoleInstance()](#M-MFR-FileSystem-Retrievers-Factories-GetSolutionFilePathRetriever-SoleInstance 'MFR.FileSystem.Retrievers.Factories.GetSolutionFilePathRetriever.SoleInstance')
+- [GetSolutionFoldersToRenameRetriever](#T-MFR-FileSystem-Retrievers-Factories-GetSolutionFoldersToRenameRetriever 'MFR.FileSystem.Retrievers.Factories.GetSolutionFoldersToRenameRetriever')
+  - [SoleInstance()](#M-MFR-FileSystem-Retrievers-Factories-GetSolutionFoldersToRenameRetriever-SoleInstance 'MFR.FileSystem.Retrievers.Factories.GetSolutionFoldersToRenameRetriever.SoleInstance')
 - [GetTextInFilesRetriever](#T-MFR-FileSystem-Retrievers-Factories-GetTextInFilesRetriever 'MFR.FileSystem.Retrievers.Factories.GetTextInFilesRetriever')
   - [SoleInstance()](#M-MFR-FileSystem-Retrievers-Factories-GetTextInFilesRetriever-SoleInstance 'MFR.FileSystem.Retrievers.Factories.GetTextInFilesRetriever.SoleInstance')
 - [Resources](#T-MFR-FileSystem-Retrievers-Factories-Properties-Resources 'MFR.FileSystem.Retrievers.Factories.Properties.Resources')
@@ -172,6 +174,50 @@ Reference to the one, and only, instance of the object that implements the
 interface that searches a particular directory tree of the file system for the
 pathnames of any Visual Studio Solution (`*.sln`) files that may be
 present within it.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-FileSystem-Retrievers-Factories-GetSolutionFoldersToRenameRetriever'></a>
+## GetSolutionFoldersToRenameRetriever `type`
+
+##### Namespace
+
+MFR.FileSystem.Retrievers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that searches a directory tree specified by the user in order to find
+a list of the folder(s) containing Visual Studio Solution (`*.sln`) files.
+
+
+
+These are folders that must be renamed according to the text-replacement
+parameters specified by the user.
+
+<a name='M-MFR-FileSystem-Retrievers-Factories-GetSolutionFoldersToRenameRetriever-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that searches a directory tree specified by the user in order to find
+a list of the folder(s) containing Visual Studio Solution (`*.sln`) files.
+
+
+
+These are folders that must be renamed according to the text-replacement
+parameters specified by the user.
 
 ##### Parameters
 

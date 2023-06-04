@@ -4,7 +4,9 @@ The xyLOGIX Project File Renamer, packaged as a WinForms app, is basically like 
 
 ![Fig01](fig01.png)
 
-**Figure 1.** The main window of the xyLOGIX Project File Renamer application.
+**Figure 1.** The main window of the xyLOGIX Project File Renamer application in Light mode.
+
+
 
 ## Problem solved
 
@@ -45,13 +47,13 @@ in the **Arguments** field of its entry in the **External Tools** dialog box, as
 
 ![Fig02](fig02.png)
 
-**Figure 2.** Visual Studio's **External Tools** dialog box, with the **Arguments** box's value highligthed.
+**Figure 3.** Visual Studio's **External Tools** dialog box, with the **Arguments** box's value highligthed.
 
 This will cause the **What Folder Should the Operation Start In** drop-down to be focused on the folder that the currently-open solution that is open in Visual Studio is located in.
 
 ![Fig03](fig03.png)
 
-**Figure 3.** The value of the **What Folder Should the Operation Start In** box being supplied by the value of the **Arguments** box in the **External Tools** window shown in **Figure 2.**
+**Figure 4.** The value of the **What Folder Should the Operation Start In** box being supplied by the value of the **Arguments** box in the **External Tools** window shown in **Figure 3.**
 
 During its operation, before the app begins any of the requested operations, if it determines that one or more `.sln` files found in the folder tree beginning at the specified root are open in running instances of Visual Studio, it will:
 
@@ -135,7 +137,7 @@ Required. Sets the string to be found in file system entries.
 
 ![Fig04](fig04.png)
 
-**Figure 4.** The **Find** dialog box in Windows Notepad.
+**Figure 5.** The **Find** dialog box in Windows Notepad.
 
 Much like the **Edit**, **Find** dialog box in, say, Notepad asks you for a **Find What** value (shown in **Figure 4**), this command-line argument serves a similar function for the Project File Renamer.
 
@@ -184,9 +186,9 @@ The `--replaceWith` argument, specifies the content to be substituted in file na
 
 ![Fig05](fig05.png)
 
-**Figure 5.** The **Replace** dialog box in Windows Ntoepad, with the **Replace With** box highligthed.
+**Figure 6.** The **Replace** dialog box in Windows Ntoepad, with the **Replace With** box highligthed.
 
-Think of this command-line argument as specifying the value shown in **Figure 5**, i.e., the value to replace the found text with.
+Think of this command-line argument as specifying the value shown in **Figure 6**, i.e., the value to replace the found text with.
 
 The string value that is passed to this command-line argument is entered into the **With What** box in the Project File Renamer main window, shown in **Figure 1.**
 

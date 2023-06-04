@@ -16,13 +16,17 @@
 - [Resources](#T-MFR-Engines-Matching-Properties-Resources 'MFR.Engines.Matching.Properties.Resources')
   - [Culture](#P-MFR-Engines-Matching-Properties-Resources-Culture 'MFR.Engines.Matching.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Matching-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Properties.Resources.ResourceManager')
+- [SolutionFolderNameMatchingEngine](#T-MFR-Engines-Matching-SolutionFolderNameMatchingEngine 'MFR.Engines.Matching.SolutionFolderNameMatchingEngine')
+  - [#ctor()](#M-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.SolutionFolderNameMatchingEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [#ctor()](#M-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-#ctor 'MFR.Engines.Matching.SolutionFolderNameMatchingEngine.#ctor')
+  - [OperationType](#P-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-OperationType 'MFR.Engines.Matching.SolutionFolderNameMatchingEngine.OperationType')
+  - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.SolutionFolderNameMatchingEngine.IsMatch(System.String,System.String,System.String)')
 - [TextExpressionMatchingEngineBase](#T-MFR-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Engines.Matching.TextExpressionMatchingEngineBase')
   - [#ctor()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor')
   - [#ctor(configuration)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [ConfigurationProvider](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfiguration')
   - [OperationType](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
-  - [GetOperationMatcher()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-GetOperationMatcher 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.GetOperationMatcher')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
   - [IsMatch(expression)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
 - [TextInFilesMatchingEngine](#T-MFR-Engines-Matching-TextInFilesMatchingEngine 'MFR.Engines.Matching.TextInFilesMatchingEngine')
@@ -140,10 +144,8 @@ MFR.Engines.Matching
 
 ##### Summary
 
-Searches for matches to textual-search criteria patterns and regexes in
-the pathnames of folders, according to rules specified by
-configuration
-settings.
+Searches for matches to textual-search criteria patterns and regexes in the
+pathnames of folders, according to rules specified by configuration settings.
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
 ### #ctor() `constructor`
@@ -260,6 +262,108 @@ Overrides the current thread's CurrentUICulture property for all
 
 Returns the cached ResourceManager instance used by this class.
 
+<a name='T-MFR-Engines-Matching-SolutionFolderNameMatchingEngine'></a>
+## SolutionFolderNameMatchingEngine `type`
+
+##### Namespace
+
+MFR.Engines.Matching
+
+##### Summary
+
+Searches for matches to textual-search criteria patterns and regexes in the
+pathnames of folders that contain Visual Studio Solution (`*.sln`) files,
+according to rules specified by configuration settings.
+
+<a name='M-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[TextExpressionMatchingEngineBase](#T-MFR-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Engines.Matching.TextExpressionMatchingEngineBase')
+and returns a reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
+`configuration`,
+is passed a `null` value. |
+
+<a name='M-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[SolutionFolderNameMatchingEngine](#T-MFR-Engines-Matching-SolutionFolderNameMatchingEngine 'MFR.Engines.Matching.SolutionFolderNameMatchingEngine')
+and
+returns a reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+##### Remarks
+
+NOTE: This constructor is marked as `internal`. This is to
+limit the scope of invocation to abstract factories only.
+
+
+
+Clients who want to new up an instance of this class directly must
+use the `public` constructor.
+
+<a name='P-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+that corresponds to the type of operation being performed.
+
+<a name='M-MFR-Engines-Matching-SolutionFolderNameMatchingEngine-IsMatch-System-String,System-String,System-String-'></a>
+### IsMatch(value,findWhat,replaceWith) `method`
+
+##### Summary
+
+Determines whether a `value` string is a match
+against a `findWhat`, according to how the
+application is configured.
+
+##### Returns
+
+Returns `true` if the `value` is a
+match against the provided `findWhat`;
+`false`
+if no matches are found.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value to check for matches. |
+| findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pattern that specifies the search criteria. |
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the value that the found text is to be
+replaced with. Cannot be blank. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the required parameters,
+`value`
+, `findWhat`, or
+`replaceWith`
+are passed blank or `null`
+string for values. |
+
 <a name='T-MFR-Engines-Matching-TextExpressionMatchingEngineBase'></a>
 ## TextExpressionMatchingEngineBase `type`
 
@@ -344,25 +448,6 @@ interface.
 
 Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
-
-<a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-GetOperationMatcher'></a>
-### GetOperationMatcher() `method`
-
-##### Summary
-
-Attempts to obtain a reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface for the
-current operation.
-
-##### Returns
-
-Reference to an instance of an object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that
-corresponds to the current operation and matching configuration.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String-'></a>
 ### IsMatch(value,findWhat,replaceWith) `method`

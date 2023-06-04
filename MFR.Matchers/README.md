@@ -232,9 +232,17 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[MatchCaseAndExactWordFolderNameStringMatcher](#T-MFR-Matchers-MatchCaseAndExactWordFolderNameStringMatcher 'MFR.Matchers.MatchCaseAndExactWordFolderNameStringMatcher')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
+BOTH on character casing AND on the exact string that is supplied for the
+text-replacement specification provided by the user in the box
+in the user interface.
+
+
+
+This is the Mass File Renamer analogy of the user placing check marks in both
+the and the checkbox in, say, the
+, dialog box in most text-editing applications.
 
 <a name='P-MFR-Matchers-MatchCaseAndExactWordFolderNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -501,8 +509,15 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[MatchCaseOnlyFolderNameStringMatcher](#T-MFR-Matchers-MatchCaseOnlyFolderNameStringMatcher 'MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher').
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
+text expressions with a case-sensitive search.
+
+
+
+This object should be used when the check box is selected by
+the user when doing the operations of renaming solution folders or sub folders
+of a Solution.
 
 <a name='P-MFR-Matchers-MatchCaseOnlyFolderNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -759,9 +774,16 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[MatchExactWordOnlyFolderNameStringMatcher](#T-MFR-Matchers-MatchExactWordOnlyFolderNameStringMatcher 'MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
+the exact string that is supplied for the text-replacement specification
+provided by the user in the box in the user interface.
+
+
+
+This is the Mass File Renamer analogy of the `Match Whole Word` checkbox
+in, say, the , dialog box in most text-editing
+applications.
 
 <a name='P-MFR-Matchers-MatchExactWordOnlyFolderNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`
@@ -1021,9 +1043,17 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[NeitherMatchCaseNorExactWordFolderNameStringMatcher](#T-MFR-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher 'MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
+NEITHER on character casing NOR on the exact string that is supplied for the
+text-replacement specification provided by the user in the box
+in the user interface.
+
+
+
+This is the Mass File Renamer analogy of the user clearing check marks in both
+the and the checkbox in, say, the
+, dialog box in most text-editing applications.
 
 <a name='P-MFR-Matchers-NeitherMatchCaseNorExactWordFolderNameStringMatcher-TextMatchingConfiguration'></a>
 ### TextMatchingConfiguration `property`

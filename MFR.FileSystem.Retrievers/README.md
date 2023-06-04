@@ -53,6 +53,15 @@
   - [Reset()](#M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-Reset 'MFR.FileSystem.Retrievers.SolutionFilePathRetriever.Reset')
   - [UsingSearchPattern()](#M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.SolutionFilePathRetriever.UsingSearchPattern(System.String)')
   - [VerifyConfigurationAttached()](#M-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-VerifyConfigurationAttached 'MFR.FileSystem.Retrievers.SolutionFilePathRetriever.VerifyConfigurationAttached')
+- [SolutionFoldersToRenameRetriever](#T-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever')
+  - [#ctor()](#M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-#ctor 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.#ctor')
+  - [Instance](#P-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-Instance 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.Instance')
+  - [OperationType](#P-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-OperationType 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.OperationType')
+  - [SearchPattern](#P-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-SearchPattern 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.SearchPattern')
+  - [#cctor()](#M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-#cctor 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.#cctor')
+  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+  - [Reset()](#M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-Reset 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.Reset')
+  - [UsingSearchPattern()](#M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.UsingSearchPattern(System.String)')
 - [TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#ctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#ctor')
   - [Instance](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance 'MFR.FileSystem.Retrievers.TextInFilesRetriever.Instance')
@@ -1112,6 +1121,192 @@ attaching a configuration object optional.
 
 
 This particular override of the method takes no action at all.
+
+<a name='T-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever'></a>
+## SolutionFoldersToRenameRetriever `type`
+
+##### Namespace
+
+MFR.FileSystem.Retrievers
+
+##### Summary
+
+Retrieves lists of folders, within the directory tree specified by the user,
+that contain Visual Studio Solution (`*.sln`) files.
+
+
+
+The solution files themselves may have been renamed by the text-replacement
+pattern specified by the user; we also need to rename the folder(s) that
+contain them accordingly, if any.
+
+<a name='M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that searches a directory tree specified by the user in order to find
+a list of the folder(s) containing Visual Studio Solution (`*.sln`) files.
+
+
+
+These are folders that must be renamed according to the text-replacement
+parameters specified by the user.
+
+<a name='P-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+that corresponds to the type of operation being performed.
+
+<a name='P-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-SearchPattern'></a>
+### SearchPattern `property`
+
+##### Summary
+
+Gets or sets a string that contains a wildcard search pattern.
+
+##### Remarks
+
+This property may have a blank or `null` value. The
+default value of this property is nominally an asterisk; however,
+classes that implement this interface may specify something different.
+
+<a name='M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}-'></a>
+### DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter) `method`
+
+##### Summary
+
+Gets a list of the folder(s), if any, that contain Visual Studio Solution (
+`*.sln`) files that match the criteria specified by this object and that
+correspond to the type of operation being performed.
+
+##### Returns
+
+Collection of instances of objects that implement the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface that correspond to the file system entries that match the
+criteria specified.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rootFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the full pathname of the folder in
+which to start the search. |
+| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func')
+that points to a delegate, accepting the current file or folder's
+path as an argument, that returns `true` if the file
+should be included in the operation or `false` otherwise.
+
+
+
+This parameter is `null` by default. This method
+should return `true` to specify that a given
+file-system entry is to be included in the output collection --
+barring other inclusion/exclusion criteria.
+
+
+
+In the event that this parameter is `null`, no path
+filtering is done. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
+is passed a blank or `null` string for a value. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
+
+##### Remarks
+
+Implementers of this method have a guarantee that the
+`rootFolderPath`
+parameter contains a fully-qualified
+pathname of a folder that exists on the disk, and that the
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfiguration 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration')
+property is set to a valid object instance reference.
+
+<a name='M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-Reset'></a>
+### Reset() `method`
+
+##### Summary
+
+Sets the values of this class' properties to their default values.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This method typically is called from a class constructor.
+
+<a name='M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-UsingSearchPattern-System-String-'></a>
+### UsingSearchPattern() `method`
+
+##### Summary
+
+Specifies a string that is to be used as the search pattern for
+enumerating file-system entries.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `searchPattern`,
+is passed a blank or `null` string for a value. |
+
+##### Remarks
+
+The default value is nominally an asterisk; however, classes that
+implement this interface may specify something different.
+
+
+
+Child classes can override this method, e.g., to hard-code the search pattern
+value.
+
+
+
+NOTE: Calling this method is optional. If this method is not called,
+then the default value will be utilized.
 
 <a name='T-MFR-FileSystem-Retrievers-TextInFilesRetriever'></a>
 ## TextInFilesRetriever `type`

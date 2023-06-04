@@ -31,7 +31,6 @@ namespace MFR.FileSystem.Factories.Actions
             try
             {
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
-                if (!Does.FileSystemEntryExist(pathname)) return result;   
 
                 // get the file attributes for file or directory
                 var attr = File.GetAttributes(pathname);
@@ -41,11 +40,8 @@ namespace MFR.FileSystem.Factories.Actions
                 result = (attr & FileAttributes.Directory) ==
                          FileAttributes.Directory;
             }
-            catch (Exception ex)
+            catch
             {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
                 result = false;
             }
 
