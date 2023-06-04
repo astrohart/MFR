@@ -1,7 +1,5 @@
-using MFR.Settings.Configuration.Helpers;
-using MFR.Settings.Configuration.Interfaces;
-using MFR.Matchers.Factories;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -25,7 +23,8 @@ namespace MFR.Engines.Matching
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public FileNameMatchingEngine(IProjectFileRenamerConfiguration configuration) : base(
+        public FileNameMatchingEngine(
+            IProjectFileRenamerConfiguration configuration) : base(
             configuration
         ) { }
 
@@ -55,7 +54,9 @@ namespace MFR.Engines.Matching
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            { get; } = OperationType.RenameFilesInFolder;
+        {
+            get;
+        } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -89,10 +90,8 @@ namespace MFR.Engines.Matching
         ///     langword="false" />
         /// if no matches are found.
         /// </returns>
-        public override bool IsMatch(
-            [NotLogged] string value,
-            [NotLogged] string findWhat,
-            [NotLogged] string replaceWith = "")
+        public override bool IsMatch([NotLogged] string value,
+            [NotLogged] string findWhat, [NotLogged] string replaceWith = "")
         {
             var result = base.IsMatch(value, findWhat, replaceWith);
 
