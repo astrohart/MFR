@@ -72,9 +72,9 @@ namespace MFR.GUI.Dialogs.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Folders|.
         /// </summary>
-        public static string FolderSelectDialogFIlters {
+        public static string FolderSelectDialogFilters {
             get {
-                return ResourceManager.GetString("FolderSelectDialogFIlters", resourceCulture);
+                return ResourceManager.GetString("FolderSelectDialogFilters", resourceCulture);
             }
         }
     }

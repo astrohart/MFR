@@ -36,6 +36,7 @@
   - [OnOperationFinished(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationFinished(MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnSolutionFoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
   - [OnStarting()](#M-MFR-Renamers-Files-FileRenamer-OnStarting 'MFR.Renamers.Files.FileRenamer.OnStarting')
   - [OnStatusUpdate(e)](#M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
@@ -56,6 +57,7 @@
   - [ResourceManager](#P-MFR-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
   - [StatusUpdate_AttemptingRenameSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_AttemptingRenameSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_AttemptingRenameSolutionFolders')
   - [StatusUpdate_FinishedRenamingSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_FinishedRenamingSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_FinishedRenamingSolutionFolders')
+  - [StatusUpdate_RenamingFilesInFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_RenamingFilesInFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_RenamingFilesInFolders')
 
 <a name='T-MFR-Renamers-Files-FileRenamer'></a>
 ## FileRenamer `type`
@@ -405,7 +407,8 @@ that contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-FileRenamer-ExceptionRaised 'MFR.FileRenamer.ExceptionRaised') event.
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-ExceptionRaised 'MFR.Renamers.Files.FileRenamer.ExceptionRaised')
+event.
 
 ##### Parameters
 
@@ -434,7 +437,7 @@ that contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-FileRenamer-FilesToBeRenamedCounted 'MFR.FileRenamer.FilesToBeRenamedCounted')
+[](#E-MFR-Renamers-Files-FileRenamer-FilesToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.FilesToBeRenamedCounted')
 event.
 
 ##### Parameters
@@ -450,7 +453,7 @@ contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-FileRenamer-FilesToHaveTextReplacedCounted 'MFR.FileRenamer.FilesToHaveTextReplacedCounted')
+[](#E-MFR-Renamers-Files-FileRenamer-FilesToHaveTextReplacedCounted 'MFR.Renamers.Files.FileRenamer.FilesToHaveTextReplacedCounted')
 event.
 
 ##### Parameters
@@ -492,7 +495,8 @@ contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-FileRenamer-OperationFinished 'MFR.FileRenamer.OperationFinished') event.
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-OperationFinished 'MFR.Renamers.Files.FileRenamer.OperationFinished')
+event.
 
 ##### Parameters
 
@@ -506,7 +510,8 @@ contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-FileRenamer-OperationStarted 'MFR.FileRenamer.OperationStarted') event.
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-OperationStarted 'MFR.Renamers.Files.FileRenamer.OperationStarted')
+event.
 
 ##### Parameters
 
@@ -527,6 +532,22 @@ Raises the [](#E-MFR-ProcessingOperation 'MFR.ProcessingOperation') event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
+contains the event data. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
+### OnSolutionFoldersToBeRenamedCounted(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Renamers-Files-FileRenamer-SolutionFoldersToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.SolutionFoldersToBeRenamedCounted')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnStarted'></a>
@@ -558,7 +579,7 @@ This method has no parameters.
 
 ##### Summary
 
-Raises the [](#E-MFR-FileRenamer-StatusUpdate 'MFR.FileRenamer.StatusUpdate') event.
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-StatusUpdate 'MFR.Renamers.Files.FileRenamer.StatusUpdate') event.
 
 ##### Parameters
 
@@ -573,7 +594,7 @@ the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-FileRenamer-SubfoldersToBeRenamedCounted 'MFR.FileRenamer.SubfoldersToBeRenamedCounted')
+[](#E-MFR-Renamers-Files-FileRenamer-SubfoldersToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.SubfoldersToBeRenamedCounted')
 event.
 
 ##### Parameters
@@ -998,3 +1019,10 @@ Looks up a localized string similar to Attempting to rename the folder(s) in the
 ##### Summary
 
 Looks up a localized string similar to *** Finished renaming solution folders in '{0}'..
+
+<a name='P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_RenamingFilesInFolders'></a>
+### StatusUpdate_RenamingFilesInFolders `property`
+
+##### Summary
+
+Looks up a localized string similar to Renaming files in subfolders of '{0}', replacing '{1}' with '{2}'....

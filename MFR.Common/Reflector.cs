@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+using MFR.Common.Properties;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -7,28 +7,14 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Common
 {
     /// <summary>
-    /// This class is from the Front-End for Dosbox and is used to present a
+    /// This class is from the Front-End for <c>Dosbox</c> and is used to present a
     /// 'vista' dialog box to select folders. Being able to use a vista style
     /// dialog box to select folders is much better then using the shell folder
     /// browser. http://code.google.com/p/fed/ Example: var r = new
     /// Reflector("System.Windows.Forms");
     /// </summary>
-    [Log(AttributeExclude = true)]
     public class Reflector
     {
-        /// <summary>
-        /// Reference to an instance of
-        /// <see
-        ///     cref="T:System.Reflection.Assembly" />
-        /// that corresponds to the target assembly.
-        /// </summary>
-        private readonly Assembly _targetAssembly;
-
-        /// <summary>
-        /// String containing the C# namespace that contains the target object.
-        /// </summary>
-        private readonly string _targetNamespace;
-
         /// <summary>
         /// Constructs a new instance of <see cref="T:MFR.Reflector" />
         /// and returns a reference to it.
@@ -88,25 +74,42 @@ namespace MFR.Common
                     nameof(targetNamespace)
                 );
 
-            _targetNamespace = targetNamespace;
+            // Dump the variable targetAssembly to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Reflector.Reflector: targetAssembly = '{targetAssembly}'"
+            );
 
-            _targetAssembly = null;
+            // Dump the variable targetNamespace to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Reflector.Reflector: targetNamespace = '{targetNamespace}'"
+            );
 
-            var executingAssembly = Assembly.GetEntryAssembly();
-            var referencedAssemblies =
-                executingAssembly.GetReferencedAssemblies();
-            if (!referencedAssemblies.Any())
-                throw new InvalidOperationException(
-                    "No referenced assemblies found."
-                );
+            TargetNamespace = targetNamespace;
 
-            foreach (var assemblyName in referencedAssemblies.Where(
-                assemblyName => assemblyName.FullName.StartsWith(targetAssembly)
-            ))
-            {
-                _targetAssembly = Assembly.Load(assemblyName);
-                break;
-            }
+            InitializeTargetAssembly(targetAssembly);
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of
+        /// <see
+        ///     cref="T:System.Reflection.Assembly" />
+        /// that corresponds to the target assembly.
+        /// </summary>
+        public Assembly TargetAssembly
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> containing the C# namespace that contains
+        /// the target object.
+        /// </summary>
+        public string TargetNamespace
+        {
+            get;
         }
 
         /// <summary>
@@ -424,9 +427,9 @@ namespace MFR.Common
                 var names = typeName.Split('.');
 
                 if (names.Length > 0)
-                    if (_targetAssembly != null)
-                        result = _targetAssembly.GetType(
-                            _targetNamespace + "." + names[0]
+                    if (TargetAssembly != null)
+                        result = TargetAssembly.GetType(
+                            TargetNamespace + "." + names[0]
                         );
 
                 for (var i = 1; i < names.Length; ++i)
@@ -507,6 +510,89 @@ namespace MFR.Common
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Sets up the value of the <see cref="P:MFR.Common.Reflector.TargetAssembly" />
+        /// property from the specified <paramref name="targetAssembly" /> value, using the
+        /// assemblies that are referenced by the executing assembly.
+        /// </summary>
+        /// <param name="targetAssembly">
+        /// (Required.) A <see cref="T:System.String" />
+        /// containing the value that the desired assembly's name should start with.
+        /// </param>
+        /// <remarks>
+        /// This method does nothing if the <paramref name="targetAssembly" /> parameter's
+        /// argument is the blank or <see langword="null" /> <see cref="T:System.String" />
+        /// value.
+        /// </remarks>
+        private void InitializeTargetAssembly(string targetAssembly)
+        {
+            try
+            {
+                // Dump the variable targetAssembly to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"Reflector.InitializeTargetAssembly: targetAssembly = '{targetAssembly}'"
+                );
+
+                if (string.IsNullOrWhiteSpace(targetAssembly))
+                    return;
+
+                TargetAssembly = Assembly.Load(targetAssembly);
+                if (TargetAssembly != null) return;
+
+                var executingAssembly = Assembly.GetEntryAssembly();
+                if (executingAssembly == null) return;
+                if (string.IsNullOrWhiteSpace(executingAssembly.FullName))
+                    return;
+
+                var referencedAssemblies =
+                    executingAssembly.GetReferencedAssemblies();
+                if (!referencedAssemblies.Any())
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        string.Format(
+                            Resources
+                                .Error_NoAssembliesReferencedByExecutingAssembly,
+                            executingAssembly.FullName
+                        )
+                    );
+                    return;
+                }
+
+                var candidateTargetAssemblies = referencedAssemblies.Where(
+                        assemblyName
+                            => assemblyName.FullName.StartsWith(targetAssembly)
+                    )
+                    .ToList();
+                if (candidateTargetAssemblies == null ||
+                    !candidateTargetAssemblies.Any())
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        string.Format(
+                            Resources.Error_DesiredTargetAssemblyNotReferenced,
+                            targetAssembly, executingAssembly.FullName
+                        )
+                    );
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** INFO: Attempting to load the properly-referenced assembly whose name starts with '{targetAssembly}'..."
+                );
+
+                foreach (var assemblyName in candidateTargetAssemblies)
+                    TargetAssembly = Assembly.Load(assemblyName);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

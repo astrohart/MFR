@@ -24,7 +24,7 @@ namespace MFR.GUI.Dialogs
         public FolderSelectDialog()
         {
             _ofd = new OpenFileDialog {
-                Filter = Resources.FolderSelectDialogFIlters,
+                Filter = Resources.FolderSelectDialogFilters,
                 AddExtension = false,
                 CheckFileExists = false,
                 DereferenceLinks = true,
@@ -164,7 +164,10 @@ namespace MFR.GUI.Dialogs
 
                 if (Environment.OSVersion.Version.Major >= 6)
                 {
-                    var r = new Reflector("System.Windows.Forms");
+                    var formType = typeof(Form);
+                    if (formType == null) return flag;
+
+                    var r = new Reflector(formType.Assembly.FullName, formType.Namespace);
                     if (r == null)
                     {
                         DebugUtils.WriteLine(
