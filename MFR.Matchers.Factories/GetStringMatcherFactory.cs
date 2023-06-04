@@ -1,3 +1,4 @@
+using MFR.GUI.Models.Converters;
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
@@ -40,23 +41,34 @@ namespace MFR.Matchers.Factories
         public static IStringMatcherFactory For(OperationType type)
         {
             IStringMatcherFactory result;
-            
+
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
                     result = GetRenameFilesInFolderStringMatcherFactory
                         .SoleInstance();
                     break;
+
                 case OperationType.ReplaceTextInFiles:
                     result = GetReplaceTextInFilesStringMatcherFactory
                         .SoleInstance();
                     break;
+
                 case OperationType.RenameSubFolders:
                     result = GetRenameSubFoldersStringMatcherFactory
                         .SoleInstance();
                     break;
+
+                case OperationType.RenameSolutionFolders:
+                    result = GetRenameSolutionFoldersStringMatcherFactory
+                        .SoleInstance();
+                    break;
+
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                    throw new ArgumentOutOfRangeException(
+                        nameof(type), type,
+                        $"There is no string matcher factory object defined for the '{ConvertOperationType.ToString(type)}' operation."
+                    );
             }
 
             return result;

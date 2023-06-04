@@ -108,6 +108,7 @@
     <Compile Include="GetMatchExactWordOnlyFolderNameStringMatcher.cs" />
     <Compile Include="GetNeitherMatchCaseNorExactWordFolderNameStringMatcher.cs" />
     <Compile Include="GetRenameFilesInFolderStringMatcherFactory.cs" />
+    <Compile Include="GetRenameSolutionFoldersStringMatcherFactory.cs" />
     <Compile Include="GetRenameSubFoldersStringMatcherFactory.cs" />
     <Compile Include="GetReplaceTextInFilesStringMatcherFactory.cs" />
     <Compile Include="GlobalAspects.cs" />
