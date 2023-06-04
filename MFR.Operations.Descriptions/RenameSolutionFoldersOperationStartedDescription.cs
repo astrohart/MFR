@@ -6,8 +6,11 @@ using PostSharp.Patterns.Diagnostics;
 namespace MFR.Operations.Descriptions
 {
     /// <summary>
-    /// Gets the descriptive text to be displayed to the user at the start of a
-    /// Rename Sub Folders Of operation.
+    /// Gets the descriptive, user-friendly text that is to be used in order to explain
+    /// to the user that the application is beginning the operation of renaming the
+    /// folder(s) that the Visual Studio Solution (<c>*.sln</c>) file(s) contained
+    /// within a specified directory tree live in, are to be renamed according to a
+    /// text-replacement pattern that has been specified by the user.
     /// </summary>
     public class
         RenameSolutionFoldersOperationStartedDescription :
