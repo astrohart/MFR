@@ -113,11 +113,15 @@ namespace MFR.Matchers
              * we are looking for.
              */
 
-            bool result;
+            var result = false;
 
             try
             {
-                result = Path.GetFileName(value)
+                var lowestLevelFolderName = Path.GetFileName(value);
+                if (string.IsNullOrWhiteSpace(lowestLevelFolderName))
+                    return result;
+
+                result = lowestLevelFolderName
                              .MatchesNoCase(findWhat, replaceWith);
             }
             catch (Exception ex)
