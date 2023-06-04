@@ -11,7 +11,7 @@ namespace MFR.Engines.Matching.Actions
     /// <summary>
     /// Exposes static methods to get references to objects that perform
     /// <see cref="T:System.String" /> pattern-matching based on the current operation
-    /// being performed and the current application configuration settings..
+    /// being performed and the current application configuration settings.
     /// </summary>
     public static class Get
     {
