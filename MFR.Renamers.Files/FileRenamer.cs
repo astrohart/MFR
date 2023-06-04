@@ -868,6 +868,66 @@ namespace MFR.Renamers.Files
                         .For(OperationType.RenameSolutionFolders)
                         .AndAttachConfiguration(CurrentConfiguration);
                 if (retriever == null) return result;
+
+                // build a list of solution folders to be processed
+                var fileSystemEntries = retriever.UsingSearchPattern("*.sln")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath,
+                                                     pathFilter
+                                                 )
+                                                 .ToList();
+
+                // NOTE: There is a chance that this particular operation will
+                // alter the pathname that is stored in the value of the
+                // RootDirectoryPath property.  We should make sure to take this
+                // into account.
+
+                if (!fileSystemEntries.Any() && !AbortRequested)
+                {
+                    /*
+                     * If we are here, then no folders that contain Visual Studio Solution (<c>*.sln</c>)
+                     * were found whose names also match the user's search criteria, and the user has not
+                     * clicked the Cancel button in the progress dialog.  Therefore, just report
+                     * this operation as being finished, and then exit this method.
+                     */
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.RenameSolutionFolders
+                        )
+                    );
+
+                    return result;
+                }
+
+                /*
+                 * If, at this point, the AbortRequested property is true,
+                 * then the user must have cancelled the progress dialog.
+                 *
+                 * This indicates that the user wishes us to stop the operation
+                 * at this point.
+                 */
+
+                if (AbortRequested)
+                    throw new OperationAbortedException(
+                        Resources.Error_OperationAborted
+                    );
+
+                /*
+                 * Inform the user (and other parts of the application, such as the
+                 * progress dialog) of the count of folders that have been obtained.
+                 */
+
+                OnSolutionFoldersToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        fileSystemEntries.Count,
+                        OperationType.RenameSolutionFolders
+                    )
+                );
             }
             catch (OperationAbortedException)
             {
@@ -878,6 +938,8 @@ namespace MFR.Renamers.Files
             catch (Exception ex)
             {
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
             }
 
             /*
@@ -1334,6 +1396,12 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Occurs when solution folders that are to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SolutionFoldersToBeRenamedCounted;
+
+        /// <summary>
         /// Enables this object to perform some or all of the operations specified.
         /// </summary>
         /// <param name="operations">
@@ -1348,7 +1416,8 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.ExceptionRaised" /> event.
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ExceptionRaised" />
+        /// event.
         /// </summary>
         /// <param name="e">
         /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
@@ -1751,10 +1820,10 @@ namespace MFR.Renamers.Files
                 // NOTE: I was tempted to invoke the IFileStreamProvider.DisposeAll()
                 // method here; however, the thinking is that this exception has
                 // triggered this finally clause just for the file system entry
-                // that is currently being processed; therefore, we just try to 
+                // that is currently being processed; therefore, we just try to
                 // dispose the file system entry that is currently being worked on
-                if (entry != null
-                    && !((Guid)entry.UserState).Equals(Guid.Empty))
+                if (entry != null &&
+                    !((Guid)entry.UserState).Equals(Guid.Empty))
                     FileStreamProvider.DisposeStream(entry.UserState);
             }
 
@@ -1841,7 +1910,7 @@ namespace MFR.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.FileRenamer.FilesToBeRenamedCounted" />
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.FilesToBeRenamedCounted" />
         /// event.
         /// </summary>
         /// <param name="e">
@@ -1860,7 +1929,7 @@ namespace MFR.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.FileRenamer.FilesToHaveTextReplacedCounted" />
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.FilesToHaveTextReplacedCounted" />
         /// event.
         /// </summary>
         /// <param name="e">
@@ -1899,7 +1968,8 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.OperationFinished" /> event.
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.OperationFinished" />
+        /// event.
         /// </summary>
         /// <param name="e">
         /// An <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
@@ -1918,7 +1988,8 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.OperationStarted" /> event.
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.OperationStarted" />
+        /// event.
         /// </summary>
         /// <param name="e">
         /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs" /> that
@@ -1953,6 +2024,27 @@ namespace MFR.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.SolutionFoldersToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnSolutionFoldersToBeRenamedCounted(
+            FilesOrFoldersCountedEventArgs e)
+        {
+            SolutionFoldersToBeRenamedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages
+                        .FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED
+                );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
         ///     cref="E:MFR.Renamers.Files.FileRenamer.Started" />
         /// event.
         /// </summary>
@@ -1964,7 +2056,7 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.FileRenamer.StatusUpdate" /> event.
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.StatusUpdate" /> event.
         /// </summary>
         /// <param name="e">
         /// A <see cref="T:MFR.StatusUpdateEventArgs" /> that contains
@@ -1984,7 +2076,7 @@ namespace MFR.Renamers.Files
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.FileRenamer.SubfoldersToBeRenamedCounted" />
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.SubfoldersToBeRenamedCounted" />
         /// event.
         /// </summary>
         /// <param name="e">
