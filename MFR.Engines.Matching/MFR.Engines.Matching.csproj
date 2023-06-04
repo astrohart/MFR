@@ -112,6 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SolutionFolderNameMatchingEngine.cs" />
     <Compile Include="TextExpressionMatchingEngineBase.cs" />
     <Compile Include="TextInFilesMatchingEngine.cs" />
   </ItemGroup>
