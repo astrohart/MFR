@@ -1,5 +1,6 @@
 using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.FileSystem.Retrievers.Factories
@@ -14,6 +15,7 @@ namespace MFR.FileSystem.Retrievers.Factories
     /// These objects enumerate objects on the file system according to search
     /// criteria specified by the user.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class GetFileSystemEntryListRetriever
     {
         /// <summary>

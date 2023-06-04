@@ -1,4 +1,5 @@
 ﻿using MFR.FileSystem.Retrievers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.FileSystem.Retrievers.Factories
 {
@@ -10,6 +11,7 @@ namespace MFR.FileSystem.Retrievers.Factories
     /// pathnames of any Visual Studio Solution (<c>*.sln</c>) files that may be
     /// present within it.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetSolutionFilePathRetriever
     {
         /// <summary>
