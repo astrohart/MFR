@@ -31,9 +31,7 @@ namespace MFR.Engines.Matching
         public SolutionFolderNameMatchingEngine(
             IProjectFileRenamerConfiguration configuration) : base(
             configuration
-        )
-        {
-        }
+        ) { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -50,10 +48,7 @@ namespace MFR.Engines.Matching
         /// use the <c>public</c> constructor.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        public SolutionFolderNameMatchingEngine()
-        {
-            // TODO: Add default object initialization code here
-        }
+        public SolutionFolderNameMatchingEngine() { }
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values

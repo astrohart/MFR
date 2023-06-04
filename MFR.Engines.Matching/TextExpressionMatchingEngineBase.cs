@@ -23,10 +23,7 @@ namespace MFR.Engines.Matching
         ///     cref="T:MFR.Engines.Matching.TextExpressionMatchingEngineBase" />
         /// and returns a reference to it.
         /// </summary>
-        protected TextExpressionMatchingEngineBase()
-        {
-            // TODO: Add default object-initialization code here.
-        }
+        protected TextExpressionMatchingEngineBase() { }
 
         /// <summary>
         /// Constructs a new instance of
