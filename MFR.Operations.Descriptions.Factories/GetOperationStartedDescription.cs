@@ -83,8 +83,8 @@ namespace MFR.Operations.Descriptions.Factories
                         .SoleInstance();
                     break;
 
-                case OperationType.RenameSolutionFolder:
-                    result = GetRenameSolutionFolderOperationStartedDescription
+                case OperationType.RenameSolutionFolders:
+                    result = GetRenameSolutionFoldersOperationStartedDescription
                         .SoleInstance();
                     break;
 

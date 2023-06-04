@@ -120,7 +120,7 @@
     </Compile>
     <Compile Include="RenameFilesInFolderOperationDescription.cs" />
     <Compile Include="RenameFilesInFolderOperationStartedDescription.cs" />
-    <Compile Include="RenameSolutionFolderOperationStartedDescription.cs" />
+    <Compile Include="RenameSolutionFoldersOperationStartedDescription.cs" />
     <Compile Include="RenameSubFoldersOperationDescription.cs" />
     <Compile Include="RenameSubFoldersOperationStartedDescription.cs" />
     <Compile Include="ReplaceTextInFilesOperationDescription.cs" />

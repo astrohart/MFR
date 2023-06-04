@@ -85,7 +85,7 @@ namespace MFR.Operations.Constants
         /// <summary>
         /// The folder in which the containing Solution is itself being renamed.
         /// </summary>
-        RenameSolutionFolder = 13,
+        RenameSolutionFolders = 13,
 
         /// <summary>
         /// We are searching for ALL files with the extension *.sln in a specific directory

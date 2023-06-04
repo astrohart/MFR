@@ -11,7 +11,7 @@ namespace MFR.Operations.Descriptions.Factories
     /// beginning the operation to rename the folder that a Solution lives in.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public static class GetRenameSolutionFolderOperationStartedDescription
+    public static class GetRenameSolutionFoldersOperationStartedDescription
     {
         /// <summary>
         /// Obtains access to the sole instance of the object that implements the
@@ -27,6 +27,6 @@ namespace MFR.Operations.Descriptions.Factories
         /// beginning the operation to rename the folder that a Solution lives in.
         /// </returns>
         public static IOperationStartedDescription SoleInstance()
-            => RenameSolutionFolderOperationStartedDescription.Instance;
+            => RenameSolutionFoldersOperationStartedDescription.Instance;
     }
 }

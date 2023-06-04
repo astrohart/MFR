@@ -10,20 +10,20 @@ namespace MFR.Operations.Descriptions
     /// Rename Sub Folders Of operation.
     /// </summary>
     public class
-        RenameSolutionFolderOperationStartedDescription :
+        RenameSolutionFoldersOperationStartedDescription :
             IOperationStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameSolutionFolderOperationStartedDescription() { }
+        static RenameSolutionFoldersOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameSolutionFolderOperationStartedDescription() { }
+        protected RenameSolutionFoldersOperationStartedDescription() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -36,7 +36,7 @@ namespace MFR.Operations.Descriptions
         public static IOperationStartedDescription Instance
         {
             get;
-        } = new RenameSolutionFolderOperationStartedDescription();
+        } = new RenameSolutionFoldersOperationStartedDescription();
 
         /// <summary>
         /// Gets one of the
@@ -46,7 +46,7 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.RenameSolutionFolder;
+            => OperationType.RenameSolutionFolders;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
