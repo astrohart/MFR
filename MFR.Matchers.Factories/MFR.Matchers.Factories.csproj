@@ -138,6 +138,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Models.Converters\MFR.GUI.Models.Converters.csproj">
+      <Project>{80D46DA4-AC62-4D36-A763-6E03951224FB}</Project>
+      <Name>MFR.GUI.Models.Converters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj">
       <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
       <Name>MFR.Settings.Configuration.Constants</Name>

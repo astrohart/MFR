@@ -1,4 +1,6 @@
+using MFR.GUI.Models.Converters;
 using MFR.Matchers.Factories.Interfaces;
+using MFR.Matchers.Factories.Properties;
 using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Constants;
@@ -131,7 +133,11 @@ namespace MFR.Matchers.Factories
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(matchingConfig), matchingConfig,
-                        $"There are no string matcher objects defined for the Rename Files in Folder operation type that support the '{matchingConfig}' matching configuration."
+                        string.Format(
+                            Resources.Error_NoStringMatcherDefinedForOperation,
+                            ConvertOperationType.ToString(OperationType),
+                            matchingConfig
+                        )
                     );
             }
 

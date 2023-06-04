@@ -43,6 +43,10 @@ namespace MFR.GUI.Models.Converters
                     result = "Replace Text in Files";
                     break;
 
+                case OperationType.RenameSolutionFolders:
+                    result = "Rename Solution Folders";
+                    break;
+
                 default:
                     result = string.Empty;
                     break;

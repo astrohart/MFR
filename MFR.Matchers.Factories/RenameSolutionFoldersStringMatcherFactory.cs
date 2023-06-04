@@ -1,4 +1,6 @@
+using MFR.GUI.Models.Converters;
 using MFR.Matchers.Factories.Interfaces;
+using MFR.Matchers.Factories.Properties;
 using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Constants;
@@ -109,29 +111,34 @@ namespace MFR.Matchers.Factories
             switch (matchingConfig)
             {
                 case TextMatchingConfiguration.MatchCaseOnly:
-                    matcher = MatchCaseOnlyFolderNameStringMatcher.Instance;
+                    matcher = GetMatchCaseOnlyFolderNameStringMatcher
+                        .SoleInstance();
                     break;
 
                 case TextMatchingConfiguration.MatchExactWordOnly:
-                    matcher = MatchExactWordOnlyFolderNameStringMatcher
-                        .Instance;
+                    matcher = GetMatchExactWordOnlyFolderNameStringMatcher
+                        .SoleInstance();
                     break;
 
                 case TextMatchingConfiguration.MatchCaseAndExactWord:
-                    matcher = MatchCaseAndExactWordFolderNameStringMatcher
-                        .Instance;
+                    matcher = GetMatchCaseAndExactWordFolderNameStringMatcher
+                        .SoleInstance();
                     break;
 
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     matcher =
-                        NeitherMatchCaseNorExactWordFolderNameStringMatcher
-                            .Instance;
+                        GetNeitherMatchCaseNorExactWordFolderNameStringMatcher
+                            .SoleInstance();
                     break;
 
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(matchingConfig), matchingConfig,
-                        $"There are no string matcher objects defined for the Rename Files in Folder operation type that support the '{matchingConfig}' matching configuration."
+                        string.Format(
+                            Resources.Error_NoStringMatcherDefinedForOperation,
+                            ConvertOperationType.ToString(OperationType),
+                            matchingConfig
+                        )
                     );
             }
 
