@@ -45,7 +45,7 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.RenameSubFolders;
+            { get; } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the

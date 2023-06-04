@@ -47,7 +47,7 @@ namespace MFR.Engines.Replacement
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

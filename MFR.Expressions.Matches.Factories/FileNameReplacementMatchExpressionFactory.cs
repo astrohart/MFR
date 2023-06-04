@@ -24,7 +24,7 @@ namespace MFR.Expressions.Matches.Factories
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Sets the text data to be searched for a pattern.

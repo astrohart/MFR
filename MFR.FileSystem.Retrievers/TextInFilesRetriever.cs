@@ -49,7 +49,7 @@ namespace MFR.FileSystem.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Specifies a string that should be utilized in order to replace a

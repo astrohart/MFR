@@ -40,7 +40,7 @@ namespace MFR.Operations.Descriptions
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the

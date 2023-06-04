@@ -19,7 +19,7 @@ namespace MFR.Replacers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets one of the

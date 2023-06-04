@@ -1,5 +1,6 @@
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Replacers.Factories
@@ -10,6 +11,7 @@ namespace MFR.Replacers.Factories
     ///     cref="T:MFR.IStringReplacer" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetStringReplacer
     {
         /// <summary>
@@ -37,26 +39,32 @@ namespace MFR.Replacers.Factories
         /// </returns>
         public static IStringReplacerFactory For(OperationType type)
         {
-            IStringReplacerFactory factory = null;
-            
+            IStringReplacerFactory result;
+
             switch (type)
             {
-                case OperationType.CalculateListOfFilesToBeRenamed:
-                    break;
                 case OperationType.RenameFilesInFolder:
-                    factory = RenameFilesInFolderStringReplacerFactory.Instance;
+                    result = GetRenameFilesInFolderStringReplacerFactory
+                        .SoleInstance();
                     break;
+
                 case OperationType.ReplaceTextInFiles:
-                    factory = ReplaceTextInFilesStringReplacerFactory.Instance;
+                    result = GetReplaceTextInFilesStringReplacerFactory
+                        .SoleInstance();
                     break;
+
                 case OperationType.RenameSubFolders:
-                    factory = RenameSubFoldersStringReplacerFactory.Instance;
+                    result = GetRenameSubFoldersStringReplacerFactory
+                        .SoleInstance();
                     break;
+
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                    throw new ArgumentOutOfRangeException(
+                        nameof(type), type, null
+                    );
             }
 
-            return factory;
+            return result;
         }
     }
 }

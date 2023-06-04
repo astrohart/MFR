@@ -1,7 +1,7 @@
-using MFR.Settings.Configuration.Constants;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories.Interfaces;
 using MFR.Replacers.Interfaces;
+using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
@@ -29,13 +29,14 @@ namespace MFR.Replacers.Factories
         protected RenameFilesInFolderStringReplacerFactory() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Replacers.Factories.Interfaces.IStringReplacerFactory" />
+        /// interface that creates instances of objects that are responsible for replacing
+        /// the text in the filenames of files that exist in a specific directory tree on
+        /// the disk.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RenameFilesInFolderStringReplacerFactory Instance
+        public static IStringReplacerFactory Instance
         {
             get;
         } = new RenameFilesInFolderStringReplacerFactory();
@@ -49,7 +50,9 @@ namespace MFR.Replacers.Factories
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+        {
+            get;
+        } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -93,7 +96,9 @@ namespace MFR.Replacers.Factories
         public IStringReplacer AndTextMatchingConfiguration(
             TextMatchingConfiguration matchingConfig)
         {
-            if (!Enum.IsDefined(typeof(TextMatchingConfiguration), matchingConfig))
+            if (!Enum.IsDefined(
+                    typeof(TextMatchingConfiguration), matchingConfig
+                ))
                 throw new InvalidEnumArgumentException(
                     nameof(matchingConfig), (int)matchingConfig,
                     typeof(TextMatchingConfiguration)
@@ -120,7 +125,7 @@ namespace MFR.Replacers.Factories
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     replacer =
                         NeitherMatchCaseNorExactWordFileNameStringReplacer
-                        .Instance;
+                            .Instance;
                     break;
 
                 default:

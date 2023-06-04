@@ -49,7 +49,7 @@ namespace MFR.Matchers.Factories
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Creates a new instance of an object that implements the

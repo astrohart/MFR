@@ -51,7 +51,7 @@ namespace MFR.FileSystem.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Gets a list of the files that match the criteria specified by this

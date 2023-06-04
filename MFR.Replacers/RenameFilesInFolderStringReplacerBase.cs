@@ -34,7 +34,7 @@ namespace MFR.Replacers
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-            => OperationType.RenameFilesInFolder;
+            { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
         /// Carries out the replacement operation using the values specified by

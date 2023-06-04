@@ -25,7 +25,7 @@ namespace MFR.Expressions.Matches.Factories
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)] public override OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Initializes the value that text matching the pattern specified by

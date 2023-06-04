@@ -1,7 +1,7 @@
-using MFR.Settings.Configuration.Constants;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories.Interfaces;
 using MFR.Replacers.Interfaces;
+using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
@@ -29,13 +29,14 @@ namespace MFR.Replacers.Factories
         protected ReplaceTextInFilesStringReplacerFactory() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Replacers.Factories.ReplaceTextInFilesStringReplacerFactory" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Replacers.Factories.Interfaces.IStringReplacerFactory" />
+        /// interface that creates objects which are responsible for replacing text in the
+        /// contents of files within a specific directory tree based on a text-replacement
+        /// pattern specified by the user.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesStringReplacerFactory Instance
+        public static IStringReplacerFactory Instance
         {
             get;
         } = new ReplaceTextInFilesStringReplacerFactory();
@@ -49,7 +50,7 @@ namespace MFR.Replacers.Factories
         /// </summary>
         [Log(AttributeExclude = true)]
         public OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -93,7 +94,9 @@ namespace MFR.Replacers.Factories
         public IStringReplacer AndTextMatchingConfiguration(
             TextMatchingConfiguration matchingConfig)
         {
-            if (!Enum.IsDefined(typeof(TextMatchingConfiguration), matchingConfig))
+            if (!Enum.IsDefined(
+                    typeof(TextMatchingConfiguration), matchingConfig
+                ))
                 throw new InvalidEnumArgumentException(
                     nameof(matchingConfig), (int)matchingConfig,
                     typeof(TextMatchingConfiguration)

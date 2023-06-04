@@ -43,7 +43,7 @@ namespace MFR.TextValues.Retrievers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string containing the text to be searched, from the

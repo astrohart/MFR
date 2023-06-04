@@ -54,7 +54,7 @@ namespace MFR.Engines.Matching
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            => OperationType.ReplaceTextInFiles;
+            { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
