@@ -808,9 +808,7 @@ namespace MFR.Renamers.Files
         /// </exception>
         public bool RenameSolutionFolders(string rootFolderPath, string findWhat,
             string replaceWith, Predicate<string> pathFilter = null)
-        { 
-            
-        }
+            => throw new NotImplementedException();
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
