@@ -1,4 +1,5 @@
 ﻿using MFR.Matchers.Factories.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Matchers.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.Matchers.Factories
     /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
     /// interface for replacing values within the text of a file.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetReplaceTextInFilesStringMatcherFactory
     {
         /// <summary>

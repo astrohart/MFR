@@ -1,5 +1,6 @@
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Matchers.Factories
@@ -10,6 +11,7 @@ namespace MFR.Matchers.Factories
     ///     cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetStringMatcherFactory
     {
         /// <summary>
@@ -37,27 +39,27 @@ namespace MFR.Matchers.Factories
         /// </returns>
         public static IStringMatcherFactory For(OperationType type)
         {
-            IStringMatcherFactory factory = null;
+            IStringMatcherFactory result;
             
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    factory = GetRenameFilesInFolderStringMatcherFactory
+                    result = GetRenameFilesInFolderStringMatcherFactory
                         .SoleInstance();
                     break;
                 case OperationType.ReplaceTextInFiles:
-                    factory = GetReplaceTextInFilesStringMatcherFactory
+                    result = GetReplaceTextInFilesStringMatcherFactory
                         .SoleInstance();
                     break;
                 case OperationType.RenameSubFolders:
-                    factory = GetRenameSubFoldersStringMatcherFactory
+                    result = GetRenameSubFoldersStringMatcherFactory
                         .SoleInstance();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
 
-            return factory;
+            return result;
         }
     }
 }

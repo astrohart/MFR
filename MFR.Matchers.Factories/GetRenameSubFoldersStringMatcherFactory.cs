@@ -1,4 +1,5 @@
 ﻿using MFR.Matchers.Factories.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Matchers.Factories
 {
@@ -7,6 +8,7 @@ namespace MFR.Matchers.Factories
     /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
     /// interface for renaming sub-folders of a parent folder.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetRenameSubFoldersStringMatcherFactory
     {
         /// <summary>
