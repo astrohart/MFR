@@ -114,7 +114,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
+This object allows access to the user configuration and the
 actions
 associated with it.
 
@@ -261,7 +261,7 @@ This object provides the functionality of the main window of the application.
 ##### Summary
 
 Creates a 'profile' (really a way of saving a group of
-projectFileRenamerConfiguration
+configuration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -336,7 +336,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current projectFileRenamerConfiguration data to a file on the
+Exports the current configuration data to a file on the
 user's hard drive.
 
 ##### Parameters
@@ -412,7 +412,7 @@ that exists on the user's hard drive and has the `.json` extension.
 
 ##### Summary
 
-Initializes the currently-loaded projectFileRenamerConfiguration object.
+Initializes the currently-loaded configuration object.
 
 ##### Parameters
 
@@ -424,7 +424,7 @@ This method has no parameters.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on projectFileRenamerConfiguration settings.
+based on configuration settings.
 
 ##### Parameters
 
@@ -599,7 +599,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-projectFileRenamerConfiguration data source, while a mildly lengthy operation,
+configuration data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
 
@@ -625,7 +625,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-projectFileRenamerConfiguration data source, while a mildly lengthy operation,
+configuration data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
 
@@ -716,7 +716,7 @@ string for a value. |
 ##### Summary
 
 Saves data from the screen control and then saves the
-projectFileRenamerConfiguration to the
+configuration to the
 persistence location.
 
 ##### Parameters

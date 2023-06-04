@@ -18,7 +18,7 @@
   - [ResourceManager](#P-MFR-Engines-Matching-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Properties.Resources.ResourceManager')
 - [TextExpressionMatchingEngineBase](#T-MFR-Engines-Matching-TextExpressionMatchingEngineBase 'MFR.Engines.Matching.TextExpressionMatchingEngineBase')
   - [#ctor()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor')
-  - [#ctor(projectFileRenamerConfiguration)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [#ctor(configuration)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [ConfigurationProvider](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfiguration')
   - [OperationType](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
@@ -60,7 +60,7 @@ This constructor has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-FileNameMatchingEngine-#ctor'></a>
@@ -142,7 +142,7 @@ MFR.Engines.Matching
 
 Searches for matches to textual-search criteria patterns and regexes in
 the pathnames of folders, according to rules specified by
-projectFileRenamerConfiguration
+configuration
 settings.
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
@@ -163,7 +163,7 @@ This constructor has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
-`projectFileRenamerConfiguration`,
+`configuration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-FolderNameMatchingEngine-#ctor'></a>
@@ -285,7 +285,7 @@ and returns a reference to it.
 This constructor has no parameters.
 
 <a name='M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### #ctor(projectFileRenamerConfiguration) `constructor`
+### #ctor(configuration) `constructor`
 
 ##### Summary
 
@@ -298,7 +298,7 @@ a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface that holds
@@ -309,7 +309,7 @@ settings that are specified by the user. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
-`projectFileRenamerConfiguration`,
+`configuration`,
 is passed a `null` value. |
 
 <a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigurationProvider'></a>
@@ -323,7 +323,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
+This object allows access to the user configuration and the
 actions
 associated with it.
 
@@ -458,7 +458,7 @@ This constructor has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
-`projectFileRenamerConfiguration`,
+`configuration`,
 is passed a `null` value. |
 
 <a name='M-MFR-Engines-Matching-TextInFilesMatchingEngine-#ctor'></a>

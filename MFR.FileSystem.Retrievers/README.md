@@ -157,7 +157,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
+This object allows access to the user configuration and the
 actions
 associated with it.
 
@@ -256,7 +256,7 @@ Fluent bridge property that accesses the appropriate text-expression
 matcher object, that implements the
 [ITextExpressionMatchingEngine](#T-MFR-ITextExpressionMatchingEngine 'MFR.ITextExpressionMatchingEngine')
 interface,
-for the current operation type and projectFileRenamerConfiguration.
+for the current operation type and configuration.
 
 ##### Remarks
 
@@ -330,7 +330,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -381,7 +381,7 @@ the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSy
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown in the event that the
 [Path](#P-MFR-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 property of
@@ -432,7 +432,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
 `rootFolderPath`
 ' parameter cannot be located on the disk. |
@@ -459,7 +459,7 @@ This method typically is called from a class constructor.
 
 Determines whether the path and/or user-state data in the specified
 file system `entry` object matches search and
-projectFileRenamerConfiguration criteria specified by the user.
+configuration criteria specified by the user.
 
 ##### Returns
 
@@ -648,8 +648,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[FilesToRenameRetriever](#T-MFR-FileSystem-Retrievers-FilesToRenameRetriever 'MFR.FileSystem.Retrievers.FilesToRenameRetriever').
+Gets a reference to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that globs a directory tree for the set of all files that must be
+renamed because their filenames match a search pattern that is defined by the
+user.
 
 <a name='P-MFR-FileSystem-Retrievers-FilesToRenameRetriever-OperationType'></a>
 ### OperationType `property`
@@ -714,7 +717,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -753,8 +756,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[FolderToRenameRetriever](#T-MFR-FileSystem-Retrievers-FolderToRenameRetriever 'MFR.FileSystem.Retrievers.FolderToRenameRetriever').
+Gets a reference to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that obtains a list of all those folders in a directory tree whose
+names match a search pattern that is specified by the user for the renaming
+process.
 
 <a name='P-MFR-FileSystem-Retrievers-FolderToRenameRetriever-OperationType'></a>
 ### OperationType `property`
@@ -819,7 +825,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -884,8 +890,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[SolutionFilePathRetriever](#T-MFR-FileSystem-Retrievers-SolutionFilePathRetriever 'MFR.FileSystem.Retrievers.SolutionFilePathRetriever').
+Gets a reference to the one and only instance of the object that implements the
+[IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
+interface that searches a particular directory tree of the file system for the
+pathnames of any Visual Studio Solution (`*.sln`) files that may be
+present within it.
 
 <a name='P-MFR-FileSystem-Retrievers-SolutionFilePathRetriever-OperationType'></a>
 ### OperationType `property`
@@ -1001,7 +1010,7 @@ filtering is done. |
 | ---- | ----------- |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
@@ -1077,7 +1086,7 @@ then the default value will be utilized.
 
 ##### Summary
 
-Verifies that projectFileRenamerConfiguration has been attached to this object.
+Verifies that configuration has been attached to this object.
 
 ##### Parameters
 
@@ -1087,18 +1096,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 
-If no projectFileRenamerConfiguration is attached to this object, then
+If no configuration is attached to this object, then
 [ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException')
 is thrown.
 
 
 
 Child classes may override this method, e.g., to make
-attaching a projectFileRenamerConfiguration object optional.
+attaching a configuration object optional.
 
 
 
@@ -1134,7 +1143,8 @@ This constructor has no parameters.
 
 Gets a reference to the one and only instance of the object that implements the
 [IFileSystemEntryListRetriever](#T-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever 'MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever')
-interface that represents an object that is capable of searching text in files.
+interface that represents an object that is capable of retrieving the list of
+all those files on the filesystem that contain a specific text pattern.
 
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType'></a>
 ### OperationType `property`
@@ -1224,7 +1234,7 @@ filtering is done. |
 is passed a blank or `null` string for a value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
 is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no projectFileRenamerConfiguration data is attached to this object. |
+| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no configuration data is attached to this object. |
 
 ##### Remarks
 

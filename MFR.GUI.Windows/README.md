@@ -8,8 +8,9 @@
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
-  - [Configuration](#P-MFR-GUI-Windows-MainWindow-Configuration 'MFR.GUI.Windows.MainWindow.Configuration')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
+  - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
+  - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-MainWindow-FullApplicationName 'MFR.GUI.Windows.MainWindow.FullApplicationName')
@@ -22,10 +23,12 @@
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.MainWindow.OperationsCheckedListBox')
   - [Presenter](#P-MFR-GUI-Windows-MainWindow-Presenter 'MFR.GUI.Windows.MainWindow.Presenter')
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ProfileCollectionComboBox')
+  - [RenameSolutionFolders](#P-MFR-GUI-Windows-MainWindow-RenameSolutionFolders 'MFR.GUI.Windows.MainWindow.RenameSolutionFolders')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.MainWindow.ReplaceWithComboBox')
-  - [RootDirectoryValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryValidator')
+  - [RootDirectoryPathValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryPathValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryPathValidator')
   - [SelectAll](#P-MFR-GUI-Windows-MainWindow-SelectAll 'MFR.GUI.Windows.MainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-MainWindow-SelectedOptionTab 'MFR.GUI.Windows.MainWindow.SelectedOptionTab')
+  - [StartingFolder](#P-MFR-GUI-Windows-MainWindow-StartingFolder 'MFR.GUI.Windows.MainWindow.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox 'MFR.GUI.Windows.MainWindow.StartingFolderComboBox')
   - [Version](#P-MFR-GUI-Windows-MainWindow-Version 'MFR.GUI.Windows.MainWindow.Version')
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
@@ -43,6 +46,7 @@
   - [OnHelpAbout(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpAbout-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpAbout(System.Object,System.EventArgs)')
   - [OnHelpMenuDropDownOpening(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpMenuDropDownOpening-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpMenuDropDownOpening(System.Object,System.EventArgs)')
   - [OnLoad(e)](#M-MFR-GUI-Windows-MainWindow-OnLoad-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnLoad(System.EventArgs)')
+  - [OnOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationStarted(System.Object,System.EventArgs)')
   - [OnOperationsPerform(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationsPerform-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationsPerform(System.Object,System.EventArgs)')
   - [OnOptionsModified(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOptionsModified-System-Object,MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Windows.MainWindow.OnOptionsModified(System.Object,MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
   - [OnPresenterAddNewProfileFailed(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterAddNewProfileFailed-System-Object,MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterAddNewProfileFailed(System.Object,MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs)')
@@ -52,34 +56,39 @@
   - [OnPresenterDataOperationFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationFinished(System.Object,System.EventArgs)')
   - [OnPresenterDataOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationStarted(System.Object,MFR.Operations.Events.DataOperationEventArgs)')
   - [OnPresenterFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterFinished(System.Object,System.EventArgs)')
-  - [OnPresenterStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterStarted(System.Object,System.EventArgs)')
   - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Windows.MainWindow.OnRootDirectoryInvalid(System.Object,MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
   - [OnSelChangeComboBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnSelChangeComboBox(System.Object,System.EventArgs)')
+  - [OnShown(e)](#M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnShown(System.EventArgs)')
+  - [OnToolsConfigExport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigExport(System.Object,System.EventArgs)')
   - [OnToolsConfigImport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigImport(System.Object,System.EventArgs)')
   - [OnToolsConfigurationNewProfile(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigurationNewProfile-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigurationNewProfile(System.Object,System.EventArgs)')
-  - [OnToolsExportConfig(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsExportConfig(System.Object,System.EventArgs)')
   - [OnToolsHistoryClearAll(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsHistoryClearAll(System.Object,System.EventArgs)')
   - [OnToolsOptions(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsOptions-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsOptions(System.Object,System.EventArgs)')
   - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnUpdateCmdUI(System.Object,System.EventArgs)')
+  - [OnViewDarkTheme(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewDarkTheme-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewDarkTheme(System.Object,System.EventArgs)')
   - [OnViewStatusBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewStatusBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewStatusBar(System.Object,System.EventArgs)')
   - [OnViewToolBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewToolBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewToolBar(System.Object,System.EventArgs)')
   - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ResetProfileCollectionComboBox')
+  - [SetUpFindWhatComboBox()](#M-MFR-GUI-Windows-MainWindow-SetUpFindWhatComboBox 'MFR.GUI.Windows.MainWindow.SetUpFindWhatComboBox')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
 - [Resources](#T-MFR-GUI-Windows-Properties-Resources 'MFR.GUI.Windows.Properties.Resources')
   - [AppIdle](#P-MFR-GUI-Windows-Properties-Resources-AppIdle 'MFR.GUI.Windows.Properties.Resources.AppIdle')
   - [Culture](#P-MFR-GUI-Windows-Properties-Resources-Culture 'MFR.GUI.Windows.Properties.Resources.Culture')
+  - [Error_CantSetUpFindWhatComboStartFolderNotExists](#P-MFR-GUI-Windows-Properties-Resources-Error_CantSetUpFindWhatComboStartFolderNotExists 'MFR.GUI.Windows.Properties.Resources.Error_CantSetUpFindWhatComboStartFolderNotExists')
+  - [Error_FindWhat_MissingValue](#P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_MissingValue 'MFR.GUI.Windows.Properties.Resources.Error_FindWhat_MissingValue')
+  - [Error_FindWhat_ReplaceWith_Identical](#P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_ReplaceWith_Identical 'MFR.GUI.Windows.Properties.Resources.Error_FindWhat_ReplaceWith_Identical')
+  - [Error_NoOperationSelected](#P-MFR-GUI-Windows-Properties-Resources-Error_NoOperationSelected 'MFR.GUI.Windows.Properties.Resources.Error_NoOperationSelected')
+  - [Error_Specify_ReplaceWith](#P-MFR-GUI-Windows-Properties-Resources-Error_Specify_ReplaceWith 'MFR.GUI.Windows.Properties.Resources.Error_Specify_ReplaceWith')
   - [Error_StartingFolderMustContainSolutionFile](#P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile 'MFR.GUI.Windows.Properties.Resources.Error_StartingFolderMustContainSolutionFile')
+  - [Info_PreparingStartOperations](#P-MFR-GUI-Windows-Properties-Resources-Info_PreparingStartOperations 'MFR.GUI.Windows.Properties.Resources.Info_PreparingStartOperations')
   - [ResourceManager](#P-MFR-GUI-Windows-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Properties.Resources.ResourceManager')
   - [SwitchUpDown_16x](#P-MFR-GUI-Windows-Properties-Resources-SwitchUpDown_16x 'MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x')
-- [TestBedForm](#T-MFR-GUI-Windows-TestBedForm 'MFR.GUI.Windows.TestBedForm')
-  - [#ctor()](#M-MFR-GUI-Windows-TestBedForm-#ctor 'MFR.GUI.Windows.TestBedForm.#ctor')
-  - [components](#F-MFR-GUI-Windows-TestBedForm-components 'MFR.GUI.Windows.TestBedForm.components')
-  - [Instance](#P-MFR-GUI-Windows-TestBedForm-Instance 'MFR.GUI.Windows.TestBedForm.Instance')
-  - [#cctor()](#M-MFR-GUI-Windows-TestBedForm-#cctor 'MFR.GUI.Windows.TestBedForm.#cctor')
-  - [Dispose(disposing)](#M-MFR-GUI-Windows-TestBedForm-Dispose-System-Boolean- 'MFR.GUI.Windows.TestBedForm.Dispose(System.Boolean)')
-  - [InitializeComponent()](#M-MFR-GUI-Windows-TestBedForm-InitializeComponent 'MFR.GUI.Windows.TestBedForm.InitializeComponent')
-  - [OnLoad(e)](#M-MFR-GUI-Windows-TestBedForm-OnLoad-System-EventArgs- 'MFR.GUI.Windows.TestBedForm.OnLoad(System.EventArgs)')
+- [ResponsiveFormBase](#T-MFR-GUI-Windows-ResponsiveFormBase 'MFR.GUI.Windows.ResponsiveFormBase')
+  - [#ctor()](#M-MFR-GUI-Windows-ResponsiveFormBase-#ctor 'MFR.GUI.Windows.ResponsiveFormBase.#ctor')
+  - [_responsiveObj](#F-MFR-GUI-Windows-ResponsiveFormBase-_responsiveObj 'MFR.GUI.Windows.ResponsiveFormBase._responsiveObj')
+  - [InstallMetrics(controls)](#M-MFR-GUI-Windows-ResponsiveFormBase-InstallMetrics-System-Collections-ICollection- 'MFR.GUI.Windows.ResponsiveFormBase.InstallMetrics(System.Collections.ICollection)')
+  - [OnLoad(e)](#M-MFR-GUI-Windows-ResponsiveFormBase-OnLoad-System-EventArgs- 'MFR.GUI.Windows.ResponsiveFormBase.OnLoad(System.EventArgs)')
 
 <a name='T-MFR-GUI-Windows-MainWindow-Is'></a>
 ## Is `type`
@@ -152,28 +161,42 @@ This constructor has no parameters.
 
 Required designer variable.
 
-<a name='P-MFR-GUI-Windows-MainWindow-Configuration'></a>
-### Configuration `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration') interface
-that represents the currently-loaded configuration.
-
 <a name='P-MFR-GUI-Windows-MainWindow-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider')
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the actions
+This object allows access to the user configuration and the
+actions
 associated with it.
+
+<a name='P-MFR-GUI-Windows-MainWindow-CreateParams'></a>
+### CreateParams `property`
+
+##### Summary
+
+Gets the required creation parameters when the control handle is
+created.
+
+##### Returns
+
+A [CreateParams](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CreateParams 'System.Windows.Forms.CreateParams') that contains the
+required creation parameters when the handle to the control is created.
+
+<a name='P-MFR-GUI-Windows-MainWindow-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
 
 <a name='P-MFR-GUI-Windows-MainWindow-FindWhatComboBox'></a>
 ### FindWhatComboBox `property`
@@ -276,6 +299,13 @@ behavior of this form.
 Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
 that has a drop-down list of the profiles that the user has created.
 
+<a name='P-MFR-GUI-Windows-MainWindow-RenameSolutionFolders'></a>
+### RenameSolutionFolders `property`
+
+##### Summary
+
+Gets or sets the value of the checkbox
+
 <a name='P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`
 
@@ -284,13 +314,13 @@ that has a drop-down list of the profiles that the user has created.
 Gets a reference to the text box control that allows the user to
 specify the text to replace found text with.
 
-<a name='P-MFR-GUI-Windows-MainWindow-RootDirectoryValidator'></a>
-### RootDirectoryValidator `property`
+<a name='P-MFR-GUI-Windows-MainWindow-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootDirectoryValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryValidator')
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
 interface.
 
 <a name='P-MFR-GUI-Windows-MainWindow-SelectAll'></a>
@@ -307,6 +337,14 @@ Gets or sets the value of the Select/Deselect All checkbox
 
 Gets or sets the index of the tab that is selected in the Options
 tab control.
+
+<a name='P-MFR-GUI-Windows-MainWindow-StartingFolder'></a>
+### StartingFolder `property`
+
+##### Summary
+
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that is configured as the folder
+in which operations are to commence.
 
 <a name='P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox'></a>
 ### StartingFolderComboBox `property`
@@ -492,7 +530,7 @@ Replace With combo boxes.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the File -> Exit menu command.
+event for the command on the menu.
 
 ##### Parameters
 
@@ -599,6 +637,20 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnOperationStarted-System-Object,System-EventArgs-'></a>
+### OnOperationStarted(sender,e) `method`
+
+##### Summary
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') |  |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') |  |
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnOperationsPerform-System-Object,System-EventArgs-'></a>
 ### OnOperationsPerform(sender,e) `method`
@@ -731,9 +783,10 @@ event.
 
 This method responds to the event by triggering an update of the
 screen from values stored in the configuration object in the
-[Configuration](#P-MFR-GUI-MainWindowPresenter-Configuration 'MFR.GUI.MainWindowPresenter.Configuration')
+[ProjectFileRenamerConfiguration](#P-MFR-GUI-MainWindowPresenter-ProjectFileRenamerConfiguration 'MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfiguration')
 property. This
-happens most often as a the result of the Import Configuration
+happens most often as a the result of the Import
+ProjectFileRenamerConfiguration
 command on the Tools menu.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs-'></a>
@@ -819,34 +872,13 @@ Handles the [](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPres
 
 This method toggles UI state and dismisses the progress dialog.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnPresenterStarted-System-Object,System-EventArgs-'></a>
-### OnPresenterStarted(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-MFR-GUI-IMainWindowPresenter-Started 'MFR.GUI.IMainWindowPresenter.Started') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This handler is called when the
-[ProcessAll](#M-MFR-FileRenamer-ProcessAll 'MFR.FileRenamer.ProcessAll')
-begins its execution.
-This method responds by showing the progress dialog.
-
 <a name='M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs-'></a>
 ### OnRootDirectoryInvalid(sender,e) `method`
 
 ##### Summary
 
 Handles the
-[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryValidator.RootDirectoryInvalid')
+[](#E-MFR-CommandLine-Validators-Interfaces-IRootDirectoryPathValidator-RootDirectoryInvalid 'MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid')
 event raised by the `Root Directory Validator` component.
 
 ##### Parameters
@@ -889,14 +921,29 @@ This method responds by moving the input focus to a hidden label.
 This is to get rid of that annoying highlight that remains in a
 combo box when it loses the input focus.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs-'></a>
-### OnToolsConfigImport(sender,e) `method`
+<a name='M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs-'></a>
+### OnShown(e) `method`
+
+##### Summary
+
+Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Shown') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs-'></a>
+### OnToolsConfigExport(sender,e) `method`
 
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the Tools -> Import and Export Configuration ->
-Import Configuration menu command.
+event for the Tools -> Import and Export ProjectFileRenamerConfiguration -
+>
+Export ProjectFileRenamerConfiguration menu command.
 
 ##### Parameters
 
@@ -907,8 +954,37 @@ Import Configuration menu command.
 
 ##### Remarks
 
-This method is called when the user chooses the Import Configuration
-menu command from the Import and Export Configuration submenu of the
+This method is called when the user chooses the Export
+ProjectFileRenamerConfiguration
+menu command from the Import and Export ProjectFileRenamerConfiguration submenu
+of the
+Tools menu. This method responds to the event by showing the user a
+dialog that the user can utilize to select the pathname of the file
+that the user wants the configuration data to be exported to.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs-'></a>
+### OnToolsConfigImport(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
+event for the Tools -> Import and Export ProjectFileRenamerConfiguration -
+>
+Import ProjectFileRenamerConfiguration menu command.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+
+##### Remarks
+
+This method is called when the user chooses the Import
+ProjectFileRenamerConfiguration
+menu command from the Import and Export ProjectFileRenamerConfiguration submenu
+of the
 Tools menu. This method responds to the event by showing the user a
 dialog that the user can utilize to select the file they want to
 import, and then calls the presenter to perform the import operation.
@@ -919,7 +995,8 @@ import, and then calls the presenter to perform the import operation.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
-raised by the New Profile toolbar button and/or Tools -> Configuration -> New
+raised by the New Profile toolbar button and/or Tools ->
+ProjectFileRenamerConfiguration -> New
 Profile menu command.
 
 ##### Parameters
@@ -940,30 +1017,6 @@ button or menu item.
 
 The goal is to prompt the user for the name of their new profile, create it,
 then add it to the list of profiles and then set it as the current profile.
-
-<a name='M-MFR-GUI-Windows-MainWindow-OnToolsExportConfig-System-Object,System-EventArgs-'></a>
-### OnToolsExportConfig(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the Tools -> Import and Export Configuration ->
-Export Configuration menu command.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This method is called when the user chooses the Export Configuration
-menu command from the Import and Export Configuration submenu of the
-Tools menu. This method responds to the event by showing the user a
-dialog that the user can utilize to select the pathname of the file
-that the user wants the configuration data to be exported to.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsHistoryClearAll-System-Object,System-EventArgs-'></a>
 ### OnToolsHistoryClearAll(sender,e) `method`
@@ -1032,6 +1085,27 @@ property is
 `false`
 , which means an operation is in progress.
 
+<a name='M-MFR-GUI-Windows-MainWindow-OnViewDarkTheme-System-Object,System-EventArgs-'></a>
+### OnViewDarkTheme(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
+raised by the command on the menu.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by toggling the Dark Theme on and off.
+
 <a name='M-MFR-GUI-Windows-MainWindow-OnViewStatusBar-System-Object,System-EventArgs-'></a>
 ### OnViewStatusBar(sender,e) `method`
 
@@ -1088,6 +1162,23 @@ item and then selects the first element in the
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-SetUpFindWhatComboBox'></a>
+### SetUpFindWhatComboBox() `method`
+
+##### Summary
+
+Configures the combo box.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+One of the things method does is get a list of all the `*.csproj` files in
+the stating folder and builds an auto-completion suggestion list consisting of
+just their names (with no folder path or file extension).
 
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size-'></a>
 ### UpdateSize(newSize) `method`
@@ -1156,6 +1247,44 @@ Looks up a localized string similar to Ready.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_CantSetUpFindWhatComboStartFolderNotExists'></a>
+### Error_CantSetUpFindWhatComboStartFolderNotExists `property`
+
+##### Summary
+
+Looks up a localized string similar to *** ERROR *** The folder '{0}' (currently-configured starting folder) does  not exist.  Therefore, we cannot set up the auto-completion of the Find What combo box using its subfolders that contain projects..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_MissingValue'></a>
+### Error_FindWhat_MissingValue `property`
+
+##### Summary
+
+Looks up a localized string similar to Please provide a value for the text to be located during the search..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_FindWhat_ReplaceWith_Identical'></a>
+### Error_FindWhat_ReplaceWith_Identical `property`
+
+##### Summary
+
+Looks up a localized string similar to Please type different values in the Text to Be Replaced and With What fields..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_NoOperationSelected'></a>
+### Error_NoOperationSelected `property`
+
+##### Summary
+
+Looks up a localized string similar to Please select at least one operation on the Operations tab.
+NOTE: To show the Operations tab (if it isn't already visible), click the More button.
+
+Would you like to select all operations now, and try again?.
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Error_Specify_ReplaceWith'></a>
+### Error_Specify_ReplaceWith `property`
+
+##### Summary
+
+Looks up a localized string similar to Please provide a value for the replacement value to be used during the search..
+
 <a name='P-MFR-GUI-Windows-Properties-Resources-Error_StartingFolderMustContainSolutionFile'></a>
 ### Error_StartingFolderMustContainSolutionFile `property`
 
@@ -1164,6 +1293,13 @@ Overrides the current thread's CurrentUICulture property for all
 Looks up a localized string similar to Please select a directory that contains a Visual Studio Solution (*.sln) file for the What Folder Should the Operation Start In field.
 
 Do you want to proceed regardless?  CAUTION: Unpredictable things may happen.  Don't say we did not warn you..
+
+<a name='P-MFR-GUI-Windows-Properties-Resources-Info_PreparingStartOperations'></a>
+### Info_PreparingStartOperations `property`
+
+##### Summary
+
+Looks up a localized string similar to Getting ready to start the operations....
 
 <a name='P-MFR-GUI-Windows-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
@@ -1179,8 +1315,8 @@ Returns the cached ResourceManager instance used by this class.
 
 Looks up a localized resource of type System.Drawing.Bitmap.
 
-<a name='T-MFR-GUI-Windows-TestBedForm'></a>
-## TestBedForm `type`
+<a name='T-MFR-GUI-Windows-ResponsiveFormBase'></a>
+## ResponsiveFormBase `type`
 
 ##### Namespace
 
@@ -1188,71 +1324,48 @@ MFR.GUI.Windows
 
 ##### Summary
 
-Form for putting controls on as a test bed.
+This class is designed to be inherited from when you need a Windows Form to
+look the same on monitors of different resolutions.
 
-<a name='M-MFR-GUI-Windows-TestBedForm-#ctor'></a>
+<a name='M-MFR-GUI-Windows-ResponsiveFormBase-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Constructs a new instance of
+[ResponsiveFormBase](#T-MFR-GUI-Windows-ResponsiveFormBase 'MFR.GUI.Windows.ResponsiveFormBase') and returns a reference to
+it.
 
 ##### Parameters
 
 This constructor has no parameters.
 
-<a name='F-MFR-GUI-Windows-TestBedForm-components'></a>
-### components `constants`
+<a name='F-MFR-GUI-Windows-ResponsiveFormBase-_responsiveObj'></a>
+### _responsiveObj `constants`
 
 ##### Summary
 
-Required designer variable.
+Reference to an instance of [Responsive](#T-MFR-GUI-Windows-Actions-Responsive 'MFR.GUI.Windows.Actions.Responsive')
+that supports this form's functionality.
 
-<a name='P-MFR-GUI-Windows-TestBedForm-Instance'></a>
-### Instance `property`
-
-##### Summary
-
-Gets a reference to the one and only instance of
-[TestBedForm](#T-MFR-GUI-Windows-TestBedForm 'MFR.GUI.Windows.TestBedForm').
-
-<a name='M-MFR-GUI-Windows-TestBedForm-#cctor'></a>
-### #cctor() `method`
+<a name='M-MFR-GUI-Windows-ResponsiveFormBase-InstallMetrics-System-Collections-ICollection-'></a>
+### InstallMetrics(controls) `method`
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-TestBedForm-Dispose-System-Boolean-'></a>
-### Dispose(disposing) `method`
-
-##### Summary
-
-Clean up any resources being used.
+Called to recursively adjust the width and height of controls according to the
+current screen metrics.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+| controls | [System.Collections.ICollection](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ICollection 'System.Collections.ICollection') | (Required.) Reference to an instance of an object that implements the
+[ICollection](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ICollection 'System.Collections.ICollection') interface, and which represents
+the collection of [Control](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Control 'System.Windows.Forms.Control') instances on
+which to act. |
 
-<a name='M-MFR-GUI-Windows-TestBedForm-InitializeComponent'></a>
-### InitializeComponent() `method`
-
-##### Summary
-
-Required method for Designer support - do not modify
-the contents of this method with the code editor.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-TestBedForm-OnLoad-System-EventArgs-'></a>
+<a name='M-MFR-GUI-Windows-ResponsiveFormBase-OnLoad-System-EventArgs-'></a>
 ### OnLoad(e) `method`
 
 ##### Summary
@@ -1263,4 +1376,5 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |

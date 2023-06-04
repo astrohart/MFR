@@ -57,7 +57,7 @@ class.
 ##### Summary
 
 Asserts that a valid instance of an object that implements the
-[IConfiguration](#T-MFR-Settings-Configuration-Interfaces-IConfiguration 'MFR.Settings.Configuration.Interfaces.IConfiguration')
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface will be loaded from
 the configuration file for the application, provided that a valid
 path has been supplied as input to the loading action.

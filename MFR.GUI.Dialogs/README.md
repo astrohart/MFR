@@ -1776,7 +1776,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
+This object allows access to the user configuration and the
 actions
 associated with it.
 
@@ -1870,7 +1870,7 @@ for the Browse button on the configuration File Pathname text box..
 
 This method responds to a click of the '...' button that lies next
 to the text box that accepts the pathname of the application's
-projectFileRenamerConfiguration file.
+configuration file.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
 ### OnFormClosing(e) `method`
@@ -2018,7 +2018,7 @@ MFR.GUI.Dialogs
 
 ##### Summary
 
-Dialog box to assist the user in managing projectFileRenamerConfiguration profiles.
+Dialog box to assist the user in managing configuration profiles.
 
 <a name='M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor'></a>
 ### #ctor() `constructor`

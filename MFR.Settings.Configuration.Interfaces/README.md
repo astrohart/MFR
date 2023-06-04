@@ -178,7 +178,7 @@ MFR.Settings.Configuration.Interfaces
 ##### Summary
 
 Defines the public-exposed methods and properties of a
-projectFileRenamerConfiguration object.
+configuration object.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoQuitOnCompletion'></a>
 ### AutoQuitOnCompletion `property`
@@ -201,7 +201,7 @@ specified operation(s) have been completed.
 
 ##### Remarks
 
-This flag is ignored if this projectFileRenamerConfiguration did not originate
+This flag is ignored if this configuration did not originate
 from the command
 line.
 
@@ -238,7 +238,7 @@ that the form displays in the folded state.
 
 ##### Summary
 
-Gets or sets a value indicating whether this projectFileRenamerConfiguration
+Gets or sets a value indicating whether this configuration
 was specified by the
 user on the command line.
 

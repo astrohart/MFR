@@ -14,6 +14,12 @@
   - [OperationType](#P-MFR-Expressions-Matches-Factories-FolderNameReplacementMatchExpressionFactory-OperationType 'MFR.Expressions.Matches.Factories.FolderNameReplacementMatchExpressionFactory.OperationType')
 - [GetMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory 'MFR.Expressions.Matches.Factories.GetMatchExpressionFactory')
   - [For(type)](#M-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory-For-MFR-Operations-Constants-OperationType- 'MFR.Expressions.Matches.Factories.GetMatchExpressionFactory.For(MFR.Operations.Constants.OperationType)')
+- [MakeNewFileNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewFileNameReplacementMatchExpressionFactory')
+  - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewFileNameReplacementMatchExpressionFactory.FromScratch')
+- [MakeNewFolderNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewFolderNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewFolderNameReplacementMatchExpressionFactory')
+  - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewFolderNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewFolderNameReplacementMatchExpressionFactory.FromScratch')
+- [MakeNewReplaceTextInFileMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewReplaceTextInFileMatchExpressionFactory')
+  - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewReplaceTextInFileMatchExpressionFactory.FromScratch')
 - [MatchExpressionFactoryBase](#T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase')
   - [ConfigurationProvider](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ConfigurationProvider 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.CurrentConfiguration')
@@ -325,6 +331,114 @@ can be created.
 Not all [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 are supported. |
 
+<a name='T-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory'></a>
+## MakeNewFileNameReplacementMatchExpressionFactory `type`
+
+##### Namespace
+
+MFR.Expressions.Matches.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the renaming of files
+according to what the user specified to search for in the filename and what to
+replace it with.
+
+<a name='M-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory-FromScratch'></a>
+### FromScratch() `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface and returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the renaming of files
+according to what the user specified to search for in the filename and what to
+replace it with.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Expressions-Matches-Factories-MakeNewFolderNameReplacementMatchExpressionFactory'></a>
+## MakeNewFolderNameReplacementMatchExpressionFactory `type`
+
+##### Namespace
+
+MFR.Expressions.Matches.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the renaming of file folders
+according to what the user specified to search for in the filename and what to
+replace it with.
+
+<a name='M-MFR-Expressions-Matches-Factories-MakeNewFolderNameReplacementMatchExpressionFactory-FromScratch'></a>
+### FromScratch() `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface and returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the renaming of file folders
+according to what the user specified to search for in the filename and what to
+replace it with.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory'></a>
+## MakeNewReplaceTextInFileMatchExpressionFactory `type`
+
+##### Namespace
+
+MFR.Expressions.Matches.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the replacing of text in files
+according to what the user specified to search for in the filename and what to
+replace it with.
+
+<a name='M-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory-FromScratch'></a>
+### FromScratch() `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface and returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the replacing of text in files
+according to what the user specified to search for in the filename and what to
+replace it with.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase'></a>
 ## MatchExpressionFactoryBase `type`
 
@@ -350,7 +464,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
+This object allows access to the user configuration and the
 actions
 associated with it.
 

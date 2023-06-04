@@ -44,7 +44,9 @@ MFR.Matchers.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface for renaming the files contained within a parent folder.
+interface that creates string matcher objects to be used in order to assist the
+application with renaming files in a folder that match a specific
+text-replacement pattern.
 
 <a name='M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -59,7 +61,9 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface for renaming the files contained within a parent folder.
+interface that creates string matcher objects to be used in order to assist the
+application with renaming files in a folder that match a specific
+text-replacement pattern.
 
 ##### Parameters
 
@@ -76,7 +80,9 @@ MFR.Matchers.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface for renaming sub-folders of a parent folder.
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders in a directory
+tree according to a text-replacement pattern that is specified by the user.
 
 <a name='M-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -91,7 +97,9 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface for renaming sub-folders of a parent folder.
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders in a directory
+tree according to a text-replacement pattern that is specified by the user.
 
 ##### Parameters
 
@@ -108,7 +116,9 @@ MFR.Matchers.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface for replacing values within the text of a file.
+interface that creates string matcher objects used in order to assist the
+application with replacing text in the files in a folder according to a
+text-replacement pattern that is specified by the user.
 
 <a name='M-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -123,7 +133,9 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface for replacing values within the text of a file.
+interface that creates string matcher objects used in order to assist the
+application with replacing text in the files in a folder according to a
+text-replacement pattern that is specified by the user.
 
 ##### Parameters
 
@@ -198,9 +210,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[RenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects to be used in order to assist the
+application with renaming files in a folder that match a specific
+text-replacement pattern.
 
 <a name='P-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
@@ -294,9 +308,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[RenameSubFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders in a directory
+tree according to a text-replacement pattern that is specified by the user.
 
 <a name='P-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
@@ -392,9 +408,9 @@ This constructor has no parameters.
 
 Gets a reference to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that represents an entity for the
-[ReplaceTextInFiles](#F-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
-operation.
+interface that creates string matcher objects used in order to assist the
+application with replacing text in the files in a folder according to a
+text-replacement pattern that is specified by the user.
 
 <a name='P-MFR-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
