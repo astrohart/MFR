@@ -7,9 +7,11 @@ namespace MFR.FileSystem.Retrievers.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see
     ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
-    /// interface that obtains a list of all those folders in a directory tree whose
-    /// names match a search pattern that is specified by the user for the renaming
-    /// process.
+    /// interface that searches a directory tree specified by the user in order to find
+    /// a list of the folder(s) containing Visual Studio Solution (<c>*.sln</c>) files.
+    /// <para />
+    /// These are folders that must be renamed according to the text-replacement
+    /// parameters specified by the user.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class GetSolutionFoldersToRenameRetriever
@@ -24,9 +26,11 @@ namespace MFR.FileSystem.Retrievers.Factories
         /// Reference to the one, and only, instance of the object that implements the
         /// <see
         ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />
-        /// interface that obtains a list of all those folders in a directory tree whose
-        /// names match a search pattern that is specified by the user for the renaming
-        /// process.
+        /// interface that searches a directory tree specified by the user in order to find
+        /// a list of the folder(s) containing Visual Studio Solution (<c>*.sln</c>) files.
+        /// <para />
+        /// These are folders that must be renamed according to the text-replacement
+        /// parameters specified by the user.
         /// </returns>
         public static IFileSystemEntryListRetriever SoleInstance()
             => SolutionFoldersToRenameRetriever.Instance;
