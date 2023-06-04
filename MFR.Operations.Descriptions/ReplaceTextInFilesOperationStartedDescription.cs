@@ -10,40 +10,47 @@ namespace MFR.Operations.Descriptions
     /// Replace Text In Files operation.
     /// </summary>
     public class
-        ReplaceTextInFilesOperationStartedDescription : IOperationStartedDescription
+        ReplaceTextInFilesOperationStartedDescription :
+            IOperationStartedDescription
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static ReplaceTextInFilesOperationStartedDescription()
-        {
-        }
+        static ReplaceTextInFilesOperationStartedDescription() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ReplaceTextInFilesOperationStartedDescription()
-        {
-        }
+        protected ReplaceTextInFilesOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.ReplaceTextInFilesOperationStartedDescription"/>.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface that describes, using user-friendly text, that the  application is
+        /// about to begin the operation of replacing textual content within the files
+        /// under the specified starting directory according to the text-replacement
+        /// pattern that was specified by the user.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static ReplaceTextInFilesOperationStartedDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
         } = new ReplaceTextInFilesOperationStartedDescription();
 
         /// <summary>
-        /// Gets one of the <see
-        /// cref="T:MFR.Operations.Constants.OperationType"/> values that
+        /// Gets one of the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            { get; } = OperationType.ReplaceTextInFiles;
+        {
+            get;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
