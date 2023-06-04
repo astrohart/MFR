@@ -26,13 +26,16 @@ namespace MFR.Operations.Descriptions
         protected RenameSubFoldersOperationStartedDescription() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
+        /// Gets a reference to the one and only instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.RenameSubFoldersOperationStartedDescription" />
-        /// .
+        ///     cref="T:MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription" />
+        /// interface and which provides user-friendly text that explains to the user that
+        /// the application is getting ready to begin the process of renaming folders
+        /// within a directory tree according to a text-replacement pattern that was
+        /// specified by the user.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RenameSubFoldersOperationStartedDescription Instance
+        public static IOperationStartedDescription Instance
         {
             get;
         } = new RenameSubFoldersOperationStartedDescription();
@@ -45,7 +48,9 @@ namespace MFR.Operations.Descriptions
         /// corresponds to the type of operation being performed.
         /// </summary>
         public OperationType OperationType
-            { get; } = OperationType.RenameSubFolders;
+        {
+            get;
+        } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
