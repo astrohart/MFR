@@ -103,6 +103,10 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetMatchCaseAndExactWordFolderNameStringMatcher.cs" />
+    <Compile Include="GetMatchCaseOnlyFolderNameStringMatcher.cs" />
+    <Compile Include="GetMatchExactWordOnlyFolderNameStringMatcher.cs" />
+    <Compile Include="GetNeitherMatchCaseNorExactWordFolderNameStringMatcher.cs" />
     <Compile Include="GetRenameFilesInFolderStringMatcherFactory.cs" />
     <Compile Include="GetRenameSubFoldersStringMatcherFactory.cs" />
     <Compile Include="GetReplaceTextInFilesStringMatcherFactory.cs" />
@@ -115,6 +119,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RenameFilesInFolderStringMatcherFactory.cs" />
+    <Compile Include="RenameSolutionFoldersStringMatcherFactory.cs" />
     <Compile Include="RenameSubFoldersStringMatcherFactory.cs" />
     <Compile Include="ReplaceTextInFilesStringMatcherFactory.cs" />
   </ItemGroup>

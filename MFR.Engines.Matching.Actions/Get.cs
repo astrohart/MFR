@@ -43,6 +43,8 @@ namespace MFR.Engines.Matching.Actions
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = default;
             }
 
             return result;

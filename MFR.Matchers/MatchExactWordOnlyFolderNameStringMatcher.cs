@@ -1,7 +1,8 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Matchers.Interfaces;
 using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -31,13 +32,17 @@ namespace MFR.Matchers
         protected MatchExactWordOnlyFolderNameStringMatcher() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Matchers.MatchExactWordOnlyFolderNameStringMatcher" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface that matches
+        /// the exact string that is supplied for the text-replacement specification
+        /// provided by the user in the <b>Find What</b> box in the user interface.
+        /// <para />
+        /// This is the Mass File Renamer analogy of the <c>Match Whole Word</c> checkbox
+        /// in, say, the <b>Edit</b>, <b>Find</b> dialog box in most text-editing
+        /// applications.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static MatchExactWordOnlyFolderNameStringMatcher Instance
+        public static IStringMatcher Instance
         {
             get;
         } = new MatchExactWordOnlyFolderNameStringMatcher();
@@ -113,11 +118,15 @@ namespace MFR.Matchers
              * value of the 'findWhat' parameter.             *
              */
 
-            bool result;
+            var result = false;
 
             try
             {
-                result = Path.GetFileName(value)
+                var lowestLevelFolderName = Path.GetFileName(value);
+                if (string.IsNullOrWhiteSpace(lowestLevelFolderName))
+                    return result;
+
+                result = lowestLevelFolderName
                              .EqualsNoCase(findWhat);
             }
             catch (Exception ex)
@@ -125,7 +134,7 @@ namespace MFR.Matchers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = false;             // no match found in the event of an exception
+                result = false; // no match found in the event of an exception
             }
 
             return result;

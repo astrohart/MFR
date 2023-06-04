@@ -1,7 +1,8 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Matchers.Interfaces;
 using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -34,14 +35,18 @@ namespace MFR.Matchers
         protected NeitherMatchCaseNorExactWordFolderNameStringMatcher() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Matchers.NeitherMatchCaseNorExactWordFolderNameStringMatcher" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface that matches
+        /// NEITHER on character casing NOR on the exact string that is supplied for the
+        /// text-replacement specification provided by the user in the <b>Find What</b> box
+        /// in the user interface.
+        /// <para />
+        /// This is the Mass File Renamer analogy of the user clearing check marks in both
+        /// the <b>Match Case</b> and the <b>Match Whole Word</b> checkbox in, say, the
+        /// <b>Edit</b>, <b>Find</b> dialog box in most text-editing applications.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static NeitherMatchCaseNorExactWordFolderNameStringMatcher
-            Instance
+        public static IStringMatcher Instance
         {
             get;
         } = new NeitherMatchCaseNorExactWordFolderNameStringMatcher();

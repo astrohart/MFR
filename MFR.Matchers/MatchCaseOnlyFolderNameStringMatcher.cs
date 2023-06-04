@@ -1,7 +1,8 @@
+using Alphaleonis.Win32.Filesystem;
+using MFR.Matchers.Interfaces;
 using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using Alphaleonis.Win32.Filesystem;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -13,6 +14,7 @@ namespace MFR.Matchers
     ///     langword="true" />
     /// but Match Exact Word is set to <see langword="false" />
     /// , for the case when a Rename Sub Folders operation is being performed.
+    /// <para />
     /// </summary>
     public class
         MatchCaseOnlyFolderNameStringMatcher : RenameSubFoldersStringMatcherBase
@@ -30,11 +32,16 @@ namespace MFR.Matchers
         protected MatchCaseOnlyFolderNameStringMatcher() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Matchers.MatchCaseOnlyFolderNameStringMatcher" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface that matches
+        /// text expressions with a case-sensitive search.
+        /// <para />
+        /// This object should be used when the <b>Match Case</b> check box is selected by
+        /// the user when doing the operations of renaming solution folders or sub folders
+        /// of a Solution.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static MatchCaseOnlyFolderNameStringMatcher Instance
+        public static IStringMatcher Instance
         {
             get;
         } = new MatchCaseOnlyFolderNameStringMatcher();
@@ -99,23 +106,36 @@ namespace MFR.Matchers
              * OKAY, for renaming a sub folder of the root directory,
              * we match whatever part of the path "Contains" the value
              * we are looking for.
+             *
+             * HOWEVER -- we should only pattern-match against the
+             * folder that is on the lowest level of the directory tree.
+             * Therefore, we use Path.GetFileName to get the value to be
+             * matched against.
              */
 
-            bool result;
+            var result = false;
 
             try
             {
-                result = Path.GetFileName(value).MatchesWithCase(findWhat, replaceWith);
+                var lowestLevelFolderName = Path.GetFileName(value);
+                if (string.IsNullOrWhiteSpace(lowestLevelFolderName))
+                    return result;
+
+                result = lowestLevelFolderName.MatchesWithCase(
+                    findWhat, replaceWith
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = false;         // no match found in the event of an exception
+                result = false; // no match found in the event of an exception
             }
 
             return result;
         }
     }
+
+    s
 }

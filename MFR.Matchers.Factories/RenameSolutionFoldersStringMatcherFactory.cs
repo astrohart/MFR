@@ -13,19 +13,20 @@ namespace MFR.Matchers.Factories
     /// Sub Folders type of operation, for the various combinations of
     /// Match Case and Match Exact Word.
     /// </summary>
-    public class RenameSubFoldersStringMatcherFactory : IStringMatcherFactory
+    public class
+        RenameSolutionFoldersStringMatcherFactory : IStringMatcherFactory
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RenameSubFoldersStringMatcherFactory() { }
+        static RenameSolutionFoldersStringMatcherFactory() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RenameSubFoldersStringMatcherFactory() { }
+        protected RenameSolutionFoldersStringMatcherFactory() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -38,7 +39,7 @@ namespace MFR.Matchers.Factories
         public static IStringMatcherFactory Instance
         {
             get;
-        } = new RenameSubFoldersStringMatcherFactory();
+        } = new RenameSolutionFoldersStringMatcherFactory();
 
         /// <summary>
         /// Gets one of the
@@ -51,7 +52,7 @@ namespace MFR.Matchers.Factories
         public OperationType OperationType
         {
             get;
-        } = OperationType.RenameSubFolders;
+        } = OperationType.RenameSolutionFolders;
 
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -108,18 +109,17 @@ namespace MFR.Matchers.Factories
             switch (matchingConfig)
             {
                 case TextMatchingConfiguration.MatchCaseOnly:
-                    matcher = GetMatchCaseOnlyFolderNameStringMatcher
-                        .SoleInstance();
+                    matcher = MatchCaseOnlyFolderNameStringMatcher.Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchExactWordOnly:
-                    matcher = GetMatchExactWordOnlyFolderNameStringMatcher
-                        .SoleInstance();
+                    matcher = MatchExactWordOnlyFolderNameStringMatcher
+                        .Instance;
                     break;
 
                 case TextMatchingConfiguration.MatchCaseAndExactWord:
-                    matcher = GetMatchCaseAndExactWordFolderNameStringMatcher
-                        .SoleInstance();
+                    matcher = MatchCaseAndExactWordFolderNameStringMatcher
+                        .Instance;
                     break;
 
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
