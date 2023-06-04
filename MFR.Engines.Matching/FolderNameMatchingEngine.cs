@@ -7,10 +7,8 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Engines.Matching
 {
     /// <summary>
-    /// Searches for matches to textual-search criteria patterns and regexes in
-    /// the pathnames of folders, according to rules specified by
-    /// configuration
-    /// settings.
+    /// Searches for matches to textual-search criteria patterns and regexes in the
+    /// pathnames of folders, according to rules specified by configuration settings.
     /// </summary>
     public class FolderNameMatchingEngine : TextExpressionMatchingEngineBase
 
@@ -28,8 +26,9 @@ namespace MFR.Engines.Matching
         /// </exception>
         [Log(AttributeExclude = true)]
         public FolderNameMatchingEngine(
-            IProjectFileRenamerConfiguration configuration) :
-            base(configuration) { }
+            IProjectFileRenamerConfiguration configuration) : base(
+            configuration
+        ) { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -57,7 +56,9 @@ namespace MFR.Engines.Matching
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            { get; } = OperationType.RenameSubFolders;
+        {
+            get;
+        } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match

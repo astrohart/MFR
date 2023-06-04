@@ -49,20 +49,20 @@ namespace MFR.Engines.Matching.Factories
         /// </remarks>
         public static ITextExpressionMatchingEngine For(OperationType type)
         {
-            ITextExpressionMatchingEngine matcher;
+            ITextExpressionMatchingEngine result;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    matcher = new FileNameMatchingEngine();
+                    result = MakeNewFileNameMatchingEngine.FromScratch();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    matcher = new FolderNameMatchingEngine();
+                    result = MakeNewFolderNameMatchingEngine.FromScratch();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    matcher = new TextInFilesMatchingEngine();
+                    result = new TextInFilesMatchingEngine();
                     break;
 
                 default:
@@ -71,7 +71,7 @@ namespace MFR.Engines.Matching.Factories
                     );
             }
 
-            return matcher;
+            return result;
         }
     }
 }
