@@ -862,6 +862,12 @@ namespace MFR.Renamers.Files
                         ), CurrentOperation
                     )
                 );
+
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameSolutionFolders)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
             }
             catch (OperationAbortedException)
             {

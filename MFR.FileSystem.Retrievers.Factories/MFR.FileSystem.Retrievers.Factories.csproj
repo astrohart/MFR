@@ -106,6 +106,7 @@
     <Compile Include="GetFilesToRenameRetriever.cs" />
     <Compile Include="GetFolderToRenameRetriever.cs" />
     <Compile Include="GetSolutionFilePathRetriever.cs" />
+    <Compile Include="GetSolutionFoldersToRenameRetriever.cs" />
     <Compile Include="GetTextInFilesRetriever.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="GetFileSystemEntryListRetriever.cs" />

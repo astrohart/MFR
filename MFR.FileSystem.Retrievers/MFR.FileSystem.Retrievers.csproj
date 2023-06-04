@@ -113,6 +113,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SolutionFilePathRetriever.cs" />
+    <Compile Include="SolutionFoldersToRenameRetriever.cs" />
     <Compile Include="TextInFilesRetriever.cs" />
   </ItemGroup>
   <ItemGroup>

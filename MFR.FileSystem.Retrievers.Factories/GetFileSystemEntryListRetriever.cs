@@ -67,6 +67,8 @@ namespace MFR.FileSystem.Retrievers.Factories
                     result = GetFolderToRenameRetriever.SoleInstance();
                     break;
 
+
+
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(type), type,
