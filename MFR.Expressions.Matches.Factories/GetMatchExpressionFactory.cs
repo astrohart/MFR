@@ -42,20 +42,23 @@ namespace MFR.Expressions.Matches.Factories
         /// </exception>
         public static IMatchExpressionFactory For(OperationType type)
         {
-            IMatchExpressionFactory factory = null;
+            IMatchExpressionFactory result;
 
             switch (type)
             {
                 case OperationType.RenameFilesInFolder:
-                    factory = new FileNameReplacementMatchExpressionFactory();
+                    result = MakeNewFileNameReplacementMatchExpressionFactory
+                        .FromScratch();
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    factory = new ReplaceTextInFileMatchExpressionFactory();
+                    result = MakeNewReplaceTextInFileMatchExpressionFactory
+                        .FromScratch();
                     break;
 
                 case OperationType.RenameSubFolders:
-                    factory = new FolderNameReplacementMatchExpressionFactory();
+                    result = MakeNewFolderNameReplacementMatchExpressionFactory
+                        .FromScratch();
 
                     break;
 
@@ -66,7 +69,7 @@ namespace MFR.Expressions.Matches.Factories
                     );
             }
 
-            return factory;
+            return result;
         }
     }
 }
