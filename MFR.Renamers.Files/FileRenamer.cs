@@ -23,6 +23,7 @@ using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Actions;
+using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
 using MFR.Settings.Configuration;
@@ -63,6 +64,12 @@ namespace MFR.Renamers.Files
     /// </remarks>
     public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
     {
+        /// <summary>
+        /// An <see cref="T:MFR.Operations.Constants.OperationType" /> enumeration value
+        /// that describes what operation is currently being performed by the application.
+        /// </summary>
+        private OperationType _currentOperation;
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -125,8 +132,15 @@ namespace MFR.Renamers.Files
         /// </summary>
         public OperationType CurrentOperation
         {
-            get;
-            set;
+            get => _currentOperation;
+            set {
+                var changed = _currentOperation != value;
+                _currentOperation = value;
+                if (changed)
+                    OnCurrentOperationChanged(
+                        new CurrentOperationChangedEventArgs(value)
+                    );
+            }
         }
 
         /// <summary>
@@ -275,6 +289,14 @@ namespace MFR.Renamers.Files
         /// </remarks>
         private static IVisualStudioSolutionService VisualStudioSolutionService
             => GetVisualStudioSolutionService.SoleInstance();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.CurrentOperation" /> property is
+        /// updated.
+        /// </summary>
+        public event CurrentOperationChangedEventHandler
+            CurrentOperationChanged;
 
         /// <summary>
         /// Occurs when an exception is thrown from an operation.
@@ -732,7 +754,7 @@ namespace MFR.Renamers.Files
 
             if (AbortRequested)
                 throw new OperationAbortedException(
-                    "The operation has been aborted."
+                    Resources.Error_OperationAborted
                 );
 
             OnOperationFinished(
@@ -806,9 +828,83 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public bool RenameSolutionFolders(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null)
-            => throw new NotImplementedException();
+        public bool RenameSolutionFolders(string rootFolderPath,
+            string findWhat, string replaceWith,
+            Predicate<string> pathFilter = null)
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(rootFolderPath)) return result;
+                if (!Directory.Exists(rootFolderPath)) return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+
+                // for a folder rename operation the replaceWith must be filled in
+                // however, if the replaceWith is blank, then return true regardless,
+                // so that this operation is merely skipped without the entire sequence
+                // of operations being deemed a failure
+                if (string.IsNullOrWhiteSpace(replaceWith)) return true;
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        string.Format(
+                            Resources
+                                .StatusUpdate_AttemptingRenameSolutionFolders,
+                            rootFolderPath
+                        ), CurrentOperation
+                    )
+                );
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw; // just bubble the exception up to the next level
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+
+            /*
+             * We do a check of the AbortRequested property's value, and
+             * a subsequent throw of OperationAbortedException if the
+             * property is set to true, here.
+             *
+             * We do this in case a different thread set the property
+             * before we got here.
+             */
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.RenameSolutionFolders
+                )
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    string.Format(
+                        Resources.StatusUpdate_FinishedRenamingSolutionFolders,
+                        rootFolderPath
+                    ), CurrentOperation, true /* operation finished */
+                )
+            );
+
+            return result;
+        }
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
@@ -931,7 +1027,7 @@ namespace MFR.Renamers.Files
 
                 if (AbortRequested)
                     throw new OperationAbortedException(
-                        "The operation has been aborted."
+                        Resources.Error_OperationAborted
                     );
 
                 OnSubfoldersToBeRenamedCounted(
@@ -979,7 +1075,7 @@ namespace MFR.Renamers.Files
 
             if (AbortRequested)
                 throw new OperationAbortedException(
-                    "The operation has been aborted."
+                    Resources.Error_OperationAborted
                 );
 
             OnOperationFinished(
@@ -1161,7 +1257,7 @@ namespace MFR.Renamers.Files
 
             if (AbortRequested)
                 throw new OperationAbortedException(
-                    "The operation has been aborted."
+                    Resources.Error_OperationAborted
                 );
 
             OnStatusUpdate(
@@ -1261,6 +1357,26 @@ namespace MFR.Renamers.Files
                                                      FileRenamerMessages
                                                          .FRM_EXCEPTION_RAISED
                                                  );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.CurrentOperationChanged" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnCurrentOperationChanged(
+            CurrentOperationChangedEventArgs e)
+        {
+            CurrentOperationChanged?.Invoke(this, e);
+            SendMessage<CurrentOperationChangedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_CURRENT_OPERATION_CHANGED
+                );
         }
 
         /// <summary>

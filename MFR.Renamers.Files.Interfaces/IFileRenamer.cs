@@ -1,6 +1,7 @@
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;
+using MFR.Renamers.Files.Events;
 using MFR.Settings.Configuration.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -69,6 +70,13 @@ namespace MFR.Renamers.Files.Interfaces
         {
             get;
         }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.CurrentOperation" /> property is
+        /// updated.
+        /// </summary>
+        event CurrentOperationChangedEventHandler CurrentOperationChanged;
 
         /// <summary>
         /// Occurs when an exception is thrown from an operation.

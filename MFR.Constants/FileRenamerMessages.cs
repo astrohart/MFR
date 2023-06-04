@@ -9,6 +9,13 @@ namespace MFR.Constants
     public static class FileRenamerMessages
     {
         /// <summary>
+        /// Unique identifier for a message that indicates that the operation that is
+        /// currently being executed by the application has changed.
+        /// </summary>
+        public static readonly Guid FRM_CURRENT_OPERATION_CHANGED =
+            Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for a message that indicates an exception has been
         /// raised by the File Renamer component.
         /// </summary>
@@ -18,11 +25,6 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that a file has been renamed.
         /// </summary>
         public static readonly Guid FRM_FILE_RENAMED = Guid.NewGuid();
-
-        /// <summary>
-        /// Unique identifier for a message that indicates that a folder has been renamed.
-        /// </summary>
-        public static readonly Guid FRM_FOLDER_RENAMED = Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for a message that indicates a file system entry
@@ -50,6 +52,11 @@ namespace MFR.Constants
         /// component has completed all of the requested operations.
         /// </summary>
         public static readonly Guid FRM_FINISHED = Guid.NewGuid();
+
+        /// <summary>
+        /// Unique identifier for a message that indicates that a folder has been renamed.
+        /// </summary>
+        public static readonly Guid FRM_FOLDER_RENAMED = Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for a message that indicates that a particular

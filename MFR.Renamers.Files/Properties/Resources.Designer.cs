@@ -65,7 +65,9 @@ namespace MFR.Renamers.Files.Properties {
         ///
         ///It doesn&apos;t appear that the solution contaiing the project to be renamed is open in any of them.
         ///
-        ///Choose File -&gt; Reopen Workspace when the selected rename operation(s) have completed if the solution is open and we missed it..
+        ///Choose File -&gt; Reopen Workspace when the selected rename operation(s) have completed if the solution is open and we missed it.
+        ///
+        ///Do you want to proceed with the rename operation?.
         /// </summary>
         public static string Confirm_PerformRename {
             get {
@@ -79,6 +81,33 @@ namespace MFR.Renamers.Files.Properties {
         public static string Error_NoSolutionsInRootDirectory {
             get {
                 return ResourceManager.GetString("Error_NoSolutionsInRootDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The operation has been aborted..
+        /// </summary>
+        public static string Error_OperationAborted {
+            get {
+                return ResourceManager.GetString("Error_OperationAborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attempting to rename the folder(s) in the &apos;{0}&apos; folder that contain Visual Studio Solution (*.sln) file(s) to match the name(s) of those Solution(s)... .
+        /// </summary>
+        public static string StatusUpdate_AttemptingRenameSolutionFolders {
+            get {
+                return ResourceManager.GetString("StatusUpdate_AttemptingRenameSolutionFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *** Finished renaming solution folders in &apos;{0}&apos;..
+        /// </summary>
+        public static string StatusUpdate_FinishedRenamingSolutionFolders {
+            get {
+                return ResourceManager.GetString("StatusUpdate_FinishedRenamingSolutionFolders", resourceCulture);
             }
         }
     }
