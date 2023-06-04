@@ -728,7 +728,7 @@ namespace MFR.Renamers.Files
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"Renaming files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
+                        string.Format(Resources.StatusUpdate_RenamingFilesInFolders, RootDirectoryPath, findWhat, replaceWith),
                         CurrentOperation
                     )
                 );
@@ -741,6 +741,8 @@ namespace MFR.Renamers.Files
                                                       entry
                                                   )
                                           );
+
+                result &= !AbortRequested;
             }
             catch (OperationAbortedException)
             {
@@ -928,6 +930,31 @@ namespace MFR.Renamers.Files
                         OperationType.RenameSolutionFolders
                     )
                 );
+
+                /*
+                 * OKAY, this is the loop over the list of the folders that we've found
+                 * underneath the Root Directory, that contain Visual Studio Solution (<c>*.sln</c>)
+                 * files, and whose names match the search criteria that was specified
+                 * by the user.  For each folder, rename it according to the settings
+                 * specified by the user.  NOTE: The method called must return TRUE for ALL
+                 * the folders, in order for this operation to be considered a success.
+                 */
+
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => RenameSolutionFolderForEntry(
+                                                      findWhat, replaceWith,
+                                                      entry
+                                                  )
+                                          );
+
+                /*
+                 * If we are here, then the operation succeeded -- EXCEPT if the
+                 * AbortRequested property is set to TRUE.
+                 */
+
+                result &= !AbortRequested;
             }
             catch (OperationAbortedException)
             {
@@ -1119,7 +1146,7 @@ namespace MFR.Renamers.Files
                                           );
 
                 /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
-                result = !AbortRequested;
+                result &= !AbortRequested;
             }
             catch (OperationAbortedException)
             {
@@ -1301,6 +1328,8 @@ namespace MFR.Renamers.Files
                                                       entry
                                                   )
                                           );
+
+                result &= !AbortRequested;
             }
             catch (OperationAbortedException)
             {

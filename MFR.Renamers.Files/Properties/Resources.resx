@@ -138,4 +138,7 @@ Do you want to proceed with the rename operation?</value>
   <data name="StatusUpdate_FinishedRenamingSolutionFolders" xml:space="preserve">
       <value>*** Finished renaming solution folders in '{0}'.</value>
   </data>
+  <data name="StatusUpdate_RenamingFilesInFolders" xml:space="preserve">
+      <value>Renaming files in subfolders of '{0}', replacing '{1}' with '{2}'...</value>
+  </data>
 </root>

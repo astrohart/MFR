@@ -156,6 +156,15 @@ namespace MFR.GUI.Dialogs
                         OnFileRenamerSubfoldersToBeRenamedCounted
                     )
                 );
+            NewMessageMapping<FilesOrFoldersCountedEventArgs>.Associate
+                .WithMessageId(
+                    FileRenamerMessages.FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED
+                )
+                .AndHandler(
+                    new FilesOrFoldersCountedEventHandler(
+                        OnFileRenamerSolutionFoldersToBeRenamedCounted
+                    )
+                );
             NewMessageMapping<StatusUpdateEventArgs>.Associate
                                                     .WithMessageId(
                                                         FileRenamerMessages
@@ -566,6 +575,32 @@ namespace MFR.GUI.Dialogs
         /// </remarks>
         [Log(AttributeExclude = true)]
         private void OnFileRenamerSubfoldersToBeRenamedCounted(object sender,
+            FilesOrFoldersCountedEventArgs e)
+            => HandleFilesCountedEvent(e.Count);
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.Interfaces.IFileRenamer.SubfoldersToBeRenamedCounted" />
+        /// event raised by the File Renamer object.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by resetting the progress dialog's progress bar
+        /// back to zero, and then updating the value of its
+        /// <see
+        ///     cref="P:System.Windows.Forms.ProgressBar.Maximum" />
+        /// property to have
+        /// the same value as the count of file system entries.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private void OnFileRenamerSolutionFoldersToBeRenamedCounted(object sender,
             FilesOrFoldersCountedEventArgs e)
             => HandleFilesCountedEvent(e.Count);
 

@@ -110,5 +110,14 @@ namespace MFR.Renamers.Files.Properties {
                 return ResourceManager.GetString("StatusUpdate_FinishedRenamingSolutionFolders", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renaming files in subfolders of &apos;{0}&apos;, replacing &apos;{1}&apos; with &apos;{2}&apos;....
+        /// </summary>
+        public static string StatusUpdate_RenamingFilesInFolders {
+            get {
+                return ResourceManager.GetString("StatusUpdate_RenamingFilesInFolders", resourceCulture);
+            }
+        }
     }
 }
