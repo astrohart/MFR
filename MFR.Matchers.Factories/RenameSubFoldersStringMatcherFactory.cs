@@ -124,8 +124,8 @@ namespace MFR.Matchers.Factories
 
                 case TextMatchingConfiguration.NeitherMatchCaseNorExactWord:
                     matcher =
-                        NeitherMatchCaseNorExactWordFolderNameStringMatcher
-                            .Instance;
+                        GetNeitherMatchCaseNorExactWordFolderNameStringMatcher
+                            .SoleInstance();
                     break;
 
                 default:
