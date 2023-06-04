@@ -1,4 +1,4 @@
-# MFR (Mass File Renamer aka xyLOGIX Project File Renamer)
+# MFR (Mass File Renamer aka xyLOGIX Project File Renamer) `Windows application`
 
 The xyLOGIX Project File Renamer, packaged as a WinForms app, is basically like a Find/Replace and Find in Files/Replace in Files tool, but for Solution Explorer.
 
@@ -6,7 +6,11 @@ The xyLOGIX Project File Renamer, packaged as a WinForms app, is basically like 
 
 **Figure 1.** The main window of the xyLOGIX Project File Renamer application in Light mode.
 
+![Fig02](fig02.png)
 
+**Figure 2.** The main window of the xyLOGIX Project File Renamer application in Dark mode.
+
+As shown in **Figure 1** and **Figure 2**, the application is configureable to work in Light mode (**Figure 1**) or Dark mode (**Figure 2**).
 
 ## Problem solved
 
@@ -45,13 +49,13 @@ In the **External Tools** configuration, you will have the option of specifying
 
 in the **Arguments** field of its entry in the **External Tools** dialog box, as shown:
 
-![Fig02](fig02.png)
+![Fig03](fig03.png)
 
 **Figure 3.** Visual Studio's **External Tools** dialog box, with the **Arguments** box's value highligthed.
 
 This will cause the **What Folder Should the Operation Start In** drop-down to be focused on the folder that the currently-open solution that is open in Visual Studio is located in.
 
-![Fig03](fig03.png)
+![Fig04](fig04.png)
 
 **Figure 4.** The value of the **What Folder Should the Operation Start In** box being supplied by the value of the **Arguments** box in the **External Tools** window shown in **Figure 3.**
 
@@ -135,7 +139,7 @@ Required. Sets the string to be found in file system entries.
 
 **Remarks**
 
-![Fig04](fig04.png)
+![Fig05](fig05.png)
 
 **Figure 5.** The **Find** dialog box in Windows Notepad.
 
@@ -184,7 +188,7 @@ Required.  Sets the string to be substituted in file system entry names.
 
 The `--replaceWith` argument, specifies the content to be substituted in file names, folder names, and file contents in place of the text that you're asking the application to search for.
 
-![Fig05](fig05.png)
+![Fig06](fig06.png)
 
 **Figure 6.** The **Replace** dialog box in Windows Ntoepad, with the **Replace With** box highligthed.
 
