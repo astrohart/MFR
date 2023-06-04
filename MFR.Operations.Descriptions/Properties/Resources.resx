@@ -157,7 +157,7 @@
     <value>Calculating files to be renamed..</value>
   </data>
   <data name="OperationStartedDescription_RenameSolutionFolder" xml:space="preserve">
-    <value>Getting ready to rename the Solution's folder...</value>
+      <value>Getting ready to rename the folders of Solution(s) that happen to be within the directory tree...</value>
   </data>
   <data name="OperationStartedDescription_RenameSubFolders" xml:space="preserve">
     <value>Calculating folders to be renamed..</value>

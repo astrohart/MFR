@@ -178,7 +178,7 @@ namespace MFR.Operations.Descriptions.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Getting ready to rename the Solution&apos;s folder....
+        ///   Looks up a localized string similar to Getting ready to rename the folders of Solution(s) that happen to be within the directory tree....
         /// </summary>
         public static string OperationStartedDescription_RenameSolutionFolder {
             get {
