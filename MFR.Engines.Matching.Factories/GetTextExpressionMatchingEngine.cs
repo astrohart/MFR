@@ -62,7 +62,7 @@ namespace MFR.Engines.Matching.Factories
                     break;
 
                 case OperationType.ReplaceTextInFiles:
-                    result = new TextInFilesMatchingEngine();
+                    result = MakeNewTextInFilesMatchingEngine.FromScratch();
                     break;
 
                 default:
