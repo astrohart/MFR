@@ -1,8 +1,8 @@
+using MFR.Engines.Matching.Actions;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Matching
@@ -25,8 +25,9 @@ namespace MFR.Engines.Matching
         /// </exception>
         [Log(AttributeExclude = true)]
         public TextInFilesMatchingEngine(
-            IProjectFileRenamerConfiguration configuration) :
-            base(configuration) { }
+            IProjectFileRenamerConfiguration configuration) : base(
+            configuration
+        ) { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -54,7 +55,9 @@ namespace MFR.Engines.Matching
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            { get; } = OperationType.ReplaceTextInFiles;
+        {
+            get;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Determines whether a <paramref name="value" /> string is a match
@@ -125,7 +128,9 @@ namespace MFR.Engines.Matching
                 if (string.IsNullOrEmpty(findWhat))
                     return result;
 
-                var matcher = GetOperationMatcher();
+                var matcher = Get.StringMatcherForOperation(
+                    OperationType, CurrentConfiguration
+                );
                 if (matcher == null) return result;
 
                 /*

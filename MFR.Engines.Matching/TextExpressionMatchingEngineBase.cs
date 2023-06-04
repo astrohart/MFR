@@ -1,10 +1,7 @@
 using MFR.Engines.Matching.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
-using MFR.Matchers.Factories;
-using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration;
-using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -52,8 +49,9 @@ namespace MFR.Engines.Matching
         /// is passed a <see langword="null" /> value.
         /// </exception>
         protected TextExpressionMatchingEngineBase(
-            IProjectFileRenamerConfiguration configuration) :
-            base(configuration) { }
+            IProjectFileRenamerConfiguration configuration) : base(
+            configuration
+        ) { }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -163,7 +161,8 @@ namespace MFR.Engines.Matching
 
                 // delegate to the other overload of this method
                 result = IsMatch(
-                    expression.Value, expression.FindWhat, expression.ReplaceWith
+                    expression.Value, expression.FindWhat,
+                    expression.ReplaceWith
                 );
             }
             catch (Exception ex)
@@ -172,37 +171,6 @@ namespace MFR.Engines.Matching
                 DebugUtils.LogException(ex);
 
                 result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Attempts to obtain a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface for the
-        /// current operation.
-        /// </summary>
-        /// <returns>
-        /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Matchers.Interfaces.IStringMatcher" /> interface that
-        /// corresponds to the current operation and matching configuration.
-        /// </returns>
-        protected IStringMatcher GetOperationMatcher()
-        {
-            IStringMatcher result = default;
-
-            try
-            {
-                result = GetStringMatcherFactory.For(OperationType)
-                                         .AndTextMatchingConfiguration(
-                                             CurrentConfiguration
-                                                 .GetTextMatchingConfiguration()
-                                         );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
             }
 
             return result;

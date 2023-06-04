@@ -1,3 +1,4 @@
+using MFR.Engines.Matching.Actions;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -30,7 +31,9 @@ namespace MFR.Engines.Matching
         public SolutionFolderNameMatchingEngine(
             IProjectFileRenamerConfiguration configuration) : base(
             configuration
-        ) { }
+        )
+        {
+        }
 
         /// <summary>
         /// Constructs a new instance of
@@ -107,7 +110,9 @@ namespace MFR.Engines.Matching
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                var matcher = GetOperationMatcher();
+                var matcher = Get.StringMatcherForOperation(
+                    OperationType, CurrentConfiguration
+                );
                 if (matcher == null) return result;
 
                 result = matcher.IsMatch(value, findWhat, replaceWith);

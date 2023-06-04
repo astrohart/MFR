@@ -1,3 +1,4 @@
+using MFR.Engines.Matching.Actions;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -112,7 +113,9 @@ namespace MFR.Engines.Matching
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
 
-                var matcher = GetOperationMatcher();
+                var matcher = Get.StringMatcherForOperation(
+                    OperationType, CurrentConfiguration
+                );
                 if (matcher == null) return result;
 
                 result = matcher.IsMatch(value, findWhat, replaceWith);
