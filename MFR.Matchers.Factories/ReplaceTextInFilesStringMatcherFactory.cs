@@ -30,9 +30,9 @@ namespace MFR.Matchers.Factories
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
-        /// interface that represents an entity for the
-        /// <see cref="F:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
-        /// operation.
+        /// interface that creates string matcher objects used in order to assist the
+        /// application with replacing text in the files in a folder according to a
+        /// text-replacement pattern that is specified by the user.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IStringMatcherFactory Instance

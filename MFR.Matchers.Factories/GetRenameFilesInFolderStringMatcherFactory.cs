@@ -6,7 +6,9 @@ namespace MFR.Matchers.Factories
     /// <summary>
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
-    /// interface for renaming the files contained within a parent folder.
+    /// interface that creates string matcher objects to be used in order to assist the
+    /// application with renaming files in a folder that match a specific
+    /// text-replacement pattern.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class GetRenameFilesInFolderStringMatcherFactory
@@ -19,7 +21,9 @@ namespace MFR.Matchers.Factories
         /// <returns>
         /// Reference to the one, and only, instance of the object that implements the
         /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
-        /// interface for renaming the files contained within a parent folder.
+        /// interface that creates string matcher objects to be used in order to assist the
+        /// application with renaming files in a folder that match a specific
+        /// text-replacement pattern.
         /// </returns>
         public static IStringMatcherFactory SoleInstance()
             => RenameFilesInFolderStringMatcherFactory.Instance;

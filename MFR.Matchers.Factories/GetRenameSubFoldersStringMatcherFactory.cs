@@ -6,7 +6,9 @@ namespace MFR.Matchers.Factories
     /// <summary>
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
-    /// interface for renaming sub-folders of a parent folder.
+    /// interface that creates string matcher objects used in order to assist the
+    /// application with carrying out the operation of renaming folders in a directory
+    /// tree according to a text-replacement pattern that is specified by the user.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class GetRenameSubFoldersStringMatcherFactory
@@ -19,7 +21,9 @@ namespace MFR.Matchers.Factories
         /// <returns>
         /// Reference to the one, and only, instance of the object that implements the
         /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
-        /// interface for renaming sub-folders of a parent folder.
+        /// interface that creates string matcher objects used in order to assist the
+        /// application with carrying out the operation of renaming folders in a directory
+        /// tree according to a text-replacement pattern that is specified by the user.
         /// </returns>
         public static IStringMatcherFactory SoleInstance()
             => RenameSubFoldersStringMatcherFactory.Instance;

@@ -1,7 +1,7 @@
-using MFR.Settings.Configuration.Constants;
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
@@ -28,10 +28,11 @@ namespace MFR.Matchers.Factories
         protected RenameFilesInFolderStringMatcherFactory() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory" />
-        /// .
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Matchers.Factories.Interfaces.IStringMatcherFactory" />
+        /// interface that creates string matcher objects to be used in order to assist the
+        /// application with renaming files in a folder that match a specific
+        /// text-replacement pattern.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IStringMatcherFactory Instance
@@ -93,8 +94,8 @@ namespace MFR.Matchers.Factories
             TextMatchingConfiguration matchingConfig)
         {
             if (!Enum.IsDefined(
-                typeof(TextMatchingConfiguration), matchingConfig
-            ))
+                    typeof(TextMatchingConfiguration), matchingConfig
+                ))
                 throw new InvalidEnumArgumentException(
                     nameof(matchingConfig), (int)matchingConfig,
                     typeof(TextMatchingConfiguration)
