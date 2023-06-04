@@ -5,9 +5,7 @@ namespace MFR.Engines.Matching.Factories
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see cref="T:MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine" />
-    /// interface that searches for matches to textual-search criteria patterns and
-    /// regexes in the pathnames of folders, according to rules specified by
-    /// configuration settings.
+    /// interface that matches text in a file that is to be (eventually) replaced.
     /// </summary>
     public static class MakeNewTextInFilesMatchingEngine
     {
@@ -19,9 +17,7 @@ namespace MFR.Engines.Matching.Factories
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine" />
-        /// interface that searches for matches to textual-search criteria patterns and
-        /// regexes in the pathnames of folders, according to rules specified by
-        /// configuration settings.
+        /// interface that matches text in a file that is to be (eventually) replaced.
         /// </returns>
         public static ITextExpressionMatchingEngine FromScratch()
             => new TextInFilesMatchingEngine();
