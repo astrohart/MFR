@@ -1741,6 +1741,22 @@ namespace MFR.Renamers.Files
 
                 result = string.Empty;
             }
+            finally
+            {
+                // if an exception occurs, we need to dispose the most-recently-
+                // opened/accessed file stream.  We need this block to be here
+                // since there is a high risk of exceptions occurring whenever
+                // files are opened/accessed.
+                //
+                // NOTE: I was tempted to invoke the IFileStreamProvider.DisposeAll()
+                // method here; however, the thinking is that this exception has
+                // triggered this finally clause just for the file system entry
+                // that is currently being processed; therefore, we just try to 
+                // dispose the file system entry that is currently being worked on
+                if (entry != null
+                    && !((Guid)entry.UserState).Equals(Guid.Empty))
+                    FileStreamProvider.DisposeStream(entry.UserState);
+            }
 
             return result;
         }
