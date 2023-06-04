@@ -93,6 +93,11 @@ namespace MFR.Operations.Descriptions.Factories
                         .SoleInstance();
                     break;
 
+                case OperationType.ReplaceTextInFiles:
+                    result = GetReplaceTextInFilesOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
                 case OperationType.ScanDirectoryTreeForSolutionFiles:
                     result =
                         GetScanDirectoryTreeForSolutionFilesOperationStartedDescription
