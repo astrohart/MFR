@@ -2178,8 +2178,15 @@ namespace MFR.Renamers.Files
             RootDirectoryPath =
                 e.NewPath; // update the Root Directory to the new path it's been renamed to
 
-            SendMessage.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED);
+            SendMessage<DirectoryBeingMonitoredChangedEventArgs>.Having.Args(
+                           this,
+                           new DirectoryBeingMonitoredChangedEventArgs(
+                               e.OldPath, e.NewPath
+                           )
+                       )
+                       .ForMessageId(
+                           FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED
+                       );
         }
 
         /// <summary>

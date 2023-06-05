@@ -16,6 +16,7 @@
   - [FileStreamProvider](#P-MFR-Renamers-Files-FileRenamer-FileStreamProvider 'MFR.Renamers.Files.FileRenamer.FileStreamProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
+  - [IsStarted](#P-MFR-Renamers-Files-FileRenamer-IsStarted 'MFR.Renamers.Files.FileRenamer.IsStarted')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
   - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
@@ -206,6 +207,14 @@ Gets a reference to the one and only instance of the object that implements the
 
 <a name='P-MFR-Renamers-Files-FileRenamer-IsBusy'></a>
 ### IsBusy `property`
+
+##### Summary
+
+Gets a value that indicates whether this component is currently processing
+operation(s).
+
+<a name='P-MFR-Renamers-Files-FileRenamer-IsStarted'></a>
+### IsStarted `property`
 
 ##### Summary
 

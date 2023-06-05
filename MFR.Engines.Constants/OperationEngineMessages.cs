@@ -23,8 +23,8 @@ namespace MFR.Engines.Constants
         public static readonly Guid OE_PROCESSING_STARTED = Guid.NewGuid();
 
         /// <summary>
-        /// Unique identifier for the message that is sent by the Operation Engine when a
-        /// new <see cref="T:MFR.Renamers.Files.FileRenamer" /> job is started.
+        /// Unique identifier for the message that is sent by the Operation Engine when the
+        /// root directory, i.e., the starting directory, path is changed.
         /// </summary>
         public static readonly Guid OE_ROOT_DIRECTORY_PATH_UPDATED =
             Guid.NewGuid();
