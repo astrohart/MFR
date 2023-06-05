@@ -50,6 +50,7 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
+using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Renamers.Files
@@ -2123,7 +2124,41 @@ namespace MFR.Renamers.Files
 
         private void OnRootDirectoryRenamed(object sender,
             DirectoryBeingMonitoredChangedEventArgs e)
-            => RootDirectoryPath = e.NewPath;
+        {
+            if (LoadedSolutions.Any())
+                foreach (var solution in LoadedSolutions)
+                {
+                    if (solution == null) continue;
+                    if (string.IsNullOrWhiteSpace(solution.Path)) continue;
+
+                    var solutionFolder = Path.GetDirectoryName(solution.Path);
+                    if (string.IsNullOrWhiteSpace(solutionFolder)) continue;
+
+                    var solutionFileName = Path.GetFileName(solution.Path);
+                    if (string.IsNullOrWhiteSpace(solutionFileName)) continue;
+
+                    if (!solutionFolder.Contains(RootDirectoryPath)
+                        && !RootDirectoryPath.Contains(solutionFolder)) continue;
+
+                    /*
+                         * If we are here, then one or more of the Visual Studio Solution (*.sln)
+                         * files that had been already loaded in Visual Studio when we began the
+                         * operations is now potentially in a different location.  Let's determine
+                         * whether that is so, and if so, update its path to correspond to where
+                         * on the disk it is sitting now.
+                         */
+
+                    var newSolutionPath = Path.Combine(
+                        e.NewPath, solutionFileName
+                    );
+                    if (!Alphaleonis.Win32.Filesystem.File.Exists(newSolutionPath))
+                        continue;       // give up because we don't know where the hell this Solution went to
+
+                    solution.Path = newSolutionPath;    // update the path of the Solution to refer to where it is now
+                }
+
+            RootDirectoryPath = e.NewPath;  // update the Root Directory to the new path it's been renamed to
+        }
 
         /// <summary>
         /// Raises the
