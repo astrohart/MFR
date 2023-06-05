@@ -107,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="RootDirectoryPathChangedEventArgs.cs" />
+    <Compile Include="RootDirectoryPathChangedEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentOperationChangedEventArgs.cs" />

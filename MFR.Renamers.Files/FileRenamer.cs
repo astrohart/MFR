@@ -40,6 +40,10 @@ using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Directories.Monitors.Actions;
+using xyLOGIX.Directories.Monitors.Events;
+using xyLOGIX.Directories.Monitors.Factories;
+using xyLOGIX.Directories.Monitors.Interfaces;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
@@ -69,6 +73,12 @@ namespace MFR.Renamers.Files
         /// that describes what operation is currently being performed by the application.
         /// </summary>
         private OperationType _currentOperation;
+
+        /// <summary>
+        /// A <see cref="T:System.String" /> containing the full pathname of the folder
+        /// where all operations start.
+        /// </summary>
+        private string _rootDirectoryPath;
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -142,6 +152,16 @@ namespace MFR.Renamers.Files
                     );
             }
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Directories.Monitors.Interfaces.IDirectoryMonitorProvider" />
+        /// interface.
+        /// </summary>
+        private static IDirectoryMonitorProvider DirectoryMonitorProvider
+        {
+            get;
+        } = GetDirectoryMonitorProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to a collection of of the
@@ -221,13 +241,18 @@ namespace MFR.Renamers.Files
         } = new List<IVisualStudioSolution>();
 
         /// <summary>
-        /// Gets a string containing the full pathname of the folder where all
+        /// Gets a <see cref="T:System.String" /> containing the full pathname of the
+        /// folder where all
         /// operations start.
         /// </summary>
         public string RootDirectoryPath
         {
-            get;
-            private set;
+            get => _rootDirectoryPath;
+            private set {
+                var changed = _rootDirectoryPath != value;
+                _rootDirectoryPath = value;
+                if (changed)
+            }
         }
 
         /// <summary>
@@ -1427,6 +1452,14 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Occurs if the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
+        /// changed.
+        /// </summary>
+        public event RootDirectoryPathChangedEventHandler
+            RootDirectoryPathChanged;
+
+        /// <summary>
         /// Occurs when solution folders that are to be renamed have been counted.
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
@@ -1545,6 +1578,19 @@ namespace MFR.Renamers.Files
                 RootDirectoryPath.Equals(e.Source))
                 LastSolutionFolderPath = RootDirectoryPath = e.Destination;
         }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnRootDirectoryPathChanged(
+            RootDirectoryPathChangedEventArgs e)
+            => RootDirectoryPathChanged?.Invoke(this, e);
 
         /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
@@ -1680,6 +1726,9 @@ namespace MFR.Renamers.Files
 
                 if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
                     return;
+
+                Monitor.Folder(RootDirectoryPath)
+                       .AndCallThisMethodWhenItsRenamed(OnRootDirectoryRenamed);
 
                 OnStarted();
 
@@ -2051,6 +2100,10 @@ namespace MFR.Renamers.Files
             SendMessage<ProcessingOperationEventArgs>.Having.Args(this, e)
                 .ForMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION);
         }
+
+        private void OnRootDirectoryRenamed(object sender,
+            DirectoryBeingMonitoredChangedEventArgs e)
+            => RootDirectoryPath = e.NewPath;
 
         /// <summary>
         /// Raises the
