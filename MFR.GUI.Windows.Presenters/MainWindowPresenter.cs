@@ -29,7 +29,6 @@ using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -386,10 +385,12 @@ namespace MFR.GUI.Windows.Presenters
             // configuration to match that which we have access to
             OperationEngine.UpdateConfiguration(CurrentConfiguration);
 
-            OperationEngine.ProcessAll(StartingFolder, FindWhat, ReplaceWith, path => 
-                CurrentConfiguration.MatchCase?
-                path.Contains(FindWhat)
-                : path.ContainsNoCase(FindWhat));
+            OperationEngine.ProcessAll(
+                StartingFolder, FindWhat, ReplaceWith,
+                path => CurrentConfiguration.MatchCase
+                    ? path.Contains(FindWhat)
+                    : path.ContainsNoCase(FindWhat)
+            );
         }
 
         /// <summary>
@@ -1109,6 +1110,7 @@ namespace MFR.GUI.Windows.Presenters
 
         private void InitializeOperationEngine()
         {
+            if (FileRenamer == null) return;
             if (OperationEngine == null) return;
 
             NewMessageMapping<EventArgs>.Associate.WithMessageId(

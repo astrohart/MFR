@@ -24,7 +24,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// Gets a value that indicates whether this component is currently processing
         /// operation(s).
         /// </summary>
-        bool IsBusy
+        bool IsStarted
         {
             get;
         }
@@ -122,6 +122,13 @@ namespace MFR.Renamers.Files.Interfaces
         /// Occurs when an operation is about to be processed for a file or a folder.
         /// </summary>
         event ProcessingOperationEventHandler ProcessingOperation;
+
+        /// <summary>
+        /// Occurs if the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
+        /// changed.
+        /// </summary>
+        event RootDirectoryPathChangedEventHandler RootDirectoryPathChanged;
 
         /// <summary>
         /// Occurs when the processing has started.

@@ -77,6 +77,20 @@ namespace MFR.Constants
         public static readonly Guid FRM_PROCESSING_OPERATION = Guid.NewGuid();
 
         /// <summary>
+        /// Unique identifier for a message that indicates that the root directory, i.e.,
+        /// the starting directory, of the File Renamer component has been altered.
+        /// </summary>
+        public static readonly Guid FRM_ROOT_DIRECTORY_PATH_CHANGED;
+
+        /// <summary>
+        /// Unique identifier for a message that indicates that the File Renamer
+        /// component has determined the number of subfolders that need to be
+        /// operated on.
+        /// </summary>
+        public static readonly Guid FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED =
+            Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for a message that indicates that the set of all
         /// requested File Renamer operations has started.
         /// </summary>
@@ -101,14 +115,6 @@ namespace MFR.Constants
         /// operated on.
         /// </summary>
         public static readonly Guid FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED =
-            Guid.NewGuid();
-
-        /// <summary>
-        /// Unique identifier for a message that indicates that the File Renamer
-        /// component has determined the number of subfolders that need to be
-        /// operated on.
-        /// </summary>
-        public static readonly Guid FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED =
             Guid.NewGuid();
     }
 }

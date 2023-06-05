@@ -50,7 +50,6 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
-using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Renamers.Files
@@ -218,6 +217,16 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Gets a value that indicates whether this component is currently processing
+        /// operation(s).
+        /// </summary>
+        public bool IsStarted
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// Gets or sets the path to the folder in which last Visual Studio Solution that
         /// we have worked with most recently resides.
         /// </summary>
@@ -376,6 +385,14 @@ namespace MFR.Renamers.Files
         /// Occurs when an operation is about to be processed for a file or a folder.
         /// </summary>
         public event ProcessingOperationEventHandler ProcessingOperation;
+
+        /// <summary>
+        /// Occurs if the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
+        /// changed.
+        /// </summary>
+        public event RootDirectoryPathChangedEventHandler
+            RootDirectoryPathChanged;
 
         /// <summary>
         /// Occurs when the processing has started.
@@ -1460,14 +1477,6 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Occurs if the value of the
-        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
-        /// changed.
-        /// </summary>
-        public event RootDirectoryPathChangedEventHandler
-            RootDirectoryPathChanged;
-
-        /// <summary>
         /// Occurs when solution folders that are to be renamed have been counted.
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
@@ -1742,7 +1751,8 @@ namespace MFR.Renamers.Files
                                                  .AndCallThisMethodWhenItsRenamed(
                                                      OnRootDirectoryRenamed
                                                  );
-                if (rootDirectoryPathMonitorTicket.IsZero()) return;    // failed to create directory monitor
+                if (rootDirectoryPathMonitorTicket.IsZero())
+                    return; // failed to create directory monitor
 
                 OnStarted();
 
@@ -2056,7 +2066,10 @@ namespace MFR.Renamers.Files
         private void OnFinished()
         {
             lock (SyncRoot)
+            {
                 IsBusy = false;
+                IsStarted = false;
+            }
 
             /*
              * If the user has requested that we rename the Solution's
@@ -2125,6 +2138,8 @@ namespace MFR.Renamers.Files
         private void OnRootDirectoryRenamed(object sender,
             DirectoryBeingMonitoredChangedEventArgs e)
         {
+            if (!IsStarted) return;
+
             if (LoadedSolutions.Any())
                 foreach (var solution in LoadedSolutions)
                 {
@@ -2137,8 +2152,8 @@ namespace MFR.Renamers.Files
                     var solutionFileName = Path.GetFileName(solution.Path);
                     if (string.IsNullOrWhiteSpace(solutionFileName)) continue;
 
-                    if (!solutionFolder.Contains(RootDirectoryPath)
-                        && !RootDirectoryPath.Contains(solutionFolder)) continue;
+                    if (!solutionFolder.Contains(RootDirectoryPath) &&
+                        !RootDirectoryPath.Contains(solutionFolder)) continue;
 
                     /*
                          * If we are here, then one or more of the Visual Studio Solution (*.sln)
@@ -2151,13 +2166,20 @@ namespace MFR.Renamers.Files
                     var newSolutionPath = Path.Combine(
                         e.NewPath, solutionFileName
                     );
-                    if (!Alphaleonis.Win32.Filesystem.File.Exists(newSolutionPath))
-                        continue;       // give up because we don't know where the hell this Solution went to
+                    if (!Alphaleonis.Win32.Filesystem.File.Exists(
+                            newSolutionPath
+                        ))
+                        continue; // give up because we don't know where the hell this Solution went to
 
-                    solution.Path = newSolutionPath;    // update the path of the Solution to refer to where it is now
+                    solution.Path =
+                        newSolutionPath; // update the path of the Solution to refer to where it is now
                 }
 
-            RootDirectoryPath = e.NewPath;  // update the Root Directory to the new path it's been renamed to
+            RootDirectoryPath =
+                e.NewPath; // update the Root Directory to the new path it's been renamed to
+
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED);
         }
 
         /// <summary>
@@ -2189,6 +2211,9 @@ namespace MFR.Renamers.Files
         /// </summary>
         private void OnStarted()
         {
+            lock (SyncRoot)
+                IsStarted = true;
+
             Started?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(FileRenamerMessages.FRM_STARTED);

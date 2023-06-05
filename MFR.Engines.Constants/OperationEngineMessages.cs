@@ -21,5 +21,12 @@ namespace MFR.Engines.Constants
         /// new <see cref="T:MFR.Renamers.Files.FileRenamer" /> job is started.
         /// </summary>
         public static readonly Guid OE_PROCESSING_STARTED = Guid.NewGuid();
+
+        /// <summary>
+        /// Unique identifier for the message that is sent by the Operation Engine when a
+        /// new <see cref="T:MFR.Renamers.Files.FileRenamer" /> job is started.
+        /// </summary>
+        public static readonly Guid OE_ROOT_DIRECTORY_PATH_UPDATED =
+            Guid.NewGuid();
     }
 }

@@ -4,6 +4,7 @@
 ## Contents
 
 - [FileRenamerMessages](#T-MFR-Constants-FileRenamerMessages 'MFR.Constants.FileRenamerMessages')
+  - [FRM_CURRENT_OPERATION_CHANGED](#F-MFR-Constants-FileRenamerMessages-FRM_CURRENT_OPERATION_CHANGED 'MFR.Constants.FileRenamerMessages.FRM_CURRENT_OPERATION_CHANGED')
   - [FRM_EXCEPTION_RAISED](#F-MFR-Constants-FileRenamerMessages-FRM_EXCEPTION_RAISED 'MFR.Constants.FileRenamerMessages.FRM_EXCEPTION_RAISED')
   - [FRM_FILES_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_FILES_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED')
   - [FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED')
@@ -14,6 +15,7 @@
   - [FRM_OPERATION_FINISHED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_FINISHED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_FINISHED')
   - [FRM_OPERATION_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
   - [FRM_PROCESSING_OPERATION](#F-MFR-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
+  - [FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED')
   - [FRM_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Constants.FileRenamerMessages.FRM_STARTED')
   - [FRM_STARTING](#F-MFR-Constants-FileRenamerMessages-FRM_STARTING 'MFR.Constants.FileRenamerMessages.FRM_STARTING')
   - [FRM_STATUS_UPDATE](#F-MFR-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
@@ -21,6 +23,7 @@
 - [Resources](#T-MFR-Constants-Properties-Resources 'MFR.Constants.Properties.Resources')
   - [Culture](#P-MFR-Constants-Properties-Resources-Culture 'MFR.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Constants-Properties-Resources-ResourceManager 'MFR.Constants.Properties.Resources.ResourceManager')
+  - [StatusUpdate_AttemptingToRenameSolutionFolders](#P-MFR-Constants-Properties-Resources-StatusUpdate_AttemptingToRenameSolutionFolders 'MFR.Constants.Properties.Resources.StatusUpdate_AttemptingToRenameSolutionFolders')
 
 <a name='T-MFR-Constants-FileRenamerMessages'></a>
 ## FileRenamerMessages `type`
@@ -33,6 +36,14 @@ MFR.Constants
 
 Contains the identifiers to be utilized in order to tag those messages
 sent by the File Renamer object.
+
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_CURRENT_OPERATION_CHANGED'></a>
+### FRM_CURRENT_OPERATION_CHANGED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that the operation that is
+currently being executed by the application has changed.
 
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_EXCEPTION_RAISED'></a>
 ### FRM_EXCEPTION_RAISED `constants`
@@ -112,6 +123,15 @@ File Renamer component operation has been started.
 Unique identifier for a message that indicates that the current
 operation is being processed.
 
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED'></a>
+### FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that the File Renamer
+component has determined the number of subfolders that need to be
+operated on.
+
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_STARTED'></a>
 ### FRM_STARTED `constants`
 
@@ -171,3 +191,10 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='P-MFR-Constants-Properties-Resources-StatusUpdate_AttemptingToRenameSolutionFolders'></a>
+### StatusUpdate_AttemptingToRenameSolutionFolders `property`
+
+##### Summary
+
+Looks up a localized string similar to Attempting to rename the folder(s) in the '{0}' folder that contain Visual Studio Solution (*.sln) file(s) to match the name(s) of those Solution(s)... .

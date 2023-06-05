@@ -300,6 +300,15 @@ namespace MFR.Engines
                                  FileRenamerMessages.FRM_FINISHED
                              )
                              .AndHandler(new Action(OnFileRenamerFinished));
+            NewMessageMapping.Associate.WithMessageId(
+                FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED
+            )
+                             .AndHandler(new Action(OnFileRenamerRootDirectoryPathChanged));
+        }
+
+        private void OnFileRenamerRootDirectoryPathChanged()
+        {
+            // no-op for now
         }
 
         /// <summary>
