@@ -40,6 +40,7 @@ using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Directories.Monitors;
 using xyLOGIX.Directories.Monitors.Actions;
 using xyLOGIX.Directories.Monitors.Events;
 using xyLOGIX.Directories.Monitors.Factories;
@@ -249,9 +250,15 @@ namespace MFR.Renamers.Files
         {
             get => _rootDirectoryPath;
             private set {
+                var formerValue = _rootDirectoryPath;
                 var changed = _rootDirectoryPath != value;
                 _rootDirectoryPath = value;
                 if (changed)
+                    OnRootDirectoryPathChanged(
+                        new RootDirectoryPathChangedEventArgs(
+                            formerValue, value
+                        )
+                    );
             }
         }
 
@@ -1727,12 +1734,20 @@ namespace MFR.Renamers.Files
                 if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
                     return;
 
-                Monitor.Folder(RootDirectoryPath)
-                       .AndCallThisMethodWhenItsRenamed(OnRootDirectoryRenamed);
+                var rootDirectoryPathMonitorTicket = Monitor
+                    .Folder(RootDirectoryPath)
+                    .AndCallThisMethodWhenItsRenamed(OnRootDirectoryRenamed);
+                if (rootDirectoryPathMonitorTicket.IsZero()) return;
 
                 OnStarted();
 
-                if (!SearchForLoadedSolutions()) return;
+                if (!SearchForLoadedSolutions())
+                {
+                    DirectoryMonitorProvider
+                        .Detach(rootDirectoryPathMonitorTicket)
+                        .Dispose();
+                    return;
+                }
 
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.

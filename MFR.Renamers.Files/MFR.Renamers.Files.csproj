@@ -163,6 +163,10 @@
       <Project>{01E4BDDD-D877-4465-95BD-AD827240D12C}</Project>
       <Name>xyLOGIX.Directories.Monitors.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.csproj">
+      <Project>{94ef5eee-1a9e-43d9-b693-ff91a280ec2b}</Project>
+      <Name>xyLOGIX.Directories.Monitors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
