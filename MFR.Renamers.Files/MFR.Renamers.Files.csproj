@@ -159,6 +159,10 @@
       <Project>{E08216BF-67A2-49DF-9435-E9167E3E481B}</Project>
       <Name>xyLOGIX.Directories.Monitors.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Helpers\xyLOGIX.Directories.Monitors.Helpers.csproj">
+      <Project>{9F3C03A9-7B35-4515-B59A-C5F83F532A59}</Project>
+      <Name>xyLOGIX.Directories.Monitors.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Interfaces\xyLOGIX.Directories.Monitors.Interfaces.csproj">
       <Project>{01E4BDDD-D877-4465-95BD-AD827240D12C}</Project>
       <Name>xyLOGIX.Directories.Monitors.Interfaces</Name>

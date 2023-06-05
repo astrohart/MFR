@@ -40,10 +40,10 @@ using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Directories.Monitors;
 using xyLOGIX.Directories.Monitors.Actions;
 using xyLOGIX.Directories.Monitors.Events;
 using xyLOGIX.Directories.Monitors.Factories;
+using xyLOGIX.Directories.Monitors.Helpers;
 using xyLOGIX.Directories.Monitors.Interfaces;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
@@ -1720,6 +1720,8 @@ namespace MFR.Renamers.Files
                     nameof(rootDirectoryPath)
                 );
 
+            var rootDirectoryPathMonitorTicket = Guid.Empty;
+
             try
             {
                 OnStarting(); // before we even check the root directory path
@@ -1734,18 +1736,18 @@ namespace MFR.Renamers.Files
                 if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
                     return;
 
-                var rootDirectoryPathMonitorTicket = Monitor
-                    .Folder(RootDirectoryPath)
-                    .AndCallThisMethodWhenItsRenamed(OnRootDirectoryRenamed);
+                rootDirectoryPathMonitorTicket = Monitor
+                                                 .Folder(RootDirectoryPath)
+                                                 .AndCallThisMethodWhenItsRenamed(
+                                                     OnRootDirectoryRenamed
+                                                 );
                 if (rootDirectoryPathMonitorTicket.IsZero()) return;
 
                 OnStarted();
 
                 if (!SearchForLoadedSolutions())
                 {
-                    DirectoryMonitorProvider
-                        .Detach(rootDirectoryPathMonitorTicket)
-                        .Dispose();
+                    Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
                     return;
                 }
 
@@ -1760,6 +1762,7 @@ namespace MFR.Renamers.Files
                         DebugLevel.Error,
                         "*** ERROR *** The InvokeProcessing method returned FALSE."
                     );
+                    Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
                     return;
                 }
 
@@ -1777,6 +1780,8 @@ namespace MFR.Renamers.Files
             finally
             {
                 OnFinished();
+
+                Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
             }
         }
 
