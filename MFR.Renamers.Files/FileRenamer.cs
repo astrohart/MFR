@@ -1741,7 +1741,7 @@ namespace MFR.Renamers.Files
                                                  .AndCallThisMethodWhenItsRenamed(
                                                      OnRootDirectoryRenamed
                                                  );
-                if (rootDirectoryPathMonitorTicket.IsZero()) return;
+                if (rootDirectoryPathMonitorTicket.IsZero()) return;    // failed to create directory monitor
 
                 OnStarted();
 
