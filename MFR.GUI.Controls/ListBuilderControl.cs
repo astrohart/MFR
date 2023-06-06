@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using MFR.GUI.Controls.Interfaces;
+using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Controls
 {
-    public partial class ListBuilderControl : UserControl
+    /// <summary>
+    /// A <see cref="T:System.Windows.Forms.UserControl" /> that is dark-themeable and
+    /// allows users to create a list of choices by adding one item at a time, and
+    /// optionally setting the list order.
+    /// </summary>
+    public partial class ListBuilderControl : DarkUserControl, IListBuilderControl
     {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.GUI.Controls.ListBuilderControl" /> and returns a reference to
+        /// it.
+        /// </summary>
         public ListBuilderControl()
         {
             InitializeComponent();

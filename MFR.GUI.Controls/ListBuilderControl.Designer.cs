@@ -29,8 +29,16 @@ namespace MFR.GUI.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ListBuilderControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "ListBuilderControl";
+            this.Size = new System.Drawing.Size(676, 253);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

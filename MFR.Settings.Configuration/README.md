@@ -393,8 +393,7 @@ in the folders encountered.
 
 ##### Summary
 
-Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-containing folder(s) of solution(s) contained in the search should be renamed.
+Gets or sets a value that indicates whether we should rename folders that contain Visual Studio Solution (`*.sln`) files.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders'></a>
 ### RenameSubFolders `property`

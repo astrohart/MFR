@@ -11,6 +11,8 @@
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCloseActiveSolutionOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCloseActiveSolutionOperationStartedDescription.SoleInstance')
 - [GetFindVisualStudioOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetFindVisualStudioOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetFindVisualStudioOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetFindVisualStudioOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetFindVisualStudioOperationStartedDescription.SoleInstance')
+- [GetInitializeApplicationOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetInitializeApplicationOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetInitializeApplicationOperationStartedDescription')
+  - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetInitializeApplicationOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetInitializeApplicationOperationStartedDescription.SoleInstance')
 - [GetLoadAllSolutionsInFolderOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetLoadAllSolutionsInFolderOperationDescription 'MFR.Operations.Descriptions.Factories.GetLoadAllSolutionsInFolderOperationDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetLoadAllSolutionsInFolderOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetLoadAllSolutionsInFolderOperationDescription.SoleInstance')
 - [GetOpenActiveSolutionOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetOpenActiveSolutionOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetOpenActiveSolutionOperationStartedDescription')
@@ -184,6 +186,40 @@ interface that provides a user-friendly text status message that tells the user
 that the application is beginning the process of determining whether the
 Solution containing the project(s) and file(s) to be processed is currently
 open in a running instance of Visual Studio.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-Factories-GetInitializeApplicationOperationStartedDescription'></a>
+## GetInitializeApplicationOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that provides user-friendly text that indicates we are initializing
+the application when it is launched.
+
+<a name='M-MFR-Operations-Descriptions-Factories-GetInitializeApplicationOperationStartedDescription-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that provides user-friendly text that indicates we are initializing
+the application when it is launched.
 
 ##### Parameters
 
