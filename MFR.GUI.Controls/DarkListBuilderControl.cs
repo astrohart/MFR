@@ -1,4 +1,6 @@
 ﻿using MFR.GUI.Controls.Interfaces;
+using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using xyLOGIX.UI.Dark.Controls;
 using xyLOGIX.UI.Dark.Controls.Interfaces;
@@ -22,6 +24,40 @@ namespace MFR.GUI.Controls
         public DarkListBuilderControl()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Add</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Add button can be selected."
+         )]
+        public bool AddButtonEnabled
+        {
+            get => addButton.Enabled;
+            set {
+                var changed = addButton.Enabled != value;
+                addButton.Enabled = value;
+                if (changed) OnAddButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the <c>Add</c> button's text.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ), Description("Gets or sets the Add button's text.")]
+        public string AddButtonText
+        {
+            get => addButton.Text;
+            set => addButton.Text = value;
         }
 
         /// <summary>
@@ -58,12 +94,54 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkLabel" />
-        /// that is above the right-hand listbox (typically, the right-hand listbox displays
+        /// that is above the right-hand listbox (typically, the right-hand listbox
+        /// displays
         /// available items).
         /// </summary>
         public IDarkLabel RightListBoxLabel
         {
             [DebuggerStepThrough] get => rightListBoxLabel;
+        }
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddButtonEnabledChanged;
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonText" /> property
+        /// is updated.
+        /// </summary>
+        public event EventHandler AddButtonTextChanged;
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddButtonEnabledChanged()
+            => AddButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonTextChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddButtonTextChanged()
+            => AddButtonTextChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Subscribes to the events of the component controls for rebroadcast to clients.
+        /// </summary>
+        private void SubscribeEvents()
+        {
+            addButton.EnabledChanged += (sender, args)
+                => OnAddButtonEnabledChanged();
+            addButton.TextChanged += (sender, args)
+                => OnAddButtonTextChanged();
         }
     }
 }
