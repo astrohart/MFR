@@ -48,8 +48,10 @@ namespace MFR.Replacers.Factories
         /// corresponds to the type of operation being performed.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public OperationType OperationType
-            { get; } = OperationType.RenameSubFolders;
+        public virtual OperationType OperationType
+        {
+            get;
+        } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -90,7 +92,7 @@ namespace MFR.Replacers.Factories
         /// value
         /// passed in the <paramref name="matchingConfig" /> parameter.
         /// </exception>
-        public IStringReplacer AndTextMatchingConfiguration(
+        public virtual IStringReplacer AndTextMatchingConfiguration(
             TextMatchingConfiguration matchingConfig)
         {
             if (!Enum.IsDefined(
