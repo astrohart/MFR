@@ -355,6 +355,20 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Deselects all the available operations that are listed on the <b>Operations</b>
+        /// tab.
+        /// </summary>
+        public void DeselectAllOperations()
+            => SelectAll = false;
+
+        /// <summary>
+        /// Selects all the available operations that are listed on the <b>Operations</b>
+        /// tab.
+        /// </summary>
+        public void SelectAllOperations()
+            => SelectAll = true;
+
+        /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
         /// </summary>
         /// <param name="e">
@@ -465,10 +479,11 @@ namespace MFR.GUI.Windows
             try
             {
                 result = GetProfileCollectionAction.For<string, IProfile>(
-                        ProfileCollectionActionType.CreateNewNamedProfile
-                    )
-                    .WithInput(e.Name)
-                    .Execute();
+                                                       ProfileCollectionActionType
+                                                           .CreateNewNamedProfile
+                                                   )
+                                                   .WithInput(e.Name)
+                                                   .Execute();
 
                 ConfigurationProvider.CurrentConfiguration =
                     result; // set the newly-created profile as the new configuration.
@@ -532,10 +547,11 @@ namespace MFR.GUI.Windows
                                        )
                                        .AndArgument(path)
                                        .AndStatusText(
-                                           GetOperationStartedDescriptionText.For(
-                                               OperationType
-                                                   .CheckingWhetherChosenFolderContainsSolutions
-                                           )
+                                           GetOperationStartedDescriptionText
+                                               .For(
+                                                   OperationType
+                                                       .CheckingWhetherChosenFolderContainsSolutions
+                                               )
                                        ))
                 {
                     Enabled = false;
@@ -1427,8 +1443,7 @@ namespace MFR.GUI.Windows
                     CurrentConfiguration.AutoQuitOnCompletion;
                 dialog.ConfigPathname =
                     ConfigurationProvider.ConfigurationFilePath;
-                dialog.ReOpenSolution =
-                    CurrentConfiguration.ReOpenSolution;
+                dialog.ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 dialog.Modified += OnOptionsModified;
 
                 if (dialog.ShowDialog(this) != DialogResult.OK)
@@ -1643,10 +1658,7 @@ namespace MFR.GUI.Windows
                         this, Resources.Error_NoOperationSelected
                     ) != DialogResult.No)
                 {
-                    CurrentConfiguration.InvokableOperations.ForEach(
-                        op => op.Enabled = true
-                    );
-                    ConfigurationProvider.Save();
+                    SelectAllOperations();
                     return true;
                 }
 
