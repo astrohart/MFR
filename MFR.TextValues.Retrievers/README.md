@@ -18,6 +18,11 @@
 - [Resources](#T-MFR-TextValues-Retrievers-Properties-Resources 'MFR.TextValues.Retrievers.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-TextValues-Retrievers-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Properties.Resources.ResourceManager')
+- [SolutionFolderTextValueRetriever](#T-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever 'MFR.TextValues.Retrievers.SolutionFolderTextValueRetriever')
+  - [#ctor()](#M-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.SolutionFolderTextValueRetriever.#ctor')
+  - [Instance](#P-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-Instance 'MFR.TextValues.Retrievers.SolutionFolderTextValueRetriever.Instance')
+  - [OperationType](#P-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-OperationType 'MFR.TextValues.Retrievers.SolutionFolderTextValueRetriever.OperationType')
+  - [#cctor()](#M-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.SolutionFolderTextValueRetriever.#cctor')
 - [TextInFileTextValueRetriever](#T-MFR-TextValues-Retrievers-TextInFileTextValueRetriever 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever')
   - [#ctor()](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.#ctor')
   - [Instance](#P-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-Instance 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.Instance')
@@ -188,6 +193,59 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever'></a>
+## SolutionFolderTextValueRetriever `type`
+
+##### Namespace
+
+MFR.TextValues.Retrievers
+
+##### Summary
+
+Retrieves the value to be used in which to search for text to be substituted in
+the names of file folders that contain Visual Studio Solution (`*.sln`)
+files.
+
+<a name='M-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+interface for retrieving the pathname of a folder that contains one or more
+Visual Studio Solution (`*.sln`) file(s).
+
+<a name='P-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+that corresponds to the type of operation being performed.
+
+<a name='M-MFR-TextValues-Retrievers-SolutionFolderTextValueRetriever-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-TextValues-Retrievers-TextInFileTextValueRetriever'></a>
 ## TextInFileTextValueRetriever `type`
