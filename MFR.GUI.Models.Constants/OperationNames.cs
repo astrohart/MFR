@@ -14,6 +14,12 @@ namespace MFR.GUI.Models.Constants
             Resources.OperationName_RenameFiles;
 
         /// <summary>
+        /// Name of the <c>Rename Folder(s) that Contain Solution(s)</c> operation.
+        /// </summary>
+        public static readonly string RenameSolutionFolders =
+            Resources.OperationName_RenameSolutionFolders;
+
+        /// <summary>
         /// Name of the <c>Rename Subfolders</c> operation.
         /// </summary>
         public static readonly string RenameSubFolders =

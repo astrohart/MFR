@@ -239,14 +239,17 @@ MFR.Tests.Common
 
 ##### Summary
 
-Defines the events, methods, properties, and behaviors for all unit test fixtures that test methods and objects that perform data exchange to and from the system Registry.
+Defines the events, methods, properties, and behaviors for all unit test
+fixtures that test methods and objects that perform data exchange to and from
+the system Registry.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR'></a>
 ### CONFIG_FILE_DIR `constants`
 
 ##### Summary
 
-String containing the fully-qualified pathname of a folder that stores the configuration file.
+String containing the fully-qualified pathname of a folder that stores the
+configuration file.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME'></a>
 ### CONFIG_FILE_NAME `constants`
@@ -266,7 +269,9 @@ configuration file.
 ##### Remarks
 
 The master configuration file is defined to be that file, containing
-a JSON representation of an object that implements the [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface, exists
+a JSON representation of an object that implements the
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
+interface, exists
 in the centralized location that is used by the application.
 
 

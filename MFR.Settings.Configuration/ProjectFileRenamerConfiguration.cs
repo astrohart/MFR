@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
-using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration
 {
@@ -76,6 +75,7 @@ namespace MFR.Settings.Configuration
             OperationsToPerform = source.OperationsToPerform;
             ReOpenSolution = source.ReOpenSolution;
             RenameFiles = source.RenameFiles;
+            RenameSolutionFolders = source.RenameSolutionFolders;
             RenameSubFolders = source.RenameSubFolders;
             ReplaceTextInFiles = source.ReplaceTextInFiles;
             ReplaceWith = source.ReplaceWith;
@@ -247,17 +247,6 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a <see cref="T:System.Boolean" /> value that indicates whether the
-        /// containing folder(s) of solution(s) contained in the search should be renamed.
-        /// </summary>
-        [JsonProperty("renameSolutionFolders")]
-        public bool RenameSolutionFolders
-        {
-            get;
-            set;
-        } = true;
-
-        /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.
         /// </summary>
         [JsonIgnore]
@@ -298,6 +287,57 @@ namespace MFR.Settings.Configuration
                         return;
 
                     OperationsToPerform[(int)OperationType.RenameSubFolders]
+                        .Enabled = value;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether we should rename folders that contain Visual Studio Solution (<c>*.sln</c>) files.
+        /// </summary>
+        [JsonIgnore]
+        public bool RenameSolutionFolders
+        {
+            get {
+                var result = false;
+
+                try
+                {
+                    if (!OperationsToPerform.HasAnyOperations()) return result;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.RenameSolutionFolders)
+                        ))
+                        return result;
+
+                    result = OperationsToPerform[
+                            (int)OperationType.RenameSolutionFolders]
+                        .Enabled;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                    if (!OperationsToPerform.HasAnyOperations()) return;
+                    if (!OperationsToPerform.Any(
+                            o => o.IsOfType(OperationType.RenameSolutionFolders)
+                        ))
+                        return;
+
+                    OperationsToPerform[(int)OperationType.RenameSolutionFolders]
                         .Enabled = value;
                 }
                 catch (Exception ex)
@@ -473,15 +513,6 @@ namespace MFR.Settings.Configuration
                 StartingFolder = Directory.GetCurrentDirectory();
 
                 OperationsToPerform.Clear();
-
-                /*
-                 * If, by some chance, we end up here and we've blanked out the
-                 * list of operations that the user has requested that this application
-                 * perform, then initialize the list with the defaults.
-                 */
-
-                if (!OperationsToPerform.HasAnyOperations())
-                    OperationsToPerform = Initialize.OperationList();
             }
             catch (Exception ex)
             {

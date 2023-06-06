@@ -166,6 +166,10 @@
       <Project>{C4A81E50-729F-40B8-84B6-A339C1247DBA}</Project>
       <Name>MFR.GUI.Controls.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Constants\MFR.GUI.Models.Constants.csproj">
+      <Project>{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}</Project>
+      <Name>MFR.GUI.Models.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>

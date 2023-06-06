@@ -1,7 +1,9 @@
 namespace MFR.Tests.Common
 {
     /// <summary>
-    /// Defines the events, methods, properties, and behaviors for all unit test fixtures that test methods and objects that perform data exchange to and from the system Registry.
+    /// Defines the events, methods, properties, and behaviors for all unit test
+    /// fixtures that test methods and objects that perform data exchange to and from
+    /// the system Registry.
     /// </summary>
     public class RegistryDataExchangeTestsBase
     {
@@ -11,20 +13,23 @@ namespace MFR.Tests.Common
         /// </summary>
         /// <remarks>
         /// The master configuration file is defined to be that file, containing
-        /// a JSON representation of an object that implements the <see
-        /// cref="T:MFR.Settings.Profiles.Interfaces.IProfile"/> interface, exists
+        /// a JSON representation of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
+        /// interface, exists
         /// in the centralized location that is used by the application.
-        /// <para/>
+        /// <para />
         /// (Other such files may exist, but these are exports/imports.)
         /// </remarks>
         public const string CONFIG_FILE_PATH =
-            @"""C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config\config.json""";
+            @"""C:\ProgramData\xyLOGIX, LLC\Project File Renamer\Config\config.json""";
 
         /// <summary>
-        /// String containing the fully-qualified pathname of a folder that stores the configuration file.
+        /// String containing the fully-qualified pathname of a folder that stores the
+        /// configuration file.
         /// </summary>
         protected const string CONFIG_FILE_DIR =
-                    @"C:\ProgramData\xyLOGIX, LLC\MassFileRenamer\Config";
+            @"C:\ProgramData\xyLOGIX, LLC\Project File Renamer\Config";
 
         /// <summary>
         /// String containing the name of a configuration file.

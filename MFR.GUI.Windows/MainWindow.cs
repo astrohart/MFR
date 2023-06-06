@@ -259,15 +259,6 @@ namespace MFR.GUI.Windows
             => profileListComboBox;
 
         /// <summary>
-        /// Gets or sets the value of the <b>Rename Solution Folder(s)</b> checkbox
-        /// </summary>
-        public bool RenameSolutionFolders
-        {
-            get => renameSolutionFoldersCheckBox.Checked;
-            set => renameSolutionFoldersCheckBox.Checked = value;
-        }
-
-        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to replace found text with.
         /// </summary>

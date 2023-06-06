@@ -107,6 +107,7 @@
     <Compile Include="GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.cs" />
     <Compile Include="GetCloseActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="GetFindVisualStudioOperationStartedDescription.cs" />
+    <Compile Include="GetInitializeApplicationOperationStartedDescription.cs" />
     <Compile Include="GetLoadAllSolutionsInFolderOperationDescription.cs" />
     <Compile Include="GetOpenActiveSolutionOperationStartedDescription.cs" />
     <Compile Include="GetOperationDescriptionText.cs" />

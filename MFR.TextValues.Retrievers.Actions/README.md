@@ -5,7 +5,7 @@
 
 - [Get](#T-MFR-TextValues-Retrievers-Actions-Get 'MFR.TextValues.Retrievers.Actions.Get')
   - [FileStreamProvider](#P-MFR-TextValues-Retrievers-Actions-Get-FileStreamProvider 'MFR.TextValues.Retrievers.Actions.Get.FileStreamProvider')
-  - [FileData(ticket,dispose)](#M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid,System-Boolean- 'MFR.TextValues.Retrievers.Actions.Get.FileData(System.Guid,System.Boolean)')
+  - [FileDataAsync(ticket,dispose)](#M-MFR-TextValues-Retrievers-Actions-Get-FileDataAsync-System-Guid,System-Boolean- 'MFR.TextValues.Retrievers.Actions.Get.FileDataAsync(System.Guid,System.Boolean)')
   - [FileTicket(pathname)](#M-MFR-TextValues-Retrievers-Actions-Get-FileTicket-System-String- 'MFR.TextValues.Retrievers.Actions.Get.FileTicket(System.String)')
 - [Resources](#T-MFR-TextValues-Retrievers-Actions-Properties-Resources 'MFR.TextValues.Retrievers.Actions.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Actions-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Actions.Properties.Resources.Culture')
@@ -27,8 +27,8 @@ Gets a reference to an instance of an object that implements the
 [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
 interface.
 
-<a name='M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid,System-Boolean-'></a>
-### FileData(ticket,dispose) `method`
+<a name='M-MFR-TextValues-Retrievers-Actions-Get-FileDataAsync-System-Guid,System-Boolean-'></a>
+### FileDataAsync(ticket,dispose) `method`
 
 ##### Summary
 

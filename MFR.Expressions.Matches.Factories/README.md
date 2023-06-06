@@ -20,6 +20,8 @@
   - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewFolderNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewFolderNameReplacementMatchExpressionFactory.FromScratch')
 - [MakeNewReplaceTextInFileMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewReplaceTextInFileMatchExpressionFactory')
   - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewReplaceTextInFileMatchExpressionFactory.FromScratch')
+- [MakeNewSolutionFolderNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewSolutionFolderNameReplacementMatchExpressionFactory')
+  - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewSolutionFolderNameReplacementMatchExpressionFactory.FromScratch')
 - [MatchExpressionFactoryBase](#T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase')
   - [ConfigurationProvider](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ConfigurationProvider 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.CurrentConfiguration')
@@ -38,6 +40,8 @@
 - [Resources](#T-MFR-Expressions-Matches-Factories-Properties-Resources 'MFR.Expressions.Matches.Factories.Properties.Resources')
   - [Culture](#P-MFR-Expressions-Matches-Factories-Properties-Resources-Culture 'MFR.Expressions.Matches.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Expressions-Matches-Factories-Properties-Resources-ResourceManager 'MFR.Expressions.Matches.Factories.Properties.Resources.ResourceManager')
+- [SolutionFolderNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-SolutionFolderNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.SolutionFolderNameReplacementMatchExpressionFactory')
+  - [OperationType](#P-MFR-Expressions-Matches-Factories-SolutionFolderNameReplacementMatchExpressionFactory-OperationType 'MFR.Expressions.Matches.Factories.SolutionFolderNameReplacementMatchExpressionFactory.OperationType')
 
 <a name='T-MFR-Expressions-Matches-Factories-FileAndFolderMatchExpressionFactoryBase'></a>
 ## FileAndFolderMatchExpressionFactoryBase `type`
@@ -439,6 +443,42 @@ replace it with.
 
 This method has no parameters.
 
+<a name='T-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory'></a>
+## MakeNewSolutionFolderNameReplacementMatchExpressionFactory `type`
+
+##### Namespace
+
+MFR.Expressions.Matches.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the renaming of file folders
+that contain Visual Studio Solution (`*.sln`) files according to what the
+user specified to search for in the filename and what to replace it with.
+
+<a name='M-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory-FromScratch'></a>
+### FromScratch() `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface and returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory 'MFR.Expressions.Matches.Factories.Interfaces.IMatchExpressionFactory')
+interface that generates a matching expression for the renaming of file folders
+that contain Visual Studio Solution (`*.sln`) files according to what the
+user specified to search for in the filename and what to replace it with.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase'></a>
 ## MatchExpressionFactoryBase `type`
 
@@ -831,3 +871,26 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-Expressions-Matches-Factories-SolutionFolderNameReplacementMatchExpressionFactory'></a>
+## SolutionFolderNameReplacementMatchExpressionFactory `type`
+
+##### Namespace
+
+MFR.Expressions.Matches.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IMatchExpression](#T-MFR-Expressions-Matches-Interfaces-IMatchExpression 'MFR.Expressions.Matches.Interfaces.IMatchExpression')
+interface that correspond to the
+[RenameSolutionFolders](#T-MFR-Operations-Constants-OperationType-RenameSolutionFolders 'MFR.Operations.Constants.OperationType.RenameSolutionFolders')
+operation type.
+
+<a name='P-MFR-Expressions-Matches-Factories-SolutionFolderNameReplacementMatchExpressionFactory-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
+that corresponds to the type of operation being performed.
