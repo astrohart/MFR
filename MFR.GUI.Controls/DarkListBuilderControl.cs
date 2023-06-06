@@ -10,15 +10,16 @@ namespace MFR.GUI.Controls
     /// allows users to create a list of choices by adding one item at a time, and
     /// optionally setting the list order.
     /// </summary>
-    public partial class ListBuilderControl : DarkUserControl,
+    public partial class DarkListBuilderControl : DarkUserControl,
         IListBuilderControl
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.GUI.Controls.ListBuilderControl" /> and returns a reference to
+        /// <see cref="T:MFR.GUI.Controls.DarkListBuilderControl" /> and returns a
+        /// reference to
         /// it.
         /// </summary>
-        public ListBuilderControl()
+        public DarkListBuilderControl()
         {
             InitializeComponent();
         }
@@ -42,6 +43,27 @@ namespace MFR.GUI.Controls
         public IDarkLabel LeftListBoxLabel
         {
             [DebuggerStepThrough] get => leftListBoxLabel;
+        }
+
+        /// <summary>
+        /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkListBox" />
+        /// that is displayed on the right-hand side of this user control.
+        /// <para />
+        /// Typically, this listbox displays available items.
+        /// </summary>
+        public IDarkListBox RightListBox
+        {
+            [DebuggerStepThrough] get => rightListBox;
+        }
+
+        /// <summary>
+        /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkLabel" />
+        /// that is above the right-hand listbox (typically, the right-hand listbox displays
+        /// available items).
+        /// </summary>
+        public IDarkLabel RightListBoxLabel
+        {
+            [DebuggerStepThrough] get => rightListBoxLabel;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace MFR.GUI.Controls
 {
-    partial class ListBuilderControl
+    partial class DarkListBuilderControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -49,7 +49,7 @@ namespace MFR.GUI.Controls
             this.leftListBoxLabel.Name = "leftListBoxLabel";
             this.leftListBoxLabel.Size = new System.Drawing.Size(266, 13);
             this.leftListBoxLabel.TabIndex = 0;
-            this.leftListBoxLabel.Text = "darkLabel1";
+            this.leftListBoxLabel.Text = "&Available items:";
             // 
             // leftListBox
             // 
@@ -70,9 +70,9 @@ namespace MFR.GUI.Controls
             this.addButton.Location = new System.Drawing.Point(286, 51);
             this.addButton.Name = "addButton";
             this.addButton.Padding = new System.Windows.Forms.Padding(5);
-            this.addButton.Size = new System.Drawing.Size(87, 27);
+            this.addButton.Size = new System.Drawing.Size(125, 27);
             this.addButton.TabIndex = 2;
-            this.addButton.Text = "darkButton1";
+            this.addButton.Text = "&Add >";
             // 
             // addAllButton
             // 
@@ -80,9 +80,9 @@ namespace MFR.GUI.Controls
             this.addAllButton.Location = new System.Drawing.Point(286, 84);
             this.addAllButton.Name = "addAllButton";
             this.addAllButton.Padding = new System.Windows.Forms.Padding(5);
-            this.addAllButton.Size = new System.Drawing.Size(87, 27);
+            this.addAllButton.Size = new System.Drawing.Size(125, 27);
             this.addAllButton.TabIndex = 3;
-            this.addAllButton.Text = "darkButton2";
+            this.addAllButton.Text = "A&dd All >>";
             // 
             // removeButton
             // 
@@ -90,9 +90,9 @@ namespace MFR.GUI.Controls
             this.removeButton.Location = new System.Drawing.Point(286, 132);
             this.removeButton.Name = "removeButton";
             this.removeButton.Padding = new System.Windows.Forms.Padding(5);
-            this.removeButton.Size = new System.Drawing.Size(87, 27);
+            this.removeButton.Size = new System.Drawing.Size(125, 27);
             this.removeButton.TabIndex = 4;
-            this.removeButton.Text = "darkButton3";
+            this.removeButton.Text = "< &Remove";
             // 
             // removeAllButton
             // 
@@ -100,9 +100,9 @@ namespace MFR.GUI.Controls
             this.removeAllButton.Location = new System.Drawing.Point(286, 165);
             this.removeAllButton.Name = "removeAllButton";
             this.removeAllButton.Padding = new System.Windows.Forms.Padding(5);
-            this.removeAllButton.Size = new System.Drawing.Size(87, 27);
+            this.removeAllButton.Size = new System.Drawing.Size(125, 27);
             this.removeAllButton.TabIndex = 5;
-            this.removeAllButton.Text = "darkButton4";
+            this.removeAllButton.Text = "<< Re&move All";
             // 
             // rightListBox
             // 
@@ -112,7 +112,7 @@ namespace MFR.GUI.Controls
             this.rightListBox.FormattingEnabled = true;
             this.rightListBox.IsDarkTheme = false;
             this.rightListBox.ItemHeight = 15;
-            this.rightListBox.Location = new System.Drawing.Point(379, 22);
+            this.rightListBox.Location = new System.Drawing.Point(417, 22);
             this.rightListBox.Name = "rightListBox";
             this.rightListBox.Size = new System.Drawing.Size(266, 287);
             this.rightListBox.TabIndex = 7;
@@ -121,11 +121,11 @@ namespace MFR.GUI.Controls
             // 
             this.rightListBoxLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.rightListBoxLabel.IsDarkTheme = true;
-            this.rightListBoxLabel.Location = new System.Drawing.Point(379, 4);
+            this.rightListBoxLabel.Location = new System.Drawing.Point(417, 4);
             this.rightListBoxLabel.Name = "rightListBoxLabel";
             this.rightListBoxLabel.Size = new System.Drawing.Size(266, 15);
             this.rightListBoxLabel.TabIndex = 6;
-            this.rightListBoxLabel.Text = "darkLabel2";
+            this.rightListBoxLabel.Text = "&Selected items:";
             // 
             // moveDownButton
             // 
@@ -133,9 +133,9 @@ namespace MFR.GUI.Controls
             this.moveDownButton.Location = new System.Drawing.Point(286, 248);
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.Padding = new System.Windows.Forms.Padding(5);
-            this.moveDownButton.Size = new System.Drawing.Size(87, 27);
+            this.moveDownButton.Size = new System.Drawing.Size(125, 27);
             this.moveDownButton.TabIndex = 9;
-            this.moveDownButton.Text = "darkButton5";
+            this.moveDownButton.Text = "Move &Down";
             // 
             // moveUpButton
             // 
@@ -143,11 +143,11 @@ namespace MFR.GUI.Controls
             this.moveUpButton.Location = new System.Drawing.Point(286, 215);
             this.moveUpButton.Name = "moveUpButton";
             this.moveUpButton.Padding = new System.Windows.Forms.Padding(5);
-            this.moveUpButton.Size = new System.Drawing.Size(87, 27);
+            this.moveUpButton.Size = new System.Drawing.Size(125, 27);
             this.moveUpButton.TabIndex = 8;
-            this.moveUpButton.Text = "darkButton6";
+            this.moveUpButton.Text = "Move &Up";
             // 
-            // ListBuilderControl
+            // DarkListBuilderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -163,8 +163,8 @@ namespace MFR.GUI.Controls
             this.Controls.Add(this.leftListBoxLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IsDarkTheme = true;
-            this.Name = "ListBuilderControl";
-            this.Size = new System.Drawing.Size(659, 327);
+            this.Name = "DarkListBuilderControl";
+            this.Size = new System.Drawing.Size(700, 327);
             this.ResumeLayout(false);
 
         }
