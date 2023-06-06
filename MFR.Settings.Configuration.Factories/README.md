@@ -202,7 +202,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[OperationsToPerform](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.OperationsToPerform')
+[InvokableOperations](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations')
 property.
 
 ##### Returns

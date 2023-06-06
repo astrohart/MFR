@@ -2173,8 +2173,7 @@ namespace MFR.Renamers.Files
                     if (!solutionFolder.Contains(RootDirectoryPath) &&
                         !RootDirectoryPath.Contains(solutionFolder)) continue;
 
-                    Debugger.Launch();
-                    Debugger.Break();
+                    ProgramFlowHelper.StartDebugger();
 
                     /*
                      * If we are here, then one or more of the Visual Studio Solution (*.sln)

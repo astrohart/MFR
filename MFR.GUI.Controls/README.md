@@ -3,52 +3,52 @@
 
 ## Contents
 
-- [DarkListBuilderControl](#T-MFR-GUI-Controls-DarkListBuilderControl 'MFR.GUI.Controls.DarkListBuilderControl')
-  - [#ctor()](#M-MFR-GUI-Controls-DarkListBuilderControl-#ctor 'MFR.GUI.Controls.DarkListBuilderControl.#ctor')
-  - [components](#F-MFR-GUI-Controls-DarkListBuilderControl-components 'MFR.GUI.Controls.DarkListBuilderControl.components')
-  - [AddAllButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabled')
-  - [AddAllButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonText 'MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonText')
-  - [AddAllButtonVisible](#P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonVisible 'MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisible')
-  - [AddButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabled')
-  - [AddButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonText 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonText')
-  - [AddButtonVisible](#P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonVisible 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonVisible')
-  - [LeftListBox](#P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBox 'MFR.GUI.Controls.DarkListBuilderControl.LeftListBox')
-  - [LeftListBoxLabel](#P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBoxLabel 'MFR.GUI.Controls.DarkListBuilderControl.LeftListBoxLabel')
-  - [MoveDownButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabled')
-  - [MoveDownButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonText 'MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonText')
-  - [MoveDownButtonVisible](#P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonVisible 'MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonVisible')
-  - [MoveUpButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabled')
-  - [MoveUpButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonText 'MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonText')
-  - [MoveUpButtonVisible](#P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonVisible 'MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonVisible')
-  - [RemoveAllButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonEnabled')
-  - [RemoveAllButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonText 'MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonText')
-  - [RemoveAllButtonVisible](#P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonVisible 'MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonVisible')
-  - [RemoveButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabled')
-  - [RemoveButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonText 'MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonText')
-  - [RemoveButtonVisible](#P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonVisible 'MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonVisible')
-  - [RightListBox](#P-MFR-GUI-Controls-DarkListBuilderControl-RightListBox 'MFR.GUI.Controls.DarkListBuilderControl.RightListBox')
-  - [RightListBoxLabel](#P-MFR-GUI-Controls-DarkListBuilderControl-RightListBoxLabel 'MFR.GUI.Controls.DarkListBuilderControl.RightListBoxLabel')
-  - [Dispose(disposing)](#M-MFR-GUI-Controls-DarkListBuilderControl-Dispose-System-Boolean- 'MFR.GUI.Controls.DarkListBuilderControl.Dispose(System.Boolean)')
-  - [InitializeComponent()](#M-MFR-GUI-Controls-DarkListBuilderControl-InitializeComponent 'MFR.GUI.Controls.DarkListBuilderControl.InitializeComponent')
-  - [OnAddAllButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddAllButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddAllButtonEnabledChanged')
-  - [OnAddAllButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddAllButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddAllButtonTextChanged')
-  - [OnAddAllButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddAllButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddAllButtonVisibleChanged')
-  - [OnAddButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonEnabledChanged')
-  - [OnAddButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonTextChanged')
-  - [OnAddButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonVisibleChanged')
-  - [OnMoveDownButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveDownButtonEnabledChanged')
-  - [OnMoveDownButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveDownButtonTextChanged')
-  - [OnMoveDownButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveDownButtonVisibleChanged')
-  - [OnMoveUpButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveUpButtonEnabledChanged')
-  - [OnMoveUpButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveUpButtonTextChanged')
-  - [OnMoveUpButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveUpButtonVisibleChanged')
-  - [OnRemoveAllButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveAllButtonEnabledChanged')
-  - [OnRemoveAllButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveAllButtonTextChanged')
-  - [OnRemoveAllButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveAllButtonVisibleChanged')
-  - [OnRemoveButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveButtonEnabledChanged')
-  - [OnRemoveButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveButtonTextChanged')
-  - [OnRemoveButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveButtonVisibleChanged')
-  - [SubscribeEvents()](#M-MFR-GUI-Controls-DarkListBuilderControl-SubscribeEvents 'MFR.GUI.Controls.DarkListBuilderControl.SubscribeEvents')
+- [DarkDarkListBuilderControl](#T-MFR-GUI-Controls-DarkDarkListBuilderControl 'MFR.GUI.Controls.DarkDarkListBuilderControl')
+  - [#ctor()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-#ctor 'MFR.GUI.Controls.DarkDarkListBuilderControl.#ctor')
+  - [components](#F-MFR-GUI-Controls-DarkDarkListBuilderControl-components 'MFR.GUI.Controls.DarkDarkListBuilderControl.components')
+  - [AddAllButtonEnabled](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonEnabled 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonEnabled')
+  - [AddAllButtonText](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonText 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonText')
+  - [AddAllButtonVisible](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonVisible 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonVisible')
+  - [AddButtonEnabled](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonEnabled 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonEnabled')
+  - [AddButtonText](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonText 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonText')
+  - [AddButtonVisible](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonVisible 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonVisible')
+  - [LeftListBox](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-LeftListBox 'MFR.GUI.Controls.DarkDarkListBuilderControl.LeftListBox')
+  - [LeftListBoxLabel](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-LeftListBoxLabel 'MFR.GUI.Controls.DarkDarkListBuilderControl.LeftListBoxLabel')
+  - [MoveDownButtonEnabled](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonEnabled 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonEnabled')
+  - [MoveDownButtonText](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonText 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonText')
+  - [MoveDownButtonVisible](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonVisible 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonVisible')
+  - [MoveUpButtonEnabled](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonEnabled 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonEnabled')
+  - [MoveUpButtonText](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonText 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonText')
+  - [MoveUpButtonVisible](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonVisible 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonVisible')
+  - [RemoveAllButtonEnabled](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonEnabled 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonEnabled')
+  - [RemoveAllButtonText](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonText 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonText')
+  - [RemoveAllButtonVisible](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonVisible 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonVisible')
+  - [RemoveButtonEnabled](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonEnabled 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonEnabled')
+  - [RemoveButtonText](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonText 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonText')
+  - [RemoveButtonVisible](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonVisible 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonVisible')
+  - [RightListBox](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RightListBox 'MFR.GUI.Controls.DarkDarkListBuilderControl.RightListBox')
+  - [RightListBoxLabel](#P-MFR-GUI-Controls-DarkDarkListBuilderControl-RightListBoxLabel 'MFR.GUI.Controls.DarkDarkListBuilderControl.RightListBoxLabel')
+  - [Dispose(disposing)](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-Dispose-System-Boolean- 'MFR.GUI.Controls.DarkDarkListBuilderControl.Dispose(System.Boolean)')
+  - [InitializeComponent()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-InitializeComponent 'MFR.GUI.Controls.DarkDarkListBuilderControl.InitializeComponent')
+  - [OnAddAllButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddAllButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnAddAllButtonEnabledChanged')
+  - [OnAddAllButtonTextChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddAllButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnAddAllButtonTextChanged')
+  - [OnAddAllButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddAllButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnAddAllButtonVisibleChanged')
+  - [OnAddButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnAddButtonEnabledChanged')
+  - [OnAddButtonTextChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnAddButtonTextChanged')
+  - [OnAddButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnAddButtonVisibleChanged')
+  - [OnMoveDownButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveDownButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnMoveDownButtonEnabledChanged')
+  - [OnMoveDownButtonTextChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveDownButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnMoveDownButtonTextChanged')
+  - [OnMoveDownButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveDownButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnMoveDownButtonVisibleChanged')
+  - [OnMoveUpButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveUpButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnMoveUpButtonEnabledChanged')
+  - [OnMoveUpButtonTextChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveUpButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnMoveUpButtonTextChanged')
+  - [OnMoveUpButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveUpButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnMoveUpButtonVisibleChanged')
+  - [OnRemoveAllButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveAllButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnRemoveAllButtonEnabledChanged')
+  - [OnRemoveAllButtonTextChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveAllButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnRemoveAllButtonTextChanged')
+  - [OnRemoveAllButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveAllButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnRemoveAllButtonVisibleChanged')
+  - [OnRemoveButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnRemoveButtonEnabledChanged')
+  - [OnRemoveButtonTextChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnRemoveButtonTextChanged')
+  - [OnRemoveButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.OnRemoveButtonVisibleChanged')
+  - [SubscribeEvents()](#M-MFR-GUI-Controls-DarkDarkListBuilderControl-SubscribeEvents 'MFR.GUI.Controls.DarkDarkListBuilderControl.SubscribeEvents')
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
   - [_enteredText](#F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText 'MFR.GUI.Controls.EntryRespectingComboBox._enteredText')
   - [EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText')
@@ -72,8 +72,8 @@
   - [Culture](#P-MFR-GUI-Controls-Properties-Resources-Culture 'MFR.GUI.Controls.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Controls-DarkListBuilderControl'></a>
-## DarkListBuilderControl `type`
+<a name='T-MFR-GUI-Controls-DarkDarkListBuilderControl'></a>
+## DarkDarkListBuilderControl `type`
 
 ##### Namespace
 
@@ -85,13 +85,13 @@ A [UserControl](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=E
 allows users to create a list of choices by adding one item at a time, and
 optionally setting the list order.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-#ctor'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[DarkListBuilderControl](#T-MFR-GUI-Controls-DarkListBuilderControl 'MFR.GUI.Controls.DarkListBuilderControl') and returns a
+[DarkDarkListBuilderControl](#T-MFR-GUI-Controls-DarkDarkListBuilderControl 'MFR.GUI.Controls.DarkDarkListBuilderControl') and returns a
 reference to
 it.
 
@@ -99,14 +99,14 @@ it.
 
 This constructor has no parameters.
 
-<a name='F-MFR-GUI-Controls-DarkListBuilderControl-components'></a>
+<a name='F-MFR-GUI-Controls-DarkDarkListBuilderControl-components'></a>
 ### components `constants`
 
 ##### Summary
 
 Required designer variable.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonEnabled'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonEnabled'></a>
 ### AddAllButtonEnabled `property`
 
 ##### Summary
@@ -114,14 +114,14 @@ Required designer variable.
 Gets or sets a value tha indicates whether the button can be
 selected.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonText'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonText'></a>
 ### AddAllButtonText `property`
 
 ##### Summary
 
 Gets or sets the button's text.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonVisible'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonVisible'></a>
 ### AddAllButtonVisible `property`
 
 ##### Summary
@@ -129,7 +129,7 @@ Gets or sets the button's text.
 Gets or sets a value that indicates whether the button is
 visible.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonEnabled'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonEnabled'></a>
 ### AddButtonEnabled `property`
 
 ##### Summary
@@ -137,21 +137,21 @@ visible.
 Gets or sets a value tha indicates whether the button can be
 selected.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonText'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonText'></a>
 ### AddButtonText `property`
 
 ##### Summary
 
 Gets or sets the `Add` button's text.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonVisible'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonVisible'></a>
 ### AddButtonVisible `property`
 
 ##### Summary
 
 Gets or sets a value that indicates whether the button is visible.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBox'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-LeftListBox'></a>
 ### LeftListBox `property`
 
 ##### Summary
@@ -163,7 +163,7 @@ that is displayed on the left-hand side of this user control.
 
 Typically, this listbox displays available items.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBoxLabel'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-LeftListBoxLabel'></a>
 ### LeftListBoxLabel `property`
 
 ##### Summary
@@ -172,7 +172,7 @@ Gets a reference to the [DarkLabel](#T-xyLOGIX-UI-Dark-Controls-DarkLabel 'xyLOG
 that is above the left-hand listbox (typically, the left-hand listbox displays
 available items).
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonEnabled'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonEnabled'></a>
 ### MoveDownButtonEnabled `property`
 
 ##### Summary
@@ -180,14 +180,14 @@ available items).
 Gets or sets a value tha indicates whether the button can be
 selected.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonText'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonText'></a>
 ### MoveDownButtonText `property`
 
 ##### Summary
 
 Gets or sets the button's text.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonVisible'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonVisible'></a>
 ### MoveDownButtonVisible `property`
 
 ##### Summary
@@ -195,7 +195,7 @@ Gets or sets the button's text.
 Gets or sets a value that indicates whether the button is
 visible.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonEnabled'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonEnabled'></a>
 ### MoveUpButtonEnabled `property`
 
 ##### Summary
@@ -203,14 +203,14 @@ visible.
 Gets or sets a value tha indicates whether the button can be
 selected.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonText'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonText'></a>
 ### MoveUpButtonText `property`
 
 ##### Summary
 
 Gets or sets the button's text.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonVisible'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonVisible'></a>
 ### MoveUpButtonVisible `property`
 
 ##### Summary
@@ -218,7 +218,7 @@ Gets or sets the button's text.
 Gets or sets a value that indicates whether the button is
 visible.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonEnabled'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonEnabled'></a>
 ### RemoveAllButtonEnabled `property`
 
 ##### Summary
@@ -226,14 +226,14 @@ visible.
 Gets or sets a value tha indicates whether the button can be
 selected.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonText'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonText'></a>
 ### RemoveAllButtonText `property`
 
 ##### Summary
 
 Gets or sets the button's text.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonVisible'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonVisible'></a>
 ### RemoveAllButtonVisible `property`
 
 ##### Summary
@@ -241,7 +241,7 @@ Gets or sets the button's text.
 Gets or sets a value that indicates whether the button is
 visible.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonEnabled'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonEnabled'></a>
 ### RemoveButtonEnabled `property`
 
 ##### Summary
@@ -249,14 +249,14 @@ visible.
 Gets or sets a value tha indicates whether the button can be
 selected.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonText'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonText'></a>
 ### RemoveButtonText `property`
 
 ##### Summary
 
 Gets or sets the button's text.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonVisible'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonVisible'></a>
 ### RemoveButtonVisible `property`
 
 ##### Summary
@@ -264,7 +264,7 @@ Gets or sets the button's text.
 Gets or sets a value that indicates whether the button is
 visible.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RightListBox'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RightListBox'></a>
 ### RightListBox `property`
 
 ##### Summary
@@ -276,7 +276,7 @@ that is displayed on the right-hand side of this user control.
 
 Typically, this listbox displays available items.
 
-<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RightListBoxLabel'></a>
+<a name='P-MFR-GUI-Controls-DarkDarkListBuilderControl-RightListBoxLabel'></a>
 ### RightListBoxLabel `property`
 
 ##### Summary
@@ -286,7 +286,7 @@ that is above the right-hand listbox (typically, the right-hand listbox
 displays
 available items).
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-Dispose-System-Boolean-'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-Dispose-System-Boolean-'></a>
 ### Dispose(disposing) `method`
 
 ##### Summary
@@ -299,7 +299,7 @@ Clean up any resources being used.
 | ---- | ---- | ----------- |
 | disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-InitializeComponent'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-InitializeComponent'></a>
 ### InitializeComponent() `method`
 
 ##### Summary
@@ -311,241 +311,241 @@ the contents of this method with the code editor.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddAllButtonEnabledChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddAllButtonEnabledChanged'></a>
 ### OnAddAllButtonEnabledChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonEnabledChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddAllButtonTextChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddAllButtonTextChanged'></a>
 ### OnAddAllButtonTextChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonTextChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonTextChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddAllButtonVisibleChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddAllButtonVisibleChanged'></a>
 ### OnAddAllButtonVisibleChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisibleChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-AddAllButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonVisibleChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonEnabledChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddButtonEnabledChanged'></a>
 ### OnAddButtonEnabledChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabledChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonEnabledChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonTextChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddButtonTextChanged'></a>
 ### OnAddButtonTextChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonTextChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonTextChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonVisibleChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnAddButtonVisibleChanged'></a>
 ### OnAddButtonVisibleChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonVisibleChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-AddButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonVisibleChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonEnabledChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveDownButtonEnabledChanged'></a>
 ### OnMoveDownButtonEnabledChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabledChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonEnabledChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonTextChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveDownButtonTextChanged'></a>
 ### OnMoveDownButtonTextChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonTextChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonTextChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonVisibleChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveDownButtonVisibleChanged'></a>
 ### OnMoveDownButtonVisibleChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonVisibleChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveDownButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonVisibleChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonEnabledChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveUpButtonEnabledChanged'></a>
 ### OnMoveUpButtonEnabledChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabledChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonEnabledChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonTextChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveUpButtonTextChanged'></a>
 ### OnMoveUpButtonTextChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonTextChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonTextChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonVisibleChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnMoveUpButtonVisibleChanged'></a>
 ### OnMoveUpButtonVisibleChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonVisibleChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-MoveUpButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonVisibleChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonEnabledChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveAllButtonEnabledChanged'></a>
 ### OnRemoveAllButtonEnabledChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonEnabledChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonEnabledChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonTextChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveAllButtonTextChanged'></a>
 ### OnRemoveAllButtonTextChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonTextChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonTextChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonVisibleChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveAllButtonVisibleChanged'></a>
 ### OnRemoveAllButtonVisibleChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonVisibleChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveAllButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonVisibleChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonEnabledChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveButtonEnabledChanged'></a>
 ### OnRemoveButtonEnabledChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabledChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonEnabledChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonEnabledChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonTextChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveButtonTextChanged'></a>
 ### OnRemoveButtonTextChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonTextChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonTextChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonTextChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonVisibleChanged'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-OnRemoveButtonVisibleChanged'></a>
 ### OnRemoveButtonVisibleChanged() `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonVisibleChanged')
+[](#E-MFR-GUI-Controls-DarkDarkListBuilderControl-RemoveButtonVisibleChanged 'MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonVisibleChanged')
 event.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-SubscribeEvents'></a>
+<a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-SubscribeEvents'></a>
 ### SubscribeEvents() `method`
 
 ##### Summary

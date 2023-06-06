@@ -141,7 +141,7 @@ namespace MFR.Settings.Configuration
         /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
         /// all the operations the user can perform with this application.
         /// </summary>
-        [JsonProperty("operationsToPerform")]
+        [JsonProperty("invokableOperations")]
         public List<OperationTypeInfo> InvokableOperations
         {
             get;

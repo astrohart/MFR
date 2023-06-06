@@ -145,6 +145,13 @@ namespace MFR.GUI.Controls
         /// <para />
         /// Typically, this listbox displays available items.
         /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Visible
+         ),
+         Description(
+             "Gets a reference to the ListBox that displays the items that are available."
+         )]
         public IDarkListBox LeftListBox
         {
             [DebuggerStepThrough] get => leftListBox;
@@ -155,6 +162,13 @@ namespace MFR.GUI.Controls
         /// that is above the left-hand listbox (typically, the left-hand listbox displays
         /// available items).
         /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Visible
+         ),
+         Description(
+             "Gets a reference to the Label that is above the ListBox on the left-hand side of the list-builder control."
+         )]
         public IDarkLabel LeftListBoxLabel
         {
             [DebuggerStepThrough] get => leftListBoxLabel;
@@ -402,6 +416,13 @@ namespace MFR.GUI.Controls
         /// <para />
         /// Typically, this listbox displays available items.
         /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Visible
+         ),
+         Description(
+             "Gets a reference to the ListBox that displays the items that are in the list that the user is building."
+         )]
         public IDarkListBox RightListBox
         {
             [DebuggerStepThrough] get => rightListBox;
@@ -410,9 +431,16 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkLabel" />
         /// that is above the right-hand listbox (typically, the right-hand listbox
-        /// displays
+        /// displays the list that the user is is building.
         /// available items).
         /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Visible
+         ),
+         Description(
+             "Gets a reference to the Label that is above the ListBox on the right-hand side of the list-builder control."
+         )]
         public IDarkLabel RightListBoxLabel
         {
             [DebuggerStepThrough] get => rightListBoxLabel;
@@ -448,7 +476,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonText" /> property
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonText" />
+        /// property
         /// is updated.
         /// </summary>
         public event EventHandler AddButtonTextChanged;
@@ -504,7 +533,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonEnabled" />
+        /// <see
+        ///     cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveAllButtonEnabledChanged;
@@ -518,7 +548,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonVisible" />
+        /// <see
+        ///     cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveAllButtonVisibleChanged;
@@ -555,7 +586,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonTextChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddAllButtonTextChanged()
@@ -572,7 +604,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonEnabledChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddButtonEnabledChanged()
@@ -588,7 +621,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonVisibleChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddButtonVisibleChanged()
@@ -605,7 +639,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonTextChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveDownButtonTextChanged()
@@ -631,7 +666,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonTextChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveUpButtonTextChanged()
@@ -684,7 +720,8 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonTextChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveButtonTextChanged()
