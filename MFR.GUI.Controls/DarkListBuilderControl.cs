@@ -27,6 +27,65 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
+        /// Gets or sets the <b>Add All</b> button's text.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ), Description("Gets or sets the Add All button's text.")]
+        public string AddAllButtonText
+        {
+            get => addAllButton.Text;
+            set {
+                var changed = addAllButton.Text != value;
+                addAllButton.Text = value;
+                if (changed) OnAddAllButtonTextChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the <b>Add All</b> button is
+        /// visible.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Add All button is visible."
+         )]
+        public bool AddAllButtonVisible
+        {
+            get => addAllButton.Visible;
+            set {
+                var changed = addAllButton.Visible != value;
+                addAllButton.Visible = value;
+                if (changed) OnAddAllButtonVisibleChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Add All</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Add All button can be selected."
+         )]
+        public bool AddAllEnabled
+        {
+            get => addAllButton.Enabled;
+            set {
+                var changed = addAllButton.Enabled != value;
+                addAllButton.Enabled = value;
+                if (changed) OnAddAllEnabledChanged();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets a value tha indicates whether the <b>Add</b> button can be
         /// selected.
         /// </summary>
@@ -73,8 +132,7 @@ namespace MFR.GUI.Controls
         public bool AddButtonVisible
         {
             get => addButton.Visible;
-            set 
-            {
+            set {
                 var changed = addButton.Visible != value;
                 addButton.Visible = value;
                 if (changed) OnAddButtonVisibleChanged();
@@ -126,6 +184,27 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonText" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddAllButtonTextChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddAllEnabledChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisible" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddAllButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabled" />
         /// property's value is updated.
         /// </summary>
@@ -144,6 +223,30 @@ namespace MFR.GUI.Controls
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddButtonVisibleChanged;
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonTextChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddAllButtonTextChanged()
+            => AddAllButtonTextChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddAllEnabledChanged()
+            => AddAllEnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisibleChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddAllButtonVisibleChanged()
+            => AddAllButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
@@ -179,6 +282,10 @@ namespace MFR.GUI.Controls
             addButton.TextChanged += (sender, args) => OnAddButtonTextChanged();
             addButton.VisibleChanged += (sender, args)
                 => OnAddButtonVisibleChanged();
+            addAllButton.EnabledChanged += (sender, args)
+                => OnAddButtonEnabledChanged();
+            addAllButton.VisibleChanged += (sender, args)
+                => OnAddAllButtonVisibleChanged();
         }
     }
 }
