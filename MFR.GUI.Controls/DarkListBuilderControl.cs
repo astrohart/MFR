@@ -15,8 +15,6 @@ namespace MFR.GUI.Controls
     public partial class DarkListBuilderControl : DarkUserControl,
         IListBuilderControl
     {
-
-
         /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.GUI.Controls.DarkListBuilderControl" /> and returns a
@@ -26,6 +24,27 @@ namespace MFR.GUI.Controls
         public DarkListBuilderControl()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Add All</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Add All button can be selected."
+         )]
+        public bool AddAllButtonEnabled
+        {
+            get => addAllButton.Enabled;
+            set {
+                var changed = addAllButton.Enabled != value;
+                addAllButton.Enabled = value;
+                if (changed) OnAddAllButtonEnabledChanged();
+            }
         }
 
         /// <summary>
@@ -63,27 +82,6 @@ namespace MFR.GUI.Controls
                 var changed = addAllButton.Visible != value;
                 addAllButton.Visible = value;
                 if (changed) OnAddAllButtonVisibleChanged();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Add All</b> button can be
-        /// selected.
-        /// </summary>
-        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
-         DesignerSerializationVisibility(
-             DesignerSerializationVisibility.Content
-         ),
-         Description(
-             "Gets or sets a value tha indicates whether the Add All button can be selected."
-         )]
-        public bool AddAllButtonEnabled
-        {
-            get => addAllButton.Enabled;
-            set {
-                var changed = addAllButton.Enabled != value;
-                addAllButton.Enabled = value;
-                if (changed) OnAddAllButtonEnabledChanged();
             }
         }
 
@@ -163,6 +161,27 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Remove</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Remove button can be selected."
+         )]
+        public bool RemoveButtonEnabled
+        {
+            get => removeButton.Enabled;
+            set {
+                var changed = removeButton.Enabled != value;
+                removeButton.Enabled = value;
+                if (changed) OnRemoveButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
         /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkListBox" />
         /// that is displayed on the right-hand side of this user control.
         /// <para />
@@ -186,6 +205,13 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddAllButtonEnabledChanged;
+
+        /// <summary>
+        /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonText" />
         /// property's value is updated.
         /// </summary>
@@ -197,13 +223,6 @@ namespace MFR.GUI.Controls
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddAllButtonVisibleChanged;
-
-        /// <summary>
-        /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabled" />
-        /// property's value is updated.
-        /// </summary>
-        public event EventHandler AddAllButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
@@ -227,6 +246,22 @@ namespace MFR.GUI.Controls
         public event EventHandler AddButtonVisibleChanged;
 
         /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler RemoveButtonEnabledChanged;
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddAllButtonEnabledChanged()
+            => AddAllButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonTextChanged" />
         /// event.
@@ -242,14 +277,6 @@ namespace MFR.GUI.Controls
         /// </summary>
         protected virtual void OnAddAllButtonVisibleChanged()
             => AddAllButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged" />
-        /// event.
-        /// </summary>
-        protected virtual void OnAddAllButtonEnabledChanged()
-            => AddAllButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
@@ -274,6 +301,15 @@ namespace MFR.GUI.Controls
         /// </summary>
         protected virtual void OnAddButtonVisibleChanged()
             => AddButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoveButtonEnabledChanged()
+            => RemoveButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
