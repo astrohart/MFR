@@ -24,6 +24,8 @@ namespace MFR.GUI.Controls
         public DarkDarkListBuilderControl()
         {
             InitializeComponent();
+
+            SubscribeEvents();
         }
 
         /// <summary>
