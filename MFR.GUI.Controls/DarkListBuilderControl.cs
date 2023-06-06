@@ -182,6 +182,23 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
+        /// Gets or sets the <b>Remove</b> button's text.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ), Description("Gets or sets the Remove button's text.")]
+        public string RemoveButtonText
+        {
+            get => removeButton.Text;
+            set {
+                var changed = removeButton.Text != value;
+                removeButton.Text = value;
+                if (changed) OnRemoveButtonTextChanged();
+            }
+        }
+
+        /// <summary>
         /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkListBox" />
         /// that is displayed on the right-hand side of this user control.
         /// <para />
@@ -253,6 +270,13 @@ namespace MFR.GUI.Controls
         public event EventHandler RemoveButtonEnabledChanged;
 
         /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonText" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler RemoveButtonTextChanged;
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged" />
@@ -312,6 +336,14 @@ namespace MFR.GUI.Controls
             => RemoveButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonTextChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoveButtonTextChanged()
+            => RemoveButtonTextChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
         /// </summary>
         private void SubscribeEvents()
@@ -325,6 +357,10 @@ namespace MFR.GUI.Controls
                 => OnAddButtonEnabledChanged();
             addAllButton.VisibleChanged += (sender, args)
                 => OnAddAllButtonVisibleChanged();
+            removeButton.EnabledChanged += (sender, args)
+                => OnRemoveButtonEnabledChanged();
+            removeButton.TextChanged += (sender, args)
+                => OnRemoveButtonTextChanged();
         }
     }
 }
