@@ -177,6 +177,8 @@ namespace MFR.GUI.Controls
             addButton.EnabledChanged += (sender, args)
                 => OnAddButtonEnabledChanged();
             addButton.TextChanged += (sender, args) => OnAddButtonTextChanged();
+            addButton.VisibleChanged += (sender, args)
+                => OnAddButtonVisibleChanged();
         }
     }
 }
