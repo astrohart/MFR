@@ -12,16 +12,16 @@ namespace MFR.GUI.Controls
     /// allows users to create a list of choices by adding one item at a time, and
     /// optionally setting the list order.
     /// </summary>
-    public partial class DarkListBuilderControl : DarkUserControl,
-        IListBuilderControl
+    public partial class DarkDarkListBuilderControl : DarkUserControl,
+        IDarkListBuilderControl
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.GUI.Controls.DarkListBuilderControl" /> and returns a
+        /// <see cref="T:MFR.GUI.Controls.DarkDarkListBuilderControl" /> and returns a
         /// reference to
         /// it.
         /// </summary>
-        public DarkListBuilderControl()
+        public DarkDarkListBuilderControl()
         {
             InitializeComponent();
         }
@@ -420,126 +420,126 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddAllButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonText" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonText" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddAllButtonTextChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisible" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddAllButtonVisibleChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonText" /> property
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonText" /> property
         /// is updated.
         /// </summary>
         public event EventHandler AddButtonTextChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonVisible" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddButtonVisibleChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveDownButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonText" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonText" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveDownButtonTextChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonVisible" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveDownButtonVisibleChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveUpButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonText" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonText" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveUpButtonTextChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonVisible" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveUpButtonVisibleChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveAllButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonText" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonText" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveAllButtonTextChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonVisible" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveAllButtonVisibleChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonText" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonText" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveButtonTextChanged;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonVisible" />
+        /// <see cref="P:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveButtonVisibleChanged;
@@ -547,7 +547,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddAllButtonEnabledChanged()
@@ -555,7 +555,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonTextChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddAllButtonTextChanged()
@@ -564,7 +564,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisibleChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddAllButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddAllButtonVisibleChanged()
@@ -572,7 +572,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabledChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddButtonEnabledChanged()
@@ -580,7 +580,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonTextChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddButtonTextChanged()
@@ -588,7 +588,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonVisibleChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.AddButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddButtonVisibleChanged()
@@ -597,7 +597,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabledChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveDownButtonEnabledChanged()
@@ -605,7 +605,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonTextChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveDownButtonTextChanged()
@@ -614,7 +614,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonVisibleChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveDownButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveDownButtonVisibleChanged()
@@ -623,7 +623,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabledChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveUpButtonEnabledChanged()
@@ -631,7 +631,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonTextChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveUpButtonTextChanged()
@@ -640,7 +640,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonVisibleChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.MoveUpButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnMoveUpButtonVisibleChanged()
@@ -649,7 +649,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonEnabledChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveAllButtonEnabledChanged()
@@ -658,7 +658,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonTextChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveAllButtonTextChanged()
@@ -667,7 +667,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonVisibleChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveAllButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveAllButtonVisibleChanged()
@@ -676,7 +676,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabledChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonEnabledChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveButtonEnabledChanged()
@@ -684,7 +684,7 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonTextChanged" />
+        /// <see cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonTextChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveButtonTextChanged()
@@ -693,7 +693,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonVisibleChanged" />
+        ///     cref="E:MFR.GUI.Controls.DarkDarkListBuilderControl.RemoveButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnRemoveButtonVisibleChanged()

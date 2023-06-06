@@ -3,6 +3,20 @@
 
 ## Contents
 
+- [DarkListBuilderControl](#T-MFR-GUI-Controls-DarkListBuilderControl 'MFR.GUI.Controls.DarkListBuilderControl')
+  - [#ctor()](#M-MFR-GUI-Controls-DarkListBuilderControl-#ctor 'MFR.GUI.Controls.DarkListBuilderControl.#ctor')
+  - [components](#F-MFR-GUI-Controls-DarkListBuilderControl-components 'MFR.GUI.Controls.DarkListBuilderControl.components')
+  - [AddButtonEnabled](#P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonEnabled 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabled')
+  - [AddButtonText](#P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonText 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonText')
+  - [LeftListBox](#P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBox 'MFR.GUI.Controls.DarkListBuilderControl.LeftListBox')
+  - [LeftListBoxLabel](#P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBoxLabel 'MFR.GUI.Controls.DarkListBuilderControl.LeftListBoxLabel')
+  - [RightListBox](#P-MFR-GUI-Controls-DarkListBuilderControl-RightListBox 'MFR.GUI.Controls.DarkListBuilderControl.RightListBox')
+  - [RightListBoxLabel](#P-MFR-GUI-Controls-DarkListBuilderControl-RightListBoxLabel 'MFR.GUI.Controls.DarkListBuilderControl.RightListBoxLabel')
+  - [Dispose(disposing)](#M-MFR-GUI-Controls-DarkListBuilderControl-Dispose-System-Boolean- 'MFR.GUI.Controls.DarkListBuilderControl.Dispose(System.Boolean)')
+  - [InitializeComponent()](#M-MFR-GUI-Controls-DarkListBuilderControl-InitializeComponent 'MFR.GUI.Controls.DarkListBuilderControl.InitializeComponent')
+  - [OnAddButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonEnabledChanged')
+  - [OnAddButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonTextChanged')
+  - [SubscribeEvents()](#M-MFR-GUI-Controls-DarkListBuilderControl-SubscribeEvents 'MFR.GUI.Controls.DarkListBuilderControl.SubscribeEvents')
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
   - [_enteredText](#F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText 'MFR.GUI.Controls.EntryRespectingComboBox._enteredText')
   - [EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText')
@@ -22,14 +36,163 @@
   - [OnFormFolded()](#M-MFR-GUI-Controls-FoldUnfoldButton-OnFormFolded-MFR-GUI-Controls-Events-FormFoldedEventArgs- 'MFR.GUI.Controls.FoldUnfoldButton.OnFormFolded(MFR.GUI.Controls.Events.FormFoldedEventArgs)')
   - [SetFoldedStateText()](#M-MFR-GUI-Controls-FoldUnfoldButton-SetFoldedStateText 'MFR.GUI.Controls.FoldUnfoldButton.SetFoldedStateText')
   - [ToggleFolded()](#M-MFR-GUI-Controls-FoldUnfoldButton-ToggleFolded 'MFR.GUI.Controls.FoldUnfoldButton.ToggleFolded')
-- [ListBuilderControl](#T-MFR-GUI-Controls-ListBuilderControl 'MFR.GUI.Controls.ListBuilderControl')
-  - [#ctor()](#M-MFR-GUI-Controls-ListBuilderControl-#ctor 'MFR.GUI.Controls.ListBuilderControl.#ctor')
-  - [components](#F-MFR-GUI-Controls-ListBuilderControl-components 'MFR.GUI.Controls.ListBuilderControl.components')
-  - [Dispose(disposing)](#M-MFR-GUI-Controls-ListBuilderControl-Dispose-System-Boolean- 'MFR.GUI.Controls.ListBuilderControl.Dispose(System.Boolean)')
-  - [InitializeComponent()](#M-MFR-GUI-Controls-ListBuilderControl-InitializeComponent 'MFR.GUI.Controls.ListBuilderControl.InitializeComponent')
 - [Resources](#T-MFR-GUI-Controls-Properties-Resources 'MFR.GUI.Controls.Properties.Resources')
   - [Culture](#P-MFR-GUI-Controls-Properties-Resources-Culture 'MFR.GUI.Controls.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Controls-DarkListBuilderControl'></a>
+## DarkListBuilderControl `type`
+
+##### Namespace
+
+MFR.GUI.Controls
+
+##### Summary
+
+A [UserControl](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.UserControl 'System.Windows.Forms.UserControl') that is dark-themeable and
+allows users to create a list of choices by adding one item at a time, and
+optionally setting the list order.
+
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[DarkListBuilderControl](#T-MFR-GUI-Controls-DarkListBuilderControl 'MFR.GUI.Controls.DarkListBuilderControl') and returns a
+reference to
+it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-MFR-GUI-Controls-DarkListBuilderControl-components'></a>
+### components `constants`
+
+##### Summary
+
+Required designer variable.
+
+<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonEnabled'></a>
+### AddButtonEnabled `property`
+
+##### Summary
+
+Gets or sets a value tha indicates whether the button can be
+selected.
+
+<a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonText'></a>
+### AddButtonText `property`
+
+##### Summary
+
+Gets or sets the `Add` button's text.
+
+<a name='P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBox'></a>
+### LeftListBox `property`
+
+##### Summary
+
+Gets a reference to the [DarkListBox](#T-xyLOGIX-UI-Dark-Controls-DarkListBox 'xyLOGIX.UI.Dark.Controls.DarkListBox')
+that is displayed on the left-hand side of this user control.
+
+
+
+Typically, this listbox displays available items.
+
+<a name='P-MFR-GUI-Controls-DarkListBuilderControl-LeftListBoxLabel'></a>
+### LeftListBoxLabel `property`
+
+##### Summary
+
+Gets a reference to the [DarkLabel](#T-xyLOGIX-UI-Dark-Controls-DarkLabel 'xyLOGIX.UI.Dark.Controls.DarkLabel')
+that is above the left-hand listbox (typically, the left-hand listbox displays
+available items).
+
+<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RightListBox'></a>
+### RightListBox `property`
+
+##### Summary
+
+Gets a reference to the [DarkListBox](#T-xyLOGIX-UI-Dark-Controls-DarkListBox 'xyLOGIX.UI.Dark.Controls.DarkListBox')
+that is displayed on the right-hand side of this user control.
+
+
+
+Typically, this listbox displays available items.
+
+<a name='P-MFR-GUI-Controls-DarkListBuilderControl-RightListBoxLabel'></a>
+### RightListBoxLabel `property`
+
+##### Summary
+
+Gets a reference to the [DarkLabel](#T-xyLOGIX-UI-Dark-Controls-DarkLabel 'xyLOGIX.UI.Dark.Controls.DarkLabel')
+that is above the right-hand listbox (typically, the right-hand listbox
+displays
+available items).
+
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-Dispose-System-Boolean-'></a>
+### Dispose(disposing) `method`
+
+##### Summary
+
+Clean up any resources being used.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-InitializeComponent'></a>
+### InitializeComponent() `method`
+
+##### Summary
+
+Required method for Designer support - do not modify 
+the contents of this method with the code editor.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonEnabledChanged'></a>
+### OnAddButtonEnabledChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabledChanged')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonTextChanged'></a>
+### OnAddButtonTextChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-GUI-Controls-DarkListBuilderControl-AddButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.AddButtonTextChanged')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-SubscribeEvents'></a>
+### SubscribeEvents() `method`
+
+##### Summary
+
+Subscribes to the events of the component controls for rebroadcast to clients.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Controls-EntryRespectingComboBox'></a>
 ## EntryRespectingComboBox `type`
@@ -259,64 +422,6 @@ This method has no parameters.
 ##### Summary
 
 Toggles the form between the folded and unfolded states.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='T-MFR-GUI-Controls-ListBuilderControl'></a>
-## ListBuilderControl `type`
-
-##### Namespace
-
-MFR.GUI.Controls
-
-##### Summary
-
-A [UserControl](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.UserControl 'System.Windows.Forms.UserControl') that is dark-themeable and
-allows users to create a list of choices by adding one item at a time, and
-optionally setting the list order.
-
-<a name='M-MFR-GUI-Controls-ListBuilderControl-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[ListBuilderControl](#T-MFR-GUI-Controls-ListBuilderControl 'MFR.GUI.Controls.ListBuilderControl') and returns a reference to
-it.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='F-MFR-GUI-Controls-ListBuilderControl-components'></a>
-### components `constants`
-
-##### Summary
-
-Required designer variable.
-
-<a name='M-MFR-GUI-Controls-ListBuilderControl-Dispose-System-Boolean-'></a>
-### Dispose(disposing) `method`
-
-##### Summary
-
-Clean up any resources being used.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
-
-<a name='M-MFR-GUI-Controls-ListBuilderControl-InitializeComponent'></a>
-### InitializeComponent() `method`
-
-##### Summary
-
-Required method for Designer support - do not modify 
-the contents of this method with the code editor.
 
 ##### Parameters
 
