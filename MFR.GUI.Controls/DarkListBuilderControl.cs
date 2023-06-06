@@ -15,6 +15,8 @@ namespace MFR.GUI.Controls
     public partial class DarkListBuilderControl : DarkUserControl,
         IListBuilderControl
     {
+
+
         /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.GUI.Controls.DarkListBuilderControl" /> and returns a
@@ -75,13 +77,13 @@ namespace MFR.GUI.Controls
          Description(
              "Gets or sets a value tha indicates whether the Add All button can be selected."
          )]
-        public bool AddAllEnabled
+        public bool AddAllButtonEnabled
         {
             get => addAllButton.Enabled;
             set {
                 var changed = addAllButton.Enabled != value;
                 addAllButton.Enabled = value;
-                if (changed) OnAddAllEnabledChanged();
+                if (changed) OnAddAllButtonEnabledChanged();
             }
         }
 
@@ -191,17 +193,17 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllEnabled" />
-        /// property's value is updated.
-        /// </summary>
-        public event EventHandler AddAllEnabledChanged;
-
-        /// <summary>
-        /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisible" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler AddAllButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddAllButtonEnabledChanged;
 
         /// <summary>
         /// Occurs when the
@@ -234,19 +236,20 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllEnabledChanged" />
-        /// event.
-        /// </summary>
-        protected virtual void OnAddAllEnabledChanged()
-            => AddAllEnabledChanged?.Invoke(this, EventArgs.Empty);
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisibleChanged" />
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonVisibleChanged" />
         /// event.
         /// </summary>
         protected virtual void OnAddAllButtonVisibleChanged()
             => AddAllButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddAllButtonEnabledChanged()
+            => AddAllButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
