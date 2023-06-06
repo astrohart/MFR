@@ -28,7 +28,7 @@ class.
 
 ##### Summary
 
-Path to a sample configuration file.
+Path to a sample projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests-Test_Load_Works'></a>
 ### Test_Load_Works() `method`

@@ -22,7 +22,7 @@ MFR.Settings.Profiles.Actions.Constants
 
 ##### Summary
 
-Available actions for use when working with configuration profiles.
+Available actions for use when working with configuration.
 
 <a name='M-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-#ctor-System-Guid-'></a>
 ### #ctor(messageId) `constructor`

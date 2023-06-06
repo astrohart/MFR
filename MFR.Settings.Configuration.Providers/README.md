@@ -34,7 +34,7 @@ MFR.Settings.Configuration.Providers
 ##### Summary
 
 Provides shared functionality for obtaining and storing the path to the
-user's configuration file.
+user's projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-#ctor'></a>
 ### #ctor() `constructor`
@@ -60,7 +60,7 @@ Gets or sets the pathname of the configuration file.
 ##### Summary
 
 Gets a string whose value is the pathname of the system Registry key in which
-configuration settings are stored.
+projectFileRenamerConfiguration settings are stored.
 
 <a name='P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigurationFilePathValueName'></a>
 ### ConfigurationFilePathValueName `property`
@@ -174,8 +174,8 @@ property is used. |
 
 ##### Summary
 
-Exports configuration data to a file other than the master
-configuration file.
+Exports projectFileRenamerConfiguration data to a file other than the master
+projectFileRenamerConfiguration file.
 
 ##### Parameters
 
@@ -193,7 +193,7 @@ is passed a blank or `null` string for a value. |
 ##### Remarks
 
 Before performing the export, the method first saves the latest
-settings out to the master configuration file.
+settings out to the master projectFileRenamerConfiguration file.
 
 
 
@@ -214,7 +214,7 @@ handle this.
 
 ##### Summary
 
-Imports configuration data from a file whose path is
+Imports projectFileRenamerConfiguration data from a file whose path is
 `sourceFilePath`.
 
 ##### Parameters
@@ -237,12 +237,12 @@ parameter, cannot be located on the disk. |
 ##### Remarks
 
 First, this method loads the data from the file specified into the
-application's configuration object.
+application's projectFileRenamerConfiguration object.
 
 
 
 Then, the method saves the new data out to the master
-configuration file.
+projectFileRenamerConfiguration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-ConfigurationProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
@@ -289,7 +289,7 @@ property is set to `null` if an error occurs during loading.
 
 ##### Summary
 
-Saves configuration data to a file on the disk having path
+Saves projectFileRenamerConfiguration data to a file on the disk having path
 `pathname`.
 
 ##### Parameters
@@ -311,7 +311,7 @@ property. |
 
 ##### Summary
 
-Saves configuration data to a file on the disk having path
+Saves projectFileRenamerConfiguration data to a file on the disk having path
 `pathname`.
 
 ##### Parameters

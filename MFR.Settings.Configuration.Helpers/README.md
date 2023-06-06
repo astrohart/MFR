@@ -4,9 +4,9 @@
 ## Contents
 
 - [ConfigurationExtensions](#T-MFR-Settings-Configuration-Helpers-ConfigurationExtensions 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions')
-  - [AsProfile(configuration)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-AsProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.AsProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [AsProfile(projectFileRenamerConfiguration)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-AsProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.AsProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [GetTextMatchingConfiguration(config)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-GetTextMatchingConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.GetTextMatchingConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [IsTransientProfile(configuration)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-IsTransientProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.IsTransientProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [IsTransientProfile(projectFileRenamerConfiguration)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-IsTransientProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.IsTransientProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [SaveCurrentFindWhatAndHistory(config,comboBox)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-SaveCurrentFindWhatAndHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.SaveCurrentFindWhatAndHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
   - [SaveCurrentReplaceWithAndHistory(config,comboBox)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-SaveCurrentReplaceWithAndHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.SaveCurrentReplaceWithAndHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
   - [SaveCurrentStartingFolderAndHistory(config,comboBox)](#M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-SaveCurrentStartingFolderAndHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox- 'MFR.Settings.Configuration.Helpers.ConfigurationExtensions.SaveCurrentStartingFolderAndHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox)')
@@ -28,24 +28,24 @@ Extension methods for objects implementing the
 interface.
 
 <a name='M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-AsProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### AsProfile(configuration) `method`
+### AsProfile(projectFileRenamerConfiguration) `method`
 
 ##### Summary
 
-Allows us to work with the specified `configuration` object
+Allows us to work with the specified `projectFileRenamerConfiguration` object
 as if it were a Profile.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
 [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface that
-represents the specified `configuration`.
+represents the specified `projectFileRenamerConfiguration`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
+| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
 that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |
@@ -55,7 +55,7 @@ interface. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `configuration`, is passed a
+parameter, `projectFileRenamerConfiguration`, is passed a
 `null` value. |
 
 <a name='M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-GetTextMatchingConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
@@ -85,25 +85,25 @@ properties.
 interface. |
 
 <a name='M-MFR-Settings-Configuration-Helpers-ConfigurationExtensions-IsTransientProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### IsTransientProfile(configuration) `method`
+### IsTransientProfile(projectFileRenamerConfiguration) `method`
 
 ##### Summary
 
-Determines whether the specified `configuration` actually
+Determines whether the specified `projectFileRenamerConfiguration` actually
 refers to a bona fide `Profile` or whether it was simply transformed into
 a transient `Profile` object (having a name beginning with `_tmp`).
 
 ##### Returns
 
 `true` if the specified
-`configuration` is merely a transient `Profile` object;
+`projectFileRenamerConfiguration` is merely a transient `Profile` object;
 `false` otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
+| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
 that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |

@@ -32,7 +32,7 @@ various operation types.
 
 This interface is meant to be implemented by fluent-builder objects
 whose behavior is affected by the specific operation type and
-configuration settings.
+projectFileRenamerConfiguration settings.
 
 <a name='P-MFR-Expressions-Matches-Factories-Interfaces-IMatchExpressionFactory-FindWhat'></a>
 ### FindWhat `property`

@@ -405,7 +405,7 @@ class.
 
 ##### Remarks
 
-This class enables callers to provide a filename and a configuration
+This class enables callers to provide a filename and a projectFileRenamerConfiguration
 object reference, bundled together inside a File System Entry POCO, and
 it is serialized to disk.
 
@@ -421,7 +421,7 @@ File in the root of the C: drive where the data is to be saved.
 
 ##### Summary
 
-Empty configuration object for testing.
+Empty projectFileRenamerConfiguration object for testing.
 
 <a name='M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs'></a>
 ### Test_SaveConfigurationToFile_Works_ForvalidInputs() `method`

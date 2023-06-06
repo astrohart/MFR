@@ -77,7 +77,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 
@@ -119,7 +119,7 @@ means that there is nothing to do.
 
 ##### Summary
 
-Clears all the history objects in a configuration object.
+Clears all the history objects in a projectFileRenamerConfiguration object.
 
 ##### Returns
 

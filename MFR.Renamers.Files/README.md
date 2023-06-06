@@ -5,18 +5,14 @@
 
 - [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer')
   - [#ctor()](#M-MFR-Renamers-Files-FileRenamer-#ctor 'MFR.Renamers.Files.FileRenamer.#ctor')
-  - [_currentOperation](#F-MFR-Renamers-Files-FileRenamer-_currentOperation 'MFR.Renamers.Files.FileRenamer._currentOperation')
-  - [_rootDirectoryPath](#F-MFR-Renamers-Files-FileRenamer-_rootDirectoryPath 'MFR.Renamers.Files.FileRenamer._rootDirectoryPath')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
   - [ConfigurationProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider 'MFR.Renamers.Files.FileRenamer.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
-  - [DirectoryMonitorProvider](#P-MFR-Renamers-Files-FileRenamer-DirectoryMonitorProvider 'MFR.Renamers.Files.FileRenamer.DirectoryMonitorProvider')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [FileStreamProvider](#P-MFR-Renamers-Files-FileRenamer-FileStreamProvider 'MFR.Renamers.Files.FileRenamer.FileStreamProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
-  - [IsStarted](#P-MFR-Renamers-Files-FileRenamer-IsStarted 'MFR.Renamers.Files.FileRenamer.IsStarted')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
   - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
@@ -29,7 +25,6 @@
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
   - [InvokeProcessing(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.InvokeProcessing(System.String,System.String,System.Predicate{System.String})')
-  - [OnCurrentOperationChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnCurrentOperationChanged-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnCurrentOperationChanged(MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs)')
   - [OnExceptionRaised(e)](#M-MFR-Renamers-Files-FileRenamer-OnExceptionRaised-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnExceptionRaised(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnFileRenamed(e)](#M-MFR-Renamers-Files-FileRenamer-OnFileRenamed-MFR-Events-FileRenamedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFileRenamed(MFR.Events.FileRenamedEventArgs)')
   - [OnFilesToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnFilesToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFilesToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
@@ -39,8 +34,6 @@
   - [OnOperationFinished(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationFinished(MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
-  - [OnRootDirectoryPathChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnRootDirectoryPathChanged-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnRootDirectoryPathChanged(MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs)')
-  - [OnSolutionFoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
   - [OnStarting()](#M-MFR-Renamers-Files-FileRenamer-OnStarting 'MFR.Renamers.Files.FileRenamer.OnStarting')
   - [OnStatusUpdate(e)](#M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
@@ -48,7 +41,6 @@
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSolutionFolders(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
   - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RequestAbort()](#M-MFR-Renamers-Files-FileRenamer-RequestAbort 'MFR.Renamers.Files.FileRenamer.RequestAbort')
@@ -57,11 +49,7 @@
   - [Confirm_PerformRename](#P-MFR-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Renamers.Files.Properties.Resources.Confirm_PerformRename')
   - [Culture](#P-MFR-Renamers-Files-Properties-Resources-Culture 'MFR.Renamers.Files.Properties.Resources.Culture')
   - [Error_NoSolutionsInRootDirectory](#P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory 'MFR.Renamers.Files.Properties.Resources.Error_NoSolutionsInRootDirectory')
-  - [Error_OperationAborted](#P-MFR-Renamers-Files-Properties-Resources-Error_OperationAborted 'MFR.Renamers.Files.Properties.Resources.Error_OperationAborted')
   - [ResourceManager](#P-MFR-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
-  - [StatusUpdate_AttemptingRenameSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_AttemptingRenameSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_AttemptingRenameSolutionFolders')
-  - [StatusUpdate_FinishedRenamingSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_FinishedRenamingSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_FinishedRenamingSolutionFolders')
-  - [StatusUpdate_RenamingFilesInFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_RenamingFilesInFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_RenamingFilesInFolders')
 
 <a name='T-MFR-Renamers-Files-FileRenamer'></a>
 ## FileRenamer `type`
@@ -97,22 +85,6 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='F-MFR-Renamers-Files-FileRenamer-_currentOperation'></a>
-### _currentOperation `constants`
-
-##### Summary
-
-An [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') enumeration value
-that describes what operation is currently being performed by the application.
-
-<a name='F-MFR-Renamers-Files-FileRenamer-_rootDirectoryPath'></a>
-### _rootDirectoryPath `constants`
-
-##### Summary
-
-A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the full pathname of the folder
-where all operations start.
-
 <a name='P-MFR-Renamers-Files-FileRenamer-AbortRequested'></a>
 ### AbortRequested `property`
 
@@ -132,7 +104,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 
@@ -153,15 +125,6 @@ interface.
 
 Gets or sets the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 enumeration value that indicates which operation is currently being performed.
-
-<a name='P-MFR-Renamers-Files-FileRenamer-DirectoryMonitorProvider'></a>
-### DirectoryMonitorProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IDirectoryMonitorProvider](#T-xyLOGIX-Directories-Monitors-Interfaces-IDirectoryMonitorProvider 'xyLOGIX.Directories.Monitors.Interfaces.IDirectoryMonitorProvider')
-interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-EnabledOperations'></a>
 ### EnabledOperations `property`
@@ -213,14 +176,6 @@ Gets a reference to the one and only instance of the object that implements the
 Gets a value that indicates whether this component is currently processing
 operation(s).
 
-<a name='P-MFR-Renamers-Files-FileRenamer-IsStarted'></a>
-### IsStarted `property`
-
-##### Summary
-
-Gets a value that indicates whether this component is currently processing
-operation(s).
-
 <a name='P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath'></a>
 ### LastSolutionFolderPath `property`
 
@@ -248,8 +203,7 @@ is loaded in a running instance of Visual Studio.
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the full pathname of the
-folder where all
+Gets a string containing the full pathname of the folder where all
 operations start.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator'></a>
@@ -415,30 +369,12 @@ barring other inclusion/exclusion criteria.
 In the event that this parameter is `null`, no path
 filtering is done. |
 
-<a name='M-MFR-Renamers-Files-FileRenamer-OnCurrentOperationChanged-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs-'></a>
-### OnCurrentOperationChanged(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-Renamers-Files-FileRenamer-CurrentOperationChanged 'MFR.Renamers.Files.FileRenamer.CurrentOperationChanged')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs](#T-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs 'MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs') | A
-[CurrentOperationChangedEventArgs](#T-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs 'MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs')
-that contains the event data. |
-
 <a name='M-MFR-Renamers-Files-FileRenamer-OnExceptionRaised-MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
 ### OnExceptionRaised(e) `method`
 
 ##### Summary
 
-Raises the [](#E-MFR-Renamers-Files-FileRenamer-ExceptionRaised 'MFR.Renamers.Files.FileRenamer.ExceptionRaised')
-event.
+Raises the [](#E-MFR-FileRenamer-ExceptionRaised 'MFR.FileRenamer.ExceptionRaised') event.
 
 ##### Parameters
 
@@ -467,7 +403,7 @@ that contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Renamers-Files-FileRenamer-FilesToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.FilesToBeRenamedCounted')
+[](#E-MFR-FileRenamer-FilesToBeRenamedCounted 'MFR.FileRenamer.FilesToBeRenamedCounted')
 event.
 
 ##### Parameters
@@ -483,7 +419,7 @@ contains the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Renamers-Files-FileRenamer-FilesToHaveTextReplacedCounted 'MFR.Renamers.Files.FileRenamer.FilesToHaveTextReplacedCounted')
+[](#E-MFR-FileRenamer-FilesToHaveTextReplacedCounted 'MFR.FileRenamer.FilesToHaveTextReplacedCounted')
 event.
 
 ##### Parameters
@@ -525,8 +461,7 @@ contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-Renamers-Files-FileRenamer-OperationFinished 'MFR.Renamers.Files.FileRenamer.OperationFinished')
-event.
+Raises the [](#E-MFR-FileRenamer-OperationFinished 'MFR.FileRenamer.OperationFinished') event.
 
 ##### Parameters
 
@@ -540,8 +475,7 @@ contains the event data. |
 
 ##### Summary
 
-Raises the [](#E-MFR-Renamers-Files-FileRenamer-OperationStarted 'MFR.Renamers.Files.FileRenamer.OperationStarted')
-event.
+Raises the [](#E-MFR-FileRenamer-OperationStarted 'MFR.FileRenamer.OperationStarted') event.
 
 ##### Parameters
 
@@ -562,38 +496,6 @@ Raises the [](#E-MFR-ProcessingOperation 'MFR.ProcessingOperation') event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
-contains the event data. |
-
-<a name='M-MFR-Renamers-Files-FileRenamer-OnRootDirectoryPathChanged-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs-'></a>
-### OnRootDirectoryPathChanged(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-Renamers-Files-FileRenamer-RootDirectoryPathChanged 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs') | (Required.) A
-[RootDirectoryPathChangedEventArgs](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs')
-that contains the event data. |
-
-<a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnSolutionFoldersToBeRenamedCounted(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-Renamers-Files-FileRenamer-SolutionFoldersToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.SolutionFoldersToBeRenamedCounted')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnStarted'></a>
@@ -625,7 +527,7 @@ This method has no parameters.
 
 ##### Summary
 
-Raises the [](#E-MFR-Renamers-Files-FileRenamer-StatusUpdate 'MFR.Renamers.Files.FileRenamer.StatusUpdate') event.
+Raises the [](#E-MFR-FileRenamer-StatusUpdate 'MFR.FileRenamer.StatusUpdate') event.
 
 ##### Parameters
 
@@ -640,7 +542,7 @@ the event data. |
 ##### Summary
 
 Raises the
-[](#E-MFR-Renamers-Files-FileRenamer-SubfoldersToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.SubfoldersToBeRenamedCounted')
+[](#E-MFR-FileRenamer-SubfoldersToBeRenamedCounted 'MFR.FileRenamer.SubfoldersToBeRenamedCounted')
 event.
 
 ##### Parameters
@@ -787,60 +689,6 @@ filtering is done. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath`,
 `findWhat`
 , or `replaceWith` parameters are blank. |
-| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
-`rootFolderPath`
-does not exist. |
-| [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
-
-<a name='M-MFR-Renamers-Files-FileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
-### RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
-
-##### Summary
-
-Iterates through the directory tree that is topped by the folder having the
-specified `rootFolderPath`, and, for all Visual Studio
-Solution (`*.sln`) file(s) found in the directory tree, renames them
-according to the text-replacement pattern specified by the arguments of the
-`findWhat` and `replaceWith` parameters.
-
-##### Returns
-
-`true` if the operation succeeded;
-`false` otherwise.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| rootFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a folder in which the operation is to start. |
-| findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Text to be found in each file contained in the directory tree. |
-| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text that the text
-specified by the argument of the `findWhat` parameter is to
-be replaced with. |
-| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func')
-that points to a delegate, accepting the current file or folder's
-path as an argument, that returns `true` if the file
-should be included in the operation or `false` otherwise.
-
-
-
-This parameter is `null` by default. This method
-should return `true` to specify that a given
-file-system entry is to be included in the output collection --
-barring other inclusion/exclusion criteria.
-
-
-
-In the event that this parameter is `null`, no path
-filtering is done. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath` or the
-`findWhat` parameters are blank. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
 `rootFolderPath`
 does not exist. |
@@ -1019,9 +867,7 @@ Looks up a localized string similar to We've noticed that you have one or more i
 
 It doesn't appear that the solution contaiing the project to be renamed is open in any of them.
 
-Choose File -> Reopen Workspace when the selected rename operation(s) have completed if the solution is open and we missed it.
-
-Do you want to proceed with the rename operation?.
+Choose File -> Reopen Workspace when the selected rename operation(s) have completed if the solution is open and we missed it..
 
 <a name='P-MFR-Renamers-Files-Properties-Resources-Culture'></a>
 ### Culture `property`
@@ -1038,37 +884,9 @@ Overrides the current thread's CurrentUICulture property for all
 
 Looks up a localized string similar to FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder '{0}'.  Stopping..
 
-<a name='P-MFR-Renamers-Files-Properties-Resources-Error_OperationAborted'></a>
-### Error_OperationAborted `property`
-
-##### Summary
-
-Looks up a localized string similar to The operation has been aborted..
-
 <a name='P-MFR-Renamers-Files-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
-
-<a name='P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_AttemptingRenameSolutionFolders'></a>
-### StatusUpdate_AttemptingRenameSolutionFolders `property`
-
-##### Summary
-
-Looks up a localized string similar to Attempting to rename the folder(s) in the '{0}' folder that contain Visual Studio Solution (*.sln) file(s) to match the name(s) of those Solution(s)... .
-
-<a name='P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_FinishedRenamingSolutionFolders'></a>
-### StatusUpdate_FinishedRenamingSolutionFolders `property`
-
-##### Summary
-
-Looks up a localized string similar to *** Finished renaming solution folders in '{0}'..
-
-<a name='P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_RenamingFilesInFolders'></a>
-### StatusUpdate_RenamingFilesInFolders `property`
-
-##### Summary
-
-Looks up a localized string similar to Renaming files in subfolders of '{0}', replacing '{1}' with '{2}'....
