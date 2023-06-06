@@ -80,7 +80,14 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that the root directory, i.e.,
         /// the starting directory, of the File Renamer component has been altered.
         /// </summary>
-        public static readonly Guid FRM_ROOT_DIRECTORY_PATH_CHANGED;
+        public static readonly Guid FRM_ROOT_DIRECTORY_PATH_CHANGED =
+            Guid.NewGuid();
+
+        /// <summary>
+        /// Unique identifier for a message that indicates that a folder has been renamed.
+        /// </summary>
+        public static readonly Guid
+            FRM_SOLUTION_FOLDER_RENAMED = Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for a message that indicates that the File Renamer

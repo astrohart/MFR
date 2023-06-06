@@ -4,6 +4,7 @@ using MFR.FileSystem.Factories.Actions;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.TextValues.Retrievers.Actions
@@ -38,7 +39,7 @@ namespace MFR.TextValues.Retrievers.Actions
         /// could not be obtained.
         /// </returns>
         [return: NotLogged]
-        public static string FileData(Guid ticket, bool dispose = false)
+        public static async Task<string> FileDataAsync(Guid ticket, bool dispose = false)
         {
             var result = string.Empty;
 
@@ -46,10 +47,19 @@ namespace MFR.TextValues.Retrievers.Actions
             {
                 if (Guid.Empty.Equals(ticket)) return result;
 
+                /*
+                 * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
+                 * that we "redeem" with the FileStreamProvider object to get a reference
+                 * to a FileStream object that had been opened on the file previously.
+                 *
+                 * This FileStream object provides the service of asynchronously reading
+                 * the file's content so that the application can perform faster.
+                 */
+
                 var stream = FileStreamProvider.RedeemTicket(ticket);
                 if (stream == null) return result;
 
-                result = stream.ReadToEnd();
+                result = await stream.ReadToEndAsync();
 
                 /*
                  * Reset the stream to the beginning

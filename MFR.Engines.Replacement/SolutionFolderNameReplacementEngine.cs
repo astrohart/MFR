@@ -18,10 +18,7 @@ namespace MFR.Engines.Replacement
         /// returns a reference to it.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public SolutionFolderNameReplacementEngine()
-        {
-            // TODO: Add default object initialization here
-        }
+        public SolutionFolderNameReplacementEngine() { }
 
         /// <summary>
         /// Constructs a new instance of

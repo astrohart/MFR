@@ -395,6 +395,12 @@ namespace MFR.Renamers.Files
             RootDirectoryPathChanged;
 
         /// <summary>
+        /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
+        /// has been renamed.
+        /// </summary>
+        public event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
         public event EventHandler Started;
@@ -460,25 +466,34 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                var renameFilesInFolderResult =
-                    CurrentConfiguration.RenameFiles && RenameFilesInFolder(
+                var renameFilesInFolderResult = true;
+                if (CurrentConfiguration.RenameFiles)
+                    renameFilesInFolderResult = RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
 
-                var renameSubFoldersResult =
-                    CurrentConfiguration.RenameSubFolders && RenameSubFoldersOf(
+                var renameSubFoldersResult = true;
+                if (CurrentConfiguration.RenameSubFolders)
+                    renameSubFoldersResult = RenameSubFoldersOf(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
 
-                var replaceTextInFilesResult =
-                    CurrentConfiguration.ReplaceTextInFiles &&
-                    ReplaceTextInFiles(
+                var replaceTextInFilesResult = true;
+                if (CurrentConfiguration.ReplaceTextInFiles)
+                    replaceTextInFilesResult = ReplaceTextInFiles(
                         RootDirectoryPath, findWhat,
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
+                var renameSolutionFoldersResult = true;
+                if (CurrentConfiguration.RenameSolutionFolders)
+                    renameSolutionFoldersResult = RenameSolutionFolders(
+                        RootDirectoryPath, findWhat, replaceWith, pathFilter
+                    );
+
                 result = renameFilesInFolderResult && renameSubFoldersResult &&
-                         replaceTextInFilesResult;
+                         replaceTextInFilesResult &&
+                         renameSolutionFoldersResult;
             }
             catch (OperationAbortedException ex)
             {
@@ -1580,20 +1595,6 @@ namespace MFR.Renamers.Files
                                                  FileRenamerMessages
                                                      .FRM_FOLDER_RENAMED
                                              );
-
-            /*
-            * custom processing.
-            *
-            * Sometimes, the file folder that houses the .sln file of the solution we are
-            * processing, itself, gets renamed by the operation!
-            *
-            * We check if this is so.  If so, then we set the LastSolutionPath property
-            * to the destination file name.
-            */
-
-            if (!RootDirectoryPath.Equals(e.Destination) &&
-                RootDirectoryPath.Equals(e.Source))
-                LastSolutionFolderPath = RootDirectoryPath = e.Destination;
         }
 
         /// <summary>
@@ -1608,6 +1609,23 @@ namespace MFR.Renamers.Files
         protected virtual void OnRootDirectoryPathChanged(
             RootDirectoryPathChangedEventArgs e)
             => RootDirectoryPathChanged?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionFolderRenamed(FolderRenamedEventArgs e)
+        {
+            FolderRenamed?.Invoke(this, e);
+            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
+                                             .ForMessageId(
+                                                 FileRenamerMessages
+                                                     .FRM_SOLUTION_FOLDER_RENAMED
+                                             );
+        }
 
         /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
@@ -2155,13 +2173,16 @@ namespace MFR.Renamers.Files
                     if (!solutionFolder.Contains(RootDirectoryPath) &&
                         !RootDirectoryPath.Contains(solutionFolder)) continue;
 
+                    Debugger.Launch();
+                    Debugger.Break();
+
                     /*
-                         * If we are here, then one or more of the Visual Studio Solution (*.sln)
-                         * files that had been already loaded in Visual Studio when we began the
-                         * operations is now potentially in a different location.  Let's determine
-                         * whether that is so, and if so, update its path to correspond to where
-                         * on the disk it is sitting now.
-                         */
+                     * If we are here, then one or more of the Visual Studio Solution (*.sln)
+                     * files that had been already loaded in Visual Studio when we began the
+                     * operations is now potentially in a different location.  Let's determine
+                     * whether that is so, and if so, update its path to correspond to where
+                     * on the disk it is sitting now.
+                     */
 
                     var newSolutionPath = Path.Combine(
                         e.NewPath, solutionFileName
@@ -2430,31 +2451,117 @@ namespace MFR.Renamers.Files
 
             try
             {
-                OnProcessingOperation(new ProcessingOperationEventArgs(entry, OperationType.RenameSolutionFolders));
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.RenameSolutionFolders
+                    )
+                );
 
-                var destination = string.Empty; // new name for the solution folder
+                var destination =
+                    string
+                        .Empty; // new name for the solution folder
 
-                ITextReplacementEngine engine = GetTextReplacementEngine
-                                                .For(
-                                                    OperationType
-                                                        .RenameSolutionFolders
-                                                )
-                                                .AndAttachConfiguration(
-                                                    CurrentConfiguration
-                                                );
+                /*
+                 * This is the thing that actually does the replacement.
+                 */
+
+                ITextReplacementEngine engine =
+                    GetTextReplacementEngine.For(
+                                                OperationType
+                                                    .RenameSolutionFolders
+                                            )
+                                            .AndAttachConfiguration(
+                                                CurrentConfiguration
+                                            );
                 if (engine == null) return result;
 
+                /*
+                 * This combines the value to be replaced, with the search pattern in
+                 * the findWhat parameter, and the replaceWith parameter's text-replacement
+                 * parameter into a neat little package that can be then handed off
+                 * to the text-replacement engine object.
+                 */
+
                 IMatchExpressionFactory matchExpressionFactory =
-                    GetMatchExpressionFactory
-                        .For(OperationType.RenameSolutionFolders)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                    GetMatchExpressionFactory.For(
+                                                 OperationType
+                                                     .RenameSolutionFolders
+                                             )
+                                             .AndAttachConfiguration(
+                                                 CurrentConfiguration
+                                             );
                 if (matchExpressionFactory == null) return result;
 
-                var retriever =
-                    GetTextValueRetriever.For(
-                        OperationType.RenameSolutionFolders
-                    );
+                /*
+                 * The text retriever object actually scans the folder pathname
+                 * and determines what text is to be targeted for the find-and-
+                 * replace operation.
+                 */
+
+                var retriever = GetTextValueRetriever.For(
+                    OperationType.RenameSolutionFolders
+                );
                 if (retriever == null) return result;
+
+                /*
+                 * Obtain the textual data to be targeted for the find-and-
+                 * replace operation.
+                 */
+
+                var source =
+                    retriever.GetTextValue(
+                        entry
+                    ); // target of the find-and-replace
+                if (string.IsNullOrWhiteSpace(source))
+                    return result;
+                if (!Directory.Exists(source)) return result;
+
+                /*
+                 * OKAY, now we use the MatchExpressionFactory object to
+                 * create a match expression object for our text-replacement
+                 * task.
+                 *
+                 * NOTE: We need a match expression factory that selects a
+                 * different means of creating match expressions depending on
+                 * the type of operation.
+                 */
+
+                var expression = matchExpressionFactory
+                                 .ForTextValue(source)
+                                 .ToFindWhat(findWhat)
+                                 .AndReplaceItWith(replaceWith);
+                if (expression == null) return result;
+
+                /*
+                 * Actually carry out the find-and-replace operation and
+                 * produce the new pathname (if any) of the Visual Studio
+                 * Solution (<c>*.sln</c>) folder.
+                 */
+
+                destination = engine.Replace(expression);
+                if (string.IsNullOrWhiteSpace(destination))
+                    return result;
+                if (destination.Equals(
+                        source, StringComparison.OrdinalIgnoreCase
+                    ))
+                    return
+                        result; // no change, so do not proceed with the Rename operation
+
+                /*
+                 * Actually DO the rename operation.
+                 */
+
+                if (entry.ToDirectoryInfo()
+                         .RenameTo(destination) &&
+                    !Directory.Exists(source))
+                {
+                    result = true; /* success */
+                    OnSolutionFolderRenamed(
+                        new FolderRenamedEventArgs(
+                            source, destination
+                        )
+                    );
+                }
             }
             catch (Exception ex)
             {
@@ -2548,6 +2655,11 @@ namespace MFR.Renamers.Files
                 destination = engine.Replace(expression);
                 if (string.IsNullOrWhiteSpace(destination))
                     return result;
+                if (destination.Equals(
+                        source, StringComparison.OrdinalIgnoreCase
+                    ))
+                    return
+                        result; // no change, so do not proceed with the Rename operation
 
                 if (entry.ToDirectoryInfo()
                          .RenameTo(destination) &&
