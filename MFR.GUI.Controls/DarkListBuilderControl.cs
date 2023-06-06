@@ -61,6 +61,27 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
+        /// Gets or sets a value that indicates whether the <b>Add</b> button is visible.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Add button is visible."
+         )]
+        public bool AddButtonVisible
+        {
+            get => addButton.Visible;
+            set 
+            {
+                var changed = addButton.Visible != value;
+                addButton.Visible = value;
+                if (changed) OnAddButtonVisibleChanged();
+            }
+        }
+
+        /// <summary>
         /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkListBox" />
         /// that is displayed on the left-hand side of this user control.
         /// <para />
@@ -118,6 +139,13 @@ namespace MFR.GUI.Controls
         public event EventHandler AddButtonTextChanged;
 
         /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.AddButtonVisible" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler AddButtonVisibleChanged;
+
+        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonEnabledChanged" />
         /// event.
@@ -134,14 +162,21 @@ namespace MFR.GUI.Controls
             => AddButtonTextChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddButtonVisibleChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddButtonVisibleChanged()
+            => AddButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
         /// </summary>
         private void SubscribeEvents()
         {
             addButton.EnabledChanged += (sender, args)
                 => OnAddButtonEnabledChanged();
-            addButton.TextChanged += (sender, args)
-                => OnAddButtonTextChanged();
+            addButton.TextChanged += (sender, args) => OnAddButtonTextChanged();
         }
     }
 }
