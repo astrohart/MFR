@@ -1643,7 +1643,7 @@ namespace MFR.GUI.Windows
                         this, Resources.Error_NoOperationSelected
                     ) != DialogResult.No)
                 {
-                    CurrentConfiguration.OperationsToPerform.ForEach(
+                    CurrentConfiguration.InvokableOperations.ForEach(
                         op => op.Enabled = true
                     );
                     ConfigurationProvider.Save();

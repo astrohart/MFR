@@ -107,7 +107,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
         /// operations to be performed on or off.
         /// </summary>
-        List<OperationTypeInfo> OperationsToPerform
+        List<OperationTypeInfo> InvokableOperations
         {
             get;
             set;
