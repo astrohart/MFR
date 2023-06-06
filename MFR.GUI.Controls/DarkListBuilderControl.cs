@@ -161,6 +161,183 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Move Down</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Move Down button can be selected."
+         )]
+        public bool MoveDownButtonEnabled
+        {
+            get => moveDownButton.Enabled;
+            set {
+                var changed = moveDownButton.Enabled != value;
+                moveDownButton.Enabled = value;
+                if (changed) OnMoveDownButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the <b>Move Down</b> button's text.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ), Description("Gets or sets the Move Down button's text.")]
+        public string MoveDownButtonText
+        {
+            get => moveDownButton.Text;
+            set {
+                var changed = moveDownButton.Text != value;
+                moveDownButton.Text = value;
+                if (changed) OnMoveDownButtonTextChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the <b>Move Down</b> button is
+        /// visible.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Move Down button is visible."
+         )]
+        public bool MoveDownButtonVisible
+        {
+            get => moveDownButton.Visible;
+            set {
+                var changed = moveDownButton.Visible != value;
+                moveDownButton.Visible = value;
+                if (changed) OnMoveDownButtonVisibleChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Move Up</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Move Up button can be selected."
+         )]
+        public bool MoveUpButtonEnabled
+        {
+            get => moveUpButton.Enabled;
+            set {
+                var changed = moveUpButton.Enabled != value;
+                moveUpButton.Enabled = value;
+                if (changed) OnMoveUpButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the <b>Move Up</b> button's text.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ), Description("Gets or sets the Move Up button's text.")]
+        public string MoveUpButtonText
+        {
+            get => moveUpButton.Text;
+            set {
+                var changed = moveUpButton.Text != value;
+                moveUpButton.Text = value;
+                if (changed) OnMoveUpButtonTextChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the <b>Move Up</b> button is
+        /// visible.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Move Up button is visible."
+         )]
+        public bool MoveUpButtonVisible
+        {
+            get => moveUpButton.Visible;
+            set {
+                var changed = moveUpButton.Visible != value;
+                moveUpButton.Visible = value;
+                if (changed) OnMoveUpButtonVisibleChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value tha indicates whether the <b>Remove All</b> button can be
+        /// selected.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Remove All button can be selected."
+         )]
+        public bool RemoveAllButtonEnabled
+        {
+            get => removeAllButton.Enabled;
+            set {
+                var changed = removeAllButton.Enabled != value;
+                removeAllButton.Enabled = value;
+                if (changed) OnRemoveAllButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the <b>Remove All</b> button's text.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ), Description("Gets or sets the Remove All button's text.")]
+        public string RemoveAllButtonText
+        {
+            get => removeAllButton.Text;
+            set {
+                var changed = removeAllButton.Text != value;
+                removeAllButton.Text = value;
+                if (changed) OnRemoveAllButtonTextChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the <b>Remove All</b> button is
+        /// visible.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Remove All button is visible."
+         )]
+        public bool RemoveAllButtonVisible
+        {
+            get => removeAllButton.Visible;
+            set {
+                var changed = removeAllButton.Visible != value;
+                removeAllButton.Visible = value;
+                if (changed) OnRemoveAllButtonVisibleChanged();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets a value tha indicates whether the <b>Remove</b> button can be
         /// selected.
         /// </summary>
@@ -195,6 +372,27 @@ namespace MFR.GUI.Controls
                 var changed = removeButton.Text != value;
                 removeButton.Text = value;
                 if (changed) OnRemoveButtonTextChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value that indicates whether the <b>Remove</b> button is
+        /// visible.
+        /// </summary>
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
+         DesignerSerializationVisibility(
+             DesignerSerializationVisibility.Content
+         ),
+         Description(
+             "Gets or sets a value tha indicates whether the Remove button is visible."
+         )]
+        public bool RemoveButtonVisible
+        {
+            get => removeButton.Visible;
+            set {
+                var changed = removeButton.Visible != value;
+                removeButton.Visible = value;
+                if (changed) OnRemoveButtonVisibleChanged();
             }
         }
 
@@ -264,6 +462,69 @@ namespace MFR.GUI.Controls
 
         /// <summary>
         /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler MoveDownButtonEnabledChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonText" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler MoveDownButtonTextChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonVisible" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler MoveDownButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler MoveUpButtonEnabledChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonText" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler MoveUpButtonTextChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonVisible" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler MoveUpButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonEnabled" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler RemoveAllButtonEnabledChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonText" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler RemoveAllButtonTextChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonVisible" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler RemoveAllButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabled" />
         /// property's value is updated.
         /// </summary>
@@ -275,6 +536,13 @@ namespace MFR.GUI.Controls
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveButtonTextChanged;
+
+        /// <summary>
+        /// Occurs when the
+        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonVisible" />
+        /// property's value is updated.
+        /// </summary>
+        public event EventHandler RemoveButtonVisibleChanged;
 
         /// <summary>
         /// Raises the
@@ -329,6 +597,85 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Raises the
         /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMoveDownButtonEnabledChanged()
+            => MoveDownButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonTextChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMoveDownButtonTextChanged()
+            => MoveDownButtonTextChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonVisibleChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMoveDownButtonVisibleChanged()
+            => MoveDownButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMoveUpButtonEnabledChanged()
+            => MoveUpButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonTextChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMoveUpButtonTextChanged()
+            => MoveUpButtonTextChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonVisibleChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMoveUpButtonVisibleChanged()
+            => MoveUpButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonEnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoveAllButtonEnabledChanged()
+            => RemoveAllButtonEnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonTextChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoveAllButtonTextChanged()
+            => RemoveAllButtonTextChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveAllButtonVisibleChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoveAllButtonVisibleChanged()
+            => RemoveAllButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see
         ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonEnabledChanged" />
         /// event.
         /// </summary>
@@ -344,6 +691,15 @@ namespace MFR.GUI.Controls
             => RemoveButtonTextChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemoveButtonVisibleChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoveButtonVisibleChanged()
+            => RemoveButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
         /// </summary>
         private void SubscribeEvents()
@@ -357,10 +713,30 @@ namespace MFR.GUI.Controls
                 => OnAddButtonEnabledChanged();
             addAllButton.VisibleChanged += (sender, args)
                 => OnAddAllButtonVisibleChanged();
+            moveDownButton.EnabledChanged += (sender, args)
+                => OnMoveDownButtonEnabledChanged();
+            moveDownButton.TextChanged += (sender, args)
+                => OnMoveDownButtonTextChanged();
+            moveDownButton.VisibleChanged += (sender, args)
+                => OnMoveDownButtonVisibleChanged();
+            moveUpButton.EnabledChanged += (sender, args)
+                => OnMoveUpButtonEnabledChanged();
+            moveUpButton.TextChanged += (sender, args)
+                => OnMoveUpButtonTextChanged();
+            moveUpButton.VisibleChanged += (sender, args)
+                => OnMoveUpButtonVisibleChanged();
             removeButton.EnabledChanged += (sender, args)
                 => OnRemoveButtonEnabledChanged();
             removeButton.TextChanged += (sender, args)
                 => OnRemoveButtonTextChanged();
+            removeButton.VisibleChanged += (sender, args)
+                => OnRemoveButtonVisibleChanged();
+            removeAllButton.EnabledChanged += (sender, args)
+                => OnRemoveAllButtonEnabledChanged();
+            removeAllButton.TextChanged += (sender, args)
+                => OnRemoveAllButtonTextChanged();
+            removeAllButton.VisibleChanged += (sender, args)
+                => OnRemoveAllButtonVisibleChanged();
         }
     }
 }
