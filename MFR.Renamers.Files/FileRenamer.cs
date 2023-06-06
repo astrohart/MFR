@@ -2179,14 +2179,14 @@ namespace MFR.Renamers.Files
                 e.NewPath; // update the Root Directory to the new path it's been renamed to
 
             SendMessage<DirectoryBeingMonitoredChangedEventArgs>.Having.Args(
-                           this,
-                           new DirectoryBeingMonitoredChangedEventArgs(
-                               e.OldPath, e.NewPath
-                           )
-                       )
-                       .ForMessageId(
-                           FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED
-                       );
+                    this,
+                    new DirectoryBeingMonitoredChangedEventArgs(
+                        e.OldPath, e.NewPath
+                    )
+                )
+                .ForMessageId(
+                    FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED
+                );
         }
 
         /// <summary>
@@ -2288,16 +2288,16 @@ namespace MFR.Renamers.Files
                 $"FileRenamer.RenameFileInFolderForEntry: replaceWith = '{replaceWith}'"
             );
 
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith)) return result;
+            if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                !Does.FileExist(entry.Path)) return result;
+
             // Dump the variable entry.Path to the log
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 $"FileRenamer.RenameFileInFolderForEntry: entry.Path = '{entry.Path}'"
             );
-
-            if (string.IsNullOrWhiteSpace(findWhat)) return result;
-            if (string.IsNullOrWhiteSpace(replaceWith)) return result;
-            if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-                !Does.FileExist(entry.Path)) return result;
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
@@ -2400,7 +2400,63 @@ namespace MFR.Renamers.Files
 
         private bool RenameSolutionFolderForEntry(string findWhat,
             string replaceWith, IFileSystemEntry entry)
-            => throw new NotImplementedException();
+        {
+            var result = false;
+
+            // Dump the variable findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameSolutionFolderForEntry: findWhat = '{findWhat}'"
+            );
+
+            // Dump the variable replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameSolutionFolderForEntry: replaceWith = '{replaceWith}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                return result;
+            if (entry == null || !Directory.Exists(entry.Path))
+                return result;
+            if (AbortRequested) return result;
+
+            // Dump the variable entry.Path to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameSolutionFolderForEntry: entry.Path = '{entry.Path}'"
+            );
+
+            try
+            {
+                OnProcessingOperation(new ProcessingOperationEventArgs(entry, OperationType.RenameSolutionFolders));
+
+                var destination = string.Empty; // new name for the solution folder
+
+                ITextReplacementEngine engine = GetTextReplacementEngine
+                                                .For(
+                                                    OperationType
+                                                        .RenameSolutionFolders
+                                                )
+                                                .AndAttachConfiguration(
+                                                    CurrentConfiguration
+                                                );
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameSolutionFolderForEntry: Result = {result}"
+            );
+
+            return result;
+        }
 
         private bool RenameSubFolderForEntry(string findWhat,
             string replaceWith, IFileSystemEntry entry)
@@ -2419,18 +2475,18 @@ namespace MFR.Renamers.Files
                 $"FileRenamer.RenameSubFolderForEntry: replaceWith = '{replaceWith}'"
             );
 
-            // Dump the variable entry.Path to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileRenamer.RenameSubFolderForEntry: entry.Path = '{entry.Path}'"
-            );
-
             if (string.IsNullOrWhiteSpace(findWhat)) return result;
             if (string.IsNullOrWhiteSpace(replaceWith))
                 return result;
             if (entry == null || !Directory.Exists(entry.Path))
                 return result;
             if (AbortRequested) return false;
+
+            // Dump the variable entry.Path to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: entry.Path = '{entry.Path}'"
+            );
 
             try
             {
