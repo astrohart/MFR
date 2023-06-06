@@ -137,6 +137,18 @@ namespace MFR.Settings.Configuration
         } = new List<string>();
 
         /// <summary>
+        /// Gets or sets a reference to a collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
+        /// all the operations the user can perform with this application.
+        /// </summary>
+        [JsonProperty("operationsToPerform")]
+        public List<OperationTypeInfo> InvokableOperations
+        {
+            get;
+            set;
+        } = new List<OperationTypeInfo>();
+
+        /// <summary>
         /// Gets a value indicating whether the form is in the Folded state.
         /// </summary>
         /// <remarks>
@@ -181,18 +193,6 @@ namespace MFR.Settings.Configuration
             get;
             set;
         }
-
-        /// <summary>
-        /// Gets or sets a reference to a collection of instances of
-        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
-        /// operations to be performed on or off.
-        /// </summary>
-        [JsonProperty("operationsToPerform")]
-        public List<OperationTypeInfo> InvokableOperations
-        {
-            get;
-            set;
-        } = new List<OperationTypeInfo>();
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
@@ -247,6 +247,59 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
+        /// Gets or sets a value that indicates whether we should rename folders that
+        /// contain Visual Studio Solution (<c>*.sln</c>) files.
+        /// </summary>
+        [JsonIgnore]
+        public bool RenameSolutionFolders
+        {
+            get {
+                var result = false;
+
+                try
+                {
+                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (!InvokableOperations.Any(
+                            o => o.IsOfType(OperationType.RenameSolutionFolders)
+                        ))
+                        return result;
+
+                    result = InvokableOperations[
+                            (int)OperationType.RenameSolutionFolders]
+                        .Enabled;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (!InvokableOperations.Any(
+                            o => o.IsOfType(OperationType.RenameSolutionFolders)
+                        ))
+                        return;
+
+                    InvokableOperations[
+                            (int)OperationType.RenameSolutionFolders]
+                        .Enabled = value;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.
         /// </summary>
         [JsonIgnore]
@@ -287,57 +340,6 @@ namespace MFR.Settings.Configuration
                         return;
 
                     InvokableOperations[(int)OperationType.RenameSubFolders]
-                        .Enabled = value;
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value that indicates whether we should rename folders that contain Visual Studio Solution (<c>*.sln</c>) files.
-        /// </summary>
-        [JsonIgnore]
-        public bool RenameSolutionFolders
-        {
-            get {
-                var result = false;
-
-                try
-                {
-                    if (!InvokableOperations.HasAnyOperations()) return result;
-                    if (!InvokableOperations.Any(
-                            o => o.IsOfType(OperationType.RenameSolutionFolders)
-                        ))
-                        return result;
-
-                    result = InvokableOperations[
-                            (int)OperationType.RenameSolutionFolders]
-                        .Enabled;
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = false;
-                }
-
-                return result;
-            }
-            set {
-                try
-                {
-                    if (!InvokableOperations.HasAnyOperations()) return;
-                    if (!InvokableOperations.Any(
-                            o => o.IsOfType(OperationType.RenameSolutionFolders)
-                        ))
-                        return;
-
-                    InvokableOperations[(int)OperationType.RenameSolutionFolders]
                         .Enabled = value;
                 }
                 catch (Exception ex)
