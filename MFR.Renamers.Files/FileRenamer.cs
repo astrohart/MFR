@@ -2442,6 +2442,19 @@ namespace MFR.Renamers.Files
                                                 .AndAttachConfiguration(
                                                     CurrentConfiguration
                                                 );
+                if (engine == null) return result;
+
+                IMatchExpressionFactory matchExpressionFactory =
+                    GetMatchExpressionFactory
+                        .For(OperationType.RenameSolutionFolders)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (matchExpressionFactory == null) return result;
+
+                var retriever =
+                    GetTextValueRetriever.For(
+                        OperationType.RenameSolutionFolders
+                    );
+                if (retriever == null) return result;
             }
             catch (Exception ex)
             {

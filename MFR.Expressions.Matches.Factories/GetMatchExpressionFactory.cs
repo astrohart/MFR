@@ -56,6 +56,12 @@ namespace MFR.Expressions.Matches.Factories
                         .FromScratch();
                     break;
 
+                case OperationType.RenameSolutionFolders:
+                    result =
+                        MakeNewSolutionFolderNameReplacementMatchExpressionFactory
+                            .FromScratch();
+                    break;
+
                 case OperationType.RenameSubFolders:
                     result = MakeNewFolderNameReplacementMatchExpressionFactory
                         .FromScratch();
