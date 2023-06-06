@@ -54,6 +54,10 @@ namespace MFR.Replacers.Factories
                     break;
 
                 case OperationType.RenameSolutionFolders:
+                    result = GetRenameSolutionFoldersStringReplacerFactory
+                        .SoleInstance();
+                    break;
+
                 case OperationType.RenameSubFolders:
                     result = GetRenameSubFoldersStringReplacerFactory
                         .SoleInstance();

@@ -9,28 +9,31 @@ namespace MFR.Replacers.Factories
     /// Match Case and Match Exact Word.
     /// </summary>
     public class
-        SolutionFolderStringReplacerFactory :
+        RenameSolutionFoldersStringReplacerFactory :
             RenameSubFoldersStringReplacerFactory
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        static SolutionFolderStringReplacerFactory() { }
+        static RenameSolutionFoldersStringReplacerFactory() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected SolutionFolderStringReplacerFactory() { }
+        protected RenameSolutionFoldersStringReplacerFactory() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see cref="T:MFR.Replacers.Factories.Interfaces.IStringReplacerFactory" />
-        /// interface that represents an object that renames solution folders.
+        /// interface that creates objects which are responsible for renaming file folders
+        /// within a specific directory tree, that contain Visual Studio Solution (
+        /// <c>*.sln</c>) files, according to a text-replacement pattern that was specified
+        /// by the user.
         /// </summary>
         public new static IStringReplacerFactory Instance
         {
             get;
-        } = new SolutionFolderStringReplacerFactory();
+        } = new RenameSolutionFoldersStringReplacerFactory();
 
         /// <summary>
         /// Gets one of the
