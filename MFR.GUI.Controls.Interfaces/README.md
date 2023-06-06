@@ -12,6 +12,7 @@
   - [IsFolded](#P-MFR-GUI-Controls-Interfaces-IFoldUnfoldButton-IsFolded 'MFR.GUI.Controls.Interfaces.IFoldUnfoldButton.IsFolded')
   - [UnfoldedText](#P-MFR-GUI-Controls-Interfaces-IFoldUnfoldButton-UnfoldedText 'MFR.GUI.Controls.Interfaces.IFoldUnfoldButton.UnfoldedText')
   - [SetFoldedStateText()](#M-MFR-GUI-Controls-Interfaces-IFoldUnfoldButton-SetFoldedStateText 'MFR.GUI.Controls.Interfaces.IFoldUnfoldButton.SetFoldedStateText')
+- [IListBuilderControl](#T-MFR-GUI-Controls-Interfaces-IListBuilderControl 'MFR.GUI.Controls.Interfaces.IListBuilderControl')
 - [Resources](#T-MFR-GUI-Controls-Interfaces-Properties-Resources 'MFR.GUI.Controls.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Controls-Interfaces-Properties-Resources-Culture 'MFR.GUI.Controls.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Interfaces.Properties.Resources.ResourceManager')
@@ -106,6 +107,19 @@ in the Folded state or not.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='T-MFR-GUI-Controls-Interfaces-IListBuilderControl'></a>
+## IListBuilderControl `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of a list-builder control
+that allows users to create a list of choices by adding one item at a time, and
+optionally setting the list order..
 
 <a name='T-MFR-GUI-Controls-Interfaces-Properties-Resources'></a>
 ## Resources `type`

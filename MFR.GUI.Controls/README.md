@@ -22,6 +22,11 @@
   - [OnFormFolded()](#M-MFR-GUI-Controls-FoldUnfoldButton-OnFormFolded-MFR-GUI-Controls-Events-FormFoldedEventArgs- 'MFR.GUI.Controls.FoldUnfoldButton.OnFormFolded(MFR.GUI.Controls.Events.FormFoldedEventArgs)')
   - [SetFoldedStateText()](#M-MFR-GUI-Controls-FoldUnfoldButton-SetFoldedStateText 'MFR.GUI.Controls.FoldUnfoldButton.SetFoldedStateText')
   - [ToggleFolded()](#M-MFR-GUI-Controls-FoldUnfoldButton-ToggleFolded 'MFR.GUI.Controls.FoldUnfoldButton.ToggleFolded')
+- [ListBuilderControl](#T-MFR-GUI-Controls-ListBuilderControl 'MFR.GUI.Controls.ListBuilderControl')
+  - [#ctor()](#M-MFR-GUI-Controls-ListBuilderControl-#ctor 'MFR.GUI.Controls.ListBuilderControl.#ctor')
+  - [components](#F-MFR-GUI-Controls-ListBuilderControl-components 'MFR.GUI.Controls.ListBuilderControl.components')
+  - [Dispose(disposing)](#M-MFR-GUI-Controls-ListBuilderControl-Dispose-System-Boolean- 'MFR.GUI.Controls.ListBuilderControl.Dispose(System.Boolean)')
+  - [InitializeComponent()](#M-MFR-GUI-Controls-ListBuilderControl-InitializeComponent 'MFR.GUI.Controls.ListBuilderControl.InitializeComponent')
 - [Resources](#T-MFR-GUI-Controls-Properties-Resources 'MFR.GUI.Controls.Properties.Resources')
   - [Culture](#P-MFR-GUI-Controls-Properties-Resources-Culture 'MFR.GUI.Controls.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Properties.Resources.ResourceManager')
@@ -254,6 +259,64 @@ This method has no parameters.
 ##### Summary
 
 Toggles the form between the folded and unfolded states.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-GUI-Controls-ListBuilderControl'></a>
+## ListBuilderControl `type`
+
+##### Namespace
+
+MFR.GUI.Controls
+
+##### Summary
+
+A [UserControl](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.UserControl 'System.Windows.Forms.UserControl') that is dark-themeable and
+allows users to create a list of choices by adding one item at a time, and
+optionally setting the list order.
+
+<a name='M-MFR-GUI-Controls-ListBuilderControl-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ListBuilderControl](#T-MFR-GUI-Controls-ListBuilderControl 'MFR.GUI.Controls.ListBuilderControl') and returns a reference to
+it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-MFR-GUI-Controls-ListBuilderControl-components'></a>
+### components `constants`
+
+##### Summary
+
+Required designer variable.
+
+<a name='M-MFR-GUI-Controls-ListBuilderControl-Dispose-System-Boolean-'></a>
+### Dispose(disposing) `method`
+
+##### Summary
+
+Clean up any resources being used.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+
+<a name='M-MFR-GUI-Controls-ListBuilderControl-InitializeComponent'></a>
+### InitializeComponent() `method`
+
+##### Summary
+
+Required method for Designer support - do not modify 
+the contents of this method with the code editor.
 
 ##### Parameters
 
