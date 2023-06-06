@@ -7,6 +7,7 @@
   - [OE_OPERATION_ERROR](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_ERROR 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_ERROR')
   - [OE_PROCESSING_FINISHED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_FINISHED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_FINISHED')
   - [OE_PROCESSING_STARTED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_STARTED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_STARTED')
+  - [OE_ROOT_DIRECTORY_PATH_UPDATED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_ROOT_DIRECTORY_PATH_UPDATED 'MFR.Engines.Constants.OperationEngineMessages.OE_ROOT_DIRECTORY_PATH_UPDATED')
 - [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType')
   - [Console](#F-MFR-Engines-Constants-OperationEngineType-Console 'MFR.Engines.Constants.OperationEngineType.Console')
   - [FullGUI](#F-MFR-Engines-Constants-OperationEngineType-FullGUI 'MFR.Engines.Constants.OperationEngineType.FullGUI')
@@ -45,6 +46,14 @@ of the requested file-renaming operations have been completed.
 
 Unique identifier for the message that is sent by the Operation Engine when a
 new [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRenamer') job is started.
+
+<a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_ROOT_DIRECTORY_PATH_UPDATED'></a>
+### OE_ROOT_DIRECTORY_PATH_UPDATED `constants`
+
+##### Summary
+
+Unique identifier for the message that is sent by the Operation Engine when the
+root directory, i.e., the starting directory, path is changed.
 
 <a name='T-MFR-Engines-Constants-OperationEngineType'></a>
 ## OperationEngineType `type`

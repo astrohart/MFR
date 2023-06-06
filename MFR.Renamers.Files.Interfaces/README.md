@@ -4,7 +4,7 @@
 ## Contents
 
 - [IFileRenamer](#T-MFR-Renamers-Files-Interfaces-IFileRenamer 'MFR.Renamers.Files.Interfaces.IFileRenamer')
-  - [IsBusy](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsBusy 'MFR.Renamers.Files.Interfaces.IFileRenamer.IsBusy')
+  - [IsStarted](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsStarted 'MFR.Renamers.Files.Interfaces.IFileRenamer.IsStarted')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.LastSolutionFolderPath')
   - [LoadedSolutions](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-LoadedSolutions 'MFR.Renamers.Files.Interfaces.IFileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-Interfaces-IFileRenamer-RootDirectoryPath 'MFR.Renamers.Files.Interfaces.IFileRenamer.RootDirectoryPath')
@@ -38,8 +38,8 @@ Defines the publicly-exposed methods and properties of a
 object. Such an object is directly responsible for
 processing the file operations of this application.
 
-<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsBusy'></a>
-### IsBusy `property`
+<a name='P-MFR-Renamers-Files-Interfaces-IFileRenamer-IsStarted'></a>
+### IsStarted `property`
 
 ##### Summary
 

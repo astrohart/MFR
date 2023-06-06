@@ -27,10 +27,16 @@
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetRenameFilesInFolderOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetRenameFilesInFolderOperationDescription.SoleInstance')
 - [GetRenameFilesInFolderOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetRenameFilesInFolderOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetRenameFilesInFolderOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetRenameFilesInFolderOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetRenameFilesInFolderOperationStartedDescription.SoleInstance')
+- [GetRenameSolutionFoldersOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetRenameSolutionFoldersOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetRenameSolutionFoldersOperationStartedDescription')
+  - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetRenameSolutionFoldersOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetRenameSolutionFoldersOperationStartedDescription.SoleInstance')
 - [GetRenameSubFoldersOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationDescription 'MFR.Operations.Descriptions.Factories.GetRenameSubFoldersOperationDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetRenameSubFoldersOperationDescription.SoleInstance')
+- [GetRenameSubFoldersOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetRenameSubFoldersOperationStartedDescription')
+  - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetRenameSubFoldersOperationStartedDescription.SoleInstance')
 - [GetReplaceTextInFilesOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetReplaceTextInFilesOperationDescription 'MFR.Operations.Descriptions.Factories.GetReplaceTextInFilesOperationDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetReplaceTextInFilesOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetReplaceTextInFilesOperationDescription.SoleInstance')
+- [GetReplaceTextInFilesOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetReplaceTextInFilesOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetReplaceTextInFilesOperationStartedDescription')
+  - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetReplaceTextInFilesOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetReplaceTextInFilesOperationStartedDescription.SoleInstance')
 - [GetScanDirectoryTreeForSolutionFilesOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetScanDirectoryTreeForSolutionFilesOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetScanDirectoryTreeForSolutionFilesOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetScanDirectoryTreeForSolutionFilesOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetScanDirectoryTreeForSolutionFilesOperationStartedDescription.SoleInstance')
 - [GetUnloadAllSolutionsInFolderOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetUnloadAllSolutionsInFolderOperationDescription 'MFR.Operations.Descriptions.Factories.GetUnloadAllSolutionsInFolderOperationDescription')
@@ -499,6 +505,40 @@ the user has requested.
 
 This method has no parameters.
 
+<a name='T-MFR-Operations-Descriptions-Factories-GetRenameSolutionFoldersOperationStartedDescription'></a>
+## GetRenameSolutionFoldersOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that represents the description to display to the user when we are
+beginning the operation to rename the folder that a Solution lives in.
+
+<a name='M-MFR-Operations-Descriptions-Factories-GetRenameSolutionFoldersOperationStartedDescription-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that represents the description to display to the user when we are
+beginning the operation to rename the folder that a Solution lives in.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationDescription'></a>
 ## GetRenameSubFoldersOperationDescription `type`
 
@@ -530,6 +570,44 @@ Reference to the one, and only, instance of the object that implements the
 interface and which provides user-friendly text that explains that the
 application is currently in the process of renaming subfolders of the root
 directory.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationStartedDescription'></a>
+## GetRenameSubFoldersOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is getting ready to begin the process of renaming folders
+within a directory tree according to a text-replacement pattern that was
+specified by the user.
+
+<a name='M-MFR-Operations-Descriptions-Factories-GetRenameSubFoldersOperationStartedDescription-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is getting ready to begin the process of renaming folders
+within a directory tree according to a text-replacement pattern that was
+specified by the user.
 
 ##### Parameters
 
@@ -567,6 +645,44 @@ Reference to the one, and only, instance of the object that implements the
 interface and which provides user-friendly text that describes that the
 operation of replacing the text in the individual files that are contained
 within a given folder is proceeding.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-Factories-GetReplaceTextInFilesOperationStartedDescription'></a>
+## GetReplaceTextInFilesOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that describes, using user-friendly text, that the  application is
+about to begin the operation of replacing textual content within the files
+under the specified starting directory according to the text-replacement
+pattern that was specified by the user.
+
+<a name='M-MFR-Operations-Descriptions-Factories-GetReplaceTextInFilesOperationStartedDescription-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that describes, using user-friendly text, that the  application is
+about to begin the operation of replacing textual content within the files
+under the specified starting directory according to the text-replacement
+pattern that was specified by the user.
 
 ##### Parameters
 

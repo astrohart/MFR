@@ -13,6 +13,8 @@
   - [SoleInstance()](#M-MFR-Matchers-Factories-GetNeitherMatchCaseNorExactWordFolderNameStringMatcher-SoleInstance 'MFR.Matchers.Factories.GetNeitherMatchCaseNorExactWordFolderNameStringMatcher.SoleInstance')
 - [GetRenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory')
   - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory.SoleInstance')
+- [GetRenameSolutionFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory 'MFR.Matchers.Factories.GetRenameSolutionFoldersStringMatcherFactory')
+  - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameSolutionFoldersStringMatcherFactory.SoleInstance')
 - [GetRenameSubFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.GetRenameSubFoldersStringMatcherFactory')
   - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameSubFoldersStringMatcherFactory.SoleInstance')
 - [GetReplaceTextInFilesStringMatcherFactory](#T-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory 'MFR.Matchers.Factories.GetReplaceTextInFilesStringMatcherFactory')
@@ -270,6 +272,44 @@ text-replacement pattern.
 
 This method has no parameters.
 
+<a name='T-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory'></a>
+## GetRenameSolutionFoldersStringMatcherFactory `type`
+
+##### Namespace
+
+MFR.Matchers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders containing
+Visual Studio Solution (`*.sln`) file(s)  in a directory tree according to
+a text-replacement pattern that is specified by the user.
+
+<a name='M-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders containing
+Visual Studio Solution (`*.sln`) file(s)  in a directory tree according to
+a text-replacement pattern that is specified by the user.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory'></a>
 ## GetRenameSubFoldersStringMatcherFactory `type`
 
@@ -512,8 +552,9 @@ This constructor has no parameters.
 Gets a reference to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
 interface that creates string matcher objects used in order to assist the
-application with carrying out the operation of renaming folders in a directory
-tree according to a text-replacement pattern that is specified by the user.
+application with carrying out the operation of renaming folders containing
+Visual Studio Solution (`*.sln`) file(s)  in a directory tree according to
+a text-replacement pattern that is specified by the user.
 
 <a name='P-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-OperationType'></a>
 ### OperationType `property`

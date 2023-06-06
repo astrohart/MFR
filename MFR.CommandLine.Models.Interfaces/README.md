@@ -4,14 +4,16 @@
 ## Contents
 
 - [ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo')
+  - [AutoStart](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-AutoStart 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.AutoStart')
   - [FindWhat](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-FindWhat 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.FindWhat')
   - [MatchCase](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-MatchCase 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.MatchCase')
   - [MatchWholeWord](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-MatchWholeWord 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.MatchWholeWord')
+  - [ReOpenSolution](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReOpenSolution 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReOpenSolution')
   - [RenameFiles](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameFiles 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RenameFiles')
   - [RenameSubFolders](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameSubFolders 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RenameSubFolders')
+  - [ReplaceTextInFiles](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceTextInFiles 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceWith 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReplaceWith')
-  - [ReplaceinFiles](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceinFiles 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReplaceinFiles')
-  - [RootDirectory](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RootDirectory 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RootDirectory')
+  - [StartingFolder](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-StartingFolder 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.StartingFolder')
 - [Resources](#T-MFR-CommandLine-Models-Interfaces-Properties-Resources 'MFR.CommandLine.Models.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Models-Interfaces-Properties-Resources-Culture 'MFR.CommandLine.Models.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Models-Interfaces-Properties-Resources-ResourceManager 'MFR.CommandLine.Models.Interfaces.Properties.Resources.ResourceManager')
@@ -27,6 +29,14 @@ MFR.CommandLine.Models.Interfaces
 
 Defines the publicly-exposed methods and properties of an object that stores
 the information supplied by the user on the application's command line.
+
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-AutoStart'></a>
+### AutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether processing starts when the application
+starts.
 
 <a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-FindWhat'></a>
 ### FindWhat `property`
@@ -50,6 +60,14 @@ Gets or sets a value indicating whether a case-sensitive search should be done.
 
 Gets or sets a value indicating whether a whole-word search should be done.
 
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReOpenSolution'></a>
+### ReOpenSolution `property`
+
+##### Summary
+
+Gets or sets a value that indicates that the Solution is to be reloaded when
+the operations are finished.
+
 <a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameFiles'></a>
 ### RenameFiles `property`
 
@@ -64,6 +82,13 @@ Gets or sets a value indicating whether the files are to be renamed.
 
 Gets or sets a value indicating whether sub folders should be renamed.
 
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceTextInFiles'></a>
+### ReplaceTextInFiles `property`
+
+##### Summary
+
+Gets or sets a value indicating whether text in files should be replaced.
+
 <a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceWith'></a>
 ### ReplaceWith `property`
 
@@ -72,15 +97,8 @@ Gets or sets a value indicating whether sub folders should be renamed.
 Gets or sets a string containing the content to be replaced in the file system
 entries.
 
-<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceinFiles'></a>
-### ReplaceinFiles `property`
-
-##### Summary
-
-Gets or sets a value indicating whether text in files should be replaced.
-
-<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RootDirectory'></a>
-### RootDirectory `property`
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-StartingFolder'></a>
+### StartingFolder `property`
 
 ##### Summary
 

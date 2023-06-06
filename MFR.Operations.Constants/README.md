@@ -13,7 +13,7 @@
   - [LoadAllSolutionsInFolder](#F-MFR-Operations-Constants-OperationType-LoadAllSolutionsInFolder 'MFR.Operations.Constants.OperationType.LoadAllSolutionsInFolder')
   - [OpenActiveSolutions](#F-MFR-Operations-Constants-OperationType-OpenActiveSolutions 'MFR.Operations.Constants.OperationType.OpenActiveSolutions')
   - [RenameFilesInFolder](#F-MFR-Operations-Constants-OperationType-RenameFilesInFolder 'MFR.Operations.Constants.OperationType.RenameFilesInFolder')
-  - [RenameSolutionFolder](#F-MFR-Operations-Constants-OperationType-RenameSolutionFolder 'MFR.Operations.Constants.OperationType.RenameSolutionFolder')
+  - [RenameSolutionFolders](#F-MFR-Operations-Constants-OperationType-RenameSolutionFolders 'MFR.Operations.Constants.OperationType.RenameSolutionFolders')
   - [RenameSubFolders](#F-MFR-Operations-Constants-OperationType-RenameSubFolders 'MFR.Operations.Constants.OperationType.RenameSubFolders')
   - [ReplaceTextInFiles](#F-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
   - [ScanDirectoryTreeForSolutionFiles](#F-MFR-Operations-Constants-OperationType-ScanDirectoryTreeForSolutionFiles 'MFR.Operations.Constants.OperationType.ScanDirectoryTreeForSolutionFiles')
@@ -118,8 +118,8 @@ The "active" solution is defined as that which exists as a
 
 We are replacing text values in the names of files.
 
-<a name='F-MFR-Operations-Constants-OperationType-RenameSolutionFolder'></a>
-### RenameSolutionFolder `constants`
+<a name='F-MFR-Operations-Constants-OperationType-RenameSolutionFolders'></a>
+### RenameSolutionFolders `constants`
 
 ##### Summary
 
