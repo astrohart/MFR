@@ -36,30 +36,30 @@
   - [OnAddButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonEnabledChanged')
   - [OnAddButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonTextChanged')
   - [OnAddButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnAddButtonVisibleChanged')
-  - [OnAdded()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAdded 'MFR.GUI.Controls.DarkListBuilderControl.OnAdded')
-  - [OnAddedAll()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddedAll 'MFR.GUI.Controls.DarkListBuilderControl.OnAddedAll')
-  - [OnAdding(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAdding-System-ComponentModel-CancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnAdding(System.ComponentModel.CancelEventArgs)')
-  - [OnAddingAll(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddingAll-System-ComponentModel-CancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnAddingAll(System.ComponentModel.CancelEventArgs)')
+  - [OnAdded(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAdded-MFR-GUI-Controls-Events-ListBuilderEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnAdded(MFR.GUI.Controls.Events.ListBuilderEventArgs)')
+  - [OnAddedAll(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddedAll-MFR-GUI-Controls-Events-ListBuilderEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnAddedAll(MFR.GUI.Controls.Events.ListBuilderEventArgs)')
+  - [OnAdding(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAdding-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnAdding(MFR.GUI.Controls.Events.ListBuilderCancelEventArgs)')
+  - [OnAddingAll(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnAddingAll-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnAddingAll(MFR.GUI.Controls.Events.ListBuilderCancelEventArgs)')
   - [OnMoveDownButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveDownButtonEnabledChanged')
   - [OnMoveDownButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveDownButtonTextChanged')
   - [OnMoveDownButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveDownButtonVisibleChanged')
   - [OnMoveUpButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveUpButtonEnabledChanged')
   - [OnMoveUpButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveUpButtonTextChanged')
   - [OnMoveUpButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveUpButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnMoveUpButtonVisibleChanged')
-  - [OnMovedDown()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedDown 'MFR.GUI.Controls.DarkListBuilderControl.OnMovedDown')
-  - [OnMovedUp()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedUp 'MFR.GUI.Controls.DarkListBuilderControl.OnMovedUp')
-  - [OnMovingDown(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingDown-System-ComponentModel-CancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnMovingDown(System.ComponentModel.CancelEventArgs)')
-  - [OnMovingUp(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingUp-System-ComponentModel-CancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnMovingUp(System.ComponentModel.CancelEventArgs)')
+  - [OnMovedDown(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedDown-MFR-GUI-Controls-Events-ListBuilderEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnMovedDown(MFR.GUI.Controls.Events.ListBuilderEventArgs)')
+  - [OnMovedUp(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedUp-MFR-GUI-Controls-Events-ListBuilderEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnMovedUp(MFR.GUI.Controls.Events.ListBuilderEventArgs)')
+  - [OnMovingDown(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingDown-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnMovingDown(MFR.GUI.Controls.Events.ListBuilderCancelEventArgs)')
+  - [OnMovingUp(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingUp-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnMovingUp(MFR.GUI.Controls.Events.ListBuilderCancelEventArgs)')
   - [OnRemoveAllButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveAllButtonEnabledChanged')
   - [OnRemoveAllButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveAllButtonTextChanged')
   - [OnRemoveAllButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveAllButtonVisibleChanged')
   - [OnRemoveButtonEnabledChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonEnabledChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveButtonEnabledChanged')
   - [OnRemoveButtonTextChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonTextChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveButtonTextChanged')
   - [OnRemoveButtonVisibleChanged()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveButtonVisibleChanged 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoveButtonVisibleChanged')
-  - [OnRemoved()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoved 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoved')
-  - [OnRemovedAll()](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovedAll 'MFR.GUI.Controls.DarkListBuilderControl.OnRemovedAll')
-  - [OnRemoving(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoving-System-ComponentModel-CancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoving(System.ComponentModel.CancelEventArgs)')
-  - [OnRemovingAll(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovingAll-System-ComponentModel-CancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnRemovingAll(System.ComponentModel.CancelEventArgs)')
+  - [OnRemoved(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoved-MFR-GUI-Controls-Events-ListBuilderEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoved(MFR.GUI.Controls.Events.ListBuilderEventArgs)')
+  - [OnRemovedAll(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovedAll-MFR-GUI-Controls-Events-ListBuilderEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnRemovedAll(MFR.GUI.Controls.Events.ListBuilderEventArgs)')
+  - [OnRemoving(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoving-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnRemoving(MFR.GUI.Controls.Events.ListBuilderCancelEventArgs)')
+  - [OnRemovingAll(e)](#M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovingAll-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs- 'MFR.GUI.Controls.DarkListBuilderControl.OnRemovingAll(MFR.GUI.Controls.Events.ListBuilderCancelEventArgs)')
   - [SubscribeEvents()](#M-MFR-GUI-Controls-DarkListBuilderControl-SubscribeEvents 'MFR.GUI.Controls.DarkListBuilderControl.SubscribeEvents')
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
   - [_enteredText](#F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText 'MFR.GUI.Controls.EntryRespectingComboBox._enteredText')
@@ -401,8 +401,8 @@ event.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAdded'></a>
-### OnAdded() `method`
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAdded-MFR-GUI-Controls-Events-ListBuilderEventArgs-'></a>
+### OnAdded(e) `method`
 
 ##### Summary
 
@@ -411,10 +411,14 @@ event.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Controls.Events.ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') | An [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') instance that
+indicates, to the handler of this event, to which side of the list-builder
+control does this event pertain. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddedAll'></a>
-### OnAddedAll() `method`
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddedAll-MFR-GUI-Controls-Events-ListBuilderEventArgs-'></a>
+### OnAddedAll(e) `method`
 
 ##### Summary
 
@@ -423,9 +427,13 @@ event.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Controls.Events.ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') | An [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') instance that
+indicates, to the handler of this event, to which side of the list-builder
+control does this event pertain. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAdding-System-ComponentModel-CancelEventArgs-'></a>
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAdding-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-'></a>
 ### OnAdding(e) `method`
 
 ##### Summary
@@ -437,16 +445,17 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+| e | [MFR.GUI.Controls.Events.ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') | A [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') that
 allows us to cancel the operation that this event is notifying the caller of.
 
 
 
 To cancel the operation, handlers should set the value of the
-[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+[Cancel](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Cancel 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel')
+property to
 `true`. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddingAll-System-ComponentModel-CancelEventArgs-'></a>
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnAddingAll-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-'></a>
 ### OnAddingAll(e) `method`
 
 ##### Summary
@@ -458,13 +467,14 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+| e | [MFR.GUI.Controls.Events.ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') | A [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') that
 allows us to cancel the operation that this event is notifying the caller of.
 
 
 
 To cancel the operation, handlers should set the value of the
-[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+[Cancel](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Cancel 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel')
+property to
 `true`. |
 
 <a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMoveDownButtonEnabledChanged'></a>
@@ -545,8 +555,8 @@ event.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedDown'></a>
-### OnMovedDown() `method`
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedDown-MFR-GUI-Controls-Events-ListBuilderEventArgs-'></a>
+### OnMovedDown(e) `method`
 
 ##### Summary
 
@@ -555,10 +565,14 @@ event.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Controls.Events.ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') | An [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') instance that
+indicates, to the handler of this event, to which side of the list-builder
+control does this event pertain. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedUp'></a>
-### OnMovedUp() `method`
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovedUp-MFR-GUI-Controls-Events-ListBuilderEventArgs-'></a>
+### OnMovedUp(e) `method`
 
 ##### Summary
 
@@ -567,9 +581,13 @@ event.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Controls.Events.ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') | An [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') instance that
+indicates, to the handler of this event, to which side of the list-builder
+control does this event pertain. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingDown-System-ComponentModel-CancelEventArgs-'></a>
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingDown-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-'></a>
 ### OnMovingDown(e) `method`
 
 ##### Summary
@@ -581,16 +599,17 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+| e | [MFR.GUI.Controls.Events.ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') | A [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') that
 allows us to cancel the operation that this event is notifying the caller of.
 
 
 
 To cancel the operation, handlers should set the value of the
-[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+[Cancel](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Cancel 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel')
+property to
 `true`. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingUp-System-ComponentModel-CancelEventArgs-'></a>
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnMovingUp-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-'></a>
 ### OnMovingUp(e) `method`
 
 ##### Summary
@@ -602,13 +621,14 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+| e | [MFR.GUI.Controls.Events.ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') | A [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') that
 allows us to cancel the operation that this event is notifying the caller of.
 
 
 
 To cancel the operation, handlers should set the value of the
-[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+[Cancel](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Cancel 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel')
+property to
 `true`. |
 
 <a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoveAllButtonEnabledChanged'></a>
@@ -689,8 +709,8 @@ event.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoved'></a>
-### OnRemoved() `method`
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoved-MFR-GUI-Controls-Events-ListBuilderEventArgs-'></a>
+### OnRemoved(e) `method`
 
 ##### Summary
 
@@ -699,10 +719,14 @@ event.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Controls.Events.ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') | An [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') instance that
+indicates, to the handler of this event, to which side of the list-builder
+control does this event pertain. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovedAll'></a>
-### OnRemovedAll() `method`
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovedAll-MFR-GUI-Controls-Events-ListBuilderEventArgs-'></a>
+### OnRemovedAll(e) `method`
 
 ##### Summary
 
@@ -711,9 +735,13 @@ event.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Controls.Events.ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') | An [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') instance that
+indicates, to the handler of this event, to which side of the list-builder
+control does this event pertain. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoving-System-ComponentModel-CancelEventArgs-'></a>
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemoving-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-'></a>
 ### OnRemoving(e) `method`
 
 ##### Summary
@@ -725,16 +753,17 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+| e | [MFR.GUI.Controls.Events.ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') | A [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') that
 allows us to cancel the operation that this event is notifying the caller of.
 
 
 
 To cancel the operation, handlers should set the value of the
-[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+[Cancel](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Cancel 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel')
+property to
 `true`. |
 
-<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovingAll-System-ComponentModel-CancelEventArgs-'></a>
+<a name='M-MFR-GUI-Controls-DarkListBuilderControl-OnRemovingAll-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-'></a>
 ### OnRemovingAll(e) `method`
 
 ##### Summary
@@ -746,13 +775,14 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+| e | [MFR.GUI.Controls.Events.ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') | A [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') that
 allows us to cancel the operation that this event is notifying the caller of.
 
 
 
 To cancel the operation, handlers should set the value of the
-[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+[Cancel](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Cancel 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel')
+property to
 `true`. |
 
 <a name='M-MFR-GUI-Controls-DarkListBuilderControl-SubscribeEvents'></a>
