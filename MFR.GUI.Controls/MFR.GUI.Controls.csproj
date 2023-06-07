@@ -114,11 +114,11 @@
     <Compile Include="FoldUnfoldButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DarkDarkListBuilderControl.cs">
+    <Compile Include="DarkListBuilderControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DarkDarkListBuilderControl.Designer.cs">
-      <DependentUpon>DarkDarkListBuilderControl.cs</DependentUpon>
+    <Compile Include="DarkListBuilderControl.Designer.cs">
+      <DependentUpon>DarkListBuilderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -128,8 +128,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DarkDarkListBuilderControl.resx">
-      <DependentUpon>DarkDarkListBuilderControl.cs</DependentUpon>
+    <EmbeddedResource Include="DarkListBuilderControl.resx">
+      <DependentUpon>DarkListBuilderControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
