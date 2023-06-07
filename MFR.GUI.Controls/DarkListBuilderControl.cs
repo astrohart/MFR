@@ -517,6 +517,10 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when an item has been moved down in either of the lists.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderEventHandler MovedDown;
 
         /// <summary>
@@ -543,11 +547,15 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when an item has been moved up in either of the lists.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderEventHandler MovedUp;
 
         /// <summary>
         /// Occurs when the
-        /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabled" />
+        /// <see cref="P:MFR.GUI.Contols.DarkListBuilderControl.MoveUpButtonEnabled" />
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveUpButtonEnabledChanged;
@@ -570,12 +578,20 @@ namespace MFR.GUI.Controls
         /// Occurs when the <b>Move Down</b> button has been clicked, but before the
         /// selected item has been moved down in the list.
         /// </summary>
-        public event CancelEventHandler MovingDown;
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
+        public event ListBuilderCancelEventHandler MovingDown;
 
         /// <summary>
         /// Occurs when an item is about to be moved up in either of the lists.
         /// </summary>
-        public event CancelEventHandler MovingUp;
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
+        public event ListBuilderCancelEventHandler MovingUp;
 
         /// <summary>
         /// Occurs when the
