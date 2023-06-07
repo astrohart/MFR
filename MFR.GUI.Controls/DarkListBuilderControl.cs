@@ -492,6 +492,28 @@ namespace MFR.GUI.Controls
         public event EventHandler AddButtonVisibleChanged;
 
         /// <summary>
+        /// Occurs when the <b>Add</b> operation has been successfully completed.
+        /// </summary>
+        public event EventHandler Added;
+
+        /// <summary>
+        /// Occurs when the <b>Add All</b> operation has been successfully completed.
+        /// </summary>
+        public event EventHandler AddedAll;
+
+        /// <summary>
+        /// Occurs before an <b>Add</b> operation is started.  Allows the handler to cancel
+        /// the operation.
+        /// </summary>
+        public event CancelEventHandler Adding;
+
+        /// <summary>
+        /// Occurs before an <c>Add All</c> operation is started.  Allows the handler to
+        /// cancel the operation.
+        /// </summary>
+        public event CancelEventHandler AddingAll;
+
+        /// <summary>
         /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabled" />
         /// property's value is updated.
@@ -578,18 +600,6 @@ namespace MFR.GUI.Controls
         public event EventHandler RemoveButtonVisibleChanged;
 
         /// <summary>
-        /// Occurs before an <b>Add</b> operation is started.  Allows the handler to cancel
-        /// the operation.
-        /// </summary>
-        public event CancelEventHandler Adding;
-
-        /// <summary>
-        /// Occurs before an <c>Add All</c> operation is started.  Allows the handler to
-        /// cancel the operation.
-        /// </summary>
-        public event CancelEventHandler AddingAll;
-
-        /// <summary>
         /// Occurs before a <b>Removing</b> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
@@ -653,6 +663,20 @@ namespace MFR.GUI.Controls
         /// </summary>
         protected virtual void OnAddButtonVisibleChanged()
             => AddButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.Added" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAdded()
+            => Added?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddedAll" />
+        /// event.
+        /// </summary>
+        protected virtual void OnAddedAll()
+            => AddedAll?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.Adding" />
@@ -822,6 +846,34 @@ namespace MFR.GUI.Controls
         protected virtual void OnRemovingAll(CancelEventArgs e)
             => RemovingAll?.Invoke(this, e);
 
+        private void OnClickAddAllButton(object sender, EventArgs e)
+        {
+            var ce = new CancelEventArgs();
+            OnAddingAll(ce);
+            if (ce.Cancel) return;
+
+            // TODO: Add code here to implement the Add All operation.
+        }
+
+        private void OnClickAddButton(object sender, EventArgs e)
+        {
+            var ce = new CancelEventArgs();
+            OnAdding(ce);
+            if (ce.Cancel) return;
+
+            // TODO: Add code here to implement the Add operation
+
+            OnAdded();
+        }
+
+        private void OnClickMoveDownButton(object sender, EventArgs e) { }
+
+        private void OnClickMoveUpButton(object sender, EventArgs e) { }
+
+        private void OnClickRemoveAllButton(object sender, EventArgs e) { }
+
+        private void OnClickRemoveButton(object sender, EventArgs e) { }
+
         /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
         /// </summary>
@@ -860,36 +912,6 @@ namespace MFR.GUI.Controls
                 => OnRemoveAllButtonTextChanged();
             removeAllButton.VisibleChanged += (sender, args)
                 => OnRemoveAllButtonVisibleChanged();
-        }
-
-        private void OnClickAddButton(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnClickAddAllButton(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnClickRemoveButton(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnClickRemoveAllButton(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnClickMoveUpButton(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnClickMoveDownButton(object sender, EventArgs e)
-        {
-
         }
     }
 }
