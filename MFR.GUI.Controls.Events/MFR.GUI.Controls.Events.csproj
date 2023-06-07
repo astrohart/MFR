@@ -107,6 +107,10 @@
     <Compile Include="FormFoldedEventArgs.cs" />
     <Compile Include="FormFoldedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="ListBuidlerEventArgs.cs" />
+    <Compile Include="ListBuilderCancelEventArgs.cs" />
+    <Compile Include="ListBuilderCancelEventHandler.cs" />
+    <Compile Include="ListBuilderEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +131,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Controls.Constants\MFR.GUI.Controls.Constants.csproj">
+      <Project>{4B79D619-4041-4A8F-A0F3-2A608D2AE47A}</Project>
+      <Name>MFR.GUI.Controls.Constants</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
