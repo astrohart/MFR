@@ -578,6 +578,30 @@ namespace MFR.GUI.Controls
         public event EventHandler RemoveButtonVisibleChanged;
 
         /// <summary>
+        /// Occurs before an <b>Add</b> operation is started.  Allows the handler to cancel
+        /// the operation.
+        /// </summary>
+        public event CancelEventHandler Adding;
+
+        /// <summary>
+        /// Occurs before an <c>Add All</c> operation is started.  Allows the handler to
+        /// cancel the operation.
+        /// </summary>
+        public event CancelEventHandler AddingAll;
+
+        /// <summary>
+        /// Occurs before a <b>Removing</b> operation is started.  Allows the handler to
+        /// cancel the operation.
+        /// </summary>
+        public event CancelEventHandler Removing;
+
+        /// <summary>
+        /// Occurs before a <b>Remove All</b> operation is started.  Allows the handler to
+        /// cancel the operation.
+        /// </summary>
+        public event CancelEventHandler RemovingAll;
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddAllButtonEnabledChanged" />
@@ -629,6 +653,36 @@ namespace MFR.GUI.Controls
         /// </summary>
         protected virtual void OnAddButtonVisibleChanged()
             => AddButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.Adding" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnAdding(CancelEventArgs e)
+            => Adding?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.AddingAll" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnAddingAll(CancelEventArgs e)
+            => AddingAll?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -739,6 +793,36 @@ namespace MFR.GUI.Controls
             => RemoveButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.Removing" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnRemoving(CancelEventArgs e)
+            => Removing?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemovingAll" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnRemovingAll(CancelEventArgs e)
+            => RemovingAll?.Invoke(this, e);
+
+        /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
         /// </summary>
         private void SubscribeEvents()
@@ -776,6 +860,36 @@ namespace MFR.GUI.Controls
                 => OnRemoveAllButtonTextChanged();
             removeAllButton.VisibleChanged += (sender, args)
                 => OnRemoveAllButtonVisibleChanged();
+        }
+
+        private void OnClickAddButton(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnClickAddAllButton(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnClickRemoveButton(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnClickRemoveAllButton(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnClickMoveUpButton(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnClickMoveDownButton(object sender, EventArgs e)
+        {
+
         }
     }
 }

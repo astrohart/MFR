@@ -73,6 +73,7 @@ namespace MFR.GUI.Controls
             this.addButton.Size = new System.Drawing.Size(125, 27);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "&Add >";
+            this.addButton.Click += new System.EventHandler(this.OnClickAddButton);
             // 
             // addAllButton
             // 
@@ -83,6 +84,7 @@ namespace MFR.GUI.Controls
             this.addAllButton.Size = new System.Drawing.Size(125, 27);
             this.addAllButton.TabIndex = 3;
             this.addAllButton.Text = "A&dd All >>";
+            this.addAllButton.Click += new System.EventHandler(this.OnClickAddAllButton);
             // 
             // removeButton
             // 
@@ -93,6 +95,7 @@ namespace MFR.GUI.Controls
             this.removeButton.Size = new System.Drawing.Size(125, 27);
             this.removeButton.TabIndex = 4;
             this.removeButton.Text = "< &Remove";
+            this.removeButton.Click += new System.EventHandler(this.OnClickRemoveButton);
             // 
             // removeAllButton
             // 
@@ -103,6 +106,7 @@ namespace MFR.GUI.Controls
             this.removeAllButton.Size = new System.Drawing.Size(125, 27);
             this.removeAllButton.TabIndex = 5;
             this.removeAllButton.Text = "<< Re&move All";
+            this.removeAllButton.Click += new System.EventHandler(this.OnClickRemoveAllButton);
             // 
             // rightListBox
             // 
@@ -136,6 +140,7 @@ namespace MFR.GUI.Controls
             this.moveDownButton.Size = new System.Drawing.Size(125, 27);
             this.moveDownButton.TabIndex = 9;
             this.moveDownButton.Text = "Move &Down";
+            this.moveDownButton.Click += new System.EventHandler(this.OnClickMoveDownButton);
             // 
             // moveUpButton
             // 
@@ -146,6 +151,7 @@ namespace MFR.GUI.Controls
             this.moveUpButton.Size = new System.Drawing.Size(125, 27);
             this.moveUpButton.TabIndex = 8;
             this.moveUpButton.Text = "Move &Up";
+            this.moveUpButton.Click += new System.EventHandler(this.OnClickMoveUpButton);
             // 
             // DarkListBuilderControl
             // 
