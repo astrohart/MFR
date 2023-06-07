@@ -31,7 +31,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Add All</b> button can be
+        /// Gets or sets a value that indicates whether the <b>Add All</b> button can be
         /// selected.
         /// </summary>
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
@@ -39,7 +39,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Add All button can be selected."
+             "Gets or sets a value that indicates whether the Add All button can be selected."
          )]
         public bool AddAllButtonEnabled
         {
@@ -77,7 +77,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Add All button is visible."
+             "Gets or sets a value that indicates whether the Add All button is visible."
          )]
         public bool AddAllButtonVisible
         {
@@ -90,7 +90,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Add</b> button can be
+        /// Gets or sets a value that indicates whether the <b>Add</b> button can be
         /// selected.
         /// </summary>
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
@@ -98,7 +98,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Add button can be selected."
+             "Gets or sets a value that indicates whether the Add button can be selected."
          )]
         public bool AddButtonEnabled
         {
@@ -131,7 +131,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Add button is visible."
+             "Gets or sets a value that indicates whether the Add button is visible."
          )]
         public bool AddButtonVisible
         {
@@ -179,7 +179,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Move Down</b> button can be
+        /// Gets or sets a value that indicates whether the <b>Move Down</b> button can be
         /// selected.
         /// </summary>
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
@@ -187,7 +187,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Move Down button can be selected."
+             "Gets or sets a value that indicates whether the Move Down button can be selected."
          )]
         public bool MoveDownButtonEnabled
         {
@@ -225,7 +225,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Move Down button is visible."
+             "Gets or sets a value that indicates whether the Move Down button is visible."
          )]
         public bool MoveDownButtonVisible
         {
@@ -238,7 +238,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Move Up</b> button can be
+        /// Gets or sets a value that indicates whether the <b>Move Up</b> button can be
         /// selected.
         /// </summary>
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
@@ -246,7 +246,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Move Up button can be selected."
+             "Gets or sets a value that indicates whether the Move Up button can be selected."
          )]
         public bool MoveUpButtonEnabled
         {
@@ -284,7 +284,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Move Up button is visible."
+             "Gets or sets a value that indicates whether the Move Up button is visible."
          )]
         public bool MoveUpButtonVisible
         {
@@ -297,7 +297,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Remove All</b> button can be
+        /// Gets or sets a value that indicates whether the <b>Remove All</b> button can be
         /// selected.
         /// </summary>
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
@@ -305,7 +305,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Remove All button can be selected."
+             "Gets or sets a value that indicates whether the Remove All button can be selected."
          )]
         public bool RemoveAllButtonEnabled
         {
@@ -343,7 +343,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Remove All button is visible."
+             "Gets or sets a value that indicates whether the Remove All button is visible."
          )]
         public bool RemoveAllButtonVisible
         {
@@ -356,7 +356,7 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
-        /// Gets or sets a value tha indicates whether the <b>Remove</b> button can be
+        /// Gets or sets a value that indicates whether the <b>Remove</b> button can be
         /// selected.
         /// </summary>
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always),
@@ -364,7 +364,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Remove button can be selected."
+             "Gets or sets a value that indicates whether the Remove button can be selected."
          )]
         public bool RemoveButtonEnabled
         {
@@ -402,7 +402,7 @@ namespace MFR.GUI.Controls
              DesignerSerializationVisibility.Content
          ),
          Description(
-             "Gets or sets a value tha indicates whether the Remove button is visible."
+             "Gets or sets a value that indicates whether the Remove button is visible."
          )]
         public bool RemoveButtonVisible
         {
