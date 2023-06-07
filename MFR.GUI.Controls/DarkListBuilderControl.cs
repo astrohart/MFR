@@ -718,7 +718,9 @@ namespace MFR.GUI.Controls
         /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs"/> instance that indicates, to the handler of this event, to which side of the list-builder control does this event pertain.
+        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> instance that
+        /// indicates, to the handler of this event, to which side of the list-builder
+        /// control does this event pertain.
         /// </param>
         protected virtual void OnAdded(ListBuilderEventArgs e)
             => Added?.Invoke(this, e);
@@ -728,7 +730,9 @@ namespace MFR.GUI.Controls
         /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs"/> instance that indicates, to the handler of this event, to which side of the list-builder control does this event pertain.
+        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> instance that
+        /// indicates, to the handler of this event, to which side of the list-builder
+        /// control does this event pertain.
         /// </param>
         protected virtual void OnAddedAll(ListBuilderEventArgs e)
             => AddedAll?.Invoke(this, e);
@@ -742,7 +746,8 @@ namespace MFR.GUI.Controls
         /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
         /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" /> property to
+        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" />
+        /// property to
         /// <see langword="true" />.
         /// </param>
         protected virtual void OnAdding(ListBuilderCancelEventArgs e)
@@ -757,7 +762,8 @@ namespace MFR.GUI.Controls
         /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
         /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" /> property to
+        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" />
+        /// property to
         /// <see langword="true" />.
         /// </param>
         protected virtual void OnAddingAll(ListBuilderCancelEventArgs e)
@@ -768,7 +774,9 @@ namespace MFR.GUI.Controls
         /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs"/> instance that indicates, to the handler of this event, to which side of the list-builder control does this event pertain.
+        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> instance that
+        /// indicates, to the handler of this event, to which side of the list-builder
+        /// control does this event pertain.
         /// </param>
         protected virtual void OnMovedDown(ListBuilderEventArgs e)
             => MovedDown?.Invoke(this, e);
@@ -805,7 +813,9 @@ namespace MFR.GUI.Controls
         /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs"/> instance that indicates, to the handler of this event, to which side of the list-builder control does this event pertain.
+        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> instance that
+        /// indicates, to the handler of this event, to which side of the list-builder
+        /// control does this event pertain.
         /// </param>
         protected virtual void OnMovedUp(ListBuilderEventArgs e)
             => MovedUp?.Invoke(this, e);
@@ -846,7 +856,8 @@ namespace MFR.GUI.Controls
         /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
         /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" /> property to
+        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" />
+        /// property to
         /// <see langword="true" />.
         /// </param>
         protected virtual void OnMovingDown(ListBuilderCancelEventArgs e)
@@ -861,7 +872,8 @@ namespace MFR.GUI.Controls
         /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
         /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" /> property to
+        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" />
+        /// property to
         /// <see langword="true" />.
         /// </param>
         protected virtual void OnMovingUp(ListBuilderCancelEventArgs e)
@@ -926,7 +938,9 @@ namespace MFR.GUI.Controls
         /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs"/> instance that indicates, to the handler of this event, to which side of the list-builder control does this event pertain.
+        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> instance that
+        /// indicates, to the handler of this event, to which side of the list-builder
+        /// control does this event pertain.
         /// </param>
         protected virtual void OnRemoved(ListBuilderEventArgs e)
             => Removed?.Invoke(this, e);
@@ -936,7 +950,9 @@ namespace MFR.GUI.Controls
         /// event.
         /// </summary>
         /// <param name="e">
-        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs"/> instance that indicates, to the handler of this event, to which side of the list-builder control does this event pertain.
+        /// An <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> instance that
+        /// indicates, to the handler of this event, to which side of the list-builder
+        /// control does this event pertain.
         /// </param>
         protected virtual void OnRemovedAll(ListBuilderEventArgs e)
             => RemovedAll?.Invoke(this, e);
@@ -950,7 +966,8 @@ namespace MFR.GUI.Controls
         /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
         /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" /> property to
+        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" />
+        /// property to
         /// <see langword="true" />.
         /// </param>
         protected virtual void OnRemoving(ListBuilderCancelEventArgs e)
@@ -965,7 +982,8 @@ namespace MFR.GUI.Controls
         /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
         /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" /> property to
+        /// <see cref="P:MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Cancel" />
+        /// property to
         /// <see langword="true" />.
         /// </param>
         protected virtual void OnRemovingAll(ListBuilderCancelEventArgs e)
@@ -995,46 +1013,46 @@ namespace MFR.GUI.Controls
 
         private void OnClickMoveDownButton(object sender, EventArgs e)
         {
-            var ce = new CancelEventArgs();
+            var ce = new ListBuilderCancelEventArgs(ListBuilderSide.Unknown);
             OnMovingDown(ce);
             if (ce.Cancel) return;
 
             // TODO: Add code here to implement the Move Down operation
 
-            OnMovedDown();
+            OnMovedDown(new ListBuilderEventArgs(ListBuilderSide.Unknown));
         }
 
         private void OnClickMoveUpButton(object sender, EventArgs e)
         {
-            var ce = new CancelEventArgs();
+            var ce = new ListBuilderCancelEventArgs(ListBuilderSide.Unknown);
             OnMovingUp(ce);
             if (ce.Cancel) return;
 
             // TODO: Add code here to implement he Move Up operation
 
-            OnMovedUp();
+            OnMovedUp(new ListBuilderEventArgs(ListBuilderSide.Unknown));
         }
 
         private void OnClickRemoveAllButton(object sender, EventArgs e)
         {
-            var ce = new CancelEventArgs();
+            var ce = new ListBuilderCancelEventArgs(ListBuilderSide.Unknown);
             OnRemovingAll(ce);
             if (ce.Cancel) return;
 
             // TODO: Add code here to implement the Remove All operation
 
-            OnRemovedAll();
+            OnRemovedAll(new ListBuilderEventArgs(ListBuilderSide.Unknown));
         }
 
         private void OnClickRemoveButton(object sender, EventArgs e)
         {
-            var ce = new CancelEventArgs();
+            var ce = new ListBuilderCancelEventArgs(ListBuilderSide.Unknown);
             OnRemoving(ce);
             if (ce.Cancel) return;
 
             // TODO: Add code here to implement the Remove operation
 
-            OnRemoved();
+            OnRemoved(new ListBuilderEventArgs(ListBuilderSide.Unknown));
         }
 
         /// <summary>
