@@ -984,7 +984,7 @@ namespace MFR.GUI.Controls
 
         private void OnClickAddButton(object sender, EventArgs e)
         {
-            var ce = new CancelEventArgs();
+            var ce = new ListBuilderCancelEventArgs(ListBuilderSide.Unknown);
             OnAdding(ce);
             if (ce.Cancel) return;
 
