@@ -1,7 +1,7 @@
 ﻿
 namespace MFR.GUI.Controls
 {
-    partial class DarkDarkListBuilderControl
+    partial class DarkListBuilderControl
     {
         /// <summary> 
         /// Required designer variable.
