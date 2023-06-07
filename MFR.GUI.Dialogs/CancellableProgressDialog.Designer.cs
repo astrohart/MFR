@@ -40,6 +40,8 @@ namespace MFR.GUI.Dialogs
             // 
             // currentFileLabel
             // 
+            this.currentFileLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.currentFileLabel.IsDarkTheme = false;
             this.currentFileLabel.Location = new System.Drawing.Point(12, 56);
             this.currentFileLabel.Name = "currentFileLabel";
             this.currentFileLabel.Size = new System.Drawing.Size(392, 36);
@@ -47,15 +49,27 @@ namespace MFR.GUI.Dialogs
             // 
             // progressBar
             // 
+            this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.progressBar.DrawBlendShadow = true;
+            this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.progressBar.IsDarkTheme = false;
             this.progressBar.Location = new System.Drawing.Point(12, 100);
             this.progressBar.MarqueeAnimationSpeed = 30;
+            this.progressBar.MarqueeIncrement = 5;
+            this.progressBar.MarqueeWidth = 25F;
             this.progressBar.Name = "progressBar";
+            this.progressBar.Percentage = 0;
+            this.progressBar.ProgressBarColor = System.Drawing.SystemColors.Highlight;
+            this.progressBar.ShowBorder = true;
+            this.progressBar.ShowText = false;
             this.progressBar.Size = new System.Drawing.Size(300, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar.TabIndex = 2;
             // 
             // statusLabel
             // 
+            this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.statusLabel.IsDarkTheme = false;
             this.statusLabel.Location = new System.Drawing.Point(13, 9);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(391, 47);
@@ -64,8 +78,10 @@ namespace MFR.GUI.Dialogs
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.IsDarkTheme = true;
             this.cancelButton.Location = new System.Drawing.Point(318, 99);
             this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Padding = new System.Windows.Forms.Padding(5);
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Cancel";
@@ -82,6 +98,7 @@ namespace MFR.GUI.Dialogs
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.currentFileLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -96,8 +113,8 @@ namespace MFR.GUI.Dialogs
         }
 
         private xyLOGIX.UI.Dark.Controls.DarkLabel currentFileLabel;
-        private ProgressBar progressBar;
         private xyLOGIX.UI.Dark.Controls.DarkLabel statusLabel;
         private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
+        private xyLOGIX.UI.Dark.Controls.DarkProgressBar progressBar;
     }
 }

@@ -169,6 +169,9 @@
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AutoStartCancellableProgressDialog.resx">
+      <DependentUpon>AutoStartCancellableProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ErrorReportDialog.resx">
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
     </EmbeddedResource>

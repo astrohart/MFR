@@ -30,12 +30,12 @@ namespace MFR.GUI.Dialogs
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileManagementDialogBox));
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.okayButton = new System.Windows.Forms.Button();
-            this.profilesListBoxLabel = new System.Windows.Forms.Label();
-            this.profilesListBox = new System.Windows.Forms.ListBox();
-            this.renameProfileButton = new System.Windows.Forms.Button();
-            this.deleteProfileButton = new System.Windows.Forms.Button();
+            this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.okayButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.profilesListBoxLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.profilesListBox = new xyLOGIX.UI.Dark.Controls.DarkListBox();
+            this.renameProfileButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.deleteProfileButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -46,7 +46,6 @@ namespace MFR.GUI.Dialogs
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 0;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // okayButton
             // 
@@ -55,7 +54,6 @@ namespace MFR.GUI.Dialogs
             this.okayButton.Size = new System.Drawing.Size(87, 27);
             this.okayButton.TabIndex = 1;
             this.okayButton.Text = "OK";
-            this.okayButton.UseVisualStyleBackColor = true;
             // 
             // profilesListBoxLabel
             // 
@@ -84,7 +82,6 @@ namespace MFR.GUI.Dialogs
             this.renameProfileButton.Size = new System.Drawing.Size(87, 27);
             this.renameProfileButton.TabIndex = 4;
             this.renameProfileButton.Text = "&Rename...";
-            this.renameProfileButton.UseVisualStyleBackColor = true;
             // 
             // deleteProfileButton
             // 
@@ -94,7 +91,6 @@ namespace MFR.GUI.Dialogs
             this.deleteProfileButton.Size = new System.Drawing.Size(87, 27);
             this.deleteProfileButton.TabIndex = 5;
             this.deleteProfileButton.Text = "&Delete";
-            this.deleteProfileButton.UseVisualStyleBackColor = true;
             // 
             // ProfileManagementDialogBox
             // 
@@ -127,11 +123,11 @@ namespace MFR.GUI.Dialogs
 
         #endregion
 
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button okayButton;
-        private System.Windows.Forms.Label profilesListBoxLabel;
-        private System.Windows.Forms.ListBox profilesListBox;
-        private System.Windows.Forms.Button renameProfileButton;
-        private System.Windows.Forms.Button deleteProfileButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton okayButton;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel profilesListBoxLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkListBox profilesListBox;
+        private xyLOGIX.UI.Dark.Controls.DarkButton renameProfileButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton deleteProfileButton;
     }
 }

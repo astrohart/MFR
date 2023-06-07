@@ -2,13 +2,14 @@ using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
 using System;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Dialogs
 {
     /// <summary>
     /// Displays information to the user about an exception or error.
     /// </summary>
-    public partial class ErrorReportDialog : Form, IErrorReportDialog
+    public partial class ErrorReportDialog : DarkForm, IErrorReportDialog
     {
         /// <summary>
         /// Constructs a new instance of
