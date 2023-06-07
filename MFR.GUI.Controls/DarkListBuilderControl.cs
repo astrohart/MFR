@@ -979,7 +979,7 @@ namespace MFR.GUI.Controls
 
             // TODO: Add code here to implement the Add All operation.
 
-            OnAddedAll();
+            OnAddedAll(new ListBuilderEventArgs(ListBuilderSide.Unknown));
         }
 
         private void OnClickAddButton(object sender, EventArgs e)
@@ -990,7 +990,7 @@ namespace MFR.GUI.Controls
 
             // TODO: Add code here to implement the Add operation
 
-            OnAdded();
+            OnAdded(new ListBuilderEventArgs(ListBuilderSide.Unknown));
         }
 
         private void OnClickMoveDownButton(object sender, EventArgs e)
