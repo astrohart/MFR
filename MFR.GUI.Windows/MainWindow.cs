@@ -1751,5 +1751,11 @@ namespace MFR.GUI.Windows
                 return result;
             }
         }
+
+        private void OnClickCustomizeOperationsButton(object sender, EventArgs e)
+        {
+            using (var dialog = MakeNewCustomizeOperationsDialog.FromScratch())
+                dialog.ShowDialog(this);
+        }
     }
 }

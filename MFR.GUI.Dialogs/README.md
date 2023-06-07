@@ -65,6 +65,12 @@
   - [OnShown(e)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.CancellableProgressDialog.OnShown(System.EventArgs)')
   - [RedrawDisplay()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-RedrawDisplay 'MFR.GUI.Dialogs.CancellableProgressDialog.RedrawDisplay')
   - [Reset()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-Reset 'MFR.GUI.Dialogs.CancellableProgressDialog.Reset')
+- [CustomizeOperationsDialog](#T-MFR-GUI-Dialogs-CustomizeOperationsDialog 'MFR.GUI.Dialogs.CustomizeOperationsDialog')
+  - [#ctor()](#M-MFR-GUI-Dialogs-CustomizeOperationsDialog-#ctor 'MFR.GUI.Dialogs.CustomizeOperationsDialog.#ctor')
+  - [components](#F-MFR-GUI-Dialogs-CustomizeOperationsDialog-components 'MFR.GUI.Dialogs.CustomizeOperationsDialog.components')
+  - [OperationListBuilder](#P-MFR-GUI-Dialogs-CustomizeOperationsDialog-OperationListBuilder 'MFR.GUI.Dialogs.CustomizeOperationsDialog.OperationListBuilder')
+  - [Dispose(disposing)](#M-MFR-GUI-Dialogs-CustomizeOperationsDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.CustomizeOperationsDialog.Dispose(System.Boolean)')
+  - [InitializeComponent()](#M-MFR-GUI-Dialogs-CustomizeOperationsDialog-InitializeComponent 'MFR.GUI.Dialogs.CustomizeOperationsDialog.InitializeComponent')
 - [ErrorReportDialog](#T-MFR-GUI-Dialogs-ErrorReportDialog 'MFR.GUI.Dialogs.ErrorReportDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-ErrorReportDialog-#ctor 'MFR.GUI.Dialogs.ErrorReportDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-ErrorReportDialog-components 'MFR.GUI.Dialogs.ErrorReportDialog.components')
@@ -1074,6 +1080,77 @@ This method has no parameters.
 ##### Summary
 
 Clears the status text and progress bar.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-GUI-Dialogs-CustomizeOperationsDialog'></a>
+## CustomizeOperationsDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs
+
+##### Summary
+
+Dialog box that is displayed when the user clicks the button
+in the tab of the main window.
+
+##### Remarks
+
+This dialog box allows the user to customize the list of primary operations tha
+this application performs, to make some operations available and others not.
+
+<a name='M-MFR-GUI-Dialogs-CustomizeOperationsDialog-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[CustomizeOperationsDialog](#T-MFR-GUI-Dialogs-CustomizeOperationsDialog 'MFR.GUI.Dialogs.CustomizeOperationsDialog') and returns a
+reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-MFR-GUI-Dialogs-CustomizeOperationsDialog-components'></a>
+### components `constants`
+
+##### Summary
+
+Required designer variable.
+
+<a name='P-MFR-GUI-Dialogs-CustomizeOperationsDialog-OperationListBuilder'></a>
+### OperationListBuilder `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IDarkListBuilderControl](#T-xyLOGIX-UI-Dark-Controls-Interfaces-IDarkListBuilderControl 'xyLOGIX.UI.Dark.Controls.Interfaces.IDarkListBuilderControl')
+interface.
+
+<a name='M-MFR-GUI-Dialogs-CustomizeOperationsDialog-Dispose-System-Boolean-'></a>
+### Dispose(disposing) `method`
+
+##### Summary
+
+Clean up any resources being used.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+
+<a name='M-MFR-GUI-Dialogs-CustomizeOperationsDialog-InitializeComponent'></a>
+### InitializeComponent() `method`
+
+##### Summary
+
+Required method for Designer support - do not modify
+the contents of this method with the code editor.
 
 ##### Parameters
 

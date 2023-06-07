@@ -8,13 +8,13 @@
   - [Folded](#P-MFR-GUI-Controls-Events-FormFoldedEventArgs-Folded 'MFR.GUI.Controls.Events.FormFoldedEventArgs.Folded')
   - [Size](#P-MFR-GUI-Controls-Events-FormFoldedEventArgs-Size 'MFR.GUI.Controls.Events.FormFoldedEventArgs.Size')
 - [FormFoldedEventHandler](#T-MFR-GUI-Controls-Events-FormFoldedEventHandler 'MFR.GUI.Controls.Events.FormFoldedEventHandler')
-- [ListBuidlerEventArgs](#T-MFR-GUI-Controls-Events-ListBuidlerEventArgs 'MFR.GUI.Controls.Events.ListBuidlerEventArgs')
-  - [#ctor(side)](#M-MFR-GUI-Controls-Events-ListBuidlerEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide- 'MFR.GUI.Controls.Events.ListBuidlerEventArgs.#ctor(MFR.GUI.Controls.Constants.ListBuilderSide)')
-  - [Side](#P-MFR-GUI-Controls-Events-ListBuidlerEventArgs-Side 'MFR.GUI.Controls.Events.ListBuidlerEventArgs.Side')
 - [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs')
   - [#ctor(side)](#M-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide- 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.#ctor(MFR.GUI.Controls.Constants.ListBuilderSide)')
   - [Side](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Side 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Side')
 - [ListBuilderCancelEventHandler](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventHandler 'MFR.GUI.Controls.Events.ListBuilderCancelEventHandler')
+- [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs')
+  - [#ctor(side)](#M-MFR-GUI-Controls-Events-ListBuilderEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide- 'MFR.GUI.Controls.Events.ListBuilderEventArgs.#ctor(MFR.GUI.Controls.Constants.ListBuilderSide)')
+  - [Side](#P-MFR-GUI-Controls-Events-ListBuilderEventArgs-Side 'MFR.GUI.Controls.Events.ListBuilderEventArgs.Side')
 - [ListBuilderEventHandler](#T-MFR-GUI-Controls-Events-ListBuilderEventHandler 'MFR.GUI.Controls.Events.ListBuilderEventHandler')
 - [Resources](#T-MFR-GUI-Controls-Events-Properties-Resources 'MFR.GUI.Controls.Events.Properties.Resources')
   - [Culture](#P-MFR-GUI-Controls-Events-Properties-Resources-Culture 'MFR.GUI.Controls.Events.Properties.Resources.Culture')
@@ -77,43 +77,6 @@ Provides the method signature for the handler of a FormFolded event.
 | ---- | ---- | ----------- |
 | sender | [T:MFR.GUI.Controls.Events.FormFoldedEventHandler](#T-T-MFR-GUI-Controls-Events-FormFoldedEventHandler 'T:MFR.GUI.Controls.Events.FormFoldedEventHandler') | The sender of the event. |
 
-<a name='T-MFR-GUI-Controls-Events-ListBuidlerEventArgs'></a>
-## ListBuidlerEventArgs `type`
-
-##### Namespace
-
-MFR.GUI.Controls.Events
-
-##### Summary
-
-Arguments for a `ListBuilderEventHandler`-style event.
-
-<a name='M-MFR-GUI-Controls-Events-ListBuidlerEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide-'></a>
-### #ctor(side) `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[ListBuidlerEventArgs](#T-MFR-GUI-Controls-Events-ListBuidlerEventArgs 'MFR.GUI.Controls.Events.ListBuidlerEventArgs') and returns a
-reference to it.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| side | [MFR.GUI.Controls.Constants.ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') | (Required.) One of the
-[ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') values that
-indicates on which side of the list-builder control did the user last act. |
-
-<a name='P-MFR-GUI-Controls-Events-ListBuidlerEventArgs-Side'></a>
-### Side `property`
-
-##### Summary
-
-Gets a [ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') enumeration
-value that indicates on which side of the list-builder control did the user
-act.
-
 <a name='T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs'></a>
 ## ListBuilderCancelEventArgs `type`
 
@@ -169,6 +132,43 @@ left-hand side or right-hand side of a list-builder control.
 | ---- | ---- | ----------- |
 | sender | [T:MFR.GUI.Controls.Events.ListBuilderCancelEventHandler](#T-T-MFR-GUI-Controls-Events-ListBuilderCancelEventHandler 'T:MFR.GUI.Controls.Events.ListBuilderCancelEventHandler') | (Required.) Reference to the object that raised the event. |
 
+<a name='T-MFR-GUI-Controls-Events-ListBuilderEventArgs'></a>
+## ListBuilderEventArgs `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Events
+
+##### Summary
+
+Arguments for a `ListBuilderEventHandler`-style event.
+
+<a name='M-MFR-GUI-Controls-Events-ListBuilderEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide-'></a>
+### #ctor(side) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') and returns a
+reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| side | [MFR.GUI.Controls.Constants.ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') | (Required.) One of the
+[ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') values that
+indicates on which side of the list-builder control did the user last act. |
+
+<a name='P-MFR-GUI-Controls-Events-ListBuilderEventArgs-Side'></a>
+### Side `property`
+
+##### Summary
+
+Gets a [ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') enumeration
+value that indicates on which side of the list-builder control did the user
+act.
+
 <a name='T-MFR-GUI-Controls-Events-ListBuilderEventHandler'></a>
 ## ListBuilderEventHandler `type`
 
@@ -178,7 +178,8 @@ MFR.GUI.Controls.Events
 
 ##### Summary
 
-Handler for an event that occurs with respect to either the left-hand side or the right-hand side of a list-builder control.
+Handler for an event that occurs with respect to either the left-hand side or
+the right-hand side of a list-builder control.
 
 ##### Parameters
 

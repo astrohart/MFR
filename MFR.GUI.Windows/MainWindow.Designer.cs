@@ -75,6 +75,7 @@ namespace MFR.GUI.Windows
             this.matchExactWordCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.matchCaseCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.operationsTabPage = new System.Windows.Forms.TabPage();
+            this.customizeOperationsButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.tabPageInstructionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.selectDeselectAllCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.operationsCheckedListBox = new xyLOGIX.UI.Dark.Controls.DarkCheckedListBox();
@@ -121,7 +122,7 @@ namespace MFR.GUI.Windows
             // 
             // startingFolderBrowseButton
             // 
-            this.startingFolderBrowseButton.IsDarkTheme = false;
+            this.startingFolderBrowseButton.IsDarkTheme = true;
             this.startingFolderBrowseButton.Location = new System.Drawing.Point(556, 77);
             this.startingFolderBrowseButton.Name = "startingFolderBrowseButton";
             this.startingFolderBrowseButton.Padding = new System.Windows.Forms.Padding(5);
@@ -158,7 +159,7 @@ namespace MFR.GUI.Windows
             this.performOperationButton.Image = ((System.Drawing.Image)(resources.GetObject("performOperationButton.Image")));
             this.performOperationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.performOperationButton.ImagePadding = 0;
-            this.performOperationButton.IsDarkTheme = false;
+            this.performOperationButton.IsDarkTheme = true;
             this.performOperationButton.Location = new System.Drawing.Point(423, 219);
             this.performOperationButton.Name = "performOperationButton";
             this.performOperationButton.Padding = new System.Windows.Forms.Padding(5);
@@ -537,6 +538,7 @@ namespace MFR.GUI.Windows
             // operationsTabPage
             // 
             this.operationsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.operationsTabPage.Controls.Add(this.customizeOperationsButton);
             this.operationsTabPage.Controls.Add(this.tabPageInstructionLabel);
             this.operationsTabPage.Controls.Add(this.selectDeselectAllCheckBox);
             this.operationsTabPage.Controls.Add(this.operationsCheckedListBox);
@@ -546,6 +548,18 @@ namespace MFR.GUI.Windows
             this.operationsTabPage.Size = new System.Drawing.Size(561, 184);
             this.operationsTabPage.TabIndex = 1;
             this.operationsTabPage.Text = "Operations";
+            // 
+            // customizeOperationsButton
+            // 
+            this.customizeOperationsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.customizeOperationsButton.IsDarkTheme = true;
+            this.customizeOperationsButton.Location = new System.Drawing.Point(468, 57);
+            this.customizeOperationsButton.Name = "customizeOperationsButton";
+            this.customizeOperationsButton.Padding = new System.Windows.Forms.Padding(5);
+            this.customizeOperationsButton.Size = new System.Drawing.Size(87, 27);
+            this.customizeOperationsButton.TabIndex = 15;
+            this.customizeOperationsButton.Text = "&Customize...";
+            this.customizeOperationsButton.Click += new System.EventHandler(this.OnClickCustomizeOperationsButton);
             // 
             // tabPageInstructionLabel
             // 
@@ -584,7 +598,7 @@ namespace MFR.GUI.Windows
             this.operationsCheckedListBox.Location = new System.Drawing.Point(11, 57);
             this.operationsCheckedListBox.Name = "operationsCheckedListBox";
             this.operationsCheckedListBox.ScrollAlwaysVisible = true;
-            this.operationsCheckedListBox.Size = new System.Drawing.Size(539, 110);
+            this.operationsCheckedListBox.Size = new System.Drawing.Size(451, 110);
             this.operationsCheckedListBox.TabIndex = 0;
             // 
             // inclusionsTabPage
@@ -612,7 +626,7 @@ namespace MFR.GUI.Windows
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 318);
             this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 544);
-            this.foldButton.IsDarkTheme = false;
+            this.foldButton.IsDarkTheme = true;
             this.foldButton.Location = new System.Drawing.Point(15, 219);
             this.foldButton.Name = "foldButton";
             this.foldButton.Padding = new System.Windows.Forms.Padding(5);
@@ -881,6 +895,7 @@ namespace MFR.GUI.Windows
             this.Controls.Add(this.startingFolderLabel);
             this.Controls.Add(this.optionsTabControl);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuBar;
@@ -973,6 +988,7 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripButton clearAllHistoryButton;
         private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolStrip;
         private xyLOGIX.UI.Dark.Controls.DarkButton switchButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton customizeOperationsButton;
     }
 }
 
