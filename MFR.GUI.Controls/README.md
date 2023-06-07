@@ -283,7 +283,7 @@ Typically, this listbox displays available items.
 
 Gets a reference to the [DarkLabel](#T-xyLOGIX-UI-Dark-Controls-DarkLabel 'xyLOGIX.UI.Dark.Controls.DarkLabel')
 that is above the right-hand listbox (typically, the right-hand listbox
-displays
+displays the list that the user is is building.
 available items).
 
 <a name='M-MFR-GUI-Controls-DarkDarkListBuilderControl-Dispose-System-Boolean-'></a>
