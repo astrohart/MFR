@@ -496,23 +496,39 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when the <b>Add</b> operation has been successfully completed.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderEventHandler Added;
 
         /// <summary>
         /// Occurs when the <b>Add All</b> operation has been successfully completed.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderEventHandler AddedAll;
 
         /// <summary>
         /// Occurs before an <b>Add</b> operation is started.  Allows the handler to cancel
         /// the operation.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderCancelEventHandler Adding;
 
         /// <summary>
         /// Occurs before an <c>Add All</c> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderCancelEventHandler AddingAll;
 
         /// <summary>
@@ -641,23 +657,39 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when an item has been removed from either of the lists.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderEventHandler Removed;
 
         /// <summary>
         /// Occurs when the <b>Remove All</b> operation has finished.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderEventHandler RemovedAll;
 
         /// <summary>
         /// Occurs before a <b>Removing</b> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderCancelEventHandler Removing;
 
         /// <summary>
         /// Occurs before a <b>Remove All</b> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
+        /// <remarks>
+        /// This event indicates to its handler, to which side of the list-builder control
+        /// that this event pertains.
+        /// </remarks>
         public event ListBuilderCancelEventHandler RemovingAll;
 
         /// <summary>
