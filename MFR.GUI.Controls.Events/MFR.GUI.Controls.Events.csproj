@@ -128,12 +128,6 @@
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MFR.GUI.Controls.Constants\MFR.GUI.Controls.Constants.csproj">
-      <Project>{4B79D619-4041-4A8F-A0F3-2A608D2AE47A}</Project>
-      <Name>MFR.GUI.Controls.Constants</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"

@@ -97,14 +97,9 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -147,10 +142,6 @@
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls\xyLOGIX.UI.Dark.Controls.csproj">
       <Project>{9190559B-FB22-4E74-9130-5BFD3FFD6DAE}</Project>
       <Name>xyLOGIX.UI.Dark.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Controls.Constants\MFR.GUI.Controls.Constants.csproj">
-      <Project>{4B79D619-4041-4A8F-A0F3-2A608D2AE47A}</Project>
-      <Name>MFR.GUI.Controls.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Controls.Events\MFR.GUI.Controls.Events.csproj">
       <Project>{260A4300-462A-4885-B98C-0C62DC6A31E7}</Project>
