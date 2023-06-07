@@ -506,13 +506,13 @@ namespace MFR.GUI.Controls
         /// Occurs before an <b>Add</b> operation is started.  Allows the handler to cancel
         /// the operation.
         /// </summary>
-        public event CancelEventHandler Adding;
+        public event ListBuilderCancelEventHandler Adding;
 
         /// <summary>
         /// Occurs before an <c>Add All</c> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
-        public event CancelEventHandler AddingAll;
+        public event ListBuilderCancelEventHandler AddingAll;
 
         /// <summary>
         /// Occurs when an item has been moved down in either of the lists.
@@ -640,24 +640,24 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when an item has been removed from either of the lists.
         /// </summary>
-        public event EventHandler Removed;
+        public event ListBuilderEventHandler Removed;
 
         /// <summary>
         /// Occurs when the <b>Remove All</b> operation has finished.
         /// </summary>
-        public event EventHandler RemovedAll;
+        public event ListBuilderEventHandler RemovedAll;
 
         /// <summary>
         /// Occurs before a <b>Removing</b> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
-        public event CancelEventHandler Removing;
+        public event ListBuilderCancelEventHandler Removing;
 
         /// <summary>
         /// Occurs before a <b>Remove All</b> operation is started.  Allows the handler to
         /// cancel the operation.
         /// </summary>
-        public event CancelEventHandler RemovingAll;
+        public event ListBuilderCancelEventHandler RemovingAll;
 
         /// <summary>
         /// Raises the
