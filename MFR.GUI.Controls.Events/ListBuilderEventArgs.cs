@@ -6,11 +6,11 @@ namespace MFR.GUI.Controls.Events
     /// <summary>
     /// Arguments for a <c>ListBuilderEventHandler</c>-style event.
     /// </summary>
-    public class ListBuidlerEventArgs : EventArgs
+    public class ListBuilderEventArgs : EventArgs
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.GUI.Controls.Events.ListBuidlerEventArgs" /> and returns a
+        /// <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" /> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="side">
@@ -18,7 +18,7 @@ namespace MFR.GUI.Controls.Events
         /// <see cref="T:MFR.GUI.Controls.Constants.ListBuilderSide" /> values that
         /// indicates on which side of the list-builder control did the user last act.
         /// </param>
-        public ListBuidlerEventArgs(ListBuilderSide side)
+        public ListBuilderEventArgs(ListBuilderSide side)
         {
             Side = side;
         }

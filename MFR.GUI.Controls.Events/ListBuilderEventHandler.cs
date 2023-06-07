@@ -6,12 +6,12 @@
     /// </summary>
     /// <param name="sender">(Required.) Reference to the object that raised the event.</param>
     /// <param name="e">
-    /// (Required.) A <see cref="T:MFR.GUI.Controls.Events.ListBuidlerEventArgs" />
+    /// (Required.) A <see cref="T:MFR.GUI.Controls.Events.ListBuilderEventArgs" />
     /// that contains the event data.
     /// <para />
     /// This object is utilized to explain to the handler of the event, to which side
     /// (left or right) of the list-builder control that this event pertains to.
     /// </param>
     public delegate void ListBuilderEventHandler(object sender,
-        ListBuidlerEventArgs e);
+        ListBuilderEventArgs e);
 }

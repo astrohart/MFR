@@ -107,7 +107,7 @@
     <Compile Include="FormFoldedEventArgs.cs" />
     <Compile Include="FormFoldedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="ListBuidlerEventArgs.cs" />
+    <Compile Include="ListBuilderEventArgs.cs" />
     <Compile Include="ListBuilderCancelEventArgs.cs" />
     <Compile Include="ListBuilderCancelEventHandler.cs" />
     <Compile Include="ListBuilderEventHandler.cs" />

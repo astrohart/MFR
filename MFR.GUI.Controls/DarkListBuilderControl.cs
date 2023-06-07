@@ -1,4 +1,5 @@
-﻿using MFR.GUI.Controls.Interfaces;
+﻿using MFR.GUI.Controls.Events;
+using MFR.GUI.Controls.Interfaces;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -516,7 +517,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when an item has been moved down in either of the lists.
         /// </summary>
-        public event EventHandler MovedDown;
+        public event ListBuilderEventHandler MovedDown;
 
         /// <summary>
         /// Occurs when the
@@ -542,7 +543,7 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when an item has been moved up in either of the lists.
         /// </summary>
-        public event EventHandler MovedUp;
+        public event ListBuilderEventHandler MovedUp;
 
         /// <summary>
         /// Occurs when the
