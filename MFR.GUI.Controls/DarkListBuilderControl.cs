@@ -514,6 +514,11 @@ namespace MFR.GUI.Controls
         public event CancelEventHandler AddingAll;
 
         /// <summary>
+        /// Occurs when an item has been moved down in either of the lists.
+        /// </summary>
+        public event EventHandler MovedDown;
+
+        /// <summary>
         /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabled" />
         /// property's value is updated.
@@ -535,6 +540,11 @@ namespace MFR.GUI.Controls
         public event EventHandler MoveDownButtonVisibleChanged;
 
         /// <summary>
+        /// Occurs when an item has been moved up in either of the lists.
+        /// </summary>
+        public event EventHandler MovedUp;
+
+        /// <summary>
         /// Occurs when the
         /// <see cref="P:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabled" />
         /// property's value is updated.
@@ -554,6 +564,17 @@ namespace MFR.GUI.Controls
         /// property's value is updated.
         /// </summary>
         public event EventHandler MoveUpButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when the <b>Move Down</b> button has been clicked, but before the
+        /// selected item has been moved down in the list.
+        /// </summary>
+        public event CancelEventHandler MovingDown;
+
+        /// <summary>
+        /// Occurs when an item is about to be moved up in either of the lists.
+        /// </summary>
+        public event CancelEventHandler MovingUp;
 
         /// <summary>
         /// Occurs when the
@@ -598,6 +619,16 @@ namespace MFR.GUI.Controls
         /// property's value is updated.
         /// </summary>
         public event EventHandler RemoveButtonVisibleChanged;
+
+        /// <summary>
+        /// Occurs when an item has been removed from either of the lists.
+        /// </summary>
+        public event EventHandler Removed;
+
+        /// <summary>
+        /// Occurs when the <b>Remove All</b> operation has finished.
+        /// </summary>
+        public event EventHandler RemovedAll;
 
         /// <summary>
         /// Occurs before a <b>Removing</b> operation is started.  Allows the handler to
@@ -709,6 +740,13 @@ namespace MFR.GUI.Controls
             => AddingAll?.Invoke(this, e);
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MovedDown" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMovedDown()
+            => MovedDown?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveDownButtonEnabledChanged" />
@@ -736,6 +774,13 @@ namespace MFR.GUI.Controls
             => MoveDownButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MovedUp" />
+        /// event.
+        /// </summary>
+        protected virtual void OnMovedUp()
+            => MovedUp?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.GUI.Controls.DarkListBuilderControl.MoveUpButtonEnabledChanged" />
@@ -761,6 +806,36 @@ namespace MFR.GUI.Controls
         /// </summary>
         protected virtual void OnMoveUpButtonVisibleChanged()
             => MoveUpButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MovingDown" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnMovingDown(CancelEventArgs e)
+            => MovingDown?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.MovingUp" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnMovingUp(CancelEventArgs e)
+            => MovingUp?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -817,6 +892,20 @@ namespace MFR.GUI.Controls
             => RemoveButtonVisibleChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.Removed" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemoved()
+            => Removed?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.RemovedAll" />
+        /// event.
+        /// </summary>
+        protected virtual void OnRemovedAll()
+            => RemovedAll?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Raises the <see cref="E:MFR.GUI.Controls.DarkListBuilderControl.Removing" />
         /// event.
         /// </summary>
@@ -853,6 +942,8 @@ namespace MFR.GUI.Controls
             if (ce.Cancel) return;
 
             // TODO: Add code here to implement the Add All operation.
+
+            OnAddedAll();
         }
 
         private void OnClickAddButton(object sender, EventArgs e)
@@ -866,13 +957,49 @@ namespace MFR.GUI.Controls
             OnAdded();
         }
 
-        private void OnClickMoveDownButton(object sender, EventArgs e) { }
+        private void OnClickMoveDownButton(object sender, EventArgs e)
+        {
+            var ce = new CancelEventArgs();
+            OnMovingDown(ce);
+            if (ce.Cancel) return;
 
-        private void OnClickMoveUpButton(object sender, EventArgs e) { }
+            // TODO: Add code here to implement the Move Down operation
 
-        private void OnClickRemoveAllButton(object sender, EventArgs e) { }
+            OnMovedDown();
+        }
 
-        private void OnClickRemoveButton(object sender, EventArgs e) { }
+        private void OnClickMoveUpButton(object sender, EventArgs e)
+        {
+            var ce = new CancelEventArgs();
+            OnMovingUp(ce);
+            if (ce.Cancel) return;
+
+            // TODO: Add code here to implement he Move Up operation
+
+            OnMovedUp();
+        }
+
+        private void OnClickRemoveAllButton(object sender, EventArgs e)
+        {
+            var ce = new CancelEventArgs();
+            OnRemovingAll(ce);
+            if (ce.Cancel) return;
+
+            // TODO: Add code here to implement the Remove All operation
+
+            OnRemovedAll();
+        }
+
+        private void OnClickRemoveButton(object sender, EventArgs e)
+        {
+            var ce = new CancelEventArgs();
+            OnRemoving(ce);
+            if (ce.Cancel) return;
+
+            // TODO: Add code here to implement the Remove operation
+
+            OnRemoved();
+        }
 
         /// <summary>
         /// Subscribes to the events of the component controls for rebroadcast to clients.
