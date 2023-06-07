@@ -4,6 +4,7 @@ using MFR.GUI.Controls.Interfaces;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Controls;
 using xyLOGIX.UI.Dark.Controls.Interfaces;
 
@@ -28,6 +29,8 @@ namespace MFR.GUI.Controls
             InitializeComponent();
 
             SubscribeEvents();
+
+            Application.Idle += OnUpdateCmdUI;
         }
 
         /// <summary>
@@ -142,6 +145,26 @@ namespace MFR.GUI.Controls
                 if (changed) OnAddButtonVisibleChanged();
             }
         }
+
+        public bool HasItems
+            => HasLeftItems || HasRightItems;
+
+        public bool HasLeftItems
+            => leftListBox.Items.Count > 0;
+
+        public bool HasLeftSelection
+            => HasLeftItems && (leftListBox.SelectedIndex >= 0 ||
+               leftListBox.SelectedIndices.Count > 0);
+
+        public bool HasRightItems
+            => rightListBox.Items.Count > 0;
+
+        public bool HasRightSelection
+            => HasRightItems && (rightListBox.SelectedIndex >= 0 ||
+               rightListBox.SelectedIndices.Count > 0);
+
+        public bool HasSelection
+            => HasItems && (HasLeftSelection || HasRightSelection);
 
         /// <summary>
         /// Gets a reference to the <see cref="T:xyLOGIX.UI.Dark.Controls.DarkListBox" />
@@ -1085,6 +1108,13 @@ namespace MFR.GUI.Controls
             // TODO: Add code here to implement the Remove operation
 
             OnRemoved(new ListBuilderEventArgs(ListBuilderSide.Unknown));
+        }
+
+        private void OnUpdateCmdUI(object sender, EventArgs e)
+        {
+            addButton.Enabled = addAllButton.Enabled = HasLeftSelection;
+            removeButton.Enabled = removeAllButton.Enabled = HasRightSelection;
+            moveUpButton.Enabled = moveDownButton.Enabled = HasSelection;
         }
 
         /// <summary>

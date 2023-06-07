@@ -123,7 +123,7 @@ Required designer variable.
 
 ##### Summary
 
-Gets or sets a value tha indicates whether the button can be
+Gets or sets a value that indicates whether the button can be
 selected.
 
 <a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddAllButtonText'></a>
@@ -146,7 +146,7 @@ visible.
 
 ##### Summary
 
-Gets or sets a value tha indicates whether the button can be
+Gets or sets a value that indicates whether the button can be
 selected.
 
 <a name='P-MFR-GUI-Controls-DarkListBuilderControl-AddButtonText'></a>
@@ -189,7 +189,7 @@ available items).
 
 ##### Summary
 
-Gets or sets a value tha indicates whether the button can be
+Gets or sets a value that indicates whether the button can be
 selected.
 
 <a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveDownButtonText'></a>
@@ -212,7 +212,7 @@ visible.
 
 ##### Summary
 
-Gets or sets a value tha indicates whether the button can be
+Gets or sets a value that indicates whether the button can be
 selected.
 
 <a name='P-MFR-GUI-Controls-DarkListBuilderControl-MoveUpButtonText'></a>
@@ -235,7 +235,7 @@ visible.
 
 ##### Summary
 
-Gets or sets a value tha indicates whether the button can be
+Gets or sets a value that indicates whether the button can be
 selected.
 
 <a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveAllButtonText'></a>
@@ -258,7 +258,7 @@ visible.
 
 ##### Summary
 
-Gets or sets a value tha indicates whether the button can be
+Gets or sets a value that indicates whether the button can be
 selected.
 
 <a name='P-MFR-GUI-Controls-DarkListBuilderControl-RemoveButtonText'></a>
