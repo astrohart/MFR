@@ -97,10 +97,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -135,13 +132,9 @@
       <Project>{0c26f537-5909-44b9-97d0-27d503df6d10}</Project>
       <Name>MFR.GUI.Models.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models.Extensions\MFR.GUI.Models.Extensions.csproj">
-      <Project>{5F49F367-FF7D-40F4-973B-DC2942823A43}</Project>
-      <Name>MFR.GUI.Models.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models\MFR.GUI.Models.csproj">
-      <Project>{3F247357-B6E3-4681-85FF-889EEA471C89}</Project>
-      <Name>MFR.GUI.Models</Name>
+    <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
+      <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>
+      <Name>MFR.GUI.Models.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Converters\MFR.Settings.Configuration.Converters.csproj">
       <Project>{EB94927D-3E4C-4167-BFF4-440DEDE945A6}</Project>
@@ -158,10 +151,6 @@
     <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
       <Name>MFR.FileSystem.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration\MFR.Settings.Configuration.csproj">
-      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
-      <Name>MFR.Settings.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

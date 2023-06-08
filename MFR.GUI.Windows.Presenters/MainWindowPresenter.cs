@@ -535,17 +535,21 @@ namespace MFR.GUI.Windows.Presenters
         public void InitializeOperationSelections()
         {
             View.OperationsCheckedListBox.CheckByName(
-                OperationNames.RenameFilesInFolder, CurrentConfiguration.RenameFiles
+                OperationNames.RenameFilesInFolder,
+                CurrentConfiguration.RenameFiles
             );
             View.OperationsCheckedListBox.CheckByName(
-                OperationNames.RenameSubFolders, CurrentConfiguration.RenameSubFolders
+                OperationNames.RenameSubFolders,
+                CurrentConfiguration.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
-                OperationNames.ReplaceTextInFiles, CurrentConfiguration.ReplaceTextInFiles
+                OperationNames.ReplaceTextInFiles,
+                CurrentConfiguration.ReplaceTextInFiles
             );
 
             View.OperationsCheckedListBox.CheckByName(
-                OperationNames.RenameSolutionFolders, CurrentConfiguration.RenameSolutionFolders
+                OperationNames.RenameSolutionFolders,
+                CurrentConfiguration.RenameSolutionFolders
             );
         }
 
@@ -819,7 +823,9 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now
             CurrentConfiguration.RenameFiles =
-                View.OperationsCheckedListBox.GetCheckedByName(OperationNames.RenameFilesInFolder);
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    OperationNames.RenameFilesInFolder
+                );
             CurrentConfiguration.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     OperationNames.RenameSubFolders

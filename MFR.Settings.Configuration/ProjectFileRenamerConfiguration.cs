@@ -1,6 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.GUI.Models;
 using MFR.GUI.Models.Extensions;
+using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Interfaces;
@@ -86,6 +86,23 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> and
+        /// returns a reference to it.
+        /// </summary>
+        [JsonConstructor]
+        public ProjectFileRenamerConfiguration(
+            IEnumerable<IOperationTypeInfo> operations)
+        {
+            Reset();
+
+            if (operations == null || !operations.Any()) return;
+
+            foreach (var operation in operations)
+                InvokableOperations.Add(operation);
+        }
+
+        /// <summary>
         /// Gets or sets a <see cref="T:System.Boolean" /> value indicating whether the
         /// application should automatically terminate once the user's requested operations
         /// are complete.
@@ -142,11 +159,11 @@ namespace MFR.Settings.Configuration
         /// all the operations the user can perform with this application.
         /// </summary>
         [JsonProperty("invokableOperations")]
-        public List<OperationTypeInfo> InvokableOperations
+        public List<IOperationTypeInfo> InvokableOperations
         {
             get;
             set;
-        } = new List<OperationTypeInfo>();
+        } = new List<IOperationTypeInfo>();
 
         /// <summary>
         /// Gets a value indicating whether the form is in the Folded state.
@@ -206,15 +223,19 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return result;
-                    if (!InvokableOperations.Any(
-                            o => o.IsOfType(OperationType.RenameFilesInFolder)
-                        ))
-                        return result;
+                    if (InvokableOperations == null) return result;
+                    if (InvokableOperations.Count == 0) return result;
 
-                    result = InvokableOperations[
-                            (int)OperationType.RenameFilesInFolder]
-                        .Enabled;
+                    foreach (var operation in InvokableOperations.Where(
+                                 operation
+                                     => operation != null &&
+                                        OperationType.RenameFilesInFolder ==
+                                        operation.OperationType
+                             ))
+                    {
+                        result = operation.Enabled;
+                        break;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -229,14 +250,16 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return;
-                    if (!InvokableOperations.Any(
-                            o => o.IsOfType(OperationType.RenameFilesInFolder)
-                        ))
-                        return;
+                    if (!InvokableOperations.Any()) return;
 
-                    InvokableOperations[(int)OperationType.RenameFilesInFolder]
-                        .Enabled = value;
+                    foreach (var operation in InvokableOperations)
+                    {
+                        if (OperationType.RenameFilesInFolder !=
+                            operation.OperationType)
+                            continue;
+
+                        operation.Enabled = value;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -258,7 +281,7 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (!InvokableOperations.Any()) return result;
                     if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameSolutionFolders)
                         ))
@@ -514,7 +537,7 @@ namespace MFR.Settings.Configuration
                 FindWhat = ReplaceWith = string.Empty;
                 StartingFolder = Directory.GetCurrentDirectory();
 
-                InvokableOperations.Clear();
+                InvokableOperations = new List<IOperationTypeInfo>();
             }
             catch (Exception ex)
             {

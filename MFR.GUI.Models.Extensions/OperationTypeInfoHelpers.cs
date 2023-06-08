@@ -1,3 +1,4 @@
+using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace MFR.GUI.Models.Extensions
         /// than zero elements; <see langword="false" /> otherwise.
         /// </returns>
         public static bool HasAnyOperations(
-            this IList<OperationTypeInfo> source)
+            this IList<IOperationTypeInfo> source)
         {
             var result = false;
             try
@@ -68,7 +69,7 @@ namespace MFR.GUI.Models.Extensions
         /// <paramref name="operationTypeInfo" /> is passed <see langword="null" /> for its
         /// argument.
         /// </remarks>
-        public static bool IsOfType(this OperationTypeInfo operationTypeInfo,
+        public static bool IsOfType(this IOperationTypeInfo operationTypeInfo,
             OperationType operationType)
             => operationTypeInfo != null &&
                operationType.Equals(operationTypeInfo.OperationType);

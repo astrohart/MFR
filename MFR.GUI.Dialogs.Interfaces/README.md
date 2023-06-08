@@ -7,6 +7,8 @@
 - [ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
   - [CanCancel](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CanCancel 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CanCancel')
   - [CurrentFile](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CurrentFile 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CurrentFile')
+- [ICustomizeOperationsDialog](#T-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog 'MFR.GUI.Dialogs.Interfaces.ICustomizeOperationsDialog')
+  - [OperationListBuilder](#P-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog-OperationListBuilder 'MFR.GUI.Dialogs.Interfaces.ICustomizeOperationsDialog.OperationListBuilder')
 - [IErrorReportDialog](#T-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog')
   - [ErrorReportContents](#P-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog-ErrorReportContents 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.ErrorReportContents')
   - [Exception](#P-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog-Exception 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.Exception')
@@ -79,6 +81,22 @@ Gets or sets a value indicating whether the operation can be cancelled.
 ##### Summary
 
 Gets or sets a string containing the new detailed status.
+
+<a name='T-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog'></a>
+## ICustomizeOperationsDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Interfaces
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog-OperationListBuilder'></a>
+### OperationListBuilder `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IDarkListBuilderControl](#T-xyLOGIX-UI-Dark-Controls-Interfaces-IDarkListBuilderControl 'xyLOGIX.UI.Dark.Controls.Interfaces.IDarkListBuilderControl')
+interface.
 
 <a name='T-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog'></a>
 ## IErrorReportDialog `type`

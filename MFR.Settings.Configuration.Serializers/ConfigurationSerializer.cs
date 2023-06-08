@@ -1,11 +1,9 @@
 using MFR.FileSystem.Helpers;
-using MFR.GUI.Models.Extensions;
 using MFR.Settings.Configuration.Converters;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Serializers.Properties;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
@@ -75,13 +73,13 @@ namespace MFR.Settings.Configuration.Serializers
                     : ConvertConfiguration.FromJson(content);
 
                 if (result == null) return result;
-                
+
                 /*
                  * If, for some reason, the loaded configuration object contains no
                  * operations to perform, initialize the list with the defaults.
                  */
 
-                if (!result.InvokableOperations.HasAnyOperations())
+                if (!result.InvokableOperations.Any())
                     result.InvokableOperations = Initialize.OperationList();
             }
             catch (Exception ex)
@@ -120,10 +118,7 @@ namespace MFR.Settings.Configuration.Serializers
 
             try
             {
-                var content =
-                    ConvertConfiguration.ToJson(
-                        configuration
-                    );
+                var content = ConvertConfiguration.ToJson(configuration);
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;

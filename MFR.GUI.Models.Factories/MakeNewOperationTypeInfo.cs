@@ -56,6 +56,7 @@ namespace MFR.GUI.Models.Factories
             if (self == null) throw new ArgumentNullException(nameof(self));
 
             self.OperationType = type;
+            self.Name = GetOperationName.For(type);
 
             return self;
         }

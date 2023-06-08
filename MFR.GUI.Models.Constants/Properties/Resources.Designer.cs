@@ -88,7 +88,7 @@ namespace MFR.GUI.Models.Constants.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Replace In Files.
+        ///   Looks up a localized string similar to Replace in Files.
         /// </summary>
         internal static string OperationName_ReplaceTextInFiles {
             get {
