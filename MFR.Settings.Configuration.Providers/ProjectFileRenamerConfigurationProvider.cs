@@ -31,8 +31,6 @@ namespace MFR.Settings.Configuration.Providers
         ProjectFileRenamerConfigurationProvider :
             IProjectFileRenamerConfigurationProvider
     {
-        
-
         /// <summary>
         /// A <see cref="T:System.String" /> that contains the fully-qualified pathname of
         /// the application's configuration file.
@@ -331,9 +329,8 @@ namespace MFR.Settings.Configuration.Providers
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-                CurrentConfiguration =
-                    MakeNewProjectFileRenamerConfiguration
-                        .FromScratch(); // make a default config if can't be loaded
+
+                OnConfigurationLoadFailed(new ConfigurationLoadFailedEventArgs(ex));
             }
         }
 
@@ -374,6 +371,12 @@ namespace MFR.Settings.Configuration.Providers
         /// Occurs when configuration settings have been successfully loaded.
         /// </summary>
         public event EventHandler ConfigurationLoaded;
+
+        /// <summary>
+        /// Occurs when we failed to load the application's configuration settings from the
+        /// configuration file.
+        /// </summary>
+        public event ConfigurationLoadFailedEventHandler ConfigurationLoadFailed;
 
         /// <summary>
         /// Saves configuration data to a file on the disk having path
@@ -461,6 +464,28 @@ namespace MFR.Settings.Configuration.Providers
             );
 
             ConfigurationLoaded?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationLoadFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnConfigurationLoadFailed(
+            ConfigurationLoadFailedEventArgs e)
+        {
+            CurrentConfiguration =
+                MakeNewProjectFileRenamerConfiguration
+                    .FromScratch(); // make a default config if can't be loaded
+
+            ConfigurationLoadFailed?.Invoke(this, e);
         }
 
         /// <summary>

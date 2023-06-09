@@ -1,24 +1,57 @@
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Events;
+using System;
 
 namespace MFR.Settings.Configuration.Providers.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
+    /// Defines the publicly-exposed methods and properties of a
+    /// ProjectFileRenamerConfiguration Provider object.
     /// </summary>
     public interface IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
+        /// Gets or sets the pathname of the configuration file.
+        /// </summary>
+        string ConfigurationFilePath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface and which
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        IProjectFileRenamerConfiguration CurrentConfiguration { get; set; }
+        IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        }
 
         /// <summary>
-        /// Gets or sets the pathname of the configuration file.
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePath" />
+        /// property has been updated.
         /// </summary>
-        string ConfigurationFilePath { get; set; }
+        event ConfigurationFilePathChangedEventHandler
+            ConfigurationFilePathChanged;
+
+        /// <summary>
+        /// Occurs when configuration settings have been successfully loaded.
+        /// </summary>
+        event EventHandler ConfigurationLoaded;
+
+        /// <summary>
+        /// Occurs when we failed to load the application's configuration settings from the
+        /// configuration file.
+        /// </summary>
+        event ConfigurationLoadFailedEventHandler ConfigurationLoadFailed;
 
         /// <summary>
         /// Exports configuration data to a file other than the master
