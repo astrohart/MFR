@@ -1,4 +1,5 @@
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Events.Common
@@ -7,6 +8,7 @@ namespace MFR.Events.Common
     /// Defines the data that is passed by all events of type
     /// <see cref="T:MFR.Events.Common.StatusUpdateEventHandler" />.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class StatusUpdateEventArgs : EventArgs
     {
         /// <summary>

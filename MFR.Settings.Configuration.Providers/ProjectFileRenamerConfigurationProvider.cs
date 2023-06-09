@@ -31,6 +31,8 @@ namespace MFR.Settings.Configuration.Providers
         ProjectFileRenamerConfigurationProvider :
             IProjectFileRenamerConfigurationProvider
     {
+        
+
         /// <summary>
         /// A <see cref="T:System.String" /> that contains the fully-qualified pathname of
         /// the application's configuration file.

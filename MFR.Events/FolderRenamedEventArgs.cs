@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Events
@@ -22,6 +23,7 @@ namespace MFR.Events
     /// Callers of this class must use the class' constructor to initialize these
     /// properties.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class FolderRenamedEventArgs : EventArgs
     {
         /// <summary>

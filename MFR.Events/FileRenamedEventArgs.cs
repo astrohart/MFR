@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Events
@@ -5,6 +6,7 @@ namespace MFR.Events
     /// <summary>
     /// Provides information for FileRenamed event handlers.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class FileRenamedEventArgs : EventArgs
     {
         /// <summary>

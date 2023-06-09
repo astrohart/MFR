@@ -127,6 +127,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Events.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Actions.Constants\MFR.Settings.Configuration.Actions.Constants.csproj">
       <Project>{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}</Project>
       <Name>MFR.Settings.Configuration.Actions.Constants</Name>
