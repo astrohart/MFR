@@ -1,7 +1,6 @@
-﻿using MFR.GUI.Models.Constants;
-using MFR.Operations.Constants;
+﻿using MFR.Operations.Constants;
 
-namespace MFR.GUI.Models.Factories
+namespace MFR.GUI.Models.Constants.Factories
 {
     public static class GetOperationName
     {

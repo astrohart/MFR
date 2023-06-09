@@ -90,15 +90,23 @@ namespace MFR.Settings.Configuration
         /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> and
         /// returns a reference to it.
         /// </summary>
+        /// ///
+        /// <param name="invokableOperations">
+        /// (Required.) Reference to an instance of a collection of instances of objects,
+        /// each of which implements the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IOperationTypeInfo" /> interface and represents
+        /// the collection of all operations that will get invoked when the application next runs. 
+        /// </param>
         [JsonConstructor]
         public ProjectFileRenamerConfiguration(
-            IEnumerable<IOperationTypeInfo> operations)
+            IEnumerable<IOperationTypeInfo> invokableOperations)
         {
             Reset();
 
-            if (operations == null || !operations.Any()) return;
+            if (invokableOperations == null || !invokableOperations.Any())
+                return;
 
-            foreach (var operation in operations)
+            foreach (var operation in invokableOperations)
                 InvokableOperations.Add(operation);
         }
 

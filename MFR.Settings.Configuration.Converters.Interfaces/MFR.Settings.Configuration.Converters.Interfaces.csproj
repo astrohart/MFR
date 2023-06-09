@@ -5,9 +5,9 @@
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{5E70A79D-D257-4443-8530-892C76A972CC}</ProjectGuid>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <ProjectGuid>{240114EA-1353-4037-876F-FC8AC3BF76C3}</ProjectGuid>
+    <Deterministic>false</Deterministic>
+    <NuGetPackageImportStamp />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -20,8 +20,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Settings.Profiles.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <DocumentationFile>bin\x64\Debug\MFR.Settings.Configuration.Converters.Interfaces.xml</DocumentationFile>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -33,9 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Settings.Profiles.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <SkipPostSharp>True</SkipPostSharp>
+    <DocumentationFile>bin\x64\Release\MFR.Settings.Configuration.Converters.Interfaces.xml</DocumentationFile>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,8 +48,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Settings.Profiles.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <DocumentationFile>bin\x86\Debug\MFR.Settings.Configuration.Converters.Interfaces.xml</DocumentationFile>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -62,8 +62,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Settings.Profiles.xml</DocumentationFile>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <DocumentationFile>bin\x86\Release\MFR.Settings.Configuration.Converters.Interfaces.xml</DocumentationFile>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -72,10 +72,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Settings.Profiles</AssemblyName>
+    <AssemblyName>MFR.Settings.Configuration.Converters.Interfaces</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Settings.Profiles</RootNamespace>
+    <RootNamespace>MFR.Settings.Configuration.Converters.Interfaces</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -109,7 +109,7 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Profile.cs" />
+    <Compile Include="IOperationTypeInfoConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -119,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
@@ -128,36 +128,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
-      <Project>{4b618058-a034-4087-9fc9-f6f3d7a5cbb1}</Project>
-      <Name>MFR.GUI.Models.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models\MFR.GUI.Models.csproj">
-      <Project>{3F247357-B6E3-4681-85FF-889EEA471C89}</Project>
-      <Name>MFR.GUI.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Events\MFR.Settings.Configuration.Events.csproj">
-      <Project>{0a5d9948-aad3-403c-bef5-0f3e0c54c048}</Project>
-      <Name>MFR.Settings.Configuration.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
-      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-      <Name>MFR.Settings.Configuration.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration\MFR.Settings.Configuration.csproj">
-      <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
-      <Name>MFR.Settings.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
-      <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
-      <Name>MFR.Settings.Profiles.Interfaces</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <PropertyGroup>
     <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
 SET "_SOLUTION_DIR=$(SolutionDir.TrimEnd('\'))"
@@ -214,10 +189,8 @@ SET ERRORLEVEL=0</PostBuildEvent>
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
     <Error Condition="!Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2023.0.4\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2023.0.4\build\PostSharp.targets'))" />
   </Target>
-  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.targets')" />
 </Project>

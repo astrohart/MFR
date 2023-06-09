@@ -59,7 +59,7 @@ namespace MFR.Settings.Configuration.Serializers
                     pathname
                 );
 
-            IProjectFileRenamerConfiguration result = default;
+            IProjectFileRenamerConfiguration result;
 
             try
             {
@@ -70,7 +70,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // with its properties all set to default values.
                 result = string.IsNullOrWhiteSpace(content)
                     ? MakeNewProjectFileRenamerConfiguration.FromScratch()
-                    : ConvertConfiguration.FromJson(content);
+                    : ConvertProjectFileRenamerConfiguration.FromJson(content);
 
                 if (result == null) return result;
 
@@ -118,7 +118,7 @@ namespace MFR.Settings.Configuration.Serializers
 
             try
             {
-                var content = ConvertConfiguration.ToJson(configuration);
+                var content = ConvertProjectFileRenamerConfiguration.ToJson(configuration);
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;
