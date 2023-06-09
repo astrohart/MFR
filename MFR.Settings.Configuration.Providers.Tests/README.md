@@ -3,15 +3,16 @@
 
 ## Contents
 
-- [ConfigurationProviderTests](#T-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests 'MFR.Settings.Configuration.Providers.Tests.ConfigurationProviderTests')
-  - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ConfigurationProviderTests.ConfigFilePath')
-  - [Test_Load_Works()](#M-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests-Test_Load_Works 'MFR.Settings.Configuration.Providers.Tests.ConfigurationProviderTests.Test_Load_Works')
+- [ProjectFileRenamerConfigurationProviderfigurationProviderTests](#T-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests')
+  - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.ConfigFilePath')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.CurrentConfiguration')
+  - [Test_Load_Works()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Test_Load_Works 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Test_Load_Works')
 - [Resources](#T-MFR-Settings-Configuration-Providers-Tests-Properties-Resources 'MFR.Settings.Configuration.Providers.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Providers-Tests-Properties-Resources-Culture 'MFR.Settings.Configuration.Providers.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Providers-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Providers.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests'></a>
-## ConfigurationProviderTests `type`
+<a name='T-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests'></a>
+## ProjectFileRenamerConfigurationProviderfigurationProviderTests `type`
 
 ##### Namespace
 
@@ -20,17 +21,26 @@ MFR.Settings.Configuration.Providers.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[ConfigurationProvider](#T-MFR-Settings-Configuration-Providers-ConfigurationProvider 'MFR.Settings.Configuration.Providers.ConfigurationProvider')
+[ProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider')
 class.
 
-<a name='F-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests-ConfigFilePath'></a>
+<a name='F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-ConfigFilePath'></a>
 ### ConfigFilePath `constants`
 
 ##### Summary
 
 Path to a sample configuration file.
 
-<a name='M-MFR-Settings-Configuration-Providers-Tests-ConfigurationProviderTests-Test_Load_Works'></a>
+<a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface.
+
+<a name='M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Test_Load_Works'></a>
 ### Test_Load_Works() `method`
 
 ##### Summary
