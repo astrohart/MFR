@@ -12,7 +12,6 @@ using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -26,7 +25,8 @@ namespace MFR.Settings.Configuration.Providers
     /// user's configuration file.
     /// </summary>
     public class
-        ProjectFileRenamerConfigurationProvider : IProjectFileRenamerConfigurationProvider
+        ProjectFileRenamerConfigurationProvider :
+            IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -142,7 +142,9 @@ namespace MFR.Settings.Configuration.Providers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider" />.
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider" />
+        /// .
         /// </summary>
         public static ProjectFileRenamerConfigurationProvider Instance
         {
@@ -322,24 +324,20 @@ namespace MFR.Settings.Configuration.Providers
             try
             {
                 var loadConfigurationAction = GetConfigurationAction
-                    .For<IFileSystemEntry,
-                        IProjectFileRenamerConfiguration>(
-                        ConfigurationActionType
-                            .LoadConfigurationFromFile
+                    .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
+                        ConfigurationActionType.LoadConfigurationFromFile
                     );
                 if (loadConfigurationAction == null)
                 {
-                    CurrentConfiguration = MakeNewProjectFileRenamerConfiguration.FromScratch();
+                    CurrentConfiguration =
+                        MakeNewProjectFileRenamerConfiguration.FromScratch();
                     return;
                 }
 
-                CurrentConfiguration = loadConfigurationAction
-                                       .WithInput(
-                                           MakeNewFileSystemEntry.ForPath(
-                                               pathname
-                                           )
-                                       )
-                                       .Execute();
+                CurrentConfiguration = loadConfigurationAction.WithInput(
+                        MakeNewFileSystemEntry.ForPath(pathname)
+                    )
+                    .Execute();
             }
             catch (Exception ex)
             {
