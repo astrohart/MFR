@@ -21,11 +21,6 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         string ConfigurationFilePath { get; set; }
 
         /// <summary>
-        /// Gets the default filename for the config file.
-        /// </summary>
-        string DefaultConfigFileName { get; }
-
-        /// <summary>
         /// Exports configuration data to a file other than the master
         /// configuration file.
         /// </summary>

@@ -3,6 +3,7 @@ using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
+using MFR.Settings.Configuration.Providers.Constants;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -204,8 +205,7 @@ namespace MFR.GUI.Dialogs
                     : Path.GetDirectoryName(ConfigPathname);
             configPathBrowseBox.FileName =
                 string.IsNullOrWhiteSpace(ConfigPathname)
-                    ? GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                        .DefaultConfigFileName
+                    ? DefaultFileNames.ConfigurationFile
                     : ConfigPathname;
 
             if (configPathBrowseBox.ShowDialog(this) != DialogResult.OK)

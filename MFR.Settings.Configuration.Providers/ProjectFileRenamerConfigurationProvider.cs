@@ -11,6 +11,7 @@ using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
+using MFR.Settings.Configuration.Providers.Constants;
 using MFR.Settings.Configuration.Providers.Events;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
@@ -31,6 +32,13 @@ namespace MFR.Settings.Configuration.Providers
             IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
+        /// A <see cref="T:System.String" /> that contains the fully-qualified pathname of
+        /// the application's configuration file.
+        /// </summary>
+        private string _configurationFilePath = LoadConfigPathAction.Execute()
+            .Path;
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         static ProjectFileRenamerConfigurationProvider() { }
@@ -40,12 +48,22 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         protected ProjectFileRenamerConfigurationProvider() { }
 
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the application's configuration file.
+        /// </summary>
         public string ConfigurationFilePath
         {
-            get;
-            set;
-        } = LoadConfigPathAction.Execute()
-                                .Path;
+            get => _configurationFilePath;
+            set {
+                var changed = _configurationFilePath != value;
+                _configurationFilePath = value;
+                if (changed)
+                    OnConfigurationFilePathChanged(
+                        new ConfigurationFilePathChangedEventArgs(value)
+                    );
+            }
+        }
 
         /// <summary>
         /// Gets a string whose value is the pathname of the system Registry key in which
@@ -97,8 +115,8 @@ namespace MFR.Settings.Configuration.Providers
         /// <summary>
         /// Gets the default filename for the config file.
         /// </summary>
-        public string DefaultConfigFileName
-            => "config.json";
+        public static string DefaultConfigFileName
+            => DefaultFileNames.ConfigurationFile;
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -156,54 +174,6 @@ namespace MFR.Settings.Configuration.Providers
                 }
 
                 return result;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the pathname of the configuration file.
-        /// </summary>
-        public string OldConfigurationFilePath
-        {
-            get {
-                string result;
-
-                try
-                {
-                    result = 
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = string.Empty;
-                }
-
-                return result;
-            }
-            set {
-                try
-                {
-                    if (string.IsNullOrWhiteSpace(value)) return;
-
-                    var saveCommand = GetSaveConfigPathCommand.ForPath(
-                        ConfigurationFilePathKeyName,
-                        ConfigurationFilePathValueName, value
-                    );
-                    if (saveCommand == null) return;
-
-                    saveCommand.Execute();
-
-                    /* Clear out the cache of previously-loaded paths
-                     for this same operation. */
-                    LoadConfigPathAction.AsCachedResultAction()
-                                        .ClearResultCache();
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-                }
             }
         }
 

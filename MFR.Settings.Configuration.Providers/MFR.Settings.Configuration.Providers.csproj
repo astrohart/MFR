@@ -159,6 +159,10 @@
       <Project>{8EDA8989-3CCE-4372-BF8C-2F52641F8B97}</Project>
       <Name>MFR.Settings.Configuration.Providers.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Constants\MFR.Settings.Configuration.Providers.Constants.csproj">
+      <Project>{C2AA4A95-8355-4378-AFFD-841C8EE7FCDD}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Events\MFR.Settings.Configuration.Providers.Events.csproj">
       <Project>{DED9D951-3021-47A7-9DFA-61BE08B433FC}</Project>
       <Name>MFR.Settings.Configuration.Providers.Events</Name>
