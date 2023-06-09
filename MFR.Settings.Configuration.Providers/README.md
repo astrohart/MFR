@@ -20,6 +20,7 @@
   - [Import(sourceFilePath)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Import-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Import(System.String)')
   - [Load(pathname)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Load-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Load(System.String)')
   - [OnConfigurationFilePathChanged(e)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationFilePathChanged-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.OnConfigurationFilePathChanged(MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs)')
+  - [OnConfigurationLoadFailed(e)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationLoadFailed-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.OnConfigurationLoadFailed(MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs)')
   - [OnConfigurationLoaded()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationLoaded 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.OnConfigurationLoaded')
   - [Save(pathname)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Save-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Save(System.String)')
   - [SaveCopyAs(pathname)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-SaveCopyAs-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.SaveCopyAs(System.String)')
@@ -312,6 +313,23 @@ event.
 | ---- | ---- | ----------- |
 | e | [MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs') | A
 [ConfigurationFilePathChangedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs')
+that contains the event data. |
+
+<a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationLoadFailed-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs-'></a>
+### OnConfigurationLoadFailed(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationLoadFailed 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationLoadFailed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs') | A
+[ConfigurationLoadFailedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs')
 that contains the event data. |
 
 <a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationLoaded'></a>

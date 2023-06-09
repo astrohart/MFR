@@ -10,7 +10,8 @@ namespace MFR.FileSystem
     /// POCO to encapsulate the details of a file-system entry, such as a file
     /// or a folder.
     /// </summary>
-    public class FileSystemEntry : OperationTypeSpecificObjectBase, IFileSystemEntry
+    public class FileSystemEntry : OperationTypeSpecificObjectBase,
+        IFileSystemEntry
     {
         /// <summary>
         /// Constructs a new instance of
@@ -119,5 +120,10 @@ namespace MFR.FileSystem
 
             return this;
         }
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override string ToString()
+            => Path;
     }
 }

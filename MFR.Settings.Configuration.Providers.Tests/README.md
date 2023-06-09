@@ -12,7 +12,6 @@
   - [LogFilePath()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-Get-LogFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.Get.LogFilePath')
 - [ProjectFileRenamerConfigurationProviderTests](#T-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests')
   - [#ctor()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-#ctor 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.#ctor')
-  - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.ConfigFilePath')
   - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.CurrentConfiguration')
   - [ProjectFileRenamerConfigurationProvider](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.ProjectFileRenamerConfigurationProvider')
   - [InitializeProjectFileRenamerConfigurationProvider()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-InitializeProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.InitializeProjectFileRenamerConfigurationProvider')
@@ -138,13 +137,6 @@ and returns a reference to it.
 ##### Parameters
 
 This constructor has no parameters.
-
-<a name='F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ConfigFilePath'></a>
-### ConfigFilePath `constants`
-
-##### Summary
-
-Path to a sample configuration file.
 
 <a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-CurrentConfiguration'></a>
 ### CurrentConfiguration `property`
