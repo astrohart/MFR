@@ -88,21 +88,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
             );
         }
 
-        /// <summary>
-        /// Initializes the project file renamer configuration provider object.
-        /// </summary>
-        private void InitializeProjectFileRenamerConfigurationProvider()
-        {
-            ProjectFileRenamerConfigurationProvider
-                    .ConfigurationFilePathChanged +=
-                OnProjectFileRenamerConfigurationProviderConfigurationFilePathChanged;
-            ProjectFileRenamerConfigurationProvider.ConfigurationLoadFailed +=
-                OnProjectFileRenamerConfigurationProviderConfigurationLoadFailed;
-            ProjectFileRenamerConfigurationProvider.ConfigurationLoaded +=
-                OnProjectFileRenamerConfigurationProviderConfigurationLoaded;
-        }
-
-        private void
+        private static void
             OnProjectFileRenamerConfigurationProviderConfigurationFilePathChanged(
                 object sender, ConfigurationFilePathChangedEventArgs e)
         {
@@ -115,7 +101,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
             );
         }
 
-        private void
+        private static void
             OnProjectFileRenamerConfigurationProviderConfigurationLoaded(
                 object sender, EventArgs e)
             => DebugUtils.WriteLine(
@@ -123,7 +109,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 $"*** SUCCESS *** The configuration file has been loaded from '{ProjectFileRenamerConfigurationProvider.ConfigurationFilePath}'."
             );
 
-        private void
+        private static void
             OnProjectFileRenamerConfigurationProviderConfigurationLoadFailed(
                 object sender, ConfigurationLoadFailedEventArgs e)
         {
@@ -134,6 +120,20 @@ namespace MFR.Settings.Configuration.Providers.Tests
 
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
+        }
+
+        /// <summary>
+        /// Initializes the project file renamer configuration provider object.
+        /// </summary>
+        private void InitializeProjectFileRenamerConfigurationProvider()
+        {
+            ProjectFileRenamerConfigurationProvider
+                    .ConfigurationFilePathChanged +=
+                OnProjectFileRenamerConfigurationProviderConfigurationFilePathChanged;
+            ProjectFileRenamerConfigurationProvider.ConfigurationLoadFailed +=
+                OnProjectFileRenamerConfigurationProviderConfigurationLoadFailed;
+            ProjectFileRenamerConfigurationProvider.ConfigurationLoaded +=
+                OnProjectFileRenamerConfigurationProviderConfigurationLoaded;
         }
 
         /// <summary>
