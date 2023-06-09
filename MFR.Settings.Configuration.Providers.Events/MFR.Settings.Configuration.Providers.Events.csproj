@@ -106,8 +106,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationLoadedEventArgs.cs" />
-    <Compile Include="ConfigurationLoadedEventHandler.cs" />
+    <Compile Include="ConfigurationFilePathChangedEventArgs.cs" />
+    <Compile Include="ConfigurationFilePathChangedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,22 +4,22 @@ using System;
 namespace MFR.Settings.Configuration.Providers.Events
 {
     /// <summary>
-    /// Provides information for <c>ConfigurationLoaded</c> event handlers.
+    /// Provides information for <c>ConfigurationFilePathChanged</c> event handlers.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public class ConfigurationLoadedEventArgs : EventArgs
+    public class ConfigurationFilePathChangedEventArgs : EventArgs
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Events.ConfigurationLoadedEventArgs" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the configuration file that was most recently loaded.
         /// </param>
-        public ConfigurationLoadedEventArgs(string pathname)
+        public ConfigurationFilePathChangedEventArgs(string pathname)
         {
             Pathname = pathname;
         }
