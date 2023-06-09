@@ -8,10 +8,12 @@
   - [AssemblyCompany](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-AssemblyCompany 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Get.AssemblyCompany')
   - [AssemblyProduct](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-AssemblyProduct 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Get.AssemblyProduct')
   - [AssemblyTitle](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-AssemblyTitle 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Get.AssemblyTitle')
+  - [ApplicationProductName()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-ApplicationProductName 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Get.ApplicationProductName')
   - [LogFilePath()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-LogFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Get.LogFilePath')
 - [ProjectFileRenamerConfigurationProviderfigurationProviderTests](#T-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests')
   - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.ConfigFilePath')
   - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.CurrentConfiguration')
+  - [ProjectFileRenamerConfigurationProvider](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.ProjectFileRenamerConfigurationProvider')
   - [Initialize()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Initialize 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Initialize')
   - [Test_Load_Works()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Test_Load_Works 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderfigurationProviderTests.Test_Load_Works')
 - [Resources](#T-MFR-Settings-Configuration-Providers-Tests-Properties-Resources 'MFR.Settings.Configuration.Providers.Tests.Properties.Resources')
@@ -76,6 +78,23 @@ for this application.
 This property is really an alias for the
 [AssemblyTitle](#P-AssemblyMetadata-AssemblyTitle 'AssemblyMetadata.AssemblyTitle') property.
 
+<a name='M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-ApplicationProductName'></a>
+### ApplicationProductName() `method`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains a user-friendly name for
+the software product of which this application or class library is a part.
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains a user-friendly name
+for the software product of which this application or class library is a part.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Get-LogFilePath'></a>
 ### LogFilePath() `method`
 
@@ -120,7 +139,16 @@ Path to a sample configuration file.
 
 Gets a reference to an instance of an object that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface.
+interface that allows access to the currently-loaded application configuration.
+
+<a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-ProjectFileRenamerConfigurationProvider'></a>
+### ProjectFileRenamerConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface that provides access to this application's configuration.
 
 <a name='M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderfigurationProviderTests-Initialize'></a>
 ### Initialize() `method`
