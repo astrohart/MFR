@@ -155,6 +155,10 @@
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Events\MFR.Settings.Configuration.Providers.Events.csproj">
+      <Project>{DED9D951-3021-47A7-9DFA-61BE08B433FC}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
       <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>

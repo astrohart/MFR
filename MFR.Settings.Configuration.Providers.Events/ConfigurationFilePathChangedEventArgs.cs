@@ -24,6 +24,10 @@ namespace MFR.Settings.Configuration.Providers.Events
             Pathname = pathname;
         }
 
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the configuration file that was most recently loaded.
+        /// </summary>
         public string Pathname
         {
             get;

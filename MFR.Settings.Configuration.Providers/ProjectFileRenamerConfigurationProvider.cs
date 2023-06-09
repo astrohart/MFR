@@ -10,6 +10,7 @@ using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Events;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using System.IO;
@@ -342,6 +343,8 @@ namespace MFR.Settings.Configuration.Providers
                 if (CurrentConfiguration == null)
                     return;
 
+                OnConfigurationLoaded();
+
                 // store the pathname in the pathname parameter into the ConfigurationFilePath property
                 ConfigurationFilePath = pathname;
             }
@@ -378,6 +381,15 @@ namespace MFR.Settings.Configuration.Providers
 
             ConfigurationFilePath = pathname;
         }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePath" />
+        /// property has been updated.
+        /// </summary>
+        public event ConfigurationFilePathChangedEventHandler
+            ConfigurationFilePathChanged;
 
         /// <summary>
         /// Occurs when configuration settings have been successfully loaded.
@@ -440,12 +452,28 @@ namespace MFR.Settings.Configuration.Providers
         /// <summary>
         /// Raises the
         /// <see
+        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePathChanged" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnConfigurationFilePathChanged(
+            ConfigurationFilePathChangedEventArgs e)
+            => ConfigurationFilePathChanged?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see
         ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationLoaded" />
         /// event.
         /// </summary>
         /// <remarks>
-        /// This event is raised when this object has successfully completed the
-        /// operation of loading the configuration settings.
+        /// This event is raised when this object has successfully completed the operation
+        /// of loading the configuration settings.
         /// </remarks>
         protected virtual void OnConfigurationLoaded()
         {
