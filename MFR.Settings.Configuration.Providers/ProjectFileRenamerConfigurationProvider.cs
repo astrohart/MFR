@@ -10,6 +10,7 @@ using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Events;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
@@ -39,68 +40,30 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         protected ProjectFileRenamerConfigurationProvider() { }
 
-        /// <summary>
-        /// Gets or sets the pathname of the configuration file.
-        /// </summary>
         public string ConfigurationFilePath
         {
-            get {
-                string result;
-
-                try
-                {
-                    result = LoadConfigPathAction.Execute()
-                                                 .Path;
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = string.Empty;
-                }
-
-                return result;
-            }
-            set {
-                try
-                {
-                    if (string.IsNullOrWhiteSpace(value)) return;
-
-                    var saveCommand = GetSaveConfigPathCommand.ForPath(
-                        ConfigurationFilePathKeyName,
-                        ConfigurationFilePathValueName, value
-                    );
-                    if (saveCommand == null) return;
-
-                    saveCommand.Execute();
-
-                    /* Clear out the cache of previously-loaded paths
-                     for this same operation. */
-                    LoadConfigPathAction.AsCachedResultAction()
-                                        .ClearResultCache();
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-                }
-            }
-        }
+            get;
+            set;
+        } = LoadConfigPathAction.Execute()
+                                .Path;
 
         /// <summary>
         /// Gets a string whose value is the pathname of the system Registry key in which
         /// configuration settings are stored.
         /// </summary>
-        public string ConfigurationFilePathKeyName
-            => ConfigurationPathRegistry.KeyName;
+        public static string ConfigurationFilePathKeyName
+        {
+            get;
+        } = ConfigurationPathRegistry.KeyName;
 
         /// <summary>
         /// Gets a string whose value is the Registry value under which we store the path
         /// to the configuration file.
         /// </summary>
-        public string ConfigurationFilePathValueName
-            => ConfigurationPathRegistry.ValueName;
+        public static string ConfigurationFilePathValueName
+        {
+            get;
+        } = ConfigurationPathRegistry.ValueName;
 
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
@@ -124,15 +87,11 @@ namespace MFR.Settings.Configuration.Providers
         /// We store the config file, by default, in a folder under
         /// %USERPROFILE%\AppData\Local.
         /// </remarks>
-        public string DefaultConfigDir
+        public static string DefaultConfigDir
         {
             get;
-        } = Path.Combine(
-            Path.Combine(
-                Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData
-                ), Application.CompanyName
-            ), $@"{Application.ProductName}\Config"
+        } = Formulate.DefaultConfigDir(
+            Application.CompanyName, Application.ProductName
         );
 
         /// <summary>
@@ -156,7 +115,7 @@ namespace MFR.Settings.Configuration.Providers
         /// Default action to be utilized for loading the path to the configuration file
         /// from the system Registry.
         /// </summary>
-        private IAction<IRegQueryExpression<string>, IFileSystemEntry>
+        private static IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadConfigPathAction
         {
             get {
@@ -197,6 +156,54 @@ namespace MFR.Settings.Configuration.Providers
                 }
 
                 return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the pathname of the configuration file.
+        /// </summary>
+        public string OldConfigurationFilePath
+        {
+            get {
+                string result;
+
+                try
+                {
+                    result = 
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(value)) return;
+
+                    var saveCommand = GetSaveConfigPathCommand.ForPath(
+                        ConfigurationFilePathKeyName,
+                        ConfigurationFilePathValueName, value
+                    );
+                    if (saveCommand == null) return;
+
+                    saveCommand.Execute();
+
+                    /* Clear out the cache of previously-loaded paths
+                     for this same operation. */
+                    LoadConfigPathAction.AsCachedResultAction()
+                                        .ClearResultCache();
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
         }
 

@@ -21,14 +21,6 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         string ConfigurationFilePath { get; set; }
 
         /// <summary>
-        /// Gets the default folder for the configuration file.
-        /// </summary>
-        /// <remarks>
-        /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
-        /// </remarks>
-        string DefaultConfigDir { get; }
-
-        /// <summary>
         /// Gets the default filename for the config file.
         /// </summary>
         string DefaultConfigFileName { get; }
@@ -59,22 +51,6 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         void Export(string exportFileName);
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key in which configuration settings are stored.
-        /// </summary>
-        string ConfigurationFilePathKeyName
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store the path to the configuration file.
-        /// </summary>
-        string ConfigurationFilePathValueName
-        {
-            get;
-        }
 
         /// <summary>
         /// Imports configuration data from a file whose path is

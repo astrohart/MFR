@@ -2,6 +2,7 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -199,7 +200,7 @@ namespace MFR.GUI.Dialogs
         {
             configPathBrowseBox.InitialDirectory =
                 string.IsNullOrWhiteSpace(ConfigPathname)
-                    ? ConfigurationProvider.DefaultConfigDir
+                    ? Formulate.DefaultConfigDir(Application.CompanyName, Application.ProductName)
                     : Path.GetDirectoryName(ConfigPathname);
             configPathBrowseBox.FileName =
                 string.IsNullOrWhiteSpace(ConfigPathname)
