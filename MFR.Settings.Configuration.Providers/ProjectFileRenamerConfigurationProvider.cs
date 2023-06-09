@@ -338,6 +338,12 @@ namespace MFR.Settings.Configuration.Providers
                         MakeNewFileSystemEntry.ForPath(pathname)
                     )
                     .Execute();
+
+                if (CurrentConfiguration == null)
+                    return;
+
+                // store the pathname in the pathname parameter into the ConfigurationFilePath property
+                ConfigurationFilePath = pathname;
             }
             catch (Exception ex)
             {
@@ -347,17 +353,6 @@ namespace MFR.Settings.Configuration.Providers
                     MakeNewProjectFileRenamerConfiguration
                         .FromScratch(); // make a default config if can't be loaded
             }
-
-            if (CurrentConfiguration == null)
-                return;
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
-            );
-
-            // store the pathname in the pathname parameter into the ConfigurationFilePath property
-            ConfigurationFilePath = pathname;
         }
 
         /// <summary>
@@ -383,6 +378,11 @@ namespace MFR.Settings.Configuration.Providers
 
             ConfigurationFilePath = pathname;
         }
+
+        /// <summary>
+        /// Occurs when configuration settings have been successfully loaded.
+        /// </summary>
+        public event EventHandler ConfigurationLoaded;
 
         /// <summary>
         /// Saves configuration data to a file on the disk having path
@@ -435,6 +435,25 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationLoaded" />
+        /// event.
+        /// </summary>
+        /// <remarks>
+        /// This event is raised when this object has successfully completed the
+        /// operation of loading the configuration settings.
+        /// </remarks>
+        protected virtual void OnConfigurationLoaded()
+        {
+            DebugUtils.WriteLine(
+                DebugLevel.Info, "*** SUCCESS *** Configuration loaded."
+            );
+
+            ConfigurationLoaded?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
