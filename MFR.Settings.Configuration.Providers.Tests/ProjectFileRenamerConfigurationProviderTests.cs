@@ -16,19 +16,8 @@ namespace MFR.Settings.Configuration.Providers.Tests
     /// class.
     /// </summary>
     [TestFixture]
-    public class ProjectFileRenamerConfigurationProviderfigurationProviderTests
+    public class ProjectFileRenamerConfigurationProviderTests
     {
-        /// <summary>
-        /// Initializes the state of this fixture for every unit test session.
-        /// </summary>
-        [SetUp]
-        public void Initialize()
-            => LogFileManager.InitializeLogging(
-                true, muteConsole: false,
-                infrastructureType: LoggingInfrastructureType.PostSharp,
-                logFileName: Get.LogFilePath()
-            );
-
         /// <summary>
         /// Path to a sample configuration file.
         /// </summary>
@@ -36,16 +25,36 @@ namespace MFR.Settings.Configuration.Providers.Tests
             @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\config.json";
 
         /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests" />
+        /// and returns a reference to it.
+        /// </summary>
+        public ProjectFileRenamerConfigurationProviderTests()
+        {
+            LogFileManager.InitializeLogging(
+                muteConsole: false,
+                infrastructureType: LoggingInfrastructureType.PostSharp,
+                logFileName: Get.LogFilePath(),
+                applicationName: Get.ApplicationProductName()
+            );
+        }
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface.
+        /// interface that allows access to the currently-loaded application configuration.
         /// </summary>
         private static IProjectFileRenamerConfiguration CurrentConfiguration
-        {
-            get;
-        } = ProjectFileRenamerConfigurationProvider.CurrentConfiguration;
+            => ProjectFileRenamerConfigurationProvider.CurrentConfiguration;
 
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface that provides access to this application's configuration.
+        /// </summary>
         private static IProjectFileRenamerConfigurationProvider
             ProjectFileRenamerConfigurationProvider
         {
@@ -113,6 +122,33 @@ namespace MFR.Settings.Configuration.Providers.Tests
             /// </remarks>
             private static string AssemblyTitle
                 => AssemblyMetadata.AssemblyTitle.Replace(" ", "_");
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains a user-friendly name for
+            /// the software product of which this application or class library is a part.
+            /// </summary>
+            /// <returns>
+            /// A <see cref="T:System.String" /> that contains a user-friendly name
+            /// for the software product of which this application or class library is a part.
+            /// </returns>
+            public static string ApplicationProductName()
+            {
+                string result;
+
+                try
+                {
+                    result = AssemblyProduct;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
 
             /// <summary>
             /// Obtains a <see cref="T:System.String" /> that contains the fully-qualified
