@@ -1,4 +1,5 @@
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Events;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using NUnit.Framework;
@@ -19,12 +20,6 @@ namespace MFR.Settings.Configuration.Providers.Tests
     public class ProjectFileRenamerConfigurationProviderTests
     {
         /// <summary>
-        /// Path to a sample configuration file.
-        /// </summary>
-        private const string ConfigFilePath =
-            @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\config.json";
-
-        /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests" />
@@ -38,6 +33,8 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
+
+            InitializeProjectFileRenamerConfigurationProvider();
         }
 
         /// <summary>
@@ -62,19 +59,81 @@ namespace MFR.Settings.Configuration.Providers.Tests
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load" />
+        /// method functions properly and actually loads a configuration object.
         /// </summary>
         [Test]
         public void Test_Load_Works()
         {
             Assert.DoesNotThrow(
-                () => ProjectFileRenamerConfigurationProvider.Load(
-                    ConfigFilePath
+                () => ProjectFileRenamerConfigurationProvider.Load()
+            );
+            Assert.IsNotNull(CurrentConfiguration);
+            Assert.IsNotEmpty(
+                ProjectFileRenamerConfigurationProvider.ConfigurationFilePath
+            );
+            Assert.IsTrue( /* Check that the config was actually loaded from a file. */
+                File.Exists(
+                    ProjectFileRenamerConfigurationProvider
+                        .ConfigurationFilePath
                 )
             );
 
             // Dump the variable CurrentConfiguration.FindWhat to the log
-            DebugUtils.WriteLine(DebugLevel.Debug, $"ProjectFileRenamerConfigurationProviderTests.Test_Load_Works: CurrentConfiguration.FindWhat = '{CurrentConfiguration.FindWhat}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ProjectFileRenamerConfigurationProviderTests.Test_Load_Works: CurrentConfiguration.FindWhat = '{CurrentConfiguration.FindWhat}'"
+            );
+        }
+
+        /// <summary>
+        /// Initializes the project file renamer configuration provider object.
+        /// </summary>
+        private void InitializeProjectFileRenamerConfigurationProvider()
+        {
+            ProjectFileRenamerConfigurationProvider
+                    .ConfigurationFilePathChanged +=
+                OnProjectFileRenamerConfigurationProviderConfigurationFilePathChanged;
+            ProjectFileRenamerConfigurationProvider.ConfigurationLoadFailed +=
+                OnProjectFileRenamerConfigurationProviderConfigurationLoadFailed;
+            ProjectFileRenamerConfigurationProvider.ConfigurationLoaded +=
+                OnProjectFileRenamerConfigurationProviderConfigurationLoaded;
+        }
+
+        private void
+            OnProjectFileRenamerConfigurationProviderConfigurationFilePathChanged(
+                object sender, ConfigurationFilePathChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(e.Pathname)) return;
+            if (!File.Exists(e.Pathname)) return;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: The configuration file's new pathname is: '{e.Pathname}'."
+            );
+        }
+
+        private void
+            OnProjectFileRenamerConfigurationProviderConfigurationLoaded(
+                object sender, EventArgs e)
+            => DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The configuration file has been loaded from '{ProjectFileRenamerConfigurationProvider.ConfigurationFilePath}'."
+            );
+
+        private void
+            OnProjectFileRenamerConfigurationProviderConfigurationLoadFailed(
+                object sender, ConfigurationLoadFailedEventArgs e)
+        {
+            DebugUtils.WriteLine(
+                DebugLevel.Error,
+                "*** ERROR *** Failed to load the configuration file for the application."
+            );
+
+            // dump all the exception info to the log
+            DebugUtils.LogException(e.Exception);
         }
 
         /// <summary>

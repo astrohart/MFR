@@ -15,6 +15,7 @@
   - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.ConfigFilePath')
   - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.CurrentConfiguration')
   - [ProjectFileRenamerConfigurationProvider](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.ProjectFileRenamerConfigurationProvider')
+  - [InitializeProjectFileRenamerConfigurationProvider()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-InitializeProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.InitializeProjectFileRenamerConfigurationProvider')
   - [Test_Load_Works()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-Test_Load_Works 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.Test_Load_Works')
 - [Resources](#T-MFR-Settings-Configuration-Providers-Tests-Properties-Resources 'MFR.Settings.Configuration.Providers.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Providers-Tests-Properties-Resources-Culture 'MFR.Settings.Configuration.Providers.Tests.Properties.Resources.Culture')
@@ -162,6 +163,17 @@ interface that allows access to the currently-loaded application configuration.
 Gets a reference to the one and only instance of the object that implements the
 [IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
 interface that provides access to this application's configuration.
+
+<a name='M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-InitializeProjectFileRenamerConfigurationProvider'></a>
+### InitializeProjectFileRenamerConfigurationProvider() `method`
+
+##### Summary
+
+Initializes the project file renamer configuration provider object.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-Test_Load_Works'></a>
 ### Test_Load_Works() `method`

@@ -178,6 +178,27 @@ namespace MFR.Settings.Configuration.Providers
         }
 
         /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePath" />
+        /// property has been updated.
+        /// </summary>
+        public event ConfigurationFilePathChangedEventHandler
+            ConfigurationFilePathChanged;
+
+        /// <summary>
+        /// Occurs when configuration settings have been successfully loaded.
+        /// </summary>
+        public event EventHandler ConfigurationLoaded;
+
+        /// <summary>
+        /// Occurs when we failed to load the application's configuration settings from the
+        /// configuration file.
+        /// </summary>
+        public event ConfigurationLoadFailedEventHandler
+            ConfigurationLoadFailed;
+
+        /// <summary>
         /// Exports configuration data to a file other than the master
         /// configuration file.
         /// </summary>
@@ -330,7 +351,11 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                OnConfigurationLoadFailed(new ConfigurationLoadFailedEventArgs(ex));
+                OnConfigurationLoadFailed(
+                    new ConfigurationLoadFailedEventArgs(
+                        ConfigurationFilePath, ex
+                    )
+                );
             }
         }
 
@@ -357,26 +382,6 @@ namespace MFR.Settings.Configuration.Providers
 
             ConfigurationFilePath = pathname;
         }
-
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePath" />
-        /// property has been updated.
-        /// </summary>
-        public event ConfigurationFilePathChangedEventHandler
-            ConfigurationFilePathChanged;
-
-        /// <summary>
-        /// Occurs when configuration settings have been successfully loaded.
-        /// </summary>
-        public event EventHandler ConfigurationLoaded;
-
-        /// <summary>
-        /// Occurs when we failed to load the application's configuration settings from the
-        /// configuration file.
-        /// </summary>
-        public event ConfigurationLoadFailedEventHandler ConfigurationLoadFailed;
 
         /// <summary>
         /// Saves configuration data to a file on the disk having path

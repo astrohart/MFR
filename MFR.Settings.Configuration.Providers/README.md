@@ -5,6 +5,7 @@
 
 - [ProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider')
   - [#ctor()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-#ctor 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.#ctor')
+  - [_configurationFilePath](#F-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-_configurationFilePath 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider._configurationFilePath')
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePath')
   - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePathKeyName')
   - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePathValueName')
@@ -18,6 +19,8 @@
   - [Export(exportFileName)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Export-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Export(System.String)')
   - [Import(sourceFilePath)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Import-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Import(System.String)')
   - [Load(pathname)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Load-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Load(System.String)')
+  - [OnConfigurationFilePathChanged(e)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationFilePathChanged-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.OnConfigurationFilePathChanged(MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs)')
+  - [OnConfigurationLoaded()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationLoaded 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.OnConfigurationLoaded')
   - [Save(pathname)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Save-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Save(System.String)')
   - [SaveCopyAs(pathname)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-SaveCopyAs-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.SaveCopyAs(System.String)')
 - [Resources](#T-MFR-Settings-Configuration-Providers-Properties-Resources 'MFR.Settings.Configuration.Providers.Properties.Resources')
@@ -47,12 +50,21 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
+<a name='F-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-_configurationFilePath'></a>
+### _configurationFilePath `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified pathname of
+the application's configuration file.
+
 <a name='P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationFilePath'></a>
 ### ConfigurationFilePath `property`
 
 ##### Summary
 
-Gets or sets the pathname of the configuration file.
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the application's configuration file.
 
 <a name='P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationFilePathKeyName'></a>
 ### ConfigurationFilePathKeyName `property`
@@ -107,7 +119,8 @@ Gets the default filename for the config file.
 ##### Summary
 
 Gets a reference to the one and only instance of
-[ProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider').
+[ProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider')
+.
 
 <a name='P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-LoadConfigPathAction'></a>
 ### LoadConfigPathAction `property`
@@ -283,6 +296,41 @@ parameter cannot be located on the disk. |
 The value of the
 [ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ProjectFileRenamerConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration')
 property is set to `null` if an error occurs during loading.
+
+<a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationFilePathChanged-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs-'></a>
+### OnConfigurationFilePathChanged(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationFilePathChanged 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePathChanged')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs') | A
+[ConfigurationFilePathChangedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs')
+that contains the event data. |
+
+<a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-OnConfigurationLoaded'></a>
+### OnConfigurationLoaded() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigurationLoaded 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationLoaded')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This event is raised when this object has successfully completed the operation
+of loading the configuration settings.
 
 <a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Save-System-String-'></a>
 ### Save(pathname) `method`
