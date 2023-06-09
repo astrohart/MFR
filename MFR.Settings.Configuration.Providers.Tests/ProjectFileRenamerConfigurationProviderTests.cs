@@ -73,7 +73,8 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 )
             );
 
-            Console.WriteLine(CurrentConfiguration.FindWhat);
+            // Dump the variable CurrentConfiguration.FindWhat to the log
+            DebugUtils.WriteLine(DebugLevel.Debug, $"ProjectFileRenamerConfigurationProviderTests.Test_Load_Works: CurrentConfiguration.FindWhat = '{CurrentConfiguration.FindWhat}'");
         }
 
         /// <summary>
