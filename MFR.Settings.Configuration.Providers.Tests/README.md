@@ -180,7 +180,9 @@ This method has no parameters.
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[Load](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Load 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load')
+method functions properly and actually loads a configuration object.
 
 ##### Parameters
 
