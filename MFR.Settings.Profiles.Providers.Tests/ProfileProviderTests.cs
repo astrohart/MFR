@@ -25,7 +25,12 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// </summary>
         [SetUp]
         public override void Initialize()
-            => base.Initialize();
+        {
+            base.Initialize();
+
+            ProfileProvider.ProfileCollectionFilePathChanged +=
+                OnProfileCollectionFilePathChangedProfileProvider;
+        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -140,6 +145,34 @@ namespace MFR.Settings.Profiles.Providers.Tests
                      */
                     StringConstants.EMPTY_STRING
                 )
+            );
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged" />
+        /// event raised by the Profile Provider..
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method reports, to the console, what the current value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
+        /// property is.
+        /// </remarks>
+        private static void OnProfileCollectionFilePathChangedProfileProvider(
+                object sender, EventArgs e)
+
+            // Dump the variable ProfileProvider.ProfileCollectionFilePath to the console
+            => Console.WriteLine(
+                $"[  DEBUG  ]  ProfileProvider.ProfileCollectionFilePath = '{ProfileProvider.ProfileCollectionFilePath}'"
             );
     }
 }

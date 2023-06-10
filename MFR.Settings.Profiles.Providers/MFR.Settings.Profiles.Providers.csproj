@@ -150,6 +150,10 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Constants\MFR.GUI.Constants.csproj">
+      <Project>{BA67C73B-59F3-4FF2-81B3-C2EED243DC17}</Project>
+      <Name>MFR.GUI.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
@@ -217,6 +221,10 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
       <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
       <Name>MFR.Settings.Profiles.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Actions\MFR.Settings.Profiles.Providers.Actions.csproj">
+      <Project>{CF32FCC8-ECCA-4D63-8657-734D07953AF5}</Project>
+      <Name>MFR.Settings.Profiles.Providers.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Constants\MFR.Settings.Profiles.Providers.Constants.csproj">
       <Project>{D372BB51-2013-4121-B267-8E3BB447440A}</Project>

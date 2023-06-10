@@ -10,6 +10,7 @@
   - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
+  - [InitializeProfileCollectionFilePath()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileCollectionFilePath')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Load(System.String)')
   - [OnProfileCollectionFilePathChanged()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfileCollectionFilePathChanged')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Save(System.String)')
@@ -89,6 +90,17 @@ allows access to the set of profiles defined by the user.
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath'></a>
+### InitializeProfileCollectionFilePath() `method`
+
+##### Summary
+
+This method is called in order to set the value of the
 
 ##### Parameters
 

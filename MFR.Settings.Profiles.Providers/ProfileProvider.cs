@@ -1,12 +1,15 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.GUI.Constants;
+using MFR.Messages.Commands.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
 using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
+using MFR.Settings.Profiles.Providers.Actions;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -36,7 +39,10 @@ namespace MFR.Settings.Profiles.Providers
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ProfileProvider() { }
+        protected ProfileProvider()
+        {
+            InitializeProfileCollectionFilePath();
+        }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -83,6 +89,14 @@ namespace MFR.Settings.Profiles.Providers
             get;
             protected set; // to enable to be set by members of this class only
         } = MakeNewProfileCollection.FromScratch();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
+        /// property is updated.
+        /// </summary>
+        public event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
         /// Loads the profiles from the profile list file.
@@ -228,30 +242,38 @@ namespace MFR.Settings.Profiles.Providers
 
             try
             {
-                GetProfileCollectionCommandType.For<IFileSystemEntry>(
-                                                   ProfileCollectionCommandType
-                                                       .SaveProfileCollectionToFile
-                                               )
-                                               .WithInput(
-                                                   MakeNewFileSystemEntry
-                                                       .ForPath(
-                                                           /*
-                                                            * Path to the file that
-                                                            * is to be written to the
-                                                            * disk.
-                                                            */
-                                                           pathname
-                                                       )
-                                                       .SetUserState(
-                                                           /*
-                                                            * What needs to be saved?
-                                                            * The list of profiles, which
-                                                            * is the Profiles property.
-                                                            */
-                                                           Profiles
-                                                       )
-                                               )
-                                               .Execute();
+                IFileSystemEntry profileListFileThatIsToBeSaved = default;
+
+                profileListFileThatIsToBeSaved = MakeNewFileSystemEntry.ForPath(
+                        /*
+                                          * Path to the file that
+                                          * is to be written to the
+                                          * disk.
+                                          */
+                        pathname
+                    )
+                    .SetUserState(
+                        /*
+                                          * What needs to be saved?
+                                          * The list of profiles, which
+                                          * is the Profiles property.
+                                          */
+                        Profiles
+                    );
+                if (profileListFileThatIsToBeSaved == null) return;
+
+                ICommand<IFileSystemEntry> saveProfileCommand = default;
+
+                saveProfileCommand = GetProfileCollectionCommandType
+                                     .For<IFileSystemEntry>(
+                                         ProfileCollectionCommandType
+                                             .SaveProfileCollectionToFile
+                                     )
+                                     .WithInput(profileListFileThatIsToBeSaved);
+                if (saveProfileCommand == null)
+                    return;
+
+                saveProfileCommand.Execute();
             }
             catch (Exception ex)
             {
@@ -261,14 +283,6 @@ namespace MFR.Settings.Profiles.Providers
         }
 
         /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
-        /// property is updated.
-        /// </summary>
-        public event EventHandler ProfileCollectionFilePathChanged;
-
-        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged" />
@@ -276,5 +290,13 @@ namespace MFR.Settings.Profiles.Providers
         /// </summary>
         protected virtual void OnProfileCollectionFilePathChanged()
             => ProfileCollectionFilePathChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// This method is called in order to set the value of the
+        /// </summary>
+        private void InitializeProfileCollectionFilePath()
+            => ProfileCollectionFilePath = Obtain.ProfileCollectionFilePath(
+                ProgramText.CompanyName, ProgramText.ProductNameWithoutCompany
+            );
     }
 }
