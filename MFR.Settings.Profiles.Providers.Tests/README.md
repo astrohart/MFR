@@ -13,7 +13,6 @@
 - [ProfileProviderTests](#T-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-#ctor 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.#ctor')
   - [ProfileProvider](#P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileProvider 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.ProfileProvider')
-  - [Initialize()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Initialize 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Initialize')
   - [OnProfileCollectionFilePathChangedProfileProvider(sender,e)](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-OnProfileCollectionFilePathChangedProfileProvider-System-Object,System-EventArgs- 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.OnProfileCollectionFilePathChangedProfileProvider(System.Object,System.EventArgs)')
   - [Test_Load_Add_And_Save_Workflow()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Add_And_Save_Workflow')
   - [Test_Load_Method_Works_When_PassedStringEmpty()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Method_Works_When_PassedStringEmpty 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty')
@@ -146,23 +145,6 @@ This constructor has no parameters.
 Gets a reference to an instance of an object that implements the
 [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
 interface.
-
-<a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Initialize'></a>
-### Initialize() `method`
-
-##### Summary
-
-Method that sets up the logging infrastructure for use with a child test
-fixture.
-
-
-
-Child classes may override this method to run additional
-set-up logic.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-OnProfileCollectionFilePathChangedProfileProvider-System-Object,System-EventArgs-'></a>
 ### OnProfileCollectionFilePathChangedProfileProvider(sender,e) `method`

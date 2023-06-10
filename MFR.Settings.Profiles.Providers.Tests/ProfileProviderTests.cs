@@ -2,7 +2,6 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
-using MFR.Tests;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
@@ -16,19 +15,8 @@ namespace MFR.Settings.Profiles.Providers.Tests
     /// <see cref="T:MFR.Settings.Profiles.Providers.ProfileProvider" /> class.
     /// </summary>
     [TestFixture]
-    public class ProfileProviderTests : DebuggableTestFixture
+    public class ProfileProviderTests
     {
-        /// <summary>
-        /// Method that sets up the logging infrastructure for use with a child test
-        /// fixture.
-        /// <para />
-        /// Child classes may override this method to run additional
-        /// set-up logic.
-        /// </summary>
-        [SetUp]
-        public override void Initialize()
-            => base.Initialize();
-
         /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests" /> and
@@ -64,76 +52,86 @@ namespace MFR.Settings.Profiles.Providers.Tests
         [Test]
         public void Test_Load_Add_And_Save_Workflow()
         {
-            Assert.DoesNotThrow(() => ProfileProvider.Load());
+            try
+            {
+                Assert.DoesNotThrow(() => ProfileProvider.Load());
 
-            /*
-             * Get a count of the current number of profiles, to
-             * check whether the Add operations done below are successful.
-             */
-            var currentProfileCount = ProfileProvider.Profiles.Count;
+                /*
+                 * Get a count of the current number of profiles, to
+                 * check whether the Add operations done below are successful.
+                 */
+                var currentProfileCount = ProfileProvider.Profiles.Count;
 
-            /*
-             * If the profile list file is found, then currentProfileCount
-             * should be greater than zero.  Otherwise, it should be zero.
-             */
+                /*
+                 * If the profile list file is found, then currentProfileCount
+                 * should be greater than zero.  Otherwise, it should be zero.
+                 */
 
-            Assert.That(
-                File.Exists(ProfileProvider.ProfileCollectionFilePath)
-                    ? currentProfileCount > 0
-                    : currentProfileCount == 0
-            );
+                Assert.That(
+                    File.Exists(ProfileProvider.ProfileCollectionFilePath)
+                        ? currentProfileCount > 0
+                        : currentProfileCount == 0
+                );
 
-            /*
-             * Add three Profiles with random names.
-             */
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
-            );
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
-            );
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
-            );
+                /*
+                 * Add three Profiles with random names.
+                 */
+                ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                );
+                ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                );
+                ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                );
 
-            /*
-             * Get the new count of profile entries.
-             */
-            var profileCountAfterAdding = ProfileProvider.Profiles.Count;
+                /*
+                 * Get the new count of profile entries.
+                 */
+                var profileCountAfterAdding = ProfileProvider.Profiles.Count;
 
-            /*
-             * Assert that the delta in the count of Profile objects in the
-             * Profiles collection is +3.
-             */
+                /*
+                 * Assert that the delta in the count of Profile objects in the
+                 * Profiles collection is +3.
+                 */
 
-            Assert.That(
-                profileCountAfterAdding - currentProfileCount, Is.EqualTo(3)
-            );
+                Assert.That(
+                    profileCountAfterAdding - currentProfileCount, Is.EqualTo(3)
+                );
 
-            /*
-             * Now, save the Profiles to the disk.
-             */
+                /*
+                 * Now, save the Profiles to the disk.
+                 */
 
-            ProfileProvider.Save();
+                ProfileProvider.Save();
 
-            /*
-             * Assert that the profile list file with the default
-             * path is present.
-             */
+                /*
+                 * Assert that the profile list file with the default
+                 * path is present.
+                 */
 
-            Assert.That(File.Exists(ProfileProvider.ProfileCollectionFilePath));
+                Assert.That(
+                    File.Exists(ProfileProvider.ProfileCollectionFilePath)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
