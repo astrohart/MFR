@@ -18,9 +18,7 @@ namespace MFR.GUI
         /// <see cref="T:MFR.GUI.Application.Interfaces.IWinApp" /> interface.
         /// </summary>
         private static IWinApp Application
-        {
-            get;
-        } = GetProjectFileRenamerApp.SoleInstance();
+            => GetProjectFileRenamerApp.SoleInstance();
 
         /// <summary>
         /// The main entry point for the application.
@@ -35,7 +33,7 @@ namespace MFR.GUI
             SetUpLogging();
 
             DebugUtils.WriteLine(
-                DebugLevel.Info, $"*** INFO: Starting Program.Main."
+                DebugLevel.Info, "*** INFO: Starting Program.Main."
             );
 
             Application.WinInit(args);
@@ -46,7 +44,7 @@ namespace MFR.GUI
         /// </summary>
         private static void SetUpLogging()
             => LogFileManager.InitializeLogging(
-                true, muteConsole: false,
+                muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
