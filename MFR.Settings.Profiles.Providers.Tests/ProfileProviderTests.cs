@@ -24,15 +24,15 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// </summary>
         public ProfileProviderTests()
         {
-            ProfileProvider.ProfileCollectionFilePathChanged +=
-                OnProfileCollectionFilePathChangedProfileProvider;
-
             LogFileManager.InitializeLogging(
                 muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
+
+            ProfileProvider.ProfileCollectionFilePathChanged +=
+                OnProfileCollectionFilePathChangedProfileProvider;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-            =>  GetProfileProvider.SoleInstance();
+            => GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Asserts that the workflow of Profiles, i.e., loading them from disk, adding new
