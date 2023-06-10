@@ -62,7 +62,11 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         }
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="F:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.DefaultProfileCollectionPath" />
+        /// field's value is non-blank, well-formed, and does not throw exceptions when
+        /// it's computed.
         /// </summary>
         [Test]
         public void
@@ -88,22 +92,32 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         }
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// Asserts that the
+        /// <see
+        ///     cref="F:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ExpectedProfileCollectionPath" />
+        /// field's value is non-blank, well-formed, and does not throw exceptions when
+        /// it's evaluated.
         /// </summary>
         [Test]
         public void
             Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()
         {
+            var hashCode = -1;
             Assert.DoesNotThrow(
                 () =>
                 {
-                    var hashCode = ExpectedProfileCollectionPath.GetHashCode();
+                    hashCode = ExpectedProfileCollectionPath.GetHashCode();
                 }
             );
             Assert.IsNotEmpty(ExpectedProfileCollectionPath);
 
+            // Dump the variable hashCode to the console
+            Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
+
             // Dump the variable ExpectedProfileCollectionPath to the console
-            Console.WriteLine($"[  DEBUG  ]  ExpectedProfileCollectionPath = '{ExpectedProfileCollectionPath}'");
+            Console.WriteLine(
+                $"[  DEBUG  ]  ExpectedProfileCollectionPath = '{ExpectedProfileCollectionPath}'"
+            );
         }
 
         /// <summary>
