@@ -41,9 +41,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-        {
-            get;
-        } = GetProfileProvider.SoleInstance();
+            =>  GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Asserts that the workflow of Profiles, i.e., loading them from disk, adding new
