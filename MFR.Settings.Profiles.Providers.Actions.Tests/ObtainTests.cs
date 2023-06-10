@@ -18,6 +18,9 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         /// </summary>
         private const string CompanyName = "xyLOGIX, LLC";
 
+        private const string DefaultProfileCollectionPath =
+            @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\profiles.json";
+
         /// <summary>
         /// A <see cref="T:System.String" /> that contains the application's product name.
         /// </summary>
@@ -37,9 +40,6 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
                 applicationName: Get.ApplicationProductName()
             );
         }
-
-        private const string DefaultProfileCollectionPath =
-            @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\profiles.json";
 
         /// <summary>
         /// Asserts that the
