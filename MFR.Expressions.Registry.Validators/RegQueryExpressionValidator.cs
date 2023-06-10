@@ -88,16 +88,59 @@ namespace MFR.Expressions.Registry.Validators
         /// </exception>
         public void Validate()
         {
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Checking whether a valid object reference was supplied for the expression to be validated..."
+            );
+
+            if (Expression == null)
+                throw new InvalidOperationException(
+                    "A null reference was supplied for the expression to be validated."
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The specified expression has a valid object reference."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Checking whether the expression's KeyPath is filled in..."
+            );
+
+            // Dump the variable Expression.KeyPath to the log
+            DebugUtils.WriteLine(DebugLevel.Debug, $"RegQueryExpressionValidator.Validate: Expression.KeyPath = '{Expression.KeyPath}'");
+
             // write the name of the current class and method we are now
             if (string.IsNullOrWhiteSpace(Expression.KeyPath))
                 throw new InvalidOperationException(
                     "The specified expression's Registry key path is invalid."
                 );
 
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The expression's Registry key path is filled in."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Checking whether the expression's Registry key path begins with a valid hive name..."
+            );
+
             if (!Expression.KeyPath.StartsWithValidHiveName())
                 throw new InvalidOperationException(
-                    "The specified expression's Registry key path must be the fully-qualified path, including the Registry hive (HKEY_CLASSES_ROOT etc)."
+                    "The specified expression's Registry key path must be the fully-qualified Registry key pathname, including a valid Registry hive (HKEY_CLASSES_ROOT etc)."
                 );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** SUCCESS *** The expression's Registry key pathname begins with a valid hive name."
+            );
+
+            /*
+             * NOTE: We do not validate on a non-blank value name because blank value
+             * names are allowed.
+             */
 
             /*
              * OKAY, if we are here, then our validation rules have been passed.
