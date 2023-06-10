@@ -6,7 +6,6 @@ using MFR.Tests;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers.Tests
 {
@@ -27,6 +26,14 @@ namespace MFR.Settings.Profiles.Providers.Tests
         [SetUp]
         public override void Initialize()
             => base.Initialize();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
+        /// </summary>
+        private static IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Asserts that the workflow of Profiles, i.e., loading them from disk, adding new
@@ -108,14 +115,6 @@ namespace MFR.Settings.Profiles.Providers.Tests
         }
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
-        /// interface.
-        /// </summary>
-        private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
-
-        /// <summary>
         /// Asserts that the
         /// <see cref="M:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Load" />
         /// method works even when we pass it the empty string for the pathname of the file
@@ -127,10 +126,10 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// </summary>
         [Test]
         public void Test_Load_Method_Works_When_PassedStringEmpty()
-        {
-            // This is the value that the Load method will utilize because we 
+
+            // This is the value that the Load method will utilize because we
             // pass in the empty string.
-            Assert.DoesNotThrow(
+            => Assert.DoesNotThrow(
                 () => ProfileProvider.Load(
                     /*
                      * This method could also be called with zero parameters passed,
@@ -140,7 +139,5 @@ namespace MFR.Settings.Profiles.Providers.Tests
                     StringConstants.EMPTY_STRING
                 )
             );
-
-        }
     }
 }
