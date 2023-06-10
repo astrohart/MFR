@@ -1,0 +1,175 @@
+<a name='assembly'></a>
+# MFR.Settings.Profiles.Providers.Actions.Tests
+
+## Contents
+
+- [Get](#T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get')
+  - [LOG_FILE_PATH_TERMINATOR](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-LOG_FILE_PATH_TERMINATOR 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.LOG_FILE_PATH_TERMINATOR')
+  - [AssemblyCompany](#P-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-AssemblyCompany 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.AssemblyCompany')
+  - [AssemblyProduct](#P-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-AssemblyProduct 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.AssemblyProduct')
+  - [AssemblyTitle](#P-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-AssemblyTitle 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.AssemblyTitle')
+  - [ApplicationProductName()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-ApplicationProductName 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.ApplicationProductName')
+  - [LogFilePath()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-LogFilePath 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.LogFilePath')
+- [ObtainTests](#T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests')
+  - [Initialize()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Initialize 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Initialize')
+  - [Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank')
+- [Resources](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources')
+  - [Culture](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get'></a>
+## Get `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests
+
+##### Summary
+
+Exposes static methods to obtain data from various data sources.
+
+<a name='F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-LOG_FILE_PATH_TERMINATOR'></a>
+### LOG_FILE_PATH_TERMINATOR `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the final piece of the path of the
+log file.
+
+<a name='P-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-AssemblyCompany'></a>
+### AssemblyCompany `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the product name defined
+for this application.
+
+##### Remarks
+
+This property is really an alias for the
+[AssemblyCompany](#P-AssemblyMetadata-AssemblyCompany 'AssemblyMetadata.AssemblyCompany') property.
+
+<a name='P-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-AssemblyProduct'></a>
+### AssemblyProduct `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the product name defined
+for this application.
+
+##### Remarks
+
+This property is really an alias for the
+[AssemblyProduct](#P-AssemblyMetadata-AssemblyProduct 'AssemblyMetadata.AssemblyProduct') property.
+
+<a name='P-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-AssemblyTitle'></a>
+### AssemblyTitle `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the assembly title defined
+for this application.
+
+##### Remarks
+
+This property is really an alias for the
+[AssemblyTitle](#P-AssemblyMetadata-AssemblyTitle 'AssemblyMetadata.AssemblyTitle') property.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-ApplicationProductName'></a>
+### ApplicationProductName() `method`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains a user-friendly name for
+the software product of which this application or class library is a part.
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains a user-friendly name
+for the software product of which this application or class library is a part.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-LogFilePath'></a>
+### LogFilePath() `method`
+
+##### Summary
+
+Obtains a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the file that should be used for logging messages.
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the file that should be used for logging messages.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests'></a>
+## ObtainTests `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Providers.Actions.Tests
+
+##### Summary
+
+Provides unit tests for the methods, properties, and events of the
+[Obtain](#T-MFR-Settings-Profiles-Providers-Actions-Obtain 'MFR.Settings.Profiles.Providers.Actions.Obtain') class.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Initialize'></a>
+### Initialize() `method`
+
+##### Summary
+
+Initializes the state of this fixture for every unit test session.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank'></a>
+### Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank() `method`
+
+##### Summary
+
+Asserts that the
+[ProfileCollectionFilePath](#M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFilePath')
+method obtains a fully-qualified pathname to a file that exists, containing
+previously-saved configuration-setting profiles, and that the method copes
+with, e.g., the absence of the Registry key that contains the pathname of the
+`profiles.json` file and still provide a reasonable default.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources'></a>
+## Resources `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Providers.Actions.Tests.Properties
+
+##### Summary
+
+A strongly-typed resource class, for looking up localized strings, etc.
+
+<a name='P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-Culture'></a>
+### Culture `property`
+
+##### Summary
+
+Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-ResourceManager'></a>
+### ResourceManager `property`
+
+##### Summary
+
+Returns the cached ResourceManager instance used by this class.

@@ -7,6 +7,10 @@
   - [#ctor(pathname)](#M-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs-#ctor-System-String- 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs.#ctor(System.String)')
   - [Pathname](#P-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventArgs-Pathname 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventArgs.Pathname')
 - [ConfigurationFilePathChangedEventHandler](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationFilePathChangedEventHandler 'MFR.Settings.Configuration.Providers.Events.ConfigurationFilePathChangedEventHandler')
+- [ConfigurationLoadFailedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs')
+  - [#ctor(pathname,exception)](#M-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs-#ctor-System-String,System-Exception- 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs.#ctor(System.String,System.Exception)')
+  - [Pathname](#P-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs-Pathname 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs.Pathname')
+- [ConfigurationLoadFailedEventHandler](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventHandler 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventHandler')
 - [Resources](#T-MFR-Settings-Configuration-Providers-Events-Properties-Resources 'MFR.Settings.Configuration.Providers.Events.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Providers-Events-Properties-Resources-Culture 'MFR.Settings.Configuration.Providers.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Providers-Events-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Providers.Events.Properties.Resources.ResourceManager')
@@ -67,6 +71,66 @@ Represents a handler for a `ConfigurationFilePathChanged` event.
 
 This delegate merely specifies the signature of all methods that handle the
 `ConfigurationFilePathChanged` event.
+
+<a name='T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs'></a>
+## ConfigurationLoadFailedEventArgs `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Providers.Events
+
+##### Summary
+
+Provides information for `ConfigurationLoadFailed` event handlers.
+
+<a name='M-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs-#ctor-System-String,System-Exception-'></a>
+### #ctor(pathname,exception) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ConfigurationLoadFailedEventArgs](#T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs 'MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventArgs')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the application configuration file that could not be loaded. |
+| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | (Required.) Reference to an instance of a [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception')
+that was recently caught upon the failure to load configuration settings for
+the application. |
+
+<a name='P-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventArgs-Pathname'></a>
+### Pathname `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname
+of the application's configuration file that could not be loaded.
+
+<a name='T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventHandler'></a>
+## ConfigurationLoadFailedEventHandler `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Providers.Events
+
+##### Summary
+
+Represents a handler for a `ConfigurationLoadFailed` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventHandler](#T-T-MFR-Settings-Configuration-Providers-Events-ConfigurationLoadFailedEventHandler 'T:MFR.Settings.Configuration.Providers.Events.ConfigurationLoadFailedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`ConfigurationLoadFailed` event.
 
 <a name='T-MFR-Settings-Configuration-Providers-Events-Properties-Resources'></a>
 ## Resources `type`

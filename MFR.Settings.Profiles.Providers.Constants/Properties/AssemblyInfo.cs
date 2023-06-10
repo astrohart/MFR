@@ -1,20 +1,20 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.GUI.Constants")]
-[assembly: AssemblyDescription("Provides objects and functionality for constant values that are to be used throughout the GUI version of the application.")]
+[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Settings.Profiles.Providers.Constants")]
+[assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for GUI Application Constant Values")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Settings.Profiles.Providers.Constants")]
 [assembly:
     AssemblyCopyright(
-"Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX Project File Renamer.  Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+        "This software is a component of xyLOGIX MFR.  MFR is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("80202d52-44f8-48a6-93ae-90438277f41c")]
+[assembly: Guid("d372bb51-2013-4121-b267-8e3bb447440a")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -35,4 +35,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

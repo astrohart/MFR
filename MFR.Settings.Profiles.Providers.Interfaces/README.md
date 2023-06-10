@@ -22,23 +22,26 @@ MFR.Settings.Profiles.Providers.Interfaces
 ##### Summary
 
 Defines the publicly-exposed methods and properties of a
-`
-            Profile
-            Provider
-            `
-object.
+` ProfileProvider` object.
 
 ##### Remarks
 
-A `Profile Provider` object maintains a collection of the profiles
-defined by the user.
+A `ProfileProvider` object maintains a collection of the saved
+configuration setting profiles defined by the user.
 
 <a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath'></a>
 ### ProfileCollectionFilePath `property`
 
 ##### Summary
 
-Gets a string whose value is the pathname of the profile list file.
+Gets a string whose value is the fully-qualified pathname of the profile list
+file.
+
+##### Remarks
+
+This property raises the
+[](#E-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged')
+event if its value is updated.
 
 <a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Profiles'></a>
 ### Profiles `property`
