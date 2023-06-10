@@ -11,10 +11,10 @@
   - [CommandLineParser](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineParser 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineParser')
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
-  - [ConfigurationProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigurationProvider')
   - [FileStreamProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileStreamProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
+  - [ProjectFileRenamerConfigurationProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProjectFileRenamerConfigurationProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProjectFileRenamerConfigurationProvider')
   - [RootDirectoryPathValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryPathValidator')
   - [#cctor()](#M-MFR-GUI-Application-ProjectFileRenamerApp-#cctor 'MFR.GUI.Application.ProjectFileRenamerApp.#cctor')
   - [InitApplication(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-InitApplication-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.InitApplication(System.String[])')
@@ -108,21 +108,6 @@ Gets a reference to an instance of an object that implements the
 [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
 interface.
 
-<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
-
-##### Summary
-
-Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
-interface.
-
-##### Remarks
-
-This object allows access to the user configuration and the
-actions
-associated with it.
-
 <a name='P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider'></a>
 ### FileStreamProvider `property`
 
@@ -148,6 +133,21 @@ Gets a reference to the one and only instance of
 Gets a reference to an instance of an object that implements the
 [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
 interface.
+
+<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ProjectFileRenamerConfigurationProvider'></a>
+### ProjectFileRenamerConfigurationProvider `property`
+
+##### Summary
+
+Gets a reference to the sole instance of the object that implements the
+[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+interface.
+
+##### Remarks
+
+This object allows access to the user configuration and the
+actions
+associated with it.
 
 <a name='P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator'></a>
 ### RootDirectoryPathValidator `property`

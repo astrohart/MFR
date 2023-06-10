@@ -111,7 +111,7 @@ namespace MFR.GUI.Application
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+            ProjectFileRenamerConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -137,7 +137,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -145,7 +147,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
+        {
+            get;
+        } = GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Occurs when the application has been initialized, but has not yet processed the
@@ -201,7 +205,7 @@ namespace MFR.GUI.Application
                     // NOTE: Do NOT save the configuration settings in the event
                     // that the user is running this app from the command line.
                     // Ditto for profiles.
-                    ConfigurationProvider.Save();
+                    ProjectFileRenamerConfigurationProvider.Save();
 
                     ProfileProvider.Save();
                 }
@@ -450,7 +454,7 @@ namespace MFR.GUI.Application
                 // Load the configuration from the disk.
                 ProfileProvider.Load();
 
-                ConfigurationProvider.Load();
+                ProjectFileRenamerConfigurationProvider.Load();
 
                 ParseCommandLine(args);
 
