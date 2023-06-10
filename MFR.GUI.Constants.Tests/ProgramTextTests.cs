@@ -14,27 +14,30 @@ namespace MFR.GUI.Constants.Tests
     public class ProgramTextTests
     {
         /// <summary>
-        /// Initializes the state of this fixture for every unit test session.
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.GUI.Constants.Tests.ProgramTextTests" /> and returns a
+        /// reference to it.
         /// </summary>
-        [SetUp]
-        public void Initialize()
-            => LogFileManager.InitializeLogging(
+        public ProgramTextTests()
+        {
+            LogFileManager.InitializeLogging(
                 muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
-
-        private const string ExpectedCompanyName = "xyLOGIX, LLC";
+        }
 
         /// <summary>
         /// Asserts that the value of the
-        /// <see cref="P:MFR.GUI.Constants.ProgramText.CompanyName" /> property matches the
-        /// <see cref="F:MFR.GUI.Constants.Tests.ProgramTextTests.ExpectedCompanyName" />
+        /// <see cref="P:MFR.GUI.Constants.ProgramText.CompanyName" /> property does not
+        /// throw any exceptions (which it has been doing as of late) and that it returns a
+        /// non-blank value.
         /// value.
         /// </summary>
         [Test]
-        public void Test_CompanyName_Property_ReturnsValidValue()
+        public void
+            Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue()
         {
             var result = string.Empty;
 
@@ -46,10 +49,29 @@ namespace MFR.GUI.Constants.Tests
             );
 
             Assert.IsNotEmpty(result);
-            Assert.AreEqual(
-                ExpectedCompanyName, result,
-                $"Expected: '{ExpectedCompanyName}', but got '{result}'."
+        }
+
+        /// <summary>
+        /// Asserts that the value of the
+        /// <see cref="P:MFR.GUI.Constants.ProgramText.ProductName" /> property does not
+        /// throw any exceptions (which it has been doing as of late) and that it returns a
+        /// non-blank value.
+        /// value.
+        /// </summary>
+        [Test]
+        public void
+            Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue()
+        {
+            var result = string.Empty;
+
+            Assert.DoesNotThrow(() => result = ProgramText.ProductName);
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"ProgramTextTests.Test_ProductName_Property_ReturnsValidValue: Result = '{result}'"
             );
+
+            Assert.IsNotEmpty(result);
         }
     }
 

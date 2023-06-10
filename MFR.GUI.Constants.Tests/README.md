@@ -12,7 +12,8 @@
   - [LogFilePath()](#M-MFR-GUI-Constants-Tests-Get-LogFilePath 'MFR.GUI.Constants.Tests.Get.LogFilePath')
 - [ProgramTextTests](#T-MFR-GUI-Constants-Tests-ProgramTextTests 'MFR.GUI.Constants.Tests.ProgramTextTests')
   - [Initialize()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Initialize 'MFR.GUI.Constants.Tests.ProgramTextTests.Initialize')
-  - [Test_CompanyName_Property_ReturnsValidValue()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_CompanyName_Property_ReturnsValidValue 'MFR.GUI.Constants.Tests.ProgramTextTests.Test_CompanyName_Property_ReturnsValidValue')
+  - [Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue 'MFR.GUI.Constants.Tests.ProgramTextTests.Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue')
+  - [Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue 'MFR.GUI.Constants.Tests.ProgramTextTests.Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue')
 - [Resources](#T-MFR-GUI-Constants-Tests-Properties-Resources 'MFR.GUI.Constants.Tests.Properties.Resources')
   - [Culture](#P-MFR-GUI-Constants-Tests-Properties-Resources-Culture 'MFR.GUI.Constants.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Constants-Tests-Properties-Resources-ResourceManager 'MFR.GUI.Constants.Tests.Properties.Resources.ResourceManager')
@@ -132,14 +133,30 @@ Initializes the state of this fixture for every unit test session.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_CompanyName_Property_ReturnsValidValue'></a>
-### Test_CompanyName_Property_ReturnsValidValue() `method`
+<a name='M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue'></a>
+### Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue() `method`
 
 ##### Summary
 
 Asserts that the value of the
-[CompanyName](#P-MFR-GUI-Constants-ProgramText-CompanyName 'MFR.GUI.Constants.ProgramText.CompanyName') property matches the
-[ExpectedCompanyName](#F-MFR-GUI-Constants-Tests-ProgramTextTests-ExpectedCompanyName 'MFR.GUI.Constants.Tests.ProgramTextTests.ExpectedCompanyName')
+[CompanyName](#P-MFR-GUI-Constants-ProgramText-CompanyName 'MFR.GUI.Constants.ProgramText.CompanyName') property does not
+throw any exceptions (which it has been doing as of late) and that it returns a
+non-blank value.
+value.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue'></a>
+### Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue() `method`
+
+##### Summary
+
+Asserts that the value of the
+[ProductName](#P-MFR-GUI-Constants-ProgramText-ProductName 'MFR.GUI.Constants.ProgramText.ProductName') property does not
+throw any exceptions (which it has been doing as of late) and that it returns a
+non-blank value.
 value.
 
 ##### Parameters
