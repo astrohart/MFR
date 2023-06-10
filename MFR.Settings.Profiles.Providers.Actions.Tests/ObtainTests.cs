@@ -22,6 +22,12 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
             @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\profiles.json";
 
         /// <summary>
+        /// TODO: Keep this value updated with whatever is stored in the system Registry under the ProfileCollectionPath value of the Computer\HKEY_CURRENT_USER\SOFTWARE\xyLOGIX, LLC\Project File Renamer\Paths Registry key.
+        /// </summary>
+        private const string ExpectedProfileCollectionPath =
+            @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\profiles.json";
+
+        /// <summary>
         /// A <see cref="T:System.String" /> that contains the application's product name.
         /// </summary>
         private const string ProductNameWithoutCompany = "Project File Renamer";
