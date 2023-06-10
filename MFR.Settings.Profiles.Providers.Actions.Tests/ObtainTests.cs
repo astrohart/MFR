@@ -82,6 +82,29 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         }
 
         /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists()
+        {
+            Assert.IsNotEmpty(DefaultProfileCollectionPath);
+            Assert.IsTrue(File.Exists(DefaultProfileCollectionPath));
+
+            var result = string.Empty;
+
+            Assert.DoesNotThrow(
+                () => result = Obtain.ProfileCollectionFilePath(
+                    CompanyName, ProductNameWithoutCompany,
+                    DefaultProfileCollectionPath
+                )
+            );
+
+            Assert.IsNotEmpty(result);
+            Assert.AreEqual(DefaultProfileCollectionPath, result);
+        }
+
+        /// <summary>
         /// Exposes static methods to obtain data from various data sources.
         /// </summary>
         private static class Get
