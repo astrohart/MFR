@@ -9,7 +9,6 @@ namespace MFR.Settings.Configuration.Providers.Factories
     ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
     /// interface.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class GetProjectFileRenamerConfigurationProvider
     {
         /// <summary>

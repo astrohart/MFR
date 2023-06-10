@@ -10,7 +10,6 @@ namespace MFR.CommandLine.Validators.Factories
     ///     cref="T:MFR.CommandLine.Validators.Interfaces.ICommandLineValidator" />
     /// interface.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class GetCommandLineValidator
     {
         /// <summary>

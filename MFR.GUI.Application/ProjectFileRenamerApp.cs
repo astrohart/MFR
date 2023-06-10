@@ -21,7 +21,6 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,23 +103,6 @@ namespace MFR.GUI.Application
         } = GetCommandLineValidator.SoleInstance();
 
         /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the
-        /// actions
-        /// associated with it.
-        /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ProjectFileRenamerConfigurationProvider
-        {
-            get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
-
-        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
         /// interface.
@@ -150,6 +132,23 @@ namespace MFR.GUI.Application
         } = GetProfileProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ProjectFileRenamerConfigurationProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
@@ -175,11 +174,20 @@ namespace MFR.GUI.Application
         /// </param>
         public void WinInit(string[] args)
         {
+            DebugUtils.WriteLine(
+                DebugLevel.Info, "*** INFO: Starting WinInit processing..."
+            );
+
             /*
              * Initialize the application, displaying a "loading" progress dialog box
              * to let the user know we're doing something.
              */
             if (!IsAutoStarted(args))
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** INFO: NOT running in AutoStart mode."
+                );
+
                 using (var dialog = MakeNewOperationDrivenProgressDialog
                                     .FromScratch()
                                     .HavingProc(
@@ -217,8 +225,13 @@ namespace MFR.GUI.Application
 
                     ProfileProvider.Save();
                 }
+            }
             else
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** INFO: Running in AutoStart mode."
+                );
+
                 if (!InitApplication(args))
                     Environment.Exit(-1);
 
@@ -357,7 +370,6 @@ namespace MFR.GUI.Application
         /// open a Notepad window displaying the exception's type name, message,
         /// and stack trace.
         /// </remarks>
-        [Log(AttributeExclude = true)]
         private static void OnThreadException(object sender,
             ThreadExceptionEventArgs e)
         {
@@ -446,6 +458,11 @@ namespace MFR.GUI.Application
         private bool InitApplication(string[] args)
         {
             var result = false;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Starting InitApplication processing..."
+            );
 
             try
             {
