@@ -245,22 +245,22 @@ namespace MFR.Settings.Profiles.Providers
                 IFileSystemEntry profileListFileThatIsToBeSaved = default;
 
                 profileListFileThatIsToBeSaved = MakeNewFileSystemEntry.ForPath(
-                        /*
-                                          * Path to the file that
-                                          * is to be written to the
-                                          * disk.
-                                          */
-                        pathname
-                    )
-                    .SetUserState(
-                        /*
-                                          * What needs to be saved?
-                                          * The list of profiles, which
-                                          * is the Profiles property.
-                                          */
-                        Profiles
-                    );
+                    /*
+                                      * Path to the file that
+                                      * is to be written to the
+                                      * disk.
+                                      */
+                    pathname
+                );
                 if (profileListFileThatIsToBeSaved == null) return;
+                profileListFileThatIsToBeSaved.SetUserState(
+                    /*
+                                      * What needs to be saved?
+                                      * The list of profiles, which
+                                      * is the Profiles property.
+                                      */
+                    Profiles
+                );
 
                 ICommand<IFileSystemEntry> saveProfileCommand = default;
 
