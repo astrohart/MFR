@@ -17,47 +17,12 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
     public interface IProfileProvider
     {
         /// <summary>
-        /// Gets the default folder for the configuration file.
-        /// </summary>
-        /// <remarks>
-        /// We store the profile configuration file, by default, in a folder
-        /// under the current user's AppData folder.
-        /// </remarks>
-        string DefaultProfileCollectionDir
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets the default fully-qualified pathname of the profile list file.
-        /// </summary>
-        string DefaultProfileCollectionPath { get; }
-
-        /// <summary>
         /// Gets a string whose value is the pathname of the profile list file.
         /// </summary>
         string ProfileCollectionFilePath
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key
-        /// in which Profile settings are stored.
-        /// </summary>
-        string ProfileCollectionPathKeyName
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store
-        /// the path to the profile list file.
-        /// </summary>
-        string ProfileCollectionPathValueName
-        {
-            get;
         }
 
         /// <summary>

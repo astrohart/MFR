@@ -55,7 +55,7 @@ namespace MFR.Settings.Profiles.Providers
         /// We store the profile list file, by default, in a folder
         /// under the current user's AppData folder.
         /// </remarks>
-        public string DefaultProfileCollectionDir
+        public static string DefaultProfileCollectionDir
         {
             get;
         } = Path.Combine(
@@ -69,7 +69,7 @@ namespace MFR.Settings.Profiles.Providers
         /// <summary>
         /// Gets the default fully-qualified pathname of the profile list file.
         /// </summary>
-        public string DefaultProfileCollectionPath
+        public static string DefaultProfileCollectionPath
             => Path.Combine(
                 DefaultProfileCollectionDir, DEFAULT_PROFILE_LIST_FILENAME
             );
@@ -94,28 +94,30 @@ namespace MFR.Settings.Profiles.Providers
         /// </summary>
         private IAction<IRegQueryExpression<string>, IFileSystemEntry>
             LoadProfileCollectionPathAction
-            => GetProfileCollectionAction
-               .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                   ProfileCollectionActionType.LoadStringFromRegistry
-               )
-               .WithInput(
-                   MakeNewRegQueryExpression.FromScatch<string>()
-                                            .ForKeyPath(
-                                                ProfileCollectionPathKeyName
-                                            )
-                                            .AndValueName(
-                                                ProfileCollectionPathValueName
-                                            )
-                                            .WithDefaultValue(
-                                                /*
-                                                 * This is the default fully-qualified pathname
-                                                 * of the file that is to be utilized if the value
-                                                 * that is supposed to be stored in the system
-                                                 * Registry cannot be found.
-                                                 */
-                                                DefaultProfileCollectionPath
-                                            )
-               );
+        {
+            get;
+        } = GetProfileCollectionAction
+            .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                ProfileCollectionActionType.LoadStringFromRegistry
+            )
+            .WithInput(
+                MakeNewRegQueryExpression.FromScatch<string>()
+                                         .ForKeyPath(
+                                             ProfileCollectionPathKeyName
+                                         )
+                                         .AndValueName(
+                                             ProfileCollectionPathValueName
+                                         )
+                                         .WithDefaultValue(
+                                             /*
+                                              * This is the default fully-qualified pathname
+                                              * of the file that is to be utilized if the value
+                                              * that is supposed to be stored in the system
+                                              * Registry cannot be found.
+                                              */
+                                             DefaultProfileCollectionPath
+                                         )
+            );
 
         /// <summary>
         /// Gets a string whose value is the fully-qualified pathname of the profile list
@@ -135,6 +137,7 @@ namespace MFR.Settings.Profiles.Providers
                         case false when File.Exists(_profileCollectionFilePath):
                             result = _profileCollectionFilePath;
                             break;
+
                         default:
                             _profileCollectionFilePath = result =
                                 LoadProfileCollectionPathAction.Execute()
@@ -173,14 +176,14 @@ namespace MFR.Settings.Profiles.Providers
         /// Gets a string whose value is the pathname of the system Registry key
         /// in which Profile settings are stored.
         /// </summary>
-        public string ProfileCollectionPathKeyName
+        public static string ProfileCollectionPathKeyName
             => ProfilePathRegistry.KeyName;
 
         /// <summary>
         /// Gets a string whose value is the Registry value under which we store
         /// the path to the profile list file.
         /// </summary>
-        public string ProfileCollectionPathValueName
+        public static string ProfileCollectionPathValueName
             => ProfilePathRegistry.ValueName;
 
         /// <summary>
@@ -314,6 +317,7 @@ namespace MFR.Settings.Profiles.Providers
                 );
                 pathname = ProfileCollectionFilePath;
             }
+
             // Check to see if the required property, Profiles, is null. If
             if (Profiles == null)
             {
@@ -335,32 +339,33 @@ namespace MFR.Settings.Profiles.Providers
                     if (Profiles[i]
                         .Name.StartsWith("tmp_"))
                         Profiles.Remove(Profiles[i]);
-            ;
+            
             try
             {
                 GetProfileCollectionCommandType.For<IFileSystemEntry>(
-                                               ProfileCollectionCommandType
-                                                   .SaveProfileCollectionToFile
-                                           )
-                                           .WithInput(
-                                               MakeNewFileSystemEntry.ForPath(
-                                                       /*
-                                                        * Path to the file that
-                                                        * is to be written to the
-                                                        * disk.
-                                                        */
-                                                       pathname
-                                                   )
-                                                   .SetUserState(
-                                                       /*
-                                                        * What needs to be saved?
-                                                        * The list of profiles, which
-                                                        * is the Profiles property.
-                                                        */
-                                                       Profiles
-                                                   )
-                                           )
-                                           .Execute();
+                                                   ProfileCollectionCommandType
+                                                       .SaveProfileCollectionToFile
+                                               )
+                                               .WithInput(
+                                                   MakeNewFileSystemEntry
+                                                       .ForPath(
+                                                           /*
+                                                            * Path to the file that
+                                                            * is to be written to the
+                                                            * disk.
+                                                            */
+                                                           pathname
+                                                       )
+                                                       .SetUserState(
+                                                           /*
+                                                            * What needs to be saved?
+                                                            * The list of profiles, which
+                                                            * is the Profiles property.
+                                                            */
+                                                           Profiles
+                                                       )
+                                               )
+                                               .Execute();
             }
             catch (Exception ex)
             {
