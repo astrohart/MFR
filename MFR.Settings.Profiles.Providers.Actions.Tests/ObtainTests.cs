@@ -15,16 +15,19 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
     public class ObtainTests
     {
         /// <summary>
-        /// Initializes the state of this fixture for every unit test session.
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests" /> and
+        /// returns a reference to it.
         /// </summary>
-        [SetUp]
-        public void Initialize()
-            => LogFileManager.InitializeLogging(
+        public ObtainTests()
+        {
+            LogFileManager.InitializeLogging(
                 muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
+        }
 
         /// <summary>
         /// Asserts that the
