@@ -62,6 +62,46 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         }
 
         /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()
+        {
+            Assert.DoesNotThrow(
+                () =>
+                {
+                    var hashCode = DefaultProfileCollectionPath.GetHashCode();
+                }
+            );
+            Assert.IsNotEmpty(DefaultProfileCollectionPath);
+
+            // Dump the variable DefaultProfileCollectionPath to the console
+            Console.WriteLine(
+                $"[  DEBUG  ]  DefaultProfileCollectionPath = '{DefaultProfileCollectionPath}'"
+            );
+        }
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void
+            Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()
+        {
+            Assert.DoesNotThrow(
+                () =>
+                {
+                    var hashCode = ExpectedProfileCollectionPath.GetHashCode();
+                }
+            );
+            Assert.IsNotEmpty(ExpectedProfileCollectionPath);
+
+            // Dump the variable ExpectedProfileCollectionPath to the console
+            Console.WriteLine($"[  DEBUG  ]  ExpectedProfileCollectionPath = '{ExpectedProfileCollectionPath}'");
+        }
+
+        /// <summary>
         /// Asserts that the
         /// <see
         ///     cref="M:MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFilePath" />

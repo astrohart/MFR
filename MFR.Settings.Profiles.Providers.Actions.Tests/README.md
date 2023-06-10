@@ -13,9 +13,15 @@
 - [ObtainTests](#T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-#ctor 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.#ctor')
   - [CompanyName](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-CompanyName 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.CompanyName')
+  - [DefaultProfileCollectionPath](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.DefaultProfileCollectionPath')
+  - [ExpectedProfileCollectionPath](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ExpectedProfileCollectionPath 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ExpectedProfileCollectionPath')
   - [ProductNameWithoutCompany](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ProductNameWithoutCompany 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ProductNameWithoutCompany')
+  - [Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions')
+  - [Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions')
   - [Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank')
   - [Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists')
+- [Read](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Read 'MFR.Settings.Profiles.Providers.Actions.Tests.Read')
+  - [RegistryValue(keyPath,valueName)](#M-MFR-Settings-Profiles-Providers-Actions-Tests-Read-RegistryValue-System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Tests.Read.RegistryValue(System.String,System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.ResourceManager')
@@ -144,12 +150,52 @@ This constructor has no parameters.
 
 A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the application's company name.
 
+<a name='F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-DefaultProfileCollectionPath'></a>
+### DefaultProfileCollectionPath `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the default place we, ideally,
+want to store the user's profiles -- their local AppData directory.
+
+<a name='F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ExpectedProfileCollectionPath'></a>
+### ExpectedProfileCollectionPath `constants`
+
+##### Summary
+
+Keep this value updated with whatever is stored in the system Registry
+under the ProfileCollectionPath value of the
+Computer\HKEY_CURRENT_USER\SOFTWARE\xyLOGIX, LLC\Project File Renamer\Paths
+Registry key.
+
 <a name='F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ProductNameWithoutCompany'></a>
 ### ProductNameWithoutCompany `constants`
 
 ##### Summary
 
 A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the application's product name.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions'></a>
+### Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions() `method`
+
+##### Summary
+
+TODO: Add unit test documentation here
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions'></a>
+### Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions() `method`
+
+##### Summary
+
+TODO: Add unit test documentation here
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank'></a>
 ### Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank() `method`
@@ -177,6 +223,47 @@ TODO: Add unit test documentation here
 ##### Parameters
 
 This method has no parameters.
+
+<a name='T-MFR-Settings-Profiles-Providers-Actions-Tests-Read'></a>
+## Read `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Providers.Actions.Tests
+
+##### Summary
+
+Exposes static methods to read data from data sources.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-Read-RegistryValue-System-String,System-String-'></a>
+### RegistryValue(keyPath,valueName) `method`
+
+##### Summary
+
+Attempts to read a `REG-SZ` value from the system Registry having the
+specified `valueName` and under the specified Registry
+`keyPath`.
+
+##### Returns
+
+If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the data
+under the specified key and value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| keyPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the fully-qualified Registry key pathname of the key that the value
+exists under. |
+| valueName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the name of the value under `HKEY_CURRENT_USER`
+which the data is stored.
+
+
+
+Pass the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value to get the data stored
+under the key's `(default)` value. |
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources'></a>
 ## Resources `type`
