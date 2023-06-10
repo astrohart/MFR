@@ -23,7 +23,8 @@ MFR.Settings.Configuration.Providers.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
+Defines the publicly-exposed methods and properties of a
+ProjectFileRenamerConfiguration Provider object.
 
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePath'></a>
 ### ConfigurationFilePath `property`
@@ -38,7 +39,8 @@ Gets or sets the pathname of the configuration file.
 ##### Summary
 
 Gets a reference to the instance of the object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface and which
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface and which
 exposes settings changed by the user in order to modify the
 application's behavior.
 
