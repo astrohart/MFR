@@ -1,5 +1,4 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using MFR.GUI.Constants;
 using NUnit.Framework;
 using System;
 using xyLOGIX.Core.Assemblies.Info;
@@ -14,6 +13,16 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
     [TestFixture]
     public class ObtainTests
     {
+        /// <summary>
+        /// A <see cref="T:System.String" /> that contains the application's company name.
+        /// </summary>
+        private const string CompanyName = "xyLOGIX, LLC";
+
+        /// <summary>
+        /// A <see cref="T:System.String" /> that contains the application's product name.
+        /// </summary>
+        private const string ProductNameWithoutCompany = "Project File Renamer";
+
         /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests" /> and
@@ -44,15 +53,11 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         {
             var result = string.Empty;
 
-            var companyName = ProgramText.CompanyName;
-            var productNameWithoutCompany =
-                ProgramText.ProductNameWithoutCompany;
-
             Assert.DoesNotThrow(
                 () =>
                 {
                     result = Obtain.ProfileCollectionFilePath(
-                        companyName, productNameWithoutCompany
+                        CompanyName, ProductNameWithoutCompany
                     );
                 }
             );

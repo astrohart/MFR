@@ -11,7 +11,9 @@
   - [ApplicationProductName()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-ApplicationProductName 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.ApplicationProductName')
   - [LogFilePath()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Get-LogFilePath 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Get.LogFilePath')
 - [ObtainTests](#T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests')
-  - [Initialize()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Initialize 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Initialize')
+  - [#ctor()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-#ctor 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.#ctor')
+  - [CompanyName](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-CompanyName 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.CompanyName')
+  - [ProductNameWithoutCompany](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ProductNameWithoutCompany 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ProductNameWithoutCompany')
   - [Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.Culture')
@@ -121,16 +123,32 @@ MFR.Settings.Profiles.Providers.Actions.Tests
 Provides unit tests for the methods, properties, and events of the
 [Obtain](#T-MFR-Settings-Profiles-Providers-Actions-Obtain 'MFR.Settings.Profiles.Providers.Actions.Obtain') class.
 
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Initialize'></a>
-### Initialize() `method`
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-#ctor'></a>
+### #ctor() `constructor`
 
 ##### Summary
 
-Initializes the state of this fixture for every unit test session.
+Constructs a new instance of
+[ObtainTests](#T-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests') and
+returns a reference to it.
 
 ##### Parameters
 
-This method has no parameters.
+This constructor has no parameters.
+
+<a name='F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-CompanyName'></a>
+### CompanyName `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the application's company name.
+
+<a name='F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ProductNameWithoutCompany'></a>
+### ProductNameWithoutCompany `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the application's product name.
 
 <a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank'></a>
 ### Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank() `method`
