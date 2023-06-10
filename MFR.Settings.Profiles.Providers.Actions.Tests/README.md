@@ -15,6 +15,7 @@
   - [CompanyName](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-CompanyName 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.CompanyName')
   - [ProductNameWithoutCompany](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ProductNameWithoutCompany 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ProductNameWithoutCompany')
   - [Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank')
+  - [Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources.ResourceManager')
@@ -161,6 +162,17 @@ method obtains a fully-qualified pathname to a file that exists, containing
 previously-saved configuration-setting profiles, and that the method copes
 with, e.g., the absence of the Registry key that contains the pathname of the
 `profiles.json` file and still provide a reasonable default.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists'></a>
+### Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists() `method`
+
+##### Summary
+
+TODO: Add unit test documentation here
 
 ##### Parameters
 
