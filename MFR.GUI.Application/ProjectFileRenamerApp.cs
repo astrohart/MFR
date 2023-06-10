@@ -414,14 +414,6 @@ namespace MFR.GUI.Application
         }
 
         /// <summary>
-        /// Configures the logging infrastructure.
-        /// </summary>
-        private static void SetUpLogging()
-            => LogFileManager.InitializeLogging(
-                infrastructureType: LoggingInfrastructureType.PostSharp
-            );
-
-        /// <summary>
         /// Shows the error <paramref name="message" /> to the user.
         /// </summary>
         /// <param name="message">
@@ -467,8 +459,6 @@ namespace MFR.GUI.Application
             try
             {
                 SetDisplayParameters();
-
-                SetUpLogging();
 
                 Register.WindowsMessageFilter();
 

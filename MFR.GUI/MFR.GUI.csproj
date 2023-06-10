@@ -128,6 +128,14 @@
     <Content Include="xylogix.ICO" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Assemblies.Info.VS2019\xyLOGIX.Core.Assemblies.Info\xyLOGIX.Core.Assemblies.Info.csproj">
+      <Project>{1611C59B-1C1E-4F7C-A1CC-7F263DD31188}</Project>
+      <Name>xyLOGIX.Core.Assemblies.Info</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Application.Factories\MFR.GUI.Application.Factories.csproj">
       <Project>{B7F34926-8B59-4B9F-94B9-FD7D70F0CF23}</Project>
       <Name>MFR.GUI.Application.Factories</Name>
