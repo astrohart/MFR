@@ -110,7 +110,8 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [StringLoader](#T-MFR-Registry-Loaders-StringLoader 'MFR.Registry.Loaders.StringLoader').
+Gets a reference to the one and only instance of
+[StringLoader](#T-MFR-Registry-Loaders-StringLoader 'MFR.Registry.Loaders.StringLoader').
 
 <a name='M-MFR-Registry-Loaders-StringLoader-#cctor'></a>
 ### #cctor() `method`

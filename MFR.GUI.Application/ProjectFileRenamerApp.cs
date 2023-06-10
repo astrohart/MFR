@@ -79,7 +79,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static ICommandLineParser CommandLineParser
-            => GetCommandLineParser.SoleInstance();
+        {
+            get;
+        } = GetCommandLineParser.SoleInstance();
 
         /// <summary>
         /// Gets or sets a value that indicates whether the user specified any arguments on
@@ -97,7 +99,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static ICommandLineValidator CommandLineValidator
-            => GetCommandLineValidator.SoleInstance();
+        {
+            get;
+        } = GetCommandLineValidator.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -112,7 +116,9 @@ namespace MFR.GUI.Application
         /// </remarks>
         private static IProjectFileRenamerConfigurationProvider
             ProjectFileRenamerConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -120,7 +126,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
+        {
+            get;
+        } = GetFileStreamProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
