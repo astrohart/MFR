@@ -11,6 +11,7 @@ using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
 using MFR.Settings.Profiles.Providers.Actions;
 using MFR.Settings.Profiles.Providers.Interfaces;
+using MFR.Settings.Profiles.Providers.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -39,10 +40,7 @@ namespace MFR.Settings.Profiles.Providers
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ProfileProvider()
-        {
-            InitializeProfileCollectionFilePath();
-        }
+        protected ProfileProvider() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -99,6 +97,30 @@ namespace MFR.Settings.Profiles.Providers
         public event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
+        /// This method is called in order to set the value of the
+        /// </summary>
+        public void InitializeProfileCollectionFilePath(string companyName = "",
+            string productName = "")
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(companyName))
+                    companyName = ProgramText.CompanyName;
+                if (string.IsNullOrWhiteSpace(productName))
+                    productName = ProgramText.ProductNameWithoutCompany;
+
+                ProfileCollectionFilePath = Obtain.ProfileCollectionFilePath(
+                    companyName, productName
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Loads the profiles from the profile list file.
         /// </summary>
         /// <param name="pathname">
@@ -129,7 +151,8 @@ namespace MFR.Settings.Profiles.Providers
                 );
                 pathname = ProfileCollectionFilePath;
 
-                if (!File.Exists(ProfileCollectionFilePath))
+                if (string.IsNullOrWhiteSpace(ProfileCollectionFilePath) ||
+                    !File.Exists(ProfileCollectionFilePath))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
@@ -203,11 +226,25 @@ namespace MFR.Settings.Profiles.Providers
         ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// Thrown if the <paramref name="pathname" /> is passed a blank value, and the
+        /// <see
+        ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
+        /// property is blank too.
+        /// <para />
+        /// To fix the latter, you can call the
+        /// <see
+        ///     cref="M:MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileCollectionFilePath" />
+        /// method.
+        /// </exception>
         public void Save(string pathname = "")
         {
             /*
              * If the pathname parameter is blank, then use the
              * default profile list file path.
+             *
+             * If THAT path is blank, then you need to have called
+             * the InitializeProfileCollectionFilePath() method first.
              */
             if (string.IsNullOrWhiteSpace(pathname))
             {
@@ -216,6 +253,11 @@ namespace MFR.Settings.Profiles.Providers
                     "ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'ProfileCollectionFilePath' property..."
                 );
                 pathname = ProfileCollectionFilePath;
+
+                if (string.IsNullOrWhiteSpace(pathname))
+                    throw new InvalidOperationException(
+                        Resources.Error_NoSavePathname
+                    );
             }
 
             // Check to see if the required property, Profiles, is null. If
@@ -290,13 +332,5 @@ namespace MFR.Settings.Profiles.Providers
         /// </summary>
         protected virtual void OnProfileCollectionFilePathChanged()
             => ProfileCollectionFilePathChanged?.Invoke(this, EventArgs.Empty);
-
-        /// <summary>
-        /// This method is called in order to set the value of the
-        /// </summary>
-        private void InitializeProfileCollectionFilePath()
-            => ProfileCollectionFilePath = Obtain.ProfileCollectionFilePath(
-                ProgramText.CompanyName, ProgramText.ProductNameWithoutCompany
-            );
     }
 }

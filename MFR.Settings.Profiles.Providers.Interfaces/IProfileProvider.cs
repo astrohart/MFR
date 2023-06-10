@@ -95,5 +95,11 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");
+
+        /// <summary>
+        /// This method is called in order to set the value of the
+        /// </summary>
+        void InitializeProfileCollectionFilePath(
+            string companyName = "", string productName = "");
     }
 }
