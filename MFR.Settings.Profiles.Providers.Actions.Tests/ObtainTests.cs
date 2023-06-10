@@ -38,6 +38,9 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
             );
         }
 
+        private const string DefaultProfileCollectionPath =
+            @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\profiles.json";
+
         /// <summary>
         /// Asserts that the
         /// <see
@@ -69,6 +72,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
             );
 
             Assert.IsNotEmpty(result);
+            Assert.AreEqual(DefaultProfileCollectionPath, result);
 
             /*
              * For the purposes of this test, we do not care whether the file
