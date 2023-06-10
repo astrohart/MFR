@@ -12,6 +12,9 @@ using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers.Actions
 {
+    /// <summary>
+    /// Exposes static methods to obtain and formulate various values.
+    /// </summary>
     public static class Obtain
     {
         /// <summary>
@@ -204,7 +207,9 @@ namespace MFR.Settings.Profiles.Providers.Actions
                 profilePathRegQueryExpression = MakeNewRegQueryExpression
                                                 .FromScatch<string>()
                                                 .ForKeyPath(
-                                                    ProfilePathRegistry.KeyName
+                                                    GetProfileFilePathRegistryKeyPathname(
+                                                        companyName, productName
+                                                    )
                                                 )
                                                 .AndValueName(
                                                     ProfilePathRegistry
