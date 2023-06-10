@@ -6,6 +6,7 @@
 - [ProfileProviderTests](#T-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests')
   - [ProfileProvider](#P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileProvider 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.ProfileProvider')
   - [Initialize()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Initialize 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Initialize')
+  - [OnProfileCollectionFilePathChangedProfileProvider(sender,e)](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-OnProfileCollectionFilePathChangedProfileProvider-System-Object,System-EventArgs- 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.OnProfileCollectionFilePathChangedProfileProvider(System.Object,System.EventArgs)')
   - [Test_Load_Add_And_Save_Workflow()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Add_And_Save_Workflow')
   - [Test_Load_Method_Works_When_PassedStringEmpty()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Method_Works_When_PassedStringEmpty 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Method_Works_When_PassedStringEmpty')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Tests.Properties.Resources')
@@ -49,6 +50,30 @@ set-up logic.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-OnProfileCollectionFilePathChangedProfileProvider-System-Object,System-EventArgs-'></a>
+### OnProfileCollectionFilePathChangedProfileProvider(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged')
+event raised by the Profile Provider..
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method reports, to the console, what the current value of the
+[ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
+property is.
 
 <a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow'></a>
 ### Test_Load_Add_And_Save_Workflow() `method`
