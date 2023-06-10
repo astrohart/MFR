@@ -68,12 +68,17 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         public void
             Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()
         {
+            var hashCode = -1;
             Assert.DoesNotThrow(
                 () =>
                 {
-                    var hashCode = DefaultProfileCollectionPath.GetHashCode();
+                    hashCode = DefaultProfileCollectionPath.GetHashCode();
                 }
             );
+
+            // Dump the variable hashCode to the console
+            Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
+
             Assert.IsNotEmpty(DefaultProfileCollectionPath);
 
             // Dump the variable DefaultProfileCollectionPath to the console
