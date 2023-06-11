@@ -11,7 +11,7 @@
   - [ApplicationProductName()](#M-MFR-GUI-Constants-Tests-Get-ApplicationProductName 'MFR.GUI.Constants.Tests.Get.ApplicationProductName')
   - [LogFilePath()](#M-MFR-GUI-Constants-Tests-Get-LogFilePath 'MFR.GUI.Constants.Tests.Get.LogFilePath')
 - [ProgramTextTests](#T-MFR-GUI-Constants-Tests-ProgramTextTests 'MFR.GUI.Constants.Tests.ProgramTextTests')
-  - [Initialize()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Initialize 'MFR.GUI.Constants.Tests.ProgramTextTests.Initialize')
+  - [#ctor()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-#ctor 'MFR.GUI.Constants.Tests.ProgramTextTests.#ctor')
   - [Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue 'MFR.GUI.Constants.Tests.ProgramTextTests.Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue')
   - [Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue()](#M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue 'MFR.GUI.Constants.Tests.ProgramTextTests.Test_ProductName_Property_DoesNotThrow_And_ReturnsValidValue')
 - [Resources](#T-MFR-GUI-Constants-Tests-Properties-Resources 'MFR.GUI.Constants.Tests.Properties.Resources')
@@ -122,16 +122,18 @@ MFR.GUI.Constants.Tests
 Provides unit tests for the methods, properties, and events of the
 [ProgramText](#T-MFR-GUI-Constants-ProgramText 'MFR.GUI.Constants.ProgramText') class.
 
-<a name='M-MFR-GUI-Constants-Tests-ProgramTextTests-Initialize'></a>
-### Initialize() `method`
+<a name='M-MFR-GUI-Constants-Tests-ProgramTextTests-#ctor'></a>
+### #ctor() `constructor`
 
 ##### Summary
 
-Initializes the state of this fixture for every unit test session.
+Constructs a new instance of
+[ProgramTextTests](#T-MFR-GUI-Constants-Tests-ProgramTextTests 'MFR.GUI.Constants.Tests.ProgramTextTests') and returns a
+reference to it.
 
 ##### Parameters
 
-This method has no parameters.
+This constructor has no parameters.
 
 <a name='M-MFR-GUI-Constants-Tests-ProgramTextTests-Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue'></a>
 ### Test_CompanyName_Property_DoesNotThrow_And_ReturnsValidValue() `method`

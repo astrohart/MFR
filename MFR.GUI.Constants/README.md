@@ -24,6 +24,16 @@ MFR.GUI.Constants
 
 Text to be used throughout the application.
 
+##### Remarks
+
+This class contains static, computed properties, which may seem rather
+strange.
+
+
+
+There is a reason for this: the static constructor of this class chokes
+otherwise.
+
 <a name='P-MFR-GUI-Constants-ProgramText-CompanyName'></a>
 ### CompanyName `property`
 

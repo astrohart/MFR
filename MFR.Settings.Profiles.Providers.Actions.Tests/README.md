@@ -180,7 +180,10 @@ A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[DefaultProfileCollectionPath](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.DefaultProfileCollectionPath')
+field's value is non-blank, well-formed, and does not throw exceptions when
+it's computed.
 
 ##### Parameters
 
@@ -191,7 +194,10 @@ This method has no parameters.
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[ExpectedProfileCollectionPath](#F-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-ExpectedProfileCollectionPath 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ExpectedProfileCollectionPath')
+field's value is non-blank, well-formed, and does not throw exceptions when
+it's evaluated.
 
 ##### Parameters
 

@@ -10,12 +10,13 @@
   - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
-  - [InitializeProfileCollectionFilePath()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileCollectionFilePath')
+  - [InitializeProfileCollectionFilePath()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath-System-String,System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileCollectionFilePath(System.String,System.String)')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Load(System.String)')
   - [OnProfileCollectionFilePathChanged()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfileCollectionFilePathChanged')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Save(System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Properties-Resources 'MFR.Settings.Profiles.Providers.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Properties.Resources.Culture')
+  - [Error_NoSavePathname](#P-MFR-Settings-Profiles-Providers-Properties-Resources-Error_NoSavePathname 'MFR.Settings.Profiles.Providers.Properties.Resources.Error_NoSavePathname')
   - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Settings-Profiles-Providers-ProfileProvider'></a>
@@ -95,7 +96,7 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath'></a>
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath-System-String,System-String-'></a>
 ### InitializeProfileCollectionFilePath() `method`
 
 ##### Summary
@@ -168,6 +169,20 @@ is stored in the
 [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
 property. |
 
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the `pathname` is passed a blank value, and the
+[ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath')
+property is blank too.
+
+
+
+To fix the latter, you can call the
+[InitializeProfileCollectionFilePath](#M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileCollectionFilePath')
+method. |
+
 ##### Remarks
 
 If the
@@ -192,6 +207,13 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Settings-Profiles-Providers-Properties-Resources-Error_NoSavePathname'></a>
+### Error_NoSavePathname `property`
+
+##### Summary
+
+Looks up a localized string similar to We were provided a blank pathname for saving, and the value of the ProfileCollectionFilePath property has not been set.  You need to call the InitializeProfileCollectionFilePath method first..
 
 <a name='P-MFR-Settings-Profiles-Providers-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

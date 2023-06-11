@@ -6,7 +6,6 @@
 - [ProfileFile](#T-MFR-Settings-Profiles-Providers-Constants-ProfileFile 'MFR.Settings.Profiles.Providers.Constants.ProfileFile')
   - [DefaultFilename](#F-MFR-Settings-Profiles-Providers-Constants-ProfileFile-DefaultFilename 'MFR.Settings.Profiles.Providers.Constants.ProfileFile.DefaultFilename')
 - [ProfilePathRegistry](#T-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry 'MFR.Settings.Profiles.Providers.Constants.ProfilePathRegistry')
-  - [KeyName](#F-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-KeyName 'MFR.Settings.Profiles.Providers.Constants.ProfilePathRegistry.KeyName')
   - [ValueName](#F-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-ValueName 'MFR.Settings.Profiles.Providers.Constants.ProfilePathRegistry.ValueName')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Constants-Properties-Resources 'MFR.Settings.Profiles.Providers.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Constants-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Constants.Properties.Resources.Culture')
@@ -51,14 +50,6 @@ TRhe profile list file is in JSON format.
 
 
 Configuration files are intended to be stored on a per user basis.
-
-<a name='F-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-KeyName'></a>
-### KeyName `constants`
-
-##### Summary
-
-Gets the path to the Registry subkey that stores information about
-the paths of files.
 
 <a name='F-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-ValueName'></a>
 ### ValueName `constants`
