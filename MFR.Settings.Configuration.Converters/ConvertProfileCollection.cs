@@ -39,9 +39,7 @@ namespace MFR.Settings.Configuration.Converters
                         DateTimeStyles = DateTimeStyles.AssumeUniversal
                     },
                     new ProfileCollectionConverter<ProfileCollection>(),
-                    new ProfileConverter<Profile>(),
-                    new OperationTypeInfoConverter<OperationTypeInfo>()
-                }
+                    new ProfileConverter<Profile>()}
             };
 
         /// <summary>
