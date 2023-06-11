@@ -40,7 +40,10 @@ namespace MFR.Settings.Profiles.Providers
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ProfileProvider() { }
+        protected ProfileProvider()
+        {
+            InitializeProfileCollectionFilePath();
+        }
 
         /// <summary>
         /// Gets a reference to the one and only instance of

@@ -44,13 +44,13 @@ namespace MFR.GUI.Constants
         /// Gets the product name without the company name.
         /// </summary>
         public static string ProductNameWithoutCompany
-            => Application.ProductName.Replace(ShortCompanyName, string.Empty);
+            => ProductName.Replace(ShortCompanyName, string.Empty).Trim();
 
         /// <summary>
         /// Gets the short name (without prefixes or suffixes) of the company
         /// that manufactured this tool.
         /// </summary>
         public static string ShortCompanyName
-            => Application.CompanyName.Replace(", LLC", string.Empty);
+            => CompanyName.Replace(", LLC", string.Empty).Trim();
     }
 }

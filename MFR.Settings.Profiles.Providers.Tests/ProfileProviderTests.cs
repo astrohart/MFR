@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.GUI.Constants;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -17,6 +18,9 @@ namespace MFR.Settings.Profiles.Providers.Tests
     [TestFixture]
     public class ProfileProviderTests
     {
+        private const string CompanyName = "xyLOGIX, LLC";
+        private const string ProductName = "xyLOGIX Project File Renamer";
+
         /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests" /> and
@@ -30,6 +34,9 @@ namespace MFR.Settings.Profiles.Providers.Tests
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
+
+            ProgramText.CompanyName = CompanyName;
+            ProgramText.ProductName = ProductName;
 
             ProfileProvider.ProfileCollectionFilePathChanged +=
                 OnProfileCollectionFilePathChangedProfileProvider;
