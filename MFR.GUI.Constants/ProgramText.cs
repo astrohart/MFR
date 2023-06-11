@@ -19,7 +19,10 @@ namespace MFR.GUI.Constants
         /// associated with the application.
         /// </summary>
         public static string CompanyName
-            => Application.CompanyName;
+        {
+            get;
+            set;
+        } = Application.CompanyName;
 
         /// <summary>
         /// Gets the title text that should be utilized for the main application window.
@@ -32,7 +35,10 @@ namespace MFR.GUI.Constants
         /// associated with the application.
         /// </summary>
         public static string ProductName
-            => Application.ProductName;
+        {
+            get;
+            set;
+        } = Application.ProductName;
 
         /// <summary>
         /// Gets the product name without the company name.
