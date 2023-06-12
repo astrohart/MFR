@@ -107,6 +107,7 @@
     <Compile Include="Formulate.cs" />
     <Compile Include="Generate.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="Remove.cs" />
     <Compile Include="Retrieve.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,10 +158,6 @@
       <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
       <Name>MFR.FileSystem.Factories.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
-      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
-      <Name>MFR.FileSystem.Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
@@ -188,6 +185,14 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Actions.Factories\MFR.Settings.Profiles.Actions.Factories.csproj">
       <Project>{CDB376A4-19AF-4B02-B7E1-5898088C5398}</Project>
       <Name>MFR.Settings.Profiles.Actions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
+      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
+      <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
+      <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
+      <Name>MFR.Settings.Profiles.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Constants\MFR.Settings.Profiles.Providers.Constants.csproj">
       <Project>{D372BB51-2013-4121-B267-8E3BB447440A}</Project>

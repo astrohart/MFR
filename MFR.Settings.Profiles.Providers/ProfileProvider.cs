@@ -272,12 +272,8 @@ namespace MFR.Settings.Profiles.Providers
              * elements first; it's not worth the bother otherwise.
              */
 
-            if (Profiles.Any())
-                for (var i = Profiles.Count - 1; i >= 0; i--)
-                    if (Profiles[i]
-                        .Name.StartsWith("tmp_"))
-                        Profiles.Remove(Profiles[i]);
-            ;
+            Remove.TemporaryProfiles(Profiles);
+
             try
             {
                 GetProfileCollectionCommandType.For<IFileSystemEntry>(

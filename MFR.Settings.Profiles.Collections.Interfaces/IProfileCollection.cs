@@ -1,4 +1,5 @@
 using MFR.Settings.Profiles.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace MFR.Settings.Profiles.Collections.Interfaces
@@ -44,5 +45,21 @@ namespace MFR.Settings.Profiles.Collections.Interfaces
         /// <see langword="false" /> otherwise.
         /// </returns>
         bool HasProfileNamed(string name);
+
+        /// <summary>
+        /// Removes all of those elements from the collection that satisfy the specified
+        /// <paramref name="predicate" />.
+        /// </summary>
+        /// <param name="predicate">
+        /// (Required.) A predicate that returns
+        /// <see langword="true" /> if a specific item is to be removed from the
+        /// collection.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the element(s) matching the specified
+        /// <paramref name="predicate" /> were removed successfully, or if the collection
+        /// is empty; <see langword="false" /> otherwise.
+        /// </returns>
+        bool RemoveAll(Predicate<IProfile> predicate);
     }
 }
