@@ -24,6 +24,22 @@ namespace MFR.Settings.Configuration.Providers.Tests
             @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\config.json";
 
         /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenmerConfigurationProviderTests" />
+        /// and returns a reference to it.
+        /// </summary>
+        public ProjectFileRenmerConfigurationProviderTests()
+        {
+            LogFileManager.InitializeLogging(
+                muteConsole: false,
+                infrastructureType: LoggingInfrastructureType.PostSharp,
+                logFileName: Get.LogFilePath(),
+                applicationName: Get.ApplicationProductName()
+            );
+        }
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
