@@ -29,7 +29,6 @@
   - [SetDisplayParameters()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetDisplayParameters 'MFR.GUI.Application.ProjectFileRenamerApp.SetDisplayParameters')
   - [SetUpCommandLineValidation()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpCommandLineValidation 'MFR.GUI.Application.ProjectFileRenamerApp.SetUpCommandLineValidation')
   - [SetUpExceptionHandling()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpExceptionHandling 'MFR.GUI.Application.ProjectFileRenamerApp.SetUpExceptionHandling')
-  - [SetUpLogging()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpLogging 'MFR.GUI.Application.ProjectFileRenamerApp.SetUpLogging')
   - [ShowValidationFailureMessage(message)](#M-MFR-GUI-Application-ProjectFileRenamerApp-ShowValidationFailureMessage-System-String- 'MFR.GUI.Application.ProjectFileRenamerApp.ShowValidationFailureMessage(System.String)')
   - [WinInit(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-WinInit-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.WinInit(System.String[])')
 - [Resources](#T-MFR-GUI-Application-Properties-Resources 'MFR.GUI.Application.Properties.Resources')
@@ -397,17 +396,6 @@ This method has no parameters.
 
 Configures the application's handling of exceptions that are not
 caught elsewhere.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpLogging'></a>
-### SetUpLogging() `method`
-
-##### Summary
-
-Configures the logging infrastructure.
 
 ##### Parameters
 
