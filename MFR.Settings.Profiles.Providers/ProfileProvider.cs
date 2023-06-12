@@ -13,7 +13,6 @@ using MFR.Settings.Profiles.Providers.Actions;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Linq;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers
@@ -98,15 +97,6 @@ namespace MFR.Settings.Profiles.Providers
                 var changed = _profileCollectionFilePath != value;
                 _profileCollectionFilePath = value;
                 if (changed) OnProfileCollectionFilePathChanged();
-
-                /*
-                GetSaveProfileCollectionPathCommand.ForPath(
-                                                       ProfileCollectionPathKeyName,
-                                                       ProfileCollectionPathValueName,
-                                                       _profileCollectionFilePath
-                                                   )
-                                                   .Execute();
-                */
             }
         }
 
@@ -306,6 +296,16 @@ namespace MFR.Settings.Profiles.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+        }
+
+        ~ProfileProvider()
+        {
+            GetSaveProfileCollectionPathCommand.ForPath(
+                                                   ProfileCollectionPathKeyName,
+                                                   ProfileCollectionPathValueName,
+                                                   _profileCollectionFilePath
+                                               )
+                                               .Execute();
         }
 
         /// <summary>

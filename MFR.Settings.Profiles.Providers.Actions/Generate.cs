@@ -76,8 +76,6 @@ namespace MFR.Settings.Profiles.Providers.Actions
 
             try
             {
-                // %LOCALAPPDATA%\xyLOGIX, LLC\Project File Renamer\Config\profiles.json
-
                 if (string.IsNullOrWhiteSpace(companyName)) return result;
                 if (string.IsNullOrWhiteSpace(productName)) return result;
 

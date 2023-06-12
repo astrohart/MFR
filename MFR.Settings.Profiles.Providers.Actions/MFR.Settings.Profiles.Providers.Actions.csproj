@@ -109,6 +109,7 @@
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="Remove.cs" />
     <Compile Include="Retrieve.cs" />
+    <Compile Include="Save.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Obtain.cs" />
@@ -174,9 +175,21 @@
       <Project>{e7407a37-0a5a-4eec-a5a7-b8153b386027}</Project>
       <Name>MFR.Messages.Requests.Intefaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Factories\MFR.Metadata.Registry.Factories.csproj">
+      <Project>{AC4B0CEA-B2E5-4A02-B22A-C74342FC5310}</Project>
+      <Name>MFR.Metadata.Registry.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
+      <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
+      <Name>MFR.Metadata.Registry.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
+      <Project>{AFFA1381-12A6-408C-99C2-BFA717D23CD8}</Project>
+      <Name>MFR.Registry.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1ae68e39-484d-4347-ba55-739e0fe98246}</Project>
