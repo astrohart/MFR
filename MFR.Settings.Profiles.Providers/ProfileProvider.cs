@@ -124,7 +124,7 @@ namespace MFR.Settings.Profiles.Providers
         public string ProfileCollectionFilePath
         {
             get {
-                var result = string.Empty;
+                string result;
 
                 try
                 {
