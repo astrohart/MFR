@@ -1,4 +1,3 @@
-using MFR.Settings.Configuration.Interfaces;
 using NUnit.Framework;
 using System;
 
@@ -10,7 +9,8 @@ namespace MFR.Settings.Configuration.Providers.Tests
     /// class.
     /// </summary>
     [TestFixture]
-    public class ConfigurationProviderTests
+    public class
+        ProjectFileRenmerConfigurationProviderTests
     {
         /// <summary>
         /// Path to a sample configuration file.
