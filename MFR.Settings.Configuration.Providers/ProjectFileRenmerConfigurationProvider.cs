@@ -44,7 +44,7 @@ namespace MFR.Settings.Configuration.Providers
         public string ConfigurationFilePath
         {
             get {
-                var result = string.Empty;
+                string result;
 
                 try
                 {
