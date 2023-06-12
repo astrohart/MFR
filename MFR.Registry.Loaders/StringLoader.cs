@@ -3,7 +3,6 @@ using MFR.Registry.Loaders.Interfaces;
 using Microsoft.Win32;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.Registry.Loaders
 {
@@ -12,6 +11,15 @@ namespace MFR.Registry.Loaders
     /// </summary>
     public class StringLoader : Loader<string>, IStringLoader
     {
+        /// <summary>
+        /// Gets a reference to the one and only instance of <see cref="T:MFR.Registry.Loaders.StringLoader"/>.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static StringLoader Instance
+        {
+            get;
+        } = new StringLoader();
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -23,16 +31,6 @@ namespace MFR.Registry.Loaders
         /// </summary>
         [Log(AttributeExclude = true)]
         protected StringLoader() { }
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of the object that implements the
-        /// <see cref="T:MFR.Registry.Loaders.Interfaces.IStringLoader" /> interface.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static IStringLoader Instance
-        {
-            get;
-        } = new StringLoader();
 
         /// <summary>
         /// Obtains a data value from the system Registry key.
@@ -64,46 +62,37 @@ namespace MFR.Registry.Loaders
         {
             var result = string.Empty;
 
-            try
-            {
-                if (string.IsNullOrWhiteSpace(keyName)) return result;
-                if (string.IsNullOrWhiteSpace(valueName)) return result;
+            if (string.IsNullOrWhiteSpace(keyName))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(keyName)
+                );
 
-                using (var baseKey = RegistryKey.OpenBaseKey(
-                           keyName.ToRegistryHive(), RegistryView.Default
-                       ))
-                using (var key = baseKey.OpenSubKey(
-                           keyName.RemoveHiveName(),
-                           RegistryKeyPermissionCheck.ReadSubTree
-                       ))
-                    try
-                    {
-                        if (key == null)
-                            return defaultValue;
+            using (var baseKey = RegistryKey.OpenBaseKey(
+                keyName.ToRegistryHive(), RegistryView.Default
+            ))
+            using (var key = baseKey.OpenSubKey(
+                keyName.RemoveHiveName(), RegistryKeyPermissionCheck.ReadSubTree
+            ))
+                try
+                {
+                    if (key == null)
+                        return defaultValue;
 
-                        result = key.GetValue(
-                                        valueName, defaultValue,
-                                        RegistryValueOptions.None
-                                    )
-                                    .ToString();
-                    }
-                    catch
-                    {
-                        result = defaultValue;
-                    }
-                    finally
-                    {
-                        key?.Close();
-                        baseKey.Close();
-                    }
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = string.Empty;
-            }
+                    result = key.GetValue(
+                                    valueName, defaultValue,
+                                    RegistryValueOptions.None
+                                )
+                                .ToString();
+                }
+                catch
+                {
+                    result = defaultValue;
+                }
+                finally
+                {
+                    key?.Close();
+                    baseKey.Close();
+                }
 
             return result;
         }

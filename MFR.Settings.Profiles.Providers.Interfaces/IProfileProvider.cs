@@ -1,32 +1,63 @@
-using MFR.Settings.Profiles.Collections.Interfaces;
-using System;
+ using MFR.Settings.Profiles.Collections.Interfaces;
 
 namespace MFR.Settings.Profiles.Providers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a
-    /// <c> ProfileProvider</c> object.
+    /// <c>
+    /// Profile
+    /// Provider
+    /// </c>
+    /// object.
     /// </summary>
     /// <remarks>
-    /// A <c>ProfileProvider</c> object maintains a collection of the saved
-    /// configuration setting profiles defined by the user.
+    /// A <c>Profile Provider</c> object maintains a collection of the profiles
+    /// defined by the user.
     /// </remarks>
     public interface IProfileProvider
     {
         /// <summary>
-        /// Gets a string whose value is the fully-qualified pathname of the profile list
-        /// file.
+        /// Gets the default folder for the configuration file.
         /// </summary>
         /// <remarks>
-        /// This property raises the
-        /// <see
-        ///     cref="E:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged" />
-        /// event if its value is updated.
+        /// We store the profile configuration file, by default, in a folder
+        /// under the current user's AppData folder.
         /// </remarks>
+        string DefaultProfileCollectionDir
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets the default fully-qualified pathname of the profile list file.
+        /// </summary>
+        string DefaultProfileCollectionPath { get; }
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the profile list file.
+        /// </summary>
         string ProfileCollectionFilePath
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the system Registry key
+        /// in which Profile settings are stored.
+        /// </summary>
+        string ProfileCollectionPathKeyName
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a string whose value is the Registry value under which we store
+        /// the path to the profile list file.
+        /// </summary>
+        string ProfileCollectionPathValueName
+        {
+            get;
         }
 
         /// <summary>
@@ -46,14 +77,6 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         {
             get;
         }
-
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
-        /// property is updated.
-        /// </summary>
-        event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
         /// Loads the profiles from the profile list file.
@@ -95,11 +118,5 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");
-
-        /// <summary>
-        /// This method is called in order to set the value of the
-        /// </summary>
-        void InitializeProfileCollectionFilePath(
-            string companyName = "", string productName = "");
     }
 }

@@ -15,11 +15,11 @@
   - [AutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
-  - [InvokableOperations](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations')
   - [IsFolded](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFolded')
   - [IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
+  - [OperationsToPerform](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFiles')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders')
@@ -221,15 +221,6 @@ by the user.
 Gets or sets a collection of strings consisting of the most-recently
 utilized values for Find What.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations'></a>
-### InvokableOperations `property`
-
-##### Summary
-
-Gets or sets a reference to a collection of instances of
-[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that represents
-all the operations the user can perform with this application.
-
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFolded'></a>
 ### IsFolded `property`
 
@@ -266,6 +257,15 @@ found text.
 
 Gets or sets a value indicating whether we should match the whole
 word on found text.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform'></a>
+### OperationsToPerform `property`
+
+##### Summary
+
+Gets or sets a reference to a collection of instances of
+[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that can turn the
+operations to be performed on or off.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`

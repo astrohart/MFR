@@ -63,7 +63,15 @@ namespace MFR.FileSystem.Helpers.Tests
         {
             Assert.Pass();
 
-            ProjectFileRenamerConfigurationProvider.Load();
+            /*
+            var configuration =
+                ConfigurationBuilder.BuildConfigurationForUseCase(
+                    true, /* match case
+                    true
+                ); /* match whole word
+            */
+
+            ConfigurationProvider.Load();
 
             IFileSystemEntry newFileSystemEntry = MakeNewFileSystemEntry
                                                   .ForPath(
@@ -79,7 +87,7 @@ namespace MFR.FileSystem.Helpers.Tests
             var textValue = textValueRetriever.GetTextValue(newFileSystemEntry);
             var matchExpressionFactory = GetMatchExpressionFactory
                                          .For(OperationType.RenameFilesInFolder)
-                                         .AndAttachConfiguration(ProjectFileRenamerConfigurationProvider.CurrentConfiguration)
+                                         .AndAttachConfiguration(ConfigurationProvider.CurrentConfiguration)
                                          .ForTextValue(textValue)
                                          .ToFindWhat("FizzBuzz");
             IMatchExpression expression = matchExpressionFactory
@@ -90,7 +98,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                     .RenameFilesInFolder
                                             )
                                             .AndAttachConfiguration(
-                                                ProjectFileRenamerConfigurationProvider.CurrentConfiguration
+                                                ConfigurationProvider.CurrentConfiguration
                                             );
             Console.WriteLine(expression);
             Console.WriteLine(engine);
@@ -132,7 +140,7 @@ namespace MFR.FileSystem.Helpers.Tests
         /// This object allows access to the user configuration and the actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider ProjectFileRenamerConfigurationProvider
+        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>

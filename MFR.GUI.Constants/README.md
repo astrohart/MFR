@@ -4,9 +4,7 @@
 ## Contents
 
 - [ProgramText](#T-MFR-GUI-Constants-ProgramText 'MFR.GUI.Constants.ProgramText')
-  - [CompanyName](#P-MFR-GUI-Constants-ProgramText-CompanyName 'MFR.GUI.Constants.ProgramText.CompanyName')
   - [MainWindowTitle](#P-MFR-GUI-Constants-ProgramText-MainWindowTitle 'MFR.GUI.Constants.ProgramText.MainWindowTitle')
-  - [ProductName](#P-MFR-GUI-Constants-ProgramText-ProductName 'MFR.GUI.Constants.ProgramText.ProductName')
   - [ProductNameWithoutCompany](#P-MFR-GUI-Constants-ProgramText-ProductNameWithoutCompany 'MFR.GUI.Constants.ProgramText.ProductNameWithoutCompany')
   - [ShortCompanyName](#P-MFR-GUI-Constants-ProgramText-ShortCompanyName 'MFR.GUI.Constants.ProgramText.ShortCompanyName')
 - [Resources](#T-MFR-GUI-Constants-Properties-Resources 'MFR.GUI.Constants.Properties.Resources')
@@ -24,38 +22,12 @@ MFR.GUI.Constants
 
 Text to be used throughout the application.
 
-##### Remarks
-
-This class contains static, computed properties, which may seem rather
-strange.
-
-
-
-There is a reason for this: the static constructor of this class chokes
-otherwise.
-
-<a name='P-MFR-GUI-Constants-ProgramText-CompanyName'></a>
-### CompanyName `property`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that represents the company name
-associated with the application.
-
 <a name='P-MFR-GUI-Constants-ProgramText-MainWindowTitle'></a>
 ### MainWindowTitle `property`
 
 ##### Summary
 
 Gets the title text that should be utilized for the main application window.
-
-<a name='P-MFR-GUI-Constants-ProgramText-ProductName'></a>
-### ProductName `property`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that represents the product name that is
-associated with the application.
 
 <a name='P-MFR-GUI-Constants-ProgramText-ProductNameWithoutCompany'></a>
 ### ProductNameWithoutCompany `property`

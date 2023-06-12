@@ -100,7 +100,7 @@ Looks up a localized string similar to Rename Subfolders.
 
 ##### Summary
 
-Looks up a localized string similar to Replace in Files.
+Looks up a localized string similar to Replace In Files.
 
 <a name='P-MFR-GUI-Models-Constants-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

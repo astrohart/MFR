@@ -1,57 +1,37 @@
 using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Providers.Events;
-using System;
 
 namespace MFR.Settings.Configuration.Providers.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a
-    /// ProjectFileRenamerConfiguration Provider object.
+    /// Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
     /// </summary>
     public interface IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
-        /// Gets or sets the pathname of the configuration file.
-        /// </summary>
-        string ConfigurationFilePath
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface and which
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        IProjectFileRenamerConfiguration CurrentConfiguration
-        {
-            get;
-            set;
-        }
+        IProjectFileRenamerConfiguration CurrentConfiguration { get; set; }
 
         /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigurationFilePath" />
-        /// property has been updated.
+        /// Gets or sets the pathname of the configuration file.
         /// </summary>
-        event ConfigurationFilePathChangedEventHandler
-            ConfigurationFilePathChanged;
+        string ConfigurationFilePath { get; set; }
 
         /// <summary>
-        /// Occurs when configuration settings have been successfully loaded.
+        /// Gets the default folder for the configuration file.
         /// </summary>
-        event EventHandler ConfigurationLoaded;
+        /// <remarks>
+        /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
+        /// </remarks>
+        string DefaultConfigDir { get; }
 
         /// <summary>
-        /// Occurs when we failed to load the application's configuration settings from the
-        /// configuration file.
+        /// Gets the default filename for the config file.
         /// </summary>
-        event ConfigurationLoadFailedEventHandler ConfigurationLoadFailed;
+        string DefaultConfigFileName { get; }
 
         /// <summary>
         /// Exports configuration data to a file other than the master
@@ -79,6 +59,22 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         void Export(string exportFileName);
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the system Registry key in which configuration settings are stored.
+        /// </summary>
+        string ConfigurationFilePathKeyName
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a string whose value is the Registry value under which we store the path to the configuration file.
+        /// </summary>
+        string ConfigurationFilePathValueName
+        {
+            get;
+        }
 
         /// <summary>
         /// Imports configuration data from a file whose path is

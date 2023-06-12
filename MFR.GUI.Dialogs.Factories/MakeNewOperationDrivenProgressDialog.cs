@@ -9,6 +9,7 @@ namespace MFR.GUI.Dialogs.Factories
     /// <see cref="T:MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog" />
     /// interface, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewOperationDrivenProgressDialog
     {
         /// <summary>

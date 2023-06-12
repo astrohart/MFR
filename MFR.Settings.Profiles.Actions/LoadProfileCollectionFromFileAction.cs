@@ -24,19 +24,21 @@ namespace MFR.Settings.Profiles.Actions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static LoadProfileCollectionFromFileAction() { }
+        static LoadProfileCollectionFromFileAction()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LoadProfileCollectionFromFileAction() { }
+        protected LoadProfileCollectionFromFileAction()
+        {
+        }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see
-        ///     cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction" />
-        /// .
+        /// Gets a reference to the one and only instance of <see
+        /// cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction"/> .
         /// </summary>
         [Log(AttributeExclude = true)]
         public static LoadProfileCollectionFromFileAction Instance
@@ -45,7 +47,7 @@ namespace MFR.Settings.Profiles.Actions
         } = new LoadProfileCollectionFromFileAction();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.MessageType" /> that is being used
+        /// Gets the <see cref="T:MFR.MessageType"/> that is being used
         /// to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -56,15 +58,14 @@ namespace MFR.Settings.Profiles.Actions
         /// Executes this message.
         /// </summary>
         /// <returns>
-        /// Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection"/>
         /// interface that is initialized with the values read in from the
         /// specified file.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <see cref="F:MFR.ActionBase._input" /> field is
-        /// blank or <see langword="null" />.
+        /// Thrown if the <see cref="F:MFR.ActionBase._input"/> field is
+        /// blank or <see langword="null"/>.
         /// </exception>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality
@@ -77,10 +78,11 @@ namespace MFR.Settings.Profiles.Actions
 
             // Check to see if the required field, _input, is null. If it is,
             if (Input == null)
-
+            {
                 // the field _input is required.
                 // stop.
                 return result;
+            }
             try
             {
                 Input.Path = FileHelpers.CreateOrOpenTextFile(

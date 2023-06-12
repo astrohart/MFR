@@ -137,7 +137,7 @@ namespace MFR.Registry.Helpers
 
             if (!keyPath.StartsWith("HKEY_")) return false;
 
-            bool result;
+            var result = false;
 
             try
             {
@@ -202,7 +202,7 @@ namespace MFR.Registry.Helpers
                 hiveName = hiveName.Split('\\')
                                    .First();
 
-            RegistryHive result;
+            var result = RegistryHive.CurrentUser;
 
             switch (hiveName)
             {

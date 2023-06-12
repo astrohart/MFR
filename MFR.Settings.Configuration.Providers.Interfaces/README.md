@@ -5,7 +5,11 @@
 
 - [IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
   - [ConfigurationFilePath](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePath 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigurationFilePath')
+  - [ConfigurationFilePathKeyName](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePathKeyName 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigurationFilePathKeyName')
+  - [ConfigurationFilePathValueName](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePathValueName 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigurationFilePathValueName')
   - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.CurrentConfiguration')
+  - [DefaultConfigDir](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-DefaultConfigDir 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.DefaultConfigDir')
+  - [DefaultConfigFileName](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-DefaultConfigFileName 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.DefaultConfigFileName')
   - [Export(exportFileName)](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Export-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Export(System.String)')
   - [Import(sourceFilePath)](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Import-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Import(System.String)')
   - [Load(pathname)](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Load-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load(System.String)')
@@ -23,8 +27,7 @@ MFR.Settings.Configuration.Providers.Interfaces
 
 ##### Summary
 
-Defines the publicly-exposed methods and properties of a
-ProjectFileRenamerConfiguration Provider object.
+Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
 
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePath'></a>
 ### ConfigurationFilePath `property`
@@ -33,16 +36,47 @@ ProjectFileRenamerConfiguration Provider object.
 
 Gets or sets the pathname of the configuration file.
 
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePathKeyName'></a>
+### ConfigurationFilePathKeyName `property`
+
+##### Summary
+
+Gets a string whose value is the pathname of the system Registry key in which configuration settings are stored.
+
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigurationFilePathValueName'></a>
+### ConfigurationFilePathValueName `property`
+
+##### Summary
+
+Gets a string whose value is the Registry value under which we store the path to the configuration file.
+
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-CurrentConfiguration'></a>
 ### CurrentConfiguration `property`
 
 ##### Summary
 
 Gets a reference to the instance of the object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface and which
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface and which
 exposes settings changed by the user in order to modify the
 application's behavior.
+
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-DefaultConfigDir'></a>
+### DefaultConfigDir `property`
+
+##### Summary
+
+Gets the default folder for the configuration file.
+
+##### Remarks
+
+We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
+
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-DefaultConfigFileName'></a>
+### DefaultConfigFileName `property`
+
+##### Summary
+
+Gets the default filename for the config file.
 
 <a name='M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Export-System-String-'></a>
 ### Export(exportFileName) `method`

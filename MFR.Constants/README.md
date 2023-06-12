@@ -17,7 +17,6 @@
   - [FRM_PROCESSING_OPERATION](#F-MFR-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
   - [FRM_ROOT_DIRECTORY_PATH_CHANGED](#F-MFR-Constants-FileRenamerMessages-FRM_ROOT_DIRECTORY_PATH_CHANGED 'MFR.Constants.FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED')
   - [FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED')
-  - [FRM_SOLUTION_FOLDER_RENAMED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDER_RENAMED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_FOLDER_RENAMED')
   - [FRM_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Constants.FileRenamerMessages.FRM_STARTED')
   - [FRM_STARTING](#F-MFR-Constants-FileRenamerMessages-FRM_STARTING 'MFR.Constants.FileRenamerMessages.FRM_STARTING')
   - [FRM_STATUS_UPDATE](#F-MFR-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
@@ -141,13 +140,6 @@ the starting directory, of the File Renamer component has been altered.
 Unique identifier for a message that indicates that the File Renamer
 component has determined the number of subfolders that need to be
 operated on.
-
-<a name='F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDER_RENAMED'></a>
-### FRM_SOLUTION_FOLDER_RENAMED `constants`
-
-##### Summary
-
-Unique identifier for a message that indicates that a folder has been renamed.
 
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_STARTED'></a>
 ### FRM_STARTED `constants`

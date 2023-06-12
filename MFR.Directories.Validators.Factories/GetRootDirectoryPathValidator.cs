@@ -9,6 +9,7 @@ namespace MFR.Directories.Validators.Factories
     ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
     /// interface.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetRootDirectoryPathValidator
     {
         /// <summary>

@@ -46,12 +46,6 @@ namespace MFR.Settings.Configuration.Actions.Factories
         {
             IAction<TInput, TResult> action;
 
-            /*
-             * We have to use a switch statement that is structured
-             * such as is shown, due to the fact that the action types
-             * are GUIDs and not constant integer enumeration values.
-             */
-
             switch (actionType)
             {
                 case var _ when actionType ==

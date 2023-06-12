@@ -4,7 +4,11 @@
 ## Contents
 
 - [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
+  - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileCollectionDir')
+  - [DefaultProfileCollectionPath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.DefaultProfileCollectionPath')
   - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath')
+  - [ProfileCollectionPathKeyName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathKeyName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionPathKeyName')
+  - [ProfileCollectionPathValueName](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathValueName 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionPathValueName')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Profiles')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Load(System.String)')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Save(System.String)')
@@ -22,26 +26,58 @@ MFR.Settings.Profiles.Providers.Interfaces
 ##### Summary
 
 Defines the publicly-exposed methods and properties of a
-` ProfileProvider` object.
+`
+            Profile
+            Provider
+            `
+object.
 
 ##### Remarks
 
-A `ProfileProvider` object maintains a collection of the saved
-configuration setting profiles defined by the user.
+A `Profile Provider` object maintains a collection of the profiles
+defined by the user.
+
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileCollectionDir'></a>
+### DefaultProfileCollectionDir `property`
+
+##### Summary
+
+Gets the default folder for the configuration file.
+
+##### Remarks
+
+We store the profile configuration file, by default, in a folder
+under the current user's AppData folder.
+
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-DefaultProfileCollectionPath'></a>
+### DefaultProfileCollectionPath `property`
+
+##### Summary
+
+Gets the default fully-qualified pathname of the profile list file.
 
 <a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePath'></a>
 ### ProfileCollectionFilePath `property`
 
 ##### Summary
 
-Gets a string whose value is the fully-qualified pathname of the profile list
-file.
+Gets a string whose value is the pathname of the profile list file.
 
-##### Remarks
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathKeyName'></a>
+### ProfileCollectionPathKeyName `property`
 
-This property raises the
-[](#E-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged')
-event if its value is updated.
+##### Summary
+
+Gets a string whose value is the pathname of the system Registry key
+in which Profile settings are stored.
+
+<a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-ProfileCollectionPathValueName'></a>
+### ProfileCollectionPathValueName `property`
+
+##### Summary
+
+Gets a string whose value is the Registry value under which we store
+the path to the profile list file.
 
 <a name='P-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider-Profiles'></a>
 ### Profiles `property`

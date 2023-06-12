@@ -1,20 +1,21 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Expressions.Registry.Factories;
+using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.GUI.Constants;
-using MFR.Messages.Commands.Interfaces;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
 using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
-using MFR.Settings.Profiles.Providers.Actions;
+using MFR.Settings.Profiles.Constants;
 using MFR.Settings.Profiles.Providers.Interfaces;
-using MFR.Settings.Profiles.Providers.Properties;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
+using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers
@@ -24,6 +25,11 @@ namespace MFR.Settings.Profiles.Providers
     /// </summary>
     public class ProfileProvider : IProfileProvider
     {
+        /// <summary>
+        /// Gets the default JSON file name of the profile list path.
+        /// </summary>
+        public const string DEFAULT_PROFILE_LIST_FILENAME = "profiles.json";
+
         /// <summary>
         /// A <see cref="T:System.String" /> that holds the path the JSON file that stores
         /// profiles.
@@ -40,10 +46,33 @@ namespace MFR.Settings.Profiles.Providers
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ProfileProvider()
+        protected ProfileProvider() { }
+
+        /// <summary>
+        /// Gets the default folder for the profile list file.
+        /// </summary>
+        /// <remarks>
+        /// We store the profile list file, by default, in a folder
+        /// under the current user's AppData folder.
+        /// </remarks>
+        public string DefaultProfileCollectionDir
         {
-            InitializeProfileCollectionFilePath();
-        }
+            get;
+        } = Path.Combine(
+            Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.LocalApplicationData
+                ), Application.CompanyName
+            ), $@"{Application.ProductName}\Config"
+        );
+
+        /// <summary>
+        /// Gets the default fully-qualified pathname of the profile list file.
+        /// </summary>
+        public string DefaultProfileCollectionPath
+            => Path.Combine(
+                DefaultProfileCollectionDir, DEFAULT_PROFILE_LIST_FILENAME
+            );
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -56,24 +85,103 @@ namespace MFR.Settings.Profiles.Providers
         } = new ProfileProvider();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Messages.Actions.Interfaces.IAction" /> interface.
+        /// <para />
+        /// This object is an <c>Action</c> object whose job it is to access the system
+        /// Registry and read from the data stored therein, the path to the profile list
+        /// file.
+        /// </summary>
+        private IAction<IRegQueryExpression<string>, IFileSystemEntry>
+            LoadProfileCollectionPathAction
+            => GetProfileCollectionAction
+               .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                   ProfileCollectionActionType.LoadStringFromRegistry
+               )
+               .WithInput(
+                   MakeNewRegQueryExpression.FromScatch<string>()
+                                            .ForKeyPath(
+                                                ProfileCollectionPathKeyName
+                                            )
+                                            .AndValueName(
+                                                ProfileCollectionPathValueName
+                                            )
+                                            .WithDefaultValue(
+                                                /*
+                                                 * This is the default fully-qualified pathname
+                                                 * of the file that is to be utilized if the value
+                                                 * that is supposed to be stored in the system
+                                                 * Registry cannot be found.
+                                                 */
+                                                DefaultProfileCollectionPath
+                                            )
+               );
+
+        /// <summary>
         /// Gets a string whose value is the fully-qualified pathname of the profile list
         /// file.
         /// </summary>
-        /// <remarks>
-        /// This property raises the
-        /// <see
-        ///     cref="E:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged" />
-        /// event if its value is updated.
-        /// </remarks>
         public string ProfileCollectionFilePath
         {
-            get => _profileCollectionFilePath;
+            get {
+                var result = string.Empty;
+
+                try
+                {
+                    switch (string.IsNullOrWhiteSpace(
+                                _profileCollectionFilePath
+                            ))
+                    {
+                        case false when File.Exists(_profileCollectionFilePath):
+                            result = _profileCollectionFilePath;
+                            break;
+                        default:
+                            _profileCollectionFilePath = result =
+                                LoadProfileCollectionPathAction.Execute()
+                                    .Path;
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
             set {
-                var changed = _profileCollectionFilePath != value;
                 _profileCollectionFilePath = value;
-                if (changed) OnProfileCollectionFilePathChanged();
+
+                GetSaveProfileCollectionPathCommand.ForPath(
+                                                       ProfileCollectionPathKeyName,
+                                                       ProfileCollectionPathValueName,
+                                                       _profileCollectionFilePath
+                                                   )
+                                                   .Execute();
+
+                /* Clear out the cache of previously-loaded paths
+                 for this same operation. */
+                LoadProfileCollectionPathAction.AsCachedResultAction()
+                                               .ClearResultCache();
             }
         }
+
+        /// <summary>
+        /// Gets a string whose value is the pathname of the system Registry key
+        /// in which Profile settings are stored.
+        /// </summary>
+        public string ProfileCollectionPathKeyName
+            => ProfilePathRegistry.KeyName;
+
+        /// <summary>
+        /// Gets a string whose value is the Registry value under which we store
+        /// the path to the profile list file.
+        /// </summary>
+        public string ProfileCollectionPathValueName
+            => ProfilePathRegistry.ValueName;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -90,38 +198,6 @@ namespace MFR.Settings.Profiles.Providers
             get;
             protected set; // to enable to be set by members of this class only
         } = MakeNewProfileCollection.FromScratch();
-
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
-        /// property is updated.
-        /// </summary>
-        public event EventHandler ProfileCollectionFilePathChanged;
-
-        /// <summary>
-        /// This method is called in order to set the value of the
-        /// </summary>
-        public void InitializeProfileCollectionFilePath(string companyName = "",
-            string productName = "")
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(companyName))
-                    companyName = ProgramText.CompanyName;
-                if (string.IsNullOrWhiteSpace(productName))
-                    productName = ProgramText.ProductNameWithoutCompany;
-
-                ProfileCollectionFilePath = Obtain.ProfileCollectionFilePath(
-                    companyName, productName
-                );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
 
         /// <summary>
         /// Loads the profiles from the profile list file.
@@ -154,8 +230,7 @@ namespace MFR.Settings.Profiles.Providers
                 );
                 pathname = ProfileCollectionFilePath;
 
-                if (string.IsNullOrWhiteSpace(ProfileCollectionFilePath) ||
-                    !File.Exists(ProfileCollectionFilePath))
+                if (!File.Exists(ProfileCollectionFilePath))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
@@ -194,19 +269,15 @@ namespace MFR.Settings.Profiles.Providers
                 Profiles = MakeNewProfileCollection.FromScratch();
             }
 
-            if (Profiles == null) return;
+            if (Profiles != null)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info, "*** SUCCESS *** Profile list loaded."
+                );
 
-            /*
-             * It's okay for the profiles list to be empty,
-             * so we do not a Profiles.Any() check here.
-             */
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info, "*** SUCCESS *** Profile list loaded."
-            );
-
-            // store the pathname in the pathname parameter into the ProfileCollectionFilePath property
-            ProfileCollectionFilePath = pathname;
+                // store the pathname in the pathname parameter into the ProfileCollectionFilePath property
+                ProfileCollectionFilePath = pathname;
+            }
         }
 
         /// <summary>
@@ -229,25 +300,11 @@ namespace MFR.Settings.Profiles.Providers
         ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the <paramref name="pathname" /> is passed a blank value, and the
-        /// <see
-        ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
-        /// property is blank too.
-        /// <para />
-        /// To fix the latter, you can call the
-        /// <see
-        ///     cref="M:MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileCollectionFilePath" />
-        /// method.
-        /// </exception>
         public void Save(string pathname = "")
         {
             /*
              * If the pathname parameter is blank, then use the
              * default profile list file path.
-             *
-             * If THAT path is blank, then you need to have called
-             * the InitializeProfileCollectionFilePath() method first.
              */
             if (string.IsNullOrWhiteSpace(pathname))
             {
@@ -256,13 +313,7 @@ namespace MFR.Settings.Profiles.Providers
                     "ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'ProfileCollectionFilePath' property..."
                 );
                 pathname = ProfileCollectionFilePath;
-
-                if (string.IsNullOrWhiteSpace(pathname))
-                    throw new InvalidOperationException(
-                        Resources.Error_NoSavePathname
-                    );
             }
-
             // Check to see if the required property, Profiles, is null. If
             if (Profiles == null)
             {
@@ -284,41 +335,32 @@ namespace MFR.Settings.Profiles.Providers
                     if (Profiles[i]
                         .Name.StartsWith("tmp_"))
                         Profiles.Remove(Profiles[i]);
-
+            ;
             try
             {
-                IFileSystemEntry profileListFileThatIsToBeSaved = default;
-
-                profileListFileThatIsToBeSaved = MakeNewFileSystemEntry.ForPath(
-                    /*
-                                      * Path to the file that
-                                      * is to be written to the
-                                      * disk.
-                                      */
-                    pathname
-                );
-                if (profileListFileThatIsToBeSaved == null) return;
-                profileListFileThatIsToBeSaved.SetUserState(
-                    /*
-                                      * What needs to be saved?
-                                      * The list of profiles, which
-                                      * is the Profiles property.
-                                      */
-                    Profiles
-                );
-
-                ICommand<IFileSystemEntry> saveProfileCommand = default;
-
-                saveProfileCommand = GetProfileCollectionCommandType
-                                     .For<IFileSystemEntry>(
-                                         ProfileCollectionCommandType
-                                             .SaveProfileCollectionToFile
-                                     )
-                                     .WithInput(profileListFileThatIsToBeSaved);
-                if (saveProfileCommand == null)
-                    return;
-
-                saveProfileCommand.Execute();
+                GetProfileCollectionCommandType.For<IFileSystemEntry>(
+                                               ProfileCollectionCommandType
+                                                   .SaveProfileCollectionToFile
+                                           )
+                                           .WithInput(
+                                               MakeNewFileSystemEntry.ForPath(
+                                                       /*
+                                                        * Path to the file that
+                                                        * is to be written to the
+                                                        * disk.
+                                                        */
+                                                       pathname
+                                                   )
+                                                   .SetUserState(
+                                                       /*
+                                                        * What needs to be saved?
+                                                        * The list of profiles, which
+                                                        * is the Profiles property.
+                                                        */
+                                                       Profiles
+                                                   )
+                                           )
+                                           .Execute();
             }
             catch (Exception ex)
             {
@@ -326,14 +368,5 @@ namespace MFR.Settings.Profiles.Providers
                 DebugUtils.LogException(ex);
             }
         }
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged" />
-        /// event.
-        /// </summary>
-        protected virtual void OnProfileCollectionFilePathChanged()
-            => ProfileCollectionFilePathChanged?.Invoke(this, EventArgs.Empty);
     }
 }

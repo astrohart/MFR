@@ -4,14 +4,14 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.GUI.Constants")]
-[assembly: AssemblyDescription("Provides objects and functionality for constant values that are to be used throughout the GUI version of the application.")]
+[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.GUI.Constants")]
+[assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for GUI Application Constant Values")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.GUI.Constants")]
 [assembly:
     AssemblyCopyright(
-"Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX Project File Renamer.  Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]

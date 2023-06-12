@@ -21,6 +21,7 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,9 +79,7 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static ICommandLineParser CommandLineParser
-        {
-            get;
-        } = GetCommandLineParser.SoleInstance();
+            => GetCommandLineParser.SoleInstance();
 
         /// <summary>
         /// Gets or sets a value that indicates whether the user specified any arguments on
@@ -98,9 +97,22 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static ICommandLineValidator CommandLineValidator
-        {
-            get;
-        } = GetCommandLineValidator.SoleInstance();
+            => GetCommandLineValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -108,9 +120,7 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IFileStreamProvider FileStreamProvider
-        {
-            get;
-        } = GetFileStreamProvider.SoleInstance();
+            => GetFileStreamProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -127,26 +137,7 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-        {
-            get;
-        } = GetProfileProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to the sole instance of the object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
-        /// interface.
-        /// </summary>
-        /// <remarks>
-        /// This object allows access to the user configuration and the
-        /// actions
-        /// associated with it.
-        /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ProjectFileRenamerConfigurationProvider
-        {
-            get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+            => GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -154,9 +145,7 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private IRootDirectoryPathValidator RootDirectoryPathValidator
-        {
-            get;
-        } = GetRootDirectoryPathValidator.SoleInstance();
+            => GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Occurs when the application has been initialized, but has not yet processed the
@@ -174,20 +163,11 @@ namespace MFR.GUI.Application
         /// </param>
         public void WinInit(string[] args)
         {
-            DebugUtils.WriteLine(
-                DebugLevel.Info, "*** INFO: Starting WinInit processing..."
-            );
-
             /*
              * Initialize the application, displaying a "loading" progress dialog box
              * to let the user know we're doing something.
              */
             if (!IsAutoStarted(args))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info, "*** INFO: NOT running in AutoStart mode."
-                );
-
                 using (var dialog = MakeNewOperationDrivenProgressDialog
                                     .FromScratch()
                                     .HavingProc(
@@ -221,17 +201,12 @@ namespace MFR.GUI.Application
                     // NOTE: Do NOT save the configuration settings in the event
                     // that the user is running this app from the command line.
                     // Ditto for profiles.
-                    ProjectFileRenamerConfigurationProvider.Save();
+                    ConfigurationProvider.Save();
 
                     ProfileProvider.Save();
                 }
-            }
             else
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info, "*** INFO: Running in AutoStart mode."
-                );
-
                 if (!InitApplication(args))
                     Environment.Exit(-1);
 
@@ -370,6 +345,7 @@ namespace MFR.GUI.Application
         /// open a Notepad window displaying the exception's type name, message,
         /// and stack trace.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private static void OnThreadException(object sender,
             ThreadExceptionEventArgs e)
         {
@@ -414,6 +390,14 @@ namespace MFR.GUI.Application
         }
 
         /// <summary>
+        /// Configures the logging infrastructure.
+        /// </summary>
+        private static void SetUpLogging()
+            => LogFileManager.InitializeLogging(
+                infrastructureType: LoggingInfrastructureType.PostSharp
+            );
+
+        /// <summary>
         /// Shows the error <paramref name="message" /> to the user.
         /// </summary>
         /// <param name="message">
@@ -451,14 +435,11 @@ namespace MFR.GUI.Application
         {
             var result = false;
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Starting InitApplication processing..."
-            );
-
             try
             {
                 SetDisplayParameters();
+
+                SetUpLogging();
 
                 Register.WindowsMessageFilter();
 
@@ -469,7 +450,7 @@ namespace MFR.GUI.Application
                 // Load the configuration from the disk.
                 ProfileProvider.Load();
 
-                ProjectFileRenamerConfigurationProvider.Load();
+                ConfigurationProvider.Load();
 
                 ParseCommandLine(args);
 

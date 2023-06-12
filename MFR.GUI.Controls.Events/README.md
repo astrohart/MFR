@@ -8,6 +8,14 @@
   - [Folded](#P-MFR-GUI-Controls-Events-FormFoldedEventArgs-Folded 'MFR.GUI.Controls.Events.FormFoldedEventArgs.Folded')
   - [Size](#P-MFR-GUI-Controls-Events-FormFoldedEventArgs-Size 'MFR.GUI.Controls.Events.FormFoldedEventArgs.Size')
 - [FormFoldedEventHandler](#T-MFR-GUI-Controls-Events-FormFoldedEventHandler 'MFR.GUI.Controls.Events.FormFoldedEventHandler')
+- [ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs')
+  - [#ctor(side)](#M-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide- 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.#ctor(MFR.GUI.Controls.Constants.ListBuilderSide)')
+  - [Side](#P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Side 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs.Side')
+- [ListBuilderCancelEventHandler](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventHandler 'MFR.GUI.Controls.Events.ListBuilderCancelEventHandler')
+- [ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs')
+  - [#ctor(side)](#M-MFR-GUI-Controls-Events-ListBuilderEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide- 'MFR.GUI.Controls.Events.ListBuilderEventArgs.#ctor(MFR.GUI.Controls.Constants.ListBuilderSide)')
+  - [Side](#P-MFR-GUI-Controls-Events-ListBuilderEventArgs-Side 'MFR.GUI.Controls.Events.ListBuilderEventArgs.Side')
+- [ListBuilderEventHandler](#T-MFR-GUI-Controls-Events-ListBuilderEventHandler 'MFR.GUI.Controls.Events.ListBuilderEventHandler')
 - [Resources](#T-MFR-GUI-Controls-Events-Properties-Resources 'MFR.GUI.Controls.Events.Properties.Resources')
   - [Culture](#P-MFR-GUI-Controls-Events-Properties-Resources-Culture 'MFR.GUI.Controls.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Events-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Events.Properties.Resources.ResourceManager')
@@ -68,6 +76,116 @@ Provides the method signature for the handler of a FormFolded event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | sender | [T:MFR.GUI.Controls.Events.FormFoldedEventHandler](#T-T-MFR-GUI-Controls-Events-FormFoldedEventHandler 'T:MFR.GUI.Controls.Events.FormFoldedEventHandler') | The sender of the event. |
+
+<a name='T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs'></a>
+## ListBuilderCancelEventArgs `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Events
+
+##### Summary
+
+Arguments for a cancellable event that is raised by a list-builder control.
+
+<a name='M-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide-'></a>
+### #ctor(side) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ListBuilderCancelEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs 'MFR.GUI.Controls.Events.ListBuilderCancelEventArgs') and returns
+a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| side | [MFR.GUI.Controls.Constants.ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') | (Required.) One of the
+[ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') values that
+indicates on which side of the list-builder control did the user last act. |
+
+<a name='P-MFR-GUI-Controls-Events-ListBuilderCancelEventArgs-Side'></a>
+### Side `property`
+
+##### Summary
+
+Gets a [ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') enumeration
+value that indicates on which side of the list-builder control did the user
+act.
+
+<a name='T-MFR-GUI-Controls-Events-ListBuilderCancelEventHandler'></a>
+## ListBuilderCancelEventHandler `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Events
+
+##### Summary
+
+Handler for a cancellable event that occurs with respect to either the
+left-hand side or right-hand side of a list-builder control.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.GUI.Controls.Events.ListBuilderCancelEventHandler](#T-T-MFR-GUI-Controls-Events-ListBuilderCancelEventHandler 'T:MFR.GUI.Controls.Events.ListBuilderCancelEventHandler') | (Required.) Reference to the object that raised the event. |
+
+<a name='T-MFR-GUI-Controls-Events-ListBuilderEventArgs'></a>
+## ListBuilderEventArgs `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Events
+
+##### Summary
+
+Arguments for a `ListBuilderEventHandler`-style event.
+
+<a name='M-MFR-GUI-Controls-Events-ListBuilderEventArgs-#ctor-MFR-GUI-Controls-Constants-ListBuilderSide-'></a>
+### #ctor(side) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ListBuilderEventArgs](#T-MFR-GUI-Controls-Events-ListBuilderEventArgs 'MFR.GUI.Controls.Events.ListBuilderEventArgs') and returns a
+reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| side | [MFR.GUI.Controls.Constants.ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') | (Required.) One of the
+[ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') values that
+indicates on which side of the list-builder control did the user last act. |
+
+<a name='P-MFR-GUI-Controls-Events-ListBuilderEventArgs-Side'></a>
+### Side `property`
+
+##### Summary
+
+Gets a [ListBuilderSide](#T-MFR-GUI-Controls-Constants-ListBuilderSide 'MFR.GUI.Controls.Constants.ListBuilderSide') enumeration
+value that indicates on which side of the list-builder control did the user
+act.
+
+<a name='T-MFR-GUI-Controls-Events-ListBuilderEventHandler'></a>
+## ListBuilderEventHandler `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Events
+
+##### Summary
+
+Handler for an event that occurs with respect to either the left-hand side or
+the right-hand side of a list-builder control.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.GUI.Controls.Events.ListBuilderEventHandler](#T-T-MFR-GUI-Controls-Events-ListBuilderEventHandler 'T:MFR.GUI.Controls.Events.ListBuilderEventHandler') | (Required.) Reference to the object that raised the event. |
 
 <a name='T-MFR-GUI-Controls-Events-Properties-Resources'></a>
 ## Resources `type`

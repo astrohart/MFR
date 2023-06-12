@@ -10,7 +10,6 @@
   - [Path](#P-MFR-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path')
   - [UserState](#P-MFR-FileSystem-FileSystemEntry-UserState 'MFR.FileSystem.FileSystemEntry.UserState')
   - [SetUserState(userState)](#M-MFR-FileSystem-FileSystemEntry-SetUserState-System-Object- 'MFR.FileSystem.FileSystemEntry.SetUserState(System.Object)')
-  - [ToString()](#M-MFR-FileSystem-FileSystemEntry-ToString 'MFR.FileSystem.FileSystemEntry.ToString')
 - [Resources](#T-MFR-FileSystem-Properties-Resources 'MFR.FileSystem.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Properties-Resources-Culture 'MFR.FileSystem.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Properties-Resources-ResourceManager 'MFR.FileSystem.Properties.Resources.ResourceManager')
@@ -113,21 +112,6 @@ user state information. |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `userState`, is
 passed a `null` value. |
-
-<a name='M-MFR-FileSystem-FileSystemEntry-ToString'></a>
-### ToString() `method`
-
-##### Summary
-
-Returns a string that represents the current object.
-
-##### Returns
-
-A string that represents the current object.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='T-MFR-FileSystem-Properties-Resources'></a>
 ## Resources `type`

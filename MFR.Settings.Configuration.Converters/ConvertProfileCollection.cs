@@ -1,4 +1,3 @@
-using MFR.GUI.Models;
 using MFR.Settings.Profiles;
 using MFR.Settings.Profiles.Collections;
 using MFR.Settings.Profiles.Collections.Converters;
@@ -9,8 +8,6 @@ using Newtonsoft.Json.Converters;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Globalization;
-using System.Linq;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Configuration.Converters
 {
@@ -39,7 +36,8 @@ namespace MFR.Settings.Configuration.Converters
                         DateTimeStyles = DateTimeStyles.AssumeUniversal
                     },
                     new ProfileCollectionConverter<ProfileCollection>(),
-                    new ProfileConverter<Profile>()}
+                    new ProfileConverter<Profile>()
+                }
             };
 
         /// <summary>
@@ -83,7 +81,7 @@ namespace MFR.Settings.Configuration.Converters
         /// interface into a
         /// JSON-formatted string and returns the resultant string.
         /// </summary>
-        /// <param name="collection">
+        /// <param name="configuration">
         /// (Required.) Reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" />
         /// interface
@@ -92,39 +90,21 @@ namespace MFR.Settings.Configuration.Converters
         /// <returns>
         /// String containing the JSON equivalent of the
         /// <paramref
-        ///     name="collection" />
+        ///     name="configuration" />
         /// object fed in.
         /// </returns>
-        /// <remarks>
-        /// If a <see langword="null" /> reference is passed for the argument of the
-        /// <paramref name="collection" /> parameter, or if the
-        /// deserialization-from-JSON operation fails, then the empty
-        /// <see cref="T:System.String" /> is returned.
-        /// <para />
-        /// The empty <see cref="T:System.String" /> is also returned in the event that the
-        /// specified <paramref name="collection" /> contains zero elements.
-        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// is passed a <see langword="null" /> value.
+        /// </exception>
         [return: NotLogged]
-        public static string ToJson(IProfileCollection collection)
+        public static string ToJson(IProfileCollection configuration)
         {
-            var result = string.Empty;
-
-            try
-            {
-                if (collection == null) return result;
-                if (!collection.Any()) return result;
-
-                result = JsonConvert.SerializeObject(
-                    collection as ProfileCollection, Settings
-                );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-
-            return result;
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+            return JsonConvert.SerializeObject(
+                configuration as ProfileCollection, Settings
+            );
         }
     }
 }

@@ -14,7 +14,6 @@
 - [ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
   - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [#ctor(invokableOperations)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor(System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [_startingFolder](#F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration._startingFolder')
   - [AutoQuitOnCompletion](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoQuitOnCompletion 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoQuitOnCompletion')
   - [AutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoStart')
@@ -272,24 +271,6 @@ that contains existing configuration settings to copy into this object. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
 parameter, `source`, is passed a `null`
 value. |
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
-### #ctor(invokableOperations) `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration') and
-returns a reference to it.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| invokableOperations | [System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo}') | (Required.) Reference to an instance of a collection of instances of objects,
-each of which implements the
-[IOperationTypeInfo](#T-MFR-GUI-Models-Interfaces-IOperationTypeInfo 'MFR.GUI.Models.Interfaces.IOperationTypeInfo') interface and represents
-the collection of all operations that will get invoked when the application next runs. |
 
 <a name='F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder'></a>
 ### _startingFolder `constants`

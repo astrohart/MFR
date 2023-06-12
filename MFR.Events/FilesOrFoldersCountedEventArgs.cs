@@ -1,13 +1,11 @@
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
-using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Events
 {
     /// <summary>
     /// Defines the data that is passed by all events of type <see cref="T:MFR.Events.FilesOrFoldersCountedEventHandler"/>.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public class FilesOrFoldersCountedEventArgs : OperationEventArgs
     {
         /// <summary>
