@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.GUI.Constants;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using NUnit.Framework;
@@ -11,11 +12,11 @@ namespace MFR.Settings.Configuration.Providers.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenmerConfigurationProvider" />
+    ///     cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider" />
     /// class.
     /// </summary>
     [TestFixture]
-    public class ProjectFileRenmerConfigurationProviderTests
+    public class ProjectFileRenamerConfigurationProviderTests
     {
         /// <summary>
         /// Path to a sample configuration file.
@@ -24,12 +25,29 @@ namespace MFR.Settings.Configuration.Providers.Tests
             @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\config.json";
 
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests" />
+        /// class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// </remarks>
+        static ProjectFileRenamerConfigurationProviderTests()
+        {
+            ProgramText.CompanyName = "xyLOGIX, LLC";
+            ProgramText.ProductName = "xyLOGIX Project File Renamer";
+        }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenmerConfigurationProviderTests" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests" />
         /// and returns a reference to it.
         /// </summary>
-        public ProjectFileRenmerConfigurationProviderTests()
+        public ProjectFileRenamerConfigurationProviderTests()
         {
             LogFileManager.InitializeLogging(
                 muteConsole: false,

@@ -3,6 +3,7 @@ using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.GUI.Constants;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
@@ -15,7 +16,6 @@ using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
-using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers
@@ -62,8 +62,8 @@ namespace MFR.Settings.Profiles.Providers
             Path.Combine(
                 Environment.GetFolderPath(
                     Environment.SpecialFolder.LocalApplicationData
-                ), Application.CompanyName
-            ), $@"{Application.ProductName}\Config"
+                ), ProgramText.CompanyName
+            ), $@"{ProgramText.ProductNameWithoutCompany}\Config"
         );
 
         /// <summary>
@@ -135,6 +135,7 @@ namespace MFR.Settings.Profiles.Providers
                         case false when File.Exists(_profileCollectionFilePath):
                             result = _profileCollectionFilePath;
                             break;
+
                         default:
                             _profileCollectionFilePath = result =
                                 LoadProfileCollectionPathAction.Execute()
@@ -314,6 +315,7 @@ namespace MFR.Settings.Profiles.Providers
                 );
                 pathname = ProfileCollectionFilePath;
             }
+
             // Check to see if the required property, Profiles, is null. If
             if (Profiles == null)
             {
@@ -339,28 +341,29 @@ namespace MFR.Settings.Profiles.Providers
             try
             {
                 GetProfileCollectionCommandType.For<IFileSystemEntry>(
-                                               ProfileCollectionCommandType
-                                                   .SaveProfileCollectionToFile
-                                           )
-                                           .WithInput(
-                                               MakeNewFileSystemEntry.ForPath(
-                                                       /*
-                                                        * Path to the file that
-                                                        * is to be written to the
-                                                        * disk.
-                                                        */
-                                                       pathname
-                                                   )
-                                                   .SetUserState(
-                                                       /*
-                                                        * What needs to be saved?
-                                                        * The list of profiles, which
-                                                        * is the Profiles property.
-                                                        */
-                                                       Profiles
-                                                   )
-                                           )
-                                           .Execute();
+                                                   ProfileCollectionCommandType
+                                                       .SaveProfileCollectionToFile
+                                               )
+                                               .WithInput(
+                                                   MakeNewFileSystemEntry
+                                                       .ForPath(
+                                                           /*
+                                                            * Path to the file that
+                                                            * is to be written to the
+                                                            * disk.
+                                                            */
+                                                           pathname
+                                                       )
+                                                       .SetUserState(
+                                                           /*
+                                                            * What needs to be saved?
+                                                            * The list of profiles, which
+                                                            * is the Profiles property.
+                                                            */
+                                                           Profiles
+                                                       )
+                                               )
+                                               .Execute();
             }
             catch (Exception ex)
             {

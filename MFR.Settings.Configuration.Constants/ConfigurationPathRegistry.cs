@@ -1,4 +1,5 @@
-using System.Windows.Forms;
+using MFR.GUI.Constants;
+using MFR.Settings.Configuration.Constants.Actions;
 
 namespace MFR.Settings.Configuration.Constants
 {
@@ -26,6 +27,8 @@ namespace MFR.Settings.Configuration.Constants
         /// the paths of files.
         /// </summary>
         public static readonly string KeyName =
-            $@"HKEY_CURRENT_USER\SOFTWARE\{Application.CompanyName}\{Application.ProductName}\Paths";
+            Formulate.ConfigurationFilePathKeyName(
+                ProgramText.CompanyName, ProgramText.ProductNameWithoutCompany
+            );
     }
 }

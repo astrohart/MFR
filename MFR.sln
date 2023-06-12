@@ -778,6 +778,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Models.Converters.F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Assemblies.Info", "..\xyLOGIX.Core.Assemblies.Info.VS2019\xyLOGIX.Core.Assemblies.Info\xyLOGIX.Core.Assemblies.Info.csproj", "{1611C59B-1C1E-4F7C-A1CC-7F263DD31188}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Constants.Actions", "MFR.Settings.Configuration.Constants.Actions\MFR.Settings.Configuration.Constants.Actions.csproj", "{EF08C13F-B209-4425-AB75-36EDCFC4D58D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -6900,6 +6902,22 @@ Global
 		{1611C59B-1C1E-4F7C-A1CC-7F263DD31188}.Release|x64.Build.0 = Release|x64
 		{1611C59B-1C1E-4F7C-A1CC-7F263DD31188}.Release|x86.ActiveCfg = Release|x86
 		{1611C59B-1C1E-4F7C-A1CC-7F263DD31188}.Release|x86.Build.0 = Release|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.All|x64.ActiveCfg = Debug|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.All|x64.Build.0 = Debug|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.All|x86.ActiveCfg = Debug|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.All|x86.Build.0 = Debug|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Debug|x64.ActiveCfg = Debug|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Debug|x64.Build.0 = Debug|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Debug|x86.ActiveCfg = Debug|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Debug|x86.Build.0 = Debug|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.DefaultBuild|x64.Build.0 = Debug|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.DefaultBuild|x86.Build.0 = Debug|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Release|x64.ActiveCfg = Release|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Release|x64.Build.0 = Release|x64
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Release|x86.ActiveCfg = Release|x86
+		{EF08C13F-B209-4425-AB75-36EDCFC4D58D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

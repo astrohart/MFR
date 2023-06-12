@@ -30,7 +30,7 @@ namespace MFR.GUI.Models.Actions
                     MakeNewOperationTypeInfo.FromScratch()
                                             .HavingOperationType(
                                                 OperationType
-                                                    .RenameSolutionFolders
+                                                    .RenameFilesInFolder
                                             )
                                             .AndSetEnabledFlag(),
                     MakeNewOperationTypeInfo.FromScratch()

@@ -107,7 +107,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjectFileRenmerConfigurationProviderTests.cs" />
+    <Compile Include="ProjectFileRenamerConfigurationProviderTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +140,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Constants\MFR.GUI.Constants.csproj">
+      <Project>{BA67C73B-59F3-4FF2-81B3-C2EED243DC17}</Project>
+      <Name>MFR.GUI.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>

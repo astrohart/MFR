@@ -36,33 +36,15 @@ namespace MFR.Settings.Configuration.Serializers
         ///     langword="null" />
         /// if a problem occurred.
         /// </returns>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="pathname" />, is
-        /// passed a blank or <see langword="null" /> string for a value.
-        /// </exception>
-        /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if the file, the path to which is specified by the
-        /// <paramref
-        ///     name="pathname" />
-        /// parameter, cannot be located on the disk.
-        /// </exception>
         public static IProjectFileRenamerConfiguration Load(string pathname)
         {
-            if (string.IsNullOrWhiteSpace(pathname))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace,
-                    nameof(pathname)
-                );
-            if (!File.Exists(pathname))
-                throw new FileNotFoundException(
-                    $"The system could not find the configuration file having the pathname '{pathname}'",
-                    pathname
-                );
-
-            IProjectFileRenamerConfiguration result = default;
+            var result = MakeNewProjectFileRenamerConfiguration.FromScratch();
 
             try
             {
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+                if (!File.Exists(pathname)) return result;
+
                 var content = File.ReadAllText(pathname);
 
                 // If the file at the path pathname has zero bytes of data, or
@@ -87,7 +69,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = default;
+                result = MakeNewProjectFileRenamerConfiguration.FromScratch();
             }
 
             return result;
