@@ -124,24 +124,20 @@ namespace MFR.Settings.Profiles.Providers
         public string ProfileCollectionFilePath
         {
             get {
-                string result;
+                var result = string.Empty;
 
                 try
                 {
-                    switch (string.IsNullOrWhiteSpace(
-                                _profileCollectionFilePath
-                            ))
-                    {
-                        case false when File.Exists(_profileCollectionFilePath):
-                            result = _profileCollectionFilePath;
-                            break;
+                    /*
+                     * OKAY, if the value of the _profileCollectionFilePath field
+                     * is non blank, check whether it contains the pathname of a
+                     * profiles.json file and check whether the file exists.
+                     *
+                     * If yes to both of the above, then simply return the value of
+                     * the _profileCollectionFilePath.  Otherwise, attempt to load
+                     * the value of the field  from the system Registry.
+                     */
 
-                        default:
-                            _profileCollectionFilePath = result =
-                                LoadProfileCollectionPathAction.Execute()
-                                    .Path;
-                            break;
-                    }
                 }
                 catch (Exception ex)
                 {
