@@ -30,7 +30,7 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
-            SetUpLogging();
+            SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             Application.WinInit(args);
         }
