@@ -60,6 +60,8 @@ namespace MFR.Settings.Configuration.Providers.Tests
         [Test]
         public void Test_Load_Works()
         {
+            Assert.That(File.Exists(ConfigFilePath));
+
             Assert.DoesNotThrow(
                 () => ProjectFileRenamerConfigurationProvider.Load(
                     ConfigFilePath
