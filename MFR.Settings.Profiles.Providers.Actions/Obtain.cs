@@ -29,7 +29,11 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// (Required.) A <see cref="T:System.String" /> that
         /// contains the product name associated with the application.
         /// </param>
-        /// <param name="currentPathname"></param>
+        /// <param name="currentPathname">
+        /// (Optional.) A <see cref="T:System.String" /> that
+        /// serves as a default return value for this method in case a failure mode is
+        /// otherwise hit (blank input, missing file, missing Registry value, etc.
+        /// </param>
         /// <returns></returns>
         /// <returns>
         /// If successful, a <see cref="T:System.String" /> containing the
@@ -53,6 +57,26 @@ namespace MFR.Settings.Profiles.Providers.Actions
         {
             var result = currentPathname;
 
+            /*
+             * OKAY, the objective of this method is to give the caller a
+             * fully-qualified pathname to a profiles.json file to be used
+             * for storing the user's saved configuration setting profiles.
+             *
+             * We formulate this using the name of the company associated with
+             * this application and the product name to string together the
+             * default pathname and the name of the key in the system Registry
+             * under which the pathname is stored.
+             *
+             * If either of these pieces of info are blank, then stop.  The
+             * currentPathname parameter allows us to return it as a default
+             * value in case we otherwise fail.
+             *
+             * If the path listed in the argument of the currentPathname
+             * parameter refers to a file on the disk that exists, then simply
+             * return that pathname.  Otherwise, try to load the profiles.json
+             * file's pathname from the system Registry.
+             */
+
             try
             {
                 if (string.IsNullOrWhiteSpace(companyName)) return result;
@@ -61,7 +85,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
                     return result;
 
                 result = GetProfileCollectionPathFromRegistry(
-                    companyName, productName
+                    companyName, productName, currentPathname
                 );
             }
             catch (Exception ex)
@@ -172,7 +196,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// value.
         /// </remarks>
         private static string GetProfileCollectionPathFromRegistry(
-            string companyName, string productName)
+            string companyName, string productName, string currentPathname = "")
         {
             var result = string.Empty;
 
