@@ -92,7 +92,7 @@ namespace MFR.Settings.Configuration.Actions
                 IRegQueryExpressionValidator<string>
                     regQueryExpressionValidator = default;
                 regQueryExpressionValidator =
-                    GetRegistryExpressionValidator<string>.Instance()
+                    GetRegistryExpressionValidator<string>.SoleInstance()
                         .ForRegQueryExpression(Input);
                 if (regQueryExpressionValidator ==  null) return result;
 

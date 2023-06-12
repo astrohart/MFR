@@ -1,10 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Expressions.Registry.Factories;
-using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.GUI.Constants;
-using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
 using MFR.Settings.Profiles.Collections.Factories;
@@ -85,39 +82,6 @@ namespace MFR.Settings.Profiles.Providers
         } = new ProfileProvider();
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Messages.Actions.Interfaces.IAction" /> interface.
-        /// <para />
-        /// This object is an <c>Action</c> object whose job it is to access the system
-        /// Registry and read from the data stored therein, the path to the profile list
-        /// file.
-        /// </summary>
-        private IAction<IRegQueryExpression<string>, IFileSystemEntry>
-            LoadProfileCollectionPathAction
-            => GetProfileCollectionAction
-               .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                   ProfileCollectionActionType.LoadStringFromRegistry
-               )
-               .WithInput(
-                   MakeNewRegQueryExpression.FromScatch<string>()
-                                            .ForKeyPath(
-                                                ProfileCollectionPathKeyName
-                                            )
-                                            .AndValueName(
-                                                ProfileCollectionPathValueName
-                                            )
-                                            .WithDefaultValue(
-                                                /*
-                                                 * This is the default fully-qualified pathname
-                                                 * of the file that is to be utilized if the value
-                                                 * that is supposed to be stored in the system
-                                                 * Registry cannot be found.
-                                                 */
-                                                DefaultProfileCollectionPath
-                                            )
-               );
-
-        /// <summary>
         /// Gets a string whose value is the fully-qualified pathname of the profile list
         /// file.
         /// </summary>
@@ -137,7 +101,6 @@ namespace MFR.Settings.Profiles.Providers
                      * the _profileCollectionFilePath.  Otherwise, attempt to load
                      * the value of the field  from the system Registry.
                      */
-
                 }
                 catch (Exception ex)
                 {
@@ -158,11 +121,6 @@ namespace MFR.Settings.Profiles.Providers
                                                        _profileCollectionFilePath
                                                    )
                                                    .Execute();
-
-                /* Clear out the cache of previously-loaded paths
-                 for this same operation. */
-                LoadProfileCollectionPathAction.AsCachedResultAction()
-                                               .ClearResultCache();
             }
         }
 

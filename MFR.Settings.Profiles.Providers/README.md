@@ -10,7 +10,6 @@
   - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionDir')
   - [DefaultProfileCollectionPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
-  - [LoadProfileCollectionPathAction](#P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileCollectionPathAction 'MFR.Settings.Profiles.Providers.ProfileProvider.LoadProfileCollectionPathAction')
   - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath')
   - [ProfileCollectionPathKeyName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathKeyName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionPathKeyName')
   - [ProfileCollectionPathValueName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathValueName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionPathValueName')
@@ -85,20 +84,6 @@ Gets the default fully-qualified pathname of the profile list file.
 
 Gets a reference to the one and only instance of
 [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider').
-
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileCollectionPathAction'></a>
-### LoadProfileCollectionPathAction `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IAction](#T-MFR-Messages-Actions-Interfaces-IAction 'MFR.Messages.Actions.Interfaces.IAction') interface.
-
-
-
-This object is an `Action` object whose job it is to access the system
-Registry and read from the data stored therein, the path to the profile list
-file.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath'></a>
 ### ProfileCollectionFilePath `property`

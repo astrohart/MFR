@@ -103,6 +103,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execute.cs" />
+    <Compile Include="Formulate.cs" />
+    <Compile Include="Generate.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,9 +144,21 @@
       <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
       <Name>MFR.Expressions.Registry.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Factories\MFR.Expressions.Registry.Validators.Factories.csproj">
+      <Project>{A918C4B3-40A4-4864-A04D-AC2ACFC025AC}</Project>
+      <Name>MFR.Expressions.Registry.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Interfaces\MFR.Expressions.Registry.Validators.Interfaces.csproj">
+      <Project>{DA01210A-F467-4EC3-967E-01523AFB6E23}</Project>
+      <Name>MFR.Expressions.Registry.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
       <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
       <Name>MFR.FileSystem.Factories.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.FileSystem.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>

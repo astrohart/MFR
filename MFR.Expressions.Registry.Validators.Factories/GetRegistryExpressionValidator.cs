@@ -26,7 +26,7 @@ namespace MFR.Expressions.Registry.Validators.Factories
         ///     cref="T:MFR.IRegQueryExpressionValidator" />
         /// interface.
         /// </returns>
-        public static IRegQueryExpressionValidator<T> Instance()
+        public static IRegQueryExpressionValidator<T> SoleInstance()
             => RegQueryExpressionValidator<T>.Instance;
     }
 }

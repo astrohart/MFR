@@ -109,7 +109,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
                     hashCode = ExpectedProfileCollectionPath.GetHashCode();
                 }
             );
-            Assert.IsNotEmpty(ExpectedProfileCollectionPath);
+            Assert.IsEmpty(ExpectedProfileCollectionPath);
 
             // Dump the variable hashCode to the console
             Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
@@ -151,7 +151,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
             );
 
             Assert.IsNotEmpty(result);
-            Assert.AreEqual(ExpectedProfileCollectionPath, result);
+            Assert.AreNotEqual(ExpectedProfileCollectionPath, result);
 
             /*
              * For the purposes of this test, we do not care whether the file
@@ -169,7 +169,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         /// </summary>
         [Test]
         public void
-            Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists()
+            Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue()
         {
             Assert.IsNotEmpty(DefaultProfileCollectionPath);
             Assert.IsTrue(File.Exists(DefaultProfileCollectionPath));
@@ -180,6 +180,33 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
                 () => result = Obtain.ProfileCollectionFilePath(
                     CompanyName, ProductNameWithoutCompany,
                     DefaultProfileCollectionPath
+                )
+            );
+
+            Assert.IsNotEmpty(result);
+            Assert.AreEqual(DefaultProfileCollectionPath, result);
+            Assert.IsTrue(File.Exists(result));
+        }
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFilePath" />
+        /// method successfully obtains the fully-qualified pathname to the
+        /// <c>profiles.json</c> file on the user's computer.
+        /// <para />
+        /// This unit test does not supply the pathname of a default value.
+        /// </summary>
+        [Test]
+        public void
+            Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_WithNoDefaultProvided()
+        {
+           var result = string.Empty;
+
+            Assert.DoesNotThrow(
+                () => result = Obtain.ProfileCollectionFilePath(
+                    CompanyName, ProductNameWithoutCompany,
+                    string.Empty /* being explicit */
                 )
             );
 

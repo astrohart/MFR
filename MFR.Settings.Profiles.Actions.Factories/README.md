@@ -7,6 +7,7 @@
   - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType)')
 - [Resources](#T-MFR-Settings-Profiles-Actions-Factories-Properties-Resources 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Culture')
+  - [Error_NoActionAvailable](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Error_NoActionAvailable 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Error_NoActionAvailable')
   - [ResourceManager](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction'></a>
@@ -79,6 +80,13 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Error_NoActionAvailable'></a>
+### Error_NoActionAvailable `property`
+
+##### Summary
+
+Looks up a localized string similar to There is no message available that corresponds to the '{0}' action type..
 
 <a name='P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

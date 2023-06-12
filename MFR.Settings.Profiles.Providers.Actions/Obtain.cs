@@ -1,11 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Expressions.Registry.Factories;
-using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories.Actions;
-using MFR.FileSystem.Interfaces;
-using MFR.Messages.Actions.Interfaces;
-using MFR.Settings.Profiles.Actions.Constants;
-using MFR.Settings.Profiles.Actions.Factories;
 using MFR.Settings.Profiles.Providers.Constants;
 using System;
 using xyLOGIX.Core.Debug;
@@ -111,6 +105,11 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// (Required.) A <see cref="T:System.String" /> that
         /// contains the product name associated with the application.
         /// </param>
+        /// <param name="currentPathname">
+        /// (Optional.) A <see cref="T:System.String" /> that
+        /// serves as a default return value for this method in case a failure mode is
+        /// otherwise hit (blank input, missing file, missing Registry value, etc.
+        /// </param>
         /// <returns>
         /// If successful, a <see cref="T:System.String" /> that contains the
         /// default fully-qualified pathname of the <c>profiles.json</c> value that should
@@ -126,9 +125,9 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// value.
         /// </remarks>
         private static string GetDefaultProfileCollectionPathname(
-            string companyName, string productName)
+            string companyName, string productName, string currentPathname = "")
         {
-            var result = string.Empty;
+            var result = currentPathname;
 
             try
             {
@@ -182,6 +181,11 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// (Required.) A <see cref="T:System.String" /> that
         /// contains the product name associated with the application.
         /// </param>
+        /// <param name="currentPathname">
+        /// (Optional.) A <see cref="T:System.String" /> that
+        /// serves as a default return value for this method in case a failure mode is
+        /// otherwise hit (blank input, missing file, missing Registry value, etc.
+        /// </param>
         /// <returns>
         /// If successful, a <see cref="T:System.String" /> containing the
         /// fully-qualified pathname of the <c>profiles.json</c> file that contains the
@@ -198,13 +202,14 @@ namespace MFR.Settings.Profiles.Providers.Actions
         private static string GetProfileCollectionPathFromRegistry(
             string companyName, string productName, string currentPathname = "")
         {
-            var result = string.Empty;
+            var result = currentPathname;
 
             try
             {
                 if (string.IsNullOrWhiteSpace(companyName))
                     return result;
-                if (string.IsNullOrWhiteSpace(productName)) return result;
+                if (string.IsNullOrWhiteSpace(productName))
+                    return result;
 
                 /*
                  * Attempt to get a default value for the profiles.json file.
@@ -215,7 +220,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
 
                 var defaultProfileCollectionPathname =
                     GetDefaultProfileCollectionPathname(
-                        companyName, productName
+                        companyName, productName, currentPathname
                     );
                 if (string.IsNullOrWhiteSpace(defaultProfileCollectionPathname))
                     return result;
@@ -225,49 +230,38 @@ namespace MFR.Settings.Profiles.Providers.Actions
                  * up the pathname of the profiles.json file in the system Registry.
                  */
 
-                IRegQueryExpression<string> profilePathRegQueryExpression =
-                    default;
-
-                profilePathRegQueryExpression = MakeNewRegQueryExpression
-                                                .FromScatch<string>()
-                                                .ForKeyPath(
-                                                    GetProfileFilePathRegistryKeyPathname(
-                                                        companyName, productName
-                                                    )
-                                                )
-                                                .AndValueName(
-                                                    ProfilePathRegistry
-                                                        .ValueName
-                                                )
-                                                .WithDefaultValue(
-                                                    /*
-                                                    * This is the default fully-qualified pathname
-                                                    * of the file that is to be utilized if the value
-                                                    * that is supposed to be stored in the system
-                                                    * Registry cannot be found.
-                                                    */
-                                                    defaultProfileCollectionPathname
-                                                );
+                var profilePathRegQueryExpression =
+                    Generate.ProfilePathRegQueryExpression(
+                        companyName, productName,
+                        defaultProfileCollectionPathname
+                    );
                 if (profilePathRegQueryExpression == null) return result;
 
-                IAction<IRegQueryExpression<string>, IFileSystemEntry>
-                    retrieveProfileCollectionPathnameFromRegistryAction =
-                        default;
-
-                retrieveProfileCollectionPathnameFromRegistryAction =
-                    GetProfileCollectionAction
-                        .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                            ProfileCollectionActionType.LoadStringFromRegistry
-                        )
-                        .WithInput(profilePathRegQueryExpression);
+                /*
+                 * OKAY, now get a reference to an action object (from our event-aggregation
+                 * architecture) that loads the pathname of the profiles.json file for us from
+                 * the system Registry.
+                 */
+                var retrieveProfileCollectionPathnameFromRegistryAction =
+                    Generate
+                        .RetrieveProfileCollectionPathnameFromRegistryAction(
+                            profilePathRegQueryExpression
+                        );
                 if (retrieveProfileCollectionPathnameFromRegistryAction == null)
                     return result;
 
-                IFileSystemEntry profileCollectionFileSystemEntry = default;
+                /*
+                 * FINALLY, actually execute the operation of reading the pathname of the
+                 * profiles.json file that is stored in the system Registry.  We've also
+                 * configured a default value that is to be utilized, in case the operation
+                 * fails, such as if there isn't such a value in the system Registry.
+                 */
 
-                profileCollectionFileSystemEntry =
-                    retrieveProfileCollectionPathnameFromRegistryAction
-                        .Execute();
+                var profileCollectionFileSystemEntry =
+                    Execute
+                        .OperationToLoadProfileCollectionFilePathFromRegistry(
+                            retrieveProfileCollectionPathnameFromRegistryAction
+                        );
                 if (profileCollectionFileSystemEntry == null) return result;
                 if (string.IsNullOrWhiteSpace(
                         profileCollectionFileSystemEntry.Path
@@ -283,56 +277,6 @@ namespace MFR.Settings.Profiles.Providers.Actions
                  */
 
                 result = profileCollectionFileSystemEntry.Path;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = string.Empty;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Attempts to get the fully-qualified Registry key pathname of the key storing
-        /// the pathnames of the profile list and configuration files.
-        /// </summary>
-        /// <param name="companyName">
-        /// (Required.) A <see cref="T:System.String" /> that
-        /// contains the company name associated with the application.
-        /// </param>
-        /// <param name="productName">
-        /// (Required.) A <see cref="T:System.String" /> that
-        /// contains the product name associated with the application.
-        /// </param>
-        /// <returns>
-        /// If successful, a <see cref="T:System.String" /> that contains the
-        /// fully-qualified Registry key pathname of the key storing the pathnames of the
-        /// profile list and configuration files.
-        /// </returns>
-        /// <remarks>
-        /// If either of the required parameters, <paramref name="companyName" /> and
-        /// <paramref name="productName" /> are passed the blank or <see langword="null" />
-        /// value as an argument, then this method returns the
-        /// <see cref="F:System.String.Empty" /> value.
-        /// <para />
-        /// The <see cref="F:System.String.Empty" /> value is also returned if an error
-        /// occurs during the processing of the operation.
-        /// </remarks>
-        private static string GetProfileFilePathRegistryKeyPathname(
-            string companyName, string productName)
-        {
-            var result = string.Empty;
-
-            try
-            {
-                if (string.IsNullOrWhiteSpace(companyName)) return result;
-                if (string.IsNullOrWhiteSpace(productName)) return result;
-
-                result =
-                    $@"HKEY_CURRENT_USER\SOFTWARE\{companyName}\{productName}\Paths";
             }
             catch (Exception ex)
             {

@@ -11,6 +11,7 @@
   - [CommonExecute()](#M-MFR-Settings-Profiles-Actions-CreateNewNamedProfileAction-CommonExecute 'MFR.Settings.Profiles.Actions.CreateNewNamedProfileAction.CommonExecute')
 - [LoadProfileCollectionFilePathFromRegistryAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction')
   - [#ctor()](#M-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-#ctor 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction.#ctor')
+  - [AccessRegQueryExpressionValidator](#P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-AccessRegQueryExpressionValidator 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction.AccessRegQueryExpressionValidator')
   - [Instance](#P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-Instance 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction.Instance')
   - [MessageType](#P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-MessageType 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction.MessageType')
   - [#cctor()](#M-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-#cctor 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction.#cctor')
@@ -129,12 +130,23 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
+<a name='P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-AccessRegQueryExpressionValidator'></a>
+### AccessRegQueryExpressionValidator `property`
+
+##### Summary
+
+Accesses a Registry query expression validator object that decides whether
+Registry query expression objects for `REG_SZ` values are initialized
+properly.
+
 <a name='P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of [LoadProfileCollectionFilePathFromRegistryAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction') .
+Gets a reference to the one and only instance of
+[LoadProfileCollectionFilePathFromRegistryAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction')
+.
 
 <a name='P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-MessageType'></a>
 ### MessageType `property`
@@ -165,7 +177,8 @@ the result cache.
 
 ##### Returns
 
-Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface that corresponds to the result of executing the action.
 
 ##### Parameters
@@ -180,7 +193,9 @@ of the request.
 
 
 This is a template method, the call to which is wrapped in a robust
-and fault-tolerant override of the [CommonExecute](#M-MFR-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute') method.
+and fault-tolerant override of the
+[CommonExecute](#M-MFR-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute')
+method.
 
 
 

@@ -19,7 +19,8 @@
   - [Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_DefaultProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions')
   - [Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_ExpectedProfileCollectionPath_IsWellFormed_AndDoesNotThrowExceptions')
   - [Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank')
-  - [Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists')
+  - [Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue')
+  - [Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_WithNoDefaultProvided()](#M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_WithNoDefaultProvided 'MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_WithNoDefaultProvided')
 - [Read](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Read 'MFR.Settings.Profiles.Providers.Actions.Tests.Read')
   - [RegistryValue(keyPath,valueName)](#M-MFR-Settings-Profiles-Providers-Actions-Tests-Read-RegistryValue-System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Tests.Read.RegistryValue(System.String,System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Actions-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Actions.Tests.Properties.Resources')
@@ -219,12 +220,33 @@ with, e.g., the absence of the Registry key that contains the pathname of the
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists'></a>
-### Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists() `method`
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue'></a>
+### Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue() `method`
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Asserts that the
+[ProfileCollectionFilePath](#M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFilePath')
+method successfully obtains the fully-qualified pathname to the
+`profiles.json` file on the user's computer.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Tests-ObtainTests-Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_WithNoDefaultProvided'></a>
+### Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_WithNoDefaultProvided() `method`
+
+##### Summary
+
+Asserts that the
+[ProfileCollectionFilePath](#M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFilePath')
+method successfully obtains the fully-qualified pathname to the
+`profiles.json` file on the user's computer.
+
+
+
+This unit test does not supply the pathname of a default value.
 
 ##### Parameters
 
