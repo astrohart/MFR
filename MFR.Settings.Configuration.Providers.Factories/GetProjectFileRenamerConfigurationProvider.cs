@@ -25,6 +25,6 @@ namespace MFR.Settings.Configuration.Providers.Factories
         /// interface.
         /// </returns>
         public static IProjectFileRenamerConfigurationProvider SoleInstance()
-            => ConfigurationProvider.Instance;
+            => ProjectFileRenmerConfigurationProvider.Instance;
     }
 }

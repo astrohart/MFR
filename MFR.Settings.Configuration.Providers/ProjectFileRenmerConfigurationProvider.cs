@@ -26,17 +26,17 @@ namespace MFR.Settings.Configuration.Providers
     /// user's configuration file.
     /// </summary>
     public class
-        ConfigurationProvider : IProjectFileRenamerConfigurationProvider
+        ProjectFileRenmerConfigurationProvider : IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        static ConfigurationProvider() { }
+        static ProjectFileRenmerConfigurationProvider() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected ConfigurationProvider() { }
+        protected ProjectFileRenmerConfigurationProvider() { }
 
         /// <summary>
         /// Gets or sets the pathname of the configuration file.
@@ -142,12 +142,12 @@ namespace MFR.Settings.Configuration.Providers
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Settings.Configuration.Providers.ConfigurationProvider" />.
+        /// <see cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenmerConfigurationProvider" />.
         /// </summary>
-        public static ConfigurationProvider Instance
+        public static ProjectFileRenmerConfigurationProvider Instance
         {
             get;
-        } = new ConfigurationProvider();
+        } = new ProjectFileRenmerConfigurationProvider();
 
         /// <summary>
         /// Default action to be utilized for loading the path to the configuration file
@@ -210,7 +210,7 @@ namespace MFR.Settings.Configuration.Providers
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
         /// <see
-        ///     cref="M:MFR.Settings.ConfigurationProvider.Save" />
+        ///     cref="M:MFR.Settings.ProjectFileRenmerConfigurationProvider.Save" />
         /// method with a
         /// value for its pathname parameter.
         /// <para />
@@ -283,7 +283,7 @@ namespace MFR.Settings.Configuration.Providers
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property is then initialized to point to the data that has been loaded.
         /// </summary>
         /// <param name="pathname">
@@ -292,13 +292,13 @@ namespace MFR.Settings.Configuration.Providers
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         /// <exception cref="T:System.IO.FileNotFoundException">
@@ -373,7 +373,7 @@ namespace MFR.Settings.Configuration.Providers
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </param>
         public void Save(string pathname = "")
@@ -397,13 +397,13 @@ namespace MFR.Settings.Configuration.Providers
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         public void SaveCopyAs(string pathname)
@@ -445,7 +445,7 @@ namespace MFR.Settings.Configuration.Providers
         /// actually exists at that location and we should, instead, just use
         /// the default value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property.
         /// </summary>
         /// <param name="pathname">
@@ -455,7 +455,7 @@ namespace MFR.Settings.Configuration.Providers
         /// <para />
         /// If this parameter is blank, then the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property is used.
         /// </param>
         /// <returns>
@@ -463,13 +463,13 @@ namespace MFR.Settings.Configuration.Providers
         /// <paramref name="pathname" /> exists on the disk, or if the file whose path is
         /// given by the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property exists on the disk; <see langword="false" /> otherwise.
         /// <para />
         /// If the <paramref name="pathname" /> passed is blank, then this method updates
         /// it to have the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenmerConfigurationProvider.ConfigurationFilePath" />
         /// property.
         /// </returns>
         private bool CanLoad(ref string pathname)
@@ -483,13 +483,13 @@ namespace MFR.Settings.Configuration.Providers
                 // Dump the variable fallbackPath to the log
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"ConfigurationProvider.CanLoad: fallbackPath = '{fallbackPath}'"
+                    $"ProjectFileRenmerConfigurationProvider.CanLoad: fallbackPath = '{fallbackPath}'"
                 );
 
                 // Dump the variable pathname to the log
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"ConfigurationProvider.CanLoad: pathname = '{pathname}'"
+                    $"ProjectFileRenmerConfigurationProvider.CanLoad: pathname = '{pathname}'"
                 );
 
                 if (File.Exists(pathname))
@@ -510,7 +510,7 @@ namespace MFR.Settings.Configuration.Providers
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"ConfigurationProvider.CanLoad: Result = {result}"
+                $"ProjectFileRenmerConfigurationProvider.CanLoad: Result = {result}"
             );
 
             return result;

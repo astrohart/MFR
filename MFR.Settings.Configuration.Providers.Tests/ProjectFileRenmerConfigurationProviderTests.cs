@@ -6,7 +6,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
-    /// <see cref="T:MFR.Settings.Configuration.Providers.ConfigurationProvider" />
+    /// <see cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenmerConfigurationProvider" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -25,10 +25,10 @@ namespace MFR.Settings.Configuration.Providers.Tests
         public void Test_Load_Works()
         {
             Assert.DoesNotThrow(
-                () => ConfigurationProvider.Instance.Load(ConfigFilePath)
+                () => ProjectFileRenmerConfigurationProvider.Instance.Load(ConfigFilePath)
             );
 
-            Console.WriteLine(ConfigurationProvider.Instance.CurrentConfiguration.FindWhat);
+            Console.WriteLine(ProjectFileRenmerConfigurationProvider.Instance.CurrentConfiguration.FindWhat);
         }
     }
 }
