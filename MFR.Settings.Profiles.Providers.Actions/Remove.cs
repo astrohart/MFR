@@ -5,6 +5,9 @@ using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers.Actions
 {
+    /// <summary>
+    /// Exposes static methods for removing items from collections and lists.
+    /// </summary>
     public static class Remove
     {
         /// <summary>
