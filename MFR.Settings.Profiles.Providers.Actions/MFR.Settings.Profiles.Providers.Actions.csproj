@@ -107,6 +107,7 @@
     <Compile Include="Formulate.cs" />
     <Compile Include="Generate.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="Retrieve.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Obtain.cs" />

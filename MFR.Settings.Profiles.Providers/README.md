@@ -16,6 +16,7 @@
   - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
   - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Load(System.String)')
+  - [OnProfileCollectionFilePathChanged()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfileCollectionFilePathChanged')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Save(System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Properties-Resources 'MFR.Settings.Profiles.Providers.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Properties.Resources.Culture')
@@ -160,6 +161,19 @@ parameter cannot be found on the disk. |
 
 The file whose pathname is passed must not be the actual
 configuration file, but a separate file.
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileCollectionFilePathChanged'></a>
+### OnProfileCollectionFilePathChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged')
+event.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String-'></a>
 ### Save(pathname) `method`

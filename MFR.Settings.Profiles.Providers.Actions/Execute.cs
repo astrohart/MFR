@@ -30,7 +30,8 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// </returns>
         public static IFileSystemEntry
             OperationToLoadProfileCollectionFilePathFromRegistry(
-                IAction<IRegQueryExpression<string>, IFileSystemEntry> action)
+                IAction<IRegQueryExpression<string>, IFileSystemEntry> action
+            )
         {
             IFileSystemEntry result = default;
 

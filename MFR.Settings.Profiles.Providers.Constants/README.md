@@ -6,9 +6,10 @@
 - [ProfileFile](#T-MFR-Settings-Profiles-Providers-Constants-ProfileFile 'MFR.Settings.Profiles.Providers.Constants.ProfileFile')
   - [DefaultFilename](#F-MFR-Settings-Profiles-Providers-Constants-ProfileFile-DefaultFilename 'MFR.Settings.Profiles.Providers.Constants.ProfileFile.DefaultFilename')
 - [ProfilePathRegistry](#T-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry 'MFR.Settings.Profiles.Providers.Constants.ProfilePathRegistry')
-  - [ValueName](#F-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-ValueName 'MFR.Settings.Profiles.Providers.Constants.ProfilePathRegistry.ValueName')
+  - [ValueName](#P-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-ValueName 'MFR.Settings.Profiles.Providers.Constants.ProfilePathRegistry.ValueName')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Constants-Properties-Resources 'MFR.Settings.Profiles.Providers.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Constants-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Constants.Properties.Resources.Culture')
+  - [RegistryValueName_ProfilePath](#P-MFR-Settings-Profiles-Providers-Constants-Properties-Resources-RegistryValueName_ProfilePath 'MFR.Settings.Profiles.Providers.Constants.Properties.Resources.RegistryValueName_ProfilePath')
   - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Constants-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Constants.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-Settings-Profiles-Providers-Constants-ProfileFile'></a>
@@ -51,8 +52,8 @@ TRhe profile list file is in JSON format.
 
 Configuration files are intended to be stored on a per user basis.
 
-<a name='F-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-ValueName'></a>
-### ValueName `constants`
+<a name='P-MFR-Settings-Profiles-Providers-Constants-ProfilePathRegistry-ValueName'></a>
+### ValueName `property`
 
 ##### Summary
 
@@ -77,6 +78,13 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Settings-Profiles-Providers-Constants-Properties-Resources-RegistryValueName_ProfilePath'></a>
+### RegistryValueName_ProfilePath `property`
+
+##### Summary
+
+Looks up a localized string similar to ProfileCollectionFile.
 
 <a name='P-MFR-Settings-Profiles-Providers-Constants-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

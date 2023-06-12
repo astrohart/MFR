@@ -1,4 +1,5 @@
-﻿using MFR.Expressions.Registry.Factories;
+﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
 using MFR.Expressions.Registry.Validators.Interfaces;
@@ -25,6 +26,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// 
         /// 
         /// 
+        /// 
         /// <T>" /> interface.
         /// </summary>
         private static IRegQueryExpressionValidator<string>
@@ -32,6 +34,85 @@ namespace MFR.Settings.Profiles.Providers.Actions
         {
             get;
         } = GetRegistryExpressionValidator<string>.SoleInstance();
+
+        /// <summary>
+        /// Attempts to formulate a default value for the <c>profiles.json</c> file that
+        /// contains the user's previously-saved configuration profiles.
+        /// </summary>
+        /// <param name="companyName">
+        /// (Required.) A <see cref="T:System.String" /> that
+        /// contains the company name associated with the application.
+        /// </param>
+        /// <param name="productName">
+        /// (Required.) A <see cref="T:System.String" /> that
+        /// contains the product name associated with the application.
+        /// </param>
+        /// <param name="currentPathname">
+        /// (Optional.) A <see cref="T:System.String" /> that
+        /// serves as a default return value for this method in case a failure mode is
+        /// otherwise hit (blank input, missing file, missing Registry value, etc.
+        /// </param>
+        /// <returns>
+        /// If successful, a <see cref="T:System.String" /> that contains the
+        /// default fully-qualified pathname of the <c>profiles.json</c> value that should
+        /// be used as a fallback in the event that a <c>profiles.json</c> file cannot be
+        /// located either on the disk or in the system Registry.
+        /// </returns>
+        /// <remarks>
+        /// Configuration profiles let the user save a set of their previously-used
+        /// settings to easily recall for later use.
+        /// <para />
+        /// If an error occurred, or if required information is missing, during the
+        /// operation, then this method returns the <see cref="F:System.String.Empty" />
+        /// value.
+        /// </remarks>
+        public static string DefaultProfileCollectionPathname(
+            string companyName,
+            string productName,
+            string currentPathname = ""
+        )
+        {
+            var result = currentPathname;
+
+            try
+            {
+                // %LOCALAPPDATA%\xyLOGIX, LLC\Project File Renamer\Config\profiles.json
+
+                if (string.IsNullOrWhiteSpace(companyName)) return result;
+                if (string.IsNullOrWhiteSpace(productName)) return result;
+
+                var localAppDataFolderPath = Environment.GetFolderPath(
+                    Environment.SpecialFolder.LocalApplicationData
+                );
+                if (string.IsNullOrWhiteSpace(localAppDataFolderPath))
+                    return result;
+
+                var companyProgramDataFolderPath = Path.Combine(
+                    localAppDataFolderPath, companyName
+                );
+                if (string.IsNullOrWhiteSpace(companyProgramDataFolderPath))
+                    return result;
+
+                var profileCollectionFileFolder = Path.Combine(
+                    companyProgramDataFolderPath, $@"{productName}\Config"
+                );
+                if (string.IsNullOrWhiteSpace(profileCollectionFileFolder))
+                    return result;
+
+                result = Path.Combine(
+                    profileCollectionFileFolder, ProfileFile.DefaultFilename
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Generates an instance of an object that implements the
@@ -59,7 +140,10 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// the <c>profiles.json</c> file.
         /// </returns>
         public static IRegQueryExpression<string> ProfilePathRegQueryExpression(
-            string companyName, string productName, string defaultValue)
+            string companyName,
+            string productName,
+            string defaultValue
+        )
         {
             IRegQueryExpression<string> result = default;
 
@@ -130,7 +214,8 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// </returns>
         public static IAction<IRegQueryExpression<string>, IFileSystemEntry>
             RetrieveProfileCollectionPathnameFromRegistryAction(
-                IRegQueryExpression<string> expression)
+                IRegQueryExpression<string> expression
+            )
         {
             IAction<IRegQueryExpression<string>, IFileSystemEntry> result =
                 default;

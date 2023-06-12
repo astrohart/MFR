@@ -9,6 +9,7 @@ using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
 using MFR.Settings.Profiles.Constants;
+using MFR.Settings.Profiles.Providers.Actions;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -43,7 +44,12 @@ namespace MFR.Settings.Profiles.Providers
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ProfileProvider() { }
+        protected ProfileProvider()
+        {
+            ProfileCollectionFilePath = Obtain.ProfileCollectionFilePath(
+                ProgramText.CompanyName, ProgramText.ProductNameWithoutCompany
+            );
+        }
 
         /// <summary>
         /// Gets the default folder for the profile list file.
@@ -87,40 +93,20 @@ namespace MFR.Settings.Profiles.Providers
         /// </summary>
         public string ProfileCollectionFilePath
         {
-            get {
-                var result = string.Empty;
-
-                try
-                {
-                    /*
-                     * OKAY, if the value of the _profileCollectionFilePath field
-                     * is non blank, check whether it contains the pathname of a
-                     * profiles.json file and check whether the file exists.
-                     *
-                     * If yes to both of the above, then simply return the value of
-                     * the _profileCollectionFilePath.  Otherwise, attempt to load
-                     * the value of the field  from the system Registry.
-                     */
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = string.Empty;
-                }
-
-                return result;
-            }
+            get => _profileCollectionFilePath;
             set {
+                var changed = _profileCollectionFilePath != value;
                 _profileCollectionFilePath = value;
+                if (changed) OnProfileCollectionFilePathChanged();
 
+                /*
                 GetSaveProfileCollectionPathCommand.ForPath(
                                                        ProfileCollectionPathKeyName,
                                                        ProfileCollectionPathValueName,
                                                        _profileCollectionFilePath
                                                    )
                                                    .Execute();
+                */
             }
         }
 
@@ -325,5 +311,22 @@ namespace MFR.Settings.Profiles.Providers
                 DebugUtils.LogException(ex);
             }
         }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
+        /// property is updated.
+        /// </summary>
+        public event EventHandler ProfileCollectionFilePathChanged;
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnProfileCollectionFilePathChanged()
+            => ProfileCollectionFilePathChanged?.Invoke(this, EventArgs.Empty);
     }
 }
