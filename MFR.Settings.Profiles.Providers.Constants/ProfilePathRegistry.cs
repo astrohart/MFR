@@ -1,4 +1,6 @@
 using MFR.GUI.Constants;
+using MFR.GUI.Constants.Properties;
+using Resources = MFR.Settings.Profiles.Providers.Constants.Properties.Resources;
 
 namespace MFR.Settings.Profiles.Providers.Constants
 {
@@ -19,6 +21,7 @@ namespace MFR.Settings.Profiles.Providers.Constants
         /// Gets the name of the Registry value that holds the path to the
         /// profile list file.
         /// </summary>
-        public const string ValueName = "ProfileCollectionFile";
+        public static string ValueName
+            => Resources.RegistryValueName_ProfilePath;
     }
 }
