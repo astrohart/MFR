@@ -178,6 +178,10 @@
       <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
+      <Project>{1ae68e39-484d-4347-ba55-739e0fe98246}</Project>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Actions.Constants\MFR.Settings.Profiles.Actions.Constants.csproj">
       <Project>{15C7805D-1879-4093-B671-6C168277C448}</Project>
       <Name>MFR.Settings.Profiles.Actions.Constants</Name>
