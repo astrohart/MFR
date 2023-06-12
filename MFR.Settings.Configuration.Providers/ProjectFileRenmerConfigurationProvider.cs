@@ -12,7 +12,6 @@ using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -26,7 +25,8 @@ namespace MFR.Settings.Configuration.Providers
     /// user's configuration file.
     /// </summary>
     public class
-        ProjectFileRenmerConfigurationProvider : IProjectFileRenamerConfigurationProvider
+        ProjectFileRenmerConfigurationProvider :
+            IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -141,10 +141,12 @@ namespace MFR.Settings.Configuration.Providers
             => "config.json";
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenmerConfigurationProvider" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
         /// </summary>
-        public static ProjectFileRenmerConfigurationProvider Instance
+        public static IProjectFileRenamerConfigurationProvider Instance
         {
             get;
         } = new ProjectFileRenmerConfigurationProvider();
@@ -162,7 +164,8 @@ namespace MFR.Settings.Configuration.Providers
 
                 try
                 {
-                    var regQueryExpression = MakeNewRegQueryExpression
+                    IRegQueryExpression<string> regQueryExpression = default;
+                    regQueryExpression = MakeNewRegQueryExpression
                                              .FromScatch<string>()
                                              .ForKeyPath(
                                                  ConfigurationFilePathKeyName
@@ -178,12 +181,20 @@ namespace MFR.Settings.Configuration.Providers
                                              );
                     if (regQueryExpression == null) return result;
 
-                    result = GetConfigurationAction
-                             .For<IRegQueryExpression<string>,
-                                 IFileSystemEntry>(
-                                 ConfigurationActionType.LoadStringFromRegistry
-                             )
-                             .WithInput(regQueryExpression);
+                    IAction<IRegQueryExpression<string>, IFileSystemEntry>
+                        loadConfigFilePathFromRegistryAction = default;
+
+                    loadConfigFilePathFromRegistryAction =
+                        GetConfigurationAction
+                            .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                                ConfigurationActionType.LoadStringFromRegistry
+                            );
+                    if (loadConfigFilePathFromRegistryAction == null)
+                        return result;
+
+                    result = loadConfigFilePathFromRegistryAction.WithInput(
+                        regQueryExpression
+                    );
                 }
                 catch (Exception ex)
                 {
@@ -322,24 +333,20 @@ namespace MFR.Settings.Configuration.Providers
             try
             {
                 var loadConfigurationAction = GetConfigurationAction
-                    .For<IFileSystemEntry,
-                        IProjectFileRenamerConfiguration>(
-                        ConfigurationActionType
-                            .LoadConfigurationFromFile
+                    .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
+                        ConfigurationActionType.LoadConfigurationFromFile
                     );
                 if (loadConfigurationAction == null)
                 {
-                    CurrentConfiguration = MakeNewProjectFileRenamerConfiguration.FromScratch();
+                    CurrentConfiguration =
+                        MakeNewProjectFileRenamerConfiguration.FromScratch();
                     return;
                 }
 
-                CurrentConfiguration = loadConfigurationAction
-                                       .WithInput(
-                                           MakeNewFileSystemEntry.ForPath(
-                                               pathname
-                                           )
-                                       )
-                                       .Execute();
+                CurrentConfiguration = loadConfigurationAction.WithInput(
+                        MakeNewFileSystemEntry.ForPath(pathname)
+                    )
+                    .Execute();
             }
             catch (Exception ex)
             {
