@@ -40,7 +40,7 @@ namespace MFR.GUI
         /// </summary>
         private static void SetUpLogging()
             => LogFileManager.InitializeLogging(
-                true, muteConsole: false,
+                muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
