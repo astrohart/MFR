@@ -1,7 +1,7 @@
 ﻿using MFR.GUI.Models.Constants;
 using MFR.Operations.Constants;
 
-namespace MFR.GUI.Models.Factories
+namespace MFR.GUI.Models.Converters.Factories
 {
     /// <summary>
     /// Exposes methods to obtain the names of operations.

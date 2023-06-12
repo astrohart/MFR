@@ -1,4 +1,4 @@
-using MFR.GUI.Models.Factories;
+using MFR.GUI.Models.Converters.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;

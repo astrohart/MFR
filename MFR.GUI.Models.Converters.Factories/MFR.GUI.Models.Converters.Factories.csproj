@@ -5,7 +5,7 @@
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{80D46DA4-AC62-4D36-A763-6E03951224FB}</ProjectGuid>
+    <ProjectGuid>{077A67EB-C33C-4884-AAFE-1EF517595CD8}</ProjectGuid>
     <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp />
   </PropertyGroup>
@@ -20,7 +20,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.GUI.Models.Converters.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -34,7 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.GUI.Models.Converters.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -48,7 +48,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.GUI.Models.Converters.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -62,7 +62,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.GUI.Models.Converters.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
@@ -72,10 +72,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.GUI.Models.Converters</AssemblyName>
+    <AssemblyName>MFR.GUI.Models.Converters.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.GUI.Models.Converters</RootNamespace>
+    <RootNamespace>MFR.GUI.Models.Converters.Factories</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -106,7 +106,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvertOperationType.cs" />
+    <Compile Include="GetOperationName.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,13 +132,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
-      <Name>xyLOGIX.Core.Debug</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models.Converters.Factories\MFR.GUI.Models.Converters.Factories.csproj">
-      <Project>{077A67EB-C33C-4884-AAFE-1EF517595CD8}</Project>
-      <Name>MFR.GUI.Models.Converters.Factories</Name>
+    <ProjectReference Include="..\MFR.GUI.Models.Constants\MFR.GUI.Models.Constants.csproj">
+      <Project>{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}</Project>
+      <Name>MFR.GUI.Models.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
