@@ -130,6 +130,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
+      <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
+      <Name>MFR.FileSystem.Factories.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Converters\MFR.Settings.Configuration.Converters.csproj">
       <Project>{EB94927D-3E4C-4167-BFF4-440DEDE945A6}</Project>
       <Name>MFR.Settings.Configuration.Converters</Name>
@@ -137,6 +141,10 @@
     <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
       <Name>MFR.FileSystem.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Factories\MFR.Settings.Profiles.Collections.Factories.csproj">
+      <Project>{C3257EAD-696D-4CB4-9896-3FAB3E69433C}</Project>
+      <Name>MFR.Settings.Profiles.Collections.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>

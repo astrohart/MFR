@@ -231,7 +231,9 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [LoadProfileCollectionFromFileAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction') .
+Gets a reference to the one and only instance of
+[LoadProfileCollectionFromFileAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction')
+.
 
 <a name='P-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction-MessageType'></a>
 ### MessageType `property`
@@ -261,20 +263,14 @@ Executes this message.
 
 ##### Returns
 
-Reference to an instance of an object that implements the [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+Reference to an instance of an object that implements the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
 interface that is initialized with the values read in from the
 specified file.
 
 ##### Parameters
 
 This method has no parameters.
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the [_input](#F-MFR-ActionBase-_input 'MFR.ActionBase._input') field is
-blank or `null`. |
 
 ##### Remarks
 

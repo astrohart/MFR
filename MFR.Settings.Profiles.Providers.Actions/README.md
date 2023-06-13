@@ -3,21 +3,57 @@
 
 ## Contents
 
+- [Determine](#T-MFR-Settings-Profiles-Providers-Actions-Determine 'MFR.Settings.Profiles.Providers.Actions.Determine')
+  - [WhetherProfileListPathIsValid(pathname)](#M-MFR-Settings-Profiles-Providers-Actions-Determine-WhetherProfileListPathIsValid-System-String- 'MFR.Settings.Profiles.Providers.Actions.Determine.WhetherProfileListPathIsValid(System.String)')
 - [Execute](#T-MFR-Settings-Profiles-Providers-Actions-Execute 'MFR.Settings.Profiles.Providers.Actions.Execute')
-  - [OperationToLoadProfileCollectionFilePathFromRegistry(action)](#M-MFR-Settings-Profiles-Providers-Actions-Execute-OperationToLoadProfileCollectionFilePathFromRegistry-MFR-Messages-Actions-Interfaces-IAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String},MFR-FileSystem-Interfaces-IFileSystemEntry}- 'MFR.Settings.Profiles.Providers.Actions.Execute.OperationToLoadProfileCollectionFilePathFromRegistry(MFR.Messages.Actions.Interfaces.IAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry})')
-- [Formulate](#T-MFR-Settings-Profiles-Providers-Actions-Formulate 'MFR.Settings.Profiles.Providers.Actions.Formulate')
-  - [ProfileFilePathRegistryKeyPathname(companyName,productName)](#M-MFR-Settings-Profiles-Providers-Actions-Formulate-ProfileFilePathRegistryKeyPathname-System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Formulate.ProfileFilePathRegistryKeyPathname(System.String,System.String)')
+  - [OperationToLoadProfileCollectionFromFile(action)](#M-MFR-Settings-Profiles-Providers-Actions-Execute-OperationToLoadProfileCollectionFromFile-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection}- 'MFR.Settings.Profiles.Providers.Actions.Execute.OperationToLoadProfileCollectionFromFile(MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection})')
 - [Generate](#T-MFR-Settings-Profiles-Providers-Actions-Generate 'MFR.Settings.Profiles.Providers.Actions.Generate')
-  - [DefaultProfileCollectionPathname(companyName,productName,currentPathname)](#M-MFR-Settings-Profiles-Providers-Actions-Generate-DefaultProfileCollectionPathname-System-String,System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Generate.DefaultProfileCollectionPathname(System.String,System.String,System.String)')
-  - [ProfilePathRegQueryExpression(companyName,productName,defaultValue)](#M-MFR-Settings-Profiles-Providers-Actions-Generate-ProfilePathRegQueryExpression-System-String,System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Generate.ProfilePathRegQueryExpression(System.String,System.String,System.String)')
-  - [RetrieveProfileCollectionPathnameFromRegistryAction(expression)](#M-MFR-Settings-Profiles-Providers-Actions-Generate-RetrieveProfileCollectionPathnameFromRegistryAction-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}- 'MFR.Settings.Profiles.Providers.Actions.Generate.RetrieveProfileCollectionPathnameFromRegistryAction(MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String})')
+  - [FileSystemEntryForProfileCollection(pathname)](#M-MFR-Settings-Profiles-Providers-Actions-Generate-FileSystemEntryForProfileCollection-System-String- 'MFR.Settings.Profiles.Providers.Actions.Generate.FileSystemEntryForProfileCollection(System.String)')
+  - [LoadProfileCollectionFromFileAction(entry)](#M-MFR-Settings-Profiles-Providers-Actions-Generate-LoadProfileCollectionFromFileAction-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Settings.Profiles.Providers.Actions.Generate.LoadProfileCollectionFromFileAction(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [Obtain](#T-MFR-Settings-Profiles-Providers-Actions-Obtain 'MFR.Settings.Profiles.Providers.Actions.Obtain')
-  - [ProfileCollectionFilePath(companyName,productName,currentPathname)](#M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFilePath-System-String,System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFilePath(System.String,System.String,System.String)')
+  - [ProfileCollectionFromFile(pathname)](#M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFromFile-System-String- 'MFR.Settings.Profiles.Providers.Actions.Obtain.ProfileCollectionFromFile(System.String)')
+- [Remove](#T-MFR-Settings-Profiles-Providers-Actions-Remove 'MFR.Settings.Profiles.Providers.Actions.Remove')
+  - [TemporaryProfiles(collection)](#M-MFR-Settings-Profiles-Providers-Actions-Remove-TemporaryProfiles-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection- 'MFR.Settings.Profiles.Providers.Actions.Remove.TemporaryProfiles(MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Actions-Properties-Resources 'MFR.Settings.Profiles.Providers.Actions.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Actions-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Profiles-Providers-Actions-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Providers.Actions.Properties.Resources.ResourceManager')
-- [Retrieve](#T-MFR-Settings-Profiles-Providers-Actions-Retrieve 'MFR.Settings.Profiles.Providers.Actions.Retrieve')
-  - [ProfileCollectionPathFromRegistry(companyName,productName,currentPathname)](#M-MFR-Settings-Profiles-Providers-Actions-Retrieve-ProfileCollectionPathFromRegistry-System-String,System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Retrieve.ProfileCollectionPathFromRegistry(System.String,System.String,System.String)')
+
+<a name='T-MFR-Settings-Profiles-Providers-Actions-Determine'></a>
+## Determine `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Providers.Actions
+
+##### Summary
+
+Exposes static methods to determine whether facts are true or false about data.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Determine-WhetherProfileListPathIsValid-System-String-'></a>
+### WhetherProfileListPathIsValid(pathname) `method`
+
+##### Summary
+
+Determines whether the specified `pathname` of a
+`profiles.json` file is valid.
+
+##### Returns
+
+`true` if the specified `pathname`
+meets the validation criteria; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to be checked. |
+
+##### Remarks
+
+In order to be valid, the specified `pathname` must
+not be blank, must contain the fully-qualified pathname of a file that exists
+on the disk; and the filename of the file must be `profiles.json`.
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Execute'></a>
 ## Execute `type`
@@ -28,78 +64,32 @@ MFR.Settings.Profiles.Providers.Actions
 
 ##### Summary
 
-Exposes static methods for executing operations associated with loading and
-storing information about the user's favorite configuration-setting profiles.
+Exposes static methods to execute operations.
 
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Execute-OperationToLoadProfileCollectionFilePathFromRegistry-MFR-Messages-Actions-Interfaces-IAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String},MFR-FileSystem-Interfaces-IFileSystemEntry}-'></a>
-### OperationToLoadProfileCollectionFilePathFromRegistry(action) `method`
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Execute-OperationToLoadProfileCollectionFromFile-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection}-'></a>
+### OperationToLoadProfileCollectionFromFile(action) `method`
 
 ##### Summary
 
-Executes the operation to fetch the fully-qualified pathname of the
-`profiles.json` file from the system Registry, if it is configured.
+Attempts to execute the operation of loading a new
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+from a file on the disk.
 
 ##### Returns
 
-Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface that
-should contain the pathname of the `profiles.json` file; or
-`null` if the pathname could not be read.
+If successful, a reference to an instance of an object that implements
+the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface containing the loaded profiles, or the empty collection if the
+operation could not be executed, or if no profiles are listed in the file.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| action | [MFR.Messages.Actions.Interfaces.IAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String},MFR-FileSystem-Interfaces-IFileSystemEntry} 'MFR.Messages.Actions.Interfaces.IAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry}') | (Required.) Reference to an instance of an object that
-implements the
-[IAction[TInput, TResult]](#T-MFR-Messages-Actions-Interfaces-IAction[TInput, TResult] 'MFR.Messages.Actions.Interfaces.IAction[TInput, TResult]')
-interface that represents the operation that is to be executed. |
-
-<a name='T-MFR-Settings-Profiles-Providers-Actions-Formulate'></a>
-## Formulate `type`
-
-##### Namespace
-
-MFR.Settings.Profiles.Providers.Actions
-
-##### Summary
-
-Exposes static methods to formulate data values from other data values.
-
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Formulate-ProfileFilePathRegistryKeyPathname-System-String,System-String-'></a>
-### ProfileFilePathRegistryKeyPathname(companyName,productName) `method`
-
-##### Summary
-
-Attempts to get the fully-qualified Registry key pathname of the key storing
-the pathnames of the profile list and configuration files.
-
-##### Returns
-
-If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the
-fully-qualified Registry key pathname of the key storing the pathnames of the
-profile list and configuration files.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| companyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the company name associated with the application. |
-| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the product name associated with the application. |
-
-##### Remarks
-
-If either of the required parameters, `companyName` and
-`productName` are passed the blank or `null`
-value as an argument, then this method returns the
-[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
-
-
-
-The [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value is also returned if an error
-occurs during the processing of the operation.
+| action | [MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection}') | (Required.) Reference to an `Action` object that,
+when executed, loads the collection of the user's profiles from a file on the
+disk. |
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Generate'></a>
 ## Generate `type`
@@ -110,104 +100,55 @@ MFR.Settings.Profiles.Providers.Actions
 
 ##### Summary
 
-Exposes static methods for generating data values.
+Exposes static methods to generate references to data.
 
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Generate-DefaultProfileCollectionPathname-System-String,System-String,System-String-'></a>
-### DefaultProfileCollectionPathname(companyName,productName,currentPathname) `method`
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Generate-FileSystemEntryForProfileCollection-System-String-'></a>
+### FileSystemEntryForProfileCollection(pathname) `method`
 
 ##### Summary
 
-Attempts to formulate a default value for the `profiles.json` file that
-contains the user's previously-saved configuration profiles.
+Generates a reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface, given
+the specified `pathname` of a `profiles.json` file.
 
 ##### Returns
 
-If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the
-default fully-qualified pathname of the `profiles.json` value that should
-be used as a fallback in the event that a `profiles.json` file cannot be
-located either on the disk or in the system Registry.
+If the `pathname` refers to a `profiles.json`
+file that exists on the disk, then a new reference to an instance of an object
+that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface is returned; `null` is returned otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| companyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the company name associated with the application. |
-| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the product name associated with the application. |
-| currentPathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-serves as a default return value for this method in case a failure mode is
-otherwise hit (blank input, missing file, missing Registry value, etc. |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a `profiles.json` file. |
 
-##### Remarks
-
-Configuration profiles let the user save a set of their previously-used
-settings to easily recall for later use.
-
-
-
-If an error occurred, or if required information is missing, during the
-operation, then this method returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty')
-value.
-
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Generate-ProfilePathRegQueryExpression-System-String,System-String,System-String-'></a>
-### ProfilePathRegQueryExpression(companyName,productName,defaultValue) `method`
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Generate-LoadProfileCollectionFromFileAction-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### LoadProfileCollectionFromFileAction(entry) `method`
 
 ##### Summary
 
-Generates an instance of an object that implements the
-[String}](#T-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String} 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}')
-interface for the purpose of searching the system Registry for the pathname of
-the `profiles.json` file.
+Generates a reference to an instance of an `Action` object that is
+responsible for executing the operation of loading the user's
+configuration-setting profiles from the disk.
 
 ##### Returns
 
-Reference to an instance of a Registry query expression object that
-can be used to search the system Registry for the fully-qualified pathname of
-the `profiles.json` file.
+If successful, a reference to an instance of an `Action` object
+that is responsible for executing the operation of loading the user's
+configuration-setting profiles from the disk; `null`
+otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| companyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the company name that
-is associated with the application. |
-| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the product name that
-is associated with the application. |
-| defaultValue | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains a default value that is to be returned in case nothing can be
-successfully read from the system Registry. |
-
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Generate-RetrieveProfileCollectionPathnameFromRegistryAction-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}-'></a>
-### RetrieveProfileCollectionPathnameFromRegistryAction(expression) `method`
-
-##### Summary
-
-Creates and configures a reference to an instance of an `Action` object
-that, when executed, retrieves the fully-qualified pathname of the
-`profiles.json` file that is supposed to be stored in the system Registry.
-
-##### Returns
-
-Reference to an instance of an `Action` object that, when executed,
-retrieves the fully-qualified pathname of the `profiles.json` file that is
-supposed to be stored in the system Registry.
-executed,
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| expression | [MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}](#T-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String} 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}') | (Required.) Reference to an instance of an object that implements the
-[String}](#T-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String} 'MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}')
-interface that represents the query object to be used for searching the system
-Registry.
-
-
-
-This query can be initialized with the
-[ProfilePathRegQueryExpression](#M-MFR-Settings-Profiles-Providers-Actions-Generate-ProfilePathRegQueryExpression 'MFR.Settings.Profiles.Providers.Actions.Generate.ProfilePathRegQueryExpression')
-method. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that
+implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface that refers to the `profiles.json` file from which profiles are
+to be loaded. |
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Obtain'></a>
 ## Obtain `type`
@@ -218,48 +159,70 @@ MFR.Settings.Profiles.Providers.Actions
 
 ##### Summary
 
-Exposes static methods to obtain and formulate various values.
+Exposes static methods to load profiles from the disk.
 
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFilePath-System-String,System-String,System-String-'></a>
-### ProfileCollectionFilePath(companyName,productName,currentPathname) `method`
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFromFile-System-String-'></a>
+### ProfileCollectionFromFile(pathname) `method`
 
 ##### Summary
 
-Attempts to determine the fully-qualified pathname of the `profiles.json`
-file that stores the user's saved configuration profiles.
+Attempts to obtain a reference to an instance of an object that implements the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface that contains the user's configuration-setting profiles.
 
 ##### Returns
 
-
+If successful, a reference to an instance of an object that implements
+the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface that contains the user's configuration-setting profiles; otherwise,
+the empty collection is returned.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| companyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the company name associated with the application. |
-| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the product name associated with the application. |
-| currentPathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-serves as a default return value for this method in case a failure mode is
-otherwise hit (blank input, missing file, missing Registry value, etc. |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a `profiles.json` file on the disk from which profiles are to
+be loaded. |
+
+<a name='T-MFR-Settings-Profiles-Providers-Actions-Remove'></a>
+## Remove `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Providers.Actions
+
+##### Summary
+
+Exposes static methods for removing items from collections and lists.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Remove-TemporaryProfiles-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
+### TemporaryProfiles(collection) `method`
+
+##### Summary
+
+Removes all temporary profiles from the specified
+`collection`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| collection | [MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') | (Required.) Reference to an instance of an object that implements the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface that represents the collection of profiles from which temporary
+profiles are to be removed. |
 
 ##### Remarks
 
-Configuration profiles let the user save a set of their previously-used
-settings to easily recall for later use.
+A temporary profile is defined to be one whose name begins with
+`tmp`.
 
 
 
-If an error occurred, or if required information is missing, during the
-operation, then this method returns the value of the
-`currentPathname`
-parameter.
-
-
-
-The `currentPathname` is allowed to be passed
-the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value as its argument, so be mindful.
+If the specified `collection` is `null` or
+does not contain any elements, then this method does nothing.
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Properties-Resources'></a>
 ## Resources `type`
@@ -286,51 +249,3 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
-
-<a name='T-MFR-Settings-Profiles-Providers-Actions-Retrieve'></a>
-## Retrieve `type`
-
-##### Namespace
-
-MFR.Settings.Profiles.Providers.Actions
-
-##### Summary
-
-Exposes static methods to retrieve data from data sources.
-
-<a name='M-MFR-Settings-Profiles-Providers-Actions-Retrieve-ProfileCollectionPathFromRegistry-System-String,System-String,System-String-'></a>
-### ProfileCollectionPathFromRegistry(companyName,productName,currentPathname) `method`
-
-##### Summary
-
-Attempts to obtain the pathname of the file that contains the list of saved
-configuration profiles from the system Registry.
-
-##### Returns
-
-If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the
-fully-qualified pathname of the `profiles.json` file that contains the
-user's previously-saved configuration profiles.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| companyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the company name associated with the application. |
-| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-contains the product name associated with the application. |
-| currentPathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
-serves as a default return value for this method in case a failure mode is
-otherwise hit (blank input, missing file, missing Registry value, etc. |
-
-##### Remarks
-
-Configuration profiles let the user save a set of their previously-used
-settings to easily recall for later use.
-
-
-
-If an error occurred, or if required information is missing, during the
-operation, then this method returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty')
-value.

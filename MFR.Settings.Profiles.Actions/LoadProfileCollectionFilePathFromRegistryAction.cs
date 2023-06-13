@@ -4,6 +4,7 @@ using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Registry.Loaders.Factories;
 using MFR.Settings.Profiles.Actions.Constants;
@@ -50,8 +51,7 @@ namespace MFR.Settings.Profiles.Actions
         ///     cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction" />
         /// .
         /// </summary>
-        [Log(AttributeExclude = true)]
-        public static LoadProfileCollectionFilePathFromRegistryAction Instance
+        public static IAction<IRegQueryExpression<string>, IFileSystemEntry> Instance
         {
             get;
         } = new LoadProfileCollectionFilePathFromRegistryAction();

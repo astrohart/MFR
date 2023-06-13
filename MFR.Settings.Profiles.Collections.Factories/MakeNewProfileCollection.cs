@@ -8,7 +8,6 @@ namespace MFR.Settings.Profiles.Collections.Factories
     /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
     /// interface, and returns references to them.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class MakeNewProfileCollection
     {
         /// <summary>

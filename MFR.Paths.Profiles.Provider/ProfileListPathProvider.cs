@@ -157,7 +157,8 @@ namespace MFR.Paths.Profiles.Provider
 
                 ProfileCollectionFilePath = Obtain.ProfileCollectionFilePath(
                     ProgramText.CompanyName,
-                    ProgramText.ProductNameWithoutCompany
+                    ProgramText.ProductNameWithoutCompany,
+                    ProfileCollectionFilePath
                 );
 
                 /*

@@ -24,13 +24,11 @@ namespace MFR.Settings.Profiles.Providers
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
         static ProfileProvider() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        [Log(AttributeExclude = true)]
         protected ProfileProvider()
         {
             InitializeProfileListPathProvider();

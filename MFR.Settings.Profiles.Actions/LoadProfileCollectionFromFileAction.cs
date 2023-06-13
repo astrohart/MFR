@@ -2,6 +2,7 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Collections.Interfaces;
@@ -39,7 +40,7 @@ namespace MFR.Settings.Profiles.Actions
         /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadProfileCollectionFromFileAction Instance
+        public static IAction<IFileSystemEntry, IProfileCollection> Instance
         {
             get;
         } = new LoadProfileCollectionFromFileAction();
@@ -62,10 +63,6 @@ namespace MFR.Settings.Profiles.Actions
         /// interface that is initialized with the values read in from the
         /// specified file.
         /// </returns>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <see cref="F:MFR.ActionBase._input" /> field is
-        /// blank or <see langword="null" />.
-        /// </exception>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality
         /// of the request.

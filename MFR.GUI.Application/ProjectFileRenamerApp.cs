@@ -137,15 +137,19 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
-        private IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+        {
+            get;
+        } = GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Occurs when the application has been initialized, but has not yet processed the

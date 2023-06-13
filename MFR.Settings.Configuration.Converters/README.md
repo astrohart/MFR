@@ -150,12 +150,12 @@ text, or `null` if a problem occurred.
 | ---- | ---- | ----------- |
 | json | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the JSON to convert. |
 
-##### Exceptions
+##### Remarks
 
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `json`, is passed
-a blank or `null` string for a value. |
+If the `json` parameter is passed a blank or
+`null`[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') for its argument, or if
+an error occurs during the loading process, then the empty collection is
+returned.
 
 <a name='M-MFR-Settings-Configuration-Converters-ConvertProfileCollection-ToJson-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
 ### ToJson(configuration) `method`

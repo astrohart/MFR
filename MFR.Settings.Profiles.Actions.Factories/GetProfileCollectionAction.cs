@@ -59,21 +59,21 @@ namespace MFR.Settings.Profiles.Actions.Factories
                                     ProfileCollectionActionType.LoadStringFromRegistry:
                         result =
                             (IAction<TInput, TResult>)
-                            LoadProfileCollectionFilePathFromRegistryAction.Instance;
+                            GetLoadProfileCollectionFilePathFromRegistryAction.SoleInstance();
                         break;
 
                     case var _ when actionType ==
                                     ProfileCollectionActionType.CreateNewNamedProfile:
                         result =
-                            (IAction<TInput, TResult>)CreateNewNamedProfileAction
-                                .Instance;
+                            (IAction<TInput, TResult>)GetCreateNewNamedProfileAction
+                                .SoleInstance();
                         break;
 
                     case var _ when actionType ==
                                     ProfileCollectionActionType.LoadProfileCollectionFromFile:
                         result =
-                            (IAction<TInput, TResult>)LoadProfileCollectionFromFileAction
-                                .Instance;
+                            (IAction<TInput, TResult>)GetLoadProfileCollectionFromFileAction
+                                .SoleInstance();
                         break;
 
                     default:
