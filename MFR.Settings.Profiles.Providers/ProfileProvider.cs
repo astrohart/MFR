@@ -64,7 +64,7 @@ namespace MFR.Settings.Profiles.Providers
         /// <see cref="T:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider" />
         /// interface.
         /// </summary>
-        private static IProfileListPathProvider ProfileListPathProvider
+        private IProfileListPathProvider ProfileListPathProvider
         {
             get;
         } = GetProfileListPathProvider.SoleInstance();
