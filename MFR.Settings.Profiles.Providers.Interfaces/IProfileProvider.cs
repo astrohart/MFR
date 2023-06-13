@@ -1,4 +1,5 @@
- using MFR.Settings.Profiles.Collections.Interfaces;
+using MFR.Settings.Profiles.Collections.Interfaces;
+using System;
 
 namespace MFR.Settings.Profiles.Providers.Interfaces
 {
@@ -31,11 +32,21 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         /// <summary>
         /// Gets the default fully-qualified pathname of the profile list file.
         /// </summary>
-        string DefaultProfileCollectionPath { get; }
+        string DefaultProfileCollectionPath
+        {
+            get;
+        }
 
         /// <summary>
-        /// Gets a string whose value is the pathname of the profile list file.
+        /// Gets a string whose value is the fully-qualified pathname of the profile list
+        /// file.
         /// </summary>
+        /// <remarks>
+        /// When this property's value is updated, the
+        /// <see
+        ///     cref="E:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged" />
+        /// event  is raised.
+        /// </remarks>
         string ProfileCollectionFilePath
         {
             get;
@@ -77,6 +88,14 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         {
             get;
         }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
+        /// property is updated.
+        /// </summary>
+        event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
         /// Loads the profiles from the profile list file.

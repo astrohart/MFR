@@ -90,6 +90,12 @@ namespace MFR.Settings.Profiles.Providers
         /// Gets a string whose value is the fully-qualified pathname of the profile list
         /// file.
         /// </summary>
+        /// <remarks>
+        /// When this property's value is updated, the
+        /// <see
+        ///     cref="E:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged" />
+        /// event  is raised.
+        /// </remarks>
         public string ProfileCollectionFilePath
         {
             get => _profileCollectionFilePath;
