@@ -1,6 +1,5 @@
 using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -12,7 +11,6 @@ namespace MFR.FileSystem.Factories
     ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class MakeNewFileSystemEntry
     {
         /// <summary>
