@@ -5,6 +5,7 @@ using MFR.Messages.Actions;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Settings.Profiles.Actions.Constants;
+using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Serializers;
 using PostSharp.Patterns.Diagnostics;
@@ -70,7 +71,7 @@ namespace MFR.Settings.Profiles.Actions
         protected override IProfileCollection CommonExecute()
         {
             // write the name of the current class and method we are now
-            IProfileCollection result = null;
+            var result = MakeNewProfileCollection.FromScratch();
 
             // Check to see if the required field, _input, is null. If it is,
             if (Input == null)
@@ -80,10 +81,7 @@ namespace MFR.Settings.Profiles.Actions
                 return result;
             try
             {
-                Input.Path = FileHelpers.CreateOrOpenTextFile(
-                    Path.GetDirectoryName(Input.Path),
-                    Path.GetFileName(Input.Path)
-                );
+                Input.Path = CreateOrOpen.TextFile(Input.Path);
 
                 result = ProfileCollectionSerializer.Load(Input.Path);
             }
@@ -91,7 +89,10 @@ namespace MFR.Settings.Profiles.Actions
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = MakeNewProfileCollection.FromScratch();
             }
+
             /*
              * Provide the fully-qualified pathname of the new file
              * (or blank if a file system exception was thrown) to the caller.

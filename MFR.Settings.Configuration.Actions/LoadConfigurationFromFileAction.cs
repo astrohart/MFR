@@ -83,10 +83,7 @@ namespace MFR.Settings.Configuration.Actions
                 return result;
             try
             {
-                Input.Path = FileHelpers.CreateOrOpenTextFile(
-                    Path.GetDirectoryName(Input.Path),
-                    Path.GetFileName(Input.Path)
-                );
+                Input.Path = CreateOrOpen.TextFile(Input.Path);
 
                 result = ConfigurationSerializer.Load(Input.Path);
             }

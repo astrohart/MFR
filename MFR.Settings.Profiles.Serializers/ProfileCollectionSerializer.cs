@@ -106,7 +106,7 @@ namespace MFR.Settings.Profiles.Serializers
                 if (File.Exists(pathname))
                     File.Delete(pathname);
 
-                FileHelpers.MakeSureContainingFolderExists(pathname);
+                MakeSure.ContainingFolderExists(pathname);
 
                 File.WriteAllText(pathname, content);
             }

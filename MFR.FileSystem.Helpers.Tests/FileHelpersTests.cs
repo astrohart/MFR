@@ -26,13 +26,13 @@ namespace MFR.FileSystem.Helpers.Tests
 
         /// <summary>
         /// Asserts that the
-        /// <see cref="M:MFR.FileSystem.Helpers.FileHelpers.FillTextFileWithJunk" /> method
+        /// <see cref="M:MFR.FileSystem.Helpers.FillTextFile.WithJunk" /> method
         /// creates a new file of nonzero length.
         /// </summary>
         [Test]
         public void Test_FilleWithJunk_Works()
         {
-            FileHelpers.FillTextFileWithJunk(
+            FillTextFile.WithJunk(
                 StringConstants.EXISTING_TEMP_FILE
             );
 
@@ -42,12 +42,12 @@ namespace MFR.FileSystem.Helpers.Tests
         }
 
         /// <summary>
-        /// Asserts that the <see cref="M:MFR.FileSystem.Helpers.FileHelpers.DumpTextToTempFile"/> method dumps text to a temporary file.
+        /// Asserts that the <see cref="M:MFR.FileSystem.Helpers.FileHelpers.ToTempFile"/> method dumps text to a temporary file.
         /// </summary>
         [Test]
         public void Test_DumpTextToTempFile_Works()
         {
-            var result = FileHelpers.DumpTextToTempFile(
+            var result = DumpText.ToTempFile(
                 "Now is the time for all good men to come to the aid of their country."
             );
 
@@ -88,7 +88,7 @@ namespace MFR.FileSystem.Helpers.Tests
 
         /// <summary>
         /// Calls the
-        /// <see cref="M:MFR.FileSystem.Helpers.FileHelpers.FillTextFileWithJunk" /> method
+        /// <see cref="M:MFR.FileSystem.Helpers.FillTextFile.WithJunk" /> method
         /// to fill a temporary file with random data, and then makes sure that the
         /// <see cref="M:MFR.FileSystem.Helpers.FileHelpers.GetTextContent" /> method
         /// successfully reads the data.
@@ -96,7 +96,7 @@ namespace MFR.FileSystem.Helpers.Tests
         [Test]
         public void Test_GetContent_Works_OnTempFileFullOfJunk()
         {
-            FileHelpers.FillTextFileWithJunk(
+            FillTextFile.WithJunk(
                 StringConstants.EXISTING_TEMP_FILE
             );
 

@@ -66,7 +66,7 @@ namespace MFR.Errors.Reports.Commands
 
             // STEP 1: Dump the error report to a temp file (in .txt format)
             var newTempFilePath =
-                FileHelpers.DumpTextToTempFile(Input.ErrorReportContent);
+                DumpText.ToTempFile(Input.ErrorReportContent);
 
             // STEP 2: Check to ensure the operation succeeded
             if (string.IsNullOrWhiteSpace(newTempFilePath)) return;
