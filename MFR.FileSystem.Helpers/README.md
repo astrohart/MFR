@@ -3,15 +3,15 @@
 
 ## Contents
 
+- [CreateOrOpen](#T-MFR-FileSystem-Helpers-CreateOrOpen 'MFR.FileSystem.Helpers.CreateOrOpen')
 - [DirectoryInfoExtensions](#T-MFR-FileSystem-Helpers-DirectoryInfoExtensions 'MFR.FileSystem.Helpers.DirectoryInfoExtensions')
   - [RenameTo(folderToBeRenamed,newSubFolderPath,maxRetries)](#M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String,System-Int32- 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String,System.Int32)')
   - [TryRenameFolder(folderToBeRenamed,newSubFolderPath)](#M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-TryRenameFolder-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String- 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.TryRenameFolder(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String)')
 - [FileHelpers](#T-MFR-FileSystem-Helpers-FileHelpers 'MFR.FileSystem.Helpers.FileHelpers')
-  - [CreateOrOpenTextFile(folderName,fileName)](#M-MFR-FileSystem-Helpers-FileHelpers-CreateOrOpenTextFile-System-String,System-String- 'MFR.FileSystem.Helpers.FileHelpers.CreateOrOpenTextFile(System.String,System.String)')
+  - [CreateOrOpenTextFile(pathname)](#M-MFR-FileSystem-Helpers-FileHelpers-CreateOrOpenTextFile-System-String- 'MFR.FileSystem.Helpers.FileHelpers.CreateOrOpenTextFile(System.String)')
   - [DumpTextToTempFile(text)](#M-MFR-FileSystem-Helpers-FileHelpers-DumpTextToTempFile-System-String- 'MFR.FileSystem.Helpers.FileHelpers.DumpTextToTempFile(System.String)')
   - [FillTextFileWithJunk(path)](#M-MFR-FileSystem-Helpers-FileHelpers-FillTextFileWithJunk-System-String- 'MFR.FileSystem.Helpers.FileHelpers.FillTextFileWithJunk(System.String)')
   - [GetTextContent(path,pathFilter)](#M-MFR-FileSystem-Helpers-FileHelpers-GetTextContent-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Helpers.FileHelpers.GetTextContent(System.String,System.Predicate{System.String})')
-  - [MakeSureContainingFolderExists(pathname)](#M-MFR-FileSystem-Helpers-FileHelpers-MakeSureContainingFolderExists-System-String- 'MFR.FileSystem.Helpers.FileHelpers.MakeSureContainingFolderExists(System.String)')
 - [FileInfoExtensions](#T-MFR-FileSystem-Helpers-FileInfoExtensions 'MFR.FileSystem.Helpers.FileInfoExtensions')
   - [IsZeroLengthFile(file)](#M-MFR-FileSystem-Helpers-FileInfoExtensions-IsZeroLengthFile-Alphaleonis-Win32-Filesystem-FileInfo- 'MFR.FileSystem.Helpers.FileInfoExtensions.IsZeroLengthFile(Alphaleonis.Win32.Filesystem.FileInfo)')
   - [RenameTo(source,dest)](#M-MFR-FileSystem-Helpers-FileInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-FileInfo,System-String- 'MFR.FileSystem.Helpers.FileInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.FileInfo,System.String)')
@@ -19,10 +19,23 @@
 - [FileSystemEntryExtensions](#T-MFR-FileSystem-Helpers-FileSystemEntryExtensions 'MFR.FileSystem.Helpers.FileSystemEntryExtensions')
   - [ToDirectoryInfo(entry)](#M-MFR-FileSystem-Helpers-FileSystemEntryExtensions-ToDirectoryInfo-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Helpers.FileSystemEntryExtensions.ToDirectoryInfo(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ToFileInfo(entry)](#M-MFR-FileSystem-Helpers-FileSystemEntryExtensions-ToFileInfo-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Helpers.FileSystemEntryExtensions.ToFileInfo(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+- [MakeSure](#T-MFR-FileSystem-Helpers-MakeSure 'MFR.FileSystem.Helpers.MakeSure')
+  - [ContainingFolderExists(pathname)](#M-MFR-FileSystem-Helpers-MakeSure-ContainingFolderExists-System-String- 'MFR.FileSystem.Helpers.MakeSure.ContainingFolderExists(System.String)')
 - [Resources](#T-MFR-FileSystem-Helpers-Properties-Resources 'MFR.FileSystem.Helpers.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Helpers-Properties-Resources-Culture 'MFR.FileSystem.Helpers.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-FileSystem-Helpers-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.FileSystem.Helpers.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
   - [ResourceManager](#P-MFR-FileSystem-Helpers-Properties-Resources-ResourceManager 'MFR.FileSystem.Helpers.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-FileSystem-Helpers-CreateOrOpen'></a>
+## CreateOrOpen `type`
+
+##### Namespace
+
+MFR.FileSystem.Helpers
+
+##### Summary
+
+Exposes static methods for creating and/or opening file streams.
 
 <a name='T-MFR-FileSystem-Helpers-DirectoryInfoExtensions'></a>
 ## DirectoryInfoExtensions `type`
@@ -91,41 +104,30 @@ MFR.FileSystem.Helpers
 
 Static methods to assist in processing files.
 
-<a name='M-MFR-FileSystem-Helpers-FileHelpers-CreateOrOpenTextFile-System-String,System-String-'></a>
-### CreateOrOpenTextFile(folderName,fileName) `method`
+<a name='M-MFR-FileSystem-Helpers-FileHelpers-CreateOrOpenTextFile-System-String-'></a>
+### CreateOrOpenTextFile(pathname) `method`
 
 ##### Summary
 
-Creates a blank config.json file in the specified folder. This
-method also attempts to create the folder if it does not already exist.
+Creates a blank file having the specified `pathname`. This
+method also attempts to create a new folder to store the file in,
+if it does not already exist.
 
 ##### Returns
 
-String containing the fully-qualified pathname to the config.json
-file. Blank if a problem occurred (either invalid permissions or
-some such.
+String containing the fully-qualified pathname to the file that was created.
+
+
+
+This value is blank if the file was not able to be created; e.g., due to
+permissions.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| folderName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Path to the folder in which to store the config.json file. |
-| fileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Optional.) Filename to use for the config file. Config.json is the
-default. If this parameter is specified, it can't be a blank string
-and must be a valid filename. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either of the `folderName` or
-`fileName`
-parameters are blank. |
-
-##### Remarks
-
-This method simply returns the fully-qualified path to the
-configuration file if it already exists.
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the new file that is to be created. |
 
 <a name='M-MFR-FileSystem-Helpers-FileHelpers-DumpTextToTempFile-System-String-'></a>
 ### DumpTextToTempFile(text) `method`
@@ -210,34 +212,6 @@ criteria.
 
 In the event that this parameter is `null`, no path filtering
 is done. |
-
-<a name='M-MFR-FileSystem-Helpers-FileHelpers-MakeSureContainingFolderExists-System-String-'></a>
-### MakeSureContainingFolderExists(pathname) `method`
-
-##### Summary
-
-If the `pathname` provided contains a fully-qualified
-path to a file, then this method makes sure that the folder named in the
-path exists.
-
-
-
-If it does not, then a new folder with the specified path is created in
-order to hold the file.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Fully-qualified pathname of a file. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the string
-specified in the `pathname` parameter does not refer to a
-folder. |
 
 <a name='T-MFR-FileSystem-Helpers-FileInfoExtensions'></a>
 ## FileInfoExtensions `type`
@@ -424,6 +398,45 @@ passed a `null` value. |
 [Path](#P-MFR-IFileSystemEntry-Path 'MFR.IFileSystemEntry.Path')
 , is passed
 a blank or `null` string for a value. |
+
+<a name='T-MFR-FileSystem-Helpers-MakeSure'></a>
+## MakeSure `type`
+
+##### Namespace
+
+MFR.FileSystem.Helpers
+
+##### Summary
+
+Exposes static methods for assuring that certain conditions are true.
+
+<a name='M-MFR-FileSystem-Helpers-MakeSure-ContainingFolderExists-System-String-'></a>
+### ContainingFolderExists(pathname) `method`
+
+##### Summary
+
+If the `pathname` provided contains a fully-qualified
+path to a file, then this method makes sure that the folder named in the
+path exists.
+
+
+
+If it does not, then a new folder with the specified path is created in
+order to hold the file.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Fully-qualified pathname of a file. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the string
+specified in the `pathname` parameter does not refer to a
+folder. |
 
 <a name='T-MFR-FileSystem-Helpers-Properties-Resources'></a>
 ## Resources `type`
