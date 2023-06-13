@@ -1,7 +1,7 @@
 ﻿using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Settings.Profiles.Providers.Actions
+namespace MFR.Paths.Profiles.Provider.Actions
 {
     /// <summary>
     /// Exposes static methods to formulate data values from other data values.

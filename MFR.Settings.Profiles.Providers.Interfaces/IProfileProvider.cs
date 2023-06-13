@@ -1,74 +1,23 @@
+using MFR.Events.Common;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using System;
+using System.ComponentModel;
 
 namespace MFR.Settings.Profiles.Providers.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a
-    /// <c>
-    /// Profile
-    /// Provider
-    /// </c>
-    /// object.
+    /// Defines the publicly-exposed methods and properties of an object that manages
+    /// the user's saved configuration-settings profiles..
     /// </summary>
-    /// <remarks>
-    /// A <c>Profile Provider</c> object maintains a collection of the profiles
-    /// defined by the user.
-    /// </remarks>
     public interface IProfileProvider
     {
         /// <summary>
-        /// Gets the default folder for the configuration file.
+        /// Gets or sets the fully-qualified pathname of the <c>profiles.json</c> file.
         /// </summary>
-        /// <remarks>
-        /// We store the profile configuration file, by default, in a folder
-        /// under the current user's AppData folder.
-        /// </remarks>
-        string DefaultProfileCollectionDir
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets the default fully-qualified pathname of the profile list file.
-        /// </summary>
-        string DefaultProfileCollectionPath
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the fully-qualified pathname of the profile list
-        /// file.
-        /// </summary>
-        /// <remarks>
-        /// When this property's value is updated, the
-        /// <see
-        ///     cref="E:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePathChanged" />
-        /// event  is raised.
-        /// </remarks>
         string ProfileCollectionFilePath
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key
-        /// in which Profile settings are stored.
-        /// </summary>
-        string ProfileCollectionPathKeyName
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store
-        /// the path to the profile list file.
-        /// </summary>
-        string ProfileCollectionPathValueName
-        {
-            get;
         }
 
         /// <summary>
@@ -90,6 +39,12 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         }
 
         /// <summary>
+        /// Occurs when we are about to begin the process of loading the user's saved
+        /// configuration-setting profiles from the data source.
+        /// </summary>
+        event CancelEventHandler LoadingProfiles;
+
+        /// <summary>
         /// Occurs when the value of the
         /// <see
         ///     cref="P:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.ProfileCollectionFilePath" />
@@ -98,23 +53,35 @@ namespace MFR.Settings.Profiles.Providers.Interfaces
         event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
+        /// Occurs when loading the collection of profiles has failed.
+        /// </summary>
+        event ExceptionRaisedEventHandler ProfileLoadFailed;
+
+        /// <summary>
+        /// Occurs when saving the collection of profiles has failed.
+        /// </summary>
+        event EventHandler ProfileSaveFailed;
+
+        /// <summary>
+        /// Occurs when the collection of profiles has been loaded successfully.
+        /// </summary>
+        event EventHandler ProfilesLoaded;
+
+        /// <summary>
+        /// Occurs when the collection of profiles has been saved successfully.
+        /// </summary>
+        event EventHandler ProfilesSaved;
+
+        /// <summary>
+        /// Occurs when we are about to begin the process of saving the user's saved
+        /// configuration-setting profiles from the data source.
+        /// </summary>
+        event CancelEventHandler SavingProfiles;
+
+        /// <summary>
         /// Loads the profiles from the profile list file.
         /// </summary>
-        /// <param name="pathname">
-        /// (Required.) String containing the pathname of the file from which to
-        /// load the profiles.
-        /// </param>
-        /// <remarks>
-        /// The file whose pathname is passed must not be the actual
-        /// configuration file, but a separate file.
-        /// </remarks>
-        /// <exception cref="T:System.IO.FileNotFoundException">
-        /// Thrown if the file whose pathname is passed in the
-        /// <paramref
-        ///     name="pathname" />
-        /// parameter cannot be found on the disk.
-        /// </exception>
-        void Load(string pathname = "");
+        void Load();
 
         /// <summary>
         /// Saves profile list data to a file on the disk having path

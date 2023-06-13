@@ -46,7 +46,7 @@ namespace MFR.Settings.Configuration.Helpers
             return configuration is IProfile profile
                 ? profile
                 : configuration.ToProfile(
-                    "tmp_" + Guid.NewGuid()
+                    "tmp" + Guid.NewGuid()
                                  .ToString("B")
                                  .ToUpperInvariant()
                 );
@@ -124,7 +124,7 @@ namespace MFR.Settings.Configuration.Helpers
             var correspondingProfile = configuration.AsProfile();
 
             return string.IsNullOrWhiteSpace(correspondingProfile.Name) ||
-                   correspondingProfile.Name.StartsWith("tmp_");
+                   correspondingProfile.Name.StartsWith("tmp");
         }
 
         /// <summary>

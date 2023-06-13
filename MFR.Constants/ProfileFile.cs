@@ -1,4 +1,4 @@
-﻿namespace MFR.Settings.Profiles.Providers.Constants
+﻿namespace MFR.Constants
 {
     public static class ProfileFile
     {

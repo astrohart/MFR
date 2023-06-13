@@ -107,9 +107,15 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execute.cs" />
+    <Compile Include="Formulate.cs" />
+    <Compile Include="Generate.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="Retrieve.cs" />
+    <Compile Include="Store.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Obtain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,6 +135,84 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Constants\MFR.Constants.csproj">
+      <Project>{A9C55463-4815-4CC5-84BA-4058440521F4}</Project>
+      <Name>MFR.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Registry.Factories\MFR.Expressions.Registry.Factories.csproj">
+      <Project>{DC731265-74D9-4879-AF2E-79616BC6847B}</Project>
+      <Name>MFR.Expressions.Registry.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Registry.Interfaces\MFR.Expressions.Registry.Interfaces.csproj">
+      <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
+      <Name>MFR.Expressions.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Factories\MFR.Expressions.Registry.Validators.Factories.csproj">
+      <Project>{A918C4B3-40A4-4864-A04D-AC2ACFC025AC}</Project>
+      <Name>MFR.Expressions.Registry.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Interfaces\MFR.Expressions.Registry.Validators.Interfaces.csproj">
+      <Project>{DA01210A-F467-4EC3-967E-01523AFB6E23}</Project>
+      <Name>MFR.Expressions.Registry.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
+      <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
+      <Name>MFR.FileSystem.Factories.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
+      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
+      <Name>MFR.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
+      <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
+      <Name>MFR.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
+      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Factories\MFR.Metadata.Registry.Factories.csproj">
+      <Project>{AC4B0CEA-B2E5-4A02-B22A-C74342FC5310}</Project>
+      <Name>MFR.Metadata.Registry.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
+      <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
+      <Name>MFR.Metadata.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
+      <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
+      <Name>MFR.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Profiles.Provider.Constants\MFR.Paths.Profiles.Provider.Constants.csproj">
+      <Project>{9626215B-4C42-484B-97D2-8EBA15649AF8}</Project>
+      <Name>MFR.Paths.Profiles.Provider.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
+      <Project>{AFFA1381-12A6-408C-99C2-BFA717D23CD8}</Project>
+      <Name>MFR.Registry.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Actions.Constants\MFR.Settings.Profiles.Actions.Constants.csproj">
+      <Project>{15C7805D-1879-4093-B671-6C168277C448}</Project>
+      <Name>MFR.Settings.Profiles.Actions.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Actions.Factories\MFR.Settings.Profiles.Actions.Factories.csproj">
+      <Project>{CDB376A4-19AF-4B02-B7E1-5898088C5398}</Project>
+      <Name>MFR.Settings.Profiles.Actions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Constants\MFR.Settings.Profiles.Constants.csproj">
+      <Project>{26976BA2-FCF1-4B05-BE27-CD6D77B916B5}</Project>
+      <Name>MFR.Settings.Profiles.Constants</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

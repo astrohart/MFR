@@ -1,6 +1,6 @@
 using MFR.GUI.Constants;
 
-namespace MFR.Settings.Profiles.Constants
+namespace MFR.Paths.Profiles.Provider.Constants
 {
     /// <summary>
     /// Values used to read the profile list file path from the system Registry.

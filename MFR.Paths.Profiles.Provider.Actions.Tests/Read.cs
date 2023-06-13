@@ -2,7 +2,7 @@
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Settings.Profiles.Providers.Actions.Tests
+namespace MFR.Paths.Profiles.Provider.Actions.Tests
 {
     /// <summary>
     /// Exposes static methods to read data from data sources.

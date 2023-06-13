@@ -1,39 +1,40 @@
-﻿using MFR.Expressions.Registry.Interfaces;
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Settings.Profiles.Collections.Factories;
+using MFR.Settings.Profiles.Collections.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers.Actions
 {
     /// <summary>
-    /// Exposes static methods for executing operations associated with loading and
-    /// storing information about the user's favorite configuration-setting profiles.
+    /// Exposes static methods to execute operations.
     /// </summary>
     public static class Execute
     {
         /// <summary>
-        /// Executes the operation to fetch the fully-qualified pathname of the
-        /// <c>profiles.json</c> file from the system Registry, if it is configured.
+        /// Attempts to execute the operation of loading a new
+        /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// from a file on the disk.
         /// </summary>
         /// <param name="action">
-        /// (Required.) Reference to an instance of an object that
-        /// implements the
-        /// <see cref="T:MFR.Messages.Actions.Interfaces.IAction[TInput, TResult]" />
-        /// interface that represents the operation that is to be executed.
+        /// (Required.) Reference to an <c>Action</c> object that,
+        /// when executed, loads the collection of the user's profiles from a file on the
+        /// disk.
         /// </param>
         /// <returns>
-        /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface that
-        /// should contain the pathname of the <c>profiles.json</c> file; or
-        /// <see langword="null" /> if the pathname could not be read.
+        /// If successful, a reference to an instance of an object that implements
+        /// the
+        /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// interface containing the loaded profiles, or the empty collection if the
+        /// operation could not be executed, or if no profiles are listed in the file.
         /// </returns>
-        public static IFileSystemEntry
-            OperationToLoadProfileCollectionFilePathFromRegistry(
-                IAction<IRegQueryExpression<string>, IFileSystemEntry> action
+        public static IProfileCollection
+            OperationToLoadProfileCollectionFromFile(
+                IAction<IFileSystemEntry, IProfileCollection> action
             )
         {
-            IFileSystemEntry result = default;
+            var result = MakeNewProfileCollection.FromScratch();
 
             try
             {
@@ -46,7 +47,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = default;
+                result = MakeNewProfileCollection.FromScratch();
             }
 
             return result;

@@ -4,7 +4,7 @@ using System;
 using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Settings.Profiles.Providers.Actions.Tests
+namespace MFR.Paths.Profiles.Provider.Actions.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
@@ -48,7 +48,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests" /> and
+        /// <see cref="T:MFR.Paths.Profiles.Provider.Actions.Tests.ObtainTests" /> and
         /// returns a reference to it.
         /// </summary>
         public ObtainTests()
@@ -64,7 +64,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="F:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.DefaultProfileCollectionPath" />
+        ///     cref="F:MFR.Paths.Profiles.Provider.Actions.Tests.ObtainTests.DefaultProfileCollectionPath" />
         /// field's value is non-blank, well-formed, and does not throw exceptions when
         /// it's computed.
         /// </summary>
@@ -94,7 +94,7 @@ namespace MFR.Settings.Profiles.Providers.Actions.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="F:MFR.Settings.Profiles.Providers.Actions.Tests.ObtainTests.ExpectedProfileCollectionPath" />
+        ///     cref="F:MFR.Paths.Profiles.Provider.Actions.Tests.ObtainTests.ExpectedProfileCollectionPath" />
         /// field's value is non-blank, well-formed, and does not throw exceptions when
         /// it's evaluated.
         /// </summary>

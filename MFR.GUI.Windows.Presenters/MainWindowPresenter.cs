@@ -449,22 +449,22 @@ namespace MFR.GUI.Windows.Presenters
                 return;
 
             if (ProfileProvider.Profiles.Count(
-                    p => !p.Name.StartsWith("tmp_")
+                    p => !p.Name.StartsWith("tmp")
                 ) == 0)
                 return;
 
             /*
              * Load the Profiles into the combo box,
-             * except ones whose name begin with tmp_.
+             * except ones whose name begin with tmp.
              */
 
             View.ProfileCollectionComboBox.Items.AddRange(
-                ProfileProvider.Profiles.Where(p => !p.Name.StartsWith("tmp_"))
+                ProfileProvider.Profiles.Where(p => !p.Name.StartsWith("tmp"))
                                .ToArray<object>()
             );
 
             if (string.IsNullOrWhiteSpace(CurrentProfileName) ||
-                CurrentProfileName.StartsWith("tmp_"))
+                CurrentProfileName.StartsWith("tmp"))
                 View.ProfileCollectionComboBox.SelectFirstItem();
             else
                 View.ProfileCollectionComboBox.SelectFirstItemNamed(

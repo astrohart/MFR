@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Alphaleonis.Win32.Filesystem;
+using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Settings.Profiles.Providers.Actions
+namespace MFR.Paths.Profiles.Provider.Actions
 {
     /// <summary>
     /// Exposes static methods to retrieve data from data sources.
@@ -111,8 +108,9 @@ namespace MFR.Settings.Profiles.Providers.Actions
                 if (profileCollectionFileSystemEntry == null) return result;
                 if (string.IsNullOrWhiteSpace(
                         profileCollectionFileSystemEntry.Path
-                    ))
-                    return result;
+                    ) || !"profiles.json".Equals(
+                        Path.GetFileName(profileCollectionFileSystemEntry.Path)
+                    )) return result;
 
                 /*
                  * If we've got a non-blank pathname, then that's good enough.

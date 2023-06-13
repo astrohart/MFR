@@ -22,7 +22,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// </param>
         /// <remarks>
         /// A temporary profile is defined to be one whose name begins with
-        /// <c>tmp_</c>.
+        /// <c>tmp</c>.
         /// <para />
         /// If the specified <paramref name="collection" /> is <see langword="null" /> or
         /// does not contain any elements, then this method does nothing.
@@ -31,10 +31,20 @@ namespace MFR.Settings.Profiles.Providers.Actions
         {
             try
             {
+                /*
+                 * Do not do any actions if there aren't any collections at
+                 * all in the collections list.
+                 */
+
                 if (collection == null || !collection.Any()) return;
 
+                /*
+                 * A 'temporary' profile (for now) is defined to be a Profile
+                 * whose name starts with 'tmp'.
+                 */
+
                 collection.RemoveAll(
-                    profile => profile.Name.StartsWith("tmp_")
+                    profile => profile.Name.StartsWith("tmp")
                 );
             }
             catch (Exception ex)

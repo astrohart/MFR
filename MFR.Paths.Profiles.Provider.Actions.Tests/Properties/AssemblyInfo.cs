@@ -4,17 +4,17 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.Settings.Profiles.Providers.Actions.Tests")]
-[assembly: AssemblyDescription("Provides unit tests for the classes and methods in the MFR.Settings.Profiles.Providers.Actions class library.")]
+[assembly: AssemblyTitle("MFR.Paths.Profiles.Provider.Actions.Tests")]
+[assembly: AssemblyDescription("Provides unit tests for the Obtain/Generate/Execute/Formulate etc. static classes exposed by the MFR.Paths.Profiles.Provider.Actions library.  These classes facilitate the execution of actions that comprise the loading and storing of informating regarding the pathname of a list of profiles to/from the system Registry.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("Unit Tests Library for Profile Provider Actions")]
+[assembly: AssemblyProduct("Unit Tests Library for Profile List Path Provider Actions")]
 [assembly:
     AssemblyCopyright(
 "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-"This software is a component of xyLOGIX Project File Renamer.  MFR and Project File Renamer are trademarks of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+"This software is a component of xyLOGIX Project File Renamer.  Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b5ed61e1-55e9-4a23-8142-6bc35b57e94b")]
+[assembly: Guid("b1d99cea-2765-4c20-bf18-8d115e33ee2d")]
 
 // Version information for an assembly consists of the following four values:
 //
