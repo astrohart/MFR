@@ -2,7 +2,9 @@
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Registry.Helpers;
+using MFR.Settings.Configuration.Constants;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Config.Provider.Actions
 {
@@ -48,7 +50,7 @@ namespace MFR.Paths.Config.Provider.Actions
 GetSaveConfigPathCommand.ForPath(
                                        ConfigPathKeyName,
                                        ConfigPathValueName,
-                                       _profileCollectionFilePath
+                                       _configFilePath
                                    )
                                    .Execute();
 */

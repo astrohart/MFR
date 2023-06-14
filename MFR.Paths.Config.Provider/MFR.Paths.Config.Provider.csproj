@@ -144,6 +144,10 @@
       <Project>{BA67C73B-59F3-4FF2-81B3-C2EED243DC17}</Project>
       <Name>MFR.GUI.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider.Actions\MFR.Paths.Config.Provider.Actions.csproj">
+      <Project>{80F6A06F-61E7-4165-A756-28E35293FB43}</Project>
+      <Name>MFR.Paths.Config.Provider.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Paths.Config.Provider.Interfaces\MFR.Paths.Config.Provider.Interfaces.csproj">
       <Project>{7DBA8C66-9206-411A-AE96-14C5A59C52A0}</Project>
       <Name>MFR.Paths.Config.Provider.Interfaces</Name>

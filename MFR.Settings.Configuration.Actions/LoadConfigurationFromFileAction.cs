@@ -51,7 +51,7 @@ namespace MFR.Settings.Configuration.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ConfigurationActionType.LoadConfigurationFromFile;
+            => ConfigActionType.LoadConfigFromFile;
 
         /// <summary>
         /// Executes this message.

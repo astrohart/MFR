@@ -10,7 +10,7 @@ namespace MFR.Settings.Configuration.Actions.Factories
     ///     cref="T:MFR.Messages.Actions.Interfaces.IAction" />
     /// interface.
     /// </summary>
-    public static class GetConfigurationAction
+    public static class GetConfigAction
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
@@ -41,7 +41,7 @@ namespace MFR.Settings.Configuration.Actions.Factories
         /// in the <paramref name="actionType" /> parameter.
         /// </exception>
         public static IAction<TInput, TResult> For<TInput, TResult>(
-            ConfigurationActionType actionType) where TInput : class
+            ConfigActionType actionType) where TInput : class
             where TResult : class
         {
             IAction<TInput, TResult> action;
@@ -49,15 +49,15 @@ namespace MFR.Settings.Configuration.Actions.Factories
             switch (actionType)
             {
                 case var _ when actionType ==
-                                ConfigurationActionType.LoadStringFromRegistry:
+                                ConfigActionType.LoadStringFromRegistry:
                     action =
                         GetLoadConfigurationFilePathFromRegistryAction
                             .SoleInstance() as IAction<TInput, TResult>;
                     break;
 
                 case var _ when actionType ==
-                                ConfigurationActionType
-                                    .LoadConfigurationFromFile:
+                                ConfigActionType
+                                    .LoadConfigFromFile:
                     action =
                         GetLoadConfigurationFromFileAction.SoleInstance() as
                             IAction<TInput, TResult>;

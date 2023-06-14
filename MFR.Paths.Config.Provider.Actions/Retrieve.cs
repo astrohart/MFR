@@ -1,5 +1,6 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Config.Provider.Actions
 {
@@ -93,26 +94,26 @@ namespace MFR.Paths.Config.Provider.Actions
                  * fails, such as if there isn't such a value in the system Registry.
                  */
 
-                var profileCollectionFileSystemEntry =
+                var configFileSystemEntry =
                     Execute.OperationToLoadConfigFilePathFromRegistry(
                         retrieveConfigPathnameFromRegistryAction
                     );
-                if (profileCollectionFileSystemEntry == null) return result;
+                if (configFileSystemEntry == null) return result;
                 if (string.IsNullOrWhiteSpace(
-                        profileCollectionFileSystemEntry.Path
+                        configFileSystemEntry.Path
                     ) || !"config.json".Equals(
-                        Path.GetFileName(profileCollectionFileSystemEntry.Path)
+                        Path.GetFileName(configFileSystemEntry.Path)
                     )) return result;
 
                 /*
                  * If we've got a non-blank pathname, then that's good enough.
-                 * Whether File.Exists(profileCollectionFileSystemEntry.Path)
+                 * Whether File.Exists(configFileSystemEntry.Path)
                  * returns true or not, at this juncture, is irrelevant, we just
                  * need a fucking pathname here, and we can check whether it refers
                  * to a file that exists on the disk, some other time.
                  */
 
-                result = profileCollectionFileSystemEntry.Path;
+                result = configFileSystemEntry.Path;
             }
             catch (Exception ex)
             {

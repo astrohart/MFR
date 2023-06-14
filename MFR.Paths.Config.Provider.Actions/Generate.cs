@@ -1,10 +1,13 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
 using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Settings.Configuration.Actions.Constants;
+using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Constants;
 using System;
 using xyLOGIX.Core.Debug;
@@ -83,14 +86,14 @@ namespace MFR.Paths.Config.Provider.Actions
                 if (string.IsNullOrWhiteSpace(companyProgramDataFolderPath))
                     return result;
 
-                var profileCollectionFileFolder = Path.Combine(
+                var configFileFolder = Path.Combine(
                     companyProgramDataFolderPath, $@"{productName}\Config"
                 );
-                if (string.IsNullOrWhiteSpace(profileCollectionFileFolder))
+                if (string.IsNullOrWhiteSpace(configFileFolder))
                     return result;
 
                 result = Path.Combine(
-                    profileCollectionFileFolder, ConfigFile.DefaultFilename
+                    configFileFolder, ConfigFile.DefaultFilename
                 );
             }
             catch (Exception ex)

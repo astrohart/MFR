@@ -29,9 +29,9 @@ namespace MFR.Settings.Configuration.Actions.Tests
         [Test]
         public void Test_CanSuccessfullyObtain_AppConfigFilePath()
         {
-            var result = GetConfigurationAction
+            var result = GetConfigAction
                          .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                             ConfigurationActionType.LoadStringFromRegistry
+                             ConfigActionType.LoadStringFromRegistry
                          )
                          .WithInput(
                              MakeNewRegQueryExpression.FromScatch<string>()

@@ -185,9 +185,9 @@ namespace MFR.Settings.Configuration.Providers
                         loadConfigFilePathFromRegistryAction = default;
 
                     loadConfigFilePathFromRegistryAction =
-                        GetConfigurationAction
+                        GetConfigAction
                             .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                                ConfigurationActionType.LoadStringFromRegistry
+                                ConfigActionType.LoadStringFromRegistry
                             );
                     if (loadConfigFilePathFromRegistryAction == null)
                         return result;
@@ -332,9 +332,9 @@ namespace MFR.Settings.Configuration.Providers
 
             try
             {
-                var loadConfigurationAction = GetConfigurationAction
+                var loadConfigurationAction = GetConfigAction
                     .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
-                        ConfigurationActionType.LoadConfigurationFromFile
+                        ConfigActionType.LoadConfigFromFile
                     );
                 if (loadConfigurationAction == null)
                 {

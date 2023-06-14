@@ -8,21 +8,21 @@ namespace MFR.Settings.Configuration.Actions.Constants
     /// Available actions for use when working with configuration.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public class ConfigurationActionType : ActionType
+    public class ConfigActionType : ActionType
     {
         /// <summary>
         /// Loads the configuration from a file.
         /// </summary>
-        public static readonly ConfigurationActionType
-            LoadConfigurationFromFile = new ConfigurationActionType(
-                Guid.NewGuid(), nameof(LoadConfigurationFromFile)
+        public static readonly ConfigActionType
+            LoadConfigFromFile = new ConfigActionType(
+                Guid.NewGuid(), nameof(LoadConfigFromFile)
             );
 
         /// <summary>
         /// Loads a string value from the system Registry.
         /// </summary>
-        public static readonly ConfigurationActionType LoadStringFromRegistry =
-            new ConfigurationActionType(
+        public static readonly ConfigActionType LoadStringFromRegistry =
+            new ConfigActionType(
                 Guid.NewGuid(), nameof(LoadStringFromRegistry)
             );
 
@@ -36,7 +36,7 @@ namespace MFR.Settings.Configuration.Actions.Constants
         /// (Required.) Reference to an instance of <see cref="T:System.Guid" />
         /// that provides a unique identifier to be associated with this instance.
         /// </param>
-        public ConfigurationActionType(Guid messageId) : base(messageId) { }
+        public ConfigActionType(Guid messageId) : base(messageId) { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -52,7 +52,7 @@ namespace MFR.Settings.Configuration.Actions.Constants
         /// (Required.) Reference to an instance of <see cref="T:System.Guid" />
         /// that provides a unique identifier to be associated with this instance.
         /// </param>
-        public ConfigurationActionType(Guid messageId, string description) :
+        public ConfigActionType(Guid messageId, string description) :
             base(messageId, description) { }
     }
 }

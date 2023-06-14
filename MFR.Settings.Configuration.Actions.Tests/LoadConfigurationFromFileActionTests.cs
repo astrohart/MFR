@@ -33,10 +33,10 @@ namespace MFR.Settings.Configuration.Actions.Tests
         [Test]
         public void Test_ConfigurationFileLoadedSuccessfully_GivenValidPath()
         {
-            var configurationFilePath = GetConfigurationAction
+            var configurationFilePath = GetConfigAction
                                         .For<IRegQueryExpression<string>,
                                             IFileSystemEntry>(
-                                            ConfigurationActionType
+                                            ConfigActionType
                                                 .LoadStringFromRegistry
                                         )
                                         .AsCachedResultAction()
@@ -60,9 +60,9 @@ namespace MFR.Settings.Configuration.Actions.Tests
             IProjectFileRenamerConfiguration result = null;
 
             Assert.DoesNotThrow(
-                () => result = GetConfigurationAction
+                () => result = GetConfigAction
                                .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
-                                   ConfigurationActionType.LoadConfigurationFromFile
+                                   ConfigActionType.LoadConfigFromFile
                                )
                                .WithInput(
                                    MakeNewFileSystemEntry.ForPath(

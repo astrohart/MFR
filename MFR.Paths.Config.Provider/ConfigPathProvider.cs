@@ -31,16 +31,6 @@ namespace MFR.Paths.Config.Provider
         protected ConfigPathProvider() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of the object that implements the
-        /// <see cref="T:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider" />
-        /// interface.
-        /// </summary>
-        public static IConfigPathProvider Instance
-        {
-            get;
-        } = new ConfigPathProvider();
-
-        /// <summary>
         /// Gets a string whose value is the fully-qualified pathname of the profile list
         /// file.
         /// </summary>
@@ -61,12 +51,14 @@ namespace MFR.Paths.Config.Provider
         }
 
         /// <summary>
-        /// Occurs when the process of loading the value of the
-        /// <see
-        ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
-        /// property from the system Registry is about to begin.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider" />
+        /// interface.
         /// </summary>
-        public event CancelEventHandler LoadingConfigFilePath;
+        public static IConfigPathProvider Instance
+        {
+            get;
+        } = new ConfigPathProvider();
 
         /// <summary>
         /// Occurs when the value of the
@@ -90,8 +82,7 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property from the system Registry has failed.
         /// </summary>
-        public event ExceptionRaisedEventHandler
-            ConfigFilePathLoadFailed;
+        public event ExceptionRaisedEventHandler ConfigFilePathLoadFailed;
 
         /// <summary>
         /// Occurs when the value of the
@@ -107,8 +98,15 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property to the system Registry has failed.
         /// </summary>
-        public event ExceptionRaisedEventHandler
-            ConfigFilePathSaveFailed;
+        public event ExceptionRaisedEventHandler ConfigFilePathSaveFailed;
+
+        /// <summary>
+        /// Occurs when the process of loading the value of the
+        /// <see
+        ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
+        /// property from the system Registry is about to begin.
+        /// </summary>
+        public event CancelEventHandler LoadingConfigFilePath;
 
         /// <summary>
         /// Occurs when the process of saving the value of the
@@ -157,7 +155,7 @@ namespace MFR.Paths.Config.Provider
 
                 ConfigFilePath = Obtain.ConfigFilePath(
                     ProgramText.CompanyName,
-                    ProgramText.ProductNameWithoutCompany,
+                    ProgramText.ProductNameWithoutCompany, 
                     ConfigFilePath
                 );
 
@@ -183,9 +181,7 @@ namespace MFR.Paths.Config.Provider
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                OnConfigFilePathLoadFailed(
-                    new ExceptionRaisedEventArgs(ex)
-                );
+                OnConfigFilePathLoadFailed(new ExceptionRaisedEventArgs(ex));
             }
         }
 
@@ -228,8 +224,7 @@ namespace MFR.Paths.Config.Provider
 
                 Store.ConfigFilePathToRegistry(
                     ProgramText.CompanyName,
-                    ProgramText.ProductNameWithoutCompany,
-                    ConfigFilePath
+                    ProgramText.ProductNameWithoutCompany, ConfigFilePath
                 );
 
                 OnConfigFilePathSaved();
@@ -248,21 +243,17 @@ namespace MFR.Paths.Config.Provider
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Paths.Config.Provider.ConfigPathProvider.LoadingConfigFilePath" />
+        ///     cref="E:MFR.Paths.Config.Provider.ConfigPathProvider.ConfigFilePathSaveFailed" />
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
-        /// allows us to cancel the operation that this event is notifying the caller of.
-        /// <para />
-        /// To cancel the operation, handlers should set the value of the
-        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
-        /// <see langword="true" />.
+        /// A <see cref="T:MFR.Events.Common.ExceptionRaisedEventArgs" />
+        /// that contains the event data.
         /// </param>
-        protected virtual void OnLoadingConfigFilePath(
-            CancelEventArgs e
+        protected virtual void OnConfigCollectListPathSaveFailed(
+            ExceptionRaisedEventArgs e
         )
-            => LoadingConfigFilePath?.Invoke(this, e);
+            => ConfigFilePathSaveFailed?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -309,17 +300,19 @@ namespace MFR.Paths.Config.Provider
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Paths.Config.Provider.ConfigPathProvider.ConfigFilePathSaveFailed" />
+        ///     cref="E:MFR.Paths.Config.Provider.ConfigPathProvider.LoadingConfigFilePath" />
         /// event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:MFR.Events.Common.ExceptionRaisedEventArgs" />
-        /// that contains the event data.
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
         /// </param>
-        protected virtual void OnConfigCollectListPathSaveFailed(
-            ExceptionRaisedEventArgs e
-        )
-            => ConfigFilePathSaveFailed?.Invoke(this, e);
+        protected virtual void OnLoadingConfigFilePath(CancelEventArgs e)
+            => LoadingConfigFilePath?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -335,9 +328,7 @@ namespace MFR.Paths.Config.Provider
         /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
         /// <see langword="true" />.
         /// </param>
-        protected virtual void OnSavingConfigFilePath(
-            CancelEventArgs e
-        )
+        protected virtual void OnSavingConfigFilePath(CancelEventArgs e)
             => SavingConfigFilePath?.Invoke(this, e);
     }
 }
