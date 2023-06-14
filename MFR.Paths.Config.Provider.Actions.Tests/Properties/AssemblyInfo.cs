@@ -4,17 +4,17 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Unit Tests Library for MFR.Paths.Config.Provider.Actions.Tests")]
-[assembly: AssemblyDescription("Provides unit tests for ")]
+[assembly: AssemblyTitle("MFR.Paths.Config.Provider.Actions.Tests")]
+[assembly: AssemblyDescription("Provides unit tests for the Obtain/Generate/Execute/Formulate etc. static classes exposed by the MFR.Paths.Config.Provider.Actions library.  These classes facilitate the execution of actions that comprise the loading and storing of informating regarding the pathname of the application configuration file to/from the system Registry.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MFR.Paths.Config.Provider.Actions.Tests")]
+[assembly: AssemblyProduct("Unit Tests Library for Config File Path Provider Actions")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
+"Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX MFR.  MFR is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+"This software is a component of xyLOGIX Project File Renamer.  Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
