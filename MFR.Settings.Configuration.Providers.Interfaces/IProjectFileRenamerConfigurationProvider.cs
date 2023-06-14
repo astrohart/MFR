@@ -61,22 +61,6 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         void Export(string exportFileName);
 
         /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key in which configuration settings are stored.
-        /// </summary>
-        string ConfigurationFilePathKeyName
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store the path to the configuration file.
-        /// </summary>
-        string ConfigurationFilePathValueName
-        {
-            get;
-        }
-
-        /// <summary>
         /// Imports configuration data from a file whose path is
         /// <paramref name="sourceFilePath" />.
         /// </summary>

@@ -1,14 +1,9 @@
-using MFR.Expressions.Registry.Factories;
-using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.GUI.Constants;
-using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Configuration.Actions.Constants;
 using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Settings.Configuration.Commands.Factories;
-using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -16,7 +11,6 @@ using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using File = Alphaleonis.Win32.Filesystem.File;
-using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Settings.Configuration.Providers
 {
@@ -28,6 +22,12 @@ namespace MFR.Settings.Configuration.Providers
         ProjectFileRenamerConfigurationProvider :
             IProjectFileRenamerConfigurationProvider
     {
+        /// <summary>
+        /// A <see cref="T:System.String" /> that contains the fully-qualified pathname of
+        /// the application configuration file that is presently active.
+        /// </summary>
+        private string _configurationFilePath;
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -43,63 +43,9 @@ namespace MFR.Settings.Configuration.Providers
         /// </summary>
         public string ConfigurationFilePath
         {
-            get {
-                string result;
-
-                try
-                {
-                    result = LoadConfigPathAction.Execute()
-                                                 .Path;
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = string.Empty;
-                }
-
-                return result;
-            }
-            set {
-                try
-                {
-                    if (string.IsNullOrWhiteSpace(value)) return;
-
-                    var saveCommand = GetSaveConfigPathCommand.ForPath(
-                        ConfigurationFilePathKeyName,
-                        ConfigurationFilePathValueName, value
-                    );
-                    if (saveCommand == null) return;
-
-                    saveCommand.Execute();
-
-                    /* Clear out the cache of previously-loaded paths
-                     for this same operation. */
-                    LoadConfigPathAction.AsCachedResultAction()
-                                        .ClearResultCache();
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-                }
-            }
+            get => _configurationFilePath;
+            set => _configurationFilePath = value;
         }
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key in which
-        /// configuration settings are stored.
-        /// </summary>
-        public string ConfigurationFilePathKeyName
-            => ConfigPathRegistry.KeyName;
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store the path
-        /// to the configuration file.
-        /// </summary>
-        public string ConfigurationFilePathValueName
-            => ConfigPathRegistry.ValueName;
 
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
@@ -117,30 +63,6 @@ namespace MFR.Settings.Configuration.Providers
         } = MakeNewProjectFileRenamerConfiguration.FromScratch();
 
         /// <summary>
-        /// Gets the default folder for the configuration file.
-        /// </summary>
-        /// <remarks>
-        /// We store the config file, by default, in a folder under
-        /// %USERPROFILE%\AppData\Local.
-        /// </remarks>
-        public string DefaultConfigDir
-        {
-            get;
-        } = Path.Combine(
-            Path.Combine(
-                Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData
-                ), ProgramText.CompanyName
-            ), $@"{ProgramText.ProductNameWithoutCompany}\Config"
-        );
-
-        /// <summary>
-        /// Gets the default filename for the config file.
-        /// </summary>
-        public string DefaultConfigFileName
-            => "config.json";
-
-        /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
@@ -150,63 +72,6 @@ namespace MFR.Settings.Configuration.Providers
         {
             get;
         } = new ProjectFileRenamerConfigurationProvider();
-
-        /// <summary>
-        /// Default action to be utilized for loading the path to the configuration file
-        /// from the system Registry.
-        /// </summary>
-        private IAction<IRegQueryExpression<string>, IFileSystemEntry>
-            LoadConfigPathAction
-        {
-            get {
-                IAction<IRegQueryExpression<string>, IFileSystemEntry> result =
-                    default;
-
-                try
-                {
-                    IRegQueryExpression<string> regQueryExpression = default;
-                    regQueryExpression = MakeNewRegQueryExpression
-                                         .FromScatch<string>()
-                                         .ForKeyPath(
-                                             ConfigurationFilePathKeyName
-                                         )
-                                         .AndValueName(
-                                             ConfigurationFilePathValueName
-                                         )
-                                         .WithDefaultValue(
-                                             Path.Combine(
-                                                 DefaultConfigDir,
-                                                 DefaultConfigFileName
-                                             )
-                                         );
-                    if (regQueryExpression == null) return result;
-
-                    IAction<IRegQueryExpression<string>, IFileSystemEntry>
-                        loadConfigFilePathFromRegistryAction = default;
-
-                    loadConfigFilePathFromRegistryAction =
-                        GetConfigAction
-                            .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                                ConfigActionType.LoadStringFromRegistry
-                            );
-                    if (loadConfigFilePathFromRegistryAction == null)
-                        return result;
-
-                    result = loadConfigFilePathFromRegistryAction.WithInput(
-                        regQueryExpression
-                    );
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = default;
-                }
-
-                return result;
-            }
-        }
 
         /// <summary>
         /// Exports configuration data to a file other than the master
