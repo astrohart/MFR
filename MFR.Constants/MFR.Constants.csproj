@@ -103,6 +103,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigFile.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="FileRenamerMessages.cs" />
     <Compile Include="ProfileFile.cs" />
