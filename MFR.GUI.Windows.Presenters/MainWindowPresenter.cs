@@ -603,16 +603,16 @@ namespace MFR.GUI.Windows.Presenters
         {
             if (dialog == null) throw new ArgumentNullException(nameof(dialog));
 
-            if (ConfigurationProvider.ConfigurationFilePath !=
+            if (ConfigurationProvider.ConfigFilePath !=
                 dialog.ConfigPathname)
                 MakeNewFileInfo.ForPath(
-                                   ConfigurationProvider.ConfigurationFilePath
+                                   ConfigurationProvider.ConfigFilePath
                                )
                                .RenameTo(dialog.ConfigPathname);
 
             ConfigurationProvider.CurrentConfiguration.AutoQuitOnCompletion =
                 dialog.AutoQuitOnCompletion;
-            ConfigurationProvider.ConfigurationFilePath = dialog.ConfigPathname;
+            ConfigurationProvider.ConfigFilePath = dialog.ConfigPathname;
             ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
                 dialog.ReOpenSolution;
             UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);

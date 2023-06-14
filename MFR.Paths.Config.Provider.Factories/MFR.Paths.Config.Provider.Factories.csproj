@@ -107,6 +107,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetConfigPathProvider.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider.Interfaces\MFR.Paths.Config.Provider.Interfaces.csproj">
+      <Project>{7DBA8C66-9206-411A-AE96-14C5A59C52A0}</Project>
+      <Name>MFR.Paths.Config.Provider.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider\MFR.Paths.Config.Provider.csproj">
+      <Project>{A6C77782-64CB-4B35-AD7B-DB9A22F92A9B}</Project>
+      <Name>MFR.Paths.Config.Provider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

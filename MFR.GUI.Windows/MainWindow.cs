@@ -1442,7 +1442,7 @@ namespace MFR.GUI.Windows
                 dialog.AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;
                 dialog.ConfigPathname =
-                    ConfigurationProvider.ConfigurationFilePath;
+                    ConfigurationProvider.ConfigFilePath;
                 dialog.ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 dialog.Modified += OnOptionsModified;
 

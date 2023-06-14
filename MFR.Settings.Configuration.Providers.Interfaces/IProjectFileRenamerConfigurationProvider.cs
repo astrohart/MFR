@@ -3,35 +3,33 @@ using MFR.Settings.Configuration.Interfaces;
 namespace MFR.Settings.Configuration.Providers.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
+    /// Defines the publicly-exposed methods and properties of a
+    /// ProjectFileRenamerConfiguration Provider object.
     /// </summary>
     public interface IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
+        /// Gets or sets the pathname of the configuration file.
+        /// </summary>
+        string ConfigFilePath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface and which
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        IProjectFileRenamerConfiguration CurrentConfiguration { get; set; }
-
-        /// <summary>
-        /// Gets or sets the pathname of the configuration file.
-        /// </summary>
-        string ConfigurationFilePath { get; set; }
-
-        /// <summary>
-        /// Gets the default folder for the configuration file.
-        /// </summary>
-        /// <remarks>
-        /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
-        /// </remarks>
-        string DefaultConfigDir { get; }
-
-        /// <summary>
-        /// Gets the default filename for the config file.
-        /// </summary>
-        string DefaultConfigFileName { get; }
+        IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Exports configuration data to a file other than the master
@@ -100,7 +98,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
@@ -128,13 +126,13 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");

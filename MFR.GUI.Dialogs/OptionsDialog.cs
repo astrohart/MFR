@@ -61,7 +61,7 @@ namespace MFR.GUI.Dialogs
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+            ConfigProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace MFR.GUI.Dialogs
         /// interface.
         /// </summary>
         private static IProjectFileRenamerConfiguration CurrentConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
+            => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
@@ -199,12 +199,11 @@ namespace MFR.GUI.Dialogs
         {
             configPathBrowseBox.InitialDirectory =
                 string.IsNullOrWhiteSpace(ConfigPathname)
-                    ? ConfigurationProvider.DefaultConfigDir
+                    ? Path.GetDirectoryName(ConfigProvider.ConfigFilePath)
                     : Path.GetDirectoryName(ConfigPathname);
             configPathBrowseBox.FileName =
                 string.IsNullOrWhiteSpace(ConfigPathname)
-                    ? GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                        .DefaultConfigFileName
+                    ? ConfigProvider.ConfigFilePath
                     : ConfigPathname;
 
             if (configPathBrowseBox.ShowDialog(this) != DialogResult.OK)
@@ -284,13 +283,13 @@ namespace MFR.GUI.Dialogs
                     AutoQuitOnCompletion;
                 CurrentConfiguration.ReOpenSolution =
                     ReOpenSolution;
-                ConfigurationProvider.ConfigurationFilePath = ConfigPathname;
+                ConfigProvider.ConfigFilePath = ConfigPathname;
             }
             else
             {
                 ReOpenSolution =
                     CurrentConfiguration.ReOpenSolution;
-                ConfigPathname = ConfigurationProvider.ConfigurationFilePath;
+                ConfigPathname = ConfigProvider.ConfigFilePath;
                 AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;
             }
