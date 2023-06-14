@@ -20,12 +20,5 @@ namespace MFR.Paths.Profiles.Provider.Constants
         /// profile list file.
         /// </summary>
         public const string ValueName = "ProfileCollectionFile";
-
-        /// <summary>
-        /// Gets the path to the Registry subkey that stores information about
-        /// the paths of files.
-        /// </summary>
-        public static readonly string KeyName =
-            $@"HKEY_CURRENT_USER\SOFTWARE\{ProgramText.CompanyName}\{ProgramText.ProductNameWithoutCompany}\Paths";
     }
 }
