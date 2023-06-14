@@ -149,7 +149,7 @@ namespace MFR.Settings.Configuration
         /// utilized values for Find What.
         /// </summary>
         [JsonProperty("findWhatHistory")]
-        public List<string> FindWhatHistory
+        public IList<string> FindWhatHistory
         {
             get;
             set;
@@ -460,7 +460,7 @@ namespace MFR.Settings.Configuration
         /// most-recently-used values for Replace With.
         /// </summary>
         [JsonProperty("replaceWithHistory")]
-        public List<string> ReplaceWithHistory
+        public IList<string> ReplaceWithHistory
         {
             get;
             set;
@@ -497,7 +497,7 @@ namespace MFR.Settings.Configuration
         /// most-recently-used values for Starting Folder.
         /// </summary>
         [JsonProperty("startingFolderHistory")]
-        public List<string> StartingFolderHistory
+        public IList<string> StartingFolderHistory
         {
             get;
             set;

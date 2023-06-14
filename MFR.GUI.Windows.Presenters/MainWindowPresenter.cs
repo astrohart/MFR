@@ -345,7 +345,8 @@ namespace MFR.GUI.Windows.Presenters
         /// method, for fluent use.
         /// </returns>
         public IMainWindowPresenter AndHistoryManager(
-            IHistoryManager historyManager)
+            IHistoryManager historyManager
+        )
         {
             _historyManager = historyManager ??
                               throw new ArgumentNullException(
@@ -508,7 +509,8 @@ namespace MFR.GUI.Windows.Presenters
         /// that exists on the user's hard drive and has the <c>.json</c> extension.
         /// </remarks>
         public void ImportConfiguration(
-            string pathname /* path of the file to be imported */)
+            string pathname /* path of the file to be imported */
+        )
         {
             if (string.IsNullOrWhiteSpace(pathname)) return;
             if (!File.Exists(pathname)) return;
@@ -603,11 +605,8 @@ namespace MFR.GUI.Windows.Presenters
         {
             if (dialog == null) throw new ArgumentNullException(nameof(dialog));
 
-            if (ConfigurationProvider.ConfigFilePath !=
-                dialog.ConfigPathname)
-                MakeNewFileInfo.ForPath(
-                                   ConfigurationProvider.ConfigFilePath
-                               )
+            if (ConfigurationProvider.ConfigFilePath != dialog.ConfigPathname)
+                MakeNewFileInfo.ForPath(ConfigurationProvider.ConfigFilePath)
                                .RenameTo(dialog.ConfigPathname);
 
             ConfigurationProvider.CurrentConfiguration.AutoQuitOnCompletion =
@@ -679,7 +678,8 @@ namespace MFR.GUI.Windows.Presenters
         /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(
-            IProjectFileRenamerConfiguration configuration)
+            IProjectFileRenamerConfiguration configuration
+        )
         {
             base.UpdateConfiguration(configuration);
 
@@ -769,7 +769,8 @@ namespace MFR.GUI.Windows.Presenters
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.FindWhatComboBox, CurrentConfiguration.FindWhatHistory,
+                    View.FindWhatComboBox, 
+                    CurrentConfiguration.FindWhatHistory,
                     CurrentConfiguration.FindWhat
                 );
 
@@ -803,7 +804,8 @@ namespace MFR.GUI.Windows.Presenters
         /// <see langword="null" /> value.
         /// </exception>
         public IMainWindowPresenter WithOperationEngine(
-            IFullGuiOperationEngine operationEngine)
+            IFullGuiOperationEngine operationEngine
+        )
         {
             OperationEngine = operationEngine ??
                               throw new ArgumentNullException(
@@ -914,7 +916,8 @@ namespace MFR.GUI.Windows.Presenters
         /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationExported(
-            ConfigurationExportedEventArgs e)
+            ConfigurationExportedEventArgs e
+        )
         {
             ConfigurationExported?.Invoke(this, e);
             SendMessage<ConfigurationExportedEventArgs>.Having.Args(this, e)
@@ -934,7 +937,8 @@ namespace MFR.GUI.Windows.Presenters
         /// contains the event data.
         /// </param>
         protected virtual void OnConfigurationImported(
-            ConfigurationImportedEventArgs e)
+            ConfigurationImportedEventArgs e
+        )
         {
             ConfigurationImported?.Invoke(this, e);
             SendMessage<ConfigurationImportedEventArgs>.Having.Args(this, e)
@@ -962,7 +966,8 @@ namespace MFR.GUI.Windows.Presenters
         /// that contains the event data.
         /// </param>
         protected virtual IProfile OnCreateNewBlankProfileRequested(
-            CreateNewBlankProfileRequestedEventArgs e)
+            CreateNewBlankProfileRequestedEventArgs e
+        )
         {
             var result = CreateNewBlankProfileRequested?.Invoke(this, e);
             SendMessage<CreateNewBlankProfileRequestedEventArgs>.Having
@@ -985,7 +990,8 @@ namespace MFR.GUI.Windows.Presenters
         /// contains the event data.
         /// </param>
         protected virtual void OnDataOperationError(
-            DataOperationErrorEventArgs e)
+            DataOperationErrorEventArgs e
+        )
         {
             DataOperationError?.Invoke(this, e);
             SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
@@ -1166,8 +1172,10 @@ namespace MFR.GUI.Windows.Presenters
         /// method is to tell the File Renamer Object to attempt to abort.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnCancellableProgressDialogRequestedCancel(object sender,
-            EventArgs e)
+        private void OnCancellableProgressDialogRequestedCancel(
+            object sender,
+            EventArgs e
+        )
             => FileRenamer.RequestAbort();
 
         /// <summary>
@@ -1192,8 +1200,10 @@ namespace MFR.GUI.Windows.Presenters
         /// Starting-folder pathname entries aren't added to the configuration's history
         /// list if an entry having the same content already exists in the history.
         /// </remarks>
-        private void OnConfigurationStartingFolderChanged(object sender,
-            EventArgs e)
+        private void OnConfigurationStartingFolderChanged(
+            object sender,
+            EventArgs e
+        )
         {
             // Make sure we're getting a valid folder
             if (!RootDirectoryPathValidator.Validate(
@@ -1228,8 +1238,10 @@ namespace MFR.GUI.Windows.Presenters
         ///     cref="T:xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs" />
         /// that carries the message data.
         /// </param>
-        private void OnRootDirectoryPathBeingChanged(object sender,
-            DirectoryBeingMonitoredChangedEventArgs e)
+        private void OnRootDirectoryPathBeingChanged(
+            object sender,
+            DirectoryBeingMonitoredChangedEventArgs e
+        )
         {
             /*
              * If we are here, then the root directory path (that is, that the user

@@ -6,6 +6,7 @@ using MFR.Settings.Profiles.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.Settings.Configuration.Helpers
 {
