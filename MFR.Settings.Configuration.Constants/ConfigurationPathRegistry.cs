@@ -10,11 +10,11 @@ namespace MFR.Settings.Configuration.Constants
     /// The configuration file contains user settings that control how the
     /// application runs.
     /// <para />
-    /// TRhe configuration file is in JSON format.
+    /// The configuration file is in JSON format.
     /// <para />
     /// Configuration files are intended to be stored on a per user basis.
     /// </remarks>
-    public static class ConfigurationPathRegistry
+    public static class ConfigPathRegistry
     {
         /// <summary>
         /// Gets the name of the Registry value that holds the path to the

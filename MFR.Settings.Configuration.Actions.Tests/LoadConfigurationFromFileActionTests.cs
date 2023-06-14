@@ -44,11 +44,11 @@ namespace MFR.Settings.Configuration.Actions.Tests
                                             MakeNewRegQueryExpression
                                                 .FromScatch<string>()
                                                 .ForKeyPath(
-                                                    ConfigurationPathRegistry
+                                                    ConfigPathRegistry
                                                         .KeyName
                                                 )
                                                 .AndValueName(
-                                                    ConfigurationPathRegistry
+                                                    ConfigPathRegistry
                                                         .ValueName
                                                 )
                                         )

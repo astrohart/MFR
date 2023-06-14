@@ -131,6 +131,24 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
+      <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>
+      <Name>MFR.Events.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Constants\MFR.GUI.Constants.csproj">
+      <Project>{BA67C73B-59F3-4FF2-81B3-C2EED243DC17}</Project>
+      <Name>MFR.GUI.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider.Interfaces\MFR.Paths.Config.Provider.Interfaces.csproj">
+      <Project>{7DBA8C66-9206-411A-AE96-14C5A59C52A0}</Project>
+      <Name>MFR.Paths.Config.Provider.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"

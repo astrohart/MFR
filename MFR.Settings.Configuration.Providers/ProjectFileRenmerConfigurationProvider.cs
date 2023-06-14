@@ -92,14 +92,14 @@ namespace MFR.Settings.Configuration.Providers
         /// configuration settings are stored.
         /// </summary>
         public string ConfigurationFilePathKeyName
-            => ConfigurationPathRegistry.KeyName;
+            => ConfigPathRegistry.KeyName;
 
         /// <summary>
         /// Gets a string whose value is the Registry value under which we store the path
         /// to the configuration file.
         /// </summary>
         public string ConfigurationFilePathValueName
-            => ConfigurationPathRegistry.ValueName;
+            => ConfigPathRegistry.ValueName;
 
         /// <summary>
         /// Gets a reference to the instance of the object that implements the

@@ -9,7 +9,7 @@ namespace MFR.Paths.Profiles.Provider.Constants
     /// The profile list file contains user settings that control how the
     /// application runs.
     /// <para />
-    /// TRhe profile list file is in JSON format.
+    /// The profile list file is in JSON format.
     /// <para />
     /// Configuration files are intended to be stored on a per user basis.
     /// </remarks>
