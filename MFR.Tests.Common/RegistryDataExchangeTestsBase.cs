@@ -32,7 +32,7 @@ namespace MFR.Tests.Common
         /// Gets a <see cref="T:System.String" /> containing the product name that is
         /// associated with the application.
         /// </summary>
-        protected const string PRODUCT_NAME = "ProjectFileRenamer";
+        protected const string PRODUCT_NAME = "Project File Renamer";
 
         /// <summary>
         /// Name of the Registry value under which the path to the application's
