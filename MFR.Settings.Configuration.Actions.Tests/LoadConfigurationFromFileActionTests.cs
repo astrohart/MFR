@@ -6,6 +6,7 @@ using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
+using MFR.Paths.Config.Provider.Actions;
 using MFR.Settings.Configuration.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;
@@ -44,13 +45,14 @@ namespace MFR.Settings.Configuration.Actions.Tests
                                             MakeNewRegQueryExpression
                                                 .FromScatch<string>()
                                                 .ForKeyPath(
-                                                    ConfigPathRegistry
-                                                        .KeyName
+                                                    KEY_PATH
                                                 )
                                                 .AndValueName(
-                                                    ConfigPathRegistry
-                                                        .ValueName
+                                                    VALUE_NAME
                                                 )
+                                                .WithDefaultValue(
+                                                    DEFAULT_CONFIG_FILE_PATH
+                                                    )
                                         )
                                         .Execute()
                                         .Path;

@@ -37,16 +37,16 @@ namespace MFR.Replacers.Factories.Tests
                           MakeNewRegOperationMetadata.FromScatch<string>()
                               .ForKeyPath(KEY_PATH)
                               .AndValueName(VALUE_NAME)
-                              .WithValue(CONFIG_FILE_PATH)
+                              .WithValue(DEFAULT_CONFIG_FILE_PATH)
                       )
                       .Execute()
             );
 
             Assert.That(KEY_PATH.HasValueWithName(VALUE_NAME));
             Assert.That(
-                CONFIG_FILE_PATH,
+                DEFAULT_CONFIG_FILE_PATH,
                 Is.EqualTo(
-                    Load.String.FromRegistry(KEY_PATH, VALUE_NAME, CONFIG_FILE_PATH)
+                    Load.String.FromRegistry(KEY_PATH, VALUE_NAME, DEFAULT_CONFIG_FILE_PATH)
                 )
             );
         }

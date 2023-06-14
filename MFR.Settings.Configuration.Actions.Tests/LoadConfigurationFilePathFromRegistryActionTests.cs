@@ -1,9 +1,11 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Settings.Configuration.Actions.Constants;
-using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
+using MFR.Expressions.Registry.Validators.Factories;
+using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.FileSystem.Interfaces;
+using MFR.Settings.Configuration.Actions.Constants;
+using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
 
@@ -17,8 +19,19 @@ namespace MFR.Settings.Configuration.Actions.Tests
     /// </summary>
     [TestFixture]
     public class
-        LoadConfigurationFilePathFromRegistryActionTests : RegistryDataExchangeTestsBase
+        LoadConfigurationFilePathFromRegistryActionTests :
+            RegistryDataExchangeTestsBase
     {
+        /// <summary>
+        /// Gets the one and only instance of the Registry query expression validator that
+        /// read <see cref="T:System.String" /> values  from the system Registry.
+        /// </summary>
+        private static IRegQueryExpressionValidator<string>
+            AccessTheRegueryExpressionValidator
+        {
+            get;
+        } = GetRegistryExpressionValidator<string>.SoleInstance();
+
         /// <summary>
         /// Asserts that the
         /// <see
@@ -29,25 +42,53 @@ namespace MFR.Settings.Configuration.Actions.Tests
         [Test]
         public void Test_CanSuccessfullyObtain_AppConfigFilePath()
         {
-            var result = GetConfigAction
-                         .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                             ConfigActionType.LoadStringFromRegistry
-                         )
-                         .WithInput(
-                             MakeNewRegQueryExpression.FromScatch<string>()
-                                 .ForKeyPath(KEY_PATH)
-                                 .AndValueName(VALUE_NAME)
-                                 .WithDefaultValue(
-                                     Path.Combine(
-                                         CONFIG_FILE_DIR, CONFIG_FILE_NAME
-                                     )
-                                 )
-                         )
-                         .Execute()
-                         .Path;
+            var configFilePathRegQueryExpression = MakeNewRegQueryExpression
+                                                   .FromScatch<string>()
+                                                   .ForKeyPath(KEY_PATH)
+                                                   .AndValueName(VALUE_NAME)
+                                                   .WithDefaultValue(
+                                                       DEFAULT_CONFIG_FILE_PATH
+                                                   );
+            Assert.IsNotNull(configFilePathRegQueryExpression);
+            Assert.IsTrue(
+                AccessTheRegueryExpressionValidator
+                    .ForRegQueryExpression(configFilePathRegQueryExpression)
+                    .Validate()
+            );
 
-            Assert.That(!string.IsNullOrWhiteSpace(result));
-            Assert.That(result, Is.EqualTo(CONFIG_FILE_PATH.Replace("\"", "")));
+            var loadConfigFilePathFromRegistryAction = GetConfigAction
+                .For<IRegQueryExpression<string>, IFileSystemEntry>(
+                    ConfigActionType.LoadStringFromRegistry
+                );
+            Assert.IsNotNull(loadConfigFilePathFromRegistryAction);
+
+            loadConfigFilePathFromRegistryAction =
+                loadConfigFilePathFromRegistryAction.WithInput(
+                    configFilePathRegQueryExpression
+                );
+            Assert.IsNotNull(loadConfigFilePathFromRegistryAction);
+
+            IFileSystemEntry configFileSystemEntry = default;
+
+            Assert.DoesNotThrow(
+                () => configFileSystemEntry =
+                    loadConfigFilePathFromRegistryAction.Execute()
+            );
+            Assert.IsNotNull(configFileSystemEntry);
+
+            Assert.IsNotEmpty(configFileSystemEntry.Path);
+            Assert.That(File.Exists(configFileSystemEntry.Path));
+
+            Assert.That(!string.IsNullOrWhiteSpace(configFileSystemEntry.Path));
+            Assert.That(
+                "config.json".Equals(
+                    Path.GetFileName(configFileSystemEntry.Path)
+                )
+            );
+            Assert.That(
+                configFileSystemEntry.Path,
+                Is.EqualTo(DEFAULT_CONFIG_FILE_PATH)
+            );
         }
     }
 }
