@@ -3,17 +3,17 @@
 
 ## Contents
 
-- [ConfigurationActionType](#T-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType 'MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType')
-  - [#ctor(messageId)](#M-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-#ctor-System-Guid- 'MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType.#ctor(System.Guid)')
-  - [#ctor(description,messageId)](#M-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-#ctor-System-Guid,System-String- 'MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType.#ctor(System.Guid,System.String)')
-  - [LoadConfigurationFromFile](#F-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-LoadConfigurationFromFile 'MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType.LoadConfigurationFromFile')
-  - [LoadStringFromRegistry](#F-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-LoadStringFromRegistry 'MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType.LoadStringFromRegistry')
+- [ConfigActionType](#T-MFR-Settings-Configuration-Actions-Constants-ConfigActionType 'MFR.Settings.Configuration.Actions.Constants.ConfigActionType')
+  - [#ctor(messageId)](#M-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-#ctor-System-Guid- 'MFR.Settings.Configuration.Actions.Constants.ConfigActionType.#ctor(System.Guid)')
+  - [#ctor(description,messageId)](#M-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-#ctor-System-Guid,System-String- 'MFR.Settings.Configuration.Actions.Constants.ConfigActionType.#ctor(System.Guid,System.String)')
+  - [LoadConfigFromFile](#F-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-LoadConfigFromFile 'MFR.Settings.Configuration.Actions.Constants.ConfigActionType.LoadConfigFromFile')
+  - [LoadStringFromRegistry](#F-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-LoadStringFromRegistry 'MFR.Settings.Configuration.Actions.Constants.ConfigActionType.LoadStringFromRegistry')
 - [Resources](#T-MFR-Settings-Configuration-Actions-Constants-Properties-Resources 'MFR.Settings.Configuration.Actions.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Actions-Constants-Properties-Resources-Culture 'MFR.Settings.Configuration.Actions.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Actions-Constants-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Actions.Constants.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType'></a>
-## ConfigurationActionType `type`
+<a name='T-MFR-Settings-Configuration-Actions-Constants-ConfigActionType'></a>
+## ConfigActionType `type`
 
 ##### Namespace
 
@@ -23,7 +23,7 @@ MFR.Settings.Configuration.Actions.Constants
 
 Available actions for use when working with configuration.
 
-<a name='M-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-#ctor-System-Guid-'></a>
+<a name='M-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-#ctor-System-Guid-'></a>
 ### #ctor(messageId) `constructor`
 
 ##### Summary
@@ -39,7 +39,7 @@ and returns a reference to it.
 | messageId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
 that provides a unique identifier to be associated with this instance. |
 
-<a name='M-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-#ctor-System-Guid,System-String-'></a>
+<a name='M-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-#ctor-System-Guid,System-String-'></a>
 ### #ctor(description,messageId) `constructor`
 
 ##### Summary
@@ -57,14 +57,14 @@ descriptive name for this message type. |
 | messageId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Reference to an instance of [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid')
 that provides a unique identifier to be associated with this instance. |
 
-<a name='F-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-LoadConfigurationFromFile'></a>
-### LoadConfigurationFromFile `constants`
+<a name='F-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-LoadConfigFromFile'></a>
+### LoadConfigFromFile `constants`
 
 ##### Summary
 
 Loads the configuration from a file.
 
-<a name='F-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-LoadStringFromRegistry'></a>
+<a name='F-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-LoadStringFromRegistry'></a>
 ### LoadStringFromRegistry `constants`
 
 ##### Summary

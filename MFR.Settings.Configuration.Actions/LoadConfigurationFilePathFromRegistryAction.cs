@@ -96,9 +96,7 @@ namespace MFR.Settings.Configuration.Actions
                         .ForRegQueryExpression(Input);
                 if (regQueryExpressionValidator ==  null) return result;
 
-                // An exception gets thrown if the registry query expression
-                // is not valid.
-                regQueryExpressionValidator.Validate();
+                if (!regQueryExpressionValidator.Validate()) return result;
 
                 var pathname = Load.String.FromRegistry(
                                        Input.KeyPath, Input.ValueName,

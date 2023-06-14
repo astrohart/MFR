@@ -31,7 +31,7 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
             Path.Combine(
                 Environment.GetFolderPath(
                     Environment.SpecialFolder.LocalApplicationData
-                ), @"xyLOGIX, LLC\Project File Renamer\Config\profiles.json"
+                ), @"xyLOGIX, LLC\Project File Renamer\Config\config.json"
             );
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
                     hashCode = ExpectedConfigPath.GetHashCode();
                 }
             );
-            Assert.IsEmpty(ExpectedConfigPath);
+            Assert.IsNotEmpty(ExpectedConfigPath);
 
             // Dump the variable hashCode to the console
             Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
@@ -151,7 +151,7 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
             );
 
             Assert.IsNotEmpty(result);
-            Assert.AreNotEqual(ExpectedConfigPath, result);
+            Assert.AreEqual(ExpectedConfigPath, result);
 
             /*
              * For the purposes of this test, we do not care whether the file

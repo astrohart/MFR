@@ -3,9 +3,9 @@
 
 ## Contents
 
-- [ConfigurationPathRegistry](#T-MFR-Settings-Configuration-Constants-ConfigurationPathRegistry 'MFR.Settings.Configuration.Constants.ConfigurationPathRegistry')
-  - [KeyName](#F-MFR-Settings-Configuration-Constants-ConfigurationPathRegistry-KeyName 'MFR.Settings.Configuration.Constants.ConfigurationPathRegistry.KeyName')
-  - [ValueName](#F-MFR-Settings-Configuration-Constants-ConfigurationPathRegistry-ValueName 'MFR.Settings.Configuration.Constants.ConfigurationPathRegistry.ValueName')
+- [ConfigPathRegistry](#T-MFR-Settings-Configuration-Constants-ConfigPathRegistry 'MFR.Settings.Configuration.Constants.ConfigPathRegistry')
+  - [KeyName](#F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-KeyName 'MFR.Settings.Configuration.Constants.ConfigPathRegistry.KeyName')
+  - [ValueName](#F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-ValueName 'MFR.Settings.Configuration.Constants.ConfigPathRegistry.ValueName')
 - [Resources](#T-MFR-Settings-Configuration-Constants-Properties-Resources 'MFR.Settings.Configuration.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Constants-Properties-Resources-Culture 'MFR.Settings.Configuration.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Constants-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Constants.Properties.Resources.ResourceManager')
@@ -16,8 +16,8 @@
   - [NeitherMatchCaseNorExactWord](#F-MFR-Settings-Configuration-Constants-TextMatchingConfiguration-NeitherMatchCaseNorExactWord 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration.NeitherMatchCaseNorExactWord')
   - [Unknown](#F-MFR-Settings-Configuration-Constants-TextMatchingConfiguration-Unknown 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration.Unknown')
 
-<a name='T-MFR-Settings-Configuration-Constants-ConfigurationPathRegistry'></a>
-## ConfigurationPathRegistry `type`
+<a name='T-MFR-Settings-Configuration-Constants-ConfigPathRegistry'></a>
+## ConfigPathRegistry `type`
 
 ##### Namespace
 
@@ -34,13 +34,13 @@ application runs.
 
 
 
-TRhe configuration file is in JSON format.
+The configuration file is in JSON format.
 
 
 
 Configuration files are intended to be stored on a per user basis.
 
-<a name='F-MFR-Settings-Configuration-Constants-ConfigurationPathRegistry-KeyName'></a>
+<a name='F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-KeyName'></a>
 ### KeyName `constants`
 
 ##### Summary
@@ -48,7 +48,7 @@ Configuration files are intended to be stored on a per user basis.
 Gets the path to the Registry subkey that stores information about
 the paths of files.
 
-<a name='F-MFR-Settings-Configuration-Constants-ConfigurationPathRegistry-ValueName'></a>
+<a name='F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-ValueName'></a>
 ### ValueName `constants`
 
 ##### Summary

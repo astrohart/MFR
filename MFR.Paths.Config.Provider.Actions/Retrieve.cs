@@ -69,11 +69,11 @@ namespace MFR.Paths.Config.Provider.Actions
                  * up the pathname of the config.json file in the system Registry.
                  */
 
-                var profilePathRegQueryExpression =
+                var configPathRegQueryExpression =
                     Generate.ConfigPathRegQueryExpression(
                         companyName, productName, defaultConfigPathname
                     );
-                if (profilePathRegQueryExpression == null) return result;
+                if (configPathRegQueryExpression == null) return result;
 
                 /*
                  * OKAY, now get a reference to an action object (from our event-aggregation
@@ -82,7 +82,7 @@ namespace MFR.Paths.Config.Provider.Actions
                  */
                 var retrieveConfigPathnameFromRegistryAction =
                     Generate.RetrieveConfigPathnameFromRegistryAction(
-                        profilePathRegQueryExpression
+                        configPathRegQueryExpression
                     );
                 if (retrieveConfigPathnameFromRegistryAction == null)
                     return result;

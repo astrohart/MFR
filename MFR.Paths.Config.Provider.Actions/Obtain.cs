@@ -1,4 +1,5 @@
-﻿using MFR.FileSystem.Factories.Actions;
+﻿using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Factories.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -67,16 +68,18 @@ namespace MFR.Paths.Config.Provider.Actions
              * value in case we otherwise fail.
              *
              * If the path listed in the argument of the currentPathname
-             * parameter refers to a file on the disk that exists, then simply
-             * return that pathname.  Otherwise, try to load the config.json
-             * file's pathname from the system Registry.
+             * parameter refers to a file on the disk that exists, and that
+             * has a name of config.json, then simply return that pathname.
+             * Otherwise, try to load the config.json file's pathname from the
+             * system Registry.
              */
 
             try
             {
                 if (string.IsNullOrWhiteSpace(companyName)) return result;
                 if (string.IsNullOrWhiteSpace(productName)) return result;
-                if (Does.FileExist(currentPathname))
+                if (Does.FileExist(currentPathname)
+                    && "config.json".Equals(Path.GetFileName(currentPathname)))
                     return result;
 
                 result = Retrieve.ConfigPathFromRegistry(
