@@ -4,6 +4,7 @@
 ## Contents
 
 - [LoadConfigurationFilePathFromRegistryActionTests](#T-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFilePathFromRegistryActionTests 'MFR.Settings.Configuration.Actions.Tests.LoadConfigurationFilePathFromRegistryActionTests')
+  - [AccessTheRegueryExpressionValidator](#P-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFilePathFromRegistryActionTests-AccessTheRegueryExpressionValidator 'MFR.Settings.Configuration.Actions.Tests.LoadConfigurationFilePathFromRegistryActionTests.AccessTheRegueryExpressionValidator')
   - [Test_CanSuccessfullyObtain_AppConfigFilePath()](#M-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFilePathFromRegistryActionTests-Test_CanSuccessfullyObtain_AppConfigFilePath 'MFR.Settings.Configuration.Actions.Tests.LoadConfigurationFilePathFromRegistryActionTests.Test_CanSuccessfullyObtain_AppConfigFilePath')
 - [LoadConfigurationFromFileActionTests](#T-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFromFileActionTests 'MFR.Settings.Configuration.Actions.Tests.LoadConfigurationFromFileActionTests')
   - [Test_ConfigurationFileLoadedSuccessfully_GivenValidPath()](#M-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFromFileActionTests-Test_ConfigurationFileLoadedSuccessfully_GivenValidPath 'MFR.Settings.Configuration.Actions.Tests.LoadConfigurationFromFileActionTests.Test_ConfigurationFileLoadedSuccessfully_GivenValidPath')
@@ -23,6 +24,14 @@ MFR.Settings.Configuration.Actions.Tests
 Provides unit tests for the methods, properties, and events of the
 [LoadStringFromRegistryAction](#T-MFR-LoadStringFromRegistryAction 'MFR.LoadStringFromRegistryAction')
 class.
+
+<a name='P-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFilePathFromRegistryActionTests-AccessTheRegueryExpressionValidator'></a>
+### AccessTheRegueryExpressionValidator `property`
+
+##### Summary
+
+Gets the one and only instance of the Registry query expression validator that
+read [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values  from the system Registry.
 
 <a name='M-MFR-Settings-Configuration-Actions-Tests-LoadConfigurationFilePathFromRegistryActionTests-Test_CanSuccessfullyObtain_AppConfigFilePath'></a>
 ### Test_CanSuccessfullyObtain_AppConfigFilePath() `method`
