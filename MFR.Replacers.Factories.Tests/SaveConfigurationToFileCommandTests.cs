@@ -7,6 +7,7 @@ using MFR.FileSystem.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Factories;
+using MFR.Settings.Configuration.Providers.Actions;
 using NUnit.Framework;
 
 namespace MFR.Replacers.Factories.Tests
@@ -33,10 +34,11 @@ namespace MFR.Replacers.Factories.Tests
         /// <summary>
         /// Empty configuration object for testing.
         /// </summary>
-        private static IProjectFileRenamerConfiguration ProjectFileRenamerConfigurationData
+        private static IProjectFileRenamerConfiguration
+            ProjectFileRenamerConfigurationData
         {
             get;
-        } = MakeNewProjectFileRenamerConfiguration.FromScratch();
+        } = Create.BlankConfiguration();
 
         /// <summary>
         /// TODO: Add unit test documentation here

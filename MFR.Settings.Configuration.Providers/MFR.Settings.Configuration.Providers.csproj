@@ -127,6 +127,14 @@
       <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
       <Name>MFR.FileSystem.Factories.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Actions\MFR.GUI.Models.Actions.csproj">
+      <Project>{0c26f537-5909-44b9-97d0-27d503df6d10}</Project>
+      <Name>MFR.GUI.Models.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
+      <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>
+      <Name>MFR.GUI.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Paths.Config.Provider.Factories\MFR.Paths.Config.Provider.Factories.csproj">
       <Project>{4C84A5E7-E6EF-438A-87A5-D9EDE82DA2B3}</Project>
       <Name>MFR.Paths.Config.Provider.Factories</Name>
@@ -158,6 +166,10 @@
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Actions\MFR.Settings.Configuration.Providers.Actions.csproj">
+      <Project>{6DC24632-8B1E-4A9D-896B-1A1EEE47EC66}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>

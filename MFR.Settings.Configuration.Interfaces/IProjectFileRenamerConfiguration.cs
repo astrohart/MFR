@@ -63,7 +63,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
         /// all the operations the user can perform with this application.
         /// </summary>
-        List<IOperationTypeInfo> InvokableOperations
+        IList<IOperationTypeInfo> InvokableOperations
         {
             get;
             set;

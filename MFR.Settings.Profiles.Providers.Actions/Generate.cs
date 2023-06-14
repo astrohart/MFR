@@ -77,16 +77,36 @@ namespace MFR.Settings.Profiles.Providers.Actions
 
             try
             {
+                /*
+                 * OKAY, only use the pathname provided to this method as
+                 * input for the load profile list from file action if it
+                 * contains the fully-qualified pathname of a file that actually
+                 * exists on the disk and has a filename of profiles.json.
+                 */
+
                 if (entry == null) return result;
                 if (!Determine.WhetherProfileListPathIsValid(entry.Path))
                     return result;
 
-                result = GetProfileCollectionAction
-                         .For<IFileSystemEntry, IProfileCollection>(
-                             ProfileCollectionActionType
-                                 .LoadProfileCollectionFromFile
-                         )
-                         .WithInput(entry);
+                var action =
+                    GetProfileCollectionAction
+                        .For<IFileSystemEntry, IProfileCollection>(
+                            ProfileCollectionActionType
+                                .LoadProfileCollectionFromFile
+                        );
+
+                /*
+                 * OKAY, we have frequently encountered exceptions or
+                 * null values at this step.  Check the output of the call
+                 * above before we proceed further.
+                 */
+
+                if (action == null)
+                    return result; // failed to create action
+
+                // initialize the action object by setting its input, before
+                // returning the reference to it to the caller of this method.
+                result = action.WithInput(entry); // add the input
             }
             catch (Exception ex)
             {

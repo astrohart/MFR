@@ -3,15 +3,15 @@ using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.Paths.Config.Provider.Factories;
 using MFR.Paths.Config.Provider.Interfaces;
-using MFR.Settings.Configuration.Actions.Constants;
-using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
+using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration.Providers
 {
@@ -71,7 +71,7 @@ namespace MFR.Settings.Configuration.Providers
         {
             get;
             set;
-        } = MakeNewProjectFileRenamerConfiguration.FromScratch();
+        } = Create.BlankConfiguration();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -152,20 +152,16 @@ namespace MFR.Settings.Configuration.Providers
         {
             try
             {
-                if (!Does.FileExist(sourceFilePath)) return;
+                if (!Determine.IsConfigPathValid(sourceFilePath)) return;
 
-                var mat
+                Load(sourceFilePath);
+                Save();     // saves to the master location, thus doing an import
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-
-            if (!Does.FileExist(sourceFilePath) return res)
-
-            Load();
-            Save(); /* save configuration data out to the master file */
         }
 
         /// <summary>
@@ -202,31 +198,33 @@ namespace MFR.Settings.Configuration.Providers
         {
             try
             {
-                if (!Does.FileExist(pathname)) return;
+                /*
+                 * Should we load from the pathname passed to us, or from the
+                 * ConfigFilePath?
+                 */
 
-                var loadConfigurationAction = GetConfigAction
-                    .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
-                        ConfigActionType.LoadConfigFromFile
+                var pathnameToLoadFrom =
+                    Determine.CorrectPathForLoadingConfiguration(
+                        pathname, ConfigFilePath
                     );
-                if (loadConfigurationAction == null)
+                if (!Does.FileExist(pathnameToLoadFrom))
                 {
                     CurrentConfiguration =
                         MakeNewProjectFileRenamerConfiguration.FromScratch();
+                    CurrentConfiguration.InvokableOperations =
+                        Initialize.OperationList();
                     return;
                 }
 
-                CurrentConfiguration = loadConfigurationAction.WithInput(
-                        MakeNewFileSystemEntry.ForPath(pathname)
-                    )
-                    .Execute();
+                CurrentConfiguration =
+                    Obtain.ConfigurationFrom(pathnameToLoadFrom);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-                CurrentConfiguration =
-                    MakeNewProjectFileRenamerConfiguration
-                        .FromScratch(); // make a default config if can't be loaded
+
+                CurrentConfiguration = Create.BlankConfiguration();
             }
 
             if (CurrentConfiguration == null)

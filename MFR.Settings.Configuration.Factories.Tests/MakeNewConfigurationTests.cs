@@ -1,4 +1,5 @@
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Actions;
 using NUnit.Framework;
 
 namespace MFR.Settings.Configuration.Factories.Tests
@@ -25,7 +26,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
         [Test]
         public void Test_MakeNewConfiguraton_FromScratch_Method_Works()
         {
-            var result = MakeNewProjectFileRenamerConfiguration.FromScratch();
+            var result = Create.BlankConfiguration();
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result, Is.AssignableFrom(typeof(ProjectFileRenamerConfiguration)));

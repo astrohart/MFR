@@ -1,5 +1,7 @@
 ﻿using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
+using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers.Actions
 {
@@ -31,23 +33,33 @@ namespace MFR.Settings.Profiles.Providers.Actions
         {
             var result = MakeNewProfileCollection.FromScratch();
 
-            if (!Determine.WhetherProfileListPathIsValid(pathname))
-                return result;
+            try
+            {
+                if (!Determine.WhetherProfileListPathIsValid(pathname))
+                    return result;
 
-            var profileCollectionFileSystemEntry =
-                Generate.FileSystemEntryForProfileCollection(pathname);
-            if (profileCollectionFileSystemEntry == null) return result;
+                var profileCollectionFileSystemEntry =
+                    Generate.FileSystemEntryForProfileCollection(pathname);
+                if (profileCollectionFileSystemEntry == null) return result;
 
-            var loadProfileCollectionFromFileAction =
-                Generate.LoadProfileCollectionFromFileAction(
-                    profileCollectionFileSystemEntry
-                );
-            if (loadProfileCollectionFromFileAction == null) return result;
+                var loadProfileCollectionFromFileAction =
+                    Generate.LoadProfileCollectionFromFileAction(
+                        profileCollectionFileSystemEntry
+                    );
+                if (loadProfileCollectionFromFileAction == null) return result;
 
-            result =
-                Execute.OperationToLoadProfileCollectionFromFile(
-                    loadProfileCollectionFromFileAction
-                );
+                result =
+                    Execute.OperationToLoadProfileCollectionFromFile(
+                        loadProfileCollectionFromFileAction
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = MakeNewProfileCollection.FromScratch();
+            }
 
             return result;
         }

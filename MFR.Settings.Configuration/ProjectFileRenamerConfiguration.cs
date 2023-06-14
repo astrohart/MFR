@@ -60,7 +60,8 @@ namespace MFR.Settings.Configuration
         /// value.
         /// </exception>
         public ProjectFileRenamerConfiguration(
-            IProjectFileRenamerConfiguration source)
+            IProjectFileRenamerConfiguration source
+        )
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
@@ -92,7 +93,8 @@ namespace MFR.Settings.Configuration
         /// </summary>
         [JsonConstructor]
         public ProjectFileRenamerConfiguration(
-            IEnumerable<IOperationTypeInfo> operations)
+            IEnumerable<IOperationTypeInfo> operations
+        )
         {
             Reset();
 
@@ -159,7 +161,7 @@ namespace MFR.Settings.Configuration
         /// all the operations the user can perform with this application.
         /// </summary>
         [JsonProperty("invokableOperations")]
-        public List<IOperationTypeInfo> InvokableOperations
+        public IList<IOperationTypeInfo> InvokableOperations
         {
             get;
             set;
