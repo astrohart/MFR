@@ -1,7 +1,4 @@
-using MFR.GUI.Constants;
-using MFR.Settings.Configuration.Constants.Actions;
-
-namespace MFR.Settings.Configuration.Constants
+namespace MFR.Paths.Config.Provider.Constants
 {
     /// <summary>
     /// Values used to read the configuration file path from the system Registry.
