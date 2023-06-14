@@ -18,14 +18,5 @@ namespace MFR.Paths.Config.Provider.Constants
         /// configuration file.
         /// </summary>
         public const string ValueName = "ConfigFile";
-
-        /// <summary>
-        /// Gets the path to the Registry subkey that stores information about
-        /// the paths of files.
-        /// </summary>
-        public static readonly string KeyName =
-            Formulate.ConfigurationFilePathKeyName(
-                ProgramText.CompanyName, ProgramText.ProductNameWithoutCompany
-            );
     }
 }

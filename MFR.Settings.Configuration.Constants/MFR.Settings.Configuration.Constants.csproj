@@ -129,10 +129,6 @@
       <Project>{BA67C73B-59F3-4FF2-81B3-C2EED243DC17}</Project>
       <Name>MFR.GUI.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Constants.Actions\MFR.Settings.Configuration.Constants.Actions.csproj">
-      <Project>{EF08C13F-B209-4425-AB75-36EDCFC4D58D}</Project>
-      <Name>MFR.Settings.Configuration.Constants.Actions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,6 +1,7 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
+using MFR.Paths.Config.Provider.Constants;
 using MFR.Registry.Helpers;
 using MFR.Settings.Configuration.Constants;
 using System;

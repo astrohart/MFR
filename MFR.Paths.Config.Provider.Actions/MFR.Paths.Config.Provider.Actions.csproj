@@ -193,6 +193,10 @@
       <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider.Constants\MFR.Paths.Config.Provider.Constants.csproj">
+      <Project>{E1160E07-1A70-4964-897B-D2EFB1529E83}</Project>
+      <Name>MFR.Paths.Config.Provider.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
       <Project>{AFFA1381-12A6-408C-99C2-BFA717D23CD8}</Project>
       <Name>MFR.Registry.Helpers</Name>
