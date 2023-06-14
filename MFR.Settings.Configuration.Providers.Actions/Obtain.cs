@@ -1,4 +1,5 @@
 ﻿using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Serializers.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 

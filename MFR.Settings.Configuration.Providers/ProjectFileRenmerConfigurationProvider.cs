@@ -9,6 +9,7 @@ using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.Settings.Configuration.Serializers.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 using Initialize = MFR.GUI.Models.Actions.Initialize;

@@ -1,12 +1,13 @@
 using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Providers.Actions;
+using MFR.Settings.Configuration.Serializers.Actions;
 using NUnit.Framework;
 
 namespace MFR.Settings.Configuration.Factories.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
-    /// <see cref="T:MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration" />
+    /// <see
+    ///     cref="T:MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration" />
     /// class.
     /// </summary>
     [TestFixture]
@@ -18,9 +19,11 @@ namespace MFR.Settings.Configuration.Factories.Tests
         ///     cref="M:MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch" />
         /// method returns a reference to an instance of an object that is (a) non-
         /// <see langword="null" />, (b) an instance of the
-        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> class, and (c)
+        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
+        /// class, and (c)
         /// implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
         [Test]
@@ -29,8 +32,14 @@ namespace MFR.Settings.Configuration.Factories.Tests
             var result = Create.BlankConfiguration();
 
             Assert.That(result, Is.Not.Null);
-            Assert.That(result, Is.AssignableFrom(typeof(ProjectFileRenamerConfiguration)));
-            Assert.That(result, Is.AssignableTo(typeof(IProjectFileRenamerConfiguration)));
+            Assert.That(
+                result,
+                Is.AssignableFrom(typeof(ProjectFileRenamerConfiguration))
+            );
+            Assert.That(
+                result,
+                Is.AssignableTo(typeof(IProjectFileRenamerConfiguration))
+            );
         }
     }
 }

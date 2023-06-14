@@ -4,7 +4,7 @@ using System;
 using xyLOGIX.Core.Debug;
 using Initialize = MFR.GUI.Models.Actions.Initialize;
 
-namespace MFR.Settings.Configuration.Providers.Actions
+namespace MFR.Settings.Configuration.Serializers.Actions
 {
     /// <summary>
     /// Exposes static methods to create instances of objects and data.

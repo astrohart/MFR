@@ -103,7 +103,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Create.cs" />
     <Compile Include="Determine.cs" />
     <Compile Include="Execute.cs" />
     <Compile Include="Generate.cs" />
@@ -149,14 +148,6 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models.Actions\MFR.GUI.Models.Actions.csproj">
-      <Project>{0c26f537-5909-44b9-97d0-27d503df6d10}</Project>
-      <Name>MFR.GUI.Models.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
-      <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>
-      <Name>MFR.GUI.Models.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
@@ -181,13 +172,13 @@
       <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
       <Name>MFR.Settings.Configuration.Actions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Factories\MFR.Settings.Configuration.Factories.csproj">
-      <Project>{2F551CBE-04C2-4DD3-82D1-D4A2D4D0F002}</Project>
-      <Name>MFR.Settings.Configuration.Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Serializers.Actions\MFR.Settings.Configuration.Serializers.Actions.csproj">
+      <Project>{5DFC61BC-4771-4B9B-80D8-83CBB2CBFEA1}</Project>
+      <Name>MFR.Settings.Configuration.Serializers.Actions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

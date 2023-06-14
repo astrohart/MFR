@@ -8,6 +8,7 @@ using MFR.Messages.Constants;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Providers.Actions;
+using MFR.Settings.Configuration.Serializers.Actions;
 using NUnit.Framework;
 
 namespace MFR.Replacers.Factories.Tests

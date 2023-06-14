@@ -1,3 +1,4 @@
+using MFR.GUI.Models;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -12,7 +13,7 @@ namespace MFR.Settings.Configuration.Converters
     /// implement the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface.
     /// </summary>
-    public static class ConvertConfiguration
+    public static class ConvertProjectFileRenamerConfiguration
     {
         /// <summary>
         /// Obtains a reference to an instance of
@@ -29,7 +30,8 @@ namespace MFR.Settings.Configuration.Converters
                 Converters = {
                     new IsoDateTimeConverter {
                         DateTimeStyles = DateTimeStyles.AssumeUniversal
-                    }
+                    },
+                    new OperationTypeInfoConverter<OperationTypeInfo>()
                 }
             };
 
