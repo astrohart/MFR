@@ -165,7 +165,7 @@ namespace MFR.Paths.Config.Provider
                  *
                  * However, the load of a blank value from the system Registry is a
                  * distinct possibility, however.  So we do no checking for validity
-                 * of the loaded pathname here.  We just raise the event.
+                 * of the loaded pathname here.  We just raise the ConfigFilePathLoaded event.
                  *
                  * Checking the value of the ConfigFilePath property for
                  * non-blank or path exists is the job of the caller of this class.
