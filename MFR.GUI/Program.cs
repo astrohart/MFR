@@ -18,7 +18,9 @@ namespace MFR.GUI
         /// <see cref="T:MFR.GUI.Application.Interfaces.IWinApp" /> interface.
         /// </summary>
         private static IWinApp Application
-            => GetProjectFileRenamerApp.SoleInstance();
+        {
+            get;
+        } = GetProjectFileRenamerApp.SoleInstance();
 
         /// <summary>
         /// The main entry point for the application.

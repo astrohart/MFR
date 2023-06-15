@@ -52,6 +52,12 @@ This constructor has no parameters.
 
 Gets or sets the pathname of the configuration file.
 
+##### Remarks
+
+This property raises the
+[](#E-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePathChanged 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePathChanged')
+event when its value is updated.
+
 <a name='P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigPathProvider'></a>
 ### ConfigPathProvider `property`
 
