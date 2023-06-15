@@ -138,7 +138,7 @@ namespace MFR.Settings.Configuration
         public static IProjectFileRenamerConfiguration Blank
         {
             get;
-        } = new ProjectFileRenamerConfiguration(Initialize.OperationList());
+        } = new ProjectFileRenamerConfiguration();
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
