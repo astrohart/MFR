@@ -518,6 +518,27 @@ namespace MFR.Settings.Configuration
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
 
+        public static bool IsBlankOrNull(
+            IProjectFileRenamerConfiguration configuration
+        )
+        {
+            bool result;
+
+            try
+            {
+                result = configuration == null || Blank.Equals(configuration);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Determines whether the specified object is equal to the current
         /// object.
