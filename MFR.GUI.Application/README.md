@@ -11,7 +11,6 @@
   - [CommandLineParser](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineParser 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineParser')
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
-  - [ConfigFilePath](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigFilePath 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigFilePath')
   - [ConfigProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigProvider')
   - [FileStreamProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileStreamProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
@@ -107,14 +106,6 @@ this application's command line at startup or not.
 Gets a reference to an instance of an object that implements the
 [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
 interface.
-
-<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigFilePath'></a>
-### ConfigFilePath `property`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of the currently-loaded configuration file.
 
 <a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider'></a>
 ### ConfigProvider `property`
