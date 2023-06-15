@@ -1,9 +1,12 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Application.Factories;
 using MFR.GUI.Application.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI
 {
@@ -23,6 +26,37 @@ namespace MFR.GUI
         } = GetProjectFileRenamerApp.SoleInstance();
 
         /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the currently-loaded configuration file.
+        /// </summary>
+        private static string ConfigFilePath
+            => ConfigProvider.ConfigFilePath;
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        public static void InitializeConfigProvider()
+        {
+            ConfigProvider.ConfigFilePathChanged -=
+                OnConfigProviderConfigFilePathChanged;
+            ConfigProvider.ConfigFilePathChanged +=
+                OnConfigProviderConfigFilePathChanged;
+        }
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         /// <param name="args">
@@ -32,10 +66,20 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
+            InitializeConfigProvider();
+
             SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             Application.WinInit(args);
         }
+
+        private static void OnConfigProviderConfigFilePathChanged(
+            object sender,
+            EventArgs e
+        )
+            => Messages.ShowInformation(
+                $"The new configuration file pathname is '{ConfigFilePath}"
+            );
 
         /// <summary>
         /// Configures the logging infrastructure.

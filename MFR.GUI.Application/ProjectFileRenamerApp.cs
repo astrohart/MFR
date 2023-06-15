@@ -101,13 +101,6 @@ namespace MFR.GUI.Application
             => GetCommandLineValidator.SoleInstance();
 
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of the currently-loaded configuration file.
-        /// </summary>
-        private static string ConfigFilePath
-            => ConfigProvider.ConfigFilePath;
-
-        /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
@@ -236,10 +229,6 @@ namespace MFR.GUI.Application
 
             Revoke.WindowsMessageFilter();
         }
-
-        public void InitializeConfigProvider()
-            => ConfigProvider.ConfigFilePathChanged +=
-                OnConfigProviderConfigFilePathChanged;
 
         /// <summary>
         /// Raises the
@@ -483,14 +472,6 @@ namespace MFR.GUI.Application
 
             return result;
         }
-
-        private void OnConfigProviderConfigFilePathChanged(
-            object sender,
-            EventArgs e
-        )
-            => Messages.ShowInformation(
-                $"The new configuration file pathname is '{ConfigFilePath}"
-            );
 
         /// <summary>
         /// Initializes a new instance of

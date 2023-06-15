@@ -140,6 +140,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
+      <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
+      <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Application.Factories\MFR.GUI.Application.Factories.csproj">
       <Project>{B7F34926-8B59-4B9F-94B9-FD7D70F0CF23}</Project>
       <Name>MFR.GUI.Application.Factories</Name>
@@ -147,6 +151,14 @@
     <ProjectReference Include="..\MFR.GUI.Application.Interfaces\MFR.GUI.Application.Interfaces.csproj">
       <Project>{175053A0-B6C7-405A-9CC3-5F33CF95DDA0}</Project>
       <Name>MFR.GUI.Application.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
+      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
