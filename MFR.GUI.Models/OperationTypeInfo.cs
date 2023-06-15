@@ -149,7 +149,8 @@ namespace MFR.GUI.Models
             {
                 if (obj is null) return result;
                 if (ReferenceEquals(this, obj)) return true;
-                result = obj.GetType() == GetType() && Equals((OperationTypeInfo)obj);
+                result = obj.GetType() == GetType() &&
+                         Equals((OperationTypeInfo)obj);
             }
             catch (Exception ex)
             {
@@ -160,7 +161,6 @@ namespace MFR.GUI.Models
             }
 
             return result;
-
         }
 
         /// <summary>Serves as the default hash function.</summary>
@@ -169,11 +169,11 @@ namespace MFR.GUI.Models
         {
             unchecked
             {
-                var hashCode = _enabled.GetHashCode();
-                hashCode = (hashCode * 397) ^
-                           (_name != null ? _name.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (int)_operationType;
-                return hashCode;
+                var result = 19;
+                result = result * 31 + _enabled.GetHashCode();
+                result = result * 31 + _name.GetHashCode();
+                result = result * 31 + _operationType.GetHashCode();
+                return result;
             }
         }
 
