@@ -8,7 +8,7 @@
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
-  - [ConfigurationProvider](#P-MFR-GUI-Windows-MainWindow-ConfigurationProvider 'MFR.GUI.Windows.MainWindow.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-GUI-Windows-MainWindow-ConfigProvider 'MFR.GUI.Windows.MainWindow.ConfigProvider')
   - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
@@ -162,8 +162,8 @@ This constructor has no parameters.
 
 Required designer variable.
 
-<a name='P-MFR-GUI-Windows-MainWindow-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-GUI-Windows-MainWindow-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 

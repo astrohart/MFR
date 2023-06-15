@@ -97,9 +97,10 @@ namespace MFR.GUI.Windows
         /// associated with it.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets the required creation parameters when the control handle is
@@ -125,7 +126,7 @@ namespace MFR.GUI.Windows
         /// interface.
         /// </summary>
         private static IProjectFileRenamerConfiguration CurrentConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
+            => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
@@ -462,12 +463,16 @@ namespace MFR.GUI.Windows
         /// This method responds by showing the user an error message box explaining what
         /// happened.
         /// </remarks>
-        private static void OnPresenterAddNewProfileFailed(object sender,
-            AddProfileFailedEventArgs e)
+        private static void OnPresenterAddNewProfileFailed(
+            object sender,
+            AddProfileFailedEventArgs e
+        )
             => xyLOGIX.Win32.Interact.Messages.ShowStopError(e.Message);
 
         private static IProfile OnPresenterCreateNewBlankProfileRequested(
-            object sender, CreateNewBlankProfileRequestedEventArgs e)
+            object sender,
+            CreateNewBlankProfileRequestedEventArgs e
+        )
         {
             if (string.IsNullOrWhiteSpace(e.Name))
                 throw new ArgumentException(
@@ -485,7 +490,7 @@ namespace MFR.GUI.Windows
                                                    .WithInput(e.Name)
                                                    .Execute();
 
-                ConfigurationProvider.CurrentConfiguration =
+                ConfigProvider.CurrentConfiguration =
                     result; // set the newly-created profile as the new configuration.
             }
             catch (Exception ex)
@@ -706,8 +711,10 @@ namespace MFR.GUI.Windows
         /// This method responds to the event by toggling the Checked states of
         /// all the boxes in the Operations To Perform checked list box.
         /// </remarks>
-        private void OnCheckedChangedSelectDeselectAllCheckBox(object sender,
-            EventArgs e)
+        private void OnCheckedChangedSelectDeselectAllCheckBox(
+            object sender,
+            EventArgs e
+        )
             => operationsCheckedListBox.CheckAll(SelectAll);
 
         /// <summary>
@@ -757,6 +764,15 @@ namespace MFR.GUI.Windows
 
                 StartingFolderComboBox.EnteredText = fsd.FileName;
             }
+        }
+
+        private void OnClickCustomizeOperationsButton(
+            object sender,
+            EventArgs e
+        )
+        {
+            using (var dialog = MakeNewCustomizeOperationsDialog.FromScratch())
+                dialog.ShowDialog(this);
         }
 
         /// <summary>
@@ -1040,8 +1056,10 @@ namespace MFR.GUI.Windows
         /// successfully completed. This method responds to the event by
         /// informing the user that the operation has completed successfully.
         /// </remarks>
-        private void OnPresenterConfigurationExported(object sender,
-            ConfigurationExportedEventArgs e)
+        private void OnPresenterConfigurationExported(
+            object sender,
+            ConfigurationExportedEventArgs e
+        )
             => MessageBox.Show(
                 this,
                 $"Successfully exported the configuration to the file with path '{e.Path}'.",
@@ -1071,8 +1089,10 @@ namespace MFR.GUI.Windows
         /// ProjectFileRenamerConfiguration
         /// command on the Tools menu.
         /// </remarks>
-        private void OnPresenterConfigurationImported(object sender,
-            ConfigurationImportedEventArgs e)
+        private void OnPresenterConfigurationImported(
+            object sender,
+            ConfigurationImportedEventArgs e
+        )
             => MessageBox.Show(
                 this,
                 $"Successfully imported the configuration from the file with path '{e.Path}'.",
@@ -1101,8 +1121,10 @@ namespace MFR.GUI.Windows
         /// <para />
         /// If the status bar is not presently visible, then this method does nothing.
         /// </remarks>
-        private void OnPresenterDataOperationFinished(object sender,
-            EventArgs e)
+        private void OnPresenterDataOperationFinished(
+            object sender,
+            EventArgs e
+        )
             => statusBar.InvokeIfRequired(
                 () =>
                 {
@@ -1142,8 +1164,10 @@ namespace MFR.GUI.Windows
         /// <para />
         /// If the status bar is not presently visible, then this method does nothing.
         /// </remarks>
-        private void OnPresenterDataOperationStarted(object sender,
-            DataOperationEventArgs e)
+        private void OnPresenterDataOperationStarted(
+            object sender,
+            DataOperationEventArgs e
+        )
             => statusBar.InvokeIfRequired(
                 () =>
                 {
@@ -1219,8 +1243,10 @@ namespace MFR.GUI.Windows
         /// validation failed, and then instructing the validator to stop the validation
         /// process.
         /// </remarks>
-        private void OnRootDirectoryInvalid(object sender,
-            RootDirectoryInvalidEventArgs e)
+        private void OnRootDirectoryInvalid(
+            object sender,
+            RootDirectoryInvalidEventArgs e
+        )
         {
             MessageBox.Show(
                 this, e.Message, Application.ProductName, MessageBoxButtons.OK,
@@ -1441,8 +1467,7 @@ namespace MFR.GUI.Windows
             {
                 dialog.AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;
-                dialog.ConfigPathname =
-                    ConfigurationProvider.ConfigFilePath;
+                dialog.ConfigPathname = ConfigProvider.ConfigFilePath;
                 dialog.ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 dialog.Modified += OnOptionsModified;
 
@@ -1750,12 +1775,6 @@ namespace MFR.GUI.Windows
 
                 return result;
             }
-        }
-
-        private void OnClickCustomizeOperationsButton(object sender, EventArgs e)
-        {
-            using (var dialog = MakeNewCustomizeOperationsDialog.FromScratch())
-                dialog.ShowDialog(this);
         }
     }
 }

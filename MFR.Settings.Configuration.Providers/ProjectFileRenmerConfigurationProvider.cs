@@ -12,7 +12,6 @@ using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
-using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration.Providers
 {
@@ -43,6 +42,12 @@ namespace MFR.Settings.Configuration.Providers
         /// <summary>
         /// Gets or sets the pathname of the configuration file.
         /// </summary>
+        /// <remarks>
+        /// This property raises the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePathChanged" />
+        /// event when its value is updated.
+        /// </remarks>
         public string ConfigFilePath
         {
             get => ConfigPathProvider.ConfigFilePath;
@@ -84,6 +89,14 @@ namespace MFR.Settings.Configuration.Providers
         {
             get;
         } = new ProjectFileRenamerConfigurationProvider();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        /// property is updated.
+        /// </summary>
+        public event EventHandler ConfigFilePathChanged;
 
         /// <summary>
         /// Resets the configuration to default values.
@@ -220,7 +233,7 @@ namespace MFR.Settings.Configuration.Providers
                 {
                     result = CurrentConfiguration =
                         MakeNewProjectFileRenamerConfiguration.FromScratch();
-                    return result;  
+                    return result;
                 }
 
                 CurrentConfiguration =
@@ -268,14 +281,6 @@ namespace MFR.Settings.Configuration.Providers
 
             ConfigFilePath = pathname;
         }
-
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
-        /// property is updated.
-        /// </summary>
-        public event EventHandler ConfigFilePathChanged;
 
         /// <summary>
         /// Saves configuration data to a file on the disk having path

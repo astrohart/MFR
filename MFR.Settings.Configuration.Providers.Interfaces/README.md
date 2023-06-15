@@ -143,6 +143,12 @@ The
 [ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
 property is then initialized to point to the data that has been loaded.
 
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface and which has been initialized with data from the configuration file.
+
 ##### Parameters
 
 | Name | Type | Description |

@@ -60,9 +60,10 @@ namespace MFR.GUI.Dialogs
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -194,8 +195,10 @@ namespace MFR.GUI.Dialogs
         /// to the text box that accepts the pathname of the application's
         /// configuration file.
         /// </remarks>
-        private void OnClickConfigPathnameBrowseButton(object sender,
-            EventArgs e)
+        private void OnClickConfigPathnameBrowseButton(
+            object sender,
+            EventArgs e
+        )
         {
             configPathBrowseBox.InitialDirectory =
                 string.IsNullOrWhiteSpace(ConfigPathname)
@@ -235,8 +238,10 @@ namespace MFR.GUI.Dialogs
         ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
         /// method.
         /// </remarks>
-        private void OnTextChangedConfiguraitonFilePathname(object sender,
-            EventArgs e)
+        private void OnTextChangedConfiguraitonFilePathname(
+            object sender,
+            EventArgs e
+        )
             => SetModifiedFlag();
 
         /// <summary>
@@ -281,14 +286,12 @@ namespace MFR.GUI.Dialogs
             {
                 CurrentConfiguration.AutoQuitOnCompletion =
                     AutoQuitOnCompletion;
-                CurrentConfiguration.ReOpenSolution =
-                    ReOpenSolution;
+                CurrentConfiguration.ReOpenSolution = ReOpenSolution;
                 ConfigProvider.ConfigFilePath = ConfigPathname;
             }
             else
             {
-                ReOpenSolution =
-                    CurrentConfiguration.ReOpenSolution;
+                ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 ConfigPathname = ConfigProvider.ConfigFilePath;
                 AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;

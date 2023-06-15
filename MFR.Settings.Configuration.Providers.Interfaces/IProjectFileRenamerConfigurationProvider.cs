@@ -1,4 +1,5 @@
 using MFR.Settings.Configuration.Interfaces;
+using System;
 
 namespace MFR.Settings.Configuration.Providers.Interfaces
 {
@@ -11,6 +12,15 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <summary>
         /// Gets or sets the pathname of the configuration file.
         /// </summary>
+        /// <summary>
+        /// Gets or sets the pathname of the configuration file.
+        /// </summary>
+        /// <remarks>
+        /// This property raises the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigFilePathChanged" />
+        /// event when its value is updated.
+        /// </remarks>
         string ConfigFilePath
         {
             get;
@@ -30,6 +40,14 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
             get;
             set;
         }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        /// property is updated.
+        /// </summary>
+        event EventHandler ConfigFilePathChanged;
 
         /// <summary>
         /// Resets the configuration to default values.
