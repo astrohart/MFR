@@ -35,7 +35,8 @@ namespace MFR.Settings.Configuration.Providers
         {
             InitializeConfigPathProvider();
 
-            ConfigPathProvider.Load(); // load the pathname of the profile file from the system Registry.
+            ConfigPathProvider
+                .Load(); // load the pathname of the profile file from the system Registry.
         }
 
         /// <summary>
@@ -237,9 +238,6 @@ namespace MFR.Settings.Configuration.Providers
 
                 CurrentConfiguration =
                     Obtain.ConfigurationFrom(pathnameToLoadFrom);
-
-                // store the pathname in the pathname parameter into the ConfigFilePath property
-                ConfigFilePath = pathnameToLoadFrom;
             }
             catch (Exception ex)
             {
