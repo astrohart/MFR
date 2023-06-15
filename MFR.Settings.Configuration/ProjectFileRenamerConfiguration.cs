@@ -512,6 +512,63 @@ namespace MFR.Settings.Configuration
         public event StartingFolderChangedEventHandler StartingFolderChanged;
 
         /// <summary>
+        /// Determines whether the specified object is equal to the current
+        /// object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>
+        /// <see langword="true" /> if the specified object  is equal to the current
+        /// object; otherwise, <see langword="false" />.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            var result = false;
+
+            try
+            {
+                if (obj is null) return result;
+                result = ReferenceEquals(this, obj) ||
+                         (obj.GetType() == GetType() && Equals(
+                             (ProjectFileRenamerConfiguration)obj
+                         ));
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>Serves as the default hash function.</summary>
+        /// <returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = AutoQuitOnCompletion.GetHashCode();
+                hashCode = (hashCode * 397) ^ AutoStart.GetHashCode();
+                hashCode = (hashCode * 397) ^ FindWhat.GetHashCode();
+                hashCode = (hashCode * 397) ^ FindWhatHistory.GetHashCode();
+                hashCode = (hashCode * 397) ^ InvokableOperations.GetHashCode();
+                hashCode = (hashCode * 397) ^ IsFolded.GetHashCode();
+                hashCode = (hashCode * 397) ^ IsFromCommandLine.GetHashCode();
+                hashCode = (hashCode * 397) ^ MatchCase.GetHashCode();
+                hashCode = (hashCode * 397) ^ MatchExactWord.GetHashCode();
+                hashCode = (hashCode * 397) ^ ReOpenSolution.GetHashCode();
+                hashCode = (hashCode * 397) ^ ReplaceWith.GetHashCode();
+                hashCode = (hashCode * 397) ^ ReplaceWithHistory.GetHashCode();
+                hashCode = (hashCode * 397) ^ SelectedOptionTab;
+                hashCode = (hashCode * 397) ^
+                           StartingFolderHistory.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
         /// Sets the values of this class' properties to their default values.
         /// </summary>
         /// <remarks>
@@ -547,6 +604,21 @@ namespace MFR.Settings.Configuration
                 DebugUtils.LogException(ex);
             }
         }
+
+        protected bool Equals(ProjectFileRenamerConfiguration other)
+            => AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
+               AutoStart == other.AutoStart && FindWhat == other.FindWhat &&
+               FindWhatHistory.Equals(other.FindWhatHistory) &&
+               InvokableOperations.Equals(other.InvokableOperations) &&
+               IsFolded == other.IsFolded &&
+               IsFromCommandLine == other.IsFromCommandLine &&
+               MatchCase == other.MatchCase &&
+               MatchExactWord == other.MatchExactWord &&
+               ReOpenSolution == other.ReOpenSolution &&
+               ReplaceWith == other.ReplaceWith &&
+               ReplaceWithHistory.Equals(other.ReplaceWithHistory) &&
+               SelectedOptionTab == other.SelectedOptionTab &&
+               StartingFolderHistory.Equals(other.StartingFolderHistory);
 
         /// <summary>
         /// Raises the

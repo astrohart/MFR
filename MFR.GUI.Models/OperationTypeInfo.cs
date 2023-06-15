@@ -3,6 +3,7 @@ using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace MFR.GUI.Models
 {
@@ -16,6 +17,14 @@ namespace MFR.GUI.Models
     [Log(AttributeExclude = true)]
     public class OperationTypeInfo : IOperationTypeInfo
     {
+        private bool _enabled;
+
+        /// <summary>
+        /// A <see cref="T:System.String" /> that contains a user -friendly name to display
+        /// for this operation type information object.
+        /// </summary>
+        private string _name;
+
         /// <summary>
         /// One of the <see cref="T:MFR.Operations.Constants.OperationType" /> values that
         /// corresponds to the type of operation to perform.
@@ -26,37 +35,101 @@ namespace MFR.GUI.Models
         /// Gets or sets a value that indicates whether the user wants to perform the
         /// operation.
         /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if this operation is allowed by the user to be
+        /// performed; <see langword="false" /> otherwise.
+        /// </returns>
+        /// <remarks>
+        /// This property raises the
+        /// <see cref="E:MFR.GUI.Models.OperationTypeInfo.EnabledChanged" /> event when its
+        /// value is updated.
+        /// </remarks>
         [JsonProperty("enabled")]
         public bool Enabled
         {
-            get;
-            set;
+            get => _enabled;
+            set {
+                var changed = _enabled != value;
+                _enabled = value;
+                if (changed) OnEnabledChanged();
+            }
         }
 
         /// <summary>
         /// Gets or sets the name of the operation type.
         /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing a user-friendly display
+        /// name for the type of operation that this object represents.
+        /// </returns>
+        /// <remarks>
+        /// This property raises the
+        /// <see cref="E:MFR.GUI.Models.OperationTypeInfo.NameChanged" /> event when its
+        /// value is updated.
+        /// </remarks>
         [JsonProperty("name")]
         public string Name
         {
-            get;
-            set;
+            get => _name;
+            set {
+                var changed = _name != value;
+                _name = value;
+                if (changed) OnNameChanged();
+            }
         }
 
         /// <summary>
         /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" /> value
         /// that corresponds to the type of operation to perform.
         /// </summary>
+        /// <returns>
+        /// One of the <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration values that indicates to what type of operation this object
+        /// corresponds.
+        /// </returns>
+        /// <remarks>
+        /// Setting the value of this property also updates the value of the
+        /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.Name" /> property in order to
+        /// correspond to the new <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration value that this property has been set to.
+        /// <para />
+        /// This property raises the
+        /// <see cref="E:MFR.GUI.Models.OperationTypeInfo.OperationTypeChanged" /> event
+        /// when its value is updated.
+        /// </remarks>
         [JsonProperty("operationType")]
         public OperationType OperationType
         {
             get => _operationType;
             set {
+                var changed = _operationType != value;
                 _operationType = value;
+                if (changed) OnOperationTypeChanged();
 
                 Name = ConvertOperationType.ToString(value);
             }
         }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.Enabled" /> property has been
+        /// updated.
+        /// </summary>
+        public event EventHandler EnabledChanged;
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.Name" /> property has been
+        /// updated.
+        /// </summary>
+        public event EventHandler NameChanged;
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.OperationType" /> property has
+        /// been updated.
+        /// </summary>
+        public event EventHandler OperationTypeChanged;
 
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
@@ -66,5 +139,25 @@ namespace MFR.GUI.Models
         /// </remarks>
         public override string ToString()
             => Name;
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Models.OperationTypeInfo.EnabledChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnEnabledChanged()
+            => EnabledChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Models.OperationTypeInfo.NameChanged" /> event.
+        /// </summary>
+        protected virtual void OnNameChanged()
+            => NameChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Models.OperationTypeInfo.OperationTypeChanged" /> event.
+        /// </summary>
+        protected virtual void OnOperationTypeChanged()
+            => OperationTypeChanged?.Invoke(this, EventArgs.Empty);
     }
 }

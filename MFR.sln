@@ -818,6 +818,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.Converters.Interfaces", "MFR.Settings.Configuration.Converters.Interfaces\MFR.Settings.Configuration.Converters.Interfaces.csproj", "{FAD614DD-D66B-4390-A18D-2F8DA87845FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Models.Events", "MFR.GUI.Models.Events\MFR.GUI.Models.Events.csproj", "{C1450066-69CC-4D63-9BC9-9D46F8D2086E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -7260,6 +7262,22 @@ Global
 		{FAD614DD-D66B-4390-A18D-2F8DA87845FC}.Release|x64.Build.0 = Release|x64
 		{FAD614DD-D66B-4390-A18D-2F8DA87845FC}.Release|x86.ActiveCfg = Release|x86
 		{FAD614DD-D66B-4390-A18D-2F8DA87845FC}.Release|x86.Build.0 = Release|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.All|x64.ActiveCfg = Debug|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.All|x64.Build.0 = Debug|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.All|x86.ActiveCfg = Debug|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.All|x86.Build.0 = Debug|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Debug|x64.ActiveCfg = Debug|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Debug|x64.Build.0 = Debug|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Debug|x86.ActiveCfg = Debug|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Debug|x86.Build.0 = Debug|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.DefaultBuild|x64.Build.0 = Debug|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.DefaultBuild|x86.Build.0 = Debug|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Release|x64.ActiveCfg = Release|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Release|x64.Build.0 = Release|x64
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Release|x86.ActiveCfg = Release|x86
+		{C1450066-69CC-4D63-9BC9-9D46F8D2086E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
