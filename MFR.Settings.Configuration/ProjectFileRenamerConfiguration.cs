@@ -518,6 +518,21 @@ namespace MFR.Settings.Configuration
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
 
+        /// <summary>
+        /// Determines whether the specified <paramref name="configuration" /> object
+        /// instance is blank or a <see langword="null" /> reference.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface that represents the object instance that is to be examined.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified
+        /// <paramref name="configuration" /> object instance is blank or a
+        /// <see langword="null" /> reference.
+        /// </returns>
         public static bool IsBlankOrNull(
             IProjectFileRenamerConfiguration configuration
         )

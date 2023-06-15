@@ -32,6 +32,11 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         }
 
         /// <summary>
+        /// Resets the configuration to default values.
+        /// </summary>
+        void Clear();
+
+        /// <summary>
         /// Exports configuration data to a file other than the master
         /// configuration file.
         /// </summary>
@@ -107,13 +112,19 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface and which has been initialized with data from the configuration file.
+        /// </returns>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file whose pathname is passed in the
         /// <paramref
         ///     name="pathname" />
         /// parameter cannot be located on the disk.
         /// </exception>
-        void Load(string pathname = "");
+        IProjectFileRenamerConfiguration Load(string pathname = "");
 
         /// <summary>
         /// Saves configuration data to a file on the disk having path
@@ -136,10 +147,5 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");
-
-        /// <summary>
-        /// Resets the configuration to default values.
-        /// </summary>
-        void Clear();
     }
 }

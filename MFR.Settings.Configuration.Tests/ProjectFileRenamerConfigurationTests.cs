@@ -1,5 +1,11 @@
-﻿using MFR.Settings.Configuration.Factories;
+﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Paths.Config.Provider.Factories;
+using MFR.Paths.Config.Provider.Interfaces;
+using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
 using NUnit.Framework;
 using System;
 
@@ -13,6 +19,28 @@ namespace MFR.Settings.Configuration.Tests
     [TestFixture]
     public class ProjectFileRenamerConfigurationTests
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider" />
+        /// interface.
+        /// </summary>
+        private static IConfigPathProvider ConfigPathProvider
+        {
+            get;
+        } = GetConfigPathProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        private static IProjectFileRenamerConfigurationProvider
+            ProjectFileRenamerConfigurationProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
         /// <summary>
         /// TODO: Add unit test documentation here
         /// </summary>
@@ -41,12 +69,23 @@ namespace MFR.Settings.Configuration.Tests
             Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual()
         {
             var blankConfig = Create.BlankConfiguration();
-            var newConfig = MakeNewProjectFileRenamerConfiguration.FromScratch();
+            var newConfig =
+                MakeNewProjectFileRenamerConfiguration.FromScratch();
 
-            Assert.AreEqual(
-                blankConfig,
-                newConfig
-            );
+            Assert.AreEqual(blankConfig, newConfig);
+        }
+
+        /// <summary>
+        /// TODO: Add unit test documentation here
+        /// </summary>
+        [Test]
+        public void Test_BlankConfigReturned_ForMissingConfigFile()
+        {
+            Assert.IsFalse(File.Exists(ConfigPathProvider.ConfigFilePath));
+
+            IProjectFileRenamerConfiguration configuration = default;
+
+            Assert.DoesNotThrow(() => configuration = ProjectFileRenamerConfigurationProvider.Load());
         }
     }
 }

@@ -201,8 +201,10 @@ namespace MFR.Settings.Configuration.Providers
         ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.CurrentConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
-        public void Load(string pathname = "")
+        public IProjectFileRenamerConfiguration Load(string pathname = "")
         {
+            var result = Create.BlankConfiguration();
+
             try
             {
                 /*
@@ -216,11 +218,9 @@ namespace MFR.Settings.Configuration.Providers
                     );
                 if (!Does.FileExist(pathnameToLoadFrom))
                 {
-                    CurrentConfiguration =
+                    result = CurrentConfiguration =
                         MakeNewProjectFileRenamerConfiguration.FromScratch();
-                    CurrentConfiguration.InvokableOperations =
-                        Initialize.OperationList();
-                    return;
+                    return result;  
                 }
 
                 CurrentConfiguration =
@@ -234,9 +234,6 @@ namespace MFR.Settings.Configuration.Providers
                 CurrentConfiguration = Create.BlankConfiguration();
             }
 
-            if (CurrentConfiguration == null)
-                return;
-
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 "*** SUCCESS *** ProjectFileRenamerConfiguration loaded."
@@ -244,6 +241,8 @@ namespace MFR.Settings.Configuration.Providers
 
             // store the pathname in the pathname parameter into the ConfigFilePath property
             ConfigFilePath = pathname;
+
+            return result;
         }
 
         /// <summary>
