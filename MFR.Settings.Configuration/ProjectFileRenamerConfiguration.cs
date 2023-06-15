@@ -172,7 +172,7 @@ namespace MFR.Settings.Configuration
         {
             get;
             set;
-        } = new List<IOperationTypeInfo>();
+        }
 
         /// <summary>
         /// Gets a value indicating whether the form is in the Folded state.
@@ -557,22 +557,35 @@ namespace MFR.Settings.Configuration
         {
             unchecked
             {
-                var hashCode = AutoQuitOnCompletion.GetHashCode();
-                hashCode = (hashCode * 397) ^ AutoStart.GetHashCode();
-                hashCode = (hashCode * 397) ^ FindWhat.GetHashCode();
-                hashCode = (hashCode * 397) ^ FindWhatHistory.GetHashCode();
-                hashCode = (hashCode * 397) ^ InvokableOperations.GetHashCode();
-                hashCode = (hashCode * 397) ^ IsFolded.GetHashCode();
-                hashCode = (hashCode * 397) ^ IsFromCommandLine.GetHashCode();
-                hashCode = (hashCode * 397) ^ MatchCase.GetHashCode();
-                hashCode = (hashCode * 397) ^ MatchExactWord.GetHashCode();
-                hashCode = (hashCode * 397) ^ ReOpenSolution.GetHashCode();
-                hashCode = (hashCode * 397) ^ ReplaceWith.GetHashCode();
-                hashCode = (hashCode * 397) ^ ReplaceWithHistory.GetHashCode();
-                hashCode = (hashCode * 397) ^ SelectedOptionTab;
-                hashCode = (hashCode * 397) ^
-                           StartingFolderHistory.GetHashCode();
-                return hashCode;
+                var result = 19;
+
+                result = result * 31 + AutoQuitOnCompletion.GetHashCode();
+                result = result * 31 + AutoStart.GetHashCode();
+                result = result * 31 + FindWhat.GetHashCode();
+                result = FindWhatHistory.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                result = InvokableOperations.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                result = result * 31 + IsFolded.GetHashCode();
+                result = result * 31 + IsFromCommandLine.GetHashCode();
+                result = result * 31 + MatchCase.GetHashCode();
+                result = result * 31 + MatchExactWord.GetHashCode();
+                result = result * 31 + ReOpenSolution.GetHashCode();
+                result = result * 31 + ReplaceWith.GetHashCode();
+                result = ReplaceWithHistory.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                result = result * 31 + SelectedOptionTab.GetHashCode();
+                result = StartingFolderHistory.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                return result;
             }
         }
 
@@ -627,8 +640,8 @@ namespace MFR.Settings.Configuration
                 result = AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
                          AutoStart == other.AutoStart &&
                          FindWhat == other.FindWhat &&
-                         FindWhatHistory.Equals(other.FindWhatHistory) &&
-                         InvokableOperations.Equals(
+                         FindWhatHistory.SequenceEqual(other.FindWhatHistory) &&
+                         InvokableOperations.SequenceEqual(
                              other.InvokableOperations
                          ) && IsFolded == other.IsFolded &&
                          IsFromCommandLine == other.IsFromCommandLine &&
@@ -636,9 +649,10 @@ namespace MFR.Settings.Configuration
                          MatchExactWord == other.MatchExactWord &&
                          ReOpenSolution == other.ReOpenSolution &&
                          ReplaceWith == other.ReplaceWith &&
-                         ReplaceWithHistory.Equals(other.ReplaceWithHistory) &&
-                         SelectedOptionTab == other.SelectedOptionTab &&
-                         StartingFolderHistory.Equals(
+                         ReplaceWithHistory.SequenceEqual(
+                             other.ReplaceWithHistory
+                         ) && SelectedOptionTab == other.SelectedOptionTab &&
+                         StartingFolderHistory.SequenceEqual(
                              other.StartingFolderHistory
                          );
             }
