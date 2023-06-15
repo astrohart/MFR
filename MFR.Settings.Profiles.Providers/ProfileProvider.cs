@@ -239,6 +239,7 @@ namespace MFR.Settings.Profiles.Providers
         /// Allows an object to try to free resources and perform other cleanup operations
         /// before it is reclaimed by garbage collection.
         /// </summary>
+        [Log(AttributeExclude = true)]
         ~ProfileProvider()
         {
             ProfileListPathProvider.Save();

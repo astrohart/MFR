@@ -10,6 +10,7 @@ using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -277,6 +278,12 @@ namespace MFR.Settings.Configuration.Providers
             SaveCopyAs(pathname);
 
             ConfigFilePath = pathname;
+        }
+
+        [Log(AttributeExclude = true)]
+        ~ProjectFileRenamerConfigurationProvider()
+        {
+            ConfigPathProvider.Save();
         }
 
         /// <summary>
