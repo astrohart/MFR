@@ -127,7 +127,7 @@
   - [components](#F-MFR-GUI-Dialogs-OptionsDialog-components 'MFR.GUI.Dialogs.OptionsDialog.components')
   - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.OptionsDialog.AutoQuitOnCompletion')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialog.ConfigPathname')
-  - [ConfigurationProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
   - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialog-IsModified 'MFR.GUI.Dialogs.OptionsDialog.IsModified')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
@@ -1868,8 +1868,8 @@ checkbox.
 
 Gets or sets the text of the configuration File Pathname text box.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 

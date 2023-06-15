@@ -6,6 +6,7 @@ using MFR.Settings.Profiles.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.Settings.Configuration.Helpers
@@ -105,7 +106,7 @@ namespace MFR.Settings.Configuration.Helpers
         /// <summary>
         /// Determines whether the specified <paramref name="configuration" /> actually
         /// refers to a bona fide <c>Profile</c> or whether it was simply transformed into
-        /// a transient <c>Profile</c> object (having a name beginning with <c>_tmp</c>).
+        /// a temporary <c>Profile</c> object (having a name beginning with <c>tmp</c>).
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object
@@ -115,17 +116,32 @@ namespace MFR.Settings.Configuration.Helpers
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified
-        /// <paramref name="configuration" /> is merely a transient <c>Profile</c> object;
+        /// <paramref name="configuration" /> is merely a temporary <c>Profile</c> object;
         /// <see langword="false" /> otherwise.
         /// </returns>
-        public static bool IsTransientProfile(this IProjectFileRenamerConfiguration configuration)
+        public static bool IsTemporaryProfile(this IProjectFileRenamerConfiguration configuration)
         {
-            if (configuration == null) return true;
+            var result = false;
 
-            var correspondingProfile = configuration.AsProfile();
+            try
+            {
+                if (configuration == null) return result;
 
-            return string.IsNullOrWhiteSpace(correspondingProfile.Name) ||
-                   correspondingProfile.Name.StartsWith("tmp");
+                var correspondingProfile = configuration.AsProfile();
+                if (correspondingProfile == null) return result;
+
+                result = string.IsNullOrWhiteSpace(correspondingProfile.Name) ||
+                         correspondingProfile.Name.StartsWith("tmp");
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>

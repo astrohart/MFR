@@ -1,5 +1,4 @@
 using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Serializers.Actions;
 using NUnit.Framework;
 
 namespace MFR.Settings.Configuration.Factories.Tests
@@ -29,7 +28,12 @@ namespace MFR.Settings.Configuration.Factories.Tests
         [Test]
         public void Test_MakeNewConfiguraton_FromScratch_Method_Works()
         {
-            var result = Create.BlankConfiguration();
+            IProjectFileRenamerConfiguration result = default;
+
+            Assert.DoesNotThrow(
+                () => result =
+                    MakeNewProjectFileRenamerConfiguration.FromScratch()
+            );
 
             Assert.That(result, Is.Not.Null);
             Assert.That(

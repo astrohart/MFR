@@ -6,10 +6,10 @@ using MFR.Paths.Config.Provider.Interfaces;
 using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Settings.Configuration.Factories;
+using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
-using MFR.Settings.Configuration.Serializers.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 using Initialize = MFR.GUI.Models.Actions.Initialize;
@@ -86,6 +86,12 @@ namespace MFR.Settings.Configuration.Providers
         } = new ProjectFileRenamerConfigurationProvider();
 
         /// <summary>
+        /// Resets the configuration to default values.
+        /// </summary>
+        public void Clear()
+            => CurrentConfiguration = Create.BlankConfiguration();
+
+        /// <summary>
         /// Exports configuration data to a file other than the master
         /// configuration file.
         /// </summary>
@@ -156,7 +162,7 @@ namespace MFR.Settings.Configuration.Providers
                 if (!Determine.IsConfigPathValid(sourceFilePath)) return;
 
                 Load(sourceFilePath);
-                Save();     // saves to the master location, thus doing an import
+                Save(); // saves to the master location, thus doing an import
             }
             catch (Exception ex)
             {

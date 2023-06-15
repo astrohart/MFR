@@ -1,9 +1,9 @@
-using MFR.Settings.Configuration.Commands.Constants;
-using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Registry.Helpers;
 using MFR.Registry.Loaders.Factories;
+using MFR.Settings.Configuration.Commands.Constants;
+using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
 
@@ -31,7 +31,8 @@ namespace MFR.Replacers.Factories.Tests
             Assert.DoesNotThrow(
                 () => GetConfigurationCommand
                       .For<IRegOperationMetadata<string>>(
-                          ConfigurationCommandType.SaveConfigurationFilePathToRegistry
+                          ConfigurationCommandType
+                              .SaveConfigurationFilePathToRegistry
                       )
                       .WithInput(
                           MakeNewRegOperationMetadata.FromScatch<string>()
@@ -46,7 +47,9 @@ namespace MFR.Replacers.Factories.Tests
             Assert.That(
                 DEFAULT_CONFIG_FILE_PATH,
                 Is.EqualTo(
-                    Load.String.FromRegistry(KEY_PATH, VALUE_NAME, DEFAULT_CONFIG_FILE_PATH)
+                    Load.String.FromRegistry(
+                        KEY_PATH, VALUE_NAME, DEFAULT_CONFIG_FILE_PATH
+                    )
                 )
             );
         }

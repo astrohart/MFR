@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Models.Extensions;
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration
 {
@@ -64,6 +64,8 @@ namespace MFR.Settings.Configuration
         )
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
+
+            Reset();
 
             AutoStart = source.AutoStart;
             AutoQuitOnCompletion = source.AutoQuitOnCompletion;
@@ -132,6 +134,11 @@ namespace MFR.Settings.Configuration
             get;
             set;
         }
+
+        public static IProjectFileRenamerConfiguration Blank
+        {
+            get;
+        } = new ProjectFileRenamerConfiguration(Initialize.OperationList());
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
@@ -527,10 +534,11 @@ namespace MFR.Settings.Configuration
             try
             {
                 if (obj is null) return result;
-                result = ReferenceEquals(this, obj) ||
-                         (obj.GetType() == GetType() && Equals(
-                             (ProjectFileRenamerConfiguration)obj
-                         ));
+                if (ReferenceEquals(this, obj)) return true;
+
+                result = obj.GetType() == GetType() && Equals(
+                    (ProjectFileRenamerConfiguration)obj
+                );
             }
             catch (Exception ex)
             {
@@ -594,9 +602,12 @@ namespace MFR.Settings.Configuration
                 ReplaceWithHistory.Clear();
 
                 FindWhat = ReplaceWith = string.Empty;
-                StartingFolder = Directory.GetCurrentDirectory();
+                StartingFolder = string.Empty;
 
-                InvokableOperations = new List<IOperationTypeInfo>();
+                if (InvokableOperations != null && InvokableOperations.Any())
+                    InvokableOperations.Clear();
+
+                InvokableOperations = Initialize.OperationList();
             }
             catch (Exception ex)
             {
@@ -605,20 +616,42 @@ namespace MFR.Settings.Configuration
             }
         }
 
-        protected bool Equals(ProjectFileRenamerConfiguration other)
-            => AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
-               AutoStart == other.AutoStart && FindWhat == other.FindWhat &&
-               FindWhatHistory.Equals(other.FindWhatHistory) &&
-               InvokableOperations.Equals(other.InvokableOperations) &&
-               IsFolded == other.IsFolded &&
-               IsFromCommandLine == other.IsFromCommandLine &&
-               MatchCase == other.MatchCase &&
-               MatchExactWord == other.MatchExactWord &&
-               ReOpenSolution == other.ReOpenSolution &&
-               ReplaceWith == other.ReplaceWith &&
-               ReplaceWithHistory.Equals(other.ReplaceWithHistory) &&
-               SelectedOptionTab == other.SelectedOptionTab &&
-               StartingFolderHistory.Equals(other.StartingFolderHistory);
+        protected bool Equals(IProjectFileRenamerConfiguration other)
+        {
+            var result = false;
+
+            try
+            {
+                if (other is null) return result;
+
+                result = AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
+                         AutoStart == other.AutoStart &&
+                         FindWhat == other.FindWhat &&
+                         FindWhatHistory.Equals(other.FindWhatHistory) &&
+                         InvokableOperations.Equals(
+                             other.InvokableOperations
+                         ) && IsFolded == other.IsFolded &&
+                         IsFromCommandLine == other.IsFromCommandLine &&
+                         MatchCase == other.MatchCase &&
+                         MatchExactWord == other.MatchExactWord &&
+                         ReOpenSolution == other.ReOpenSolution &&
+                         ReplaceWith == other.ReplaceWith &&
+                         ReplaceWithHistory.Equals(other.ReplaceWithHistory) &&
+                         SelectedOptionTab == other.SelectedOptionTab &&
+                         StartingFolderHistory.Equals(
+                             other.StartingFolderHistory
+                         );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Raises the

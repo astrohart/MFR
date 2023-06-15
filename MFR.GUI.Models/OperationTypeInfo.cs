@@ -4,6 +4,7 @@ using MFR.Operations.Constants;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Models
 {
@@ -131,6 +132,51 @@ namespace MFR.GUI.Models
         /// </summary>
         public event EventHandler OperationTypeChanged;
 
+        /// <summary>
+        /// Determines whether the specified object is equal to the current
+        /// object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>
+        /// <see langword="true" /> if the specified object  is equal to the current
+        /// object; otherwise, <see langword="false" />.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            var result = false;
+
+            try
+            {
+                if (obj is null) return result;
+                if (ReferenceEquals(this, obj)) return true;
+                result = obj.GetType() == GetType() && Equals((OperationTypeInfo)obj);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+
+        }
+
+        /// <summary>Serves as the default hash function.</summary>
+        /// <returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = _enabled.GetHashCode();
+                hashCode = (hashCode * 397) ^
+                           (_name != null ? _name.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (int)_operationType;
+                return hashCode;
+            }
+        }
+
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         /// <remarks>
@@ -139,6 +185,28 @@ namespace MFR.GUI.Models
         /// </remarks>
         public override string ToString()
             => Name;
+
+        protected bool Equals(IOperationTypeInfo other)
+        {
+            var result = false;
+
+            try
+            {
+                if (other is null) return result;
+
+                result = Enabled == other.Enabled && Name == other.Name &&
+                         OperationType == other.OperationType;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Raises the <see cref="E:MFR.GUI.Models.OperationTypeInfo.EnabledChanged" />

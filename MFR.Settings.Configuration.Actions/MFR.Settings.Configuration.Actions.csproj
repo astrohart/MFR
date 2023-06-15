@@ -103,6 +103,7 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Is.cs" />
     <Compile Include="LoadConfigurationFromFileAction.cs" />
     <Compile Include="LoadConfigurationFilePathFromRegistryAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [Create](#T-MFR-Settings-Configuration-Providers-Actions-Create 'MFR.Settings.Configuration.Providers.Actions.Create')
-  - [BlankConfiguration()](#M-MFR-Settings-Configuration-Providers-Actions-Create-BlankConfiguration 'MFR.Settings.Configuration.Providers.Actions.Create.BlankConfiguration')
 - [Determine](#T-MFR-Settings-Configuration-Providers-Actions-Determine 'MFR.Settings.Configuration.Providers.Actions.Determine')
   - [CorrectPathForLoadingConfiguration(submittedPathname,currentPathnameInRegistry)](#M-MFR-Settings-Configuration-Providers-Actions-Determine-CorrectPathForLoadingConfiguration-System-String,System-String- 'MFR.Settings.Configuration.Providers.Actions.Determine.CorrectPathForLoadingConfiguration(System.String,System.String)')
   - [IsConfigPathValid(pathname)](#M-MFR-Settings-Configuration-Providers-Actions-Determine-IsConfigPathValid-System-String- 'MFR.Settings.Configuration.Providers.Actions.Determine.IsConfigPathValid(System.String)')
@@ -18,36 +16,6 @@
 - [Resources](#T-MFR-Settings-Configuration-Providers-Actions-Properties-Resources 'MFR.Settings.Configuration.Providers.Actions.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Providers-Actions-Properties-Resources-Culture 'MFR.Settings.Configuration.Providers.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Providers-Actions-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Providers.Actions.Properties.Resources.ResourceManager')
-
-<a name='T-MFR-Settings-Configuration-Providers-Actions-Create'></a>
-## Create `type`
-
-##### Namespace
-
-MFR.Settings.Configuration.Providers.Actions
-
-##### Summary
-
-Exposes static methods to create instances of objects and data.
-
-<a name='M-MFR-Settings-Configuration-Providers-Actions-Create-BlankConfiguration'></a>
-### BlankConfiguration() `method`
-
-##### Summary
-
-Creates an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface and initializes it with the default invokable operations.
-
-##### Returns
-
-Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that is initialized with the default invokable operations.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='T-MFR-Settings-Configuration-Providers-Actions-Determine'></a>
 ## Determine `type`

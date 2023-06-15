@@ -4,7 +4,7 @@ using System;
 using xyLOGIX.Core.Debug;
 using Initialize = MFR.GUI.Models.Actions.Initialize;
 
-namespace MFR.Settings.Configuration.Serializers.Actions
+namespace MFR.Settings.Configuration.Helpers
 {
     /// <summary>
     /// Exposes static methods to create instances of objects and data.
@@ -25,12 +25,11 @@ namespace MFR.Settings.Configuration.Serializers.Actions
         /// </returns>
         public static IProjectFileRenamerConfiguration BlankConfiguration()
         {
-            IProjectFileRenamerConfiguration result = default;
+            IProjectFileRenamerConfiguration result;
 
             try
             {
-                result = MakeNewProjectFileRenamerConfiguration.FromScratch()
-                    .HavingInvokableOperations(Initialize.OperationList());
+                result = MakeNewProjectFileRenamerConfiguration.FromScratch();
             }
             catch (Exception ex)
             {

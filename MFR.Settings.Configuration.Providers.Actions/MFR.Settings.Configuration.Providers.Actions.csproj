@@ -172,13 +172,13 @@
       <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
       <Name>MFR.Settings.Configuration.Actions.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Helpers\MFR.Settings.Configuration.Helpers.csproj">
+      <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
+      <Name>MFR.Settings.Configuration.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Serializers.Actions\MFR.Settings.Configuration.Serializers.Actions.csproj">
-      <Project>{5DFC61BC-4771-4B9B-80D8-83CBB2CBFEA1}</Project>
-      <Name>MFR.Settings.Configuration.Serializers.Actions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

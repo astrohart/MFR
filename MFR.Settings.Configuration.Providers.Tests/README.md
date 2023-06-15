@@ -13,6 +13,7 @@
 - [ProjectFileRenamerConfigurationProviderTests](#T-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests')
   - [#ctor()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-#ctor 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.#ctor')
   - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.ConfigFilePath')
+  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.CurrentConfiguration')
   - [ProjectFileRenamerConfigurationProvider](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.ProjectFileRenamerConfigurationProvider')
   - [#cctor()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-#cctor 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.#cctor')
   - [Test_Load_Works()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-Test_Load_Works 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests.Test_Load_Works')
@@ -144,6 +145,15 @@ This constructor has no parameters.
 ##### Summary
 
 Path to a sample configuration file.
+
+<a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-CurrentConfiguration'></a>
+### CurrentConfiguration `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that represents the currently-loaded (if any) configuration.
 
 <a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-ProjectFileRenamerConfigurationProvider'></a>
 ### ProjectFileRenamerConfigurationProvider `property`

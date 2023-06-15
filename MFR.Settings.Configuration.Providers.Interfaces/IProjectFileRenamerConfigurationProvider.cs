@@ -136,5 +136,10 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");
+
+        /// <summary>
+        /// Resets the configuration to default values.
+        /// </summary>
+        void Clear();
     }
 }

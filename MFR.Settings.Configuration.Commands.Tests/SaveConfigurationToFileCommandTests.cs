@@ -1,14 +1,10 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Settings.Configuration.Commands.Constants;
-using MFR.Settings.Configuration.Commands.Factories;
-using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.Messages.Constants;
-using MFR.Settings.Configuration;
-using MFR.Settings.Configuration.Factories;
-using MFR.Settings.Configuration.Providers.Actions;
-using MFR.Settings.Configuration.Serializers.Actions;
+using MFR.Settings.Configuration.Commands.Constants;
+using MFR.Settings.Configuration.Commands.Factories;
+using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Interfaces;
 using NUnit.Framework;
 
 namespace MFR.Replacers.Factories.Tests
@@ -51,17 +47,26 @@ namespace MFR.Replacers.Factories.Tests
                 File.Delete(FILE_PATH);
 
             Assert.DoesNotThrow(
-                () => GetConfigurationCommand
-                      .For<IFileSystemEntry>(
-                          ConfigurationCommandType.SaveConfigurationToFile
-                      )
-                      .WithInput(
-                          MakeNewFileSystemEntry.ForPath(FILE_PATH)
-                                                .SetUserState(
-                                                    ProjectFileRenamerConfigurationData
-                                                )
-                      )
-                      .Execute()
+                () =>
+                {
+                    var fileSystemEntry = MakeNewFileSystemEntry
+                                          .ForPath(FILE_PATH)
+                                          .SetUserState(
+                                              ProjectFileRenamerConfigurationData
+                                          );
+                    if (fileSystemEntry == null) return;
+
+                    var saveConfigurationFileCommand = GetConfigurationCommand.For<IFileSystemEntry>(
+                            ConfigurationCommandType
+                                .SaveConfigurationToFile
+                        )
+                        .WithInput(
+                            fileSystemEntry
+                        );
+                    if (saveConfigurationFileCommand == null) return;
+
+                    saveConfigurationFileCommand.Execute();
+                }
             );
 
             Assert.That(File.Exists(FILE_PATH));

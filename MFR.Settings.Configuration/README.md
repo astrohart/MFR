@@ -35,6 +35,8 @@
   - [SelectedOptionTab](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.SelectedOptionTab')
   - [StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder')
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolderHistory')
+  - [Equals(obj)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Equals-System-Object- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Equals(System.Object)')
+  - [GetHashCode()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-GetHashCode 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.GetHashCode')
   - [OnStartingFolderChanged()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged')
   - [Reset()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Reset')
 - [Resources](#T-MFR-Settings-Configuration-Properties-Resources 'MFR.Settings.Configuration.Properties.Resources')
@@ -463,6 +465,40 @@ the search.
 
 Gets or sets a collection of strings that correspond to the
 most-recently-used values for Starting Folder.
+
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Equals-System-Object-'></a>
+### Equals(obj) `method`
+
+##### Summary
+
+Determines whether the specified object is equal to the current
+object.
+
+##### Returns
+
+`true` if the specified object  is equal to the current
+object; otherwise, `false`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| obj | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to compare with the current object. |
+
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-GetHashCode'></a>
+### GetHashCode() `method`
+
+##### Summary
+
+Serves as the default hash function.
+
+##### Returns
+
+A hash code for the current object.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged'></a>
 ### OnStartingFolderChanged() `method`

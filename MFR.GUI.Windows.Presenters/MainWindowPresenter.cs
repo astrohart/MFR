@@ -148,7 +148,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
         public bool IsProfileLoaded
-            => !ConfigurationProvider.CurrentConfiguration.IsTransientProfile();
+            => !ConfigurationProvider.CurrentConfiguration.IsTemporaryProfile();
 
         /// <summary>
         /// Reference to an instance of an object that implements the

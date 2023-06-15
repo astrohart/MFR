@@ -10,6 +10,7 @@
   - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.CurrentConfiguration')
   - [Instance](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Instance 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Instance')
   - [#cctor()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-#cctor 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.#cctor')
+  - [Clear()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Clear 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Clear')
   - [Export(exportFileName)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Export-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Export(System.String)')
   - [Import(sourceFilePath)](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Import-System-String- 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Import(System.String)')
   - [InitializeConfigPathProvider()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-InitializeConfigPathProvider 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.InitializeConfigPathProvider')
@@ -87,6 +88,17 @@ interface.
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Clear'></a>
+### Clear() `method`
+
+##### Summary
+
+Resets the configuration to default values.
 
 ##### Parameters
 

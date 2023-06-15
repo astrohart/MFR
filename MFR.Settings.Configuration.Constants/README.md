@@ -3,9 +3,6 @@
 
 ## Contents
 
-- [ConfigPathRegistry](#T-MFR-Settings-Configuration-Constants-ConfigPathRegistry 'MFR.Settings.Configuration.Constants.ConfigPathRegistry')
-  - [KeyName](#F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-KeyName 'MFR.Settings.Configuration.Constants.ConfigPathRegistry.KeyName')
-  - [ValueName](#F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-ValueName 'MFR.Settings.Configuration.Constants.ConfigPathRegistry.ValueName')
 - [Resources](#T-MFR-Settings-Configuration-Constants-Properties-Resources 'MFR.Settings.Configuration.Constants.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Constants-Properties-Resources-Culture 'MFR.Settings.Configuration.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Constants-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Constants.Properties.Resources.ResourceManager')
@@ -15,46 +12,6 @@
   - [MatchExactWordOnly](#F-MFR-Settings-Configuration-Constants-TextMatchingConfiguration-MatchExactWordOnly 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration.MatchExactWordOnly')
   - [NeitherMatchCaseNorExactWord](#F-MFR-Settings-Configuration-Constants-TextMatchingConfiguration-NeitherMatchCaseNorExactWord 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration.NeitherMatchCaseNorExactWord')
   - [Unknown](#F-MFR-Settings-Configuration-Constants-TextMatchingConfiguration-Unknown 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration.Unknown')
-
-<a name='T-MFR-Settings-Configuration-Constants-ConfigPathRegistry'></a>
-## ConfigPathRegistry `type`
-
-##### Namespace
-
-MFR.Settings.Configuration.Constants
-
-##### Summary
-
-Values used to read the configuration file path from the system Registry.
-
-##### Remarks
-
-The configuration file contains user settings that control how the
-application runs.
-
-
-
-The configuration file is in JSON format.
-
-
-
-Configuration files are intended to be stored on a per user basis.
-
-<a name='F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-KeyName'></a>
-### KeyName `constants`
-
-##### Summary
-
-Gets the path to the Registry subkey that stores information about
-the paths of files.
-
-<a name='F-MFR-Settings-Configuration-Constants-ConfigPathRegistry-ValueName'></a>
-### ValueName `constants`
-
-##### Summary
-
-Gets the name of the Registry value that holds the path to the
-configuration file.
 
 <a name='T-MFR-Settings-Configuration-Constants-Properties-Resources'></a>
 ## Resources `type`

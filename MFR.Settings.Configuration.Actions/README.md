@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [Is](#T-MFR-Settings-Configuration-Actions-Is 'MFR.Settings.Configuration.Actions.Is')
+  - [ConfigurationBlankOrNull(configuration)](#M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Actions.Is.ConfigurationBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [LoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction')
   - [#ctor()](#M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.#ctor')
   - [Instance](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-Instance 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.Instance')
@@ -18,6 +20,37 @@
 - [Resources](#T-MFR-Settings-Configuration-Actions-Properties-Resources 'MFR.Settings.Configuration.Actions.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Actions-Properties-Resources-Culture 'MFR.Settings.Configuration.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Actions-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Actions.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Settings-Configuration-Actions-Is'></a>
+## Is `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Actions
+
+<a name='M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### ConfigurationBlankOrNull(configuration) `method`
+
+##### Summary
+
+Determines whether the specified `configuration` is blank or
+not.
+
+##### Returns
+
+`true` if the specified
+`configuration` is the blank application configuration or if
+a `null` reference is passed as the argument of the
+`configuration` parameter; `false`
+otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface. |
 
 <a name='T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction'></a>
 ## LoadConfigurationFilePathFromRegistryAction `type`
