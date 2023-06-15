@@ -86,6 +86,7 @@ namespace MFR.Settings.Configuration.Tests
             IProjectFileRenamerConfiguration configuration = default;
 
             Assert.DoesNotThrow(() => configuration = ProjectFileRenamerConfigurationProvider.Load());
+            Assert.That(ProjectFileRenamerConfiguration.IsBlankOrNull(configuration));
         }
     }
 }
