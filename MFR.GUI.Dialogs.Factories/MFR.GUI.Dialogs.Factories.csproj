@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="GetAutoStartCancellableProgressDialog.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="MakeNewCustomizeOperationsDialog.cs" />
     <Compile Include="MakeNewErrorReportDialog.cs" />
     <Compile Include="MakeNewFolderSelectDialog.cs" />
     <Compile Include="MakeNewOperationDrivenProgressDialog.cs" />

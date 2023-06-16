@@ -127,6 +127,6 @@
     <value>Rename Subfolders</value>
   </data>
   <data name="OperationName_ReplaceTextInFiles" xml:space="preserve">
-    <value>Replace In Files</value>
+    <value>Replace in Files</value>
   </data>
 </root>

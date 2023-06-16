@@ -137,6 +137,14 @@
       <Project>{F81F4287-BEB2-4EAD-ACC4-CE62D28FAF6A}</Project>
       <Name>MFR.GUI.Models.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Factories\MFR.GUI.Models.Factories.csproj">
+      <Project>{7A7199BF-A235-4CC2-A2E4-8AEF5FB45214}</Project>
+      <Name>MFR.GUI.Models.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
+      <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>
+      <Name>MFR.GUI.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Models\MFR.GUI.Models.csproj">
       <Project>{3F247357-B6E3-4681-85FF-889EEA471C89}</Project>
       <Name>MFR.GUI.Models</Name>

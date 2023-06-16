@@ -1,5 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.GUI.Models;
+using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -9,7 +9,8 @@ namespace MFR.Settings.Configuration.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
-    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    /// <see
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface, and returns references to them.
     /// </summary>
     [Log(AttributeExclude = true)]
@@ -39,8 +40,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndFindWhat(this IProjectFileRenamerConfiguration self,
-            string findWhat)
+        public static IProjectFileRenamerConfiguration AndFindWhat(
+            this IProjectFileRenamerConfiguration self, string findWhat)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
             if (!string.IsNullOrWhiteSpace(self.FindWhat) &&
@@ -76,7 +77,8 @@ namespace MFR.Settings.Configuration.Factories
         /// passed a <see langword="null" /> value.
         /// </exception>
         public static IProjectFileRenamerConfiguration AndFindWhatHistory(
-            this IProjectFileRenamerConfiguration self, List<string> findWhatHistory)
+            this IProjectFileRenamerConfiguration self,
+            List<string> findWhatHistory)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -108,8 +110,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndIsFolded(this IProjectFileRenamerConfiguration self,
-            bool isFolded)
+        public static IProjectFileRenamerConfiguration AndIsFolded(
+            this IProjectFileRenamerConfiguration self, bool isFolded)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -141,8 +143,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndMatchCase(this IProjectFileRenamerConfiguration self,
-            bool matchCase)
+        public static IProjectFileRenamerConfiguration AndMatchCase(
+            this IProjectFileRenamerConfiguration self, bool matchCase)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -174,8 +176,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndMatchExactWord(this IProjectFileRenamerConfiguration self,
-            bool matchExactWord)
+        public static IProjectFileRenamerConfiguration AndMatchExactWord(
+            this IProjectFileRenamerConfiguration self, bool matchExactWord)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -211,7 +213,7 @@ namespace MFR.Settings.Configuration.Factories
         /// </exception>
         public static IProjectFileRenamerConfiguration AndOperationsToPerform(
             this IProjectFileRenamerConfiguration self,
-            List<OperationTypeInfo> operationsToPerform)
+            List<IOperationTypeInfo> operationsToPerform)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -243,8 +245,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndReOpenSolution(this IProjectFileRenamerConfiguration self,
-            bool reOpenSolution)
+        public static IProjectFileRenamerConfiguration AndReOpenSolution(
+            this IProjectFileRenamerConfiguration self, bool reOpenSolution)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -276,8 +278,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndReplaceWith(this IProjectFileRenamerConfiguration self,
-            string replaceWith)
+        public static IProjectFileRenamerConfiguration AndReplaceWith(
+            this IProjectFileRenamerConfiguration self, string replaceWith)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
             if (!string.IsNullOrWhiteSpace(self.ReplaceWith) &&
@@ -313,7 +315,8 @@ namespace MFR.Settings.Configuration.Factories
         /// passed a <see langword="null" /> value.
         /// </exception>
         public static IProjectFileRenamerConfiguration AndReplaceWithHistory(
-            this IProjectFileRenamerConfiguration self, List<string> replaceWithHistory)
+            this IProjectFileRenamerConfiguration self,
+            List<string> replaceWithHistory)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -412,8 +415,10 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndSetReplaceTextInFilesTo(
-            this IProjectFileRenamerConfiguration self, bool replaceTextInFiles)
+        public static IProjectFileRenamerConfiguration
+            AndSetReplaceTextInFilesTo(
+                this IProjectFileRenamerConfiguration self,
+                bool replaceTextInFiles)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -481,7 +486,8 @@ namespace MFR.Settings.Configuration.Factories
         /// passed a <see langword="null" /> value.
         /// </exception>
         public static IProjectFileRenamerConfiguration AndStartingFolderHistory(
-            this IProjectFileRenamerConfiguration self, List<string> startingFolderHistory)
+            this IProjectFileRenamerConfiguration self,
+            List<string> startingFolderHistory)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -513,8 +519,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration ForStartingFolder(this IProjectFileRenamerConfiguration self,
-            string startingFolder)
+        public static IProjectFileRenamerConfiguration ForStartingFolder(
+            this IProjectFileRenamerConfiguration self, string startingFolder)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
             if (string.IsNullOrWhiteSpace(startingFolder)) return self;
@@ -526,12 +532,15 @@ namespace MFR.Settings.Configuration.Factories
 
         /// <summary>
         /// Creates a new instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
         /// and returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </returns>
         public static IProjectFileRenamerConfiguration FromScratch()
@@ -594,8 +603,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration SetRenameFilesTo(this IProjectFileRenamerConfiguration self,
-            bool renameFiles)
+        public static IProjectFileRenamerConfiguration SetRenameFilesTo(
+            this IProjectFileRenamerConfiguration self, bool renameFiles)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -628,8 +637,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration ShouldAutoStart(this IProjectFileRenamerConfiguration self,
-            bool autoStart)
+        public static IProjectFileRenamerConfiguration ShouldAutoStart(
+            this IProjectFileRenamerConfiguration self, bool autoStart)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 

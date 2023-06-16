@@ -1,6 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
+using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
@@ -88,9 +89,16 @@ namespace MFR.Settings.Configuration.Actions
             {
                 // Run validation on the properties of the input registry query
                 // expression object. This method throws exceptions if data is not valid.
-                GetRegistryExpressionValidator<string>.Instance()
-                    .ForRegQueryExpression(Input)
-                    .Validate();
+                IRegQueryExpressionValidator<string>
+                    regQueryExpressionValidator = default;
+                regQueryExpressionValidator =
+                    GetRegistryExpressionValidator<string>.Instance()
+                        .ForRegQueryExpression(Input);
+                if (regQueryExpressionValidator ==  null) return result;
+
+                // An exception gets thrown if the registry query expression
+                // is not valid.
+                regQueryExpressionValidator.Validate();
 
                 var pathname = Load.String.FromRegistry(
                                        Input.KeyPath, Input.ValueName,
@@ -98,10 +106,11 @@ namespace MFR.Settings.Configuration.Actions
                                    )
                                    .Replace("\"", string.Empty);
 
-                if (string.IsNullOrWhiteSpace(pathname) ||
-                    !File.Exists(pathname))
+                if (string.IsNullOrWhiteSpace(pathname) 
+                    || !File.Exists(pathname))
                     return result;
-                if (!File.Exists(pathname)) return result;
+                if (!File.Exists(pathname))
+                    return result;
 
                 result = MakeNewFileSystemEntry.ForPath(pathname);
             }

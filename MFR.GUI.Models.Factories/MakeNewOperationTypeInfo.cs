@@ -1,3 +1,4 @@
+using MFR.GUI.Models.Converters.Factories;
 using MFR.GUI.Models.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using MFR.Operations.Constants;
@@ -56,6 +57,7 @@ namespace MFR.GUI.Models.Factories
             if (self == null) throw new ArgumentNullException(nameof(self));
 
             self.OperationType = type;
+            self.Name = GetOperationName.For(type);
 
             return self;
         }

@@ -1,4 +1,4 @@
-using MFR.GUI.Models;
+using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Events;
 using System.Collections.Generic;
 
@@ -59,6 +59,17 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets a reference to a collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
+        /// all the operations the user can perform with this application.
+        /// </summary>
+        List<IOperationTypeInfo> InvokableOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a value indicating whether the form is in the Folded state.
         /// </summary>
         /// <remarks>
@@ -97,17 +108,6 @@ namespace MFR.Settings.Configuration.Interfaces
         /// word on found text.
         /// </summary>
         bool MatchExactWord
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a reference to a collection of instances of
-        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
-        /// all the operations the user can perform with this application.
-        /// </summary>
-        List<OperationTypeInfo> InvokableOperations
         {
             get;
             set;

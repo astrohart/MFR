@@ -9,7 +9,7 @@
   - [AndIsFolded(self,isFolded)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndIsFolded-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndIsFolded(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndMatchCase(self,matchCase)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndMatchCase-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndMatchCase(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndMatchExactWord(self,matchExactWord)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndMatchExactWord-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndMatchExactWord(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
-  - [AndOperationsToPerform(self,operationsToPerform)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndOperationsToPerform-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{MFR-GUI-Models-OperationTypeInfo}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndOperationsToPerform(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{MFR.GUI.Models.OperationTypeInfo})')
+  - [AndOperationsToPerform(self,operationsToPerform)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndOperationsToPerform-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndOperationsToPerform(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [AndReOpenSolution(self,reOpenSolution)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReOpenSolution(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndReplaceWith(self,replaceWith)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWith-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReplaceWith(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [AndReplaceWithHistory(self,replaceWithHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWithHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReplaceWithHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
@@ -196,7 +196,7 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndOperationsToPerform-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{MFR-GUI-Models-OperationTypeInfo}-'></a>
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndOperationsToPerform-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
 ### AndOperationsToPerform(self,operationsToPerform) `method`
 
 ##### Summary
@@ -218,7 +218,7 @@ method, for fluent use.
 the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |
-| operationsToPerform | [System.Collections.Generic.List{MFR.GUI.Models.OperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{MFR.GUI.Models.OperationTypeInfo}') | (Required.) Reference to an instance of an enumerable collection of instances
+| operationsToPerform | [System.Collections.Generic.List{MFR.GUI.Models.Interfaces.IOperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{MFR.GUI.Models.Interfaces.IOperationTypeInfo}') | (Required.) Reference to an instance of an enumerable collection of instances
 of [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') that contains the desired
 value. |
 
@@ -518,7 +518,8 @@ passed a `null` value. |
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface
 and returns a reference to it.
 
 ##### Returns

@@ -1,5 +1,8 @@
+using MFR.GUI.Models.Converters.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
+using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Models.Converters
 {
@@ -27,29 +30,18 @@ namespace MFR.GUI.Models.Converters
         /// </returns>
         public static string ToString(OperationType type)
         {
-            string result;
+            var result = string.Empty;
 
-            switch (type)
+            try
             {
-                case OperationType.RenameFilesInFolder:
-                    result = "Rename Files in Folder";
-                    break;
+                result = GetOperationName.For(type);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
 
-                case OperationType.RenameSubFolders:
-                    result = "Rename Subfolders";
-                    break;
-
-                case OperationType.ReplaceTextInFiles:
-                    result = "Replace Text in Files";
-                    break;
-
-                case OperationType.RenameSolutionFolders:
-                    result = "Rename Solution Folders";
-                    break;
-
-                default:
-                    result = string.Empty;
-                    break;
+                result = string.Empty;
             }
 
             return result;
