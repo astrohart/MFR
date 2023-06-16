@@ -7,6 +7,7 @@
   - [ConfigurationBlankOrNull(configuration)](#M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Actions.Is.ConfigurationBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [LoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction')
   - [#ctor()](#M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.#ctor')
+  - [AccessTheRegueryExpressionValidator](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-AccessTheRegueryExpressionValidator 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.AccessTheRegueryExpressionValidator')
   - [Instance](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-Instance 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.Instance')
   - [MessageType](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-MessageType 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.MessageType')
   - [#cctor()](#M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#cctor 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.#cctor')
@@ -74,6 +75,14 @@ Empty, protected constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-AccessTheRegueryExpressionValidator'></a>
+### AccessTheRegueryExpressionValidator `property`
+
+##### Summary
+
+Gets the one and only instance of the Registry query expression validator that
+read [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values  from the system Registry.
 
 <a name='P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-Instance'></a>
 ### Instance `property`

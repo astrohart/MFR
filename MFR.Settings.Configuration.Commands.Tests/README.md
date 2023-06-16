@@ -8,7 +8,7 @@
   - [ResourceManager](#P-MFR-Settings-Configuration-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Commands.Tests.Properties.Resources.ResourceManager')
 - [SaveConfigurationToFileCommandTests](#T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests')
   - [FILE_PATH](#F-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
-  - [ProjectFileRenamerConfigurationData](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.ProjectFileRenamerConfigurationData')
+  - [BlankConfiguration](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.BlankConfiguration')
   - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
 - [SaveStringToRegistryCommandTests](#T-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests')
   - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
@@ -65,8 +65,8 @@ it is serialized to disk.
 
 File in the root of the C: drive where the data is to be saved.
 
-<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData'></a>
-### ProjectFileRenamerConfigurationData `property`
+<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration'></a>
+### BlankConfiguration `property`
 
 ##### Summary
 

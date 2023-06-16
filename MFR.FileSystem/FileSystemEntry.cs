@@ -1,3 +1,4 @@
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.Operations;
 using MFR.Operations.Constants;
@@ -70,6 +71,16 @@ namespace MFR.FileSystem
             get;
             protected set;
         }
+
+        /// <summary>
+        /// Gets a value that indicates whether the file system entry exists.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the file system entry exists;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public bool Exists
+            => Does.FileSystemEntryExist(Path);
 
         /// <summary>
         /// Gets or sets the pathname of the file-system entry.

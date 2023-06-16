@@ -44,15 +44,10 @@ namespace MFR.FileSystem.Factories
         /// </remarks>
         public static IFileSystemEntry ForPath(string pathname)
         {
-            IFileSystemEntry result = default;
+            IFileSystemEntry result;
 
             try
             {
-                if (string.IsNullOrWhiteSpace(pathname))
-                    return result;
-                if (!Does.FileSystemEntryExist(pathname))
-                    return result;
-
                 result = new FileSystemEntry(pathname);
             }
             catch (Exception ex)

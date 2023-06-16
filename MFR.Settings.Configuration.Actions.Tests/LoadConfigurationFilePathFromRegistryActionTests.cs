@@ -9,6 +9,11 @@ using MFR.Settings.Configuration.Actions.Constants;
 using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using xyLOGIX.Core.Assemblies.Info;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Configuration.Actions.Tests
 {
@@ -23,6 +28,22 @@ namespace MFR.Settings.Configuration.Actions.Tests
         LoadConfigurationFilePathFromRegistryActionTests :
             RegistryDataExchangeTestsBase
     {
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Actions.Tests.LoadConfigurationFilePathFromRegistryActionTests" />
+        /// and returns a reference to it.
+        /// </summary>
+        public LoadConfigurationFilePathFromRegistryActionTests()
+        {
+            LogFileManager.InitializeLogging(
+                muteConsole: false,
+                infrastructureType: LoggingInfrastructureType.PostSharp,
+                logFileName: Get.LogFilePath(),
+                applicationName: Get.ApplicationProductName()
+            );
+        }
+
         /// <summary>
         /// Gets the one and only instance of the Registry query expression validator that
         /// read <see cref="T:System.String" /> values  from the system Registry.
@@ -86,10 +107,138 @@ namespace MFR.Settings.Configuration.Actions.Tests
                     Path.GetFileName(configFileSystemEntry.Path)
                 )
             );
-            Assert.That(
-                configFileSystemEntry.Path,
-                Is.EqualTo(DEFAULT_CONFIG_FILE_PATH)
+            Console.WriteLine("Diffing the returned pathname and the expected value...");
+            Console.WriteLine(
+                DiffStrings(
+                    configFileSystemEntry.Path, DEFAULT_CONFIG_FILE_PATH
+                )
             );
+            Assert.AreEqual(
+                DEFAULT_CONFIG_FILE_PATH, configFileSystemEntry.Path
+            );
+        }
+
+        private static string DiffStrings(string s1, string s2)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(s1) &&
+                    string.IsNullOrWhiteSpace(s2))
+                    return result;
+
+                List<string> diff;
+                var set1 = s1.Split(' ')
+                             .Distinct();
+                var set2 = s2.Split(' ')
+                             .Distinct();
+
+                diff = set2.Count() > set1.Count()
+                    ? set2.Except(set1)
+                          .ToList()
+                    : set1.Except(set2)
+                          .ToList();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Exposes static methods to obtain data from various data sources.
+        /// </summary>
+        private static class Get
+        {
+            /// <summary>
+            /// A <see cref="T:System.String" /> containing the final piece of the path of the
+            /// log file.
+            /// </summary>
+            private static readonly string LOG_FILE_PATH_TERMINATOR =
+                $@"{AssemblyCompany}\{AssemblyProduct}\Logs\{AssemblyTitle}_log.txt";
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains the product name defined
+            /// for this application.
+            /// </summary>
+            /// <remarks>
+            /// This property is really an alias for the
+            /// <see cref="P:AssemblyMetadata.AssemblyCompany" /> property.
+            /// </remarks>
+            private static string AssemblyCompany
+                => AssemblyMetadata.AssemblyCompany;
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains the product name defined
+            /// for this application.
+            /// </summary>
+            /// <remarks>
+            /// This property is really an alias for the
+            /// <see cref="P:AssemblyMetadata.AssemblyProduct" /> property.
+            /// </remarks>
+            private static string AssemblyProduct
+                => AssemblyMetadata.AssemblyProduct.Replace(
+                    "xyLOGIX ", string.Empty
+                );
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains the assembly title defined
+            /// for this application.
+            /// </summary>
+            /// <remarks>
+            /// This property is really an alias for the
+            /// <see cref="P:AssemblyMetadata.AssemblyTitle" /> property.
+            /// </remarks>
+            private static string AssemblyTitle
+                => AssemblyMetadata.AssemblyTitle.Replace(" ", "_");
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains a user-friendly name for
+            /// the software product of which this application or class library is a part.
+            /// </summary>
+            /// <returns>
+            /// A <see cref="T:System.String" /> that contains a user-friendly name
+            /// for the software product of which this application or class library is a part.
+            /// </returns>
+            public static string ApplicationProductName()
+            {
+                string result;
+
+                try
+                {
+                    result = AssemblyProduct;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+
+            /// <summary>
+            /// Obtains a <see cref="T:System.String" /> that contains the fully-qualified
+            /// pathname of the file that should be used for logging messages.
+            /// </summary>
+            /// <returns>
+            /// A <see cref="T:System.String" /> that contains the fully-qualified
+            /// pathname of the file that should be used for logging messages.
+            /// </returns>
+            public static string LogFilePath()
+                => Path.Combine(
+                    Environment.GetFolderPath(
+                        Environment.SpecialFolder.CommonApplicationData
+                    ), LOG_FILE_PATH_TERMINATOR
+                );
         }
     }
 }

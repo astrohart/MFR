@@ -4,6 +4,8 @@
 ## Contents
 
 - [Determine](#T-MFR-Settings-Profiles-Providers-Actions-Determine 'MFR.Settings.Profiles.Providers.Actions.Determine')
+  - [CorrectProfileListPathForSaving(pathnameFromRegistry,submittedPathname)](#M-MFR-Settings-Profiles-Providers-Actions-Determine-CorrectProfileListPathForSaving-System-String,System-String- 'MFR.Settings.Profiles.Providers.Actions.Determine.CorrectProfileListPathForSaving(System.String,System.String)')
+  - [IsProfileListPathValidForSaving(pathname)](#M-MFR-Settings-Profiles-Providers-Actions-Determine-IsProfileListPathValidForSaving-System-String- 'MFR.Settings.Profiles.Providers.Actions.Determine.IsProfileListPathValidForSaving(System.String)')
   - [WhetherProfileListPathIsValid(pathname)](#M-MFR-Settings-Profiles-Providers-Actions-Determine-WhetherProfileListPathIsValid-System-String- 'MFR.Settings.Profiles.Providers.Actions.Determine.WhetherProfileListPathIsValid(System.String)')
 - [Execute](#T-MFR-Settings-Profiles-Providers-Actions-Execute 'MFR.Settings.Profiles.Providers.Actions.Execute')
   - [OperationToLoadProfileCollectionFromFile(action)](#M-MFR-Settings-Profiles-Providers-Actions-Execute-OperationToLoadProfileCollectionFromFile-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection}- 'MFR.Settings.Profiles.Providers.Actions.Execute.OperationToLoadProfileCollectionFromFile(MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection})')
@@ -28,6 +30,68 @@ MFR.Settings.Profiles.Providers.Actions
 ##### Summary
 
 Exposes static methods to determine whether facts are true or false about data.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Determine-CorrectProfileListPathForSaving-System-String,System-String-'></a>
+### CorrectProfileListPathForSaving(pathnameFromRegistry,submittedPathname) `method`
+
+##### Summary
+
+Determines whether a user-submitted path, or the pathname stored in the system
+Registry, is the correct pathname to be utilized for saving out
+configuration-setting profiles to the disk with.
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the correct pathname to be
+utilized for the `Save` operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathnameFromRegistry | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
+that represents the profile list file pathname that is currently stored in the
+system Registry. |
+| submittedPathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
+containing user-submitted pathname for saving the profiles. |
+
+##### Remarks
+
+The `pathnameFromRegistry` takes precedence.
+
+
+
+Neither the `submittedPathname` nor the
+`pathnameFromRegistry` have to represent a file that exists
+on the disk, since, if this is the case, the file will be created by the Save
+operation.
+
+<a name='M-MFR-Settings-Profiles-Providers-Actions-Determine-IsProfileListPathValidForSaving-System-String-'></a>
+### IsProfileListPathValidForSaving(pathname) `method`
+
+##### Summary
+
+Returns a value that indicates whether the specified
+`pathname` is valid for use in saving the user's favorite
+configuration-setting profiles out to the disk.
+
+##### Returns
+
+`true` if the specified `pathname`
+is valid for saving; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname that is to be checked. |
+
+##### Remarks
+
+A particular value of the `pathname` is valid for
+saving if the specified value is non-blank and has a filename of
+`profiles.json`.
 
 <a name='M-MFR-Settings-Profiles-Providers-Actions-Determine-WhetherProfileListPathIsValid-System-String-'></a>
 ### WhetherProfileListPathIsValid(pathname) `method`
