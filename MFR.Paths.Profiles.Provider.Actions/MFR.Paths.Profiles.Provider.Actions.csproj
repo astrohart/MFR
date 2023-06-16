@@ -85,9 +85,6 @@
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="PostSharp, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.2023.0.4\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -101,10 +98,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Execute.cs" />
@@ -232,10 +226,6 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Commands.Factories\MFR.Settings.Profiles.Commands.Factories.csproj">
       <Project>{0B228234-D21A-4205-9490-1154943FB8BD}</Project>
       <Name>MFR.Settings.Profiles.Commands.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Constants\MFR.Settings.Profiles.Constants.csproj">
-      <Project>{26976BA2-FCF1-4B05-BE27-CD6D77B916B5}</Project>
-      <Name>MFR.Settings.Profiles.Constants</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

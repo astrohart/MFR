@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -34,7 +35,31 @@ namespace MFR.Settings.Profiles.Providers.Actions
             {
                 result = !string.IsNullOrWhiteSpace(pathname) &&
                          File.Exists(pathname) &&
-                         "profiles.json".Equals(Path.GetFileName(pathname));
+                         ProfileFile.DefaultFilename.Equals(Path.GetFileName(pathname));
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        public static bool WhetherProfileListPathIsValidForSaving(string pathname)
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+
+                result =
+                    ProfileFile.DefaultFilename.Equals(
+                        Path.GetFileName(pathname)
+                    );
             }
             catch (Exception ex)
             {

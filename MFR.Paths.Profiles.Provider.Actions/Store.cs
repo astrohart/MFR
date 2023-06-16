@@ -1,10 +1,7 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using MFR.Messages.Commands.Interfaces;
-using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
-using MFR.Metadata.Registry.Validators.Factories;
-using MFR.Metadata.Registry.Validators.Interfaces;
-using MFR.Paths.Profiles.Provider.Constants;
 using MFR.Registry.Helpers;
 using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
@@ -14,7 +11,8 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Paths.Profiles.Provider.Actions
 {
     /// <summary>
-    /// Exposes static methods for storing the pathname of a <c>profiles.json</c> file
+    /// Exposes static methods for storing the pathnameToSave of a <c>profiles.json</c>
+    /// file
     /// to the system Registry.
     /// </summary>
     public static class Store
@@ -30,7 +28,9 @@ namespace MFR.Paths.Profiles.Provider.Actions
                 if (string.IsNullOrWhiteSpace(companyName)) return;
                 if (string.IsNullOrWhiteSpace(productName)) return;
                 if (string.IsNullOrWhiteSpace(pathname)) return;
-                if (!"profiles.json".Equals(Path.GetFileName(pathname))) return;
+                if (!ProfileFile.DefaultFilename.Equals(
+                        Path.GetFileName(pathname)
+                    )) return;
 
                 var regKeyPathname =
                     Formulate.ProfileFilePathRegistryKeyPathname(
@@ -39,28 +39,14 @@ namespace MFR.Paths.Profiles.Provider.Actions
                 if (string.IsNullOrWhiteSpace(regKeyPathname)) return;
                 if (!regKeyPathname.StartsWithValidHiveName()) return;
 
-                IRegOperationMetadata<string>
-                    saveProfilePathnameRegOperationMetadata = default;
-
-                saveProfilePathnameRegOperationMetadata =
-                    MakeNewRegOperationMetadata.FromScatch<string>()
-                                               .ForKeyPath(regKeyPathname)
-                                               .AndValueName(
-                                                   ProfilePathRegistry.ValueName
-                                               )
-                                               .WithValue(pathname);
-
+                var saveProfilePathnameRegOperationMetadata =
+                    Generate.RegOperationMetadataForProfileCollectionPath(
+                        regKeyPathname, pathname
+                    );
                 if (saveProfilePathnameRegOperationMetadata == null) return;
 
-                if (!AccessTheRegOperationMetadataValidator
-                     .ForRegOperationMetadata(
-                         saveProfilePathnameRegOperationMetadata
-                     )
-                     .Validate())
-                    return;
-
-                    ICommand<IRegOperationMetadata<string>>
-                        saveProfilePathToRegistryCommand = default;
+                ICommand<IRegOperationMetadata<string>>
+                    saveProfilePathToRegistryCommand = default;
 
                 saveProfilePathToRegistryCommand =
                     GetProfileCollectionCommand

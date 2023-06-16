@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -108,7 +109,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
                 if (profileCollectionFileSystemEntry == null) return result;
                 if (string.IsNullOrWhiteSpace(
                         profileCollectionFileSystemEntry.Path
-                    ) || !"profiles.json".Equals(
+                    ) || !ProfileFile.DefaultFilename.Equals(
                         Path.GetFileName(profileCollectionFileSystemEntry.Path)
                     )) return result;
 

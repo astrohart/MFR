@@ -1,11 +1,11 @@
-﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Constants;
-using MFR.Expressions.Registry.Factories;
+﻿using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
 using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Metadata.Registry.Factories;
+using MFR.Metadata.Registry.Interfaces;
 using MFR.Metadata.Registry.Validators.Factories;
 using MFR.Metadata.Registry.Validators.Interfaces;
 using MFR.Paths.Profiles.Provider.Constants;
@@ -24,11 +24,9 @@ namespace MFR.Paths.Profiles.Provider.Actions
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Metadata.Registry.Validators.Interfaces.IRegOperationMetadataValidator
-        /// 
-        /// 
-        /// 
-        /// <T>" /> interface.
+        ///     cref="T:MFR.Metadata.Registry.Validators.Interfaces.IRegOperationMetadataValidator{T}" />
+        /// interface that represents an object that validates the metadata used for
+        /// performing Registry operations.
         /// </summary>
         private static IRegOperationMetadataValidator<string>
             AccessTheRegOperationMetadataValidator
@@ -36,11 +34,11 @@ namespace MFR.Paths.Profiles.Provider.Actions
             get;
         } = GetRegOperationMetadataValidator<string>.SoleInstance();
 
-
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}" /> interface.
+        ///     cref="T:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}" />
+        /// interface.
         /// </summary>
         private static IRegQueryExpressionValidator<string>
             AccessTheRegQueryExpressionValidator
@@ -111,6 +109,72 @@ namespace MFR.Paths.Profiles.Provider.Actions
                                                        */
                                                       defaultValue
                                                   );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Generates an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}" />
+        /// interface that is to be used for storing the specified
+        /// <paramref name="pathnameToSave" /> under the specified
+        /// <paramref name="regKeyPathname" />.
+        /// </summary>
+        /// <param name="pathnameToSave">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file that is to be saved on the hard disk.
+        /// </param>
+        /// <param name="regKeyPathname">
+        /// (Required.) A fully-qualified Registry key
+        /// pathname under which the fully-qualified pathname of the <c>profiles.json</c>
+        /// file indicated by the <paramref name="pathnameToSave" /> parameter is to be
+        /// stored.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}" />
+        /// interface that can be used for saving the specified
+        /// <paramref name="pathnameToSave" /> to the Registry key having the specified
+        /// <paramref name="regKeyPathname" />.
+        /// </returns>
+        /// <remarks>
+        /// The file indicated in the <paramref name="pathnameToSave" /> parameter must
+        /// have the filename <c>profiles.json</c> in order to be saved to the system
+        /// Registry.
+        /// <para />
+        /// Moreover, the <paramref name="regKeyPathname" /> parameter must not have a
+        /// blank argument.
+        /// <para />
+        /// If either of these conditions aren't met, then this method returns a
+        /// <see langword="null" /> reference.
+        /// </remarks>
+        public static IRegOperationMetadata<string>
+            RegOperationMetadataForProfileCollectionPath(
+                string regKeyPathname,
+                string pathnameToSave
+            )
+        {
+            IRegOperationMetadata<string> result = default;
+
+            try
+            {
+                result = MakeNewRegOperationMetadata.FromScatch<string>()
+                                                    .ForKeyPath(regKeyPathname)
+                                                    .AndValueName(
+                                                        ProfilePathRegistry
+                                                            .ValueName
+                                                    )
+                                                    .WithValue(pathnameToSave);
             }
             catch (Exception ex)
             {
