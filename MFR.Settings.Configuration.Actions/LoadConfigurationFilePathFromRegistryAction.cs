@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
 using MFR.Expressions.Registry.Validators.Interfaces;
@@ -125,7 +124,10 @@ namespace MFR.Settings.Configuration.Actions
                 result = default;
             }
 
-            DebugUtils.WriteLine(DebugLevel.Debug, $"LoadConfigurationFilePathFromRegistryAction.ExecuteOperationIfNotCached: Result = '{result}'");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"LoadConfigurationFilePathFromRegistryAction.ExecuteOperationIfNotCached: Result = '{result}'"
+            );
 
             return result;
         }
