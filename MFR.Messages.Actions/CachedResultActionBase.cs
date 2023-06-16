@@ -138,12 +138,6 @@ namespace MFR.Messages.Actions
                 result = default;
             }
 
-            if (result != null)
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** SUCCESS *** Successfully obtained the result."
-                );
-
             return result;
         }
 

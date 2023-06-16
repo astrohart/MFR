@@ -6,8 +6,6 @@ using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.Paths.Config.Provider.Actions;
-using MFR.Settings.Configuration.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;
 

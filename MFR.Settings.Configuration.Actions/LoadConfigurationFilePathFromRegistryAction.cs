@@ -125,6 +125,8 @@ namespace MFR.Settings.Configuration.Actions
                 result = default;
             }
 
+            DebugUtils.WriteLine(DebugLevel.Debug, $"LoadConfigurationFilePathFromRegistryAction.ExecuteOperationIfNotCached: Result = '{result}'");
+
             return result;
         }
     }

@@ -10,8 +10,6 @@ using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
 
@@ -98,57 +96,15 @@ namespace MFR.Settings.Configuration.Actions.Tests
             );
             Assert.IsNotNull(configFileSystemEntry);
 
-            Assert.IsNotEmpty(configFileSystemEntry.Path);
-            Assert.That(File.Exists(configFileSystemEntry.Path));
-
             Assert.That(!string.IsNullOrWhiteSpace(configFileSystemEntry.Path));
             Assert.That(
                 ConfigFile.DefaultFilename.Equals(
                     Path.GetFileName(configFileSystemEntry.Path)
                 )
             );
-            Console.WriteLine("Diffing the returned pathname and the expected value...");
-            Console.WriteLine(
-                DiffStrings(
-                    configFileSystemEntry.Path, DEFAULT_CONFIG_FILE_PATH
-                )
-            );
             Assert.AreEqual(
                 DEFAULT_CONFIG_FILE_PATH, configFileSystemEntry.Path
             );
-        }
-
-        private static string DiffStrings(string s1, string s2)
-        {
-            var result = string.Empty;
-
-            try
-            {
-                if (string.IsNullOrWhiteSpace(s1) &&
-                    string.IsNullOrWhiteSpace(s2))
-                    return result;
-
-                List<string> diff;
-                var set1 = s1.Split(' ')
-                             .Distinct();
-                var set2 = s2.Split(' ')
-                             .Distinct();
-
-                diff = set2.Count() > set1.Count()
-                    ? set2.Except(set1)
-                          .ToList()
-                    : set1.Except(set2)
-                          .ToList();
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = string.Empty;
-            }
-
-            return result;
         }
 
         /// <summary>
