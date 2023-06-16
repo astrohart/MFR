@@ -36,7 +36,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
                                         .For<IRegQueryExpression<string>,
                                             IFileSystemEntry>(
                                             ConfigActionType
-                                                .LoadStringFromRegistry
+                                                .LoadConfigFilePathFromRegistry
                                         )
                                         .AsCachedResultAction()
                                         .WithInput(

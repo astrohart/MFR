@@ -1,6 +1,10 @@
 ﻿using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Messages.Commands.Interfaces;
+using MFR.Metadata.Registry.Interfaces;
+using MFR.Settings.Configuration.Actions.Constants;
+using MFR.Settings.Configuration.Commands.Constants;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -38,6 +42,8 @@ namespace MFR.Paths.Config.Provider.Actions
             try
             {
                 if (action == null) return result;
+                if (action.MessageType != ConfigActionType.LoadConfigFilePathFromRegistry)
+                    return result;
 
                 result = action.Execute();
             }
@@ -50,6 +56,30 @@ namespace MFR.Paths.Config.Provider.Actions
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Executes a command that saves the
+        /// </summary>
+        /// <param name="command"></param>
+        public static void OperationToSaveConfigFilePathToRegistry(
+            ICommand<IRegOperationMetadata<string>> command
+        )
+        {
+            try
+            {
+                if (command == null) return;
+                if (command.MessageType != ConfigurationCommandType
+                        .SaveConfigurationFilePathToRegistry)
+                    return;
+
+                command.Execute();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

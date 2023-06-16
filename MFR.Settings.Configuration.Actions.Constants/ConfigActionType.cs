@@ -21,9 +21,9 @@ namespace MFR.Settings.Configuration.Actions.Constants
         /// <summary>
         /// Loads a string value from the system Registry.
         /// </summary>
-        public static readonly ConfigActionType LoadStringFromRegistry =
+        public static readonly ConfigActionType LoadConfigFilePathFromRegistry =
             new ConfigActionType(
-                Guid.NewGuid(), nameof(LoadStringFromRegistry)
+                Guid.NewGuid(), nameof(LoadConfigFilePathFromRegistry)
             );
 
         /// <summary>

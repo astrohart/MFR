@@ -49,7 +49,7 @@ namespace MFR.Settings.Configuration.Actions.Factories
             switch (actionType)
             {
                 case var _ when actionType ==
-                                ConfigActionType.LoadStringFromRegistry:
+                                ConfigActionType.LoadConfigFilePathFromRegistry:
                     action =
                         GetLoadConfigurationFilePathFromRegistryAction
                             .SoleInstance() as IAction<TInput, TResult>;

@@ -322,7 +322,7 @@ namespace MFR.Paths.Config.Provider.Actions
                 var action =
                     GetConfigAction
                         .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                            ConfigActionType.LoadStringFromRegistry
+                            ConfigActionType.LoadConfigFilePathFromRegistry
                         );
                 if (action == null)
                     return result; // failed to get action object

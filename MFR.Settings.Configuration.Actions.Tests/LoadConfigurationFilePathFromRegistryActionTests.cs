@@ -78,7 +78,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
 
             var loadConfigFilePathFromRegistryAction = GetConfigAction
                 .For<IRegQueryExpression<string>, IFileSystemEntry>(
-                    ConfigActionType.LoadStringFromRegistry
+                    ConfigActionType.LoadConfigFilePathFromRegistry
                 );
             Assert.IsNotNull(loadConfigFilePathFromRegistryAction);
 
