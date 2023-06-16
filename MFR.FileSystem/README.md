@@ -6,6 +6,7 @@
 - [FileSystemEntry](#T-MFR-FileSystem-FileSystemEntry 'MFR.FileSystem.FileSystemEntry')
   - [#ctor(path)](#M-MFR-FileSystem-FileSystemEntry-#ctor-System-String- 'MFR.FileSystem.FileSystemEntry.#ctor(System.String)')
   - [ContainingFolder](#P-MFR-FileSystem-FileSystemEntry-ContainingFolder 'MFR.FileSystem.FileSystemEntry.ContainingFolder')
+  - [Exists](#P-MFR-FileSystem-FileSystemEntry-Exists 'MFR.FileSystem.FileSystemEntry.Exists')
   - [OperationType](#P-MFR-FileSystem-FileSystemEntry-OperationType 'MFR.FileSystem.FileSystemEntry.OperationType')
   - [Path](#P-MFR-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path')
   - [UserState](#P-MFR-FileSystem-FileSystemEntry-UserState 'MFR.FileSystem.FileSystemEntry.UserState')
@@ -55,6 +56,18 @@ a blank or `null` string for a value. |
 ##### Summary
 
 Gets or sets the pathname of the parent folder of this file system entry.
+
+<a name='P-MFR-FileSystem-FileSystemEntry-Exists'></a>
+### Exists `property`
+
+##### Summary
+
+Gets a value that indicates whether the file system entry exists.
+
+##### Returns
+
+`true` if the file system entry exists;
+`false` otherwise.
 
 <a name='P-MFR-FileSystem-FileSystemEntry-OperationType'></a>
 ### OperationType `property`
