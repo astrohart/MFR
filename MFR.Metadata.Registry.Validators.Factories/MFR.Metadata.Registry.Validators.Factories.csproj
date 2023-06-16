@@ -101,12 +101,10 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetRegistryOperationMetadataValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +127,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Validators.Interfaces\MFR.Metadata.Registry.Validators.Interfaces.csproj">
+      <Project>{807FCA74-3D45-4B6F-A5CD-ED6F13CE0FA9}</Project>
+      <Name>MFR.Metadata.Registry.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Validators\MFR.Metadata.Registry.Validators.csproj">
+      <Project>{B979EBBF-F8AD-4652-8440-0F82D661409A}</Project>
+      <Name>MFR.Metadata.Registry.Validators</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
