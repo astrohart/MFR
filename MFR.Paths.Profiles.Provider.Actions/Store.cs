@@ -60,7 +60,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
                 if (!regKeyPathname.StartsWithValidHiveName()) return;
 
                 var saveProfilePathnameRegOperationMetadata =
-                    Generate.RegOperationMetadataForProfileCollectionPath(
+                    Generate.RegOperationMetadataForSavingProfileCollectionPath(
                         regKeyPathname, pathname
                     );
                 if (saveProfilePathnameRegOperationMetadata == null) return;

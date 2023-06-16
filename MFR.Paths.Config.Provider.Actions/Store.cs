@@ -37,17 +37,19 @@ namespace MFR.Paths.Config.Provider.Actions
                 if (string.IsNullOrWhiteSpace(regKeyPathname)) return;
                 if (!regKeyPathname.StartsWithValidHiveName()) return;
 
-                IRegOperationMetadata<string> metadata = default;
+                var saveConfigPathToRegistryMetadata =
+                    Generate.RegOperationMetadataForSavingConfigPath(
+                        regKeyPathname, pathname
+                    );
+                if (saveConfigPathToRegistryMetadata == null) return;
 
-                metadata =
-                    MakeNewRegOperationMetadata.FromScatch<string>()
-                                               .ForKeyPath(regKeyPathname)
-                                               .AndValueName(
-                                                   ConfigPathRegistry.ValueName
-                                               )
-                                               .WithValue(pathname);
+                var saveConfigPathToRegistryCommand =
+                    Generate.SaveConfigPathToRegistryCommand(
+                        saveConfigPathToRegistryMetadata
+                    );
+                if (saveConfigPathToRegistryCommand == null) return;
+                
 
-                if (metadata == null) return;
             }
             catch (Exception ex)
             {

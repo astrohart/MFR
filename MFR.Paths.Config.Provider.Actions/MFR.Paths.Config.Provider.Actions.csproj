@@ -101,10 +101,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Execute.cs" />
@@ -173,6 +170,14 @@
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
+      <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
+      <Name>MFR.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Messages.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
       <Name>MFR.Messages.Interfaces</Name>
@@ -188,6 +193,14 @@
     <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
       <Name>MFR.Metadata.Registry.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Validators.Factories\MFR.Metadata.Registry.Validators.Factories.csproj">
+      <Project>{C3ED2B8E-A7CD-4177-9CB9-906532C3BB80}</Project>
+      <Name>MFR.Metadata.Registry.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Validators.Interfaces\MFR.Metadata.Registry.Validators.Interfaces.csproj">
+      <Project>{807FCA74-3D45-4B6F-A5CD-ED6F13CE0FA9}</Project>
+      <Name>MFR.Metadata.Registry.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
@@ -209,9 +222,13 @@
       <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
       <Name>MFR.Settings.Configuration.Actions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj">
-      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Settings.Configuration.Constants</Name>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Constants\MFR.Settings.Configuration.Commands.Constants.csproj">
+      <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
+      <Name>MFR.Settings.Configuration.Commands.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Factories\MFR.Settings.Configuration.Commands.Factories.csproj">
+      <Project>{618A31B4-8C16-4054-9B2A-7614CC1AC830}</Project>
+      <Name>MFR.Settings.Configuration.Commands.Factories</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

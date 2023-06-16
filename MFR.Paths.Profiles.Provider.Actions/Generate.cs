@@ -162,7 +162,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
         /// <see langword="null" /> reference.
         /// </remarks>
         public static IRegOperationMetadata<string>
-            RegOperationMetadataForProfileCollectionPath(
+            RegOperationMetadataForSavingProfileCollectionPath(
                 string regKeyPathname,
                 string pathnameToSave
             )
@@ -259,6 +259,26 @@ namespace MFR.Paths.Profiles.Provider.Actions
             return result;
         }
 
+        /// <summary>
+        /// Generates a new <c>Command</c> object (an object that sends an application
+        /// message that has an input value but no output) for saving the pathname of the
+        /// file containing the user's saved configuration-setting profiles to the system
+        /// Registry.
+        /// </summary>
+        /// <param name="metadata">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{T}" />
+        /// interface.
+        /// <para />
+        /// This object specifies the information that tells the code under which Registry
+        /// key and value should the pathname be written.
+        /// </param>
+        /// <returns>
+        /// A new <c>Command</c> object (an object that sends an application
+        /// message that has an input value but no output) for saving the pathname of the
+        /// file containing the user's saved configuration-setting profiles to the system
+        /// Registry.
+        /// </returns>
         public static ICommand<IRegOperationMetadata<string>>
             SaveProfilePathToRegistryCommand(
                 IRegOperationMetadata<string> metadata
