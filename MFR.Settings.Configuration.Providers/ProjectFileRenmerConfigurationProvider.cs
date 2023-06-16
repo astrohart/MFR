@@ -280,12 +280,6 @@ namespace MFR.Settings.Configuration.Providers
             ConfigFilePath = pathname;
         }
 
-        [Log(AttributeExclude = true)]
-        ~ProjectFileRenamerConfigurationProvider()
-        {
-            ConfigPathProvider.Save();
-        }
-
         /// <summary>
         /// Saves configuration data to a file on the disk having path
         /// <paramref name="pathname" />.

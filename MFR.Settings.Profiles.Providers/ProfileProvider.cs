@@ -203,7 +203,7 @@ namespace MFR.Settings.Profiles.Providers
 
             try
             {
-                GetProfileCollectionCommandType.For<IFileSystemEntry>(
+                GetProfileCollectionCommand.For<IFileSystemEntry>(
                                                    ProfileCollectionCommandType
                                                        .SaveProfileCollectionToFile
                                                )
@@ -233,16 +233,6 @@ namespace MFR.Settings.Profiles.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-        }
-
-        /// <summary>
-        /// Allows an object to try to free resources and perform other cleanup operations
-        /// before it is reclaimed by garbage collection.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        ~ProfileProvider()
-        {
-            ProfileListPathProvider.Save();
         }
 
         /// <summary>

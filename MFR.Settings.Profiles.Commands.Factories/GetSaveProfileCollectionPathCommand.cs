@@ -56,7 +56,7 @@ namespace MFR.Settings.Profiles.Commands.Factories
                     "Value cannot be null or whitespace.", nameof(value)
                 );
 
-            return GetProfileCollectionCommandType
+            return GetProfileCollectionCommand
                    .For<IRegOperationMetadata<string>>(
                        ProfileCollectionCommandType.SaveProfileCollectionPathToRegistry
                    )

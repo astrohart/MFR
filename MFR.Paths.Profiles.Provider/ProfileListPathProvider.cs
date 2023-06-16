@@ -271,7 +271,11 @@ namespace MFR.Paths.Profiles.Provider
         /// event.
         /// </summary>
         protected virtual void OnProfileCollectionFilePathChanged()
-            => ProfileCollectionFilePathChanged?.Invoke(this, EventArgs.Empty);
+        {
+            Save();
+
+            ProfileCollectionFilePathChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         /// <summary>
         /// Raises the

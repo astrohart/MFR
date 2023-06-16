@@ -2,7 +2,6 @@
 using MFR.GUI.Constants;
 using MFR.Paths.Config.Provider.Actions;
 using MFR.Paths.Config.Provider.Interfaces;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using xyLOGIX.Core.Debug;
@@ -156,8 +155,7 @@ namespace MFR.Paths.Config.Provider
 
                 ConfigFilePath = Obtain.ConfigFilePath(
                     ProgramText.CompanyName,
-                    ProgramText.ProductNameWithoutCompany, 
-                    ConfigFilePath
+                    ProgramText.ProductNameWithoutCompany, ConfigFilePath
                 );
 
                 /*
@@ -215,7 +213,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="E:MFR.Paths.Config.Provider.ConfigPathProvider.ConfigFilePathSaveFailed" />
         /// event.
         /// </remarks>
-        [Log(AttributeExclude = true)]
         public void Save()
         {
             try
@@ -264,7 +261,11 @@ namespace MFR.Paths.Config.Provider
         /// event.
         /// </summary>
         protected virtual void OnConfigFilePathChanged()
-            => ConfigFilePathChanged?.Invoke(this, EventArgs.Empty);
+        {
+            Save(); // update the pathname in the system Registry
+
+            ConfigFilePathChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         /// <summary>
         /// Raises the

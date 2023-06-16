@@ -100,7 +100,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetProfileCollectionCommandType.cs" />
+    <Compile Include="GetProfileCollectionCommand.cs" />
     <Compile Include="GetSaveProfileCollectionPathCommand.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>

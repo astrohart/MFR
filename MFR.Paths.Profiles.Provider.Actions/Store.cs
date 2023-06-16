@@ -1,9 +1,14 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Messages.Commands.Interfaces;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Paths.Profiles.Provider.Constants;
 using MFR.Registry.Helpers;
+using MFR.Settings.Profiles.Actions.Factories;
+using MFR.Settings.Profiles.Commands.Constants;
+using MFR.Settings.Profiles.Commands.Factories;
 using System;
+using System.Windows.Input;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Profiles.Provider.Actions
@@ -46,15 +51,23 @@ namespace MFR.Paths.Profiles.Provider.Actions
 
                 if (saveProfilePathnameRegOperationMetadata == null) return;
 
-                /*
-GetSaveProfileCollectionPathCommand.ForPath(
-                                       ProfileCollectionPathKeyName,
-                                       ProfileCollectionPathValueName,
-                                       _profileCollectionFilePath
-                                   )
-                                   .Execute();
-*/
+                ICommand<IRegOperationMetadata<string>>
+                    saveProfilePathToRegistryCommand = default;
 
+                saveProfilePathToRegistryCommand=
+                    GetProfileCollectionCommand
+                        .For<IRegOperationMetadata<string>>(
+                            ProfileCollectionCommandType
+                                .SaveProfileCollectionPathToRegistry
+                        );
+                if (saveProfilePathToRegistryCommand == null) return;
+
+                saveProfilePathToRegistryCommand =
+                    saveProfilePathToRegistryCommand.WithInput(
+                        saveProfilePathnameRegOperationMetadata
+                    );
+
+                saveProfilePathToRegistryCommand.Execute();
             }
             catch (Exception ex)
             {

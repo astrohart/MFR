@@ -14,7 +14,7 @@ namespace MFR.Settings.Profiles.Commands.Factories
     /// In our vernacular, a <c>command</c> object is an object that performs an
     /// operation that accepts input, but has no output.
     /// </remarks>
-    public static class GetProfileCollectionCommandType
+    public static class GetProfileCollectionCommand
     {
         /// <summary>
         /// Creates a new instance of an object that implements the <see

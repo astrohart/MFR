@@ -173,6 +173,14 @@
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
+      <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
+      <Name>MFR.Messages.Commands.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Constants\MFR.Messages.Constants.csproj">
+      <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
+      <Name>MFR.Messages.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12e6eac8-46cf-42df-8d9f-12fcd9e784a0}</Project>
       <Name>MFR.Messages.Interfaces</Name>
@@ -208,6 +216,14 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Actions.Factories\MFR.Settings.Profiles.Actions.Factories.csproj">
       <Project>{CDB376A4-19AF-4B02-B7E1-5898088C5398}</Project>
       <Name>MFR.Settings.Profiles.Actions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Commands.Constants\MFR.Settings.Profiles.Commands.Constants.csproj">
+      <Project>{BE4E6A55-45E6-4EC8-824B-91CCAB578C55}</Project>
+      <Name>MFR.Settings.Profiles.Commands.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Profiles.Commands.Factories\MFR.Settings.Profiles.Commands.Factories.csproj">
+      <Project>{0B228234-D21A-4205-9490-1154943FB8BD}</Project>
+      <Name>MFR.Settings.Profiles.Commands.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Constants\MFR.Settings.Profiles.Constants.csproj">
       <Project>{26976BA2-FCF1-4B05-BE27-CD6D77B916B5}</Project>
