@@ -23,7 +23,7 @@ namespace MFR.Paths.Config.Provider.Actions
         /// <param name="action">
         /// (Required.) Reference to an instance of an object that
         /// implements the
-        /// <see cref="T:MFR.Messages.Actions.Interfaces.IAction[TInput, TResult]" />
+        /// <see cref="T:MFR.Messages.Actions.Interfaces.IAction{TInput, TResult}" />
         /// interface that represents the operation that is to be executed.
         /// </param>
         /// <returns>
@@ -42,7 +42,8 @@ namespace MFR.Paths.Config.Provider.Actions
             try
             {
                 if (action == null) return result;
-                if (action.MessageType != ConfigActionType.LoadConfigFilePathFromRegistry)
+                if (action.MessageType !=
+                    ConfigActionType.LoadConfigFilePathFromRegistry)
                     return result;
 
                 result = action.Execute();
@@ -59,9 +60,16 @@ namespace MFR.Paths.Config.Provider.Actions
         }
 
         /// <summary>
-        /// Executes a command that saves the
+        /// Executes a <c>Command</c> that saves the pathname of the application
+        /// configuration file to the system Registry.
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="command">
+        /// (Required.) Reference to an instance of an object that
+        /// implements the
+        /// <see cref="T:MFR.Messages.Commands.Interfaces.ICommand{TInput}" /> interface
+        /// that, when executed, saves the pathname of the application configuration file
+        /// to the system Registry..
+        /// </param>
         public static void OperationToSaveConfigFilePathToRegistry(
             ICommand<IRegOperationMetadata<string>> command
         )
