@@ -1,5 +1,4 @@
 using MFR.Settings.Profiles.Collections.Interfaces;
-using MFR.Settings.Profiles.Collections.Properties;
 using MFR.Settings.Profiles.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
@@ -26,6 +25,10 @@ namespace MFR.Settings.Profiles.Collections
         /// <see cref="T:MFR.Settings.Profiles.Collections.ProfileCollection" /> and
         /// returns a reference to it.
         /// </summary>
+        /// <remarks>
+        /// The object instance reference returned by this constructor represents the empty
+        /// collection.
+        /// </remarks>
         public ProfileCollection()
         {
             // Default constructor
@@ -54,6 +57,14 @@ namespace MFR.Settings.Profiles.Collections
             get;
             set;
         }
+
+        /// <summary>
+        /// Represents the empty <c>ProfileCollection</c>.
+        /// </summary>
+        public static IProfileCollection Empty
+        {
+            get;
+        } = new ProfileCollection();
 
         /// <summary>
         /// Determines whether the profile collection already has a profile with the

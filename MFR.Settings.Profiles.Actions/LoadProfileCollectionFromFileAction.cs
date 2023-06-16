@@ -71,7 +71,7 @@ namespace MFR.Settings.Profiles.Actions
         protected override IProfileCollection CommonExecute()
         {
             // write the name of the current class and method we are now
-            var result = MakeNewProfileCollection.FromScratch();
+            var result = GetEmptyProfileCollection.SoleInstance();
 
             // Check to see if the required field, _input, is null. If it is,
             if (Input == null)
@@ -90,7 +90,7 @@ namespace MFR.Settings.Profiles.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = MakeNewProfileCollection.FromScratch();
+                result = GetEmptyProfileCollection.SoleInstance();
             }
 
             /*

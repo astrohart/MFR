@@ -69,7 +69,7 @@ namespace MFR.Settings.Configuration.Converters
         /// </remarks>
         public static IProfileCollection FromJson([NotLogged] string json)
         {
-            var result = MakeNewProfileCollection.FromScratch();
+            var result = GetEmptyProfileCollection.SoleInstance();
 
             try
             {
@@ -84,7 +84,7 @@ namespace MFR.Settings.Configuration.Converters
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = MakeNewProfileCollection.FromScratch();
+                result = GetEmptyProfileCollection.SoleInstance();
             }
 
             return result;
