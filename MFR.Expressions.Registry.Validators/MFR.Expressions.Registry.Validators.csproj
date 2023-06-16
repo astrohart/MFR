@@ -116,6 +116,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +139,10 @@
     <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Interfaces\MFR.Expressions.Registry.Validators.Interfaces.csproj">
       <Project>{DA01210A-F467-4EC3-967E-01523AFB6E23}</Project>
       <Name>MFR.Expressions.Registry.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
+      <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
+      <Name>MFR.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Registry.Helpers\MFR.Registry.Helpers.csproj">
       <Project>{AFFA1381-12A6-408C-99C2-BFA717D23CD8}</Project>

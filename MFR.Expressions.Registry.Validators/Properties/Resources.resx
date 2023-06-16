@@ -124,6 +124,6 @@
       <value>The specified expression's Registry key path is blank.</value>
   </data>
   <data name="Error_ExpressionPropertyIsNull" xml:space="preserve">
-      <value>Please initialize the value of the Expression property before calling this method.</value>
+      <value>Please initialize the value of the Metadata property before calling this method.</value>
   </data>
 </root>

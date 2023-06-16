@@ -1,18 +1,18 @@
-using MFR.Expressions.Registry.Interfaces;
-using MFR.Expressions.Registry.Validators.Interfaces;
-using MFR.Expressions.Registry.Validators.Properties;
+using MFR.Metadata.Registry.Interfaces;
+using MFR.Metadata.Registry.Validators.Interfaces;
+using MFR.Metadata.Registry.Validators.Properties;
 using MFR.Registry.Helpers;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Expressions.Registry.Validators
+namespace MFR.Metadata.Registry.Validators
 {
     /// <summary>
     /// Validates the data in the properties of instances of objects that
     /// implement the
     /// <see
-    ///     cref="T:MFR.Expressions.Registry.Interfaces.IRegQueryExpression" />
+    ///     cref="T:MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{T}" />
     /// interface.
     /// </summary>
     /// <typeparam name="T">
@@ -20,48 +20,48 @@ namespace MFR.Expressions.Registry.Validators
     /// system Registry.
     /// </typeparam>
     public class
-        RegQueryExpressionValidator<T> : IRegQueryExpressionValidator<T>
+        RegOperationMetadataValidator<T> : IRegOperationMetadataValidator<T>
         where T : class
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RegQueryExpressionValidator() { }
+        static RegOperationMetadataValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RegQueryExpressionValidator() { }
+        protected RegOperationMetadataValidator() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.RegOperationMetadataValidator" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IRegOperationMetadataValidator<T> Instance
+        {
+            get;
+        } = new RegOperationMetadataValidator<T>();
 
         /// <summary>
         /// Gets the instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.IRegQueryExpression" />
+        ///     cref="T:MFR.IRegOperationMetadata" />
         /// interface that is being validated.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public IRegQueryExpression<T> Expression
+        public IRegOperationMetadata<T> Metadata
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.RegQueryExpressionValidator" />.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static IRegQueryExpressionValidator<T> Instance
-        {
-            get;
-        } = new RegQueryExpressionValidator<T>();
-
-        /// <summary>
         /// Initializes the value of the
         /// <see
-        ///     cref="P:MFR.IRegQueryExpressionValidator.Metadata" />
+        ///     cref="P:MFR.IRegOperationMetadataValidator.Metadata" />
         /// property to refer to the data that is to be validated.
         /// </summary>
         /// <returns>
@@ -72,11 +72,12 @@ namespace MFR.Expressions.Registry.Validators
         /// Thrown if the required parameter, <paramref name="expression" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public IRegQueryExpressionValidator<T> ForRegQueryExpression(
-            IRegQueryExpression<T> expression)
+        public IRegOperationMetadataValidator<T> ForRegOperationMetadata(
+            IRegOperationMetadata<T> expression
+        )
         {
-            Expression = expression ??
-                         throw new ArgumentNullException(nameof(expression));
+            Metadata = expression ??
+                       throw new ArgumentNullException(nameof(expression));
 
             return this;
         }
@@ -87,7 +88,7 @@ namespace MFR.Expressions.Registry.Validators
         /// <returns>
         /// <see langword="true" /> if the value of the
         /// <see
-        ///     cref="P:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}.Metadata" />
+        ///     cref="P:MFR.Metadata.Registry.Validators.Interfaces.IRegOperationMetadataValidator{T}.Metadata" />
         /// property is valid; <see langword="false" /> otherwise.
         /// </returns>
         public bool Validate()
@@ -96,17 +97,17 @@ namespace MFR.Expressions.Registry.Validators
 
             try
             {
-                if (Expression == null)
+                if (Metadata == null)
                     throw new InvalidOperationException(
-                        Resources.Error_ExpressionPropertyIsNull
+                        Resources.Error_MetadataPropertyIsNull
                     );
 
-                if (string.IsNullOrWhiteSpace(Expression.KeyPath))
+                if (string.IsNullOrWhiteSpace(Metadata.KeyPath))
                     throw new InvalidOperationException(
                         Resources.Error_RegistryKeyPathnameBlank
                     );
 
-                if (!Expression.KeyPath.StartsWithValidHiveName())
+                if (!Metadata.KeyPath.StartsWithValidHiveName())
                     throw new InvalidOperationException(
                         Resources
                             .Error_RegistryKeyPathnameDoesNotStartWithValidHive

@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
-namespace MFR.Metadata.Registry.Validators.Properties
-{
+namespace MFR.Metadata.Registry.Validators.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,53 +22,68 @@ namespace MFR.Metadata.Registry.Validators.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-
-        /// <summary>
-        /// Constructs a new instance of <see cref="T:MFR.Metadata.Registry.Validators.Properties.Resources" /> and returns a reference to it.
-        /// </summary>		
-        public Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Metadata.Registry.Validators.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please initialize the value of the Metadata property before calling this method..
+        /// </summary>
+        internal static string Error_MetadataPropertyIsNull {
+            get {
+                return ResourceManager.GetString("Error_MetadataPropertyIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified expression&apos;s Registry key path is blank..
+        /// </summary>
+        internal static string Error_RegistryKeyPathnameBlank {
+            get {
+                return ResourceManager.GetString("Error_RegistryKeyPathnameBlank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified expression&apos;s Registry key path must be the fully-qualified path, including the Registry hive (HKEY_CLASSES_ROOT etc)..
+        /// </summary>
+        internal static string Error_RegistryKeyPathnameDoesNotStartWithValidHive {
+            get {
+                return ResourceManager.GetString("Error_RegistryKeyPathnameDoesNotStartWithValidHive", resourceCulture);
             }
         }
     }

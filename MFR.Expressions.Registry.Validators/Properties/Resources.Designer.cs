@@ -61,7 +61,7 @@ namespace MFR.Expressions.Registry.Validators.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please initialize the value of the Expression property before calling this method..
+        ///   Looks up a localized string similar to Please initialize the value of the Metadata property before calling this method..
         /// </summary>
         public static string Error_ExpressionPropertyIsNull {
             get {
