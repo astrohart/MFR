@@ -11,7 +11,7 @@ namespace MFR.Metadata.Registry.Validators.Factories
     /// <typeparam name="T">
     /// Name of the type of the data that is to be retrieved from the system Registry.
     /// </typeparam>
-    public static class GetRegistryOperationMetadataValidator<T> where T : class
+    public static class GetRegOperationMetadataValidator<T> where T : class
     {
         /// <summary>
         /// Fluently retrieves the single instance of the object that implements

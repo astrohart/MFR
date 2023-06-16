@@ -104,7 +104,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetRegistryOperationMetadataValidator.cs" />
+    <Compile Include="GetRegOperationMetadataValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

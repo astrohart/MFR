@@ -197,6 +197,14 @@
       <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
       <Name>MFR.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Validators.Factories\MFR.Metadata.Registry.Validators.Factories.csproj">
+      <Project>{C3ED2B8E-A7CD-4177-9CB9-906532C3BB80}</Project>
+      <Name>MFR.Metadata.Registry.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Metadata.Registry.Validators.Interfaces\MFR.Metadata.Registry.Validators.Interfaces.csproj">
+      <Project>{807FCA74-3D45-4B6F-A5CD-ED6F13CE0FA9}</Project>
+      <Name>MFR.Metadata.Registry.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>

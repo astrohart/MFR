@@ -2,22 +2,38 @@
 using MFR.Messages.Commands.Interfaces;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
+using MFR.Metadata.Registry.Validators.Factories;
+using MFR.Metadata.Registry.Validators.Interfaces;
 using MFR.Paths.Profiles.Provider.Constants;
 using MFR.Registry.Helpers;
-using MFR.Settings.Profiles.Actions.Factories;
 using MFR.Settings.Profiles.Commands.Constants;
 using MFR.Settings.Profiles.Commands.Factories;
 using System;
-using System.Windows.Input;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Profiles.Provider.Actions
 {
     /// <summary>
-    /// Exposes static methods for storing the pathname of a <c>profiles.json</c> file to the system Registry.
+    /// Exposes static methods for storing the pathname of a <c>profiles.json</c> file
+    /// to the system Registry.
     /// </summary>
     public static class Store
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Metadata.Registry.Validators.Interfaces.IRegOperationMetadataValidator
+        /// 
+        /// 
+        /// 
+        /// <T>" /> interface.
+        /// </summary>
+        private static IRegOperationMetadataValidator<string>
+            AccessTheRegOperationMetadataValidator
+        {
+            get;
+        } = GetRegOperationMetadataValidator<string>.SoleInstance();
+
         public static void ProfileCollectionFilePathToRegistry(
             string companyName,
             string productName,
@@ -51,10 +67,17 @@ namespace MFR.Paths.Profiles.Provider.Actions
 
                 if (saveProfilePathnameRegOperationMetadata == null) return;
 
-                ICommand<IRegOperationMetadata<string>>
-                    saveProfilePathToRegistryCommand = default;
+                if (!AccessTheRegOperationMetadataValidator
+                     .ForRegOperationMetadata(
+                         saveProfilePathnameRegOperationMetadata
+                     )
+                     .Validate())
+                    return;
 
-                saveProfilePathToRegistryCommand=
+                    ICommand<IRegOperationMetadata<string>>
+                        saveProfilePathToRegistryCommand = default;
+
+                saveProfilePathToRegistryCommand =
                     GetProfileCollectionCommand
                         .For<IRegOperationMetadata<string>>(
                             ProfileCollectionCommandType
