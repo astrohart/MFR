@@ -56,7 +56,7 @@ namespace MFR.GUI.Dialogs
             // applyButton
             // 
             this.applyButton.Enabled = false;
-            this.applyButton.IsDarkTheme = false;
+            this.applyButton.IsDarkTheme = true;
             this.applyButton.Location = new System.Drawing.Point(366, 392);
             this.applyButton.Name = "applyButton";
             this.applyButton.Padding = new System.Windows.Forms.Padding(5);
@@ -68,7 +68,7 @@ namespace MFR.GUI.Dialogs
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.IsDarkTheme = false;
+            this.cancelButton.IsDarkTheme = true;
             this.cancelButton.Location = new System.Drawing.Point(273, 392);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Padding = new System.Windows.Forms.Padding(5);
@@ -79,7 +79,7 @@ namespace MFR.GUI.Dialogs
             // okayButton
             // 
             this.okayButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okayButton.IsDarkTheme = false;
+            this.okayButton.IsDarkTheme = true;
             this.okayButton.Location = new System.Drawing.Point(180, 392);
             this.okayButton.Name = "okayButton";
             this.okayButton.Padding = new System.Windows.Forms.Padding(5);
@@ -239,6 +239,7 @@ namespace MFR.GUI.Dialogs
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.applyButton);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

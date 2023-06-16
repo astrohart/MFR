@@ -81,8 +81,8 @@ namespace MFR.Settings.Configuration.Serializers
                  * operations to perform, initialize the list with the defaults.
                  */
 
-                if (!result.OperationsToPerform.HasAnyOperations())
-                    result.OperationsToPerform = Initialize.OperationList();
+                if (!result.InvokableOperations.HasAnyOperations())
+                    result.InvokableOperations = Initialize.OperationList();
             }
             catch (Exception ex)
             {

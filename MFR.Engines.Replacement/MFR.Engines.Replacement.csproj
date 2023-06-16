@@ -112,6 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SolutionFolderNameReplacementEngine.cs" />
     <Compile Include="TextInFileReplacementEngine.cs" />
     <Compile Include="TextReplacementEngineBase.cs" />
   </ItemGroup>

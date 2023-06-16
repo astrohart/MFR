@@ -73,6 +73,11 @@ namespace MFR.Operations.Descriptions.Factories
                         .SoleInstance();
                     break;
 
+                case OperationType.InitializeApplication:
+                    result = GetInitializeApplicationOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
                 case OperationType.OpenActiveSolutions:
                     result = GetOpenActiveSolutionOperationStartedDescription
                         .SoleInstance();

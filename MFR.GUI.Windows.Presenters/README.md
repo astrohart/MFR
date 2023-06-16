@@ -45,6 +45,7 @@
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
   - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationFinished(System.Object,System.EventArgs)')
+  - [OnRootDirectoryPathBeingChanged(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnRootDirectoryPathBeingChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnRootDirectoryPathBeingChanged(System.Object,xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
@@ -677,6 +678,25 @@ This method is called when the Operation Engine sends the
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnRootDirectoryPathBeingChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs-'></a>
+### OnRootDirectoryPathBeingChanged(sender,e) `method`
+
+##### Summary
+
+Handles the
+[OE_ROOT_DIRECTORY_PATH_UPDATED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_ROOT_DIRECTORY_PATH_UPDATED 'MFR.Engines.Constants.OperationEngineMessages.OE_ROOT_DIRECTORY_PATH_UPDATED')
+message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) Reference to an instance of the object that
+originally sent the message. |
+| e | [xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs](#T-xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs 'xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs') | (Required.) A
+[DirectoryBeingMonitoredChangedEventArgs](#T-xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs 'xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs')
+that carries the message data. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String-'></a>
 ### ProfileAlreadyExist(profileName) `method`

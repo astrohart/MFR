@@ -3,6 +3,17 @@
 
 ## Contents
 
+<<<<<<< HEAD
+=======
+- [GetRenameFilesInFolderStringReplacerFactory](#T-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory 'MFR.Replacers.Factories.GetRenameFilesInFolderStringReplacerFactory')
+  - [SoleInstance()](#M-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetRenameFilesInFolderStringReplacerFactory.SoleInstance')
+- [GetRenameSolutionFoldersStringReplacerFactory](#T-MFR-Replacers-Factories-GetRenameSolutionFoldersStringReplacerFactory 'MFR.Replacers.Factories.GetRenameSolutionFoldersStringReplacerFactory')
+  - [SoleInstance()](#M-MFR-Replacers-Factories-GetRenameSolutionFoldersStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetRenameSolutionFoldersStringReplacerFactory.SoleInstance')
+- [GetRenameSubFoldersStringReplacerFactory](#T-MFR-Replacers-Factories-GetRenameSubFoldersStringReplacerFactory 'MFR.Replacers.Factories.GetRenameSubFoldersStringReplacerFactory')
+  - [SoleInstance()](#M-MFR-Replacers-Factories-GetRenameSubFoldersStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetRenameSubFoldersStringReplacerFactory.SoleInstance')
+- [GetReplaceTextInFilesStringReplacerFactory](#T-MFR-Replacers-Factories-GetReplaceTextInFilesStringReplacerFactory 'MFR.Replacers.Factories.GetReplaceTextInFilesStringReplacerFactory')
+  - [SoleInstance()](#M-MFR-Replacers-Factories-GetReplaceTextInFilesStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetReplaceTextInFilesStringReplacerFactory.SoleInstance')
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [GetStringReplacer](#T-MFR-Replacers-Factories-GetStringReplacer 'MFR.Replacers.Factories.GetStringReplacer')
   - [For(type)](#M-MFR-Replacers-Factories-GetStringReplacer-For-MFR-Operations-Constants-OperationType- 'MFR.Replacers.Factories.GetStringReplacer.For(MFR.Operations.Constants.OperationType)')
 - [RenameFilesInFolderStringReplacerFactory](#T-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory 'MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory')
@@ -11,6 +22,11 @@
   - [OperationType](#P-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory-OperationType 'MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory.OperationType')
   - [#cctor()](#M-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory-#cctor 'MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory.#cctor')
   - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory-AndTextMatchingConfiguration-MFR-Settings-Configuration-Constants-TextMatchingConfiguration- 'MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory.AndTextMatchingConfiguration(MFR.Settings.Configuration.Constants.TextMatchingConfiguration)')
+- [RenameSolutionFoldersStringReplacerFactory](#T-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory 'MFR.Replacers.Factories.RenameSolutionFoldersStringReplacerFactory')
+  - [#ctor()](#M-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-#ctor 'MFR.Replacers.Factories.RenameSolutionFoldersStringReplacerFactory.#ctor')
+  - [Instance](#P-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-Instance 'MFR.Replacers.Factories.RenameSolutionFoldersStringReplacerFactory.Instance')
+  - [OperationType](#P-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-OperationType 'MFR.Replacers.Factories.RenameSolutionFoldersStringReplacerFactory.OperationType')
+  - [#cctor()](#M-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-#cctor 'MFR.Replacers.Factories.RenameSolutionFoldersStringReplacerFactory.#cctor')
 - [RenameSubFoldersStringReplacerFactory](#T-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory 'MFR.Replacers.Factories.RenameSubFoldersStringReplacerFactory')
   - [#ctor()](#M-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory-#ctor 'MFR.Replacers.Factories.RenameSubFoldersStringReplacerFactory.#ctor')
   - [Instance](#P-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory-Instance 'MFR.Replacers.Factories.RenameSubFoldersStringReplacerFactory.Instance')
@@ -27,6 +43,155 @@
   - [Culture](#P-MFR-Replacers-Factories-Properties-Resources-Culture 'MFR.Replacers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Replacers-Factories-Properties-Resources-ResourceManager 'MFR.Replacers.Factories.Properties.Resources.ResourceManager')
 
+<<<<<<< HEAD
+=======
+<a name='T-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory'></a>
+## GetRenameFilesInFolderStringReplacerFactory `type`
+
+##### Namespace
+
+MFR.Replacers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates instances of objects that are responsible for replacing
+the text in the filenames of files that exist in a specific directory tree on
+the disk.
+
+<a name='M-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates instances of objects that are responsible for replacing
+the text in the filenames of files that exist in a specific directory tree on
+the disk.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Replacers-Factories-GetRenameSolutionFoldersStringReplacerFactory'></a>
+## GetRenameSolutionFoldersStringReplacerFactory `type`
+
+##### Namespace
+
+MFR.Replacers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for renaming file folders
+within a specific directory tree, that contain Visual Studio Solution (
+`*.sln`) files, according to a text-replacement pattern that was specified
+by the user.
+
+<a name='M-MFR-Replacers-Factories-GetRenameSolutionFoldersStringReplacerFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for renaming file folders
+within a specific directory tree, that contain Visual Studio Solution (
+`*.sln`) files, according to a text-replacement pattern that was specified
+by the user.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Replacers-Factories-GetRenameSubFoldersStringReplacerFactory'></a>
+## GetRenameSubFoldersStringReplacerFactory `type`
+
+##### Namespace
+
+MFR.Replacers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for renaming file folders
+within a specific directory tree according to a text-replacement pattern that
+was specified by the user.
+
+<a name='M-MFR-Replacers-Factories-GetRenameSubFoldersStringReplacerFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for renaming file folders
+within a specific directory tree according to a text-replacement pattern that
+was specified by the user.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Replacers-Factories-GetReplaceTextInFilesStringReplacerFactory'></a>
+## GetReplaceTextInFilesStringReplacerFactory `type`
+
+##### Namespace
+
+MFR.Replacers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for replacing text in the
+contents of files within a specific directory tree based on a text-replacement
+pattern specified by the user.
+
+<a name='M-MFR-Replacers-Factories-GetReplaceTextInFilesStringReplacerFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for replacing text in the
+contents of files within a specific directory tree based on a text-replacement
+pattern specified by the user.
+
+##### Parameters
+
+This method has no parameters.
+
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Replacers-Factories-GetStringReplacer'></a>
 ## GetStringReplacer `type`
 
@@ -162,6 +327,63 @@ Files in Folder operation type that supports the
 [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
 value
 passed in the `matchingConfig` parameter. |
+
+<a name='T-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory'></a>
+## RenameSolutionFoldersStringReplacerFactory `type`
+
+##### Namespace
+
+MFR.Replacers.Factories
+
+##### Summary
+
+Factory object that creates string replacers, specific to the Rename
+Solution Folders type of operation, for the various combinations of
+Match Case and Match Exact Word.
+
+<a name='M-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for renaming file folders
+within a specific directory tree, that contain Visual Studio Solution (
+`*.sln`) files, according to a text-replacement pattern that was specified
+by the user.
+
+<a name='P-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='M-MFR-Replacers-Factories-RenameSolutionFoldersStringReplacerFactory-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory'></a>
 ## RenameSubFoldersStringReplacerFactory `type`

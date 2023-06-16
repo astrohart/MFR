@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="GetFilenameTextValueRetriever.cs" />
     <Compile Include="GetFolderTextValueRetriever.cs" />
+    <Compile Include="GetSolutionFolderTextValueRetriever.cs" />
     <Compile Include="GetTextInFileTextValueRetriever.cs" />
     <Compile Include="GetTextValueRetriever.cs" />
     <Compile Include="GlobalAspects.cs" />

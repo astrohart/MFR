@@ -131,6 +131,12 @@ namespace MFR.Renamers.Files.Interfaces
         event RootDirectoryPathChangedEventHandler RootDirectoryPathChanged;
 
         /// <summary>
+        /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
+        /// has been renamed.
+        /// </summary>
+        event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
         event EventHandler Started;

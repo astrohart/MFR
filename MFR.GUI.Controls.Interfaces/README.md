@@ -3,6 +3,7 @@
 
 ## Contents
 
+- [IDarkListBuilderControl](#T-MFR-GUI-Controls-Interfaces-IDarkListBuilderControl 'MFR.GUI.Controls.Interfaces.IDarkListBuilderControl')
 - [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox')
   - [EnteredText](#P-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox.EnteredText')
 - [IFoldUnfoldButton](#T-MFR-GUI-Controls-Interfaces-IFoldUnfoldButton 'MFR.GUI.Controls.Interfaces.IFoldUnfoldButton')
@@ -15,6 +16,19 @@
 - [Resources](#T-MFR-GUI-Controls-Interfaces-Properties-Resources 'MFR.GUI.Controls.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Controls-Interfaces-Properties-Resources-Culture 'MFR.GUI.Controls.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Controls-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Controls.Interfaces.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Controls-Interfaces-IDarkListBuilderControl'></a>
+## IDarkListBuilderControl `type`
+
+##### Namespace
+
+MFR.GUI.Controls.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed methods and properties of a list-builder control
+that allows users to create a list of choices by adding one item at a time, and
+optionally setting the list order..
 
 <a name='T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox'></a>
 ## IEntryRespectingComboBox `type`

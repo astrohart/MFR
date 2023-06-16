@@ -14,6 +14,11 @@
   - [FRM_OPERATION_FINISHED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_FINISHED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_FINISHED')
   - [FRM_OPERATION_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
   - [FRM_PROCESSING_OPERATION](#F-MFR-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
+<<<<<<< HEAD
+=======
+  - [FRM_ROOT_DIRECTORY_PATH_CHANGED](#F-MFR-Constants-FileRenamerMessages-FRM_ROOT_DIRECTORY_PATH_CHANGED 'MFR.Constants.FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED')
+  - [FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED')
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
   - [FRM_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Constants.FileRenamerMessages.FRM_STARTED')
   - [FRM_STARTING](#F-MFR-Constants-FileRenamerMessages-FRM_STARTING 'MFR.Constants.FileRenamerMessages.FRM_STARTING')
   - [FRM_STATUS_UPDATE](#F-MFR-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
@@ -112,6 +117,26 @@ File Renamer component operation has been started.
 Unique identifier for a message that indicates that the current
 operation is being processed.
 
+<<<<<<< HEAD
+=======
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_ROOT_DIRECTORY_PATH_CHANGED'></a>
+### FRM_ROOT_DIRECTORY_PATH_CHANGED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that the root directory, i.e.,
+the starting directory, of the File Renamer component has been altered.
+
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED'></a>
+### FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that the File Renamer
+component has determined the number of subfolders that need to be
+operated on.
+
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_STARTED'></a>
 ### FRM_STARTED `constants`
 

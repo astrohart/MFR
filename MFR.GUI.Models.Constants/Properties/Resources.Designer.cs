@@ -70,6 +70,15 @@ namespace MFR.GUI.Models.Constants.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rename Folder(s) that Contain Solution(s).
+        /// </summary>
+        internal static string OperationName_RenameSolutionFolders {
+            get {
+                return ResourceManager.GetString("OperationName_RenameSolutionFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rename Subfolders.
         /// </summary>
         internal static string OperationName_RenameSubfolders {

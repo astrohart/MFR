@@ -34,6 +34,12 @@
   - [OnOperationFinished(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationFinished-MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationFinished(MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
+<<<<<<< HEAD
+=======
+  - [OnRootDirectoryPathChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnRootDirectoryPathChanged-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnRootDirectoryPathChanged(MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs)')
+  - [OnSolutionFolderRenamed(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFolderRenamed-MFR-Events-FolderRenamedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFolderRenamed(MFR.Events.FolderRenamedEventArgs)')
+  - [OnSolutionFoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
   - [OnStarting()](#M-MFR-Renamers-Files-FileRenamer-OnStarting 'MFR.Renamers.Files.FileRenamer.OnStarting')
   - [OnStatusUpdate(e)](#M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
@@ -498,6 +504,55 @@ Raises the [](#E-MFR-ProcessingOperation 'MFR.ProcessingOperation') event.
 | e | [MFR.Operations.Events.ProcessingOperationEventArgs](#T-MFR-Operations-Events-ProcessingOperationEventArgs 'MFR.Operations.Events.ProcessingOperationEventArgs') | A [ProcessingOperationEventArgs](#T-MFR-ProcessingOperationEventArgs 'MFR.ProcessingOperationEventArgs') that
 contains the event data. |
 
+<<<<<<< HEAD
+=======
+<a name='M-MFR-Renamers-Files-FileRenamer-OnRootDirectoryPathChanged-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs-'></a>
+### OnRootDirectoryPathChanged(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Renamers-Files-FileRenamer-RootDirectoryPathChanged 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs') | (Required.) A
+[RootDirectoryPathChangedEventArgs](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs')
+that contains the event data. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionFolderRenamed-MFR-Events-FolderRenamedEventArgs-'></a>
+### OnSolutionFolderRenamed(e) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-FolderRenamed 'MFR.Renamers.Files.FileRenamer.FolderRenamed') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') | A [FolderRenamedEventArgs](#T-MFR-Events-FolderRenamedEventArgs 'MFR.Events.FolderRenamedEventArgs') that
+contains the event data. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
+### OnSolutionFoldersToBeRenamedCounted(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Renamers-Files-FileRenamer-SolutionFoldersToBeRenamedCounted 'MFR.Renamers.Files.FileRenamer.SolutionFoldersToBeRenamedCounted')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
+contains the event data. |
+
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='M-MFR-Renamers-Files-FileRenamer-OnStarted'></a>
 ### OnStarted() `method`
 

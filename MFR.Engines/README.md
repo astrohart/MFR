@@ -52,10 +52,10 @@
   - [OnFileRenamerExceptionRaised(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerExceptionRaised-System-Object,MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerExceptionRaised(System.Object,MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnFileRenamerFilesToBeRenamedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerFilesToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerFilesToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFileRenamerFilesToHaveTextReplacedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerFilesToHaveTextReplacedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerFilesToHaveTextReplacedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
-  - [OnFileRenamerFinished()](#M-MFR-Engines-OperationEngineBase-OnFileRenamerFinished 'MFR.Engines.OperationEngineBase.OnFileRenamerFinished')
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnFileRenamerRootDirectoryPathChanged(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerRootDirectoryPathChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerRootDirectoryPathChanged(System.Object,xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs)')
   - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnProcessingError()](#M-MFR-Engines-OperationEngineBase-OnProcessingError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Engines.OperationEngineBase.OnProcessingError(MFR.Events.Common.ExceptionRaisedEventArgs)')
@@ -941,25 +941,6 @@ back to zero, and then updating the value of its
 property to have
 the same value as the count of file system entries.
 
-<a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerFinished'></a>
-### OnFileRenamerFinished() `method`
-
-##### Summary
-
-Handles the [](#E-MFR-IFileRenamer-Finished 'MFR.IFileRenamer.Finished') event
-raised by the File Renamer object. This event is raised when the
-rename operations are all completed.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Remarks
-
-This method responds merely by raising the
-[](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPresenter.Finished')
-event in turn.
-
 <a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs-'></a>
 ### OnFileRenamerOperationFinished(sender,e) `method`
 
@@ -1042,6 +1023,25 @@ Otherwise, the method responds by incrementing the progress dialog's
 progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
+
+<a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerRootDirectoryPathChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs-'></a>
+### OnFileRenamerRootDirectoryPathChanged(sender,e) `method`
+
+##### Summary
+
+Handles the
+[FRM_ROOT_DIRECTORY_PATH_CHANGED](#F-MFR-Constants-FileRenamerMessages-FRM_ROOT_DIRECTORY_PATH_CHANGED 'MFR.Constants.FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED')
+message by passing this up the call chain to the user of this object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) A reference to the instance of the object that
+sent the message. |
+| e | [xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs](#T-xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs 'xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs') | (Required.) A
+[DirectoryBeingMonitoredChangedEventArgs](#T-xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs 'xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs')
+that carries the message data. |
 
 <a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
 ### OnFileRenamerStatusUpdate(sender,e) `method`

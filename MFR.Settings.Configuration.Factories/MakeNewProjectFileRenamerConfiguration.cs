@@ -186,7 +186,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.OperationsToPerform" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -215,7 +215,7 @@ namespace MFR.Settings.Configuration.Factories
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
-            self.OperationsToPerform = operationsToPerform;
+            self.InvokableOperations = operationsToPerform;
             return self;
         }
 

@@ -9,6 +9,7 @@ using MFR.GUI.Controls.Extensions;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Initializers;
+using MFR.GUI.Models.Constants;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Events;
@@ -534,13 +535,17 @@ namespace MFR.GUI.Windows.Presenters
         public void InitializeOperationSelections()
         {
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Files", CurrentConfiguration.RenameFiles
+                OperationNames.RenameFilesInFolder, CurrentConfiguration.RenameFiles
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Rename Subfolders", CurrentConfiguration.RenameSubFolders
+                OperationNames.RenameSubFolders, CurrentConfiguration.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
-                "Replace in Files", CurrentConfiguration.ReplaceTextInFiles
+                OperationNames.ReplaceTextInFiles, CurrentConfiguration.ReplaceTextInFiles
+            );
+
+            View.OperationsCheckedListBox.CheckByName(
+                OperationNames.RenameSolutionFolders, CurrentConfiguration.RenameSolutionFolders
             );
         }
 
@@ -735,9 +740,6 @@ namespace MFR.GUI.Windows.Presenters
 
                 CurrentConfiguration.MatchExactWord = View.MatchExactWord;
 
-                CurrentConfiguration.RenameSolutionFolders =
-                    View.RenameSolutionFolders;
-
                 CurrentConfiguration.SelectedOptionTab = View.SelectedOptionTab;
 
                 SaveOperationSelections();
@@ -749,9 +751,6 @@ namespace MFR.GUI.Windows.Presenters
                 View.SelectedOptionTab = ConfigurationProvider
                                          .CurrentConfiguration
                                          .SelectedOptionTab;
-
-                View.RenameSolutionFolders =
-                    CurrentConfiguration.RenameSolutionFolders;
 
                 View.MatchExactWord = CurrentConfiguration.MatchExactWord;
 
@@ -820,14 +819,18 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now
             CurrentConfiguration.RenameFiles =
-                View.OperationsCheckedListBox.GetCheckedByName("Rename Files");
+                View.OperationsCheckedListBox.GetCheckedByName(OperationNames.RenameFilesInFolder);
             CurrentConfiguration.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
-                    "Rename Subfolders"
+                    OperationNames.RenameSubFolders
                 );
             CurrentConfiguration.ReplaceTextInFiles =
                 View.OperationsCheckedListBox.GetCheckedByName(
-                    "Replace in Files"
+                    OperationNames.ReplaceTextInFiles
+                );
+            CurrentConfiguration.RenameSolutionFolders =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    OperationNames.RenameSolutionFolders
                 );
         }
 

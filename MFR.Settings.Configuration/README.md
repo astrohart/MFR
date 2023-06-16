@@ -19,11 +19,11 @@
   - [AutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhatHistory')
+  - [InvokableOperations](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.InvokableOperations')
   - [IsFolded](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFolded')
   - [IsFromCommandLine](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchExactWord')
-  - [OperationsToPerform](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFiles')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSolutionFolders')
@@ -320,6 +320,15 @@ by the user.
 Gets or sets a collection of strings consisting of the most-recently
 utilized values for Find What.
 
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-InvokableOperations'></a>
+### InvokableOperations `property`
+
+##### Summary
+
+Gets or sets a reference to a collection of instances of
+[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that represents
+all the operations the user can perform with this application.
+
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFolded'></a>
 ### IsFolded `property`
 
@@ -356,15 +365,6 @@ found text.
 Gets or sets a value indicating whether we should match the whole
 word on found text.
 
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform'></a>
-### OperationsToPerform `property`
-
-##### Summary
-
-Gets or sets a reference to a collection of instances of
-[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that can turn the
-operations to be performed on or off.
-
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`
 
@@ -393,8 +393,8 @@ in the folders encountered.
 
 ##### Summary
 
-Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
-containing folder(s) of solution(s) contained in the search should be renamed.
+Gets or sets a value that indicates whether we should rename folders that
+contain Visual Studio Solution (`*.sln`) files.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders'></a>
 ### RenameSubFolders `property`

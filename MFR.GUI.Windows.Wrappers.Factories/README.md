@@ -18,14 +18,18 @@ MFR.GUI.Windows.Wrappers.Factories
 
 ##### Summary
 
-Creates new instances of objects that implement the [Interfaces](#T-MFR-GUI-Windows-Wrappers-Interfaces 'MFR.GUI.Windows.Wrappers.Interfaces') interface, and returns references to them.
+Creates new instances of objects that implement the
+[Interfaces](#T-MFR-GUI-Windows-Wrappers-Interfaces 'MFR.GUI.Windows.Wrappers.Interfaces') interface, and returns
+references to them.
 
 <a name='M-MFR-GUI-Windows-Wrappers-Factories-MakeNewWindowWrapper-FromScratch'></a>
 ### FromScratch() `method`
 
 ##### Summary
 
-Creates a new instance of an object that implements the [Interfaces](#T-MFR-GUI-Windows-Wrappers-Interfaces 'MFR.GUI.Windows.Wrappers.Interfaces') interface and returns a reference to it.
+Creates a new instance of an object that implements the
+[Interfaces](#T-MFR-GUI-Windows-Wrappers-Interfaces 'MFR.GUI.Windows.Wrappers.Interfaces') interface and returns a
+reference to it.
 
 ##### Parameters
 

@@ -5,6 +5,8 @@
 
 - [GetRenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory')
   - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory.SoleInstance')
+- [GetRenameSolutionFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory 'MFR.Matchers.Factories.GetRenameSolutionFoldersStringMatcherFactory')
+  - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameSolutionFoldersStringMatcherFactory.SoleInstance')
 - [GetRenameSubFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.GetRenameSubFoldersStringMatcherFactory')
   - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameSubFoldersStringMatcherFactory.SoleInstance')
 - [GetReplaceTextInFilesStringMatcherFactory](#T-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory 'MFR.Matchers.Factories.GetReplaceTextInFilesStringMatcherFactory')
@@ -60,6 +62,44 @@ interface, and returns a reference to it.
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
 interface for renaming the files contained within a parent folder.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory'></a>
+## GetRenameSolutionFoldersStringMatcherFactory `type`
+
+##### Namespace
+
+MFR.Matchers.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders containing
+Visual Studio Solution (`*.sln`) file(s)  in a directory tree according to
+a text-replacement pattern that is specified by the user.
+
+<a name='M-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders containing
+Visual Studio Solution (`*.sln`) file(s)  in a directory tree according to
+a text-replacement pattern that is specified by the user.
 
 ##### Parameters
 
@@ -265,6 +305,108 @@ Files in Folder operation type that supports the
 value
 passed in the `matchingConfig` parameter. |
 
+<<<<<<< HEAD
+=======
+<a name='T-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory'></a>
+## RenameSolutionFoldersStringMatcherFactory `type`
+
+##### Namespace
+
+MFR.Matchers.Factories
+
+##### Summary
+
+Factory object that creates string matchers, specific to the Rename
+Sub Folders type of operation, for the various combinations of
+Match Case and Match Exact Word.
+
+<a name='M-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
+interface that creates string matcher objects used in order to assist the
+application with carrying out the operation of renaming folders containing
+Visual Studio Solution (`*.sln`) file(s)  in a directory tree according to
+a text-replacement pattern that is specified by the user.
+
+<a name='P-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='M-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-AndTextMatchingConfiguration-MFR-Settings-Configuration-Constants-TextMatchingConfiguration-'></a>
+### AndTextMatchingConfiguration(matchingConfig) `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
+interface and
+returns a reference to it for the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+value that
+is specified by the `matchingConfig` parameter.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IStringMatcher](#T-MFR-IStringMatcher 'MFR.IStringMatcher')
+interface.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| matchingConfig | [MFR.Settings.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Settings-Configuration-Constants-TextMatchingConfiguration 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+values that
+specifies which type of matching is being done. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ComponentModel.InvalidEnumArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.InvalidEnumArgumentException 'System.ComponentModel.InvalidEnumArgumentException') | Thrown if the value passed in the `matchingConfig`
+is not one of the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+values. |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if a string matcher object is not defined for the Rename
+Files in Folder operation type that supports the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+value
+passed in the `matchingConfig` parameter. |
+
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory'></a>
 ## RenameSubFoldersStringMatcherFactory `type`
 

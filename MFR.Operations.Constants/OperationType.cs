@@ -50,7 +50,7 @@ namespace MFR.Operations.Constants
         /// For each <c>*.sln</c> file found, opens it in its own separate instance of
         /// Visual Studio.
         /// </summary>
-        LoadAllSolutionsInFolder = 3,
+        LoadAllSolutionsInFolder = 13,
 
         /// <summary>
         /// Unloads all <c>*.sln</c> files in a given folder, that are currently loaded
@@ -85,7 +85,7 @@ namespace MFR.Operations.Constants
         /// <summary>
         /// The folder in which the containing Solution is itself being renamed.
         /// </summary>
-        RenameSolutionFolders = 13,
+        RenameSolutionFolders = 3,
 
         /// <summary>
         /// We are searching for ALL files with the extension *.sln in a specific directory

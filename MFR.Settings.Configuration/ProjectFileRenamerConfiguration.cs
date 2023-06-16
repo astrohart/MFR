@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
-using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration
 {
@@ -73,9 +72,10 @@ namespace MFR.Settings.Configuration
             IsFromCommandLine = source.IsFromCommandLine;
             MatchCase = source.MatchCase;
             MatchExactWord = source.MatchExactWord;
-            OperationsToPerform = source.OperationsToPerform;
+            InvokableOperations = source.InvokableOperations;
             ReOpenSolution = source.ReOpenSolution;
             RenameFiles = source.RenameFiles;
+            RenameSolutionFolders = source.RenameSolutionFolders;
             RenameSubFolders = source.RenameSubFolders;
             ReplaceTextInFiles = source.ReplaceTextInFiles;
             ReplaceWith = source.ReplaceWith;
@@ -137,6 +137,18 @@ namespace MFR.Settings.Configuration
         } = new List<string>();
 
         /// <summary>
+        /// Gets or sets a reference to a collection of instances of
+        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
+        /// all the operations the user can perform with this application.
+        /// </summary>
+        [JsonProperty("invokableOperations")]
+        public List<OperationTypeInfo> InvokableOperations
+        {
+            get;
+            set;
+        } = new List<OperationTypeInfo>();
+
+        /// <summary>
         /// Gets a value indicating whether the form is in the Folded state.
         /// </summary>
         /// <remarks>
@@ -183,18 +195,6 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a reference to a collection of instances of
-        /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that can turn the
-        /// operations to be performed on or off.
-        /// </summary>
-        [JsonProperty("operationsToPerform")]
-        public List<OperationTypeInfo> OperationsToPerform
-        {
-            get;
-            set;
-        } = new List<OperationTypeInfo>();
-
-        /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
         /// in the folders encountered.
         /// </summary>
@@ -206,13 +206,13 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!OperationsToPerform.HasAnyOperations()) return result;
-                    if (!OperationsToPerform.Any(
+                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameFilesInFolder)
                         ))
                         return result;
 
-                    result = OperationsToPerform[
+                    result = InvokableOperations[
                             (int)OperationType.RenameFilesInFolder]
                         .Enabled;
                 }
@@ -229,13 +229,13 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!OperationsToPerform.HasAnyOperations()) return;
-                    if (!OperationsToPerform.Any(
+                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameFilesInFolder)
                         ))
                         return;
 
-                    OperationsToPerform[(int)OperationType.RenameFilesInFolder]
+                    InvokableOperations[(int)OperationType.RenameFilesInFolder]
                         .Enabled = value;
                 }
                 catch (Exception ex)
@@ -247,15 +247,57 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a <see cref="T:System.Boolean" /> value that indicates whether the
-        /// containing folder(s) of solution(s) contained in the search should be renamed.
+        /// Gets or sets a value that indicates whether we should rename folders that
+        /// contain Visual Studio Solution (<c>*.sln</c>) files.
         /// </summary>
-        [JsonProperty("renameSolutionFolders")]
+        [JsonIgnore]
         public bool RenameSolutionFolders
         {
-            get;
-            set;
-        } = true;
+            get {
+                var result = false;
+
+                try
+                {
+                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (!InvokableOperations.Any(
+                            o => o.IsOfType(OperationType.RenameSolutionFolders)
+                        ))
+                        return result;
+
+                    result = InvokableOperations[
+                            (int)OperationType.RenameSolutionFolders]
+                        .Enabled;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+            set {
+                try
+                {
+                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (!InvokableOperations.Any(
+                            o => o.IsOfType(OperationType.RenameSolutionFolders)
+                        ))
+                        return;
+
+                    InvokableOperations[
+                            (int)OperationType.RenameSolutionFolders]
+                        .Enabled = value;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value that indicates whether we should rename subfolders.
@@ -268,13 +310,13 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!OperationsToPerform.HasAnyOperations()) return result;
-                    if (!OperationsToPerform.Any(
+                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameSubFolders)
                         ))
                         return result;
 
-                    result = OperationsToPerform[
+                    result = InvokableOperations[
                             (int)OperationType.RenameSubFolders]
                         .Enabled;
                 }
@@ -291,13 +333,13 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!OperationsToPerform.HasAnyOperations()) return;
-                    if (!OperationsToPerform.Any(
+                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameSubFolders)
                         ))
                         return;
 
-                    OperationsToPerform[(int)OperationType.RenameSubFolders]
+                    InvokableOperations[(int)OperationType.RenameSubFolders]
                         .Enabled = value;
                 }
                 catch (Exception ex)
@@ -338,13 +380,13 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!OperationsToPerform.HasAnyOperations()) return result;
-                    if (!OperationsToPerform.Any(
+                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.ReplaceTextInFiles)
                         ))
                         return result;
 
-                    result = OperationsToPerform[
+                    result = InvokableOperations[
                             (int)OperationType.ReplaceTextInFiles]
                         .Enabled;
                 }
@@ -361,13 +403,13 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!OperationsToPerform.HasAnyOperations()) return;
-                    if (!OperationsToPerform.Any(
+                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.ReplaceTextInFiles)
                         ))
                         return;
 
-                    OperationsToPerform[(int)OperationType.ReplaceTextInFiles]
+                    InvokableOperations[(int)OperationType.ReplaceTextInFiles]
                         .Enabled = value;
                 }
                 catch (Exception ex)
@@ -472,16 +514,7 @@ namespace MFR.Settings.Configuration
                 FindWhat = ReplaceWith = string.Empty;
                 StartingFolder = Directory.GetCurrentDirectory();
 
-                OperationsToPerform.Clear();
-
-                /*
-                 * If, by some chance, we end up here and we've blanked out the
-                 * list of operations that the user has requested that this application
-                 * perform, then initialize the list with the defaults.
-                 */
-
-                if (!OperationsToPerform.HasAnyOperations())
-                    OperationsToPerform = Initialize.OperationList();
+                InvokableOperations.Clear();
             }
             catch (Exception ex)
             {

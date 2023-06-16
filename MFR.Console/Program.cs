@@ -30,19 +30,12 @@ namespace MFR.Console
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface.
-        /// </summary>
-        private static IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+        private static IProjectFileRenamerConfigurationProvider
+            ConfigurationProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -51,6 +44,16 @@ namespace MFR.Console
         /// </summary>
         private static IFileRenamer FileRenamer
             => GetFileRenamer.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        private static IProjectFileRenamerConfiguration
+            ProjectFileRenamerConfiguration
+            => ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Application entry point.
@@ -66,10 +69,16 @@ namespace MFR.Console
 
                 ConfigurationProvider.Load();
 
-                FileRenamer.UpdateConfiguration(ProjectFileRenamerConfiguration);
+                FileRenamer.UpdateConfiguration(
+                    ProjectFileRenamerConfiguration
+                );
 
-                FileRenamer.StartingFrom(ProjectFileRenamerConfiguration.StartingFolder)
-                           .AndAttachConfiguration(ProjectFileRenamerConfiguration);
+                FileRenamer.StartingFrom(
+                               ProjectFileRenamerConfiguration.StartingFolder
+                           )
+                           .AndAttachConfiguration(
+                               ProjectFileRenamerConfiguration
+                           );
 
                 FileRenamer.FilesToHaveTextReplacedCounted +=
                     OnFilesToHaveTextReplacedCounted;
@@ -78,7 +87,8 @@ namespace MFR.Console
                 FileRenamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
                 FileRenamer.ProcessAll(
-                    ProjectFileRenamerConfiguration.FindWhat, ProjectFileRenamerConfiguration.ReplaceWith
+                    ProjectFileRenamerConfiguration.FindWhat,
+                    ProjectFileRenamerConfiguration.ReplaceWith
                 );
 
                 ConfigurationProvider.Save();
@@ -94,9 +104,7 @@ namespace MFR.Console
         }
 
         private static void OnDisplayHelp(object sender, DisplayHelpEventArgs e)
-        {
-
-        }
+            => throw new NotImplementedException();
 
         private static void OnFileRenamerProcessingOperation(object sender,
             ProcessingOperationEventArgs e)

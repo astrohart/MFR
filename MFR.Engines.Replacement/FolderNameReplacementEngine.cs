@@ -166,7 +166,7 @@ namespace MFR.Engines.Replacement
                     parentFolder,
                     /* only search and replace on the name of the lowest-
                      level folder in the pathname */
-                    GetStringReplacer.For(OperationType.RenameSubFolders)
+                    GetStringReplacer.For(OperationType)
                                      .AndTextMatchingConfiguration(
                                          CurrentConfiguration
                                              .GetTextMatchingConfiguration()

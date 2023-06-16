@@ -106,6 +106,7 @@
     <Compile Include="GetRenameFilesInFolderStringReplacerFactory.cs" />
     <Compile Include="GetRenameSubFoldersStringReplacerFactory.cs" />
     <Compile Include="GetReplaceTextInFilesStringReplacerFactory.cs" />
+    <Compile Include="GetRenameSolutionFoldersStringReplacerFactory.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="GetStringReplacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="RenameFilesInFolderStringReplacerFactory.cs" />
     <Compile Include="RenameSubFoldersStringReplacerFactory.cs" />
     <Compile Include="ReplaceTextInFilesStringReplacerFactory.cs" />
+    <Compile Include="RenameSolutionFoldersStringReplacerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

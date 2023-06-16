@@ -67,6 +67,11 @@ namespace MFR.TextValues.Retrievers.Factories
                     retriever = GetTextInFileTextValueRetriever.SoleInstance();
                     break;
 
+                case OperationType.RenameSolutionFolders:
+                    retriever =
+                        GetSolutionFolderTextValueRetriever.SoleInstance();
+                    break;
+
                 case OperationType.RenameSubFolders:
                     retriever = GetFolderTextValueRetriever.SoleInstance();
                     break;

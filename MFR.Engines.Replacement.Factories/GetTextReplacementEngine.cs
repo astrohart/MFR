@@ -56,6 +56,11 @@ namespace MFR.Engines.Replacement.Factories
                     result = MakeNewTextInFileReplacementEngine.FromScratch();
                     break;
 
+                case OperationType.RenameSolutionFolders:
+                    result = MakeNewSolutionFolderNameReplacementEngine
+                        .FromScratch();
+                    break;
+
                 case OperationType.RenameSubFolders:
                     result = MakeNewFolderNameReplacementEngine.FromScratch();
                     break;

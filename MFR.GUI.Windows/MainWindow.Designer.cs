@@ -72,7 +72,6 @@ namespace MFR.GUI.Windows
             this.helpAbout = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.optionsTabControl = new xyLOGIX.UI.Dark.Controls.DarkTabControl();
             this.findReplaceOptionsTabPage = new System.Windows.Forms.TabPage();
-            this.renameSolutionFoldersCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.matchExactWordCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.matchCaseCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.operationsTabPage = new System.Windows.Forms.TabPage();
@@ -506,7 +505,6 @@ namespace MFR.GUI.Windows
             // findReplaceOptionsTabPage
             // 
             this.findReplaceOptionsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.findReplaceOptionsTabPage.Controls.Add(this.renameSolutionFoldersCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchExactWordCheckBox);
             this.findReplaceOptionsTabPage.Controls.Add(this.matchCaseCheckBox);
             this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 22);
@@ -515,16 +513,6 @@ namespace MFR.GUI.Windows
             this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 184);
             this.findReplaceOptionsTabPage.TabIndex = 0;
             this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
-            // 
-            // renameSolutionFoldersCheckBox
-            // 
-            this.renameSolutionFoldersCheckBox.AutoSize = true;
-            this.renameSolutionFoldersCheckBox.IsDarkTheme = false;
-            this.renameSolutionFoldersCheckBox.Location = new System.Drawing.Point(7, 58);
-            this.renameSolutionFoldersCheckBox.Name = "renameSolutionFoldersCheckBox";
-            this.renameSolutionFoldersCheckBox.Size = new System.Drawing.Size(162, 19);
-            this.renameSolutionFoldersCheckBox.TabIndex = 2;
-            this.renameSolutionFoldersCheckBox.Text = "Rename solution folder(s)";
             // 
             // matchExactWordCheckBox
             // 
@@ -591,12 +579,12 @@ namespace MFR.GUI.Windows
             this.operationsCheckedListBox.Items.AddRange(new object[] {
             "Rename Files",
             "Rename Subfolders",
-            "Replace in Files"});
+            "Replace in Files",
+            "Rename Folder(s) that Contain Solution(s)"});
             this.operationsCheckedListBox.Location = new System.Drawing.Point(11, 57);
             this.operationsCheckedListBox.Name = "operationsCheckedListBox";
             this.operationsCheckedListBox.ScrollAlwaysVisible = true;
             this.operationsCheckedListBox.Size = new System.Drawing.Size(539, 110);
-            this.operationsCheckedListBox.Sorted = true;
             this.operationsCheckedListBox.TabIndex = 0;
             // 
             // inclusionsTabPage
@@ -972,7 +960,6 @@ namespace MFR.GUI.Windows
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem viewDarkTheme;
         private System.Windows.Forms.SaveFileDialog exportConfigDialog;
         private System.Windows.Forms.OpenFileDialog importConfigDialog;
-        private xyLOGIX.UI.Dark.Controls.DarkCheckBox renameSolutionFoldersCheckBox;
         private System.Windows.Forms.ToolStripButton goButton;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep1;
         private System.Windows.Forms.ToolStripButton newProfileButton;

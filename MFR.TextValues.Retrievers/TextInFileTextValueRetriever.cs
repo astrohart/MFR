@@ -1,6 +1,5 @@
 using MFR.FileSystem.Interfaces;
 using MFR.Operations.Constants;
-using MFR.Renamers.Files.Actions;
 using MFR.TextValues.Retrievers.Actions;
 using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -43,7 +42,9 @@ namespace MFR.TextValues.Retrievers
         /// corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
-            { get; } = OperationType.ReplaceTextInFiles;
+        {
+            get;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Gets a string containing the text to be searched, from the
@@ -69,18 +70,22 @@ namespace MFR.TextValues.Retrievers
         public override string GetTextValue(IFileSystemEntry entry)
         {
             var result = string.Empty;
+            var fileTicket = Guid.NewGuid();
 
             try
             {
                 if (entry == null) return result;
                 if (!FileSystemEntryValidatorSays.IsValid(entry)) return result;
+                if (!(entry.UserState is Guid)) return result;
                 if (Guid.Empty.Equals(entry.UserState)) return result;
 
                 // Here, the entry.UserState property is expected to be a globally-unique
                 // identifier, or GUID, value that serves as a ticket to refer to a currently-
                 // open file stream.
 
-                result = Get.FileData(entry.UserState);
+                result = Get.FileDataAsync(fileTicket)
+                            .GetAwaiter()
+                            .GetResult();
             }
             catch (Exception ex)
             {
