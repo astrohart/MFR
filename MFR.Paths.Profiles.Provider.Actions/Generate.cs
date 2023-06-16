@@ -4,6 +4,7 @@ using MFR.Expressions.Registry.Validators.Factories;
 using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
+using MFR.Messages.Commands.Interfaces;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Metadata.Registry.Validators.Factories;
@@ -11,6 +12,8 @@ using MFR.Metadata.Registry.Validators.Interfaces;
 using MFR.Paths.Profiles.Provider.Constants;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Actions.Factories;
+using MFR.Settings.Profiles.Commands.Constants;
+using MFR.Settings.Profiles.Commands.Factories;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -244,6 +247,52 @@ namespace MFR.Paths.Profiles.Provider.Actions
                 // initialize the action object by setting its input, before
                 // returning the reference to it to the caller of this method.
                 result = action.WithInput(expression);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
+
+        public static ICommand<IRegOperationMetadata<string>>
+            SaveProfilePathToRegistryCommand(
+                IRegOperationMetadata<string> metadata
+            )
+        {
+            ICommand<IRegOperationMetadata<string>> result = default;
+
+            try
+            {
+                if (metadata == null) return result;
+
+                /*
+                 * OKAY, only use the Registry operation metadata object that has been
+                 * passed to this method if its fields and properties contain valid
+                 * settings.
+                 */
+
+                if (!AccessTheRegOperationMetadataValidator
+                     .ForRegOperationMetadata(metadata)
+                     .Validate())
+                    return result;
+
+                result =
+                    GetProfileCollectionCommand
+                        .For<IRegOperationMetadata<string>>(
+                            ProfileCollectionCommandType
+                                .SaveProfileCollectionPathToRegistry
+                        );
+                if (result == null)
+                    return result; // failed to get command object
+
+                // initialize the command object by setting its input, before
+                // returning the reference to it to the caller of this method.
+                result = result.WithInput(metadata);
             }
             catch (Exception ex)
             {
