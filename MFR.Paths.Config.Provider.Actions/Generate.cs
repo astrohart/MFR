@@ -9,7 +9,6 @@ using MFR.Messages.Actions.Interfaces;
 using MFR.Paths.Config.Provider.Constants;
 using MFR.Settings.Configuration.Actions.Constants;
 using MFR.Settings.Configuration.Actions.Factories;
-using MFR.Settings.Configuration.Constants;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -23,13 +22,89 @@ namespace MFR.Paths.Config.Provider.Actions
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}" /> interface.
+        ///     cref="T:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}" />
+        /// interface.
         /// </summary>
         private static IRegQueryExpressionValidator<string>
             AccessTheRegQueryExpressionValidator
         {
             get;
         } = GetRegistryExpressionValidator<string>.SoleInstance();
+
+        /// <summary>
+        /// Generates an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}" />
+        /// interface for the purpose of searching the system Registry for the pathname of
+        /// the <c>config.json</c> file.
+        /// </summary>
+        /// <param name="companyName">
+        /// (Required.) A <see cref="T:System.String" /> containing the company name that
+        /// is associated with the application.
+        /// </param>
+        /// <param name="productName">
+        /// (Required.) A <see cref="T:System.String" /> containing the product name that
+        /// is associated with the application.
+        /// </param>
+        /// <param name="defaultValue">
+        /// (Required.) A <see cref="T:System.String" /> that
+        /// contains a default value that is to be returned in case nothing can be
+        /// successfully read from the system Registry.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of a Registry query expression object that
+        /// can be used to search the system Registry for the fully-qualified pathname of
+        /// the <c>config.json</c> file.
+        /// </returns>
+        public static IRegQueryExpression<string> ConfigPathRegQueryExpression(
+            string companyName,
+            string productName,
+            string defaultValue
+        )
+        {
+            IRegQueryExpression<string> result = default;
+
+            try
+            {
+                // Get the fully-qualified Registry key pathname of the Registry key
+                // under which the path to the config.json file is to be stored.
+                var profileFilePathRegistryKeyPathname =
+                    Formulate.ConfigFilePathRegistryKeyPathname(
+                        companyName, productName
+                    );
+                if (string.IsNullOrWhiteSpace(
+                        profileFilePathRegistryKeyPathname
+                    ))
+                    return result;
+
+                result = MakeNewRegQueryExpression.FromScatch<string>()
+                                                  .ForKeyPath(
+                                                      profileFilePathRegistryKeyPathname
+                                                  )
+                                                  .AndValueName(
+                                                      ConfigPathRegistry
+                                                          .ValueName
+                                                  )
+                                                  .WithDefaultValue(
+                                                      /*
+                                                       * This is the default fully-qualified pathname
+                                                       * of the file that is to be utilized if the value
+                                                       * that is supposed to be stored in the system
+                                                       * Registry cannot be found.
+                                                       */
+                                                      defaultValue
+                                                  );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Attempts to formulate a default value for the <c>config.json</c> file that
@@ -103,81 +178,6 @@ namespace MFR.Paths.Config.Provider.Actions
                 DebugUtils.LogException(ex);
 
                 result = string.Empty;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Generates an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String}" />
-        /// interface for the purpose of searching the system Registry for the pathname of
-        /// the <c>config.json</c> file.
-        /// </summary>
-        /// <param name="companyName">
-        /// (Required.) A <see cref="T:System.String" /> containing the company name that
-        /// is associated with the application.
-        /// </param>
-        /// <param name="productName">
-        /// (Required.) A <see cref="T:System.String" /> containing the product name that
-        /// is associated with the application.
-        /// </param>
-        /// <param name="defaultValue">
-        /// (Required.) A <see cref="T:System.String" /> that
-        /// contains a default value that is to be returned in case nothing can be
-        /// successfully read from the system Registry.
-        /// </param>
-        /// <returns>
-        /// Reference to an instance of a Registry query expression object that
-        /// can be used to search the system Registry for the fully-qualified pathname of
-        /// the <c>config.json</c> file.
-        /// </returns>
-        public static IRegQueryExpression<string> ConfigPathRegQueryExpression(
-            string companyName,
-            string productName,
-            string defaultValue
-        )
-        {
-            IRegQueryExpression<string> result = default;
-
-            try
-            {
-                // Get the fully-qualified Registry key pathname of the Registry key
-                // under which the path to the config.json file is to be stored.
-                var profileFilePathRegistryKeyPathname =
-                    Formulate.ConfigFilePathRegistryKeyPathname(
-                        companyName, productName
-                    );
-                if (string.IsNullOrWhiteSpace(
-                        profileFilePathRegistryKeyPathname
-                    ))
-                    return result;
-
-                result = MakeNewRegQueryExpression.FromScatch<string>()
-                                                  .ForKeyPath(
-                                                      profileFilePathRegistryKeyPathname
-                                                  )
-                                                  .AndValueName(
-                                                      ConfigPathRegistry
-                                                          .ValueName
-                                                  )
-                                                  .WithDefaultValue(
-                                                      /*
-                                                       * This is the default fully-qualified pathname
-                                                       * of the file that is to be utilized if the value
-                                                       * that is supposed to be stored in the system
-                                                       * Registry cannot be found.
-                                                       */
-                                                      defaultValue
-                                                  );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = default;
             }
 
             return result;

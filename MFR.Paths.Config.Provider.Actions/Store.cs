@@ -37,10 +37,9 @@ namespace MFR.Paths.Config.Provider.Actions
                 if (string.IsNullOrWhiteSpace(regKeyPathname)) return;
                 if (!regKeyPathname.StartsWithValidHiveName()) return;
 
-                IRegOperationMetadata<string>
-                    saveConfigPathnameRegOperationMetadata = default;
+                IRegOperationMetadata<string> metadata = default;
 
-                saveConfigPathnameRegOperationMetadata =
+                metadata =
                     MakeNewRegOperationMetadata.FromScatch<string>()
                                                .ForKeyPath(regKeyPathname)
                                                .AndValueName(
@@ -48,16 +47,7 @@ namespace MFR.Paths.Config.Provider.Actions
                                                )
                                                .WithValue(pathname);
 
-                if (saveConfigPathnameRegOperationMetadata == null) return;
-
-                /*
-GetSaveConfigPathCommand.ForPath(
-                                       ConfigPathKeyName,
-                                       ConfigPathValueName,
-                                       _configFilePath
-                                   )
-                                   .Execute();
-*/
+                if (metadata == null) return;
             }
             catch (Exception ex)
             {
