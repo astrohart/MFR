@@ -19,21 +19,6 @@ namespace MFR.Paths.Profiles.Provider.Actions
     /// </summary>
     public static class Store
     {
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Metadata.Registry.Validators.Interfaces.IRegOperationMetadataValidator
-        /// 
-        /// 
-        /// 
-        /// <T>" /> interface.
-        /// </summary>
-        private static IRegOperationMetadataValidator<string>
-            AccessTheRegOperationMetadataValidator
-        {
-            get;
-        } = GetRegOperationMetadataValidator<string>.SoleInstance();
-
         public static void ProfileCollectionFilePathToRegistry(
             string companyName,
             string productName,

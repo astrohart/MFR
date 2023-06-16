@@ -62,7 +62,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
                  */
 
                 var defaultProfileCollectionPathname =
-                    Generate.DefaultProfileCollectionPathname(
+                    Formulate.DefaultProfileCollectionPathname(
                         companyName, productName, currentPathname
                     );
                 if (string.IsNullOrWhiteSpace(defaultProfileCollectionPathname))
