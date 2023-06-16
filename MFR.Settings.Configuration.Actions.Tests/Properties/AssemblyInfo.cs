@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for MFR.Settings.ProjectFileRenamerConfiguration.Actions.Tests")]
-[assembly: AssemblyDescription("Provides objects and functionality for ")]
+[assembly: AssemblyTitle("MFR.Settings.ProjectFileRenamerConfiguration.Actions.Tests")]
+[assembly: AssemblyDescription("Provides objects and functionality for unit tests of the functionality to load/save the application configuration to/from a file on the disk.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Settings.ProjectFileRenamerConfiguration.Actions.Tests")]
+[assembly: AssemblyProduct("Unit Tests for Serializing the Project File Renamer Configuration")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
