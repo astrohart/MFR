@@ -45,36 +45,39 @@ namespace MFR.Registry.Writers
         /// contains the information requested.
         /// </param>
         /// <param name="data">
-        /// (Required.) Value data to be written to the system Registry./// </param>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="keyName" />, is blank.
-        /// </exception>
+        /// (Required.) Value data to be written to the system Registry.
+        /// </param>
         public override void ToRegistry(string keyName, string valueName,
             string data)
         {
-            if (string.IsNullOrWhiteSpace(keyName))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(keyName)
-                );
+            try
+            {
+                if (string.IsNullOrWhiteSpace(keyName)) return;
 
-            using (var baseKey = RegistryKey.OpenBaseKey(
-                keyName.ToRegistryHive(), RegistryView.Default
-            ))
-            using (var key = baseKey.CreateSubKey(keyName.RemoveHiveName()))
-                try
-                {
-                    key.SetValue(valueName, data);
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-                }
-                finally
-                {
-                    key?.Close();
-                    baseKey.Close();
-                }
+                using (var baseKey = RegistryKey.OpenBaseKey(
+                           keyName.ToRegistryHive(), RegistryView.Default
+                       ))
+                using (var key = baseKey.CreateSubKey(keyName.RemoveHiveName()))
+                    try
+                    {
+                        key.SetValue(valueName, data);
+                    }
+                    catch (Exception ex)
+                    {
+                        // dump all the exception info to the log
+                        DebugUtils.LogException(ex);
+                    }
+                    finally
+                    {
+                        key?.Close();
+                        baseKey.Close();
+                    }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

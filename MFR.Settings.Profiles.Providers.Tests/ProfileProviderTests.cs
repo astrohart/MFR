@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.GUI.Constants;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -26,6 +27,9 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// </remarks>
         public ProfileProviderTests()
         {
+            ProgramText.CompanyName = "xyLOGIX, LLC";
+            ProgramText.ProductName = "xyLOGIX Project File Renamer";
+
             LogFileManager.InitializeLogging(
                 muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,

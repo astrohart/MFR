@@ -39,7 +39,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
 
             try
             {
-                if (action == null) return;
+                if (action == null) return result;
 
                 result = action.Execute();
             }
@@ -51,7 +51,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
                 result = default;
             }
 
-            return;
+            return result;
         }
 
         /// <summary>
