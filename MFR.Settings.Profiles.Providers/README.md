@@ -10,7 +10,6 @@
   - [ProfileListPathProvider](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathProvider 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathProvider')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
-  - [Finalize()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Finalize 'MFR.Settings.Profiles.Providers.ProfileProvider.Finalize')
   - [InitializeProfileListPathProvider()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileListPathProvider 'MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileListPathProvider')
   - [Load()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load 'MFR.Settings.Profiles.Providers.ProfileProvider.Load')
   - [OnLoadingProfiles(e)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnLoadingProfiles-System-ComponentModel-CancelEventArgs- 'MFR.Settings.Profiles.Providers.ProfileProvider.OnLoadingProfiles(System.ComponentModel.CancelEventArgs)')
@@ -92,18 +91,6 @@ allows access to the set of profiles defined by the user.
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-Finalize'></a>
-### Finalize() `method`
-
-##### Summary
-
-Allows an object to try to free resources and perform other cleanup operations
-before it is reclaimed by garbage collection.
 
 ##### Parameters
 
