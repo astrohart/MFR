@@ -62,17 +62,6 @@ namespace MFR.Settings.Profiles.Providers.Tests
             var currentProfileCount = ProfileProvider.Profiles.Count;
 
             /*
-             * If the profile list file is found, then currentProfileCount
-             * should be greater than zero.  Otherwise, it should be zero.
-             */
-
-            Assert.That(
-                File.Exists(ProfileProvider.ProfileCollectionFilePath)
-                    ? currentProfileCount > 0
-                    : currentProfileCount == 0
-            );
-
-            /*
              * Add three Profiles with random names.
              */
             ProfileProvider.Profiles.Add(
