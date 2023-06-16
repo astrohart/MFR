@@ -24,6 +24,7 @@
 - [Retrieve](#T-MFR-Paths-Config-Provider-Actions-Retrieve 'MFR.Paths.Config.Provider.Actions.Retrieve')
   - [ConfigPathFromRegistry(companyName,productName,currentPathname)](#M-MFR-Paths-Config-Provider-Actions-Retrieve-ConfigPathFromRegistry-System-String,System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Retrieve.ConfigPathFromRegistry(System.String,System.String,System.String)')
 - [Store](#T-MFR-Paths-Config-Provider-Actions-Store 'MFR.Paths.Config.Provider.Actions.Store')
+  - [ConfigFilePathToRegistry(companyName,productName,pathname)](#M-MFR-Paths-Config-Provider-Actions-Store-ConfigFilePathToRegistry-System-String,System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Store.ConfigFilePathToRegistry(System.String,System.String,System.String)')
 
 <a name='T-MFR-Paths-Config-Provider-Actions-Execute'></a>
 ## Execute `type`
@@ -459,3 +460,23 @@ MFR.Paths.Config.Provider.Actions
 
 Exposes static methods for storing the pathname of a `config.json` file to
 the system Registry.
+
+<a name='M-MFR-Paths-Config-Provider-Actions-Store-ConfigFilePathToRegistry-System-String,System-String,System-String-'></a>
+### ConfigFilePathToRegistry(companyName,productName,pathname) `method`
+
+##### Summary
+
+Saves the fully-qualified pathname of the application configuration file to the
+system Registry.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| companyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the company name that is associated with the application. |
+| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the product name that is associated with the application. |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the fully-qualified pathname of the application configuration file
+that is to be stored in the system Registry.. |

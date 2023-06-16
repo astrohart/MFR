@@ -134,6 +134,7 @@ namespace MFR.FileSystem
 
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
+        [Log(AttributeExclude = true)]
         public override string ToString()
             => Path;
     }

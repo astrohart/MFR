@@ -13,8 +13,9 @@
   - [AccessTheRegOperationMetadataValidator](#P-MFR-Paths-Profiles-Provider-Actions-Generate-AccessTheRegOperationMetadataValidator 'MFR.Paths.Profiles.Provider.Actions.Generate.AccessTheRegOperationMetadataValidator')
   - [AccessTheRegQueryExpressionValidator](#P-MFR-Paths-Profiles-Provider-Actions-Generate-AccessTheRegQueryExpressionValidator 'MFR.Paths.Profiles.Provider.Actions.Generate.AccessTheRegQueryExpressionValidator')
   - [ProfilePathRegQueryExpression(companyName,productName,defaultValue)](#M-MFR-Paths-Profiles-Provider-Actions-Generate-ProfilePathRegQueryExpression-System-String,System-String,System-String- 'MFR.Paths.Profiles.Provider.Actions.Generate.ProfilePathRegQueryExpression(System.String,System.String,System.String)')
-  - [RegOperationMetadataForProfileCollectionPath(pathnameToSave,regKeyPathname)](#M-MFR-Paths-Profiles-Provider-Actions-Generate-RegOperationMetadataForProfileCollectionPath-System-String,System-String- 'MFR.Paths.Profiles.Provider.Actions.Generate.RegOperationMetadataForProfileCollectionPath(System.String,System.String)')
+  - [RegOperationMetadataForSavingProfileCollectionPath(pathnameToSave,regKeyPathname)](#M-MFR-Paths-Profiles-Provider-Actions-Generate-RegOperationMetadataForSavingProfileCollectionPath-System-String,System-String- 'MFR.Paths.Profiles.Provider.Actions.Generate.RegOperationMetadataForSavingProfileCollectionPath(System.String,System.String)')
   - [RetrieveProfileCollectionPathnameFromRegistryAction(expression)](#M-MFR-Paths-Profiles-Provider-Actions-Generate-RetrieveProfileCollectionPathnameFromRegistryAction-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}- 'MFR.Paths.Profiles.Provider.Actions.Generate.RetrieveProfileCollectionPathnameFromRegistryAction(MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String})')
+  - [SaveProfilePathToRegistryCommand(metadata)](#M-MFR-Paths-Profiles-Provider-Actions-Generate-SaveProfilePathToRegistryCommand-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}- 'MFR.Paths.Profiles.Provider.Actions.Generate.SaveProfilePathToRegistryCommand(MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String})')
 - [Obtain](#T-MFR-Paths-Profiles-Provider-Actions-Obtain 'MFR.Paths.Profiles.Provider.Actions.Obtain')
   - [ProfileCollectionFilePath(companyName,productName,currentPathname)](#M-MFR-Paths-Profiles-Provider-Actions-Obtain-ProfileCollectionFilePath-System-String,System-String,System-String- 'MFR.Paths.Profiles.Provider.Actions.Obtain.ProfileCollectionFilePath(System.String,System.String,System.String)')
 - [Resources](#T-MFR-Paths-Profiles-Provider-Actions-Properties-Resources 'MFR.Paths.Profiles.Provider.Actions.Properties.Resources')
@@ -227,8 +228,8 @@ is associated with the application. |
 contains a default value that is to be returned in case nothing can be
 successfully read from the system Registry. |
 
-<a name='M-MFR-Paths-Profiles-Provider-Actions-Generate-RegOperationMetadataForProfileCollectionPath-System-String,System-String-'></a>
-### RegOperationMetadataForProfileCollectionPath(pathnameToSave,regKeyPathname) `method`
+<a name='M-MFR-Paths-Profiles-Provider-Actions-Generate-RegOperationMetadataForSavingProfileCollectionPath-System-String,System-String-'></a>
+### RegOperationMetadataForSavingProfileCollectionPath(pathnameToSave,regKeyPathname) `method`
 
 ##### Summary
 
@@ -303,6 +304,36 @@ Registry.
 This query can be initialized with the
 [ProfilePathRegQueryExpression](#M-MFR-Settings-Profiles-Providers-Actions-Generate-ProfilePathRegQueryExpression 'MFR.Settings.Profiles.Providers.Actions.Generate.ProfilePathRegQueryExpression')
 method. |
+
+<a name='M-MFR-Paths-Profiles-Provider-Actions-Generate-SaveProfilePathToRegistryCommand-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}-'></a>
+### SaveProfilePathToRegistryCommand(metadata) `method`
+
+##### Summary
+
+Generates a new `Command` object (an object that sends an application
+message that has an input value but no output) for saving the pathname of the
+file containing the user's saved configuration-setting profiles to the system
+Registry.
+
+##### Returns
+
+A new `Command` object (an object that sends an application
+message that has an input value but no output) for saving the pathname of the
+file containing the user's saved configuration-setting profiles to the system
+Registry.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| metadata | [MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}](#T-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String} 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}') | (Required.) Reference to an instance of an object that implements the
+[IRegOperationMetadata{T}](#T-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{T} 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{T}')
+interface.
+
+
+
+This object specifies the information that tells the code under which Registry
+key and value should the pathname be written. |
 
 <a name='T-MFR-Paths-Profiles-Provider-Actions-Obtain'></a>
 ## Obtain `type`

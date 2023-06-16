@@ -932,6 +932,9 @@ namespace MFR.Renamers.Files
                     )
                 );
 
+                if (FileStreamProvider.Count > 0)
+                    FileStreamProvider.DisposeAll();
+
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSolutionFolders)
@@ -939,7 +942,7 @@ namespace MFR.Renamers.Files
                 if (retriever == null) return result;
 
                 // build a list of solution folders to be processed
-                var fileSystemEntries = retriever.UsingSearchPattern("*.sln")
+                var fileSystemEntries = retriever.UsingSearchPattern("*")
                                                  .WithSearchOption(
                                                      SearchOption.AllDirectories
                                                  )
@@ -1344,6 +1347,9 @@ namespace MFR.Renamers.Files
                     CurrentOperation
                 )
             );
+
+            if (FileStreamProvider.Count > 0)
+                FileStreamProvider.DisposeAll();
 
             IFileSystemEntryListRetriever retriever =
                 GetFileSystemEntryListRetriever
@@ -1791,6 +1797,10 @@ namespace MFR.Renamers.Files
                         DebugLevel.Error,
                         "*** ERROR *** The InvokeProcessing method returned FALSE."
                     );
+                    
+                    ReopenActiveSolutions();
+
+                    OnFinished();
                     Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
                     return;
                 }

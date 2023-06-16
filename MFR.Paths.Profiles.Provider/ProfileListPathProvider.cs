@@ -54,7 +54,9 @@ namespace MFR.Paths.Profiles.Provider
         {
             get => _profileCollectionFilePath;
             set {
-                var changed = _profileCollectionFilePath != value;
+                var changed =
+                    !string.IsNullOrWhiteSpace(_profileCollectionFilePath) &&
+                    _profileCollectionFilePath != value;
                 _profileCollectionFilePath = value;
                 if (changed) OnProfileCollectionFilePathChanged();
             }

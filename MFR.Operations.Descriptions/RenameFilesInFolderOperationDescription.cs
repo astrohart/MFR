@@ -9,7 +9,7 @@ namespace MFR.Operations.Descriptions
     /// Gets the descriptive text to be displayed to the user during a Rename
     /// Files in Folder operation.
     /// </summary>
-    public class RenameFilesInFolderOperationDescription : IOperationDescription
+    public class RenameFilesInFolderOperationDescription : OperationDescriptionBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -39,7 +39,7 @@ namespace MFR.Operations.Descriptions
         /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
-        public OperationType OperationType
+        public override OperationType OperationType
             { get; } = OperationType.RenameFilesInFolder;
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace MFR.Operations.Descriptions
         /// <remarks>
         /// It is up to the implementers of this interface to supply the proper text.
         /// </remarks>
-        public string Text
+        public override string Text
         {
             get;
         } = Resources.OperationDescription_RenameFilesInFolder;

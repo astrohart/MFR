@@ -44,7 +44,8 @@ namespace MFR.Paths.Config.Provider
         {
             get => _configFilePath;
             set {
-                var changed = _configFilePath != value;
+                var changed = !string.IsNullOrWhiteSpace(_configFilePath) &&
+                              _configFilePath != value;
                 _configFilePath = value;
                 if (changed) OnConfigFilePathChanged();
             }
