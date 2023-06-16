@@ -5,13 +5,17 @@
 
 - [Execute](#T-MFR-Paths-Config-Provider-Actions-Execute 'MFR.Paths.Config.Provider.Actions.Execute')
   - [OperationToLoadConfigFilePathFromRegistry(action)](#M-MFR-Paths-Config-Provider-Actions-Execute-OperationToLoadConfigFilePathFromRegistry-MFR-Messages-Actions-Interfaces-IAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String},MFR-FileSystem-Interfaces-IFileSystemEntry}- 'MFR.Paths.Config.Provider.Actions.Execute.OperationToLoadConfigFilePathFromRegistry(MFR.Messages.Actions.Interfaces.IAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry})')
+  - [OperationToSaveConfigFilePathToRegistry(command)](#M-MFR-Paths-Config-Provider-Actions-Execute-OperationToSaveConfigFilePathToRegistry-MFR-Messages-Commands-Interfaces-ICommand{MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}}- 'MFR.Paths.Config.Provider.Actions.Execute.OperationToSaveConfigFilePathToRegistry(MFR.Messages.Commands.Interfaces.ICommand{MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}})')
 - [Formulate](#T-MFR-Paths-Config-Provider-Actions-Formulate 'MFR.Paths.Config.Provider.Actions.Formulate')
   - [ConfigFilePathRegistryKeyPathname(companyName,productName)](#M-MFR-Paths-Config-Provider-Actions-Formulate-ConfigFilePathRegistryKeyPathname-System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Formulate.ConfigFilePathRegistryKeyPathname(System.String,System.String)')
 - [Generate](#T-MFR-Paths-Config-Provider-Actions-Generate 'MFR.Paths.Config.Provider.Actions.Generate')
+  - [AccessTheRegOperationMetadataValidator](#P-MFR-Paths-Config-Provider-Actions-Generate-AccessTheRegOperationMetadataValidator 'MFR.Paths.Config.Provider.Actions.Generate.AccessTheRegOperationMetadataValidator')
   - [AccessTheRegQueryExpressionValidator](#P-MFR-Paths-Config-Provider-Actions-Generate-AccessTheRegQueryExpressionValidator 'MFR.Paths.Config.Provider.Actions.Generate.AccessTheRegQueryExpressionValidator')
   - [ConfigPathRegQueryExpression(companyName,productName,defaultValue)](#M-MFR-Paths-Config-Provider-Actions-Generate-ConfigPathRegQueryExpression-System-String,System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Generate.ConfigPathRegQueryExpression(System.String,System.String,System.String)')
   - [DefaultConfigPathname(companyName,productName,currentPathname)](#M-MFR-Paths-Config-Provider-Actions-Generate-DefaultConfigPathname-System-String,System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Generate.DefaultConfigPathname(System.String,System.String,System.String)')
+  - [RegOperationMetadataForSavingConfigPath(pathnameToSave,regKeyPathname)](#M-MFR-Paths-Config-Provider-Actions-Generate-RegOperationMetadataForSavingConfigPath-System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Generate.RegOperationMetadataForSavingConfigPath(System.String,System.String)')
   - [RetrieveConfigPathnameFromRegistryAction(expression)](#M-MFR-Paths-Config-Provider-Actions-Generate-RetrieveConfigPathnameFromRegistryAction-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}- 'MFR.Paths.Config.Provider.Actions.Generate.RetrieveConfigPathnameFromRegistryAction(MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String})')
+  - [SaveConfigPathToRegistryCommand(metadata)](#M-MFR-Paths-Config-Provider-Actions-Generate-SaveConfigPathToRegistryCommand-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}- 'MFR.Paths.Config.Provider.Actions.Generate.SaveConfigPathToRegistryCommand(MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String})')
 - [Obtain](#T-MFR-Paths-Config-Provider-Actions-Obtain 'MFR.Paths.Config.Provider.Actions.Obtain')
   - [ConfigFilePath(companyName,productName,currentPathname)](#M-MFR-Paths-Config-Provider-Actions-Obtain-ConfigFilePath-System-String,System-String,System-String- 'MFR.Paths.Config.Provider.Actions.Obtain.ConfigFilePath(System.String,System.String,System.String)')
 - [Resources](#T-MFR-Paths-Config-Provider-Actions-Properties-Resources 'MFR.Paths.Config.Provider.Actions.Properties.Resources')
@@ -54,8 +58,26 @@ should contain the pathname of the `config.json` file; or
 | ---- | ---- | ----------- |
 | action | [MFR.Messages.Actions.Interfaces.IAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String},MFR-FileSystem-Interfaces-IFileSystemEntry} 'MFR.Messages.Actions.Interfaces.IAction{MFR.Expressions.Registry.Interfaces.IRegQueryExpression{System.String},MFR.FileSystem.Interfaces.IFileSystemEntry}') | (Required.) Reference to an instance of an object that
 implements the
-[IAction[TInput, TResult]](#T-MFR-Messages-Actions-Interfaces-IAction[TInput, TResult] 'MFR.Messages.Actions.Interfaces.IAction[TInput, TResult]')
+[IAction{TInput, TResult}](#T-MFR-Messages-Actions-Interfaces-IAction{TInput, TResult} 'MFR.Messages.Actions.Interfaces.IAction{TInput, TResult}')
 interface that represents the operation that is to be executed. |
+
+<a name='M-MFR-Paths-Config-Provider-Actions-Execute-OperationToSaveConfigFilePathToRegistry-MFR-Messages-Commands-Interfaces-ICommand{MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}}-'></a>
+### OperationToSaveConfigFilePathToRegistry(command) `method`
+
+##### Summary
+
+Executes a `Command` that saves the pathname of the application
+configuration file to the system Registry.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| command | [MFR.Messages.Commands.Interfaces.ICommand{MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}}](#T-MFR-Messages-Commands-Interfaces-ICommand{MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}} 'MFR.Messages.Commands.Interfaces.ICommand{MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}}') | (Required.) Reference to an instance of an object that
+implements the
+[ICommand{TInput}](#T-MFR-Messages-Commands-Interfaces-ICommand{TInput} 'MFR.Messages.Commands.Interfaces.ICommand{TInput}') interface
+that, when executed, saves the pathname of the application configuration file
+to the system Registry.. |
 
 <a name='T-MFR-Paths-Config-Provider-Actions-Formulate'></a>
 ## Formulate `type`
@@ -114,13 +136,24 @@ MFR.Paths.Config.Provider.Actions
 
 Exposes static methods for generating data values.
 
+<a name='P-MFR-Paths-Config-Provider-Actions-Generate-AccessTheRegOperationMetadataValidator'></a>
+### AccessTheRegOperationMetadataValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IRegOperationMetadataValidator{T}](#T-MFR-Metadata-Registry-Validators-Interfaces-IRegOperationMetadataValidator{T} 'MFR.Metadata.Registry.Validators.Interfaces.IRegOperationMetadataValidator{T}')
+interface that represents an object that validates the metadata used for
+performing Registry operations.
+
 <a name='P-MFR-Paths-Config-Provider-Actions-Generate-AccessTheRegQueryExpressionValidator'></a>
 ### AccessTheRegQueryExpressionValidator `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRegQueryExpressionValidator{T}](#T-MFR-Expressions-Registry-Validators-Interfaces-IRegQueryExpressionValidator{T} 'MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}') interface.
+[IRegQueryExpressionValidator{T}](#T-MFR-Expressions-Registry-Validators-Interfaces-IRegQueryExpressionValidator{T} 'MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}')
+interface.
 
 <a name='M-MFR-Paths-Config-Provider-Actions-Generate-ConfigPathRegQueryExpression-System-String,System-String,System-String-'></a>
 ### ConfigPathRegQueryExpression(companyName,productName,defaultValue) `method`
@@ -156,7 +189,7 @@ successfully read from the system Registry. |
 ##### Summary
 
 Attempts to formulate a default value for the `config.json` file that
-contains the user's previously-saved configuration profiles.
+contains the user's previously-saved application configuration.
 
 ##### Returns
 
@@ -179,14 +212,59 @@ otherwise hit (blank input, missing file, missing Registry value, etc. |
 
 ##### Remarks
 
-Configuration profiles let the user save a set of their previously-used
-settings to easily recall for later use.
+The application configuration is stored in the file.
 
 
 
 If an error occurred, or if required information is missing, during the
 operation, then this method returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty')
 value.
+
+<a name='M-MFR-Paths-Config-Provider-Actions-Generate-RegOperationMetadataForSavingConfigPath-System-String,System-String-'></a>
+### RegOperationMetadataForSavingConfigPath(pathnameToSave,regKeyPathname) `method`
+
+##### Summary
+
+Generates an instance of an object that implements the
+[String}](#T-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String} 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}')
+interface that is to be used for storing the specified
+`pathnameToSave` under the specified
+`regKeyPathname`.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[String}](#T-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String} 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}')
+interface that can be used for saving the specified
+`pathnameToSave` to the Registry key having the specified
+`regKeyPathname`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathnameToSave | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file that is to be saved on the hard disk. |
+| regKeyPathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A fully-qualified Registry key
+pathname under which the fully-qualified pathname of the `profiles.json`
+file indicated by the `pathnameToSave` parameter is to be
+stored. |
+
+##### Remarks
+
+The file indicated in the `pathnameToSave` parameter must
+have the filename `profiles.json` in order to be saved to the system
+Registry.
+
+
+
+Moreover, the `regKeyPathname` parameter must not have a
+blank argument.
+
+
+
+If either of these conditions aren't met, then this method returns a
+`null` reference.
 
 <a name='M-MFR-Paths-Config-Provider-Actions-Generate-RetrieveConfigPathnameFromRegistryAction-MFR-Expressions-Registry-Interfaces-IRegQueryExpression{System-String}-'></a>
 ### RetrieveConfigPathnameFromRegistryAction(expression) `method`
@@ -218,6 +296,36 @@ Registry.
 This query can be initialized with the
 [ConfigPathRegQueryExpression](#M-MFR-Settings-Configs-Providers-Actions-Generate-ConfigPathRegQueryExpression 'MFR.Settings.Configs.Providers.Actions.Generate.ConfigPathRegQueryExpression')
 method. |
+
+<a name='M-MFR-Paths-Config-Provider-Actions-Generate-SaveConfigPathToRegistryCommand-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String}-'></a>
+### SaveConfigPathToRegistryCommand(metadata) `method`
+
+##### Summary
+
+Generates a new `Command` object (an object that sends an application
+message that has an input value but no output) for saving the pathname of the
+file containing the user's saved configuration-setting profiles to the system
+Registry.
+
+##### Returns
+
+A new `Command` object (an object that sends an application
+message that has an input value but no output) for saving the pathname of the
+file containing the user's saved configuration-setting profiles to the system
+Registry.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| metadata | [MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}](#T-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{System-String} 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{System.String}') | (Required.) Reference to an instance of an object that implements the
+[IRegOperationMetadata{T}](#T-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata{T} 'MFR.Metadata.Registry.Interfaces.IRegOperationMetadata{T}')
+interface.
+
+
+
+This object specifies the information that tells the code under which Registry
+key and value should the pathname be written. |
 
 <a name='T-MFR-Paths-Config-Provider-Actions-Obtain'></a>
 ## Obtain `type`
