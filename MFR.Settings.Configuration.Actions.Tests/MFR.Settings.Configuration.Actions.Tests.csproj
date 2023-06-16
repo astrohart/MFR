@@ -132,6 +132,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Constants\MFR.Constants.csproj">
+      <Project>{A9C55463-4815-4CC5-84BA-4058440521F4}</Project>
+      <Name>MFR.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Expressions.Registry.Validators.Factories\MFR.Expressions.Registry.Validators.Factories.csproj">
       <Project>{A918C4B3-40A4-4864-A04D-AC2ACFC025AC}</Project>
       <Name>MFR.Expressions.Registry.Validators.Factories</Name>

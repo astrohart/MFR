@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using MFR.FileSystem.Factories.Actions;
 using System;
 using xyLOGIX.Core.Debug;
@@ -80,7 +81,9 @@ namespace MFR.Settings.Configuration.Providers.Actions
             try
             {
                 result = Does.FileExist(pathname) &&
-                         "config.json".Equals(Path.GetFileName(pathname));
+                         ConfigFile.DefaultFilename.Equals(
+                             Path.GetFileName(pathname)
+                         );
             }
             catch (Exception ex)
             {

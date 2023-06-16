@@ -136,6 +136,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Constants\MFR.Constants.csproj">
+      <Project>{A9C55463-4815-4CC5-84BA-4058440521F4}</Project>
+      <Name>MFR.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
       <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
       <Name>MFR.FileSystem.Factories.Actions</Name>
@@ -172,9 +176,9 @@
       <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
       <Name>MFR.Settings.Configuration.Actions.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Helpers\MFR.Settings.Configuration.Helpers.csproj">
-      <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
-      <Name>MFR.Settings.Configuration.Helpers</Name>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Factories\MFR.Settings.Configuration.Factories.csproj">
+      <Project>{2F551CBE-04C2-4DD3-82D1-D4A2D4D0F002}</Project>
+      <Name>MFR.Settings.Configuration.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>

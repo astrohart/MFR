@@ -1,7 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Helpers;
 using MFR.Settings.Configuration.Converters;
-using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using System;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace MFR.Settings.Configuration.Serializers
         /// </returns>
         public static IProjectFileRenamerConfiguration Load(string pathname)
         {
-            var result = Create.BlankConfiguration();
+            var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
             try
             {
@@ -68,7 +68,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = Create.BlankConfiguration();
+                result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
             }
 
             return result;

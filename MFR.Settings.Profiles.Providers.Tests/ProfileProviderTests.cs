@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Constants;
+using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
@@ -39,12 +40,31 @@ namespace MFR.Settings.Profiles.Providers.Tests
         }
 
         /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the file containing the collection of user-defined
+        /// configuration-setting profiles.
+        /// <para />
+        /// This pathname is loaded from, and saved to, the system Registry.
+        /// </summary>
+        private static string ProfileCollectionFilePath
+            => ProfileProvider.ProfileCollectionFilePath;
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
             => GetProfileProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// interface that represents the collection of configuration-setting profiles
+        /// we're working with.
+        /// </summary>
+        private static IProfileCollection Profiles
+            => ProfileProvider.Profiles;
 
         /// <summary>
         /// Asserts that the workflow of Profiles, i.e., loading them from disk, adding new
@@ -59,60 +79,84 @@ namespace MFR.Settings.Profiles.Providers.Tests
              * Get a count of the current number of profiles, to
              * check whether the Add operations done below are successful.
              */
-            var currentProfileCount = ProfileProvider.Profiles.Count;
+            var currentProfileCount = GetProfileCount();
 
             /*
              * Add three Profiles with random names.
              */
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
+            Assert.DoesNotThrow(
+                () => ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                )
             );
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
+            Assert.DoesNotThrow(
+                () => Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                )
             );
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
+            Assert.DoesNotThrow(
+                () => ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                )
             );
 
             /*
              * Get the new count of profile entries.
              */
-            var profileCountAfterAdding = ProfileProvider.Profiles.Count;
+            var profileCountAfterAdding = GetProfileCount();
 
             /*
              * Assert that the delta in the count of Profile objects in the
              * Profiles collection is +3.
              */
 
-            Assert.That(
-                profileCountAfterAdding - currentProfileCount, Is.EqualTo(3)
-            );
+            var countAfterAdding = profileCountAfterAdding - currentProfileCount;
+
+            Assert.That(countAfterAdding, Is.EqualTo(3));
 
             /*
-             * Now, save the Profiles to the disk.
+             * Now, save the Profiles to the disk. Assert that no exceptions
+             * are thrown during the course of the operation.
              */
 
-            ProfileProvider.Save();
+            Assert.DoesNotThrow(() => ProfileProvider.Save());
 
             /*
              * Assert that the profile list file with the default
              * path is present.
              */
 
-            Assert.That(File.Exists(ProfileProvider.ProfileCollectionFilePath));
+            FileInfo profileCollectionFile = default;
+
+            Assert.DoesNotThrow(
+                () => profileCollectionFile =
+                    new FileInfo(ProfileCollectionFilePath)
+            );
+            Assert.IsNotNull(profileCollectionFile);
+
+            Assert.That(
+                profileCollectionFile.Exists && profileCollectionFile.Length > 0
+            );
         }
+
+        /// <summary>
+        /// Gets the count of user-defined configuration-setting profiles.
+        /// </summary>
+        /// <returns>Count of user-defined configuration-setting profiles.</returns>
+        private static int GetProfileCount()
+            => Profiles.Count;
 
         /// <summary>
         /// Exposes static methods to obtain data from various data sources.

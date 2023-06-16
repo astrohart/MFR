@@ -78,7 +78,7 @@ namespace MFR.Settings.Configuration.Providers
         {
             get;
             set;
-        } = Create.BlankConfiguration();
+        } = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -103,7 +103,7 @@ namespace MFR.Settings.Configuration.Providers
         /// Resets the configuration to default values.
         /// </summary>
         public void Clear()
-            => CurrentConfiguration = Create.BlankConfiguration();
+            => CurrentConfiguration = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
         /// <summary>
         /// Exports configuration data to a file other than the master
@@ -217,7 +217,7 @@ namespace MFR.Settings.Configuration.Providers
         /// </remarks>
         public IProjectFileRenamerConfiguration Load(string pathname = "")
         {
-            var result = Create.BlankConfiguration();
+            var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
             try
             {
@@ -245,7 +245,7 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                CurrentConfiguration = Create.BlankConfiguration();
+                CurrentConfiguration = GetBlankProjectFileRenamerConfiguration.SoleInstance();
             }
 
             DebugUtils.WriteLine(

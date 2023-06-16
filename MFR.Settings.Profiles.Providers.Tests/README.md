@@ -12,7 +12,10 @@
   - [LogFilePath()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Get-LogFilePath 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Get.LogFilePath')
 - [ProfileProviderTests](#T-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-#ctor 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.#ctor')
+  - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.ProfileCollectionFilePath')
   - [ProfileProvider](#P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileProvider 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.ProfileProvider')
+  - [Profiles](#P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Profiles 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Profiles')
+  - [GetProfileCount()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-GetProfileCount 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.GetProfileCount')
   - [Test_Load_Add_And_Save_Workflow()](#M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow 'MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests.Test_Load_Add_And_Save_Workflow')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Tests-Properties-Resources 'MFR.Settings.Profiles.Providers.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Tests-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Tests.Properties.Resources.Culture')
@@ -139,6 +142,19 @@ This constructor has no parameters.
 
 This constructor sets up the production of a log file for this test fixture.
 
+<a name='P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileCollectionFilePath'></a>
+### ProfileCollectionFilePath `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the file containing the collection of user-defined
+configuration-setting profiles.
+
+
+
+This pathname is loaded from, and saved to, the system Registry.
+
 <a name='P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-ProfileProvider'></a>
 ### ProfileProvider `property`
 
@@ -147,6 +163,31 @@ This constructor sets up the production of a log file for this test fixture.
 Gets a reference to an instance of an object that implements the
 [IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
 interface.
+
+<a name='P-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Profiles'></a>
+### Profiles `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
+interface that represents the collection of configuration-setting profiles
+we're working with.
+
+<a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-GetProfileCount'></a>
+### GetProfileCount() `method`
+
+##### Summary
+
+Gets the count of user-defined configuration-setting profiles.
+
+##### Returns
+
+Count of user-defined configuration-setting profiles.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-Test_Load_Add_And_Save_Workflow'></a>
 ### Test_Load_Add_And_Save_Workflow() `method`

@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -99,9 +100,8 @@ namespace MFR.Paths.Config.Provider.Actions
                         retrieveConfigPathnameFromRegistryAction
                     );
                 if (configFileSystemEntry == null) return result;
-                if (string.IsNullOrWhiteSpace(
-                        configFileSystemEntry.Path
-                    ) || !"config.json".Equals(
+                if (string.IsNullOrWhiteSpace(configFileSystemEntry.Path) ||
+                    !ConfigFile.DefaultFilename.Equals(
                         Path.GetFileName(configFileSystemEntry.Path)
                     )) return result;
 

@@ -3,7 +3,7 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Settings.Configuration.Commands.Factories;
-using MFR.Settings.Configuration.Helpers;
+using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using NUnit.Framework;
 
@@ -31,11 +31,10 @@ namespace MFR.Replacers.Factories.Tests
         /// <summary>
         /// Empty configuration object for testing.
         /// </summary>
-        private static IProjectFileRenamerConfiguration
-            ProjectFileRenamerConfigurationData
+        private static IProjectFileRenamerConfiguration BlankConfiguration
         {
             get;
-        } = Create.BlankConfiguration();
+        } = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
         /// <summary>
         /// TODO: Add unit test documentation here
@@ -51,18 +50,14 @@ namespace MFR.Replacers.Factories.Tests
                 {
                     var fileSystemEntry = MakeNewFileSystemEntry
                                           .ForPath(FILE_PATH)
-                                          .SetUserState(
-                                              ProjectFileRenamerConfigurationData
-                                          );
+                                          .SetUserState(BlankConfiguration);
                     if (fileSystemEntry == null) return;
 
-                    var saveConfigurationFileCommand = GetConfigurationCommand.For<IFileSystemEntry>(
-                            ConfigurationCommandType
-                                .SaveConfigurationToFile
+                    var saveConfigurationFileCommand = GetConfigurationCommand
+                        .For<IFileSystemEntry>(
+                            ConfigurationCommandType.SaveConfigurationToFile
                         )
-                        .WithInput(
-                            fileSystemEntry
-                        );
+                        .WithInput(fileSystemEntry);
                     if (saveConfigurationFileCommand == null) return;
 
                     saveConfigurationFileCommand.Execute();

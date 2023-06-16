@@ -1,16 +1,17 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Paths.Config.Provider.Constants;
 using MFR.Registry.Helpers;
-using MFR.Settings.Configuration.Constants;
 using System;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Config.Provider.Actions
 {
     /// <summary>
-    /// Exposes static methods for storing the pathname of a <c>config.json</c> file to the system Registry.
+    /// Exposes static methods for storing the pathname of a <c>config.json</c> file to
+    /// the system Registry.
     /// </summary>
     public static class Store
     {
@@ -25,7 +26,9 @@ namespace MFR.Paths.Config.Provider.Actions
                 if (string.IsNullOrWhiteSpace(companyName)) return;
                 if (string.IsNullOrWhiteSpace(productName)) return;
                 if (string.IsNullOrWhiteSpace(pathname)) return;
-                if (!"config.json".Equals(Path.GetFileName(pathname))) return;
+                if (!ConfigFile.DefaultFilename.Equals(
+                        Path.GetFileName(pathname)
+                    )) return;
 
                 var regKeyPathname =
                     Formulate.ConfigFilePathRegistryKeyPathname(
@@ -55,7 +58,6 @@ GetSaveConfigPathCommand.ForPath(
                                    )
                                    .Execute();
 */
-
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
@@ -81,7 +82,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
 
             Assert.That(!string.IsNullOrWhiteSpace(configFileSystemEntry.Path));
             Assert.That(
-                "config.json".Equals(
+                ConfigFile.DefaultFilename.Equals(
                     Path.GetFileName(configFileSystemEntry.Path)
                 )
             );

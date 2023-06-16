@@ -349,4 +349,5 @@ MFR.Paths.Config.Provider.Actions
 
 ##### Summary
 
-Exposes static methods for storing the pathname of a `config.json` file to the system Registry.
+Exposes static methods for storing the pathname of a `config.json` file to
+the system Registry.

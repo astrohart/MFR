@@ -68,7 +68,7 @@ namespace MFR.Settings.Configuration.Tests
         public void
             Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual()
         {
-            var blankConfig = Create.BlankConfiguration();
+            var blankConfig = GetBlankProjectFileRenamerConfiguration.SoleInstance();
             var newConfig =
                 MakeNewProjectFileRenamerConfiguration.FromScratch();
 

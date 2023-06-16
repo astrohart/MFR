@@ -170,18 +170,10 @@ namespace MFR.Settings.Profiles.Providers
         /// </remarks>
         public void Save(string pathname = "")
         {
-            /*
-             * If the pathname parameter is blank, then use the
-             * default profile list file path.
-             */
-            if (string.IsNullOrWhiteSpace(pathname))
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    "ProfileProvider.Save: The 'pathname' parameter is blank.  Using the value of the 'ProfileCollectionFilePath' property..."
-                );
-                pathname = ProfileCollectionFilePath;
-            }
+            pathname = Determine.CorrectProfileListPathForSaving(
+                ProfileCollectionFilePath, pathname
+            );
+            if (!Determine.IsProfileListPathValidForSaving(pathname)) return;
 
             // Check to see if the required property, Profiles, is null. If
             if (Profiles == null)
@@ -204,29 +196,28 @@ namespace MFR.Settings.Profiles.Providers
             try
             {
                 GetProfileCollectionCommand.For<IFileSystemEntry>(
-                                                   ProfileCollectionCommandType
-                                                       .SaveProfileCollectionToFile
-                                               )
-                                               .WithInput(
-                                                   MakeNewFileSystemEntry
-                                                       .ForPath(
-                                                           /*
-                                                            * Path to the file that
-                                                            * is to be written to the
-                                                            * disk.
-                                                            */
-                                                           pathname
-                                                       )
-                                                       .SetUserState(
-                                                           /*
-                                                            * What needs to be saved?
-                                                            * The list of profiles, which
-                                                            * is the Profiles property.
-                                                            */
-                                                           Profiles
-                                                       )
-                                               )
-                                               .Execute();
+                                               ProfileCollectionCommandType
+                                                   .SaveProfileCollectionToFile
+                                           )
+                                           .WithInput(
+                                               MakeNewFileSystemEntry.ForPath(
+                                                       /*
+                                                        * Path to the file that
+                                                        * is to be written to the
+                                                        * disk.
+                                                        */
+                                                       pathname
+                                                   )
+                                                   .SetUserState(
+                                                       /*
+                                                        * What needs to be saved?
+                                                        * The list of profiles, which
+                                                        * is the Profiles property.
+                                                        */
+                                                       Profiles
+                                                   )
+                                           )
+                                           .Execute();
             }
             catch (Exception ex)
             {

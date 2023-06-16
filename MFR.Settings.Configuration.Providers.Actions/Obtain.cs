@@ -1,4 +1,4 @@
-﻿using MFR.Settings.Configuration.Helpers;
+﻿using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
@@ -33,7 +33,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
             string pathname
         )
         {
-            var result = Create.BlankConfiguration();
+            var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
             try
             {
@@ -58,7 +58,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = Create.BlankConfiguration();
+                result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
             }
 
             return result;
