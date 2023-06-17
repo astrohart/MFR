@@ -40,6 +40,7 @@ namespace MFR.File.Stream.Providers.Tests
             FileStreamProvider.FileStreamDisposed += OnFileStreamDisposed;
             FileStreamProvider.FileStreamOpened += OnFileStreamOpened;
             FileStreamProvider.FileStreamOpening += OnFileStreamOpening;
+            FileStreamProvider.FileStreamOpenFailed += OnFileStreamOpenFailed;
         }
 
         /// <summary>
@@ -53,7 +54,8 @@ namespace MFR.File.Stream.Providers.Tests
         } = GetFileStreamProvider.SoleInstance();
 
         /// <summary>
-        /// TODO: Add unit test documentation here
+        /// An integration test of opening file streams on a number of files in the
+        /// execution folder of this unit test, and then disposing of the streams.
         /// </summary>
         [Test]
         public void Test_Open_FilesInFolder()
@@ -158,6 +160,32 @@ namespace MFR.File.Stream.Providers.Tests
         /// <summary>
         /// Handles the
         /// <see
+        ///     cref="E:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpenFailed" />
+        /// event raised by the DESC.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks></remarks>
+        [Log(AttributeExclude = true)]
+        private static void OnFileStreamOpenFailed(
+            object sender,
+            FileStreamOpenFailedEventArgs e
+        )
+            => DebugUtils.WriteLine(
+                DebugLevel.Error,
+                $"*** ERROR *** Failed to open a FileStream on the file '{e.Pathname}'. {e.Exception.Message}."
+            );
+
+        /// <summary>
+        /// Handles the
+        /// <see
         ///     cref="E:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpening" />
         /// event raised by the DESC.
         /// </summary>
@@ -174,6 +202,7 @@ namespace MFR.File.Stream.Providers.Tests
         /// This method responds by writing a message to the debugging log stating
         /// that we are attempting to open a <c>FileStream</c> upon a particular file.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private static void OnFileStreamOpening(
             object sender,
             FileStreamOpeningEventArgs e
