@@ -155,7 +155,7 @@ namespace MFR.FileSystem.Retrievers
                                                   path => ShouldDoPath(
                                                       path, pathFilter
                                                   )
-                                              ))
+                                              ).AsParallel())
                 {
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
