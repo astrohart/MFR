@@ -16,7 +16,9 @@
   - [DisposeStream(ticket,remove)](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.FileStreamProvider.DisposeStream(System.Guid,System.Boolean)')
   - [OnCountChanged()](#M-MFR-File-Stream-Providers-FileStreamProvider-OnCountChanged 'MFR.File.Stream.Providers.FileStreamProvider.OnCountChanged')
   - [OnFileStreamDisposed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamDisposed(MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
+  - [OnFileStreamOpenFailed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpenFailed-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpenFailed(MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs)')
   - [OnFileStreamOpened(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpened(MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
+  - [OnFileStreamOpening(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpening-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpening(MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs)')
   - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.OpenStreamFor(System.String)')
   - [RedeemTicket(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RedeemTicket-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RedeemTicket(System.Guid)')
 - [Resources](#T-MFR-File-Stream-Providers-Properties-Resources 'MFR.File.Stream.Providers.Properties.Resources')
@@ -220,6 +222,23 @@ event.
 [FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
 that contains the event data. |
 
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpenFailed-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs-'></a>
+### OnFileStreamOpenFailed(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs') | A
+[FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs')
+that contains the event data. |
+
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs-'></a>
 ### OnFileStreamOpened(e) `method`
 
@@ -235,6 +254,23 @@ event.
 | ---- | ---- | ----------- |
 | e | [MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs') | A
 [FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
+that contains the event data. |
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpening-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs-'></a>
+### OnFileStreamOpening(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-File-Stream-Providers-FileStreamProvider-FileStreamOpening 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamOpening')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs') | (Required.) A
+[FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs')
 that contains the event data. |
 
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String-'></a>

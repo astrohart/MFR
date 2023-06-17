@@ -7,7 +7,9 @@
   - [#ctor()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-#ctor 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.#ctor')
   - [FileStreamProvider](#P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-FileStreamProvider 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.FileStreamProvider')
   - [OnFileStreamDisposed(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamDisposed-System-Object,MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamDisposed(System.Object,MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
+  - [OnFileStreamOpenFailed(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpenFailed-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpenFailed(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs)')
   - [OnFileStreamOpened(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpened-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpened(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
+  - [OnFileStreamOpening(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpening-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpening(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs)')
   - [Test_Open_FilesInFolder()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Test_Open_FilesInFolder 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Test_Open_FilesInFolder')
 - [Get](#T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get')
   - [LOG_FILE_PATH_TERMINATOR](#F-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-LOG_FILE_PATH_TERMINATOR 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.LOG_FILE_PATH_TERMINATOR')
@@ -78,6 +80,29 @@ that contains the event data. |
 This method responds by writing a logging message explaining that a
 file stream opened on a specific file was disposed.
 
+<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpenFailed-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs-'></a>
+### OnFileStreamOpenFailed(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-FileStreamOpenFailed 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpenFailed')
+event raised by the DESC.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs') | A
+[FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs')
+that contains the event data. |
+
+##### Remarks
+
+
+
 <a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpened-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs-'></a>
 ### OnFileStreamOpened(sender,e) `method`
 
@@ -102,12 +127,37 @@ that contains the event data. |
 This method responds by writing the fully-qualified pathname of the
 file on which the new stream was opened, to the log file.
 
+<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpening-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs-'></a>
+### OnFileStreamOpening(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-FileStreamOpening 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpening')
+event raised by the DESC.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs') | A
+[FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs')
+that contains the event data. |
+
+##### Remarks
+
+This method responds by writing a message to the debugging log stating
+that we are attempting to open a `FileStream` upon a particular file.
+
 <a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Test_Open_FilesInFolder'></a>
 ### Test_Open_FilesInFolder() `method`
 
 ##### Summary
 
-TODO: Add unit test documentation here
+An integration test of opening file streams on a number of files in the
+execution folder of this unit test, and then disposing of the streams.
 
 ##### Parameters
 
