@@ -39,6 +39,7 @@ namespace MFR.File.Stream.Providers.Tests
 
             FileStreamProvider.FileStreamDisposed += OnFileStreamDisposed;
             FileStreamProvider.FileStreamOpened += OnFileStreamOpened;
+            FileStreamProvider.FileStreamOpening += OnFileStreamOpening;
         }
 
         /// <summary>
@@ -152,6 +153,34 @@ namespace MFR.File.Stream.Providers.Tests
             => DebugUtils.WriteLine(
                 DebugLevel.Info,
                 $"*** SUCCESS *** A file stream has been opened on the file '{e.Pathname}'."
+            );
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpening" />
+        /// event raised by the DESC.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by writing a message to the debugging log stating
+        /// that we are attempting to open a <c>FileStream</c> upon a particular file.
+        /// </remarks>
+        private static void OnFileStreamOpening(
+            object sender,
+            FileStreamOpeningEventArgs e
+        )
+            => DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Attempting to open a FileStream upon the file '{e.Pathname}'..."
             );
 
         /// <summary>

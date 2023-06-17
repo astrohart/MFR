@@ -34,7 +34,10 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
         /// used for thread synchronization.
         /// </summary>
-        object SyncRoot { get; }
+        object SyncRoot
+        {
+            get;
+        }
 
         /// <summary>
         /// Raised when the value of the
@@ -54,6 +57,17 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// on a particular file.
         /// </summary>
         event FileStreamOpenedEventHandler FileStreamOpened;
+
+        /// <summary>
+        /// Occurs when an exception was caught during an attempt to open a
+        /// <c>FileStream</c> upon a particular file.
+        /// </summary>
+        event FileStreamOpenFailedEventHandler FileStreamOpenFailed;
+
+        /// <summary>
+        /// Occurs when a <c>FileStream</c> is about to be opened upon a particular file.
+        /// </summary>
+        event FileStreamOpeningEventHandler FileStreamOpening;
 
         /// <summary>
         /// Batch-disposes the open file streams that correspond to the
@@ -97,7 +111,8 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// empty collection.
         /// </remarks>
         IReadOnlyCollection<Guid> BatchOpenStreams(
-            IReadOnlyCollection<string> pathnames);
+            IReadOnlyCollection<string> pathnames
+        );
 
         /// <summary>
         /// Removes all allocated <see cref="T:System.IO.TextReader" /> instances

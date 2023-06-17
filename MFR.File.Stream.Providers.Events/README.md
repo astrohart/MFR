@@ -8,7 +8,8 @@
   - [Pathname](#P-MFR-File-Stream-Providers-Events-FileSteamOpenFailedEventArgs-Pathname 'MFR.File.Stream.Providers.Events.FileSteamOpenFailedEventArgs.Pathname')
 - [FileSteamOpenFailedEventHandler](#T-MFR-File-Stream-Providers-Events-FileSteamOpenFailedEventHandler 'MFR.File.Stream.Providers.Events.FileSteamOpenFailedEventHandler')
 - [FileStreamDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs')
-  - [#ctor(ticket)](#M-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-#ctor-System-Guid- 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs.#ctor(System.Guid)')
+  - [#ctor(pathname,ticket)](#M-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-#ctor-System-String,System-Guid- 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs.#ctor(System.String,System.Guid)')
+  - [Pathname](#P-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-Pathname 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs.Pathname')
   - [Ticket](#P-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-Ticket 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs.Ticket')
 - [FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
 - [FileStreamOpenedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs')
@@ -89,8 +90,8 @@ MFR.File.Stream.Providers.Events
 
 Provides information for `FileStreamDisposed` event handlers.
 
-<a name='M-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-#ctor-System-Guid-'></a>
-### #ctor(ticket) `constructor`
+<a name='M-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-#ctor-System-String,System-Guid-'></a>
+### #ctor(pathname,ticket) `constructor`
 
 ##### Summary
 
@@ -102,8 +103,18 @@ and returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file that previously had a file stream opened on it. |
 | ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that corresponds to the
 `ticket` that now no longer works. |
+
+<a name='P-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-Pathname'></a>
+### Pathname `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the file on which the disposed stream was previously opened.
 
 <a name='P-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-Ticket'></a>
 ### Ticket `property`

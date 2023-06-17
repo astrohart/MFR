@@ -81,6 +81,11 @@ namespace MFR.File.Stream.Providers
         public event FileStreamOpenedEventHandler FileStreamOpened;
 
         /// <summary>
+        /// Occurs when a <c>FileStream</c> is about to be opened upon a particular file.
+        /// </summary>
+        public event FileStreamOpeningEventHandler FileStreamOpening;
+
+        /// <summary>
         /// Batch-disposes the open file streams that correspond to the
         /// <paramref name="tickets" /> provided.
         /// </summary>
@@ -219,7 +224,8 @@ namespace MFR.File.Stream.Providers
                     if (!InternalFileStreamCollection.ContainsKey(ticket))
                         return;
 
-                    var correspondingReader = InternalFileStreamCollection[ticket];
+                    var correspondingReader =
+                        InternalFileStreamCollection[ticket];
                     if (correspondingReader == null)
                         return;
 
@@ -232,7 +238,9 @@ namespace MFR.File.Stream.Providers
                     if (remove)
                         InternalFileStreamCollection.Remove(ticket);
 
-                    OnFileStreamDisposed(new FileStreamDisposedEventArgs(pathname, ticket));
+                    OnFileStreamDisposed(
+                        new FileStreamDisposedEventArgs(pathname, ticket)
+                    );
                 }
             }
             catch (Exception ex)
@@ -265,6 +273,7 @@ namespace MFR.File.Stream.Providers
         public Guid OpenStreamFor(string pathname)
         {
             var result = Guid.Empty;
+            StreamReader newReader = default;
 
             try
             {
@@ -274,10 +283,23 @@ namespace MFR.File.Stream.Providers
 
                 lock (SyncRoot)
                 {
+                    OnFileStreamOpening(
+                        new FileStreamOpeningEventArgs(pathname)
+                    );
+
                     // Create a ticket that can be used to access this file stream
                     result = Guid.NewGuid();
 
-                    var newReader = new StreamReader(pathname);
+                    newReader = new StreamReader(pathname);
+                    if (newReader == null)
+                        OnFileStreamOpenFailed(
+                            new FileStreamOpenFailedEventArgs(
+                                pathname,
+                                new Exception(
+                                    $"Failed to open a new FileStream upon the file '{pathname}'."
+                                )
+                            )
+                        );
 
                     InternalFileStreamCollection[result] = newReader;
 
@@ -293,7 +315,14 @@ namespace MFR.File.Stream.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
+                OnFileStreamOpenFailed(
+                    new FileStreamOpenFailedEventArgs(pathname, ex)
+                );
+
                 result = Guid.Empty;
+
+                newReader
+                    ?.Dispose(); // attempt to dispose the new file stream in the event that open failed.
             }
 
             return result;
@@ -344,6 +373,12 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
+        /// Occurs when an exception was caught during an attempt to open a
+        /// <c>FileStream</c> upon a particular file.
+        /// </summary>
+        public event FileStreamOpenFailedEventHandler FileStreamOpenFailed;
+
+        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.File.Stream.Providers.FileStreamProvider.CountChanged" />
         /// event.
@@ -378,5 +413,33 @@ namespace MFR.File.Stream.Providers
         /// </param>
         protected virtual void OnFileStreamOpened(FileStreamOpenedEventArgs e)
             => FileStreamOpened?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnFileStreamOpenFailed(
+            FileStreamOpenFailedEventArgs e
+        )
+            => FileStreamOpenFailed?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.File.Stream.Providers.FileStreamProvider.FileStreamOpening" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnFileStreamOpening(FileStreamOpeningEventArgs e)
+            => FileStreamOpening?.Invoke(this, e);
     }
 }

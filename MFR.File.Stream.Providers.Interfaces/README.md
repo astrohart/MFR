@@ -5,6 +5,7 @@
 
 - [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
   - [Count](#P-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-Count 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Count')
+  - [SyncRoot](#P-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-SyncRoot 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.SyncRoot')
   - [BatchDispose(tickets)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchDispose(System.Collections.Generic.IReadOnlyCollection{System.Guid})')
   - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
   - [DisposeAll()](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeAll 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeAll')
@@ -47,6 +48,14 @@ thread-safe.
 ##### Summary
 
 Gets the count of file streams that are currently available.
+
+<a name='P-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-SyncRoot'></a>
+### SyncRoot `property`
+
+##### Summary
+
+Gets a reference to an instance of [Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') that is to be
+used for thread synchronization.
 
 <a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}-'></a>
 ### BatchDispose(tickets) `method`

@@ -1,20 +1,21 @@
 ﻿namespace MFR.File.Stream.Providers.Events
 {
     /// <summary>
-    /// Represents a handler for a <c>FileSteamOpenFailed</c> event.
+    /// Represents a handler for a <c>FileStreamOpening</c> event.
     /// </summary>
     /// <param name="sender">
     /// Reference to the instance of the object that raised the event.
     /// </param>
     /// <param name="e">
-    /// A
-    /// <see cref="T:MFR.File.Stream.Providers.Events.FileSteamOpenFailedEventArgs" />
+    /// A <see cref="T:MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs" />
     /// that contains the event data.
     /// </param>
     /// <remarks>
     /// This delegate merely specifies the signature of all methods that handle the
-    /// <c>FileSteamOpenFailed</c> event.
+    /// <c>FileStreamOpening</c> event.
     /// </remarks>
-    public delegate void FileSteamOpenFailedEventHandler(object sender,
-        FileSteamOpenFailedEventArgs e);
+    public delegate void FileStreamOpeningEventHandler(
+        object sender,
+        FileStreamOpeningEventArgs e
+    );
 }

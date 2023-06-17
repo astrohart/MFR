@@ -8,6 +8,7 @@
   - [Count](#P-MFR-File-Stream-Providers-FileStreamProvider-Count 'MFR.File.Stream.Providers.FileStreamProvider.Count')
   - [Instance](#P-MFR-File-Stream-Providers-FileStreamProvider-Instance 'MFR.File.Stream.Providers.FileStreamProvider.Instance')
   - [InternalFileStreamCollection](#P-MFR-File-Stream-Providers-FileStreamProvider-InternalFileStreamCollection 'MFR.File.Stream.Providers.FileStreamProvider.InternalFileStreamCollection')
+  - [SyncRoot](#P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot 'MFR.File.Stream.Providers.FileStreamProvider.SyncRoot')
   - [#cctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#cctor 'MFR.File.Stream.Providers.FileStreamProvider.#cctor')
   - [BatchDispose(tickets)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchDispose(System.Collections.Generic.IReadOnlyCollection{System.Guid})')
   - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
@@ -73,6 +74,14 @@ interface.
 Dictionary that maps a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value (serving as a
 `ticket`) to a reference to an instance of
 [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') that can be used to access a text file.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot'></a>
+### SyncRoot `property`
+
+##### Summary
+
+Gets a reference to an instance of [Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') that is to be
+used for thread synchronization.
 
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-#cctor'></a>
 ### #cctor() `method`

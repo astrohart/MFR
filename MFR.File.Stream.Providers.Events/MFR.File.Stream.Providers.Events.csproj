@@ -106,12 +106,14 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSteamOpenFailedEventArgs.cs" />
-    <Compile Include="FileSteamOpenFailedEventHandler.cs" />
+    <Compile Include="FileStreamOpenFailedEventArgs.cs" />
+    <Compile Include="FileStreamOpenFailedEventHandler.cs" />
     <Compile Include="FileStreamDisposedEventArgs.cs" />
     <Compile Include="FileStreamDisposedEventHandler.cs" />
     <Compile Include="FileStreamOpenedEventArgs.cs" />
     <Compile Include="FileStreamOpenedEventHandler.cs" />
+    <Compile Include="FileStreamOpeningEventArgs.cs" />
+    <Compile Include="FileStreamOpeningEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
