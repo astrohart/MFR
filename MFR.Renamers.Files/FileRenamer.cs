@@ -932,9 +932,6 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                if (FileStreamProvider.Count > 0)
-                    FileStreamProvider.DisposeAll();
-
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSolutionFolders)
@@ -1347,9 +1344,6 @@ namespace MFR.Renamers.Files
                     CurrentOperation
                 )
             );
-
-            if (FileStreamProvider.Count > 0)
-                FileStreamProvider.DisposeAll();
 
             IFileSystemEntryListRetriever retriever =
                 GetFileSystemEntryListRetriever
