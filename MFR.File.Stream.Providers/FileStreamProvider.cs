@@ -53,6 +53,15 @@ namespace MFR.File.Stream.Providers
         } = new Dictionary<Guid, StreamReader>();
 
         /// <summary>
+        /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
+        /// used for thread synchronization.
+        /// </summary>
+        public object SyncRoot
+        {
+            get;
+        } = new object();
+
+        /// <summary>
         /// Raised when the value of the
         /// <see cref="P:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Count" />
         /// property has been updated.
@@ -94,7 +103,8 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (tickets == null || !tickets.Any()) return;
-                if (tickets.All(ticket => Guid.Empty.Equals(ticket))) return;
+                if (tickets.All(ticket => Guid.Empty.Equals(ticket)))
+                    return;
                 if (!tickets.Intersect(InternalFileStreamCollection.Keys)
                             .Any())
                     return;
@@ -131,7 +141,8 @@ namespace MFR.File.Stream.Providers
         /// empty collection.
         /// </remarks>
         public IReadOnlyCollection<Guid> BatchOpenStreams(
-            IReadOnlyCollection<string> pathnames)
+            IReadOnlyCollection<string> pathnames
+        )
         {
             var result = new List<Guid>();
 
@@ -164,8 +175,8 @@ namespace MFR.File.Stream.Providers
                 if (!InternalFileStreamCollection.Any()) return;
 
                 // Read the keys backwards
-                foreach (var ticket in
-                         InternalFileStreamCollection.Keys.Reverse())
+                foreach (var ticket in InternalFileStreamCollection.Keys
+                             .Reverse())
                     DisposeStream(ticket, false);
             }
             catch (Exception ex)
@@ -203,7 +214,8 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (Guid.Empty.Equals(ticket)) return;
-                if (!InternalFileStreamCollection.ContainsKey(ticket)) return;
+                if (!InternalFileStreamCollection.ContainsKey(ticket))
+                    return;
 
                 var correspondingReader = InternalFileStreamCollection[ticket];
                 if (correspondingReader == null)
@@ -211,7 +223,9 @@ namespace MFR.File.Stream.Providers
 
                 correspondingReader.Dispose();
 
-                if (remove) InternalFileStreamCollection.Remove(ticket);
+                lock (SyncRoot)
+                    if (remove)
+                        InternalFileStreamCollection.Remove(ticket);
 
                 OnFileStreamDisposed(new FileStreamDisposedEventArgs(ticket));
             }
@@ -252,16 +266,21 @@ namespace MFR.File.Stream.Providers
                 if (!Alphaleonis.Win32.Filesystem.File.Exists(pathname))
                     return result;
 
-                // Create a ticket that can be used to access this file stream
-                result = Guid.NewGuid();
+                lock (SyncRoot)
+                {
+                    // Create a ticket that can be used to access this file stream
+                    result = Guid.NewGuid();
 
-                var newReader = new StreamReader(pathname);
+                    var newReader = new StreamReader(pathname);
 
-                InternalFileStreamCollection[result] = newReader;
+                    InternalFileStreamCollection[result] = newReader;
 
-                OnFileStreamOpened(
-                    new FileStreamOpenedEventArgs(pathname, newReader, result)
-                );
+                    OnFileStreamOpened(
+                        new FileStreamOpenedEventArgs(
+                            pathname, newReader, result
+                        )
+                    );
+                }
             }
             catch (Exception ex)
             {
@@ -294,25 +313,28 @@ namespace MFR.File.Stream.Providers
         /// </returns>
         public StreamReader RedeemTicket(Guid ticket)
         {
-            StreamReader result = default;
-
-            try
+            lock (SyncRoot)
             {
-                if (Guid.Empty.Equals(ticket)) return result;
-                if (!InternalFileStreamCollection.ContainsKey(ticket))
-                    return result;
+                StreamReader result = default;
 
-                result = InternalFileStreamCollection[ticket];
+                try
+                {
+                    if (Guid.Empty.Equals(ticket)) return result;
+                    if (!InternalFileStreamCollection.ContainsKey(ticket))
+                        return result;
+
+                    result = InternalFileStreamCollection[ticket];
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = default;
+                }
+
+                return result;
             }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = default;
-            }
-
-            return result;
         }
 
         /// <summary>
@@ -334,7 +356,8 @@ namespace MFR.File.Stream.Providers
         /// that contains the event data.
         /// </param>
         protected virtual void OnFileStreamDisposed(
-            FileStreamDisposedEventArgs e)
+            FileStreamDisposedEventArgs e
+        )
             => FileStreamDisposed?.Invoke(this, e);
 
         /// <summary>

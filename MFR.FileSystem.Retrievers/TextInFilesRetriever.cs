@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Directories.Monitors.Helpers;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -49,7 +50,9 @@ namespace MFR.FileSystem.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            { get; } = OperationType.ReplaceTextInFiles;
+        {
+            get;
+        } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
         /// Specifies a string that should be utilized in order to replace a
@@ -64,7 +67,8 @@ namespace MFR.FileSystem.Retrievers
         /// allowed by some implementations to be blank.
         /// </remarks>
         public override IFileSystemEntryListRetriever AndReplaceItWith(
-            string replaceWith)
+            string replaceWith
+        )
         {
             ReplaceWith = replaceWith;
 
@@ -125,8 +129,10 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
-            DoGetMatchingFileSystemPaths(string rootFolderPath,
-                Predicate<string> pathFilter = null)
+            DoGetMatchingFileSystemPaths(
+                string rootFolderPath,
+                Predicate<string> pathFilter = null
+            )
         {
             var result = new List<IFileSystemEntry>();
 
@@ -155,7 +161,17 @@ namespace MFR.FileSystem.Retrievers
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
 
-                    entry.SetUserState(Get.FileTicket(entry.Path));
+                    var fileTicket = Get.FileTicket(entry.Path);
+                    if (fileTicket.IsZero())
+                    {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            $"*** ERROR *** Could not open file stream on file '{entry.Path}'."
+                        );
+                        continue;
+                    }
+
+                    entry.SetUserState(fileTicket);
 
                     if (!SearchCriteriaMatch(entry)) continue;
 

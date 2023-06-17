@@ -31,6 +31,12 @@ namespace MFR.File.Stream.Providers.Interfaces
         }
 
         /// <summary>
+        /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
+        /// used for thread synchronization.
+        /// </summary>
+        object SyncRoot { get; }
+
+        /// <summary>
         /// Raised when the value of the
         /// <see cref="P:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Count" />
         /// property has been updated.
