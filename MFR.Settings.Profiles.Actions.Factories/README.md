@@ -3,14 +3,8 @@
 
 ## Contents
 
-- [GetCreateNewNamedProfileAction](#T-MFR-Settings-Profiles-Actions-Factories-GetCreateNewNamedProfileAction 'MFR.Settings.Profiles.Actions.Factories.GetCreateNewNamedProfileAction')
-  - [SoleInstance()](#M-MFR-Settings-Profiles-Actions-Factories-GetCreateNewNamedProfileAction-SoleInstance 'MFR.Settings.Profiles.Actions.Factories.GetCreateNewNamedProfileAction.SoleInstance')
-- [GetLoadProfileCollectionFilePathFromRegistryAction](#T-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFilePathFromRegistryAction 'MFR.Settings.Profiles.Actions.Factories.GetLoadProfileCollectionFilePathFromRegistryAction')
-  - [SoleInstance()](#M-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFilePathFromRegistryAction-SoleInstance 'MFR.Settings.Profiles.Actions.Factories.GetLoadProfileCollectionFilePathFromRegistryAction.SoleInstance')
-- [GetLoadProfileCollectionFromFileAction](#T-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFromFileAction 'MFR.Settings.Profiles.Actions.Factories.GetLoadProfileCollectionFromFileAction')
-  - [SoleInstance()](#M-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFromFileAction-SoleInstance 'MFR.Settings.Profiles.Actions.Factories.GetLoadProfileCollectionFromFileAction.SoleInstance')
-- [GetProfileCollectionAction](#T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction')
-  - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionAction.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType)')
+- [GetProfileCollectionActionType](#T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionActionType')
+  - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionActionType.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType)')
 - [Resources](#T-MFR-Settings-Profiles-Actions-Factories-Properties-Resources 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Culture')
   - [Error_NoActionAvailable](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Error_NoActionAvailable 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Error_NoActionAvailable')
@@ -109,6 +103,8 @@ This method has no parameters.
 
 <a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction'></a>
 ## GetProfileCollectionAction `type`
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType'></a>
+## GetProfileCollectionActionType `type`
 
 ##### Namespace
 
@@ -124,7 +120,7 @@ interface, in order to perform actions on the list of profiles.
 
 In our parlance, an Action is a process that has both an input and an output.
 
-<a name='M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-'></a>
+<a name='M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType-'></a>
 ### For\`\`2(actionType) `method`
 
 ##### Summary

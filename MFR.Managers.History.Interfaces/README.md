@@ -26,7 +26,7 @@ object for the configuration.
 
 ##### Summary
 
-Clears all the history objects in a configuration object.
+Clears all the history objects in a projectFileRenamerConfiguration object.
 
 ##### Returns
 

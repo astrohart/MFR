@@ -3,6 +3,8 @@
 
 ## Contents
 
+<<<<<<< HEAD
+=======
 - [GetCalculateListOfFilesToBeRenamedOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetCalculateListOfFilesToBeRenamedOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetCalculateListOfFilesToBeRenamedOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCalculateListOfFilesToBeRenamedOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCalculateListOfFilesToBeRenamedOperationStartedDescription.SoleInstance')
 - [GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription')
@@ -17,12 +19,13 @@
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetLoadAllSolutionsInFolderOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetLoadAllSolutionsInFolderOperationDescription.SoleInstance')
 - [GetOpenActiveSolutionOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetOpenActiveSolutionOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetOpenActiveSolutionOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetOpenActiveSolutionOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetOpenActiveSolutionOperationStartedDescription.SoleInstance')
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [GetOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetOperationDescription 'MFR.Operations.Descriptions.Factories.GetOperationDescription')
   - [For(type)](#M-MFR-Operations-Descriptions-Factories-GetOperationDescription-For-MFR-Operations-Constants-OperationType- 'MFR.Operations.Descriptions.Factories.GetOperationDescription.For(MFR.Operations.Constants.OperationType)')
-- [GetOperationDescriptionText](#T-MFR-Operations-Descriptions-Factories-GetOperationDescriptionText 'MFR.Operations.Descriptions.Factories.GetOperationDescriptionText')
-  - [For(type)](#M-MFR-Operations-Descriptions-Factories-GetOperationDescriptionText-For-MFR-Operations-Constants-OperationType- 'MFR.Operations.Descriptions.Factories.GetOperationDescriptionText.For(MFR.Operations.Constants.OperationType)')
 - [GetOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetOperationStartedDescription')
   - [For(type)](#M-MFR-Operations-Descriptions-Factories-GetOperationStartedDescription-For-MFR-Operations-Constants-OperationType- 'MFR.Operations.Descriptions.Factories.GetOperationStartedDescription.For(MFR.Operations.Constants.OperationType)')
+<<<<<<< HEAD
+=======
 - [GetOperationStartedDescriptionText](#T-MFR-Operations-Descriptions-Factories-GetOperationStartedDescriptionText 'MFR.Operations.Descriptions.Factories.GetOperationStartedDescriptionText')
   - [For(type)](#M-MFR-Operations-Descriptions-Factories-GetOperationStartedDescriptionText-For-MFR-Operations-Constants-OperationType- 'MFR.Operations.Descriptions.Factories.GetOperationStartedDescriptionText.For(MFR.Operations.Constants.OperationType)')
 - [GetRenameFilesInFolderOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetRenameFilesInFolderOperationDescription 'MFR.Operations.Descriptions.Factories.GetRenameFilesInFolderOperationDescription')
@@ -45,10 +48,13 @@
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetScanDirectoryTreeForSolutionFilesOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetScanDirectoryTreeForSolutionFilesOperationStartedDescription.SoleInstance')
 - [GetUnloadAllSolutionsInFolderOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetUnloadAllSolutionsInFolderOperationDescription 'MFR.Operations.Descriptions.Factories.GetUnloadAllSolutionsInFolderOperationDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetUnloadAllSolutionsInFolderOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetUnloadAllSolutionsInFolderOperationDescription.SoleInstance')
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [Resources](#T-MFR-Operations-Descriptions-Factories-Properties-Resources 'MFR.Operations.Descriptions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Operations-Descriptions-Factories-Properties-Resources-Culture 'MFR.Operations.Descriptions.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Operations-Descriptions-Factories-Properties-Resources-ResourceManager 'MFR.Operations.Descriptions.Factories.Properties.Resources.ResourceManager')
 
+<<<<<<< HEAD
+=======
 <a name='T-MFR-Operations-Descriptions-Factories-GetCalculateListOfFilesToBeRenamedOperationStartedDescription'></a>
 ## GetCalculateListOfFilesToBeRenamedOperationStartedDescription `type`
 
@@ -299,6 +305,7 @@ contain the item(s) that were processed.
 
 This method has no parameters.
 
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Operations-Descriptions-Factories-GetOperationDescription'></a>
 ## GetOperationDescription `type`
 
@@ -347,44 +354,6 @@ text for. |
 specified in the `type` parameter does not have a
 corresponding Operation Description object associated with it. |
 
-<a name='T-MFR-Operations-Descriptions-Factories-GetOperationDescriptionText'></a>
-## GetOperationDescriptionText `type`
-
-##### Namespace
-
-MFR.Operations.Descriptions.Factories
-
-##### Summary
-
-Obtains descriptive text [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values that explain the
-type of operation that is now being performed by the application.
-
-<a name='M-MFR-Operations-Descriptions-Factories-GetOperationDescriptionText-For-MFR-Operations-Constants-OperationType-'></a>
-### For(type) `method`
-
-##### Summary
-
-Gets a text [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') value that contains user-friendly
-text to describe that the application is now performing the operation of the
-specified `type`.
-
-##### Returns
-
-
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') enumeration values that
-describes what type of operation the application is performing. |
-
-##### Remarks
-
-If the specified `type` of operation is not supported, then
-this method returns [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty').
-
 <a name='T-MFR-Operations-Descriptions-Factories-GetOperationStartedDescription'></a>
 ## GetOperationStartedDescription `type`
 
@@ -394,38 +363,46 @@ MFR.Operations.Descriptions.Factories
 
 ##### Summary
 
-Obtains references to instances of objects that implement the
-[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
-interface that change depending on the strategy desired.
+Creates instances of objects that implement the
+[IOperationStartedDescription](#T-MFR-IOperationStartedDescription 'MFR.IOperationStartedDescription')
+interface.
 
 <a name='M-MFR-Operations-Descriptions-Factories-GetOperationStartedDescription-For-MFR-Operations-Constants-OperationType-'></a>
 ### For(type) `method`
 
 ##### Summary
 
-Obtains a reference to an instance of an object that implements the
-[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
-interface which corresponds to the specified meeting `type`.
+Creates a new instance of an object that implements the
+[IOperationStartedDescription](#T-MFR-IOperationStartedDescription 'MFR.IOperationStartedDescription')
+interface,
+corresponding to the specified operation `type` ,
+and returns a reference to it.
 
 ##### Returns
 
-Reference to the instance of the object that implements the
-[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
-interface which corresponds to the specific enumeration value that is specified
-for the argument of the `type` parameter.
+String containing the text to describe the operation, or blank if a
+handler corresponding to the specified
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+value can
+be found.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') enumeration values that
-describes the type of operation that is to be performed by the application.. |
+| type | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that specifies the operation type you want the descriptive
+text for. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
+<<<<<<< HEAD
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') value
+specified in the `type` parameter does not have a
+corresponding Operation Started Description object associated with it. |
+=======
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if there is no corresponding concrete type defined that implements the
 [IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
 interface and which corresponds to the specific enumeration value that was
@@ -829,6 +806,7 @@ Solution(s) that this application may be working on.
 ##### Parameters
 
 This method has no parameters.
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 
 <a name='T-MFR-Operations-Descriptions-Factories-Properties-Resources'></a>
 ## Resources `type`

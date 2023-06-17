@@ -3,14 +3,6 @@
 
 ## Contents
 
-- [GetMatchCaseAndExactWordFolderNameStringMatcher](#T-MFR-Matchers-Factories-GetMatchCaseAndExactWordFolderNameStringMatcher 'MFR.Matchers.Factories.GetMatchCaseAndExactWordFolderNameStringMatcher')
-  - [SoleInstance()](#M-MFR-Matchers-Factories-GetMatchCaseAndExactWordFolderNameStringMatcher-SoleInstance 'MFR.Matchers.Factories.GetMatchCaseAndExactWordFolderNameStringMatcher.SoleInstance')
-- [GetMatchCaseOnlyFolderNameStringMatcher](#T-MFR-Matchers-Factories-GetMatchCaseOnlyFolderNameStringMatcher 'MFR.Matchers.Factories.GetMatchCaseOnlyFolderNameStringMatcher')
-  - [SoleInstance()](#M-MFR-Matchers-Factories-GetMatchCaseOnlyFolderNameStringMatcher-SoleInstance 'MFR.Matchers.Factories.GetMatchCaseOnlyFolderNameStringMatcher.SoleInstance')
-- [GetMatchExactWordOnlyFolderNameStringMatcher](#T-MFR-Matchers-Factories-GetMatchExactWordOnlyFolderNameStringMatcher 'MFR.Matchers.Factories.GetMatchExactWordOnlyFolderNameStringMatcher')
-  - [SoleInstance()](#M-MFR-Matchers-Factories-GetMatchExactWordOnlyFolderNameStringMatcher-SoleInstance 'MFR.Matchers.Factories.GetMatchExactWordOnlyFolderNameStringMatcher.SoleInstance')
-- [GetNeitherMatchCaseNorExactWordFolderNameStringMatcher](#T-MFR-Matchers-Factories-GetNeitherMatchCaseNorExactWordFolderNameStringMatcher 'MFR.Matchers.Factories.GetNeitherMatchCaseNorExactWordFolderNameStringMatcher')
-  - [SoleInstance()](#M-MFR-Matchers-Factories-GetNeitherMatchCaseNorExactWordFolderNameStringMatcher-SoleInstance 'MFR.Matchers.Factories.GetNeitherMatchCaseNorExactWordFolderNameStringMatcher.SoleInstance')
 - [GetRenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory')
   - [SoleInstance()](#M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance 'MFR.Matchers.Factories.GetRenameFilesInFolderStringMatcherFactory.SoleInstance')
 - [GetRenameSolutionFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-GetRenameSolutionFoldersStringMatcherFactory 'MFR.Matchers.Factories.GetRenameSolutionFoldersStringMatcherFactory')
@@ -27,12 +19,6 @@
   - [OperationType](#P-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-OperationType 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.OperationType')
   - [#cctor()](#M-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-#cctor 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.#cctor')
   - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-AndTextMatchingConfiguration-MFR-Settings-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory.AndTextMatchingConfiguration(MFR.Settings.Configuration.Constants.TextMatchingConfiguration)')
-- [RenameSolutionFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory 'MFR.Matchers.Factories.RenameSolutionFoldersStringMatcherFactory')
-  - [#ctor()](#M-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-#ctor 'MFR.Matchers.Factories.RenameSolutionFoldersStringMatcherFactory.#ctor')
-  - [Instance](#P-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-Instance 'MFR.Matchers.Factories.RenameSolutionFoldersStringMatcherFactory.Instance')
-  - [OperationType](#P-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-OperationType 'MFR.Matchers.Factories.RenameSolutionFoldersStringMatcherFactory.OperationType')
-  - [#cctor()](#M-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-#cctor 'MFR.Matchers.Factories.RenameSolutionFoldersStringMatcherFactory.#cctor')
-  - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory-AndTextMatchingConfiguration-MFR-Settings-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.RenameSolutionFoldersStringMatcherFactory.AndTextMatchingConfiguration(MFR.Settings.Configuration.Constants.TextMatchingConfiguration)')
 - [RenameSubFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
   - [#ctor()](#M-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory-#ctor 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.#ctor')
   - [Instance](#P-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory-Instance 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory.Instance')
@@ -47,194 +33,7 @@
   - [AndTextMatchingConfiguration(matchingConfig)](#M-MFR-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-AndTextMatchingConfiguration-MFR-Settings-Configuration-Constants-TextMatchingConfiguration- 'MFR.Matchers.Factories.ReplaceTextInFilesStringMatcherFactory.AndTextMatchingConfiguration(MFR.Settings.Configuration.Constants.TextMatchingConfiguration)')
 - [Resources](#T-MFR-Matchers-Factories-Properties-Resources 'MFR.Matchers.Factories.Properties.Resources')
   - [Culture](#P-MFR-Matchers-Factories-Properties-Resources-Culture 'MFR.Matchers.Factories.Properties.Resources.Culture')
-  - [Error_NoStringMatcherDefinedForOperation](#P-MFR-Matchers-Factories-Properties-Resources-Error_NoStringMatcherDefinedForOperation 'MFR.Matchers.Factories.Properties.Resources.Error_NoStringMatcherDefinedForOperation')
   - [ResourceManager](#P-MFR-Matchers-Factories-Properties-Resources-ResourceManager 'MFR.Matchers.Factories.Properties.Resources.ResourceManager')
-
-<a name='T-MFR-Matchers-Factories-GetMatchCaseAndExactWordFolderNameStringMatcher'></a>
-## GetMatchCaseAndExactWordFolderNameStringMatcher `type`
-
-##### Namespace
-
-MFR.Matchers.Factories
-
-##### Summary
-
-Provides access to the one and only instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-BOTH on character casing AND on the exact string that is supplied for the
-text-replacement specification provided by the user in the box
-in the user interface.
-
-
-
-This is the Mass File Renamer analogy of the user placing check marks in both
-the and the checkbox in, say, the
-, dialog box in most text-editing applications.
-
-<a name='M-MFR-Matchers-Factories-GetMatchCaseAndExactWordFolderNameStringMatcher-SoleInstance'></a>
-### SoleInstance() `method`
-
-##### Summary
-
-Obtains access to the sole instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface, and returns
-a reference to it.
-
-##### Returns
-
-Reference to the one, and only, instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-BOTH on character casing AND on the exact string that is supplied for the
-text-replacement specification provided by the user in the box
-in the user interface.
-
-
-
-This is the Mass File Renamer analogy of the user placing check marks in both
-the and the checkbox in, say, the
-, dialog box in most text-editing applications.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='T-MFR-Matchers-Factories-GetMatchCaseOnlyFolderNameStringMatcher'></a>
-## GetMatchCaseOnlyFolderNameStringMatcher `type`
-
-##### Namespace
-
-MFR.Matchers.Factories
-
-##### Summary
-
-Provides access to the one and only instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-text expressions with a case-sensitive search.
-
-
-
-This object should be used when the check box is selected by
-the user when doing the operations of renaming solution folders or sub folders
-of a Solution.
-
-<a name='M-MFR-Matchers-Factories-GetMatchCaseOnlyFolderNameStringMatcher-SoleInstance'></a>
-### SoleInstance() `method`
-
-##### Summary
-
-Obtains access to the sole instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface, and returns
-a reference to it.
-
-##### Returns
-
-Reference to the one, and only, instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-text expressions with a case-sensitive search.
-
-
-
-This object should be used when the check box is selected by
-the user when doing the operations of renaming solution folders or sub folders
-of a Solution.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='T-MFR-Matchers-Factories-GetMatchExactWordOnlyFolderNameStringMatcher'></a>
-## GetMatchExactWordOnlyFolderNameStringMatcher `type`
-
-##### Namespace
-
-MFR.Matchers.Factories
-
-##### Summary
-
-Provides access to the one and only instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-the exact string that is supplied for the text-replacement specification
-provided by the user in the box in the user interface.
-
-
-
-This is the Mass File Renamer analogy of the `Match Whole Word` checkbox
-in, say, the , dialog box in most text-editing
-applications.
-
-<a name='M-MFR-Matchers-Factories-GetMatchExactWordOnlyFolderNameStringMatcher-SoleInstance'></a>
-### SoleInstance() `method`
-
-##### Summary
-
-Obtains access to the sole instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface, and returns
-a reference to it.
-
-##### Returns
-
-Reference to the one, and only, instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-the exact string that is supplied for the text-replacement specification
-provided by the user in the box in the user interface.
-
-
-
-This is the Mass File Renamer analogy of the `Match Whole Word` checkbox
-in, say, the , dialog box in most text-editing
-applications.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='T-MFR-Matchers-Factories-GetNeitherMatchCaseNorExactWordFolderNameStringMatcher'></a>
-## GetNeitherMatchCaseNorExactWordFolderNameStringMatcher `type`
-
-##### Namespace
-
-MFR.Matchers.Factories
-
-##### Summary
-
-Provides access to the one and only instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-NEITHER on character casing NOR on the exact string that is supplied for the
-text-replacement specification provided by the user in the box
-in the user interface.
-
-
-
-This is the Mass File Renamer analogy of the user clearing check marks in both
-the and the checkbox in, say, the
-, dialog box in most text-editing applications.
-
-<a name='M-MFR-Matchers-Factories-GetNeitherMatchCaseNorExactWordFolderNameStringMatcher-SoleInstance'></a>
-### SoleInstance() `method`
-
-##### Summary
-
-Obtains access to the sole instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface, and returns
-a reference to it.
-
-##### Returns
-
-Reference to the one, and only, instance of the object that implements the
-[IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that matches
-NEITHER on character casing NOR on the exact string that is supplied for the
-text-replacement specification provided by the user in the box
-in the user interface.
-
-
-
-This is the Mass File Renamer analogy of the user clearing check marks in both
-the and the checkbox in, say, the
-, dialog box in most text-editing applications.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='T-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory'></a>
 ## GetRenameFilesInFolderStringMatcherFactory `type`
@@ -247,9 +46,7 @@ MFR.Matchers.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects to be used in order to assist the
-application with renaming files in a folder that match a specific
-text-replacement pattern.
+interface for renaming the files contained within a parent folder.
 
 <a name='M-MFR-Matchers-Factories-GetRenameFilesInFolderStringMatcherFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -264,9 +61,7 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects to be used in order to assist the
-application with renaming files in a folder that match a specific
-text-replacement pattern.
+interface for renaming the files contained within a parent folder.
 
 ##### Parameters
 
@@ -321,9 +116,7 @@ MFR.Matchers.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects used in order to assist the
-application with carrying out the operation of renaming folders in a directory
-tree according to a text-replacement pattern that is specified by the user.
+interface for renaming sub-folders of a parent folder.
 
 <a name='M-MFR-Matchers-Factories-GetRenameSubFoldersStringMatcherFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -338,9 +131,7 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects used in order to assist the
-application with carrying out the operation of renaming folders in a directory
-tree according to a text-replacement pattern that is specified by the user.
+interface for renaming sub-folders of a parent folder.
 
 ##### Parameters
 
@@ -357,9 +148,7 @@ MFR.Matchers.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects used in order to assist the
-application with replacing text in the files in a folder according to a
-text-replacement pattern that is specified by the user.
+interface for replacing values within the text of a file.
 
 <a name='M-MFR-Matchers-Factories-GetReplaceTextInFilesStringMatcherFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -374,9 +163,7 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects used in order to assist the
-application with replacing text in the files in a folder according to a
-text-replacement pattern that is specified by the user.
+interface for replacing values within the text of a file.
 
 ##### Parameters
 
@@ -451,11 +238,9 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects to be used in order to assist the
-application with renaming files in a folder that match a specific
-text-replacement pattern.
+Gets a reference to the one and only instance of
+[RenameFilesInFolderStringMatcherFactory](#T-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory 'MFR.Matchers.Factories.RenameFilesInFolderStringMatcherFactory')
+.
 
 <a name='P-MFR-Matchers-Factories-RenameFilesInFolderStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
@@ -520,6 +305,8 @@ Files in Folder operation type that supports the
 value
 passed in the `matchingConfig` parameter. |
 
+<<<<<<< HEAD
+=======
 <a name='T-MFR-Matchers-Factories-RenameSolutionFoldersStringMatcherFactory'></a>
 ## RenameSolutionFoldersStringMatcherFactory `type`
 
@@ -619,6 +406,7 @@ Files in Folder operation type that supports the
 value
 passed in the `matchingConfig` parameter. |
 
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory'></a>
 ## RenameSubFoldersStringMatcherFactory `type`
 
@@ -648,11 +436,9 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of the object that implements the
-[IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects used in order to assist the
-application with carrying out the operation of renaming folders in a directory
-tree according to a text-replacement pattern that is specified by the user.
+Gets a reference to the one and only instance of
+[RenameSubFoldersStringMatcherFactory](#T-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory 'MFR.Matchers.Factories.RenameSubFoldersStringMatcherFactory')
+.
 
 <a name='P-MFR-Matchers-Factories-RenameSubFoldersStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
@@ -748,9 +534,9 @@ This constructor has no parameters.
 
 Gets a reference to the one and only instance of the object that implements the
 [IStringMatcherFactory](#T-MFR-Matchers-Factories-Interfaces-IStringMatcherFactory 'MFR.Matchers.Factories.Interfaces.IStringMatcherFactory')
-interface that creates string matcher objects used in order to assist the
-application with replacing text in the files in a folder according to a
-text-replacement pattern that is specified by the user.
+interface that represents an entity for the
+[ReplaceTextInFiles](#F-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
+operation.
 
 <a name='P-MFR-Matchers-Factories-ReplaceTextInFilesStringMatcherFactory-OperationType'></a>
 ### OperationType `property`
@@ -833,13 +619,6 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
-
-<a name='P-MFR-Matchers-Factories-Properties-Resources-Error_NoStringMatcherDefinedForOperation'></a>
-### Error_NoStringMatcherDefinedForOperation `property`
-
-##### Summary
-
-Looks up a localized string similar to There are no string matcher objects defined for the '{0}' operation type that support the '{1}' matching configuration..
 
 <a name='P-MFR-Matchers-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

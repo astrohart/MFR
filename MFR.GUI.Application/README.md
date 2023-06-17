@@ -118,7 +118,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 

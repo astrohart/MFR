@@ -144,7 +144,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-Path to a sample configuration file.
+Path to a sample projectFileRenamerConfiguration file.
 
 <a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigurationProviderTests-CurrentConfiguration'></a>
 ### CurrentConfiguration `property`

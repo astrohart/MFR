@@ -6,8 +6,8 @@
 - [Reflector](#T-MFR-Common-Reflector 'MFR.Common.Reflector')
   - [#ctor(targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String- 'MFR.Common.Reflector.#ctor(System.String)')
   - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String,System-String- 'MFR.Common.Reflector.#ctor(System.String,System.String)')
-  - [TargetAssembly](#P-MFR-Common-Reflector-TargetAssembly 'MFR.Common.Reflector.TargetAssembly')
-  - [TargetNamespace](#P-MFR-Common-Reflector-TargetNamespace 'MFR.Common.Reflector.TargetNamespace')
+  - [_targetAssembly](#F-MFR-Common-Reflector-_targetAssembly 'MFR.Common.Reflector._targetAssembly')
+  - [_targetNamespace](#F-MFR-Common-Reflector-_targetNamespace 'MFR.Common.Reflector._targetNamespace')
   - [Call(obj,func,parameters)](#M-MFR-Common-Reflector-Call-System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.Call(System.Object,System.String,System.Object[])')
   - [Call2(obj,func,parameters)](#M-MFR-Common-Reflector-Call2-System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.Call2(System.Object,System.String,System.Object[])')
   - [CallAs(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
@@ -16,14 +16,11 @@
   - [GetAs(type,obj,propertyName)](#M-MFR-Common-Reflector-GetAs-System-Type,System-Object,System-String- 'MFR.Common.Reflector.GetAs(System.Type,System.Object,System.String)')
   - [GetEnum(typeName,name)](#M-MFR-Common-Reflector-GetEnum-System-String,System-String- 'MFR.Common.Reflector.GetEnum(System.String,System.String)')
   - [GetType(typeName)](#M-MFR-Common-Reflector-GetType-System-String- 'MFR.Common.Reflector.GetType(System.String)')
-  - [InitializeTargetAssembly(targetAssembly)](#M-MFR-Common-Reflector-InitializeTargetAssembly-System-String- 'MFR.Common.Reflector.InitializeTargetAssembly(System.String)')
   - [New(typeName,parameters)](#M-MFR-Common-Reflector-New-System-String,System-Object[]- 'MFR.Common.Reflector.New(System.String,System.Object[])')
 - [Register](#T-MFR-Common-Register 'MFR.Common.Register')
   - [WindowsMessageFilter()](#M-MFR-Common-Register-WindowsMessageFilter 'MFR.Common.Register.WindowsMessageFilter')
 - [Resources](#T-MFR-Common-Properties-Resources 'MFR.Common.Properties.Resources')
   - [Culture](#P-MFR-Common-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
-  - [Error_DesiredTargetAssemblyNotReferenced](#P-MFR-Common-Properties-Resources-Error_DesiredTargetAssemblyNotReferenced 'MFR.Common.Properties.Resources.Error_DesiredTargetAssemblyNotReferenced')
-  - [Error_NoAssembliesReferencedByExecutingAssembly](#P-MFR-Common-Properties-Resources-Error_NoAssembliesReferencedByExecutingAssembly 'MFR.Common.Properties.Resources.Error_NoAssembliesReferencedByExecutingAssembly')
   - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
 - [Revoke](#T-MFR-Common-Revoke 'MFR.Common.Revoke')
   - [WindowsMessageFilter()](#M-MFR-Common-Revoke-WindowsMessageFilter 'MFR.Common.Revoke.WindowsMessageFilter')
@@ -37,7 +34,7 @@ MFR.Common
 
 ##### Summary
 
-This class is from the Front-End for `Dosbox` and is used to present a
+This class is from the Front-End for Dosbox and is used to present a
 'vista' dialog box to select folders. Being able to use a vista style
 dialog box to select folders is much better then using the shell folder
 browser. http://code.google.com/p/fed/ Example: var r = new
@@ -96,22 +93,21 @@ or `targetNamespace`, are
 passed blank or `null` strings for values. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if no referenced assemblies can be found. |
 
-<a name='P-MFR-Common-Reflector-TargetAssembly'></a>
-### TargetAssembly `property`
+<a name='F-MFR-Common-Reflector-_targetAssembly'></a>
+### _targetAssembly `constants`
 
 ##### Summary
 
-Gets a reference to an instance of
+Reference to an instance of
 [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
 that corresponds to the target assembly.
 
-<a name='P-MFR-Common-Reflector-TargetNamespace'></a>
-### TargetNamespace `property`
+<a name='F-MFR-Common-Reflector-_targetNamespace'></a>
+### _targetNamespace `constants`
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the C# namespace that contains
-the target object.
+String containing the C# namespace that contains the target object.
 
 <a name='M-MFR-Common-Reflector-Call-System-Object,System-String,System-Object[]-'></a>
 ### Call(obj,func,parameters) `method`
@@ -351,28 +347,6 @@ Framework type. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `typeName`, is
 passed a blank or `null` string for a value. |
 
-<a name='M-MFR-Common-Reflector-InitializeTargetAssembly-System-String-'></a>
-### InitializeTargetAssembly(targetAssembly) `method`
-
-##### Summary
-
-Sets up the value of the [TargetAssembly](#P-MFR-Common-Reflector-TargetAssembly 'MFR.Common.Reflector.TargetAssembly')
-property from the specified `targetAssembly` value, using the
-assemblies that are referenced by the executing assembly.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| targetAssembly | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
-containing the value that the desired assembly's name should start with. |
-
-##### Remarks
-
-This method does nothing if the `targetAssembly` parameter's
-argument is the blank or `null`[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
-value.
-
 <a name='M-MFR-Common-Reflector-New-System-String,System-Object[]-'></a>
 ### New(typeName,parameters) `method`
 
@@ -449,20 +423,6 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
-
-<a name='P-MFR-Common-Properties-Resources-Error_DesiredTargetAssemblyNotReferenced'></a>
-### Error_DesiredTargetAssemblyNotReferenced `property`
-
-##### Summary
-
-Looks up a localized string similar to *** ERROR *** The assembly whose name starts with '{0}' needs to be referenced by the assembly '{1}'..
-
-<a name='P-MFR-Common-Properties-Resources-Error_NoAssembliesReferencedByExecutingAssembly'></a>
-### Error_NoAssembliesReferencedByExecutingAssembly `property`
-
-##### Summary
-
-Looks up a localized string similar to Reflector.InitializeTargetAssembly: The executing assembly, '{0}', does not reference any other assemblies..
 
 <a name='P-MFR-Common-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

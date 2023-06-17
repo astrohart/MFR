@@ -14,6 +14,8 @@
   - [OperationType](#P-MFR-Expressions-Matches-Factories-FolderNameReplacementMatchExpressionFactory-OperationType 'MFR.Expressions.Matches.Factories.FolderNameReplacementMatchExpressionFactory.OperationType')
 - [GetMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory 'MFR.Expressions.Matches.Factories.GetMatchExpressionFactory')
   - [For(type)](#M-MFR-Expressions-Matches-Factories-GetMatchExpressionFactory-For-MFR-Operations-Constants-OperationType- 'MFR.Expressions.Matches.Factories.GetMatchExpressionFactory.For(MFR.Operations.Constants.OperationType)')
+<<<<<<< HEAD
+=======
 - [MakeNewFileNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewFileNameReplacementMatchExpressionFactory')
   - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewFileNameReplacementMatchExpressionFactory.FromScratch')
 - [MakeNewFolderNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewFolderNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewFolderNameReplacementMatchExpressionFactory')
@@ -22,6 +24,7 @@
   - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewReplaceTextInFileMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewReplaceTextInFileMatchExpressionFactory.FromScratch')
 - [MakeNewSolutionFolderNameReplacementMatchExpressionFactory](#T-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory 'MFR.Expressions.Matches.Factories.MakeNewSolutionFolderNameReplacementMatchExpressionFactory')
   - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewSolutionFolderNameReplacementMatchExpressionFactory.FromScratch')
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [MatchExpressionFactoryBase](#T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase')
   - [ConfigurationProvider](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ConfigurationProvider 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.CurrentConfiguration')
@@ -335,6 +338,8 @@ can be created.
 Not all [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 are supported. |
 
+<<<<<<< HEAD
+=======
 <a name='T-MFR-Expressions-Matches-Factories-MakeNewFileNameReplacementMatchExpressionFactory'></a>
 ## MakeNewFileNameReplacementMatchExpressionFactory `type`
 
@@ -479,6 +484,7 @@ user specified to search for in the filename and what to replace it with.
 
 This method has no parameters.
 
+>>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase'></a>
 ## MatchExpressionFactoryBase `type`
 
@@ -504,7 +510,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 
